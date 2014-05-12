@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="DataSource" category="TEST.DataModel" description="Creates data" duration="01:00:00">
+    <eAnnotations source="descriptor">
+      <details key="displayName" value="DataSource"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="dataParameter" defaultValueLiteral="100.0" unitsDisplayName="Mb">
+      <eAnnotations source="detail">
+        <details key="shortDescription" value="Mb"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="dataParameter"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eStructuralFeatures>
+    <numericEffects definition="//Data" endEffect="dataParameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="DataMultiplexer" category="TEST.DataModel" description="Multiplexes data" duration="01:00:00">
+    <eAnnotations source="descriptor">
+      <details key="displayName" value="DataMultiplexer"/>
+    </eAnnotations>
+    <numericEffects definition="//Data" endEffect="-1 * plan[&quot;Data&quot;]"/>
+    <numericEffects definition="//DataBucket01" endEffect="2 * plan[&quot;Data&quot;] / 5"/>
+    <numericEffects definition="//DataBucket02" endEffect="3 * plan[&quot;Data&quot;] / 5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="DataSink" category="TEST.DataModel" description="Moves data off spacecraft" duration="01:00:00">
+    <eAnnotations source="descriptor">
+      <details key="displayName" value="DataSink"/>
+    </eAnnotations>
+    <numericEffects definition="//DataBucket01" endEffect="&#xA;                            &#xA;-1*Math.min(plan[&quot;DataBucket01&quot;],50.0)&#xA;                            &#xA;                        "/>
+    <numericEffects definition="//DataBucket02" endEffect="&#xA;                            &#xA;var d01 = Math.min(plan[&quot;DataBucket01&quot;],50.0);&#xA;var bits_left = 50.0 - d01;&#xA;-1 * Math.min(plan[&quot;DataBucket02&quot;],bits_left);&#xA;                            &#xA;                        "/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data" units="Mb" defaultValueLiteral="0">
+    <eAnnotations source="detail">
+      <details key="shortDescription" value="Mb"/>
+    </eAnnotations>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="DataBucket01" units="Mb" defaultValueLiteral="0">
+    <eAnnotations source="detail">
+      <details key="shortDescription" value="Mb"/>
+    </eAnnotations>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="DataBucket02" units="Mb" defaultValueLiteral="0">
+    <eAnnotations source="detail">
+      <details key="shortDescription" value="Mb"/>
+    </eAnnotations>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:ESummaryResourceDef" name="TotalData" numericResourceDefs="//DataBucket01 //DataBucket02"/>
+</dict:EActivityDictionary>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin
+   id="gov.nasa.ensemble.emf"
+   name="%pluginName"
+   version="1.0.0.qualifier"
+   provider-name="%pluginName">
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext
+            id="gov.nasa.ensemble.core.model.common.clientContext">
+         <selector
+               class="gov.nasa.ensemble.emf.constraint.ModelCommonClientSelector">
+         </selector>
+      </clientContext>
+      <binding
+            category="attributeValueCategory"
+            context="gov.nasa.ensemble.core.model.common.clientContext">
+      </binding>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="attributeValueCategory"
+            name="Attribute Value Category">
+      </category>
+      <constraintProvider
+            cache="true">
+         <package
+               namespaceUri="%namespaceUri">
+         </package>
+         <constraints
+               categories="attributeValueCategory">
+            <constraint
+                  class="gov.nasa.ensemble.emf.constraint.AttributeValueLengthConstraint"
+                  id="AttributeValueCharLengthConstraint"
+                  lang="Java"
+                  mode="Live"
+                  name="Attribute Value Char Length"
+                  severity="ERROR"
+                  statusCode="1">
+               <message>
+                  The attribute value exceeds the maximum number of characters.
+               </message>
+            </constraint>
+            <constraint
+                  class="gov.nasa.ensemble.emf.constraint.AttributeValueLimitConstraint"
+                  id="AttributeValueLimitConstraint"
+                  lang="Java"
+                  mode="Live"
+                  name="Attribute Value Bounds"
+                  severity="ERROR"
+                  statusCode="1">
+               <message>
+                  The attribute value does not lie within the valid limits.
+               </message>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+</plugin>

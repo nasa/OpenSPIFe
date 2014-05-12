@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ensemble Resources Plug-in
+Bundle-SymbolicName: gov.nasa.ensemble.resources;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.ensemble.resources.EnsembleResourcesPlugin
+Require-Bundle: gov.nasa.ensemble.common;bundle-version="1.0.15",
+ org.eclipse.core.resources;visibility:=reexport,
+ org.eclipse.core.runtime,
+ org.eclipse.ltk.core.refactoring
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: gov.nasa.ensemble.resources,
+ gov.nasa.ensemble.resources.builder
+Bundle-Vendor: %providerName

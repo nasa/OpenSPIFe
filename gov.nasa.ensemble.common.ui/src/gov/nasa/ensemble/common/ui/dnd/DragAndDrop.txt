@@ -1,0 +1,26 @@
+
+To help with implementing drag and drop, here are some calling
+orderings for different platforms and different situations.
+
+WINDOWS: Within the same plan (shows both drag and drop listeners)
+
+1. EnsembleDragSourceListener.isDragPossible
+   2. EnsembleDropTargetListener.cursorEntered
+   3. EnsembleDropTargetListener.cursorMoved
+      ...
+   29. EnsembleDropTargetListener.cursorMoved
+   30. EnsembleDropTargetListener.cursorLeftOrDropCancelledOrDataAboutToDrop
+   31. EnsembleDropTargetListener.aboutToExecuteDrop
+32. EnsembleDragSourceListener.getDragData
+   32. EnsembleDropTargetListener.executeDrop
+33. EnsembleDragSourceListener.finishDrag
+
+WINDOWS: From activity dictionary to a plan (shows only drop listener)
+
+1. EnsembleDropTargetListener.cursorEntered
+2. EnsembleDropTargetListener.cursorMoved
+   ...
+29. EnsembleDropTargetListener.cursorMoved
+30. EnsembleDropTargetListener.cursorLeftOrDropCancelledOrDataAboutToDrop
+31. EnsembleDropTargetListener.aboutToExecuteDrop
+32. EnsembleDropTargetListener.executeDrop

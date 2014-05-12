@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="EuropaServerAttrs"
+    nsURI="platform:/resource/gov.nasa.arc.spife.europa.clientside/model/europa-server-attrs.xsd"
+    nsPrefix="EuropaServerAttrs">
+  <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+    <details key="qualified" value="false"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EDataType" name="LogType" instanceClassName="java.lang.Object">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="log-type"/>
+      <details key="memberTypes" value="log-type_._member_._0 log-type_._member_._1"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="LogTypeMember0" instanceClassName="int">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="log-type_._member_._0"/>
+      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#int"/>
+      <details key="minInclusive" value="0"/>
+      <details key="maxExclusive" value="65"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="LogTypeMember0Object" instanceClassName="java.lang.Integer">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="log-type_._member_._0:Object"/>
+      <details key="baseType" value="log-type_._member_._0"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="LogTypeMember1" instanceClassName="java.util.List">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="log-type_._member_._1"/>
+      <details key="itemType" value="log-type_._member_._1_._item"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LogTypeMember1Item">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="log-type_._member_._1_._item"/>
+    </eAnnotations>
+    <eLiterals name="ERROR"/>
+    <eLiterals name="TRACE" value="1"/>
+    <eLiterals name="TRACEALL" value="2" literal="TRACE_ALL"/>
+    <eLiterals name="RETURN" value="3"/>
+    <eLiterals name="TIMER" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="LogTypeMember1ItemObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="log-type_._member_._1_._item:Object"/>
+      <details key="baseType" value="log-type_._member_._1_._item"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Proposed Schema for LASS file imports, S. Hillenius -->
+<!-- Made changes to add timeFormat,instance interpolation, and default values as options-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="resources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="columns"/>
+        <xs:element ref="data"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="columns">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="column"/>
+      </xs:sequence>
+      <xs:attribute name="timeFormat" use="required" form="unqualified">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ISO8601">
+              <xs:annotation>
+            	<xs:documentation>
+Absolute date/time format defined by the ISO-8601 standard, e.g.
+  2011-04-15T12:34:56Z 
+Reference:  http://www.w3.org/TR/xmlschema-2/#isoformats
+
+Timezone should be written as "Z" and must be read as UTC if absent.  Milliseconds optional.
+           		 </xs:documentation>
+            	</xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="STK">
+           	 <xs:annotation>
+            	<xs:documentation>
+"STK" format is defined to mean "d MMM yyyy H:mm:ss.SSS".
+
+   Rationale:  Of the formats STK offers according to http://www.stk.com/resources/help/online/stk/source/stk/sc-03.htm, this is the one we understand has been selected by LADEE FDS.
+
+The timezone shall never be explicitly specified and shall always implicitly be UTC.
+
+   Rationale:  Engineering judgment.
+           		 </xs:documentation>
+            	</xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="column">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element ref="property" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="description" use="optional" type="xs:string"/>
+      <xs:attribute name="displayName" use="optional" type="xs:string"/>
+      <xs:attribute name="interpolation" use="required" form="unqualified">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="step"/>
+            <xs:enumeration value="linear"/>
+            <xs:enumeration value="instantaneous"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="defaultValue" use="optional" type="xs:string"/>
+      <xs:attribute name="id" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9_]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Integer"/>
+            <xs:enumeration value="Double"/>
+            <xs:enumeration value="Boolean"/>
+            <xs:enumeration value="String"/>
+            <xs:enumeration value="Date"/>
+          </xs:restriction>
+        </xs:simpleType>        
+      </xs:attribute>
+      <xs:attribute name="units" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="property">
+    <xs:complexType mixed="false">
+      <xs:attribute name="key" use="required" type="xs:string"/>
+      <xs:attribute name="value" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="data" type="xs:string"/>
+</xs:schema>

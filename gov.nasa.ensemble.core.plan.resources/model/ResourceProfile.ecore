@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="profile"
+    nsURI="platform:/gov.nasa.ensemble.core.plan.resources/model/ResourceProfile.ecore"
+    nsPrefix="profile">
+  <eClassifiers xsi:type="ecore:EClass" name="IMember" instanceClassName="gov.nasa.ensemble.core.plan.IMember"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileConstraint" abstract="true" interface="true"
+      eSuperTypes="#//ProfileReference ../../gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.ecore#//IWaivable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileEffect" eSuperTypes="#//ProfileReference ../../gov.nasa.ensemble.emf/model/Common.ecore#//MissionExtendable">
+    <eOperations name="getEffectLiteral" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eParameters name="timepoint" eType="ecore:EEnum ../../gov.nasa.ensemble.emf/model/Common.ecore#//Timepoint"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startValueLiteral" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endValueLiteral" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileEnvelopeConstraint" eSuperTypes="#//ProfileConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLiteral" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLiteral" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromAD" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="waivers" upperBound="-1"
+        eType="#//ViolationWaiver" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileEqualityConstraint" eSuperTypes="#//ProfileConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueLiteral" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumGap" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"
+        defaultValueLiteral="P0DT0H0M0.000S"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileMember" eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EMember">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//ProfileConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effects" upperBound="-1"
+        eType="#//ProfileEffect" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceProfileMember" eSuperTypes="#//IMember">
+    <eOperations name="getProfile">
+      <eGenericType eClassifier="ecore:EClass ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//Profile">
+        <eTypeArguments/>
+      </eGenericType>
+      <eParameters name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProfiles" upperBound="-1"
+        transient="true">
+      <eGenericType eClassifier="ecore:EClass ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//Profile">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EStringToStringMapEntry"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffset" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalOffset"
+        defaultValueLiteral="START, 0 s"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffsetAmount" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"
+        volatile="true" defaultValueLiteral="START, 0 s"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffsetTimepoint" eType="ecore:EEnum ../../gov.nasa.ensemble.emf/model/Common.ecore#//Timepoint"
+        volatile="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endOffset" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalOffset"
+        defaultValueLiteral="END, 0 s"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endOffsetAmount" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"
+        volatile="true" defaultValueLiteral="START, 0 s"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endOffsetTimepoint" eType="ecore:EEnum ../../gov.nasa.ensemble.emf/model/Common.ecore#//Timepoint"
+        volatile="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="profileKey" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuralFeatureProfile">
+    <eTypeParameters name="T"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//Profile">
+      <eTypeArguments eTypeParameter="#//StructuralFeatureProfile/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViolationWaiver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="waiverRationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

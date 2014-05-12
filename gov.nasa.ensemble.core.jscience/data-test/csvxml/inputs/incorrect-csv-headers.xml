@@ -1,0 +1,24 @@
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+    <!-- In this one, the headers don't match the column elements id attributes in the XML.
+         This supports two tests:
+         1.  That the expected exception is thrown when we attempt to get the datapoints.
+         2.  That the error only occurs when we try to get the datapoints;
+             the other info is accessible without triggering an error.
+             This demonstrates that the other info is accessible without reading the whole file,
+             which is a desirable feature for performance reasons.
+              -->
+   <columns timeFormat="ISO8601">
+        <column id="one" type="Double" interpolation="step"/>
+        <column id="two" type="Double" interpolation="step"/>
+        <column id="three" type="Double" interpolation="step"/>
+    </columns>
+    <data>
+        <![CDATA[
+    StartTime,uno,dos,tres
+    2011-02-03T16:27:00Z,10,20,30
+    2011-02-03T16:28:00Z,10,20,30
+    2011-02-03T16:29:00Z,10,20,30
+     ]]>
+    </data>
+</resources>

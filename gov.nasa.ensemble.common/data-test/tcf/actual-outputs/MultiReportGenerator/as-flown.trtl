@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<HTML>
+ <HEAD>
+  <TITLE>As-Flown ISS Thruster Timeline (TRTL)</TITLE>
+  <META content="text/html; charset=UTF-8" http-equiv="content-type">
+  <STYLE class>
+BODY {font-family: sans-serif}
+H2 {font-size: 75%}
+
+.file {border: 3pt solid rgb(191,191,191); padding:5pt}
+.current-activity {border: 2pt solid rgb(255,255,0); padding:5pt}
+.draft-activity, .draft-received-activity {border: 3pt solid rgb(156,181,223); padding:5pt; margin: 2pt}
+.information-activity, .received-activity {border: 3pt solid rgb(20,7,10); padding:5pt; margin: 2pt}
+.draft-revised-activity, .requested-activity, .information-revised-activity {border: 3pt solid rgb(224,135,150); padding:5pt; margin: 2pt}
+
+.master-headers {margin-top: 1ex}
+.master-mismatch {padding-left:1em;font-size:24pt;color:rgb(70%,30%,30%)}
+
+.hdr1 {font-size:120%;font-weight:bold}
+.hdr2 {text-align:right;font-size:75%}
+
+.status-field {text-transform:capitalize;}
+
+TABLE.main TD,
+TABLE.main TH
+ {border: 1pt solid rgb(169,169,169); border-collapse:collapse}
+
+TH {font-weight: bold}
+TH.column-header {text-align: center}
+TH.row-header {text-align: right; white-space:nowrap}
+
+.legend { font-size: 80%; border: 2pt inset gray;
+		 padding: 3pt; line-height: 100%; margin: 10pt }
+.legend .entry { white-space: nowrap }
+.legend .box { padding: 0pt; margin-left: 2em; margin-right: 2pt; border-width: 1ex; font-size:1ex; display:inline-block}
+
+</STYLE>
+ </HEAD>
+ <BODY>
+  <TABLE class width="100%">
+   <TR>
+    <TD class><H1 class>As-Flown ISS Thruster Timeline (TRTL)</H1>
+    </TD><TD align="right" class><DIV class="legend">
+      <SPAN class="entry">
+       <SPAN class="current-activity box"></SPAN>Current</SPAN>
+      <SPAN class="entry">
+       <SPAN class="draft-activity box"></SPAN>Draft</SPAN>
+      <SPAN class="entry">
+       <SPAN class="draft-received-activity box"></SPAN>Draft-Received</SPAN>
+      <SPAN class="entry">
+       <SPAN class="information-activity box"></SPAN>Information</SPAN>
+      <SPAN class="entry">
+       <SPAN class="received-activity box"></SPAN>Received</SPAN>
+      <SPAN class="entry">
+       <SPAN class="draft-revised-activity box"></SPAN>Draft-Revised</SPAN>
+      <SPAN class="entry">
+       <SPAN class="information-revised-activity box"></SPAN>Information-Revised</SPAN>
+      <SPAN class="entry">
+       <SPAN class="requested-activity box"></SPAN>Requested</SPAN>
+     </DIV>
+    </TD></TR>
+  </TABLE>
+  <H2>Generated 002/12:34:56 2004-01-02 by JUnit test</H2>
+  <DIV class="file">
+   <TABLE style="width:100%">
+    <TR>
+     <TD class="hdr1" valign="top">H12_235_B_02.txt</TD><TD
+      class="hdr2">345/23:43:35 2012-12-10<BR>kanef</TD></TR>
+   </TABLE>
+   <DIV class="draft-received-activity">
+    <TABLE>
+     <TR>
+      <TH>Status:</TH>
+      <TD class="status-field">draft-received</TD>
+     </TR>
+     <TR>
+      <TH>Start:</TH>
+      <TD class="start-field">235/08:05:00 2012-08-22 (variable)</TD>
+     </TR>
+     <TR>
+      <TH>End:</TH>
+      <TD class="end-field">235/09:15:00 2012-08-22 (variable)</TD>
+     </TR>
+     <TR>
+      <TH>Duration:</TH>
+      <TD class="duration-field">70 minutes</TD>
+     </TR>
+     <TR>
+      <TH>Description:</TH>
+      <TD class="description-field">As Flown</TD>
+     </TR>
+    </TABLE>
+    <TABLE class="master-headers">
+     <TR>
+      <TH>RS Master:</TH>
+      <TD class="rs master-field"></TD>
+     </TR>
+     <TR>
+      <TH>Pulse Train:</TH>
+      <TD class="pulse train-field">no, Unnamed</TD>
+     </TR>
+    </TABLE>
+    <TABLE style="text-align:center">
+     <TR>
+      <TH></TH>
+      <TH style="width:14%">SM</TH>
+      <TH style="width:14%">P-Aft(MR)</TH>
+      <TH style="width:14%">P-Aft(R&amp;D)</TH>
+      <TH style="width:14%">P-DC1/MRM2(MR)</TH>
+      <TH style="width:14%">P-DC1/MRM2(R&amp;D)</TH>
+      <TH style="width:14%">A-Aft</TH>
+     </TR>
+     <TR>
+      <TH>Yaw</TH>
+      <TD>Ena+Select(2)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+     </TR>
+     <TR>
+      <TH>Pitch</TH>
+      <TD>Ena+Select(2)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+     </TR>
+     <TR>
+      <TH>Roll</TH>
+      <TD>Ena+Select(4)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+      <TD>Inh</TD>
+      <TD>Inh</TD>
+     </TR>
+    </TABLE>
+    <TABLE class="master-headers">
+     <TR>
+      <TH>US Master:</TH>
+      <TD class="us master-field"></TD>
+     </TR>
+     <TR>
+      <TH>Pulse Train:</TH>
+      <TD class="pulse train-field">yes, (0,5,8,15)</TD>
+     </TR>
+    </TABLE>
+    <TABLE style="text-align:center">
+     <TR>
+      <TH></TH>
+      <TH style="width:14%">SM</TH>
+      <TH style="width:14%">P-Aft(MR)</TH>
+      <TH style="width:14%">P-Aft(R&amp;D)</TH>
+      <TH style="width:14%">P-DC1/MRM2(MR)</TH>
+      <TH style="width:14%">P-DC1/MRM2(R&amp;D)</TH>
+      <TH style="width:14%">A-Aft</TH>
+     </TR>
+     <TR>
+      <TH>Yaw</TH>
+      <TD>Ena+Select(1)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+     </TR>
+     <TR>
+      <TH>Pitch</TH>
+      <TD>Ena+Select(1)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+     </TR>
+     <TR>
+      <TH>Roll</TH>
+      <TD>Ena+Select(4)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+      <TD>Inh</TD>
+      <TD>Inh</TD>
+     </TR>
+    </TABLE>
+   </DIV>
+  </DIV>
+  <DIV class="file">
+   <TABLE style="width:100%">
+    <TR>
+     <TD class="hdr1" valign="top">H12_235_B_02.txt</TD><TD
+      class="hdr2">345/23:43:35 2012-12-10<BR>kanef</TD></TR>
+   </TABLE>
+   <DIV class="draft-received-activity">
+    <TABLE>
+     <TR>
+      <TH>Status:</TH>
+      <TD class="status-field">draft-received</TD>
+     </TR>
+     <TR>
+      <TH>Start:</TH>
+      <TD class="start-field">235/07:55:00 2012-08-22 (variable)</TD>
+     </TR>
+     <TR>
+      <TH>End:</TH>
+      <TD class="end-field">235/09:50:00 2012-08-22 (variable)</TD>
+     </TR>
+     <TR>
+      <TH>Duration:</TH>
+      <TD class="duration-field">115 minutes</TD>
+     </TR>
+     <TR>
+      <TH>Description:</TH>
+      <TD class="description-field">As Flown blank</TD>
+     </TR>
+    </TABLE>
+    <TABLE class="master-headers">
+     <TR>
+      <TH>RS Master:</TH>
+      <TD class="rs master-field"></TD>
+     </TR>
+     <TR>
+      <TH>Pulse Train:</TH>
+      <TD class="pulse train-field">no, Unnamed</TD>
+     </TR>
+    </TABLE>
+    <TABLE style="text-align:center">
+     <TR>
+      <TH></TH>
+      <TH style="width:14%">SM</TH>
+      <TH style="width:14%">P-Aft(MR)</TH>
+      <TH style="width:14%">P-Aft(R&amp;D)</TH>
+      <TH style="width:14%">P-DC1/MRM2(MR)</TH>
+      <TH style="width:14%">P-DC1/MRM2(R&amp;D)</TH>
+      <TH style="width:14%">A-Aft</TH>
+     </TR>
+     <TR>
+      <TH>Yaw</TH>
+      <TD>Ena+Select(2)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+     </TR>
+     <TR>
+      <TH>Pitch</TH>
+      <TD>Ena+Select(2)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+     </TR>
+     <TR>
+      <TH>Roll</TH>
+      <TD>Ena+Select(4)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+      <TD>Inh</TD>
+      <TD>Inh</TD>
+     </TR>
+    </TABLE>
+    <TABLE class="master-headers">
+     <TR>
+      <TH>US Master:</TH>
+      <TD class="us master-field"></TD>
+     </TR>
+     <TR>
+      <TH>Pulse Train:</TH>
+      <TD class="pulse train-field">yes, (0,5,8,15)</TD>
+     </TR>
+    </TABLE>
+    <TABLE style="text-align:center">
+     <TR>
+      <TH></TH>
+      <TH style="width:14%">SM</TH>
+      <TH style="width:14%">P-Aft(MR)</TH>
+      <TH style="width:14%">P-Aft(R&amp;D)</TH>
+      <TH style="width:14%">P-DC1/MRM2(MR)</TH>
+      <TH style="width:14%">P-DC1/MRM2(R&amp;D)</TH>
+      <TH style="width:14%">A-Aft</TH>
+     </TR>
+     <TR>
+      <TH>Yaw</TH>
+      <TD>Ena+Select(1)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+     </TR>
+     <TR>
+      <TH>Pitch</TH>
+      <TD>Ena+Select(1)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+     </TR>
+     <TR>
+      <TH>Roll</TH>
+      <TD>Ena+Select(4)</TD>
+      <TD>X</TD>
+      <TD>X</TD>
+      <TD>Inh</TD>
+      <TD>Inh</TD>
+      <TD>Inh</TD>
+     </TR>
+    </TABLE>
+   </DIV>
+  </DIV>
+ </BODY>
+</HTML>

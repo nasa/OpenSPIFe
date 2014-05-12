@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mod" nsURI="http://msl.nasa.gov/MOD-AD-1.1.2" nsPrefix="mod" author="Mel Ludowise" date="2009-04-21" description="Activity Dictionary for MOD Ops Plan and PLATO" version="MOD-AD-1.2">
+  <eClassifiers xsi:type="ecore:EEnum" name="LOCATION" instanceTypeName="LOCATION">
+    <eLiterals name="HERE" literal="HERE"/>
+    <eLiterals name="THERE" literal="THERE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="Crew_Activity" category="Crew" description="Type definition for crew activity. This activity impacts crew time resources.">
+  	<eStructuralFeatures xsi:type="dict:EAttributeParameter" name="location" eType="//LOCATION" defaultValueLiteral="HERE"/>
+    <eStructuralFeatures xsi:type="dict:EReferenceParameter" name="crewMembers" upperBound="-1" eType="//CrewMember">
+      <effects xsi:type="dict:ENumericResourceEffect" startEffect="ensemble_duration/3600" definition="//CrewMember/numeric"/>
+      <effects xsi:type="dict:EStateResourceEffect" startEffect="true" endEffect="false" definition="//CrewMember/booleanState"/>
+      <effects xsi:type="dict:EStateResourceEffect" startEffect="location" definition="//CrewMember/enumState"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:ObjectDef" name="CrewMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" iD="true">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:ENumericResourceDef" name="numeric" units="h">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EStateResourceDef" name="booleanState" defaultValueLiteral="false">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EStateResourceDef" name="enumState" eType="//LOCATION"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="Sleep_Activity" category="Crew" description="Sleep activity resets Crew_Time resources.">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="location" eType="//LOCATION" defaultValueLiteral="HERE"/>
+    <eStructuralFeatures xsi:type="dict:EReferenceParameter" name="crewMembers" upperBound="-1" eType="//CrewMember">
+      <effects xsi:type="dict:ENumericResourceEffect" startEffect="0" definition="//CrewMember/numeric" mode="SET"/>
+      <effects xsi:type="dict:EStateResourceEffect" startEffect="location" definition="//CrewMember/enumState"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+</dict:EActivityDictionary>

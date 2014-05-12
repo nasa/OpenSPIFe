@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Server Monitor UI Plug-in
+Bundle-SymbolicName: gov.nasa.ensemble.servermonitor.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.ensemble.servermonitor.ui.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ gov.nasa.ensemble.common;bundle-version="1.0.15",
+ gov.nasa.ensemble.common.ui;bundle-version="1.0.14"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: gov.nasa.ensemble.servermonitor.ui
+Bundle-Vendor: %providerName

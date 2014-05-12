@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.exportWizards">
+		<category
+            id="gov.nasa.ensemble.core.reports"
+            name="Reports">
+      </category>
+	</extension>
+
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.core.plan.formula.js.ScriptablePlanContributorDelegate">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.ResourceProfileScriptablePlanDelegate">
+         </implementation>
+      </lookup>
+     <lookup class="gov.nasa.ensemble.common.ui.workspace.FilterExtensionProvider">
+         <implementation
+               class="gov.nasa.arc.spife.ui.navigator.TimelineFileFilterProvider">
+         </implementation>
+      </lookup>
+     <lookup
+           class="gov.nasa.ensemble.emf.transaction.IConsistencyMaintenanceListener">
+        <implementation
+              class="gov.nasa.ensemble.core.plan.resources.dependency.impl.DependencyMaintenanceSystemConsistencyListener">
+        </implementation>
+     </lookup>
+     <lookup
+           class="gov.nasa.ensemble.emf.transaction.IModelChangedListener">
+        <implementation
+              class="gov.nasa.ensemble.core.plan.resources.ResourceUpdaterModelChangeListener">
+        </implementation>
+     </lookup>
+   </extension>
+
+   <extension
+         point="gov.nasa.ensemble.common.MissionExtension">
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.editor.lifecycle.NewPlanWizardPage"
+            MissionSpecificClass="gov.nasa.ensemble.core.plan.temporal.editor.lifecycle.TemporalNewPlanWizardPage"
+            id="TemporalNewPlanWizard"/>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.common.mission.MissionConstants"
+            MissionSpecificClass="gov.nasa.ensemble.common.mission.PreferenceMissionConstants"
+            id="PreferenceMissionConstants">
+      </MissionExtension>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.PlanPersister"
+            MissionSpecificClass="gov.nasa.arc.spife.ui.lifecycle.SpifePlanPersister"
+            id="SpifePlanPersister"/>
+   </extension>
+
+   <extension
+         point="gov.nasa.ensemble.core.plan.PlanElementMember">
+      <PlanElementMemberExtension
+            class="gov.nasa.ensemble.core.plan.resources.ResourceUpdaterFactory"
+            id="gov.nasa.ensemble.core.plan.resources.ResourceUpdaterFactory"
+            name="ResourceUpdaterFactory">
+      </PlanElementMemberExtension>
+      <MemberDependency memberClass="gov.nasa.ensemble.core.plan.resources.ResourceUpdater">
+         <MemberClass class="gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMember"/>
+         <MemberClass class="gov.nasa.ensemble.core.plan.temporal.TemporalEdgeManagerMember"/>
+      </MemberDependency>
+   </extension>
+
+   <extension
+         id="PlanProfileTreePage"
+         name="Plan Profile Tree Page"
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="gov.nasa.ensemble.core.plan.editor.MultiPagePlanEditor"
+            class="gov.nasa.ensemble.core.plan.resources.ui.view.PlanProfileTreePageAdapterFactory">
+         <adapter
+               type="gov.nasa.ensemble.core.jscience.ui.profile.tree.ProfileTreePage">
+         </adapter>
+      </factory>
+   </extension>
+
+   <extension
+         point="gov.nasa.ensemble.core.rcp.perspectiveCategory">
+      <perspectiveCategory
+          categoryId="gov.nasa.ensemble.core.rcp.perspective.category.planning"
+          perspectiveId="gov.nasa.ensemble.core.rcp.perspective.planning">
+      </perspectiveCategory>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="gov.nasa.arc.spife.ui.actionSet"
+            label="Spife Action Set"
+            visible="false">
+         <menu
+               id="gov.nasa.arc.spife.newMenu"
+               label="New"
+               path="file/new.ext">
+            <separator
+                  name="groupMarker1">
+            </separator>
+            <separator
+                  name="groupMarker2">
+            </separator>
+         </menu>
+         <action
+               class="gov.nasa.arc.spife.ui.lifecycle.NewPlanResourceAction"
+               icon="icons/new_plan.gif"
+               id="gov.nasa.arc.spife.new.plan.action"
+               label="Plan File"
+               menubarPath="file/gov.nasa.arc.spife.newMenu/groupMarker2"
+               style="push"
+               tooltip="Create New Plan">
+         </action>
+         <action
+               class="gov.nasa.arc.spife.ui.lifecycle.NewSpifeProjectResourceAction"
+               icon="icons/new_spife_project.png"
+               id="gov.nasa.arc.spife.ui.lifecycle.NewSpifeProjectResourceAction"
+               label="Planning Project"
+               menubarPath="file/gov.nasa.arc.spife.newMenu/groupMarker1"
+               style="push"
+               tooltip="Create A New Planning Project Resource">
+         </action>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            canFinishEarly="false"
+            category="gov.nasa.ensemble.core.plan.editor"
+            class="gov.nasa.arc.spife.ui.lifecycle.NewPlanResourceWizard"
+            hasPages="true"
+            icon="icons/new_plan.gif"
+            id="gov.nasa.arc.spife.ui.lifecycle.NewPlanResourceWizard"
+            name="Plan File"
+            preferredPerspectives="gov.nasa.ensemble.core.rcp.perspective.planning"
+            project="false">
+         <description>
+            Create a new Plan File resource.
+         </description>
+      </wizard>
+      <wizard
+            category="gov.nasa.ensemble.core.plan.editor"
+            class="gov.nasa.arc.spife.ui.lifecycle.NewSpifeProjectResourceWizard"
+            descriptionImage="icons/full/wizban/new_spife_project.png"
+            finalPerspective="gov.nasa.ensemble.core.rcp.perspective.planning"
+            icon="icons/new_spife_project.png"
+            id="gov.nasa.arc.spife.ui.lifecycle.NewSpifeProjectResourceWizard"
+            name="Planning Project"
+            preferredPerspectives="gov.nasa.ensemble.core.rcp.perspective.planning"
+            project="true">
+         <description>
+            Create a new Planning Project resource.
+         </description>
+      </wizard>
+   </extension>
+
+   
+   
+  <extension point="org.eclipse.ui.preferencePages">
+    <page
+          class="gov.nasa.ensemble.core.rcp.preferences.AdvancedPreferencesPage"
+          id="AdvancedPreferenceNode"
+          name="Advanced">
+    </page>
+ </extension>
+
+ <extension
+       point="org.eclipse.ui.activities">
+    <activity
+          description="Unwanted Perspectives Activity"
+          id="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+          name="Unwanted Perspectives Activity">
+    </activity>
+    
+    <activityPatternBinding
+          activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+          isEqualityPattern="false"
+          pattern=".*mylyn.*perspective.*">
+    </activityPatternBinding>
+    
+	<activity
+		description="Disable unwanted eclipse UI"
+		id="com.test.ui.disable"
+		name="Disable">
+	</activity>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org.eclipse.debug.ui/org.eclipse.debug.internal.ui.importexport.breakpoints.WizardExportBreakpoints">
+	</activityPatternBinding>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org.eclipse.debug.ui/org.eclipse.debug.internal.ui.importexport.breakpoints.WizardImportBreakpoints">
+	</activityPatternBinding>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org.eclipse.debug.ui/org.eclipse.debug.ui.export.launchconfigurations">
+	</activityPatternBinding>
+	
+	<activityPatternBinding 
+		activityId="com.test.ui.disable"
+		pattern="org.eclipse.debug.ui/org.eclipse.debug.ui.import.launchconfigurations">
+	</activityPatternBinding> 
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org.eclipse.team.ui/org.eclipse.team.ui.ProjectSetExportWizard">
+	</activityPatternBinding>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org.eclipse.team.ui/org.eclipse.team.ui.ProjectSetImportWizard">
+	</activityPatternBinding>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org\.eclipse\.mylyn\.tasks\.ui/.*">
+	</activityPatternBinding>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org\.eclipse\.team\.ui/.*LocalHistory">
+	</activityPatternBinding>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern=".*replaceWithPreviousFromHistory">
+	</activityPatternBinding>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org\.eclipse\.team\.ui/.*Patch.*">
+	</activityPatternBinding>
+	
+	<activityPatternBinding
+		activityId="com.test.ui.disable"
+		pattern="org\.eclipse\.team\.ui/.*ConfigureProject">
+	</activityPatternBinding>
+		
+ </extension>
+
+ <extension
+    point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.emf.ecore.presentation.EcoreEditor"
+            contributorClass="org.eclipse.emf.ecore.presentation.EcoreActionBarContributor"
+            default="true"
+            extensions="timeline"
+            icon="icons/timeline_layout.png"
+            id="org.eclipse.emf.ecore.presentation.ReflectiveEditorID"
+            name="Timeline Layout Editor">
+      </editor>          
+ </extension>
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="gov.nasa.arc.spife.ui.navigator.SpifeNavigatorContentProvider"
+            icon="icons/spife_project.png"
+            id="gov.nasa.arc.spife.ui.navigatorContent"
+            labelProvider="gov.nasa.arc.spife.ui.navigator.SpifeNavigatorLabelProvider"
+            name="Spife"
+            priority="highest">
+         <triggerPoints>
+            <instanceof
+                  value="org.eclipse.core.resources.IResource">
+            </instanceof>
+         </triggerPoints>
+      </navigatorContent>
+      <commonFilter
+            class="gov.nasa.arc.spife.ui.navigator.NonSpifeProjectFilter"
+            id="gov.nasa.arc.spife.ui.navigator.nonSpifeProjects"
+            name="Non Spife Projects">
+      </commonFilter>
+      <commonWizard
+            menuGroupId="spifeNewProjectResourceGroup"
+            type="new"
+            wizardId="gov.nasa.arc.spife.ui.lifecycle.NewSpifeProjectResourceWizard">
+         <enablement></enablement>
+      </commonWizard>
+      <commonWizard
+            menuGroupId="spifeNewFileResourceGroup"
+            type="new"
+            wizardId="gov.nasa.arc.spife.ui.lifecycle.NewPlanResourceWizard">
+         <enablement></enablement>
+      </commonWizard>
+   </extension>
+   
+   <extension point="org.eclipse.ui.navigator.viewer">
+      <viewer viewerId="gov.nasa.arc.spife.ui.navigator"/>
+      <viewerContentBinding viewerId="gov.nasa.arc.spife.ui.navigator">
+         <includes>
+			<contentExtension pattern="gov.nasa.arc.spife.ui.navigatorContent"/>
+			<contentExtension pattern="gov.nasa.ensemble.core.jscience.ui.navigatorContent.profile"/>
+			<contentExtension pattern="org.eclipse.ui.navigator.resourceContent" />		       	      
+			<contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/>
+			<contentExtension pattern="gov.nasa.arc.spife.ui.navigator.nonSpifeProjects"/>
+			<contentExtension pattern="gov.nasa.arc.spife.ui.timeline"/>
+			<contentExtension pattern="gov.nasa.ensemble.common.ui.ide.navigator.EnsembleLinkHelper"/>
+			<contentExtension pattern="gov.nasa.ensemble.core.plan.EMFLinkHelper"/>
+			<contentExtension pattern="gov.nasa.arc.spife.ui.plan.template"/>
+			<contentExtension pattern="gov.nasa.arc.spife.ui.plan.templates.project"/>
+			<contentExtension pattern="gov.nasa.ensemble.common.ui.workspace.file.extension"/>
+			<contentExtension pattern="gov.nasa.ensemble.common.ui.workspace.playbook.files"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="gov.nasa.arc.spife.ui.navigator">
+         <includes>
+            <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
+         </includes>
+      </viewerActionBinding>
+      <dragAssistant
+            class="gov.nasa.ensemble.core.jscience.ui.ProfileNavigatorDragAdapterAssistant"
+            viewerId="gov.nasa.arc.spife.ui.navigator">
+      </dragAssistant>
+   </extension>
+
+ <extension
+       point="org.eclipse.ui.views">
+    <view
+          category="gov.nasa.ensemble.core.plan"
+          class="gov.nasa.arc.spife.ui.navigator.SpifeProjectNavigator"
+          icon="icons/project_navigator.png"
+          id="gov.nasa.arc.spife.ui.navigator"
+          name="Project Navigator"
+          restorable="true">
+    </view>
+ </extension>	          
+
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext
+            id="gov.nasa.ensemble.core.plan.formula.js.constraint.clientContext">
+         <selector
+               class="gov.nasa.ensemble.core.plan.formula.js.constraint.JSAnnotationClientSelector">
+         </selector>
+      </clientContext>
+      <binding
+            category="JSAnnotationCategory"
+            context="gov.nasa.ensemble.core.plan.formula.js.constraint.clientContext">
+      </binding>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="JSAnnotationCategory"
+            name="JavaScript Annotation Category">
+      </category>
+      <constraintProvider
+            cache="true">
+         <package
+               namespaceUri="platform:/resource/gov.nasa.ensemble.core.model.plan.temporal/model/TemporalPlanning.ecore">
+         </package>
+         <constraints
+               categories="JSAnnotationCategory">
+            <constraint
+                  class="gov.nasa.ensemble.core.plan.formula.js.constraint.JSAnnotationConstraint"
+                  id="JSAnnotationConstraint"
+                  lang="Java"
+                  mode="Live"
+                  name="JavaScript Annotations"
+                  severity="ERROR"
+                  statusCode="3">
+               <message>
+                  message body text
+               </message>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+
+  <extension
+       point="org.eclipse.ui.commands">
+    <category
+          name="Debug Actions"
+          description="Debugging actions"
+          id="gov.nasa.arc.spife.core.plan.debug"/>
+    <command
+          defaultHandler="gov.nasa.ensemble.core.plan.constraints.ui.operation.OneOfEachAction"
+          description="Instantiate one of each activity in the current plan"
+          id="gov.nasa.arc.spife.ui.OneOfEachCommand"
+          name="One of Each"/>
+    <category
+          description="Help actions"
+          id="gov.nasa.arc.spife.help"
+          name="Help Actions">
+    </category>
+    <command
+          categoryId="gov.nasa.arc.spife.help"
+          defaultHandler="gov.nasa.ensemble.common.ui.UserGuideHandler"
+          description="Launch a user guide for the application"
+          id="gov.nasa.arc.spife.help.userguide"
+          name="User Guide">
+    </command>
+  </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=help">
+         <menu
+               id="developer"
+               label="Developer">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:developer">
+         <command
+               commandId="gov.nasa.arc.spife.ui.OneOfEachCommand"
+               label="One of Each"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=edit">
+         <menu
+               id="run"
+               label="Run">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:file">
+         <command
+               commandId="org.eclipse.ui.file.import"
+               label="Import..."
+               style="push"
+               tooltip="Import">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeWorkbenchWindow.activePerspective">
+                     <or>
+                        <equals
+                            value="gov.nasa.ensemble.core.rcp.perspective.planning">
+                        </equals>
+                     </or>
+                  </with>
+               </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:help?after=helpStart">
+         <command
+               commandId="gov.nasa.arc.spife.help.userguide"
+               icon="icons/help.gif"
+               label="User Guide"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension
+         point="gov.nasa.ensemble.core.plan.resources.builderFiles">
+      <file-association
+            file-names="schedule.plan">
+      </file-association>
+   </extension>
+   
+</plugin>

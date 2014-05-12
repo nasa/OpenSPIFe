@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension-point id="IParameterSerializer" name="gov.nasa.ensemble.core.plan.IParameterSerializer" schema="schema/IParameterSerializer.exsd"/>
+   <extension-point id="PlanElementMember" name="gov.nasa.ensemble.core.plan.PlanElementMember" schema="schema/PlanElementMember.exsd"/>
+   <extension-point id="PlanSaver" name="PlanSaver" schema="schema/PlanSaver.exsd"/>
+   <extension-point id="PlanEditApprover" name="PlanSaver" schema="schema/PlanEditApprover.exsd"/> 
+   <extension-point id="PlanGroup" name="PlanGroup" schema="schema/PlanGroup.exsd"/>
+   <extension-point id="PlanState" name="PlanState" schema="schema/PlanState.exsd"/>
+   
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      	<IEnsemblePluginTest class="gov.nasa.ensemble.tests.core.plan.AllPlanTests"/>
+   </extension>
+
+	<extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      	<IEnsemblePluginTest class="gov.nasa.ensemble.tests.core.plan.AllJUnit4PlanTests"/>
+   </extension>
+   
+   <extension point="gov.nasa.ensemble.core.plan.IParameterSerializer">
+   		<IParameterSerializer type="string" class="gov.nasa.ensemble.core.plan.parameters.StringParameterSerializer"/>
+   		<IParameterSerializer type="sequence" class="gov.nasa.ensemble.core.plan.parameters.StringParameterSerializer"/>
+     	<IParameterSerializer type="reference" class="gov.nasa.ensemble.core.plan.parameters.StringParameterSerializer"/>
+		<IParameterSerializer type="int" class="gov.nasa.ensemble.core.plan.parameters.IntegerParameterSerializer"/>
+   		<IParameterSerializer type="integer" class="gov.nasa.ensemble.core.plan.parameters.IntegerParameterSerializer"/>
+     	<IParameterSerializer type="uint" class="gov.nasa.ensemble.core.plan.parameters.IntegerParameterSerializer"/>
+   		<IParameterSerializer type="long" class="gov.nasa.ensemble.core.plan.parameters.LongParameterSerializer"/>
+   		<IParameterSerializer type="float" class="gov.nasa.ensemble.core.plan.parameters.FloatParameterSerializer"/>
+   		<IParameterSerializer type="duration" class="gov.nasa.ensemble.core.plan.parameters.DurationParameterSerializer"/>
+   		<IParameterSerializer type="date" class="gov.nasa.ensemble.core.plan.parameters.ISO8601DateParameterSerializer"/>
+   		<IParameterSerializer type="time" class="gov.nasa.ensemble.core.plan.parameters.ISO8601DateParameterSerializer"/>
+    	<IParameterSerializer type="boolean" class="gov.nasa.ensemble.core.plan.parameters.BooleanParameterSerializer"/>
+     	<IParameterSerializer type="double" class="gov.nasa.ensemble.core.plan.parameters.DoubleParameterSerializer"/>
+     	<IParameterSerializer type="timestamped_note" class="gov.nasa.ensemble.core.plan.parameters.TimestampedNoteParameterSerializer"/>
+     	<IParameterSerializer type="STRUCTURE" class="gov.nasa.ensemble.core.plan.parameters.EObjectParameterSerializer"/>
+      	<IParameterSerializer type="COMPUTABLE_AMOUNT" class="gov.nasa.ensemble.core.plan.parameters.ComputableAmountSerializer"/>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.core.model.plan.util.PlanElementApprover">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.PlanADParameterApprover">
+         </implementation>
+      </lookup>
+   </extension>
+</plugin>

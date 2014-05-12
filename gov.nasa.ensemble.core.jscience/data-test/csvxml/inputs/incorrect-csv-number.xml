@@ -1,0 +1,34 @@
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+    <!-- In this one, the CSV is malformed (but the XML is valid).
+         This supports two tests:
+         1.  That the expected exception is thrown when we attempt to get the datapoints.
+         2.  That the error only occurs when we try to get the datapoints;
+             the other info is accessible without triggering an error.
+             This demonstrates that the other info is accessible without reading the whole file,
+             which is a desirable feature for performance reasons.
+              -->
+   <columns timeFormat="ISO8601">
+        <column id="RN1" units="W" type="Double" description="test unit description"
+            interpolation="step" displayName="Resource Name 1">
+            <property key="LADEE Subsystem Metadata" value="Test metadata"/>
+        </column>
+        <column id="RN2" type="Boolean" description="test description" interpolation="instantaneous"
+            displayName="Resource Name 2" defaultValue="false">
+            <property key="LADEE Subsystem Metadata" value="Test metadata"/>
+        </column>
+        <column id="RN3" type="String" description="test description" interpolation="step"
+            displayName="Resource Name 3">
+            <property key="LADEE Subsystem Metadata" value="Test metadata"/>
+        </column>
+    </columns>
+    <data>
+        <![CDATA[
+    StartTime,RN1,RN2,RN3
+    2011-02-03T16:27:00Z,50,true,Moon
+    2011-02-03T16:28:00Z,63W,questionable,Vulcan
+    2011-02-03T16:29:00Z;foo
+    2011-02-03T16.29-00Z;foo
+     ]]>
+    </data>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="GeneratesResource" duration="01:31:00">
+    <numericEffects startEffect="100" definition="//Integer_Resource"/>
+    <stateEffects startEffect="ON" endEffect="OFF" definition="//ON_OFF_Resouce"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="ViolatesDerivedResource" duration="01:31:00">
+    <numericEffects startEffect="100" definition="//Derived_Constraint_Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ON_OFF">
+    <eLiterals name="OFF" literal="OFF"/>
+    <eLiterals name="ON" value="1" literal="ON"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:EStateResourceDef" name="ON_OFF_Resouce" eType="//ON_OFF" enumeration="//ON_OFF"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Integer_Resource" units="">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Derived_Constraint_Resource" units="" minimum="0" maximum="99">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </extendedDefinitions>
+</dict:EActivityDictionary>

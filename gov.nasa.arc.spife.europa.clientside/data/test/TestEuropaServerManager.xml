@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EuropaServerManager childTimeout="20" defaultType="foo" logLevel="ERROR TRACE TRACE_ALL" port="8050" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../model/esm-config.xsd">
+ 
+  <EuropaServer debug="ERROR TRACE TRACE_ALL" initialState="$data/test/DummyModel.nddl" logFile="test.log" name="foo" plannerConfig="$data/test/SolverConfig.xml" plannerConfigElement="MER2PassiveSolver" port="8100" serverVersion="Foo!" timeout="-1" verbosity="0"/>
+  <EuropaServer debug="ERROR TRACE TRACE_ALL" initialState="$data/test/DummyModel.nddl" logFile="test.log" name="bar" plannerConfig="$data/test/SolverConfig.xml" plannerConfigElement="MER2PassiveSolver" port="8100" serverVersion="Bar!" timeout="-1" verbosity="0"/>
+  
+</EuropaServerManager>

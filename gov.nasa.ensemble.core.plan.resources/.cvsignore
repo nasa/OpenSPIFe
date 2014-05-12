@@ -1,0 +1,5 @@
+bin
+generated-src
+build.xml
+temp.folder
+javaCompiler...args

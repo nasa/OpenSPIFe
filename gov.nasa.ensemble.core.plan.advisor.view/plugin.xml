@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="%category.name"
+            id="gov.nasa.ensemble.core.plan">
+      </category>
+      <view
+            name="%view.name"
+            icon="icons/advisor_ambivalent.gif"
+            category="gov.nasa.ensemble.core.plan"
+            class="gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorView"
+            id="gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorView">
+      </view>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="PlanAdvisorPreferencePage"
+            class="gov.nasa.ensemble.core.plan.advisor.view.preferences.PlanAdvisorViewPreferencePage"
+            id="PlanAdvisorViewPreferencePage"
+            name="%page.name">
+      </page>
+   </extension>
+   
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="gov.nasa.ensemble.core.plan.advisor.view.preferences.PlanAdvisorViewPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorViewStartup">
+      </startup>
+   </extension>
+
+</plugin>

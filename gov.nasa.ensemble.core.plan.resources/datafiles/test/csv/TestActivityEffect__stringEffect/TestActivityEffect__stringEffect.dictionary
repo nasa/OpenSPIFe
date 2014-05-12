@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="adco" nsURI="http://adco.jsc.nasa.gov/Apex-AD-1.3" nsPrefix="adco" author="Mel Ludowise, Jessica Lee, Bob Kanefsky" date="2012-01-18" description="Activity Dictionary for ADCOs" version="ADCO-AD-1.3">
+  <eClassifiers xsi:type="dict:EActivityDef" name="Activity_effectAsLiteral" category="Test">
+    <stateEffects startEffect="some random string" definition="//stringResource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="Activity_effectAsFormula" category="Test">
+    <stateEffects startEffect="&quot;some &quot; + &quot;random &quot; + &quot;string&quot;" definition="//stringResource"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:EStateResourceDef" name="stringResource">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </extendedDefinitions>
+</dict:EActivityDictionary>

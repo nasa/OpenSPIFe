@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="TestActivity" category="TEST" description="" duration="01:00:00">
+    <eAnnotations source="descriptor">
+      <details key="displayName" value="SPF-2890"/>
+    </eAnnotations>
+    <numericEffects startEffect="1" endEffect="-1" definition="//TEST_RESOURCE"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="TEST_RESOURCE" defaultValueLiteral="0" units="">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </extendedDefinitions>
+</dict:EActivityDictionary>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="NotGeneratesCoverage" duration="01:29:00">
+    <stateEffects startEffect="ON" endEffect="OFF" definition="//ON_OFF_Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="GeneratesCoverage" duration="01:35:00">
+    <stateEffects startEffect="ON" endEffect="OFF" definition="//ON_OFF_Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="Requires90PercentCoverage" category="TEST.90PercentCoverage" duration="01:40:00">
+    <stateRequirements definition="//ON_OFF_Resource" requiredState="ON" threshold="0.9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="RequiresBeforeAndGenerate" duration="01:00:00">
+    <stateEffects startEffect="OFF" definition="//ON_OFF_Resource"/>
+    <stateRequirements period="RequiresBeforeStart" definition="//ON_OFF_Resource" requiredState="ON"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="RequiresThroughoutAndGenerate" duration="01:00:00">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="value" eType="//ON_OFF" defaultValueLiteral="OFF"/>
+    <stateEffects endEffect="value" definition="//ON_OFF_Resource"/>
+    <stateRequirements definition="//ON_OFF_Resource" requiredState="ON"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="DisallowsThroughout">
+    <stateRequirements definition="//ON_OFF_Resource" disallowedState="ON"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="AllowsMultipleThroughout">
+    <stateRequirements definition="//ON_OFF_Resource">
+      <allowedStates>ON</allowedStates>
+      <allowedStates>THIRD_MEAL</allowedStates>
+    </stateRequirements>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="TurnOnResource" duration="00:00:00">
+    <stateEffects startEffect="ON" definition="//ON_OFF_Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="TurnOffResource" duration="00:00:00">
+    <stateEffects startEffect="OFF" definition="//ON_OFF_Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="ThirdMealThisResource" duration="00:00:00">
+    <stateEffects startEffect="ON" definition="//ON_OFF_Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ON_OFF">
+    <eLiterals name="OFF" literal="OFF"/>
+    <eLiterals name="ON" value="1" literal="ON"/>
+    <eLiterals name="THIRD_MEAL" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="GeneratesOffsetCoverage" duration="01:00:00">
+    <stateEffects startOffset="START,-P0DT1H0M0.000S" endOffset="END,P0DT1H0M0.000S" startEffect="ON" endEffect="OFF" definition="//ON_OFF_Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="RequiresOffsetCoverage" duration="01:00:00">
+    <stateRequirements startOffset="START,-P0DT1H0M0.000S" endOffset="END,P0DT1H0M0.000S" definition="//ON_OFF_Resource" requiredState="ON"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:EStateResourceDef" name="ON_OFF_Resource" enumeration="//ON_OFF"/>
+</dict:EActivityDictionary>

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: client-side europa for win32 x86
+Bundle-SymbolicName: gov.nasa.arc.spife.europa.clientside.win32.x86
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: gov.nasa.arc.spife.europa.clientside;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-PlatformFilter: (& (osgi.os=win32) (osgi.arch=x86))

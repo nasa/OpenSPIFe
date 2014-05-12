@@ -1,0 +1,44 @@
+002/12:34/02.01.2004/JUnit test
+
+345/23:43/10.12.2012/kanef
+
+Draft-Received
+235/08:05:00/22.08.2012 (variable)
+235/09:15:00/22.08.2012 (variable)
+As Flown
+
+RS Master
+Pulse Train - no, *** no name ***
+                | SM              | P-Aft(MR)       | P-Aft(R&D)      | P-DC1/MRM2(MR)  | P-DC1/MRM2(R&D) | A-Aft          
+   Yaw          | Ena+Select(2)   | X               | X               | X               | X               | Inh            
+   Pitch        | Ena+Select(2)   | X               | X               | X               | X               | Inh            
+   Roll         | Ena+Select(4)   | X               | X               | Inh             | Inh             | Inh            
+
+US Master
+Pulse Train - yes, (0,5,8,15)
+                | SM              | P-Aft(MR)       | P-Aft(R&D)      | P-DC1/MRM2(MR)  | P-DC1/MRM2(R&D) | A-Aft          
+   Yaw          | Ena+Select(1)   | X               | X               | X               | X               | Inh            
+   Pitch        | Ena+Select(1)   | X               | X               | X               | X               | Inh            
+   Roll         | Ena+Select(4)   | X               | X               | Inh             | Inh             | Inh            
+
+345/23:43/10.12.2012/kanef
+
+Draft-Received
+235/07:55:00/22.08.2012 (variable)
+235/09:50:00/22.08.2012 (variable)
+As Flown blank
+
+RS Master
+Pulse Train - no, *** no name ***
+                | SM              | P-Aft(MR)       | P-Aft(R&D)      | P-DC1/MRM2(MR)  | P-DC1/MRM2(R&D) | A-Aft          
+   Yaw          | Ena+Select(2)   | X               | X               | X               | X               | Inh            
+   Pitch        | Ena+Select(2)   | X               | X               | X               | X               | Inh            
+   Roll         | Ena+Select(4)   | X               | X               | Inh             | Inh             | Inh            
+
+US Master
+Pulse Train - yes, (0,5,8,15)
+                | SM              | P-Aft(MR)       | P-Aft(R&D)      | P-DC1/MRM2(MR)  | P-DC1/MRM2(R&D) | A-Aft          
+   Yaw          | Ena+Select(1)   | X               | X               | X               | X               | Inh            
+   Pitch        | Ena+Select(1)   | X               | X               | X               | X               | Inh            
+   Roll         | Ena+Select(4)   | X               | X               | Inh             | Inh             | Inh            
+
