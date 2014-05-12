@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="gov.nasa.ensemble.core.plan.advisor.IPlanAdvisorFactory" name="IPlanAdvisorFactory" schema="schema/gov.nasa.ensemble.core.plan.advisor.IPlanAdvisorFactory.exsd"/>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="org.eclipse.jface.viewers.ILabelDecorator">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.advisor.provider.ActivityAdvisorLabelDecorator">
+         </implementation>
+         <factory
+               class="gov.nasa.ensemble.core.plan.advisor.provider.ActivityAdvisorLabelDecoratorFactory">
+         </factory>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.emf.transaction.IModelChangedListener">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.advisor.PlanAdvisorModelChangedListener">
+         </implementation>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.core.model.plan.util.EPlanUtils$PlanElementSeverityProvider">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.advisor.provider.PlanAdvisorSeverityProvider">
+         </implementation>
+      </lookup>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.plan.advisor.IPlanAdvisorFactory">
+      <planAdvisorFactory
+            class="gov.nasa.ensemble.core.plan.advisor.markers.MarkerPlanAdvisorFactory"></planAdvisorFactory>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.plan.PlanElementMember">
+      <PlanElementMemberExtension
+            class="gov.nasa.ensemble.core.plan.advisor.PlanAdvisorMemberFactory"
+            id="PlanAdvisorMemberFactory"
+            name="PlanAdvisorMemberFactory">
+      </PlanElementMemberExtension>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <page class="gov.nasa.ensemble.core.plan.advisor.preferences.PlanAdvisorPreferencePage"
+            id="PlanAdvisorPreferencePage"
+            name="Plan Advisor"/>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="gov.nasa.ensemble.core.plan.advisor.preferences.PlanAdvisorPreferenceInitializer"/>
+   </extension>
+
+   <!--  SPF-5087
+   <extension
+         point="gov.nasa.ensemble.core.plan.editor.merge.IMergeColumnProvider">
+      <IMergeColumnContentProvider
+            class="gov.nasa.ensemble.core.plan.advisor.provider.ActivityAdvisorMemberMergeColumnProvider">
+      </IMergeColumnContentProvider>
+   </extension>
+   -->
+   <!--
+   <extension
+         point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest
+            class="gov.nasa.ensemble.core.plan.advisor.AllPlanAdvisorTests">
+      </IEnsemblePluginTest>
+   </extension>
+-->
+</plugin>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup class="gov.nasa.ensemble.common.ui.detail.IDetailFactory">
+         <implementation class="gov.nasa.ensemble.core.detail.emf.view.EMFDetailFactory"/>
+      </lookup>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.ui"
+            class="gov.nasa.ensemble.common.ui.detail.view.DetailView"
+            icon="platform:/plugin/gov.nasa.ensemble.common.ui/icons/info-16x16.png"
+            id="gov.nasa.ensemble.common.ui.detail.view.DetailView"
+            name="Detail">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            sequence="M2+M3+D"
+            contextId="org.eclipse.ui.contexts.window"
+            commandId="org.eclipse.ui.views.showView"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+            <parameter 
+            	id="org.eclipse.ui.views.showView.viewId"
+            	value="gov.nasa.ensemble.common.ui.detail.view.DetailView" />
+      </key>
+   </extension>
+</plugin>

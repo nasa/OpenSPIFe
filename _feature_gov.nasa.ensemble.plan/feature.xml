@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="_feature_gov.nasa.ensemble.plan"
+      label="Plan Feature"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="_feature_gov.nasa.ensemble.common"
+         version="0.0.0"/>
+
+   <includes
+         id="_feature_gov.nasa.ensemble.common.ui"
+         version="0.0.0"/>
+
+   <includes
+         id="_feature_org.eclipse.search"
+         version="0.0.0"/>
+
+   <includes
+         id="_feature_gov.nasa.ensemble.rcp"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.xsd"
+         version="0.0.0"/>
+
+   <includes
+         id="_feature_gov.nasa.ensemble.emf"
+         version="0.0.0"/>
+
+   <includes
+         id="_feature_gov.nasa.ensemble.detail"
+         version="0.0.0"/>
+
+   <includes
+         id="_feature_gov.nasa.ensemble.jscience"
+         version="0.0.0"/>
+
+   <includes
+         id="_feature_org.eclipse.ui.ide"
+         version="0.0.0"/>
+
+   <includes
+         id="_feature_org.apache.lucene"
+         version="0.0.0"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.plan.constraints"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.model.plan.constraints"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.plan.advisor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.activityDictionary"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.jscience"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.model.plan"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.plan"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.plan.temporal"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.plan.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.plan.editor.merge"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.model.plan.temporal"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.dictionary"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.model.plan.translator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.model.plan.activityDictionary"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.model.plan.provider"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.model.plan.advisor.provider"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.model.plan.advisor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.xml.serializer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.poi"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gov.nasa.ensemble.core.activityDictionary.view"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,1625 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--================================================================
+
+This file is the RSVP/RoSE unit dictionary.  It lists all units of
+measurement supported by the RSVP Rover Sequence Editor.  These units
+are used mainly when interacting with the command dictionary.
+
+All "unit_type"/"units" pairs for command arguments in the MER command
+dictionary should be reflected in this file.  The "units" attribute in
+the command dictionary should correspond to Unit or RefUnit.  The
+"unit_type" attribute in the command dictionary should correspond to
+the UnitCategory name.
+ 
+Each unit belongs to a unit category.  A unit can be algorithmically
+converted into any other unit belonging to the same category, but
+units cannot be converted between categories (this is the defining
+characteristic of a category).  Each category must contain at least
+one unit, its reference unit.
+
+
+References:
+
+http://physics.nist.gov/cuu/Units/
+
+MER Local Solar Time Standard (LST)
+http://mars03-lib.jpl.nasa.gov/mars03-lib/dscgi/ds.py/View/Collection-3218
+
+
+ $Log: udict.xml,v $
+ Revision 1.3  2006-09-23 02:55:14  maxwell
+ Use the LP prefix for LMST times.
+
+ Revision 1.2  2006-07-27 03:15:21  maxwell
+ Added itime.
+
+ Revision 1.1.1.1  2006-06-02 01:25:10  rose-dev
+ Initial import into CVS.
+
+ Revision 1.41  2006/02/21 21:49:25  maxwell
+ Added half_msec and millivolts, along with a bunch of single-unit
+ categories for both MER (c9_2) and PHX (3.0-FINAL).
+
+ Revision 1.40  2005/12/15 00:22:22  maxwell
+ Added LMST unit for PHX, and added attributes saying that LSTA and
+ LSTB are MER-specific.
+
+ Revision 1.39  2005/11/10 04:12:46  maxwell
+ Added several new units needed for PHX; they won't hurt MER, though.
+
+ Revision 1.38  2004/03/24 16:34:03  maxwell
+ Added RoughConversion elements for LSTA and LSTB.
+
+ Revision 1.37  2003/12/10 02:36:04  maxwell
+ Moved radians/rev out of angular_velocity and into its own unit
+ category.  Removed rad/rev.
+
+ Revision 1.36  2003/11/15 06:51:32  maxwell
+ Updated per Daniel Moyers's scrub.
+
+ Revision 1.35  2003/11/08 04:28:09  maxwell
+ Updated for c8_1d.  Hacked sfoctime's Picture to help hack around the
+ leading-A problem.
+
+ Revision 1.34  2003/10/14 03:36:26  maxwell
+ Changed LSTB's /oss/mera to /oss/merb.  Duh.
+
+ Revision 1.33  2003/09/19 03:13:54  maxwell
+ Added more candidate NAIF body names for the LSTA and LSTB
+ conversions, including two that can be specified by new envars,
+ ROSE_MERA_NAIF_BODY and ROSE_MERB_NAIF_BODY.
+
+ Revision 1.32  2003/09/18 21:25:49  maxwell
+ You can now override the LST-A and LST-B units using a Java property
+ (rose.spice.furnsh, which applies to both units equally so is likely
+ never to be used) or an envar (ROSE_LSTA_FURNSH/ROSE_LSTB_FURNSH).
+
+ Revision 1.31  2003/09/16 03:48:25  maxwell
+ Added candidate SpiceFurnsh files that point to real OSS files.
+ (There's no real MER-B file yet, so this will still have to change.)
+
+ Revision 1.30  2003/09/03 20:59:27  maxwell
+ Added SpiceFurnsh element under Conversion for the LST-A/B units.
+
+ Revision 1.29  2003/07/17 16:44:43  maxwell
+ To help with the new (4.2-series) adict, added deg/sec, watts, bits,
+ words, and points.
+
+ Revision 1.28  2003/04/17 00:38:01  maxwell
+ Updated for launch/cruise release.  Mostly, this involved removing
+ units: centons, revs, BAMs, counts (both the angles and the length
+ versions), volts, LSET, and UTC are all gone, as is the redundant
+ "temperature" category.  Also, horrifyingly, there was a typo in the
+ computation of the "Mars minutes" and "Mars hours" conversion factors
+ that has gone undiscovered all this time (it's fixed now, of course).
+
+ Revision 1.27  2003/03/28 02:03:48  maxwell
+ absec now uses new LamePresenter instead of SecondsPresenter; this
+ helps suppress some bogus time-conversion warnings.  Also, added
+ AbsPresenter to sfoctime.
+
+ Revision 1.26  2003/02/27 03:43:46  maxwell
+ Added the "degrees" unit to the "angle" category; this was needed to
+ satisfy the udict.  We still generally need to resolve the adict's use
+ of units with the cdict's, though.
+
+ Revision 1.25  2003/01/30 03:06:38  maxwell
+ Oops, I had a couple of Invert flags set the wrong way.
+
+ Revision 1.24  2003/01/28 20:52:32  maxwell
+ Updated for c7_0a.
+
+ Revision 1.23  2003/01/07 03:06:24  maxwell
+ The Picture for "abs_time/seconds" no longer includes a fractional
+ seconds-part, and that unit is now flagged as the numeric-SCLK unit.
+ "abs_time/SCLK" is now gone, replaced by "abs_time/SFOC Time" (because
+ the old SEQGEN-format time, "abs_time/abs_time," went away).
+
+ Revision 1.22  2002/12/18 02:15:06  maxwell
+ Added Date to Header.
+
+ Revision 1.21  2002/12/13 02:41:26  maxwell
+ Physically reformatted to have one tab per indentation level.  Removed
+ a lot of empty descriptions.  Changed a few unit abbreviations (for
+ Mars hours, minutes, and seconds).  RelMars and RelEarth units are now
+ handled correctly (I think, pending imminent testing).  Made lots of
+ changes to time conversions, including adding SclkConversion tags to
+ help the conversions be data-driven.  Per the FMICD, the "UTC" format
+ no longer has a fractional seconds-part.
+
+ Revision 1.20  2002/11/08 23:11:49  maxwell
+ Oops, the TT-E release uses c6_1c, not c6_1d.  So I had to add m/s2,
+ which is in c6_1c (as a typo for "m/sec2") but not in c6_1d.  Yow.
+
+ Revision 1.19  2002/11/07 20:14:48  maxwell
+ Updated for c6_1d: m/sec^2 and sec^3/m were renamed to m/sec2 and
+ sec3/m; likewise, sec/g^2 and sec/g^3 are now sec/g2 and sec/g3.
+ Added kilobytes and changed the megabytes abbreviation to "mb."  The
+ name for the sole unit in the "gst" category is now "seconds."
+
+ Revision 1.18  2002/10/31 20:22:52  maxwell
+ Added SCLK and nmamp.  Revised Carlos's banner comment.
+
+ Revision 1.17  2002/09/06 22:18:02  maxwell
+ Added "D/A counts" to update for 6.0a cdict.
+
+ Revision 1.16  2002/08/08 23:39:54  maxwell
+ Updated for c5_0c: added SoloUnitCategories sec/g^2, sec/g^3, arcs,
+ cells, records, and cycles.
+
+ Revision 1.15  2002/07/23 22:38:18  maxwell
+ Updated for c4_1f cdict.
+
+ Revision 1.14  2002/06/10 21:03:58  maxwell
+ Added megabytes, rad/rev, Amp-hrs, Amp-hrs/sec, Nm, sclk (whose
+ intended behavior is currently unknown).
+
+ Revision 1.13  2002/05/22 21:47:23  maxwell
+ Marked GST as a time-type unit.
+
+ Revision 1.12  2002/05/08 00:34:19  maxwell
+ Updated for c4_0d: added "rad*sec/(mN*m)" and abs_time/seconds is
+ apparently back in (for now).
+
+ Revision 1.11  2002/05/07 02:19:14  maxwell
+ Added Presenters for UTC and GST (which is new and will likely
+ change).  Updated for c4_0c: renamed "millinewton meters" to "mN*m."
+
+ Revision 1.10  2002/05/01 00:29:45  maxwell
+ Commented out "absec" (no longer used in cdict) and "PST" (I despise
+ the time-zone code and plan to remove it).
+
+ Revision 1.9  2002/04/29 23:58:29  maxwell
+ Updated for c4.x-series cdicts, including some workarounds for errors
+ in the cdict.
+
+ Revision 1.8  2002/03/28 18:42:29  maxwell
+ Added a bunch of new SoloUnitCategory entries for c3_0c1.xml.
+
+ Revision 1.7  2002/03/22 01:06:00  maxwell
+ At Sharon Laubach's request:
+
+ 	N	is now Newtons
+ 	amp	is now amps
+ 	ohm	is now ohms
+ 	rev	is now revs
+
+ Revision 1.6  2002/03/21 23:19:17  maxwell
+ Added Celsius and Fahrenheit to the "temp" category.
+
+ Revision 1.5  2002/03/15 03:23:48  maxwell
+ Updated for new (3.0) cdict, mostly adding a bunch of
+ SoloUnitCategories.
+
+ Revision 1.4  2002/02/06 00:27:50  maxwell
+ XML parser validation found several errors in this file and its DTD.
+ Most seriously, the mm, cm, and counts units all had "true" instead of
+ "True" as the value of their Invert attribute; as a result, they were
+ *not* inverted.  Also marked the appropriate unit as IsSeqgenFormat.
+
+ Revision 1.3  2002/02/05 22:49:34  maxwell
+ Converted several unit categories to use the new SoloUnitCategory tag.
+
+ Revision 1.2  2002/02/01 23:13:29  maxwell
+ Cleaned up a couple of stray attributes and added PST.
+
+ Revision 1.1  2002/01/30 02:15:25  maxwell
+ Initial revision
+
+ Revision 1.5  2001/12/05 21:20:55  balacuit
+ Reworded document description to hopefully clarify correspondence
+ between the command dictionary and the units dictionary.  This could
+ be enforced with an XML Schema.
+
+ Revision 1.4  2001/12/05 21:10:19  balacuit
+ Added more definition to "abs_time" and "duration" categories.  Moved
+ the boring (single unit) categories to the bottom of the list.
+
+ Revision 1.3  2001/11/30 04:59:00  balacuit
+ This file is now the default unit dictionary, as opposed to the test
+ dictionary file.  Renamed tags and attributes to reflect adjusted DTD
+ defined in udict.dtd.  Migrated unit definitions from measures.xml.
+ Reworded description above.  Indentation and spacing fixed.
+
+ Revision 1.2  2001/11/15 02:33:09  balacuit
+ Applied <param> tags to all applicable <conversion> tags to reflect
+ changes to the DTD.
+
+ Revision 1.1  2001/11/14 23:00:16  balacuit
+ Initial revision
+
+ ================================================================-->
+
+
+
+
+<UnitCategories>
+	<Header>
+		<Project>MARS EXPLORATION ROVER</Project>
+		<Version>$Revision: 1.3 $</Version>
+		<Date>$Date: 2006-09-23 02:55:14 $</Date>
+	</Header>
+
+
+
+
+	<UnitCategory Name="time" ConvType="Factor">
+		<Desc>
+This is just here to let me use the CXML until we get the time stuff worked out.
+		</Desc>
+		<RefUnit Name="seconds" Abbrev="bogus">
+			<Desc>Completely bogus.</Desc>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="mass" ConvType="Factor">
+		<Desc>Units of Mass</Desc>
+		<RefUnit Name="g" Abbrev="g">
+			<Desc>
+Grams - Unit of mass.
+ - One gram equals 1/1000 of a kilogram.
+		</Desc>
+		</RefUnit>
+
+
+		<Unit Name="mg" Abbrev="mg">
+			<Desc>
+Milligrams - Unit of mass.
+- One milligram equals 1/1000 grams.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="kg" Abbrev="kg">
+			<Desc>
+Kilograms - Unit of mass.
+- One kilogram is equal to the mass of the international prototype of
+  the kilogram established by the CGPM (french acronym).
+- http://physics.nist.gov/cuu/Units/kilogram.html
+- One kilogram equals 1000 grams.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000.0"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="duration" ConvType="Factor">
+		<Desc>Time Duration</Desc>
+		<RefUnit Name="seconds" Abbrev="sec">
+			<Desc>Earth seconds with respect to UTC.</Desc>
+		</RefUnit>
+
+
+		<Unit Name="microseconds" Abbrev="usec">
+			<Desc>
+Earth microseconds with respect to UTC.
+ - One microsecond equals 1/1000000 Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000000.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="milliseconds" Abbrev="msec">
+			<Desc>
+Earth milliseconds with respect to UTC.
+ - One millisecond equals 1/1000 Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+
+
+		<!-- PHX. -->
+		<Unit Name="half_msec" Abbrev="half_msec">
+			<Desc>
+1/2 of Earth milliseconds with respect to UTC.
+ - One half-millisecond equals 1/2000 Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="2000.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+
+
+		<!-- PHX. -->
+		<Unit Name="deciseconds" Abbrev="dsec">
+			<Desc>
+Earth deciseconds with respect to UTC.
+ - One decisecond equals 1/10 Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="10.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+
+
+		<!-- PHX. -->
+		<Unit Name="itime" Abbrev="itime">
+			<Desc>
+Units of 5.12msec, used for camera exposure times.
+ - One itime equals 5.12/1000 Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="0.00512" Invert="False"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="minutes" Abbrev="min">
+			<Desc>
+Earth minutes with respect to UTC.
+ - One minute equals 60 Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="60.0"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="hours" Abbrev="hr">
+			<Desc>
+Earth hours with respect to UTC.
+ - One Hour equals 3600 Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="3600.0"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="Mars seconds" Abbrev="marssec">
+			<Desc>
+secondLST : Unit of time duration.
+ - Mean Solar seconds with respect to MER Local Solar Time.
+ - One MER LST second equals 1.02749127 Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="1.02749127"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="Mars minutes" Abbrev="marsmin">
+			<Desc>
+minuteLST : Unit of time duration.
+ - Mean Solar Minutes with respect to MER Local Solar Time.
+ - One minuteLST equals (60 * 1.02749127) Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="61.6494762"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="Mars hours" Abbrev="marshrs">
+			<Desc>
+hourLST : Unit of time duration.
+ - Mean Solar Hours with respect to MER Local Solar Time.
+ - One hourLST equals (60 * 60 * 1.02729127) Earth seconds.
+			</Desc>
+			<Conversion>
+				<Factor Value="3698.968572"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="RelMars" Abbrev="relmars">
+			<Desc>
+Mars Relative Time
+ - Formatted as
+   M{Mars hour}:{Mars minute}:{Mars second}  or 
+   M{Mars Day}T{Mars hour}:{Mars minute}:{Mars second}
+ - Allows sequence developer to indicate the amount of time that
+   should elapse between the beginning of a delay command and the
+   initiation of the next command in the sequence in mean solar time
+   units.
+ - Nearly identical to the Relative Time system except that times are
+   expressed in mean solar time units.
+			</Desc>
+			<Conversion>
+				<Factor Value="1.0"/>  <!-- Presenter handles the scaling. -->
+			</Conversion>
+			<Presenter Name="RelMarsPresenter" ForType="uint"/>
+		</Unit>
+
+
+		<Unit Name="RelEarth" Abbrev="relearth">
+			<Desc>
+Earth Relative Time
+ - Formatted as R{days}T{hour}:{minute}:{second}
+ - Allows sequence developer to indicate the amount of time that
+   should elapse between the beginning of a delay command and the
+   initiation of the next command in the sequence.
+			</Desc>
+			<Conversion>
+				<Factor Value="1.0"/>
+			</Conversion>
+			<Presenter Name="RelEarthPresenter" ForType="uint"/>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="angular_velocity" ConvType="Factor">
+		<Desc>Units of Angular velocity.</Desc>
+		<RefUnit Name="rad/sec" Abbrev="rad/sec">
+			<Desc>Radians per second</Desc>
+		</RefUnit>
+
+
+		<!-- Used in adict resource statements only (I think). -->
+		<Unit Name="deg/sec" Abbrev="deg/sec">
+			<Desc>Degrees per second</Desc>
+			<Conversion>
+				<Factor Value="0.017453292519943295"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="angular_momentum" ConvType="Factor">
+		<Desc>Units of Angular momentum.</Desc>
+		<RefUnit Name="Nm" Abbrev="Nm">
+			<Desc>Newton-meters.</Desc>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="angle" ConvType="Factor">
+		<Desc>
+angle - Units of angular measurement.
+		</Desc>
+		<RefUnit Name="radians" Abbrev="rad">
+			<Desc>
+Radian - Unit of Angular measurement.
+			</Desc>
+		</RefUnit>
+
+
+		<Unit Name="degrees" Abbrev="deg">
+			<Desc>
+Degree - Unit of Angular measurement.
+ - One degree equals 2*pi/360 radians.
+			</Desc>
+			<Conversion>
+				<Factor Value="0.017453292519943295"/>
+			</Conversion>
+		</Unit>
+
+
+		<!-- Temporary, to satisfy the adict. -->
+		<Unit Name="deg" Abbrev="degrees">
+			<Desc>
+Degree - Unit of Angular measurement.
+ - One degree equals 2*pi/360 radians.
+			</Desc>
+			<Conversion>
+				<Factor Value="0.017453292519943295"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="mrad" Abbrev="mrad">
+			<Desc>
+Milliradians - Unit of Angular measurement.
+ - One milliradian equals 1/1000 of a radian.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+
+
+
+
+		<Unit Name="revolutions" Abbrev="rev">
+			<Desc>
+Wheel revolutions.  Each complete revolution is 360 degrees, or 2*pi radians.
+			</Desc>
+			<Conversion>
+				<Factor Value="6.28318530717959"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="abs_time" ConvType="Time">
+		<Desc>Absolute Time</Desc>
+		<RefUnit Name="ET" Abbrev="et">
+			<Desc>Ephemeris Time</Desc>
+		</RefUnit>
+
+
+		<!-- Not sure what this is supposed to be; for now, copied from UTC. -->
+		<Unit Name="seconds" Abbrev="absec">
+			<Desc>
+Since this is used only where there are alternative time types --
+SCLK, GST, or (sometimes) RLTV -- I'm assuming this is supposed to be
+SCLK when it really does represent an absolute time.  This should
+probably be renamed "SCLK" when the revised unit-changing architecture
+is in place.
+			</Desc>
+			<Conversion>
+				<Picture Value="AYYYY-DOYTHR:MN:SC ::UTC"/>
+				<NaifBody Value="EARTH"/>
+				<IsNumericSclk Value="True"/>
+			</Conversion>
+			<Presenter Name="LamePresenter" ForType="Time"/>
+		</Unit>
+
+
+		<Unit Name="SFOC Time" Abbrev="sfoctime">
+			<Desc>
+SFOC time format -- same as UTC but without the "A" prefix.  We need
+this because it's the format SEQGEN uses.
+			</Desc>
+			<Conversion>
+				<Picture Value="YYYY-DOYTHR:MN:SC ::UTC"/>
+				<NaifBody Value="EARTH"/>
+			</Conversion>
+			<IsSeqgenFormat Value="True"/>
+			<Presenter Name="UtcPresenter" ForType="uint"/>
+			<Presenter Name="AbsPresenter" ForType="Time"/>
+		</Unit>
+
+
+		<Unit Name="SCET" Abbrev="scet">
+			<Desc/>
+			<Conversion>
+				<Picture Value="YYYY-DOYTHR:MN:SC ::UTC"/>
+				<NaifBody Value="EARTH"/>
+			</Conversion>
+			<Presenter Name="UtcPresenter" ForType="uint"/>
+			<Presenter Name="AbsPresenter" ForType="Time"/>
+		</Unit>
+
+
+		<Unit Name="LMST" Abbrev="lmst" Mission="PHX">
+			<Desc/>
+			<Conversion>
+				<Picture Value="LPDDD:HR:MN:SC"/>
+				<NaifBody Value="${ROSE_PHX_NAIF_BODY}"/>
+				<NaifBody Value="PHX_LANDING_SITE"/>
+				<SpiceFurnsh Value="${rose.spice.furnsh}"/>
+				<SpiceFurnsh Value="${ROSE_LMST_FURNSH}"/>
+				<SpiceFurnsh Value="phx-kernels/rsvp/chronos.phx"/>
+				<SpiceFurnsh Value="kernels/rsvp/chronos.phx"/>
+				<SclkConversion>
+					<!-- Don't insist that input be prefixed
+					     with "LP", since we demand "/lmst"
+					     at the end anyway. -->
+					<ToSclk Rx="^(?:LP)?(\d+)T(\d+):(\d+):(\d+).*$">
+						<Literal>1/</Literal>  <Match Num="1"/>
+						<Literal>:</Literal>   <Match Num="2"/>
+						<Literal>:</Literal>   <Match Num="3"/>
+						<Literal>:</Literal>   <Match Num="4"/>
+					</ToSclk>
+					<FromSclk Rx="^1/(\d+):(\d+):(\d+):(\d+)$">
+						<Literal>LP</Literal>  <Match Num="1"/>
+						<Literal>T</Literal>   <Match Num="2"/>
+						<Literal>:</Literal>   <Match Num="3"/>
+						<Literal>:</Literal>   <Match Num="4"/>
+					</FromSclk>
+				</SclkConversion>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="LSTA" Abbrev="lsta" Mission="MER">
+			<Desc/>
+			<Conversion>
+				<Picture Value="LADDTHR:MN:SC"/>
+				<NaifBody Value="${ROSE_MERA_NAIF_BODY}"/>
+				<NaifBody Value="MER-2_LANDING_SITE"/>
+				<NaifBody Value="MER_LANDING_SITE"/>
+				<SpiceFurnsh Value="${rose.spice.furnsh}"/>
+				<SpiceFurnsh Value="${ROSE_LSTA_FURNSH}"/>
+				<SpiceFurnsh Value="/oss/mera/${RSVP_OSS_PHASE}/strategic/ref/naif/misc/chronos/chronos.mer"/>
+				<SpiceFurnsh Value="kernels/mer/mera_ep55a2.furnsh"/>
+				<RoughConversion Type="MER" Time0="1073136974000" Rate="1.02749127" Prefix="LA"/>
+				<SclkConversion>
+					<!-- Don't insist that input be prefixed
+					     with "LA", since we demand "/lsta"
+					     at the end anyway. -->
+					<ToSclk Rx="^(?:LA)?(\d+)T(\d+):(\d+):(\d+).*$">
+						<Literal>1/</Literal>  <Match Num="1"/>
+						<Literal>:</Literal>   <Match Num="2"/>
+						<Literal>:</Literal>   <Match Num="3"/>
+						<Literal>:</Literal>   <Match Num="4"/>
+					</ToSclk>
+					<FromSclk Rx="^1/(\d+):(\d+):(\d+):(\d+)$">
+						<Literal>LA</Literal>  <Match Num="1"/>
+						<Literal>T</Literal>   <Match Num="2"/>
+						<Literal>:</Literal>   <Match Num="3"/>
+						<Literal>:</Literal>   <Match Num="4"/>
+					</FromSclk>
+				</SclkConversion>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="LSTB" Abbrev="lstb" Mission="MER">
+			<Desc/>
+			<Conversion>
+				<Picture Value="LBDDTHR:MN:SC"/>
+				<NaifBody Value="${ROSE_MERB_NAIF_BODY}"/>
+				<NaifBody Value="MER-1_LANDING_SITE"/>
+				<NaifBody Value="MER_LANDING_SITE"/>
+				<SpiceFurnsh Value="${rose.spice.furnsh}"/>
+				<SpiceFurnsh Value="${ROSE_LSTB_FURNSH}"/>
+				<SpiceFurnsh Value="/oss/merb/${RSVP_OSS_PHASE}/strategic/ref/naif/misc/chronos/chronos.mer"/>
+				<SpiceFurnsh Value="kernels/mer/mera_ep55a2.furnsh"/>
+				<RoughConversion Type="MER" Time0="1074956938000" Rate="1.02749127" Prefix="LB"/>
+				<SclkConversion>
+					<!-- Don't insist that input be prefixed
+					     with "LB", since we demand "/lstb"
+					     at the end anyway. -->
+					<ToSclk Rx="^(?:LB)?(\d+)T(\d+):(\d+):(\d+).*$">
+						<Literal>1/</Literal>  <Match Num="1"/>
+						<Literal>:</Literal>   <Match Num="2"/>
+						<Literal>:</Literal>   <Match Num="3"/>
+						<Literal>:</Literal>   <Match Num="4"/>
+					</ToSclk>
+					<FromSclk Rx="^1/(\d+):(\d+):(\d+):(\d+)$">
+						<Literal>LB</Literal>  <Match Num="1"/>
+						<Literal>T</Literal>   <Match Num="2"/>
+						<Literal>:</Literal>   <Match Num="3"/>
+						<Literal>:</Literal>   <Match Num="4"/>
+					</FromSclk>
+				</SclkConversion>
+			</Conversion>
+		</Unit>
+
+
+<!--
+		<Unit Name="LSET" Abbrev="lset">
+			<Desc>
+LSET - Landing Site Epoch Time
+ - Allows sequence developer to specify time of next command with
+   respect to the [MER] Local Solar Time(LST).  Times are expressed in
+   terms of mean solar time units. 
+ - Should be formatted as:
+   E{sol}T{Mars hour}:{Mars minute}:{Mars second}
+ - Referred to by Boris Semenov as Approximated Local Solar Time, with
+   respect to SPICELIB.  Hopefully, this naming will be consolidated later.
+			</Desc>
+			<Conversion>
+				<Picture Value="DD:HR:MN:SC"/>
+				<NaifBody Value="MER_LANDING_SITE"/>
+				<SclkConversion>
+					<ToSclk Rx="^E(\d+)T(\d+):(\d+):(\d+).*$">
+						<Literal>1/</Literal>  <Match Num="1"/>
+						<Literal>:</Literal>   <Match Num="2"/>
+						<Literal>:</Literal>   <Match Num="3"/>
+						<Literal>:</Literal>   <Match Num="4"/>
+					</ToSclk>
+					<FromSclk Rx="^1/(\d+):(\d+):(\d+):(\d+)$">
+						<Literal>E</Literal>   <Match Num="1"/>
+						<Literal>T</Literal>   <Match Num="2"/>
+						<Literal>:</Literal>   <Match Num="3"/>
+						<Literal>:</Literal>   <Match Num="4"/>
+					</FromSclk>
+				</SclkConversion>
+			</Conversion>
+		</Unit>
+-->
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="gst" ConvType="Time">
+		<Desc/>
+		<RefUnit Name="seconds" Abbrev="gst">
+			<Desc/>
+			<Presenter Name="GstPresenter" ForType="uint"/>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="length" ConvType="Factor">
+		<Desc>
+Units of Length or distance measurement.
+ - Reference unit is meters.
+		</Desc>
+		<RefUnit Name="m" Abbrev="m">
+			<Desc>
+Meter - Unit of Length.
+ - The meter is the length of the path travelled by light in a vacuum
+   during a time interval of 1/299,792,458 of a second.
+ - Re: http://physics.nist.gov/cuu/Units/meter.html
+			</Desc>
+		</RefUnit>
+
+
+		<Unit Name="mm" Abbrev="mm">
+			<Desc>
+Millimeter - Unit of Length.
+One millimeter equals 1/1000 meters.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="cm" Abbrev="cm">
+			<Desc>
+Centimeter - Unit of Length.
+One centimeter equals 1/100 meters.
+			</Desc>
+			<Conversion>
+				<Factor Value="100.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="km" Abbrev="km">
+			<Desc>
+Kilometer - Unit of length.
+One kilometer equals 1000 meters.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000.0"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="area" ConvType="Factor">
+		<Desc/>
+		<RefUnit Name="m2" Abbrev="area">
+			<Desc/>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="torque" ConvType="Factor">
+		<Desc/>
+		<RefUnit Name="mN*m" Abbrev="mN*m">
+			<Desc/>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="frequency" ConvType="Factor">
+		<Desc/>
+		<RefUnit Name="Hz" Abbrev="hz">
+			<Desc/>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="acceleration" ConvType="Factor">
+		<Desc/>
+		<RefUnit Name="m/sec2" Abbrev="m/sec2">
+			<Desc/>
+		</RefUnit>
+
+
+		<Unit Name="g" Abbrev="grav">
+			<Desc>Acceleration due to gravity.</Desc>
+			<Conversion>
+				<Factor Value="9.80665"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="current" ConvType="Factor">
+		<Desc>Units of current.</Desc>
+		<RefUnit Name="amps" Abbrev="amps">
+			<Desc>
+- TODO Fix me
+			</Desc>
+		</RefUnit>
+
+
+		<!-- This is safe; I had the mamps already when I was a kid. -->
+		<Unit Name="milliamps" Abbrev="mamps">
+			<Desc>
+Milliamps -- a unit of current.
+One milliamp equals 1/1000 amps.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="velocity" ConvType="Factor">
+		<Desc/>
+		<RefUnit Name="mm/sec" Abbrev="mm/sec">
+			<Desc/>
+		</RefUnit>
+
+
+		<Unit Name="m/s" Abbrev="m/s">
+			<Desc/>
+			<Conversion>
+				<Factor Value="1000.0"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="temp" ConvType="Factor">
+		<Desc>Units of Thermodynamic Temperature.</Desc>
+		<RefUnit Name="degrees K" Abbrev="K">
+			<Desc>
+Kelvins - unit of thermodynamic temperature.
+ - The kelvin is the fraction 1/273.16 of the thermodynamic temperature
+   of the triple point of water.
+ - Re: http://physics.nist.gov/cuu/Units/current.html
+			</Desc>
+		</RefUnit>
+
+
+		<Unit Name="degrees C" Abbrev="C">
+			<Desc>Degrees Celsius.</Desc>
+			<Conversion>
+				<Factor Value="1.0"/>
+				<Offset Value="273.16"/>  <!-- Add this to get K. -->
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="degrees F" Abbrev="F">
+			<Desc>Degrees Fahrenheit.</Desc>
+			<Conversion>
+<!--
+	C = 5/9 * (F - 32)
+	K = C + 273.16
+	  = 5/9 * (F - 32) + 273.16
+	  = 5/9 * F - 5/9 * 32 + 273.16
+	 ~= 5/9 * F + 255.38222222222225
+-->
+				<Factor Value="0.5555555555555556"/>  <!-- 5/9. -->
+				<Offset Value="255.38222222222225"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="storage" ConvType="Factor">
+		<Desc/>
+		<RefUnit Name="bytes" Abbrev="bytes">
+			<Desc/>
+		</RefUnit>
+
+
+		<Unit Name="kilobytes" Abbrev="kb">
+			<Conversion>
+				<Factor Value="1024.0"/>
+			</Conversion>
+		</Unit>
+
+
+		<Unit Name="megabytes" Abbrev="mb">
+			<Conversion>
+				<Factor Value="1048576.0"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="potential">
+		<Desc>Units of Potential measurement.</Desc>
+		<RefUnit Name="V" Abbrev="V">
+			<Desc>
+Volt - Unit of Electric Potential difference.
+ - Electromotive force.
+ - watts per ampere  (W/A)
+			</Desc>
+		</RefUnit>
+
+		<Unit Name="millivolts" Abbrev="millivolts">
+			<Desc>
+One millivolt equals 1/1000 Volts.
+			</Desc>
+			<Conversion>
+				<Factor Value="1000.0" Invert="True"/>
+			</Conversion>
+		</Unit>
+	</UnitCategory>
+
+
+
+
+<!-- ================================================================
+
+  The rest of these are single-unit categories.  Boring ...
+
+  ================================================================ -->
+
+
+
+
+	<UnitCategory Name="inertia">
+		<Desc>Units of Inertial measurement.</Desc>
+		<RefUnit Name="kgm2" Abbrev="kgm2">
+			<Desc/>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="resistance">
+		<Desc>Units of resistance.</Desc>
+		<RefUnit Name="ohms" Abbrev="ohms">
+			<Desc>
+- TODO Fix me
+			</Desc>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="pressure">
+		<Desc/>
+		<RefUnit Name="n/m2" Abbrev="Pa">
+			<Desc>
+Newtons per square meter.
+ - Can also be expressed in SI base units { nm*kg/s^2 }
+ - Can be referred as Pascals (Pa)
+			</Desc>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="force">
+		<Desc>Units of Force measurement.</Desc>
+		<RefUnit Name="Newtons" Abbrev="N">
+			<Desc>Newton - Unit of Force.</Desc>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="cpu_interval">
+		<Desc>Units of CPU interval measurement.</Desc>
+		<RefUnit Name="RTIs" Abbrev="rti">
+			<Desc>RTI</Desc>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<UnitCategory Name="stiffness">
+		<Desc/>
+		<RefUnit Name="N-m/radian" Abbrev="N-m/radian">
+			<Desc/>
+		</RefUnit>
+	</UnitCategory>
+
+
+
+
+	<SoloUnitCategory Name="1/rev" Abbrev="1/rev">
+		<Desc>
+Turn Gain -- Frequency???
+ - Found in SET_ACS_CTL_PRMS : tgain
+ - "Turn rate = Turn Gain * angular -H error.  For H vector control."
+ - Found in SET_ACS_CTL_PRMS : cngain
+ - "Sun cone control gain for small errors.  Cone error eliminated in 1
+    rev."
+ - Found in SET_ACS_CTL_PRMS : clkgan
+ - "Sunline clock control gain for small errors. Clock error eliminated
+    in 1 rev."
+		</Desc>
+	</SoloUnitCategory>
+
+
+
+
+	<SoloUnitCategory Name="magnitude" Abbrev="mag">
+		<Desc>Unit of magnitude measurement.</Desc>
+	</SoloUnitCategory>
+
+
+
+
+	<SoloUnitCategory Name="errors" Abbrev="unknownErrors">
+		<Desc>Found in SDST_ECHO_THRESH</Desc>
+	</SoloUnitCategory>
+
+
+
+
+	<SoloUnitCategory Name="packets" Abbrev="packets"/>
+
+
+
+
+	<SoloUnitCategory Name="percent" Abbrev="%"/>
+
+
+
+
+	<SoloUnitCategory Name="entries" Abbrev="entries"/>
+
+
+
+
+	<SoloUnitCategory Name="DN" Abbrev="DN"/>
+
+
+
+
+	<SoloUnitCategory Name="count" Abbrev="count"/>
+
+
+
+
+	<!--  It's in "duration" now, but not all of the cdict has caught up.  -->
+	<SoloUnitCategory Name="revs" Abbrev="revs"/>
+
+
+
+
+	<SoloUnitCategory Name="kg2m4" Abbrev="kg2m4"/>
+
+
+
+
+	<SoloUnitCategory Name="log(millivolts/instr mag.)" Abbrev="log(mV/instr.mag.)"/>
+
+
+
+
+	<SoloUnitCategory Name="log(millivolts)" Abbrev="log(millivolts)"/>
+
+
+
+
+	<SoloUnitCategory Name="kg2m4/sec" Abbrev="kg2m4/sec"/>
+
+
+
+
+	<SoloUnitCategory Name="rad2" Abbrev="rad2"/>
+
+
+
+
+	<SoloUnitCategory Name="rad2/sec" Abbrev="rad2/sec"/>
+
+
+
+
+	<SoloUnitCategory Name="rad/sec2" Abbrev="rad/sec2"/>
+
+
+
+
+	<SoloUnitCategory Name="rad2/sec2" Abbrev="rad2/sec2"/>
+
+
+
+
+	<SoloUnitCategory Name="sec2/radians" Abbrev="sec2/rad"/>
+
+
+
+
+	<SoloUnitCategory Name="sec2/rad2" Abbrev="sec2/rad2"/>
+
+
+
+
+	<SoloUnitCategory Name="sec2/rad3" Abbrev="sec2/rad3"/>
+
+
+
+
+	<SoloUnitCategory Name="rad2/sec3" Abbrev="rad2/sec3"/>
+
+
+
+
+	<SoloUnitCategory Name="samples" Abbrev="samples"/>
+
+
+
+
+	<SoloUnitCategory Name="states" Abbrev="states"/>
+
+
+
+
+	<SoloUnitCategory Name="in2" Abbrev="in2"/>
+
+
+
+
+	<SoloUnitCategory Name="cts/in" Abbrev="cts/in"/>
+
+
+
+
+	<SoloUnitCategory Name="RTIs" Abbrev="RTIs"/>
+
+
+
+
+	<SoloUnitCategory Name="steps" Abbrev="steps"/>
+
+
+
+
+	<SoloUnitCategory Name="A-hrs" Abbrev="A-hrs"/>
+
+
+
+
+	<SoloUnitCategory Name="A-hrs2" Abbrev="A-hrs2"/>
+
+
+
+
+	<SoloUnitCategory Name="A-hrs3" Abbrev="A-hrs3"/>
+
+
+
+
+	<SoloUnitCategory Name="V/rad" Abbrev="V/rad"/>
+
+
+
+
+	<SoloUnitCategory Name="V/rad/sec" Abbrev="V/rad/sec"/>
+
+
+
+
+	<SoloUnitCategory Name="V/rad*sec" Abbrev="V/rad*sec"/>
+
+
+
+
+	<SoloUnitCategory Name="V/rpm" Abbrev="V/rpm"/>
+
+
+
+
+	<SoloUnitCategory Name="rad/V" Abbrev="rad/V"/>
+
+
+
+
+	<!-- I'd like a better abbreviation for this one. -->
+	<SoloUnitCategory Name="increments of 5.1 ms" Abbrev="incs"/>
+
+
+
+
+	<!-- Yay, they came up with a name for "increments of 5.1 ms" at last! -->
+	<SoloUnitCategory Name="counts" Abbrev="counts"/>
+
+
+
+
+	<SoloUnitCategory Name="rows/pixel" Abbrev="rows/pixel"/>
+
+
+
+
+	<SoloUnitCategory Name="cols/pixel" Abbrev="cols/pixel"/>
+
+
+
+
+	<SoloUnitCategory Name="bits/pixel" Abbrev="bits/pixel"/>
+
+
+
+
+	<SoloUnitCategory Name="stages" Abbrev="stages"/>
+
+
+
+
+	<SoloUnitCategory Name="segments" Abbrev="segments"/>
+
+
+
+
+	<SoloUnitCategory Name="flushes" Abbrev="flushes"/>
+
+
+
+
+	<SoloUnitCategory Name="rows" Abbrev="rows"/>
+
+
+
+
+	<SoloUnitCategory Name="columns" Abbrev="cols"/>
+
+
+
+
+	<SoloUnitCategory Name="pixels" Abbrev="pixels"/>
+
+
+
+
+	<SoloUnitCategory Name="rad/(sec*mN*m)" Abbrev="rad/(sec*mN*m)"/>
+
+
+
+
+	<SoloUnitCategory Name="rad/(mN*m)" Abbrev="rad/(mN*m)"/>
+
+
+
+
+	<SoloUnitCategory Name="mN*m/mA" Abbrev="mN*m/mA"/>
+
+
+
+
+	<SoloUnitCategory Name="sec^3/m" Abbrev="sec3/m"/>
+
+
+
+
+	<SoloUnitCategory Name="dn" Abbrev="dn"/>
+
+
+
+
+	<SoloUnitCategory Name="icks" Abbrev="icks"/>
+
+
+
+
+	<SoloUnitCategory Name="rad*sec/(mN*m)" Abbrev="rad*sec/(mN*m)"/>
+
+
+
+
+	<SoloUnitCategory Name="radians/rev" Abbrev="radians/rev"/>
+
+
+
+
+	<SoloUnitCategory Name="Amp-hrs" Abbrev="Amp-hrs"/>
+
+
+
+
+	<SoloUnitCategory Name="Amp-hrs/sec" Abbrev="Amp-hrs/sec"/>
+
+
+
+
+	<SoloUnitCategory Name="DN/pixel" Abbrev="DN/pixel"/>
+
+
+
+
+	<SoloUnitCategory Name="sec/g" Abbrev="sec/g"/>
+
+
+
+
+	<SoloUnitCategory Name="sec/g2" Abbrev="sec/g2"/>
+
+
+
+
+	<SoloUnitCategory Name="sec/g3" Abbrev="sec/g3"/>
+
+
+
+
+	<SoloUnitCategory Name="arcs" Abbrev="arcs"/>
+
+
+
+
+	<SoloUnitCategory Name="cells" Abbrev="cells"/>
+
+
+
+
+	<SoloUnitCategory Name="records" Abbrev="records"/>
+
+
+
+
+	<SoloUnitCategory Name="cycles" Abbrev="cycles"/>
+
+
+
+
+	<SoloUnitCategory Name="D/A counts" Abbrev="dacounts"/>
+
+
+
+
+	<SoloUnitCategory Name="SCLK" Abbrev="sclk"/>
+
+
+
+
+	<SoloUnitCategory Name="Nm/amp" Abbrev="nm/amp"/>
+
+
+
+
+	<SoloUnitCategory Name="Nm/rad/sec" Abbrev="nm/rad/sec"/>
+
+
+
+
+	<SoloUnitCategory Name="(J/(g*C))*g" Abbrev="J/C"/>
+
+
+
+
+	<SoloUnitCategory Name="amps/degC" Abbrev="amps/degC"/>
+
+
+
+
+	<SoloUnitCategory Name="amps/degC2" Abbrev="amps/degC2"/>
+
+
+
+
+	<SoloUnitCategory Name="amps/degC4" Abbrev="amps/degC4"/>
+
+
+
+
+	<SoloUnitCategory Name="amps/Nm" Abbrev="amps/Nm"/>
+
+
+
+
+	<SoloUnitCategory Name="amps/Nm/degC" Abbrev="amps/Nm/degC"/>
+
+
+
+
+	<SoloUnitCategory Name="amps/Nm/degC2" Abbrev="amps/Nm/degC2"/>
+
+
+
+
+	<SoloUnitCategory Name="amps/Nm/degC4" Abbrev="amps/Nm/degC4"/>
+
+
+
+
+	<SoloUnitCategory Name="images" Abbrev="images"/>
+
+
+
+
+	<SoloUnitCategory Name="datasets" Abbrev="datasets"/>
+
+
+
+
+	<SoloUnitCategory Name="degC/W" Abbrev="degC/W"/>
+
+
+
+
+	<SoloUnitCategory Name="instances" Abbrev="instances"/>
+
+
+
+
+	<SoloUnitCategory Name="range points" Abbrev="range_points"/>
+
+
+
+
+	<!-- Not the same thing as "bytes". -->
+	<SoloUnitCategory Name="byte" Abbrev="byte"/>
+
+
+
+
+	<SoloUnitCategory Name="words (1 &lt;&lt; grain_size bytes)" Abbrev="pad_words2"/>
+
+
+
+
+	<SoloUnitCategory Name="paths" Abbrev="paths"/>
+
+
+
+
+	<!-- At least one of these is going away. -->
+	<SoloUnitCategory Name="Fraction" Abbrev="Fraction"/>
+
+
+
+
+	<SoloUnitCategory Name="delta curvature (1/radians)" Abbrev="delta_curvature"/>
+
+
+
+
+	<SoloUnitCategory Name="delta radians" Abbrev="delta_radians"/>
+
+
+
+
+	<SoloUnitCategory Name="1/256 pixel" Abbrev="1/256_pixel"/>
+
+
+
+
+	<SoloUnitCategory Name="Fraction of Sigma" Abbrev="Fraction_of_Sigma"/>
+
+
+
+
+	<SoloUnitCategory Name="image columns" Abbrev="image_columns"/>
+
+
+
+
+	<SoloUnitCategory Name="image rows" Abbrev="image_rows"/>
+
+
+
+
+	<!-- The former is used only in older cdicts; it could be removed. -->
+	<SoloUnitCategory Name="image column number" Abbrev="image_column_number"/>
+	<SoloUnitCategory Name="image col number" Abbrev="image_col_number"/>
+
+
+
+
+	<SoloUnitCategory Name="image row number" Abbrev="image_row_number"/>
+
+
+
+
+	<SoloUnitCategory Name="image cols" Abbrev="image_cols"/>
+
+
+
+
+	<SoloUnitCategory Name="normalized correlation score" Abbrev="norm_correl_score"/>
+
+
+
+
+	<SoloUnitCategory Name="image pairs" Abbrev="image_pairs"/>
+
+
+
+
+	<SoloUnitCategory Name="covariance" Abbrev="covariance"/>
+
+
+
+
+	<SoloUnitCategory Name="iterations" Abbrev="iterations"/>
+
+
+
+
+	<SoloUnitCategory Name="features" Abbrev="features"/>
+
+
+
+
+	<SoloUnitCategory Name="pyramid" Abbrev="pyramid"/>
+
+
+
+
+	<SoloUnitCategory Name="patches that use a cell as max elevation" Abbrev="cell_patches"/>
+
+
+
+
+	<SoloUnitCategory Name="curvature (1/radians)" Abbrev="curvature"/>
+
+
+
+
+	<SoloUnitCategory Name="g/sec" Abbrev="g/sec"/>
+
+
+
+
+	<!-- PHX: One millionth of a meter, so it could go in "length."  But that's not useful, in practice. -->
+	<SoloUnitCategory Name="microns" Abbrev="microns"/>
+
+
+
+
+	<!-- PHX. -->
+	<SoloUnitCategory Name="steps/second" Abbrev="steps/second"/>
+
+
+
+
+	<!-- MER, c9_2. -->
+	<SoloUnitCategory Name="standard_deviations" Abbrev="stddev"/>
+	<SoloUnitCategory Name="slot"		     Abbrev="slot"/>
+	<SoloUnitCategory Name="slots"		     Abbrev="slots"/>
+	<SoloUnitCategory Name="levels"		     Abbrev="levels"/>
+	<SoloUnitCategory Name="buffers"	     Abbrev="buffers"/>
+	<SoloUnitCategory Name="failures"	     Abbrev="failures"/>
+	<SoloUnitCategory Name="megabits"	     Abbrev="megabits"/>
+
+
+
+
+	<!-- PHX, 3.0-FINAL. -->
+	<SoloUnitCategory Name="dfc"         Abbrev="dfc"         Mission="PHX"/>
+	<SoloUnitCategory Name="Pa/K"        Abbrev="Pa/K"        Mission="PHX"/>
+	<SoloUnitCategory Name="inverseK"    Abbrev="inverseK"    Mission="PHX"/>
+	<SoloUnitCategory Name="parameters"  Abbrev="parameters"  Mission="PHX"/>
+
+
+
+	<!--
+	For the adict.  As far as I can tell, these are used only in
+	resource statements, which RoSE doesn't use, so these are here
+	just to silence some warnings from RoSE.  Otherwise, bits and
+	words should probably be moved into the "storage" category.
+	-->
+	<SoloUnitCategory Name="watts" Abbrev="watts"/>
+	<SoloUnitCategory Name="bits" Abbrev="bits"/>
+	<SoloUnitCategory Name="words" Abbrev="words"/>
+	<SoloUnitCategory Name="points" Abbrev="points"/>
+</UnitCategories>

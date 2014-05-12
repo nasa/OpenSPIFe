@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<HTML>
+ <HEAD>
+  <TITLE>As-Flown ISS Attitude Timeline (ATL)</TITLE>
+  <META content="text/html; charset=UTF-8" http-equiv="content-type">
+  <STYLE class>
+.received-status {font-weight: bold; font-style: italic; color: #404040}
+.sent-status {font-weight: bold; font-style: italic; color: blue}
+.approved-status {color: black}
+TABLE.main TD,
+TABLE.main TH
+ {border: 1pt solid rgb(169,169,169); border-collapse:collapse}
+TABLE.subheadings, TR.style-legend {} TD
+TR.event {font-weight: bold}
+TR.current {font-weight: bold}
+TD, TH {padding: 3pt}
+
+H1 {text-align: center}
+P {text-align:center; margin:0px;}
+TH {text-align: center}
+TD.number	{text-align:center; width:3%}
+TD.start-end {text-align:center; width:8%}
+TD.sband {text-align:center; width:5%}
+TD.beta-angle {text-align:center; width:5%}
+TD.attitude-name {text-align:center; width:12%}
+TD.ref-frame {text-align:center; width:8%}
+TD.yaw-pitch-roll {text-align:right; width:8%}
+TD.from-to-config {text-align:center; width:5%}
+TD.event-name-in-atl {text-align:left; width:20%}
+TD.remarks {text-align:left; width:20%}
+
+</STYLE>
+ </HEAD>
+ <BODY>
+  <H1 class>As-Flown ISS Attitude Timeline (ATL)</H1>
+  <DIV>
+   <P>
+    <A class
+     href="https://viperweb.jsc.nasa.gov/team_viper/web/DEWGTable.shtml">Dynamic
+     Events Working Group (DEWG) Table</A></P>
+  </DIV>
+  <TABLE class="subheadings" width="100%">
+   <TR>
+    <TD><SPAN class>Last Updated: </SPAN>
+     <SPAN class="date" title="2004-01-02T12:34:56Z">GMT 002/12:34</SPAN>
+    </TD><TD align="right" class="user">ADCO: JUnit test</TD></TR>
+  </TABLE>
+  <TABLE class="main">
+   <TR class="style-legend">
+    <TD class><TD colspan="9"><DIV>
+       <P>
+        <SPAN class>Items in </SPAN>
+        <SPAN class="received-status">Bold Italic</SPAN>
+        <SPAN class> have not been approved by both MCC-H and MCC-M.</SPAN>
+        <BR>
+        <SPAN class>Items in </SPAN>
+        <SPAN class="sent-status">Blue Bold Italic</SPAN>
+        <SPAN class> are best guesses made by MCC-H.</SPAN>
+       </P>
+      </DIV>
+     </TD></TD></TR>
+   <TR class="column-headings">
+    <TH class>#</TH>
+    <TH class>Maneuver Start-Stop GMT</TH>
+    <TH class>S-Band?</TH>
+    <TH class>Beta Angle</TH>
+    <TH class>Attitude Name</TH>
+    <TH class>Ref. Frame</TH>
+    <TH class>YPR</TH>
+    <TH class>F/T Cfg.</TH>
+    <TH class>Event</TH>
+    <TH class>Remarks</TH>
+   </TR>
+   <TR class="event">
+    <TD class="description" colspan="9">Disable Thrusters before EVA 24
+      (H10_008_A_02.UAF)</TD><TD><SPAN class="date" title="2010-01-08T08:10:00Z">01/08/2010</SPAN>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">1</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-08T10:00:00Z">008/10:00</SPAN>
+       <BR>
+       <SPAN class="date" title="2010-01-08T11:40:00Z">008/11:40</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+42</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+ZVV</SPAN>
+       <BR>
+       <SPAN class>-XLV</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">LVLH</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+0.000</SPAN>
+       <BR>
+       <SPAN>+356.700</SPAN>
+       <BR>
+       <SPAN>+0.400</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>MMT</SPAN>
+       <BR>
+       <SPAN class>MMC</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments">Test remark.</SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">2</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-08T11:40:00Z">008/11:40</SPAN>
+       <BR>
+       <SPAN class="date">&mdash;</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>-17</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>-XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">LVLH</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+0.000</SPAN>
+       <BR>
+       <SPAN>+356.700</SPAN>
+       <BR>
+       <SPAN>+0.400</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>MMC</SPAN>
+       <BR>
+       <SPAN class>MMT</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments">Unremarkable remark</SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="event">
+    <TD class="description" colspan="9">20S Relocation
+      (H10_021_A_02.UAF)</TD><TD><SPAN class="date" title="2010-01-21T04:20:00Z">01/21/2010</SPAN>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">3</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-21T09:10:00Z">021/09:10</SPAN>
+       <BR>
+       <SPAN class="date">&mdash;</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+0</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+       <BR>
+       <SPAN class>TEA</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">LVLH</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+0.000</SPAN>
+       <BR>
+       <SPAN>+356.700</SPAN>
+       <BR>
+       <SPAN>+0.400</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>MMT</SPAN>
+       <BR>
+       <SPAN class>THR</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments"></SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">4</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-21T09:30:00Z">021/09:30</SPAN>
+       <BR>
+       <SPAN class="date" title="2010-01-21T09:46:00Z">021/09:46</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+0</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+       <BR>
+       <SPAN class>TEA</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">LVLH</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+0.000</SPAN>
+       <BR>
+       <SPAN>+90.000</SPAN>
+       <BR>
+       <SPAN>+0.000</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>THR</SPAN>
+       <BR>
+       <SPAN class>THR</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments"></SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">5</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-21T10:00:00Z">021/10:00</SPAN>
+       <BR>
+       <SPAN class="date" title="2010-01-21T10:09:00Z">021/10:09</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+0</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+       <BR>
+       <SPAN class>TEA</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">LVLH</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+0.000</SPAN>
+       <BR>
+       <SPAN>+90.000</SPAN>
+       <BR>
+       <SPAN>+0.000</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>THR</SPAN>
+       <BR>
+       <SPAN class>FDO</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments"></SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">6</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-21T10:09:00Z">021/10:09</SPAN>
+       <BR>
+       <SPAN class="date" title="2010-01-21T10:14:00Z">021/10:14</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+0</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+       <BR>
+       <SPAN class>TEA</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">LVLH</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+0.000</SPAN>
+       <BR>
+       <SPAN>+90.000</SPAN>
+       <BR>
+       <SPAN>+0.000</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>THR</SPAN>
+       <BR>
+       <SPAN class>THR</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments"></SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">7</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-21T10:26:00Z">021/10:26</SPAN>
+       <BR>
+       <SPAN class="date" title="2010-01-21T10:46:00Z">021/10:46</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+0</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+       <BR>
+       <SPAN class>TEA</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">INRT</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+317.858</SPAN>
+       <BR>
+       <SPAN>+314.599</SPAN>
+       <BR>
+       <SPAN>+297.733</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>THR</SPAN>
+       <BR>
+       <SPAN class>FDO</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments"></SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">8</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-21T10:46:00Z">021/10:46</SPAN>
+       <BR>
+       <SPAN class="date" title="2010-01-21T11:16:00Z">021/11:16</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+0</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+       <BR>
+       <SPAN class>TEA</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">LVLH</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+0.000</SPAN>
+       <BR>
+       <SPAN>+356.700</SPAN>
+       <BR>
+       <SPAN>+0.400</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>THR</SPAN>
+       <BR>
+       <SPAN class>THR</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments"></SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">9</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-21T11:40:00Z">021/11:40</SPAN>
+       <BR>
+       <SPAN class="date">&mdash;</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+0</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+       <BR>
+       <SPAN class>TEA</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">LVLH</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+0.000</SPAN>
+       <BR>
+       <SPAN>+356.700</SPAN>
+       <BR>
+       <SPAN>+0.400</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>THR</SPAN>
+       <BR>
+       <SPAN class>MMT</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments"></SPAN>
+     </DIV>
+    </TD></TR>
+   <TR class="ACR">
+    <TD class="number"><DIV class="received-status">10</DIV>
+    </TD><TD class="start-end"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class="date" title="2010-01-21T10:20:00Z">021/10:20</SPAN>
+       <BR>
+       <SPAN class="date">&mdash;</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="sband"><DIV class="received-status">Y</DIV>
+    </TD><TD class="beta-angle"><DIV class="received-status">
+      <SPAN>+0</SPAN>
+     </DIV>
+    </TD><TD class="attitude-name"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>+XVV</SPAN>
+       <BR>
+       <SPAN class>+ZLV</SPAN>
+       <BR>
+       <SPAN class>TEA</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="ref-frame"><DIV class="received-status">INRT</DIV>
+    </TD><TD class="yaw-pitch-roll"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN>+317.858</SPAN>
+       <BR>
+       <SPAN>+314.599</SPAN>
+       <BR>
+       <SPAN>+297.733</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="from-to-config"><DIV class="received-status">
+      <DIV style="white-space:nowrap">
+       <SPAN class>THR</SPAN>
+       <BR>
+       <SPAN class>THR</SPAN>
+      </DIV>
+     </DIV>
+    </TD><TD class="event-name-in-atl"><DIV class="received-status"></DIV>
+    </TD><TD class="remarks"><DIV class="received-status">
+      <SPAN class="comments">This is the final handover (last ACR) in
+       the last as-flown event in this test case.</SPAN>
+     </DIV>
+    </TD></TR>
+  </TABLE>
+  <DIV class="footer">
+   <SPAN class>This page maintained by: </SPAN>
+   <A class href="mailto:junit@ensemble.gov">ADCO</A>
+  </DIV>
+ </BODY>
+</HTML>

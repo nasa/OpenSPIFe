@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.emf/src"
+    editDirectory="/gov.nasa.ensemble.emf/src" editorDirectory="/gov.nasa.ensemble.emf/src"
+    modelPluginID="gov.nasa.ensemble.emf" modelName="Patch" editPluginClass="gov.nasa.ensemble.emf.patch.provider.PatchEditPlugin"
+    editorPluginClass="gov.nasa.ensemble.emf.patch.presentation.PatchEditorPlugin"
+    testsDirectory="/gov.nasa.ensemble.emf/src" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <foreignModel>Patch.ecore</foreignModel>
+  <genPackages prefix="Patch" basePackage="gov.nasa.ensemble.emf.model" disposableProviderFactory="true"
+      ecorePackage="Patch.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Patch.ecore#//ChangeType">
+      <genEnumLiterals ecoreEnumLiteral="Patch.ecore#//ChangeType/ADD"/>
+      <genEnumLiterals ecoreEnumLiteral="Patch.ecore#//ChangeType/REMOVE"/>
+    </genEnums>
+    <genClasses ecoreClass="Patch.ecore#//Patch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//Patch/reversed"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Patch.ecore#//Patch/objectChanges"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Patch.ecore#//Patch/resourceChanges"/>
+      <genOperations ecoreOperation="Patch.ecore#//Patch/apply"/>
+      <genOperations ecoreOperation="Patch.ecore#//Patch/applyAndReverse"/>
+      <genOperations ecoreOperation="Patch.ecore#//Patch/getFeatureChange">
+        <genParameters ecoreParameter="Patch.ecore#//Patch/getFeatureChange/target"/>
+        <genParameters ecoreParameter="Patch.ecore#//Patch/getFeatureChange/feature"/>
+      </genOperations>
+      <genOperations ecoreOperation="Patch.ecore#//Patch/getResourceChange">
+        <genParameters ecoreParameter="Patch.ecore#//Patch/getResourceChange/resource"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Patch.ecore#//PatchFeatureChange">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchFeatureChange/applied"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Patch.ecore#//PatchFeatureChange/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchFeatureChange/value"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchFeatureChange/valueString"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchFeatureChange/oldValueString"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Patch.ecore#//PatchFeatureChange/listChanges"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchFeatureChange/displayMessage"/>
+      <genOperations ecoreOperation="Patch.ecore#//PatchFeatureChange/apply">
+        <genParameters ecoreParameter="Patch.ecore#//PatchFeatureChange/apply/target"/>
+      </genOperations>
+      <genOperations ecoreOperation="Patch.ecore#//PatchFeatureChange/applyAndReverse">
+        <genParameters ecoreParameter="Patch.ecore#//PatchFeatureChange/applyAndReverse/target"/>
+      </genOperations>
+      <genOperations ecoreOperation="Patch.ecore#//PatchFeatureChange/getObjectAsString">
+        <genParameters ecoreParameter="Patch.ecore#//PatchFeatureChange/getObjectAsString/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="Patch.ecore#//PatchFeatureChange/setOldValue">
+        <genParameters ecoreParameter="Patch.ecore#//PatchFeatureChange/setOldValue/oldValue"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Patch.ecore#//PatchListChange">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchListChange/applied"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchListChange/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchListChange/index"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Patch.ecore#//PatchListChange/containedObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Patch.ecore#//PatchListChange/nonContainedObject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchListChange/valueString"/>
+      <genOperations ecoreOperation="Patch.ecore#//PatchListChange/apply">
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/apply/target"/>
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/apply/feature"/>
+      </genOperations>
+      <genOperations ecoreOperation="Patch.ecore#//PatchListChange/applyAndReverse">
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/applyAndReverse/target"/>
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/applyAndReverse/feature"/>
+      </genOperations>
+      <genOperations ecoreOperation="Patch.ecore#//PatchListChange/setObject">
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/setObject/feature"/>
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/setObject/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="Patch.ecore#//PatchListChange/getObject">
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/getObject/target"/>
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/getObject/feature"/>
+      </genOperations>
+      <genOperations ecoreOperation="Patch.ecore#//PatchListChange/apply.1">
+        <genParameters ecoreParameter="Patch.ecore#//PatchListChange/apply.1/resource"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Patch.ecore#//EObjectToFeatureChangesMap">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Patch.ecore#//EObjectToFeatureChangesMap/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Patch.ecore#//EObjectToFeatureChangesMap/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Patch.ecore#//PatchResourceChange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchResourceChange/resource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Patch.ecore#//PatchResourceChange/resourceURI"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Patch.ecore#//PatchResourceChange/listChanges"/>
+      <genOperations ecoreOperation="Patch.ecore#//PatchResourceChange/apply">
+        <genParameters ecoreParameter="Patch.ecore#//PatchResourceChange/apply/resource"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

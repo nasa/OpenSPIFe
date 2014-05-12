@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.core.jscience/src"
+    editDirectory="/gov.nasa.ensemble.core.jscience/src" editorDirectory="/gov.nasa.ensemble.core.jscience.ui/src"
+    modelPluginID="gov.nasa.ensemble.core.jscience" modelName="JScience" editPluginClass="gov.nasa.ensemble.core.jscience.provider.JScienceEditPlugin"
+    editorPluginClass="gov.nasa.ensemble.core.jscience.ui.presentation.JScienceEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="gov.nasa.ensemble.core.jscience"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <foreignModel>JScience.ecore</foreignModel>
+  <genPackages prefix="JScience" basePackage="gov.nasa.ensemble.core" disposableProviderFactory="true"
+      ecorePackage="JScience.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="JScience.ecore#//ComputingState">
+      <genEnumLiterals ecoreEnumLiteral="JScience.ecore#//ComputingState/Computing"/>
+      <genEnumLiterals ecoreEnumLiteral="JScience.ecore#//ComputingState/Complete"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="JScience.ecore#//INTERPOLATION">
+      <genEnumLiterals ecoreEnumLiteral="JScience.ecore#//INTERPOLATION/LINEAR"/>
+      <genEnumLiterals ecoreEnumLiteral="JScience.ecore#//INTERPOLATION/STEP"/>
+      <genEnumLiterals ecoreEnumLiteral="JScience.ecore#//INTERPOLATION/INSTANTANEOUS"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="JScience.ecore#//EAmount"/>
+    <genDataTypes ecoreDataType="JScience.ecore#//EAmountExtent"/>
+    <genDataTypes ecoreDataType="JScience.ecore#//EAngle"/>
+    <genDataTypes ecoreDataType="JScience.ecore#//EComputableAmount"/>
+    <genDataTypes ecoreDataType="JScience.ecore#//EDataPoint">
+      <genTypeParameters ecoreTypeParameter="JScience.ecore#//EDataPoint/T"/>
+    </genDataTypes>
+    <genDataTypes ecoreDataType="JScience.ecore#//EDuration"/>
+    <genDataTypes ecoreDataType="JScience.ecore#//EUnit"/>
+    <genDataTypes ecoreDataType="JScience.ecore#//TemporalExtent"/>
+    <genDataTypes ecoreDataType="JScience.ecore#//TemporalOffset"/>
+    <genClasses ecoreClass="JScience.ecore#//AmountConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//AmountConstraint/extent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//AmountConstraint/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//AmountConstraint/waived"/>
+    </genClasses>
+    <genClasses ecoreClass="JScience.ecore#//ComputableAmount">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//ComputableAmount/amount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//ComputableAmount/computing"/>
+    </genClasses>
+    <genClasses ecoreClass="JScience.ecore#//Profile">
+      <genTypeParameters ecoreTypeParameter="JScience.ecore#//Profile/T"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/id"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/name"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/category"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/externalCondition"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/units"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/DefaultValue"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/extent"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/interpolation"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/valid"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference JScience.ecore#//Profile/dataType"/>
+      <genFeatures children="true" createChild="true" propertyCategory="" ecoreFeature="ecore:EReference JScience.ecore#//Profile/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//Profile/dataPoints"/>
+    </genClasses>
+    <genClasses ecoreClass="JScience.ecore#//PowerValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//PowerValue/stateName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//PowerValue/dutyFactor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JScience.ecore#//PowerValue/actualWattage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference JScience.ecore#//PowerValue/stateValue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest
+            class="gov.nasa.arc.spife.core.plan.advisor.resources.AllTests">
+      </IEnsemblePluginTest>
+   </extension>
+   <extension point="gov.nasa.ensemble.core.plan.advisor.IPlanAdvisorFactory">
+      <planAdvisorFactory class="gov.nasa.arc.spife.core.plan.advisor.resources.ActivityRequirementPlanAdvisorFactory"/>
+      <planAdvisorFactory
+            class="gov.nasa.arc.spife.core.plan.advisor.resources.ProfileConstraintPlanAdvisorFactory">
+      </planAdvisorFactory>
+   </extension>
+   <extension
+       id="resourceprofileviolation"
+       name="Resource Profile Violation"
+       point="org.eclipse.core.resources.markers">
+    <super type="org.eclipse.core.resources.problemmarker"/>
+   </extension>
+   <extension
+         id="activityrequirementviolation"
+         name="Activity Requirement Violation"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.plan.PlanElementMember">
+      <MemberDependency memberClass="gov.nasa.ensemble.core.plan.advisor.PlanAdvisorMember">
+         <MemberClass class="gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMember"/>
+         <MemberClass class="gov.nasa.ensemble.core.plan.temporal.TemporalEdgeManagerMember"/>
+      </MemberDependency>
+   </extension>
+   
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            class="gov.nasa.arc.spife.core.plan.advisor.resources.preferences.ResourcesPreferencePage"
+            id="gov.nasa.arc.spife.core.plan.advisor.resources.preferences.ResourcesPreferencePage"
+            name="Resources"
+            category="PlanAdvisorPreferencePage"/>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="gov.nasa.arc.spife.core.plan.advisor.resources.preferences.ResourcesPreferenceInitializer"/>
+   </extension>
+   
+</plugin>

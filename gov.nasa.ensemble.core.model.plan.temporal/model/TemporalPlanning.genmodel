@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.core.model.plan.temporal/src"
+    editDirectory="/gov.nasa.ensemble.core.model.plan.temporal/src" modelPluginID="gov.nasa.ensemble.core.model.plan.temporal"
+    modelName="TemporalPlanning" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    suppressEMFTypes="true" featureMapWrapperInterface="" testsDirectory="/gov.nasa.ensemble.core.model.plan.temporal/src"
+    booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../gov.nasa.ensemble.emf/model/Common.genmodel#//common platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../gov.nasa.ensemble.core.jscience/model/JScience.genmodel#//jscience ../../gov.nasa.ensemble.core.model.plan/model/Planning.genmodel#//plan"
+    runtimePlatform="RCP">
+  <foreignModel>TemporalPlanning.ecore</foreignModel>
+  <genPackages prefix="Temporal" basePackage="gov.nasa.ensemble.core.model.plan" resource="XML"
+      disposableProviderFactory="true" ecorePackage="TemporalPlanning.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="TemporalPlanning.ecore#//CalculatedVariable">
+      <genEnumLiterals ecoreEnumLiteral="TemporalPlanning.ecore#//CalculatedVariable/END"/>
+      <genEnumLiterals ecoreEnumLiteral="TemporalPlanning.ecore#//CalculatedVariable/START"/>
+      <genEnumLiterals ecoreEnumLiteral="TemporalPlanning.ecore#//CalculatedVariable/DURATION"/>
+    </genEnums>
+    <genClasses provider="Stateful" ecoreClass="TemporalPlanning.ecore#//TemporalMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/endTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/scheduled"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/useChildTimes"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/useParentTimes"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/calculatedVariable"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/extent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/startOffsetTimepoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/startOffsetAmount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/endOffsetTimepoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//TemporalMember/endOffsetAmount"/>
+      <genOperations ecoreOperation="TemporalPlanning.ecore#//TemporalMember/getTimepointDate">
+        <genParameters ecoreParameter="TemporalPlanning.ecore#//TemporalMember/getTimepointDate/timepoint"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="TemporalPlanning.ecore#//PlanTemporalMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//PlanTemporalMember/startBoundary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TemporalPlanning.ecore#//PlanTemporalMember/endBoundary"/>
+    </genClasses>
+    <nestedGenPackages prefix="Edge" basePackage="gov.nasa.ensemble.core.model.plan.temporal"
+        disposableProviderFactory="true" ecorePackage="TemporalPlanning.ecore#//edge">
+      <genClasses ecoreClass="TemporalPlanning.ecore#//edge/ETemporalEdgeManager"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

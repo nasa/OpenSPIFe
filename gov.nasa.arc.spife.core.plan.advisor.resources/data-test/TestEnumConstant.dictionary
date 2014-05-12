@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="NotGeneratesCoverage" duration="01:29:00">
+    <stateEffects definition="//ON_OFF_Resource" startEffect="ON" endEffect="OFF"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="GeneratesCoverage" duration="01:31:00">
+    <stateEffects definition="//ON_OFF_Resource" startEffect="ON" endEffect="OFF"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="RequiresCoverage" category="TEST.Coverage" duration="01:30:00">
+    <!-- <numericRequirements expression="plan[&quot;ON_OFF_Resource&quot;] == ON_OFF.ON"/> -->
+    <numericRequirements expression="plan.ON_OFF_Resource == ON_OFF.ON"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ON_OFF">
+    <eLiterals name="OFF" literal="OFF"/>
+    <eLiterals name="ON" value="1" literal="ON"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:EStateResourceDef" name="ON_OFF_Resource" enumeration="//ON_OFF"/>
+</dict:EActivityDictionary>

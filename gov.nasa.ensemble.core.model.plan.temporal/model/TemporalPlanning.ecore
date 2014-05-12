@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="temporal"
+    nsURI="platform:/resource/gov.nasa.ensemble.core.model.plan.temporal/model/TemporalPlanning.ecore"
+    nsPrefix="gov.nasa.ensemble.model.plan.temporal">
+  <eClassifiers xsi:type="ecore:EClass" name="TemporalMember" eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EMember">
+    <eAnnotations source="constraint">
+      <details key="startBeforeStop" value="startTime == null || endTime == null || endTime >= startTime"/>
+    </eAnnotations>
+    <eAnnotations source="message">
+      <details key="startBeforeStop" value="The start time must be before the stop time"/>
+    </eAnnotations>
+    <eOperations name="getTimepointDate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDate">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="switch (timepoint) {&#xD;case START: return getStartTime();&#xD;case END: return getEndTime();&#xD;}&#xD;return null;"/>
+      </eAnnotations>
+      <eParameters name="timepoint" eType="ecore:EEnum ../../gov.nasa.ensemble.emf/model/Common.ecore#//Timepoint"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="ensemble_start_time"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"
+        defaultValueLiteral="0 s">
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="ensemble_duration"/>
+      </eAnnotations>
+      <eAnnotations source="parameter">
+        <details key="unit" value="s"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true">
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="ensemble_scheduled"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useChildTimes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useParentTimes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calculatedVariable" eType="#//CalculatedVariable"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extent" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalExtent"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffsetTimepoint" eType="ecore:EEnum ../../gov.nasa.ensemble.emf/model/Common.ecore#//Timepoint"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffsetAmount" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endOffsetTimepoint" eType="ecore:EEnum ../../gov.nasa.ensemble.emf/model/Common.ecore#//Timepoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endOffsetAmount" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlanTemporalMember" eSuperTypes="#//TemporalMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startBoundary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="ensemble_plan_boundary_start"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endBoundary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="ensemble_plan_boundary_end"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CalculatedVariable">
+    <eLiterals name="END"/>
+    <eLiterals name="START"/>
+    <eLiterals name="DURATION"/>
+  </eClassifiers>
+  <eSubpackages name="edge" nsURI="platform:/resource/gov.nasa.ensemble.core.model.plan.temporal/model/TemporalPlanning.ecore/edge"
+      nsPrefix="edge">
+    <eClassifiers xsi:type="ecore:EClass" name="ETemporalEdgeManager"/>
+  </eSubpackages>
+</ecore:EPackage>

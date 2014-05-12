@@ -1,0 +1,93 @@
+MCS/L. Parris/334/21:03/2009
+356/21S_Docking/02
+<no comments>
+
+334/21:01/2009/received
+3561950a.4hr
+4hr 271 (variable)
+MMC//333/13:38/29.11.2009//Tereshina I.
+356/19:50:00/22.12.2009
+-
+-
+Handover USS to RUS
+S-Band Y
+LVLH
++0.000  +357.100  +0.400
+MMT THR
+5.50  0.60
+3561955a.401
+
+334/21:01/2009/received
+3561955a.401
+401 271 (variable)
+MMC//333/13:39/29.11.2009//Tereshina I.
+356/19:55:00/22.12.2009
+356/20:00:00/22.12.2009
+-
+Duty attitude ISS
+S-Band Y
+LVLH
++0.000  +357.100  +0.400
+THR THR
+0.60  0.60
+3562045a.402
+
+334/21:01/2009/received
+3562045a.402
+402 271 (fixed)
+MMC//333/13:41/29.11.2009//Tereshina I.
+356/20:45:00/22.12.2009
+356/21:15:00/22.12.2009
+-
+Mnvr to 21S Docking Attitude
+S-Band Y
+LVLH
++180.000  +0.000  +0.000
+THR THR
+0.60  0.60
+3562258a.4fd
+
+334/21:01/2009/received
+3562258a.4fd
+4fd 272 (variable)
+MMC//333/13:43/29.11.2009//Tereshina I.
+356/22:58:00/22.12.2009
+356/23:18:00/22.12.2009
+-
+Free Drift
+S-Band Y
+LVLH
++180.000  +0.000  +0.000
+THR FDO
+-  -
+3562318a.403
+
+334/21:01/2009/received
+3562318a.403
+403 272 (variable)
+MMC//333/13:45/29.11.2009//Tereshina I.
+356/23:18:00/22.12.2009
+356/23:48:00/22.12.2009
+-
+Mnvr to TEA
+S-Band Y
+LVLH
++0.000  +356.700  +0.400
+THR THR
+0.60  0.60
+3570005a.4ha
+
+334/21:01/2009/received
+3570005a.4ha
+4ha 272 (variable)
+MMC//333/13:46/29.11.2009//Tereshina I.
+357/00:05:00/23.12.2009
+-
+-
+Handover RUS to USS Momentum Management
+S-Band Y
+LVLH
++0.000  +356.700  +0.400
+THR MMT
+0.60  5.50
+tbd

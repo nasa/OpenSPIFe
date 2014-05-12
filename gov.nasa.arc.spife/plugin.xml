@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="platform:/plugin/gov.nasa.arc.spife/model/Timeline.ecore"
+            class="gov.nasa.arc.spife.timeline.TimelinePackage"
+            genModel="model/Timeline.genmodel"/>
+      <package
+            uri="platform:/resource/gov.nasa.arc.spife.ui.timeline/model/Timeline.ecore"
+            class="gov.nasa.arc.spife.timeline.TimelinePackage"
+            genModel="model/Timeline.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="gov.nasa.arc.spife.timeline.model.util.TimelineResourceFactoryImpl"
+            type="timeline">
+      </parser>
+   </extension>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="gov.nasa.arc.spife.timeline.provider.TimelineItemProviderAdapterFactory"
+            uri="platform:/plugin/gov.nasa.arc.spife/model/Timeline.ecore"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+         <implementation
+               class="gov.nasa.arc.spife.timeline.model.util.TimelineDisabledNotificationsFilter">
+         </implementation>
+      </lookup>
+   </extension>
+</plugin>

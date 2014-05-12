@@ -1,0 +1,264 @@
+int 	 CCS_TLM_FORMAT_SWAP_DUR = 900;
+
+typedef int { 0,1,2,3,4,5,6,7,8,9 } Mode;
+
+typedef int { 1,2,3 } Channel;
+typedef int { 1,2,3,12,23,13,123 } Channels;
+
+class Channel_1 extends State_Condition {
+    Channel_1(float initCap) { super(initCap); }
+}
+class Channel_2 extends State_Condition {
+    Channel_2(float initCap) { super(initCap); }
+}
+class Channel_3 extends State_Condition {
+    Channel_3(float initCap) { super(initCap); }
+}
+class Channel_1_or_2 extends State_Condition {
+    Channel_1_or_2(float initCap) { super(initCap); }
+}
+class Channel_2_or_3 extends State_Condition {
+    Channel_2_or_3(float initCap) { super(initCap); }
+}
+class Channel_1_or_3 extends State_Condition {
+    Channel_1_or_3(float initCap) { super(initCap); }
+}
+
+class HouseKeeping extends Object {
+  Channel_1 channel_1;
+  Channel_2 channel_2;
+  Channel_3 channel_3;
+  Channel_1_or_2 channel_1_or_2;
+  Channel_2_or_3 channel_2_or_3;
+  Channel_1_or_3 channel_1_or_3;
+
+  HouseKeeping() {
+    channel_1 = new Channel_1(0.0);
+    channel_2 = new Channel_2(0.0);
+    channel_3 = new Channel_3(0.0);
+    channel_1_or_2 = new Channel_1_or_2(0.0);
+    channel_2_or_3 = new Channel_2_or_3(0.0);
+    channel_1_or_3 = new Channel_1_or_3(0.0);
+  }
+
+  predicate require_channels {
+    Channels      channels;
+  }
+
+  predicate set_channel {
+    Channel      channel;
+  }
+
+  predicate init_channel {
+    Channel      channel;
+  }
+}
+
+HouseKeeping::require_channels {
+  bool q1, q2, q3, q12, q23, q13;
+  TestEqual(q1, channels, 1);
+  TestEqual(q2, channels, 2);
+  TestEqual(q3, channels, 3);
+  TestEqual(q12, channels, 12);
+  TestEqual(q23, channels, 23);
+  TestEqual(q13, channels, 13);
+
+  starts(object.channel_1.consume stok1);
+  eq(stok1.quantity, q1);
+  ends(object.channel_1.produce etok1);
+  eq(etok1.quantity, q1);
+
+  starts(object.channel_2.consume stok2);
+  eq(stok2.quantity, q2);
+  ends(object.channel_2.produce etok2);
+  eq(etok2.quantity, q2);
+
+  starts(object.channel_3.consume stok3);
+  eq(stok3.quantity, q3);
+  ends(object.channel_3.produce etok3);
+  eq(etok3.quantity, q3);
+
+  starts(object.channel_1_or_2.consume stok12);
+  eq(stok12.quantity, q12);
+  ends(object.channel_1_or_2.produce etok12);
+  eq(etok12.quantity, q12);
+
+  starts(object.channel_2_or_3.consume stok23);
+  eq(stok23.quantity, q23);
+  ends(object.channel_2_or_3.produce etok23);
+  eq(etok23.quantity, q23);
+
+  starts(object.channel_1_or_3.consume stok13);
+  eq(stok13.quantity, q13);
+  ends(object.channel_1_or_3.produce etok13);
+  eq(etok13.quantity, q13);
+}
+
+HouseKeeping::set_channel {
+  bool be1, be2, be3;
+  TestEqual(be1, channel, 1);
+  TestEqual(be2, channel, 2);
+  TestEqual(be3, channel, 3);
+  float qe1, qe2, qe3;
+  product(qe1, be1, 1000.0);
+  product(qe2, be2, 1000.0);
+  product(qe3, be3, 1000.0);
+
+  ends(object.channel_1.produce ptok1);
+  eq(ptok1.quantity, qe1);
+  ends(object.channel_1.consume ctok1);
+  EqualMaximum(ctok1.quantity, qe2, qe3);
+
+  ends(object.channel_2.produce ptok2);
+  eq(ptok2.quantity, qe2);
+  ends(object.channel_2.consume ctok2);
+  EqualMaximum(ctok2.quantity, qe1, qe3);
+
+  ends(object.channel_3.produce ptok3);
+  eq(ptok3.quantity, qe3);
+  ends(object.channel_3.consume ctok3);
+  EqualMaximum(ctok3.quantity, qe1, qe2);
+
+  ends(object.channel_1_or_2.produce ptok12);
+  EqualMaximum(ptok12.quantity, qe1, qe2);
+  ends(object.channel_1_or_2.consume ctok12);
+  eq(ctok12.quantity, qe3);
+
+  ends(object.channel_2_or_3.produce ptok23);
+  EqualMaximum(ptok23.quantity, qe2, qe3);
+  ends(object.channel_2_or_3.consume ctok23);
+  eq(ctok23.quantity, qe1);
+
+  ends(object.channel_1_or_3.produce ptok13);
+  EqualMaximum(ptok13.quantity, qe1, qe3);
+  ends(object.channel_1_or_3.consume ctok13);
+  eq(ctok13.quantity, qe1);
+}
+
+HouseKeeping::init_channel {
+  starts(object.channel_1.produce ptok1);
+  eq(ptok1.quantity, 1000.0);
+  starts(object.channel_2.produce ptok2);
+  eq(ptok2.quantity, 1000.0);
+  starts(object.channel_3.produce ptok3);
+  eq(ptok3.quantity, 1000.0);
+  starts(object.channel_1_or_2.produce ptok12);
+  eq(ptok12.quantity, 1000.0);
+  starts(object.channel_2_or_3.produce ptok23);
+  eq(ptok23.quantity, 1000.0);
+  starts(object.channel_1_or_3.produce ptok13);
+  eq(ptok13.quantity, 1000.0);
+
+  equals(object.set_channel tok);
+  eq(tok.channel, channel);
+}
+
+class TLM_MODE extends Object {
+  HouseKeeping ess;
+  HouseKeeping hk1;
+  HouseKeeping hk2;
+  TLM_MODE() {
+    ess = new HouseKeeping();
+    hk1 = new HouseKeeping();
+    hk2 = new HouseKeeping();
+  }
+
+  predicate require_TLM_mode {
+    int 	 priority;
+    int 	 reftime;
+    bool 	 enforce;
+    bool 	 scheduled;
+    bool         subSolved;
+    float 	 container_id;
+    int 	 offset;
+    Active_Enforcer 	 myEnforce;
+    bool 	 afterIncon;
+    Channels     esses;
+    Channels     hk1s;
+    Channels     hk2s;
+  }
+
+  predicate set_TLM_mode {
+    int 	 priority;
+    int 	 reftime;
+    bool 	 enforce;
+    bool 	 scheduled;
+    bool         subSolved;
+    float 	 container_id;
+    int 	 offset;
+    Active_Enforcer 	 myEnforce;
+    bool 	 afterIncon;
+    Channel      ess;
+    Channel      hk1;
+    Channel      hk2;
+  }
+
+  predicate incon_TLM_mode {
+    int 	 priority;
+    int 	 reftime;
+    bool 	 enforce;
+    bool 	 scheduled;
+    bool         subSolved;
+    float 	 container_id;
+    int 	 offset;
+    Active_Enforcer 	 myEnforce;
+    bool 	 afterIncon;
+    Channel      ess;
+    Channel      hk1;
+    Channel      hk2;
+  }
+}
+
+TLM_MODE tlm_sys = new TLM_MODE();
+
+TLM_MODE::require_TLM_mode {
+  if (scheduled == true) {
+    if (Enable_Passive_Checking == true) {
+      equals(object.ess.require_channels tokess);
+      eq(tokess.channels, esses);
+      equals(object.hk1.require_channels tokhk1);
+      eq(tokhk1.channels, hk1s);
+      equals(object.hk2.require_channels tokhk2);
+      eq(tokhk2.channels, hk2s);
+    }
+  }
+}
+
+TLM_MODE::set_TLM_mode {
+  if (scheduled == true) {
+    if (Enable_Passive_Checking == true) {
+      equals(object.ess.set_channel tokess);
+      eq(tokess.channel, ess);
+      equals(object.hk1.set_channel tokhk1);
+      eq(tokhk1.channel, hk1);
+      equals(object.hk2.set_channel tokhk2);
+      eq(tokhk2.channel, hk2);
+    }
+  }
+}
+
+TLM_MODE::incon_TLM_mode {
+  if (scheduled == true) {
+    if (Enable_Passive_Checking == true) {
+      equals(object.ess.init_channel tokess);
+      eq(tokess.channel, ess);
+      equals(object.hk1.init_channel tokhk1);
+      eq(tokhk1.channel, hk1);
+      equals(object.hk2.init_channel tokhk2);
+      eq(tokhk2.channel, hk2);
+    }
+  }
+}
+
+class TLM_FORMAT extends Object {
+  TLM_FORMAT() {}
+
+  predicate COMM {
+    Mode         smode;   // Allowed comm mode(s)
+  }
+
+  predicate Sband_Available {
+  }
+}
+
+new TLM_FORMAT();

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dictionary"
+    nsURI="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore"
+    nsPrefix="dict">
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionContext" instanceClassName="gov.nasa.ensemble.dictionary.DefinitionContext"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EActivityDef" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass #//INamedDefinition #//DefinitionContext">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eAnnotations source="descriptor">
+        <details key="editable" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//ESubActivity" containment="true" eOpposite="#//ESubActivity/definition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="claimableEffects" upperBound="-1"
+        eType="#//EClaimableEffect" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numericEffects" upperBound="-1"
+        eType="#//ENumericResourceEffect" containment="true">
+      <eAnnotations source="detail">
+        <details key="inspectReference" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numericRequirements" upperBound="-1"
+        eType="#//ENumericRequirement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedEffects" upperBound="-1"
+        eType="#//ESharableResourceEffect" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateEffects" upperBound="-1"
+        containment="true">
+      <eAnnotations source="detail">
+        <details key="inspectReference" value="true"/>
+      </eAnnotations>
+      <eGenericType eClassifier="#//EStateResourceEffect">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateRequirements" upperBound="-1"
+        eType="#//EStateRequirement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blockEffect" eType="#//EActivityBlockEffect"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EActivityDictionary" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage #//DefinitionContext">
+    <eOperations name="getActivityDefs" upperBound="-1" eType="#//EActivityDef"/>
+    <eOperations name="getActivityDef" eType="#//EActivityDef">
+      <eParameters name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeDefs" upperBound="-1"
+        eType="#//EParameterDef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extendedDefinitions" upperBound="-1"
+        eType="#//INamedDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EActivityRequirement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//Period"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffset" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalOffset"
+        defaultValueLiteral="START, 0 s"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endOffset" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalOffset"
+        defaultValueLiteral="END, 0 s"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EActivityGroupDef" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EAttributeParameter" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EAttribute #//EParameterDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EUnit"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitsDisplayName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choices" upperBound="-1"
+        eType="#//EChoice" containment="true" eOpposite="#//EChoice/parameterAttribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EActivityBlockEffect">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startEffect" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endEffect" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EChoice">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterAttribute" eType="#//EAttributeParameter"
+        eOpposite="#//EAttributeParameter/choices"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multipleOf" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EClaimableResourceDef" eSuperTypes="#//EExtendedNumericResourceDef #//RuleResourceDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EClaimableEffect">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//EClaimableResourceDef">
+      <eAnnotations source="detail">
+        <details key="hidden" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Effect">
+      <eTypeArguments eClassifier="#//EClaimableResourceDef"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EExtendedNumericResourceDef" eSuperTypes="#//ENumericResourceDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Effect" abstract="true" interface="true"
+      eSuperTypes="#//INamedDefinition">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//EResourceDef"/>
+    </eTypeParameters>
+    <eOperations name="getDefinition">
+      <eGenericType eTypeParameter="#//Effect/T"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffset" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalOffset"
+        defaultValueLiteral="START, 0 s"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endOffset" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalOffset"
+        defaultValueLiteral="END, 0 s"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ENumericRequirement" eSuperTypes="#//EActivityRequirement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ENumericResourceDef" eSuperTypes="#//EResourceDef #//INamedDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ENumericResourceEffect">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//ENumericResourceDef"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//ENumericResourceEffectMode"
+        defaultValueLiteral="DELTA"/>
+    <eGenericSuperTypes eClassifier="#//ETemporalEffect">
+      <eTypeArguments eClassifier="#//ENumericResourceDef"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ENumericResourceEffectMode">
+    <eLiterals name="DELTA"/>
+    <eLiterals name="SET"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EParameterDef" abstract="true" interface="true"
+      eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultLength" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EPowerLoadDef" eSuperTypes="#//EStateResourceDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EPowerLoadEffect">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startEffectLoadFactor"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="#//EStateResourceEffect">
+      <eTypeArguments eClassifier="#//EPowerLoadDef"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EReferenceParameter" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EReference #//EParameterDef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effects" upperBound="-1"
+        containment="true">
+      <eGenericType eClassifier="#//Effect">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//EActivityRequirement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EResourceDef" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute #//INamedDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ERule" eSuperTypes="#//INamedDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hypertextDescription" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" upperBound="-1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="printName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortDescription" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESharableResourceDef" eSuperTypes="#//EExtendedNumericResourceDef #//RuleResourceDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDoubleObject"
+        changeable="false" volatile="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESharableResourceEffect">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reservations" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//ESharableResourceDef"/>
+    <eGenericSuperTypes eClassifier="#//Effect">
+      <eTypeArguments eClassifier="#//ESharableResourceDef"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EStateRequirement" eSuperTypes="#//EActivityRequirement #//INamedDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//EStateResourceDef"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowedStates" upperBound="-1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disallowedState" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="1.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EStateResourceDef" eSuperTypes="#//RuleResourceDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowedStates" upperBound="-1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EStateResourceEffect">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//EStateResourceDef"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//EStateResourceDef"/>
+    <eGenericSuperTypes eClassifier="#//ETemporalEffect">
+      <eTypeArguments eClassifier="#//EStateResourceDef"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESubActivity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//EActivityDef"
+        eOpposite="#//EActivityDef/children"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESummaryResourceDef" eSuperTypes="#//EResourceDef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numericResourceDefs" upperBound="-1"
+        eType="#//ENumericResourceDef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ETemporalEffect" abstract="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//EResourceDef"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startEffect" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endEffect" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="#//Effect">
+      <eTypeArguments eTypeParameter="#//ETemporalEffect/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EThresholdEnumDef" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEnum #//INamedDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="INamedDefinition" instanceClassName="gov.nasa.ensemble.dictionary.INamedDefinition"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectDef" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass #//INamedDefinition"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Period">
+    <eLiterals name="RequiresThroughout" literal="RequiresThroughout"/>
+    <eLiterals name="RequiresBeforeStart" value="1" literal="RequiresBeforeStart"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RuleResourceDef" abstract="true" interface="true"
+      eSuperTypes="#//EResourceDef"/>
+</ecore:EPackage>

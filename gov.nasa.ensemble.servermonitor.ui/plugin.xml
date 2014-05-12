@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         name="Ensemble Server Status"
+         point="org.eclipse.ui.menus">
+      <menuContribution locationURI="toolbar:org.eclipse.ui.trim.status">
+      	<toolbar id="gov.nasa.ensemble.servermonitor.ui.serverTrimGroup">
+      		<control
+      			class="gov.nasa.ensemble.servermonitor.ui.ServerStatusWidget"
+              	id="gov.nasa.ensemble.servermonitor.ui.serverStatusWidget"/>
+        </toolbar>
+      </menuContribution>
+   </extension>
+</plugin>

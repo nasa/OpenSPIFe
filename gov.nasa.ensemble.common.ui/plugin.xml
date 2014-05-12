@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest
+            class="gov.nasa.ensemble.common.ui.AllTests">
+      </IEnsemblePluginTest>
+   </extension>
+   <extension point="gov.nasa.ensemble.common.TransferProvider">
+   		<provider class="gov.nasa.ensemble.common.ui.transfers.TextTransferProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="gov.nasa.ensemble.common.ui.preferences.time.MissionTimePreferencePage"
+            id="gov.nasa.ensemble.common.ui.preferences.time"
+            name="Mission Time">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="gov.nasa.ensemble.common.ui.preferences.time.MissionTimePreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="gov.nasa.ensemble.common.ui.detail.DetailUtils$DetailPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+    	<commonFilter
+            activeByDefault="true"
+            class="gov.nasa.ensemble.common.ui.workspace.FileExtensionViewerFilter"
+            id="gov.nasa.ensemble.common.ui.workspace.file.extension"
+            name="UI Files Filter">
+     	</commonFilter>
+     	<commonFilter
+            activeByDefault="true"
+            class="gov.nasa.ensemble.common.ui.workspace.JSONFileViewerFilter"
+            id="gov.nasa.ensemble.common.ui.workspace.playbook.files"
+            name="Playbook Files">
+        </commonFilter>
+    </extension>
+</plugin>

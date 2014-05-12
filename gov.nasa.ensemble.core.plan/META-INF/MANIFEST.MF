@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Plan Plug-in
+Bundle-SymbolicName: gov.nasa.ensemble.core.plan; singleton:=true
+Bundle-Version: 1.0.9.qualifier
+Bundle-Activator: gov.nasa.ensemble.core.plan.PlanPlugin
+Export-Package: gov.nasa.ensemble.core.model.plan.translator,
+ gov.nasa.ensemble.core.plan,
+ gov.nasa.ensemble.core.plan.parameters,
+ gov.nasa.ensemble.tests.core.plan
+Require-Bundle: gov.nasa.ensemble.core.activityDictionary,
+ gov.nasa.ensemble.common;visibility:=reexport,
+ gov.nasa.ensemble.common.ui,
+ gov.nasa.ensemble.core.model.plan.activityDictionary;bundle-version="1.0.0";visibility:=reexport,
+ gov.nasa.ensemble.core.model.plan.temporal;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.model.plan.translator;bundle-version="1.0.0";visibility:=reexport
+Eclipse-RegisterBuddy: gov.nasa.ensemble.common.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName

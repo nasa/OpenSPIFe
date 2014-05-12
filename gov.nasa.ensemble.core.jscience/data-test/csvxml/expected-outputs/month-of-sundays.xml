@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+  <columns timeFormat="ISO8601">
+    <column displayName="Month" id="MMMM" interpolation="step" type="String"/>
+    <column displayName="Day" id="d" interpolation="step" type="String"/>
+    <column displayName="Year" id="yyyy" interpolation="step" type="String"/>
+  </columns>
+  <data><![CDATA[
+Time,MMMM,d,yyyy
+2011-04-03T07:00:00Z,April,3,2011
+2011-04-10T07:00:00Z,April,10,2011
+2011-04-17T07:00:00Z,April,17,2011
+2011-04-24T07:00:00Z,April,24,2011
+2011-05-01T07:00:00Z,May,1,2011
+2011-05-08T07:00:00Z,May,8,2011
+2011-05-15T07:00:00Z,May,15,2011
+2011-05-22T07:00:00Z,May,22,2011
+2011-05-29T07:00:00Z,May,29,2011
+2011-06-05T07:00:00Z,June,5,2011
+2011-06-12T07:00:00Z,June,12,2011
+2011-06-19T07:00:00Z,June,19,2011
+2011-06-26T07:00:00Z,June,26,2011
+2011-07-03T07:00:00Z,July,3,2011
+2011-07-10T07:00:00Z,July,10,2011
+2011-07-17T07:00:00Z,July,17,2011
+2011-07-24T07:00:00Z,July,24,2011
+2011-07-31T07:00:00Z,July,31,2011
+2011-08-07T07:00:00Z,August,7,2011
+2011-08-14T07:00:00Z,August,14,2011
+2011-08-21T07:00:00Z,August,21,2011
+2011-08-28T07:00:00Z,August,28,2011
+2011-09-04T07:00:00Z,September,4,2011
+2011-09-11T07:00:00Z,September,11,2011
+2011-09-18T07:00:00Z,September,18,2011
+2011-09-25T07:00:00Z,September,25,2011
+2011-10-02T07:00:00Z,October,2,2011
+2011-10-09T07:00:00Z,October,9,2011
+2011-10-16T07:00:00Z,October,16,2011
+2011-10-23T07:00:00Z,October,23,2011
+2011-10-30T07:00:00Z,October,30,2011
+]]></data>
+</resources>

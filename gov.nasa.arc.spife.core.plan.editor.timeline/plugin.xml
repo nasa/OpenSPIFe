@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="TimelineZoomOptions" name="TimelineZoomOptions" schema="schema/TimelineZoomOptions.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="gov.nasa.arc.spife.core.plan.editor.timeline.show.violations"
+            name="Show Violations"
+            defaultHandler="gov.nasa.arc.spife.core.plan.editor.timeline.commands.ShowViolationsHandler">
+         <state
+               class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               id="org.eclipse.ui.commands.toggleState">
+         </state>
+      </command>
+      <command
+            id="gov.nasa.arc.spife.core.plan.editor.timeline.show.constraints"
+            name="Show Constraints"
+            defaultHandler="gov.nasa.arc.spife.core.plan.editor.timeline.commands.ShowConstraintsHandler">
+         <state
+               class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               id="org.eclipse.ui.commands.toggleState">
+         </state>
+      </command>
+      <command
+            id="gov.nasa.arc.spife.core.plan.editor.timeline.snap"
+            name="Snap"
+            defaultHandler="gov.nasa.arc.spife.core.plan.editor.timeline.commands.SnapToTimelineHandler">
+         <state
+               class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               id="org.eclipse.ui.commands.toggleState">
+         </state>
+      </command>
+      <command
+            id="gov.nasa.arc.spife.core.plan.editor.timeline.commands.overlay"
+            name="Lock overlay on selection"
+            defaultHandler="gov.nasa.arc.spife.core.plan.editor.timeline.commands.ToggleOverlayHandler">
+         <state
+               class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               id="org.eclipse.ui.commands.toggleState">
+         </state>
+      </command>
+      <command
+            id="gov.nasa.arc.spife.core.plan.editor.timeline.follow.current.time"
+            name="Toggle follow current time"
+            defaultHandler="gov.nasa.arc.spife.core.plan.editor.timeline.commands.FollowCurrentTimeHandler">
+         <state
+               class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               id="org.eclipse.ui.commands.toggleState">
+         </state>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="gov.nasa.arc.spife.core.plan.editor.timeline.show.violations"
+            icon="icons/violation_visibility.png">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.core.plan.editor.timeline.show.constraints"
+            icon="icons/constraint_visibility.png">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.core.plan.editor.timeline.snap"
+            icon="icons/snap_to.gif">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.core.plan.editor.timeline.commands.overlay"
+            icon="icons/timeline_overlay.gif">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.core.plan.editor.timeline.follow.current.time"
+            icon="icons/follow_current_activity.png">
+      </image>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup class="gov.nasa.arc.spife.core.plan.editor.timeline.PlanTimelineService">
+         <implementation class="gov.nasa.arc.spife.core.plan.editor.timeline.OverlayMarkerService"/>
+         <implementation class="gov.nasa.arc.spife.core.plan.editor.timeline.PlanTimelinePageService"/>
+         <implementation
+               class="gov.nasa.arc.spife.core.plan.editor.timeline.parts.TemporalNodeEditPartService">
+         </implementation>
+      </lookup>
+      <lookup class="gov.nasa.arc.spife.ui.timeline.preference.TextDecoratorFieldProvider">
+         <implementation class="gov.nasa.arc.spife.core.plan.editor.timeline.preferences.PlanTextDecoratorFieldProvider"/>
+      </lookup>
+      <lookup class="gov.nasa.arc.spife.ui.timeline.TimelineBuilder">
+         <implementation class="gov.nasa.arc.spife.core.plan.editor.timeline.builder.PlanTimelineBuilder"/>
+         <implementation class="gov.nasa.arc.spife.core.plan.editor.timeline.builder.SubsystemTimelineBuilder"/>
+         <factory class="gov.nasa.arc.spife.core.plan.editor.timeline.builder.ActivityAttributeTimelineBuilder$Factory"/>
+         <factory class="gov.nasa.arc.spife.core.plan.editor.timeline.builder.PlanReferencedObjectSectionTimelineBuilder$Factory"/>
+         <implementation class="gov.nasa.arc.spife.core.plan.editor.timeline.builder.FlattenedHierarchyTimelineBuilder"/>
+         <implementation class="gov.nasa.arc.spife.core.plan.editor.timeline.builder.CustomTimelineBuilder"/>
+         <implementation
+               class="gov.nasa.arc.spife.core.plan.editor.timeline.builder.ContainersTimelineBuilder">
+         </implementation>
+      </lookup>
+      <lookup class="gov.nasa.arc.spife.ui.timeline.policy.EditPolicyFactory">
+         <implementation class="gov.nasa.arc.spife.core.plan.editor.timeline.policies.ScaleTimelineMarkerHoverEditPolicy$Factory"/>
+      </lookup>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.MissionExtension">
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.editor.PlanReadOnlyOperationApprover"
+            MissionSpecificClass="gov.nasa.arc.spife.core.plan.editor.timeline.PlanTimelineReadOnlyOperationApprover"
+            id="PlanTimelineReadOnlyOperationApprover">
+      </MissionExtension>
+   </extension>
+   <extension
+         id="timelinePlanEditor"
+         name="timelinePlanEditor"
+         point="gov.nasa.ensemble.core.plan.editor.PlanEditor">
+      <planEditorExtension
+            tab_title="Timeline"
+            preferred_tab_position="2"
+            class="gov.nasa.arc.spife.core.plan.editor.timeline.TimelineEditorPart"
+            name="gov.nasa.arc.spife.core.plan.editor.timeline.planEditorExtension"
+            id="gov.nasa.arc.spife.core.plan.editor.timeline.planEditorExtension"/>
+   </extension>
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="gov.nasa.arc.spife.core.plan.editor.timeline.preferences.PlanTimelinePreferenceInitializer"/>
+      <initializer class="gov.nasa.arc.spife.core.plan.editor.timeline.preferences.TooltipAttributesPreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="gov.nasa.arc.spife.core.plan.editor.timeline.builder.PlanTimelineBuilderAdapterFactory"
+            supportedTypes="gov.nasa.arc.spife.ui.timeline.TimelineBuilder"
+            uri="platform:/resource/gov.nasa.arc.spife.core.plan/model/PlanTimeline.ecore">
+      </factory>
+   </extension>
+   <extension point="org.eclipse.ui.actionSetPartAssociations">
+      <actionSetPartAssociation targetID="gov.nasa.arc.spife.core.plan.editor.timeline.actionSet">
+         <part id="gov.nasa.ensemble.core.plan.editor.MultiPagePlanEditor"/>
+      </actionSetPartAssociation>
+      <actionSetPartAssociation targetID="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+         <part id="gov.nasa.ensemble.core.plan.editor.MultiPagePlanEditor"/>
+      </actionSetPartAssociation>
+      <actionSetPartAssociation targetID="gov.nasa.arc.spife.ui.timeline.weekday.actionSet">
+         <part id="gov.nasa.ensemble.core.plan.editor.MultiPagePlanEditor"/>
+      </actionSetPartAssociation>
+      <actionSetPartAssociation targetID="gov.nasa.arc.spife.core.plan.editor.realtime.actionSet">
+         <part id="gov.nasa.ensemble.core.plan.editor.MultiPagePlanEditor"/>
+      </actionSetPartAssociation>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            description="Timeline Actions"
+            id="gov.nasa.arc.spife.core.plan.editor.timeline.actionSet"
+            label="Timeline"
+            visible="true">
+		</actionSet>
+		<actionSet
+            description="Realtime Actions"
+            id="gov.nasa.arc.spife.core.plan.editor.realtime.actionSet"
+            label="Realtime"
+            visible="true">
+ 		</actionSet>
+	</extension>
+	<extension
+	      point="org.eclipse.ui.menus">
+	      <menuContribution
+             locationURI="toolbar:org.eclipse.ui.main.toolbar?before=gov.nasa.arc.spife.core.plan.editor.timeline.toolbar">
+             <toolbar
+                   id="gov.nasa.arc.spife.core.plan.editor.realtime.toolbar"
+                   label="Realtime Timeline Actions">
+                   <dynamic
+                      id="gov.nasa.arc.spife.core.plan.editor.realtime.toolbar.items"
+                      class="gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors.RealtimeTimelineToolbarCommandContributor">
+                      <visibleWhen
+                        	checkEnabled="false">
+                        	<reference
+                    		 	definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+               				</reference>
+                 		</visibleWhen>
+                </dynamic>
+             </toolbar>
+	      </menuContribution>
+	      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+          	<toolbar
+                id="gov.nasa.arc.spife.core.plan.editor.timeline.toolbar"
+                label="Timeline">
+                <dynamic
+                      id="gov.nasa.arc.spife.core.plan.editor.timeline.toolbar.dynamic"
+                      class="gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors.TimelineToolbarCommandContributor">
+                      <visibleWhen
+                        checkEnabled="false">
+                        <reference
+                    		 definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+               			</reference>
+                 	</visibleWhen>
+                </dynamic>
+          	</toolbar>
+	      </menuContribution>
+	      <menuContribution
+             locationURI="menu:plan">
+             <separator
+                   name="gov.nasa.arc.spife.core.plan.editor.timeline.separator"
+                   visible="true">
+             </separator>
+	      </menuContribution>
+	      <menuContribution
+             locationURI="menu:plan?after=gov.nasa.ensemble.core.plan.temporal.separator">
+             <dynamic
+                   id="gov.nasa.arc.spife.core.plan.editor.timeline.menu.realtime.dynamic"
+                   class="gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors.RealtimeTimelineMenuCommandContributor">
+             </dynamic>
+             <dynamic
+                   id="gov.nasa.arc.spife.core.plan.editor.timeline.menu.timeline.dynamic"
+                   class="gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors.TimelineMenuCommandContributor">
+             </dynamic>
+	      </menuContribution>
+	</extension>
+	<extension
+	      point="org.eclipse.core.expressions.definitions">
+    	<definition
+          	id="gov.nasa.arc.spife.core.plan.editor.timeline.inTimelineActionSet">
+			<with
+				variable="activeContexts">
+				<iterate operator="or">
+					<equals
+						value="gov.nasa.arc.spife.core.plan.editor.timeline.actionSet">
+					</equals>
+				</iterate>
+			</with>
+    	</definition>
+    	<definition
+           id="gov.nasa.arc.spife.core.plan.editor.realtime.inRealtimeActionSet">
+           <with
+				variable="activeContexts">
+				<iterate operator="or">
+					<equals
+						value="gov.nasa.arc.spife.core.plan.editor.realtime.actionSet">
+					</equals>
+				</iterate>
+			</with>
+    	</definition>
+	</extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            id="timeline"
+            name="timeline"
+            parentId="org.eclipse.ui.contexts.window">
+      </context>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            class="gov.nasa.arc.spife.core.plan.editor.timeline.io.TimelineModelExportWizard"
+            icon="platform:/plugin/gov.nasa.arc.spife.ui.timeline/icons/timeline_part.gif"
+            id="gov.nasa.arc.spife.core.plan.editor.timeline.model.export"
+            name="Timeline Layout">
+      </wizard>
+   </extension>
+   <extension   
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="timeline"
+            class="gov.nasa.arc.spife.core.plan.editor.timeline.preferences.TooltipAttributesPreferencePage"
+            id="gov.nasa.arc.spife.ui.timeline.preference.tooltipattributes"
+            name="Tooltip Attributes">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="gov.nasa.ensemble.core.plan"
+            name="Planning"/>
+   </extension>
+      <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="gov.nasa.arc.spife.ui.timeline.toolbar">
+            <command
+                  commandId="gov.nasa.arc.spife.ui.timeline.zoom.in.command"
+                  label="Timeline Zoom In"
+                  style="push"
+                  tooltip="Zoom In for Timeline">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="gov.nasa.arc.spife.ui.timeline.zoom.out.command"
+                 
+                  label="Timeline Zoom Out"
+                  style="push"
+                  tooltip="Zoom Out for Timeline">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="gov.nasa.arc.spife.ui.timeline.zoom.sweep"
+                  label="Timeline Zoom Sweep Tool"
+                  style="toggle"
+                  tooltip="Sweep Zoom Tool for Timeline">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+               <parameter
+                     name="gov.nasa.arc.spife.ui.timeline.tool"
+                     value="zoom.sweep">
+               </parameter>
+            </command>
+            <command
+                  commandId="gov.nasa.arc.spife.ui.timeline.zoom.dropdown"
+                  label="Timeline Zoom Dropdown"
+                  style="pulldown"
+                  tooltip="Zoom Out Tool for Timeline">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="gov.nasa.arc.spife.ui.timeline.go.to.time.command"
+                  label="Go to time"
+                  style="push"
+                  tooltip="Go to time">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="gov.nasa.arc.spife.ui.timeline.set.extent.command"
+                  label="Set Page Extent"
+                  style="push"
+                  tooltip="Set Page Extent">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.extent.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <dynamic
+                  id="gov.nasa.arc.spife.ui.timeline.toolbar.dynamic"
+                  class="gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors.TimelineNavigationCommandContributor">
+                  <visibleWhen>
+						<reference
+							definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+						</reference>
+               		</visibleWhen>
+            </dynamic>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:gov.nasa.arc.spife.ui.timeline.zoom.dropdown">
+         <dynamic
+               class="gov.nasa.arc.spife.ui.timeline.action.ZoomDropdownHandlerContributionItem"
+               id="gov.nasa.arc.spife.ui.timeline.zoom.dropdown.contributor">
+         </dynamic>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:window?before=additions">
+         <separator
+               name="gov.nasa.arc.spife.ui.timeline.separator"
+               visible="true"/>
+         <dynamic
+               class="gov.nasa.arc.spife.ui.timeline.action.TimelineBuilderContributionItem"
+               id="gov.nasa.arc.spife.ui.timeline.content">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+               </reference>
+            </visibleWhen>
+         </dynamic>
+         <command
+               commandId="gov.nasa.arc.spife.ui.timeline.content.reset"
+               label="Reset Timeline"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+               </reference>
+            </visibleWhen>
+         </command>
+         <separator
+               name="gov.nasa.arc.spife.ui.timeline.separator"
+               visible="true"/>
+      </menuContribution>
+   </extension>
+</plugin>

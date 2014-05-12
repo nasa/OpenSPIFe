@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test"
+    nsURI="platform:/resource/gov.nasa.ensemble.emf/model/PatchTest.ecore" nsPrefix="test">
+  <eClassifiers xsi:type="ecore:EClass" name="PatchTestModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oneAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiAttribute" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oneNonContainmentReference"
+        eType="#//SomeTestClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiNonContainmentReferences"
+        upperBound="-1" eType="#//SomeTestClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oneContainmentReference"
+        eType="#//SomeTestClass" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiContainmentReference"
+        upperBound="-1" eType="#//SomeTestClass" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SomeTestClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SomeTestClassWithID" eSuperTypes="#//SomeTestClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+</ecore:EPackage>

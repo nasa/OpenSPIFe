@@ -1,0 +1,8 @@
+#Wed May 18 14:00:46 PDT 2011
+sort.column=Temporal - Duration Sum
+sort.direction=up
+---=0
+Temporal\ -\ Start\ Time=1
+Temporal\ -\ Duration\ Sum=2
+Constraints\ -\ Constraints=3
+Temporal\ -\ Scheduled=4

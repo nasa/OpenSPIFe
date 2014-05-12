@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rhino Plug-in
+Bundle-SymbolicName: gov.nasa.ensemble.javascript.rhino;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.ensemble.javascript.rhino.Activator
+Require-Bundle: gov.nasa.ensemble.common;bundle-version="1.0.15",
+ org.eclipse.core.runtime,
+ org.mozilla.rhino;bundle-version="1.7.1";visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: gov.nasa.ensemble.javascript.rhino
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Eclipse-BuddyPolicy: registered

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension-point id="MissionExtension" name="MissionExtension" schema="schema/MissionExtension.exsd"/>
+   <extension-point id="Authenticator" name="Authenticator" schema="schema/Authenticator.exsd"/>
+   <extension-point id="IStringifier" name="IStringifier" schema="schema/IStringifier.exsd"/>
+   <extension-point id="TransferProvider" name="TransferProvider" schema="schema/TransferProvider.exsd"/>
+   <extension-point id="Log4jExtension" name="Log4jExtension" schema="schema/Log4jExtension.exsd"/>
+   <extension-point id="PasteSpecialContributor" name="PasteSpecialContributor" schema="schema/PasteSpecialContributor.exsd"/>
+   <extension-point id="IEnsemblePluginTest" name="IEnsemblePluginTest" schema="schema/IEnsemblePluginTest.exsd"/>
+   <extension-point id="ClassRegistry" name="ClassRegistry" schema="schema/ClassRegistry.exsd"/>
+   <extension-point id="IStartupJob" name="IStartupJob" schema="schema/IStartupJob.exsd"/>
+   <extension-point id="ServerMonitor" name="Ensemble Server Monitor" schema="schema/ServerMonitor.exsd"/>
+   <extension-point id="EnsemblePropertiesProvider" name="EnsemblePropertiesProvider" schema="schema/EnsemblePropertiesProvider.exsd"/>
+   <extension-point id="metadata" name="metadata" schema="schema/MetaData.exsd"/>
+
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.ensemble.common.AllCommonTests"/>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest
+            class="gov.nasa.ensemble.common.AllJUnit4CommonTests">
+      </IEnsemblePluginTest>
+   </extension>
+
+   <extension
+         id="EnsembleTestRunner"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="gov.nasa.ensemble.common.EnsembleTestRunner">
+         </run>
+      </application>
+   </extension>
+
+   <extension point="gov.nasa.ensemble.common.MissionExtension">
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.common.mission.TestMissionExtender$MissionIndependentThing"
+            MissionSpecificClass="gov.nasa.ensemble.common.mission.TestMissionExtender$MissionSpecificThing"
+            id="TestMissionExtension"/>
+   </extension>
+   
+   <extension point="gov.nasa.ensemble.common.IStringifier">
+  <IStringifier
+        class="gov.nasa.ensemble.common.type.stringifier.BooleanStringifier"
+        name="BooleanStringifier">
+     <stringifierByClass typeAsClass="java.lang.Boolean"/>
+     <stringifierByTypeString typeAsString="boolean"/>
+  </IStringifier>
+  <IStringifier
+        class="gov.nasa.ensemble.common.type.stringifier.LongStringifier"
+        name="LongStringifier">
+     <stringifierByClass typeAsClass="java.lang.Long"/>
+     <stringifierByTypeString typeAsString="long"/>
+  </IStringifier>
+  <IStringifier
+        class="gov.nasa.ensemble.common.type.stringifier.IntegerStringifier"
+        name="IntegerStringifier">
+     <stringifierByClass typeAsClass="java.lang.Integer"/>
+     <stringifierByTypeString typeAsString="int"/>
+     <stringifierByTypeString typeAsString="integer"/>
+  </IStringifier>
+  <IStringifier
+        class="gov.nasa.ensemble.common.type.stringifier.FloatStringifier"
+        name="FloatStringifier">
+     <stringifierByClass typeAsClass="java.lang.Float"/>
+     <stringifierByTypeString typeAsString="float"/>
+  </IStringifier>
+  <IStringifier
+        class="gov.nasa.ensemble.common.type.stringifier.DoubleStringifier"
+        name="DoubleStringifier">
+     <stringifierByClass typeAsClass="java.lang.Double"/>
+     <stringifierByTypeString typeAsString="double"/>
+  </IStringifier>
+  <IStringifier
+        class="gov.nasa.ensemble.common.type.stringifier.StringStringifier"
+        name="StringStringifier">
+     <stringifierByClass typeAsClass="java.lang.String"/>
+     <stringifierByTypeString typeAsString="string"/>
+     <stringifierByTypeString typeAsString="sequence"/>
+  </IStringifier>
+  <IStringifier
+        class="gov.nasa.ensemble.common.type.stringifier.URLStrigifier"
+        name="URLStrigifier">
+     <stringifierByClass
+           typeAsClass="java.net.URL">
+     </stringifierByClass>
+  </IStringifier>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.eclipse.ui.edit.pastespecial"
+            name="Paste Special"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.core.plan.editor.PlanEditor">
+      <planEditorExtension
+            class="gov.nasa.arc.spife.ui.table.days.DaysEditor"
+            id="gov.nasa.arc.spife.ui.table.days.editor"
+            name="Days Editor"
+            preferred_tab_position="3"
+            tab_title="Days"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="gov.nasa.arc.spife.ui.table.days.preferences.DaysEditorPreferencePage"
+            category="PlanEditorPreferencePage"
+            id="daysEditorPreferences"
+            name="Days"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="gov.nasa.arc.spife.ui.table.days.preferences.DaysEditorPreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="gov.nasa.ensemble.core.plan.editor.category"
+            defaultHandler="gov.nasa.arc.spife.ui.table.days.preferences.DaysEditorPreferencePageHandler"
+            id="gov.nasa.arc.spife.ui.table.days.table_preferences"
+            name="Open Days View Preferences">
+      </command> 
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="gov.nasa.arc.spife.ui.table.days.table_preferences"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+M2+D">
+      </key>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+     <lookup
+         	class="gov.nasa.ensemble.common.ui.workspace.FilterExtensionProvider">
+         <implementation
+               class="gov.nasa.arc.spife.ui.table.days.configuration.DaysFileFilterProvider">
+         </implementation>
+      </lookup>
+     <lookup
+           class="gov.nasa.arc.spife.ui.table.days.filter.AbstractDaysFilter">
+        <implementation
+              class="gov.nasa.arc.spife.ui.table.days.filter.AllActivitiesDaysFilter">
+        </implementation>
+     </lookup>
+    </extension>
+</plugin>

@@ -1,0 +1,26 @@
+BODY {font-family: Arial,sans-serif}
+INS {text-decoration: none; background-color: rgb(229,251,190)}
+DEL {text-decoration: none; background-color: rgb(234,177,177)}
+.addition INS, .removal DEL {padding: 5pt}
+INS .visible-newline,
+DEL .visible-newline {opacity: .5}
+
+.heading {background-color: black; color: white}
+.heading1 {color: white; font-size: 20pt; font-weight: bold; padding: 15pt}
+.heading2 {color: rgb(235,235,235); font-size: 16pt; padding: 0pt 15pt 15pt 15pt}
+TABLE, TH, TD {border: 1pt solid rgb(169,169,169); border-collapse:collapse}
+TD { padding: 10pt}
+.summary-of-updates {color: rgb(102,102,102) }
+TH {color: rgb(141,141,141); background-color: white; font-weight: normal; padding: 5pt}
+.author {color: rgb(141,141,141)}
+.addition .parameter {border: 2pt solid rgb(229,251,190)}
+.addition .parameter-name {font-weight: bold; color:   rgb(0, 80, 0)}
+
+.activity-heading {
+    font-weight: bold; color: black; background-color: rgb(242,242,242);
+    cursor:help;
+    }
+.activity-heading:hover {background-color: rgb(242,242,100)}
+
+A.save:link {color: #333333; text-decoration:none}
+A.save:hover {color: #99FFFF}
