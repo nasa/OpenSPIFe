@@ -1,0 +1,28 @@
+# Generated files
+bin/
+gen/
+
+# Java class files
+*.class
+
+# Eclipse
+.classpath
+
+# Mac
+.DS_Store
+
+# Android
+*.apk
+*.ap_
+*.dex
+
+# Gradle files
+.gradle/
+/build
+
+#local configuration file (sdk path, etc)
+local.properties
+
+# Maven
+log/
+target/
