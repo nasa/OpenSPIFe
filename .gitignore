@@ -2,9 +2,6 @@
 bin/
 gen/
 
-# Java class files
-*.class
-
 # Mac
 .DS_Store
 
