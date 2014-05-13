@@ -1,7 +1,0 @@
-include "europa-server-attrs.rnc"
-
-europa-server =
-   element EuropaServer {
-      europa-server-attrs
-   }
-
