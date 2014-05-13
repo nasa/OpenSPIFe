@@ -1,1 +1,17 @@
+# Generated files
 bin/
+gen/
+
+# Mac
+.DS_Store
+
+# Gradle files
+.gradle/
+/build
+
+#local configuration file (sdk path, etc)
+local.properties
+
+# Maven
+log/
+target/
