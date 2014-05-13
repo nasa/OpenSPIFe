@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Planning"
+            id="gov.nasa.ensemble.core.plan">
+      </category>
+      <view
+            name="Plan Rules"
+            icon="icons/sample.gif"
+            category="gov.nasa.ensemble.core.plan"
+            class="gov.nasa.arc.spife.core.plan.rules.view.PlanRulesView"
+            id="gov.nasa.arc.spife.core.plan.rules.view.PlanRulesView">
+      </view>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.model.plan.advisor.RulesSelector">
+      <RulesSelectorExtension
+            RulesSelectorClass="gov.nasa.arc.spife.core.plan.rules.view.detail.PlanRulesSelector"
+            id="gov.nasa.arc.spife.core.plan.rules.view.detail.PlanRulesSelector">
+      </RulesSelectorExtension>
+   </extension>
+
+</plugin>

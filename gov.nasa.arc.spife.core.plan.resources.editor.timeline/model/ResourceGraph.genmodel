@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.arc.spife.core.plan.resources.editor.timeline/src"
+    editDirectory="/gov.nasa.arc.spife.core.plan.resources.editor.timeline/src" modelPluginID="gov.nasa.arc.spife.core.plan.resources.editor.timeline"
+    modelName="ResourceGraph" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" usedGenPackages="../../gov.nasa.ensemble.core.jscience/model/JScience.genmodel#//jscience">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="platform:/resource/gov.nasa.arc.spife.core.plan.resources.editor.timeline/model/ResourceGraph.ecore"
+          value="ResourceGraphXMI.xsd"/>
+      <details key="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore"
+          value="DictionaryXMI.xsd"/>
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+      <details key="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore"
+          value="JScienceXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>ResourceGraph.ecore</foreignModel>
+  <genPackages prefix="Timeline" basePackage="gov.nasa.arc.spife.core.plan.resources.editor.timeline"
+      disposableProviderFactory="true" fileExtensions="resourcegraph" ecorePackage="ResourceGraph.ecore#/">
+    <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+      <genAnnotations source="ResourceGraphXMI.xsd">
+        <details key="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore"
+            value="DictionaryXMI.xsd"/>
+        <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+        <details key="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore"
+            value="JScienceXMI.xsd"/>
+      </genAnnotations>
+    </genAnnotations>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ResourceGraph.ecore#//FitPolicy">
+      <genEnumLiterals ecoreEnumLiteral="ResourceGraph.ecore#//FitPolicy/AUTO"/>
+      <genEnumLiterals ecoreEnumLiteral="ResourceGraph.ecore#//FitPolicy/CUSTOM"/>
+    </genEnums>
+    <genClasses ecoreClass="ResourceGraph.ecore#//ResourceGraphs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceGraph.ecore#//ResourceGraphs/graphs"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceGraph.ecore#//ResourceGraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceGraph.ecore#//ResourceGraph/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceGraph.ecore#//ResourceGraph/plots"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceGraph.ecore#//ResourcePlot">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute ResourceGraph.ecore#//ResourcePlot/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceGraph.ecore#//ResourcePlot/rgb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceGraph.ecore#//ResourcePlot/fit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceGraph.ecore#//ResourcePlot/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceGraph.ecore#//ResourcePlot/max"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

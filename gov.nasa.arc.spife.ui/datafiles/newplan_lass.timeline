@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tl:ETimeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tl="platform:/plugin/gov.nasa.arc.spife/model/Timeline.ecore">
+  <contents xsi:type="tl:TimelineBuilderContent" identifier="Sequences"/>
+  <contents xsi:type="tl:TimelineBuilderContent" identifier="Subsystem"/>
+  <page duration="P1DT0H0M0.000S" startTime="2012-04-08T17:00:00.000-0700" zoomOption="//@page/@zoomOptions.4">
+    <zoomOptions name="24 hours" minorTickInterval="21600000" msInterval="86400000" msMoveThreshold="300000" msNudgeThreshold="3600000"/>
+    <zoomOptions name="12 hours" minorTickInterval="21600000" msInterval="43200000" msMoveThreshold="300000" msNudgeThreshold="3600000"/>
+    <zoomOptions name="6 hours" msInterval="21600000" msMoveThreshold="300000" msNudgeThreshold="3600000"/>
+    <zoomOptions name="4 hours" msInterval="14400000" msMoveThreshold="300000" msNudgeThreshold="1800000"/>
+    <zoomOptions name="2 hours" msInterval="7200000" msMoveThreshold="300000" msNudgeThreshold="300000"/>
+    <zoomOptions name="1 hours" msInterval="3600000" msMoveThreshold="300000" msNudgeThreshold="300000"/>
+    <zoomOptions name="30 mins" msInterval="1800000" msMoveThreshold="300000" msNudgeThreshold="60000"/>
+    <zoomOptions name="15 mins" msInterval="900000" msMoveThreshold="300000" msNudgeThreshold="60000"/>
+  </page>
+</tl:ETimeline>

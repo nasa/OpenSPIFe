@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="PlanElementMemberFactory" name="PlanElementMemberFactory" schema="schema/PlanElementMemberFactory.exsd"/>
+   <extension-point id="PlanFactory" name="Lookup Plan Factory" schema="schema/PlanFactory.exsd"/>
+   <extension-point id="SpecialAttributeHandler" name="SpecialAttributeHandler" schema="schema/SpecialAttributeHandler.exsd"/>
+    
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "platform:/resource/gov.nasa.ensemble.core.model.plan/model/Planning.ecore"
+       class = "gov.nasa.ensemble.core.model.plan.PlanPackage"
+       genModel = "model/Planning.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+    <parser
+       type="plan"
+       class="gov.nasa.ensemble.core.model.plan.util.PlanResourceFactoryImpl" />
+  </extension>
+
+
+  <extension
+        point="gov.nasa.ensemble.core.model.plan.PlanElementMemberFactory">
+     <planElementMemberFactory
+           class="gov.nasa.ensemble.core.model.plan.impl.CommonMemberFactory">
+     </planElementMemberFactory>
+  </extension>
+  <extension
+        point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+     <IEnsemblePluginTest
+           class="gov.nasa.ensemble.core.model.plan.EPlanModelTests">
+     </IEnsemblePluginTest>
+  </extension>
+  <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+     <lookup class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+		<implementation
+			class="gov.nasa.ensemble.core.model.plan.patch.PatchSharingNotificationFilter">
+         </implementation>
+      </lookup>
+    </extension>
+  <extension
+        point="gov.nasa.ensemble.core.model.plan.SpecialAttributeHandler">
+     <handler
+           attribute="id"
+           handler="gov.nasa.ensemble.core.model.plan.util.SpecialAttributeHandlerForId">
+     </handler>
+  </extension>
+  <extension
+        point="gov.nasa.ensemble.common.ClassRegistry">
+     <lookup
+           class="gov.nasa.ensemble.core.model.plan.PlanService">
+        <implementation
+              class="gov.nasa.ensemble.core.model.plan.util.PlanHierarchyPositionMaintenerService">
+        </implementation>
+     </lookup>
+  </extension>
+
+</plugin>

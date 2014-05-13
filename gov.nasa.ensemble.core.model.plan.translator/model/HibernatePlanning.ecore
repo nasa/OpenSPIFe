@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hibernate"
+    nsURI="platform:/resource/gov.nasa.ensemble.core.model.plan.translator/model/HibernatePlanning.ecore"
+    nsPrefix="gov.nasa.ensemble.model.plan.hibernate">
+  <eClassifiers xsi:type="ecore:EClass" name="HibernateMember" eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wrapper" eType="#//HPlanElement"
+        transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="HPlanElement" instanceClassName="gov.nasa.ensemble.core.model.plan.hibernate.HPlanElement">
+    <eAnnotations source="ExtendedMetaData">
+      <details key="baseType" value="ecore:EJavaObject"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

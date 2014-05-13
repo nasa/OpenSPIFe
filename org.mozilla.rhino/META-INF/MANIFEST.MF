@@ -1,0 +1,89 @@
+Manifest-Version: 1.0
+Bundle-ClassPath: lib/js.jar
+Bundle-Vendor: Mozilla
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Name: Rhino 1.7R4
+Bundle-SymbolicName: org.mozilla.rhino
+Bundle-Version: 1.7.4
+Export-Package: org.mozilla.classfile;uses:="org.mozilla.javascript",
+ org.mozilla.javascript;
+  uses:="new org.mozilla.javascript,
+   org.mozilla.javascript.xml,
+   org.mozilla.classfile,
+   org.mozilla.javascript.ast,
+   org.mozilla.javascript.debug",
+ org.mozilla.javascript.annotations,
+ org.mozilla.javascript.ast;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.commonjs.module;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.commonjs.module.provider;uses:="org.mozilla.javascript,org.mozilla.javascript.commonjs.module",
+ org.mozilla.javascript.debug;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.jdk13;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.jdk15;uses:="org.mozilla.javascript.jdk13,org.mozilla.javascript",
+ org.mozilla.javascript.json;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.optimizer;uses:="org.mozilla.classfile,org.mozilla.javascript.ast,org.mozilla.javascript",
+ org.mozilla.javascript.regexp;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.serialize;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.tools;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.tools.debugger;
+  uses:="org.mozilla.javascript.tools.debugger.treetable,
+   javax.swing.tree,
+   org.mozilla.javascript,
+   org.mozilla.javascript.tools.shell,
+   javax.swing,
+   javax.swing.filechooser,
+   javax.swing.table,
+   new org.mozilla.javascript.tools.debugger,
+   org.mozilla.javascript.debug,
+   javax.swing.event",
+ org.mozilla.javascript.tools.debugger.treetable;
+  uses:="javax.swing.tree,
+   javax.swing,
+   javax.swing.table,
+   javax.swing.event",
+ org.mozilla.javascript.tools.idswitch;uses:="org.mozilla.javascript.tools",
+ org.mozilla.javascript.tools.jsc,
+ org.mozilla.javascript.tools.shell;
+  uses:="org.mozilla.javascript,
+   org.mozilla.javascript.tools,
+   javax.swing,
+   javax.swing.filechooser,
+   javax.swing.event,
+   org.mozilla.javascript.commonjs.module",
+ org.mozilla.javascript.v8dtoa,
+ org.mozilla.javascript.xml;uses:="org.mozilla.javascript",
+ org.mozilla.javascript.xml.impl.xmlbeans;
+  uses:="org.apache.xmlbeans,
+   org.mozilla.javascript,
+   org.mozilla.javascript.xml,
+   javax.xml.namespace",
+ org.mozilla.javascript.xmlimpl;uses:="org.mozilla.javascript,org.w3c.dom,org.mozilla.javascript.xml"
+Bundle-ManifestVersion: 2
+
+Name: lib/js.jar
+SHA1-Digest: yba3Ei0THmLjTtInmhqRSGo9a7U=
+
+Name: eclipse32.png
+SHA1-Digest: eCk/A3/COXL3S6qAVDOSrlsqmLw=
+
+Name: about_files/NPL-1.1.html
+SHA1-Digest: Rowm9287ix5MWF+pzBLeopDLGtI=
+
+Name: about.ini
+SHA1-Digest: 2w8BfdBzQbbWHJNbazxzu9YMYwo=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: about.properties
+SHA1-Digest: 5pjlj+GVJmM0lzSVHh9PIVbKH6A=
+
+Name: about.mappings
+SHA1-Digest: 7fWXWpBVaPXv2G/FWw3i4eblO9g=
+
+Name: about_files/MPL-1.1.txt
+SHA1-Digest: q6jXbQr2fVfaPDwyHKpZ89JCOGs=
+
+Name: about.html
+SHA1-Digest: mjyIyqtILChRk8+Yq6uuQHDoeFY=
+

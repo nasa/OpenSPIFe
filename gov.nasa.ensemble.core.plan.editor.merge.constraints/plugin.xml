@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.ensemble.tests.core.plan.editor.merge.constraints.AllTests"/>
+   </extension>
+
+	<extension
+		point="gov.nasa.ensemble.core.plan.editor.merge.IMergeColumnProvider">
+		<IMergeColumnContentProvider
+			class="gov.nasa.ensemble.core.plan.editor.merge.constraints.CEMergeColumnProvider" />
+	</extension>
+	
+</plugin>

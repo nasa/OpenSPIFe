@@ -1,0 +1,62 @@
+#include "MER2-model.nddl"
+
+// Create a planner configuration instance in PLASMA.
+// Horizon Start, Horizon End, MaxPlannerSteps
+PlannerConfig plannerConfiguration = new PlannerConfig(-100, +10000000, 10000, 10000);
+
+
+// Global Objects
+
+IPS IPS_sys = new IPS();
+PMA PMA_sys = new PMA();
+Mobility Mobility_sys = new Mobility();
+CPU CPU_sys = new CPU();
+Comm Comm_sys = new Comm();
+ContainerObj Containers = new ContainerObj();
+InitialConds Incons = new InitialConds();
+
+// Claims and Mutual Exclusions
+
+//Active_IDD_State TL_IDD_State = new Active_IDD_State();
+Active_PMA_Claim TL_PMA_Claim = new Active_PMA_Claim();
+Active_IDD_Claim TL_IDD_Claim = new Active_IDD_Claim();
+Active_Mobility_Claim TL_Mobility_Claim = new Active_Mobility_Claim();
+Active_Comm_Claim TL_Comm_Claim = new Active_Comm_Claim();
+Active_Mobility_PMA TL_Mobility_PMA = new Active_Mobility_PMA();
+Active_Mobility_HZ TL_Mobility_HZ = new Active_Mobility_HZ();
+Active_Mobility_Comm TL_Mobility_Comm = new Active_Mobility_Comm();
+Active_Mobility_IDD TL_Mobility_IDD = new Active_Mobility_IDD();
+Active_UHF_PMA TL_UHF_PMA = new Active_UHF_PMA();
+Active_UHF_IDD TL_UHF_IDD = new Active_UHF_IDD();
+Active_RAT_PMA TL_RAT_PMA = new Active_RAT_PMA();
+Active_IPS_MT TL_IPS_MT = new Active_IPS_MT();
+Active_GFA_IDD TL_GFA_IDD = new Active_GFA_IDD();
+Active_GFA_HGA TL_GFA_HGA = new Active_GFA_HGA();
+
+
+// Resources for passive constraint checking
+
+CPU_Avail RS_CPU_Avail = new CPU_Avail(0.0);
+
+// this is set via the incon predicate
+IDD_Stowed RS_IDD_Stowed = new IDD_Stowed(0.0);
+IDD_Unstowed RS_IDD_Unstowed = new IDD_Unstowed(0.0);
+
+IDD_Idle RS_IDD_Idle = new IDD_Idle(STATE_COND_TRUE);
+Mobility_Stationary RS_Mobility_Stationary = new Mobility_Stationary(STATE_COND_TRUE);
+UHF_Idle RS_UHF_Idle = new UHF_Idle(STATE_COND_TRUE);
+HGA_Idle RS_HGA_Idle = new HGA_Idle(STATE_COND_TRUE);
+RAT_Idle RS_RAT_Idle = new RAT_Idle(STATE_COND_TRUE);
+
+PMA_Claim UCR_PMA = new PMA_Claim();
+IDD_Claim UCR_IDD = new IDD_Claim();
+Mobility_Claim UCR_Mobility = new Mobility_Claim();
+Comm_Claim UCR_COMM = new Comm_Claim();
+
+Numof_Imaging NR_Imaging = new Numof_Imaging(NUMOF_IMAGING);
+
+CPU_Windows Windows = new CPU_Windows();
+
+
+// Close the the PLASMA Database - no more objects can be created.
+close();

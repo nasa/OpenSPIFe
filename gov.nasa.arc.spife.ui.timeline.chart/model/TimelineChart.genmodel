@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.arc.spife.ui.timeline.chart/src"
+    editDirectory="/gov.nasa.arc.spife.ui.timeline.chart/src" modelPluginID="gov.nasa.arc.spife.ui.timeline.chart"
+    modelName="TimelineChart" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../gov.nasa.ensemble.core.jscience/model/JScience.genmodel#//jscience ../../gov.nasa.arc.spife/model/Timeline.genmodel#//timeline">
+  <foreignModel>TimelineChart.ecore</foreignModel>
+  <genPackages prefix="Chart" basePackage="gov.nasa.arc.spife.ui.timeline.chart" disposableProviderFactory="true"
+      ecorePackage="TimelineChart.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="TimelineChart.ecore#//ChartStyle">
+      <genEnumLiterals ecoreEnumLiteral="TimelineChart.ecore#//ChartStyle/LINE"/>
+      <genEnumLiterals ecoreEnumLiteral="TimelineChart.ecore#//ChartStyle/HEAT_MAP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="TimelineChart.ecore#//FitPolicy">
+      <genEnumLiterals ecoreEnumLiteral="TimelineChart.ecore#//FitPolicy/AUTO"/>
+      <genEnumLiterals ecoreEnumLiteral="TimelineChart.ecore#//FitPolicy/CUSTOM"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="TimelineChart.ecore#//ERGB"/>
+    <genClasses ecoreClass="TimelineChart.ecore#//AmountLine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//AmountLine/amount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//AmountLine/rgb"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="TimelineChart.ecore#//Chart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//Chart/minimumHeight"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference TimelineChart.ecore#//Chart/plots"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//Chart/style"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="TimelineChart.ecore#//ChartElement"/>
+    <genClasses ecoreClass="TimelineChart.ecore#//Charts">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TimelineChart.ecore#//Charts/charts"/>
+    </genClasses>
+    <genClasses ecoreClass="TimelineChart.ecore#//LineChart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TimelineChart.ecore#//LineChart/lines"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference TimelineChart.ecore#//LineChart/maximumLine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference TimelineChart.ecore#//LineChart/minimumLine"/>
+    </genClasses>
+    <genClasses ecoreClass="TimelineChart.ecore#//Plot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference TimelineChart.ecore#//Plot/chart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//Plot/extent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//Plot/rgb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//Plot/fit"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference TimelineChart.ecore#//Plot/profile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//Plot/showText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//Plot/autoAssignRGB"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute TimelineChart.ecore#//Plot/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

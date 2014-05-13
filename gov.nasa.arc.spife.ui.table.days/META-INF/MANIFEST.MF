@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Days Editor Plugin
+Bundle-SymbolicName: gov.nasa.arc.spife.ui.table.days;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: gov.nasa.arc.spife.ui.table.days.DaysPlugin
+Require-Bundle: gov.nasa.ensemble.core.activityDictionary,
+ gov.nasa.ensemble.core.plan.editor,
+ gov.nasa.ensemble.core.plan.editor.merge,
+ org.eclipse.emf.edit.ui;bundle-version="2.4.0",
+ gov.nasa.ensemble.core.plan.temporal;bundle-version="1.0.7"
+Export-Package: gov.nasa.arc.spife.ui.table.days,
+ gov.nasa.arc.spife.ui.table.days.filter
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName

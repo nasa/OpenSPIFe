@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.core.plan.resources/src"
+    modelPluginID="gov.nasa.ensemble.core.plan.resources" modelName="ResourceDependency"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    suppressEMFTypes="true" featureMapWrapperClass="" booleanFlagsField="eFlags" booleanFlagsReservedBits="8"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>ResourceDependency.ecore</foreignModel>
+  <genPackages prefix="Dependency" basePackage="gov.nasa.ensemble.core.plan.resources"
+      disposableProviderFactory="true" ecorePackage="ResourceDependency.ecore#/">
+    <genClasses ecoreClass="ResourceDependency.ecore#//Graph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceDependency.ecore#//Graph/dependencies"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceDependency.ecore#//Dependency">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ResourceDependency.ecore#//Dependency/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceDependency.ecore#//Dependency/next"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceDependency.ecore#//Dependency/previous"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EAttribute ResourceDependency.ecore#//Dependency/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceDependency.ecore#//Dependency/valid"/>
+      <genOperations ecoreOperation="ResourceDependency.ecore#//Dependency/update"/>
+      <genOperations ecoreOperation="ResourceDependency.ecore#//Dependency/applyValue"/>
+      <genOperations ecoreOperation="ResourceDependency.ecore#//Dependency/invalidate"/>
+      <genOperations ecoreOperation="ResourceDependency.ecore#//Dependency/dispose"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

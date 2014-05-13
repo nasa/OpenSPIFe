@@ -1,0 +1,154 @@
+body {font-family:Arial,sans-serif}
+
+/* UTF character-based icon choices */
+.EActivity-icon {-moz-border-radius:10pt; border-radius:10pt; padding-left:6pt; padding-right:4pt} /* circle */
+.EActivityGroup-icon {font-size:6pt; padding-left:2.2ex; vertical-align:center} /* small square (placeholder -- Mel to tweak) */
+.CrewMember-icon:before {content: "☻"; font-size: 24pt; color: RGB(185, 127, 74); }
+.Event-icon:before {content: "♁"; font-size: 18pt; color: RGB(0, 0, 64); }
+.Condition-icon:before {content: "✔"; font-size: 18pt; color: RGB(0, 128, 0); }
+.CrewMember-icon {padding: 0pt; margin: 0pt; margin-right: -8pt}
+.Event-icon {padding: 0pt; margin: 0pt; margin-right: -6pt}
+.Condition-icon {padding: 0pt; margin: 0pt; margin-right: -10pt}
+
+/* UTF character-based badge choices */
+.difftype-ADD:before {content: "+"}
+.difftype-REMOVE:before {content: "–"}
+.difftype-MODIFY:before {content: "Δ"}
+.difftype-UNCHANGED:before {content: " "}
+.difftype-MOVEIN:before {content: "↓"}
+.difftype-MOVEOUT:before {content: "↑"}
+
+.deleted {color: gray}
+.modified .name {font-weight: bold}
+.deleted .EActivity-icon, .deleted .EActivityGroup-icon {border-style: dotted; border-color: gray}
+.unscheduled {font-style: italic}
+.unscheduled EActivity-icon,
+  .unscheduled EActivityGroup-icon {border-style: dashed}
+.start-time {width:auto; font-size: 80%; text-align:right;padding-left:30pt}
+
+
+.parent-name {font-size: 80%}
+
+
+/* Also used by WarningsTree: */
+
+UL {
+/*margin-left:-10px;
+padding-left:-10px;*/
+list-style-type:none
+}
+LI {
+margin-left:4px;
+margin-top:1px
+}
+.hidden {display:none}
+LI.collapsed {list-style-type:none}
+LI.expanded {list-style-type:none}
+LI.collapsed UL {display:none}
+LI.expanded > UL {display:block}
+LI.collapsed > .hide-arrow {display:none}
+LI.expanded > .show-arrow {display:none}
+LI.collapsed > .hide-punct {display:none}
+LI.expanded > .show-punct {display:none}
+LI.collapsed > .show-arrow {display:inline}
+LI.expanded > .hide-arrow {display:inline}
+LI.collapsed > .show-punct {display:inline}
+LI.expanded > .hide-punct {display:inline}
+.show-arrow, .hide-arrow {
+	font-size:100%;
+	font-family: sans-serif;
+	color: navy;
+	margin-right: 3pt;
+	cursor:pointer;
+	}
+
+body, table {
+font-size:14px
+}
+
+table td {
+font-size:.9em
+}
+
+h3 {
+vertical-align:top;
+font-size:20px;
+font-style:normal
+}
+
+h3.credits {
+float:right;
+font-size:10px;
+font-style:italic;
+text-align:right;
+/*margin-top:15px;*/
+padding-top:5px
+}
+
+h3.header-floatleft {
+float:left;
+}
+.header {vertical-align:top}
+
+.float-right-top-align {
+float:right;
+vertical-align:top;
+position:relative;
+z-index:2;
+top:7px;
+right:7px
+}
+
+.containingbox {
+width: auto;
+padding: 1px
+}
+
+#plan {
+position:relative;
+top:-5px;
+left:-35px
+}
+
+.expansion-panel {
+/*list-style-type:none;
+padding:0;*/
+list-style-type:none;
+padding: 1px;
+margin-left: 0;
+border: 1px solid;
+border-color: #AAA #666 #666 #AAA;
+background: #CCC;
+}
+
+li.expansion-command {
+/*border:1px solid black;
+margin-bottom:-1px;*/
+margin: 0;
+padding: 0.25em;
+border: 1px solid;
+border-color: #FFF #AAA #AAA #FFF;
+cursor:pointer
+}
+
+.float-left {
+float:left
+}
+
+.badge {
+margin:0;
+padding:0;
+vertical-align:sub;
+font-size:80%;
+position:relative;
+}
+
+.blackborder {border:1px solid #000000}
+.grayborder  {border:1px solid #999999}
+
+.grayfont {color:#999999}
+
+#plan TR {white-space:nowrap;width:80em}
+#plan TD {width:70%}
+
+a.saveas {font-size: 75%; text-decoration: none; color:black}

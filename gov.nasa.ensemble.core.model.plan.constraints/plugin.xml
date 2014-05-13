@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/resource/gov.nasa.ensemble.core.model.plan.constraints/model/ConstraintsPlanning.ecore"
+            class="gov.nasa.ensemble.core.model.plan.constraints.provider.ConstraintsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="platform:/resource/gov.nasa.ensemble.core.model.plan.constraints/model/ConstraintsPlanning.ecore"
+            class="gov.nasa.ensemble.core.model.plan.constraints.ConstraintsPackage"
+            genModel="model/ConstraintsPlanning.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="constraints"
+            class="gov.nasa.ensemble.core.model.plan.constraints.util.ConstraintsResourceFactoryImpl"/>
+   </extension>
+   
+   <extension
+         point="gov.nasa.ensemble.core.model.plan.PlanElementMemberFactory">
+      <planElementMemberFactory
+            class="gov.nasa.ensemble.core.model.plan.constraints.impl.ConstraintsMemberFactory">
+      </planElementMemberFactory>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.core.model.plan.temporal.consistency.IConsistencyPropertyTester">
+         <implementation
+               class="gov.nasa.ensemble.core.model.plan.constraints.consistency.BinaryConstraintConsistencyPropertyTester">
+         </implementation>
+         <implementation
+               class="gov.nasa.ensemble.core.model.plan.constraints.consistency.PeriodicConstraintConsistencyPropertyTester">
+         </implementation>
+         <implementation
+               class="gov.nasa.ensemble.core.model.plan.constraints.consistency.ChainConstraintConsistencyPropertyTester">
+         </implementation>
+      </lookup>
+   </extension>
+
+</plugin>

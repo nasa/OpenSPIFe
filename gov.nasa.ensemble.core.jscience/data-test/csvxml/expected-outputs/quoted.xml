@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+  <columns timeFormat="ISO8601">
+    <column id="myid" interpolation="step" type="String"/>
+  </columns>
+  <data><![CDATA[
+Time,myid
+2011-04-03T07:00:00Z,not quoted
+2011-04-10T07:00:00Z,"yes, quoted"
+2011-04-17T07:00:00Z,"and when I say ""quoted""..."
+]]></data>
+</resources>

@@ -1,0 +1,14 @@
+europa-server-attrs =
+   attribute port {xsd:int {minExclusive = "1024" maxExclusive="65536"}},
+   attribute debug {log-type}?,
+   attribute verbosity {xsd:int {minInclusive = "0" maxInclusive = "5"}}?,
+   attribute initialState {text},
+   attribute serverVersion {text}?,
+   attribute timeout {xsd:int {minInclusive = "-1"}}?,
+   attribute logFile {text}?,
+   attribute plannerConfig {text},
+   attribute plannerConfigElement {text}
+
+log-type =
+(xsd:int {minInclusive = "0" maxExclusive="65"} | 
+                     list { ("ERROR" | "TRACE" | "TRACE_ALL" | "RETURN" | "TIMER")* })

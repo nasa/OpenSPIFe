@@ -1,0 +1,32 @@
+<MER2PassiveSolver>
+ <Solver name="MER2PassiveSolver">
+  <UnboundVariableManager defaultPriority="10">
+     <FlawFilter var-match="DISTANCE_VAR"/>
+     <FlawFilter var-match="duration" />
+     <FlawFilter var-match="quantity" />
+     <FlawFilter var-match="time" />
+     <FlawFilter var-match="start" />
+     <FlawFilter var-match="end" />
+     <FlawFilter var-match="offset" />
+     <FlawFilter var-match="afterIncon" />
+     <FlawFilter var-match="NO_NAME" />
+     <FlawFilter var-match="subSolved" component="Singleton"/>
+     <FlawHandler var-match="solved" priority="0" component="Max"/>
+     <FlawFilter component="LocalVariableFilter"/>
+     <FlawHandler component="Max"/>
+  </UnboundVariableManager>
+  <OpenConditionManager defaultPriority="20">
+    <FlawHandler component="StandardOpenConditionHandler"/>
+  </OpenConditionManager>
+  <ThreatManager defaultPriority="30">
+    <FlawHandler component="PriorityMinPerturb"/>
+    <FlawFilter class-match="Reservoir"/>
+  </ThreatManager>
+  <ResourceThreatManager order="earliest,lower" defaultPriority="800">
+    <FlawHandler class-match="Multi_Capacity_Resource" priority="300" component="GroundedResourceThreatHandler"/>
+    <FlawHandler class-match="State_Condition" priority="600" component="GroundedResourceThreatHandler"/>
+    <FlawHandler class-match="Threshold_Condition" priority="600" component="GroundedResourceThreatHandler"/>
+    <FlawHandler filter="none" component="GroundedResourceThreatHandler"/>
+  </ResourceThreatManager>
+ </Solver>
+</MER2PassiveSolver>

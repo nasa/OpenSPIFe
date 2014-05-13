@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.core.model.plan.advisor/src"
+    editDirectory="/gov.nasa.ensemble.core.model.plan.advisor.provider/src" modelPluginID="gov.nasa.ensemble.core.model.plan.advisor"
+    templateDirectory="" redirection="" modelName="AdvisorPlanning" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    suppressEMFTypes="true" testsDirectory="/gov.nasa.ensemble.core.model.plan.advisor/src"
+    booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="gov.nasa.ensemble.core.model.plan.advisor.provider"
+    usedGenPackages="../../gov.nasa.ensemble.core.model.plan/model/Planning.genmodel#//plan platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../gov.nasa.ensemble.emf/model/Common.genmodel#//common">
+  <foreignModel>AdvisorPlanning.ecore</foreignModel>
+  <genPackages prefix="Advisor" basePackage="gov.nasa.ensemble.core.model.plan" resource="XML"
+      disposableProviderFactory="true" ecorePackage="AdvisorPlanning.ecore#/">
+    <genClasses image="false" ecoreClass="AdvisorPlanning.ecore#//RuleAdvisorMember">
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference AdvisorPlanning.ecore#//RuleAdvisorMember/waivers"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="AdvisorPlanning.ecore#//PlanAdvisorMember"/>
+    <genClasses image="false" ecoreClass="AdvisorPlanning.ecore#//ActivityAdvisorMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AdvisorPlanning.ecore#//ActivityAdvisorMember/waivingAllFlightRules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AdvisorPlanning.ecore#//ActivityAdvisorMember/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="AdvisorPlanning.ecore#//WaiverPropertiesEntry" labelFeature="#//advisor/WaiverPropertiesEntry/key">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AdvisorPlanning.ecore#//WaiverPropertiesEntry/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AdvisorPlanning.ecore#//WaiverPropertiesEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AdvisorPlanning.ecore#//WaiverPropertiesEntry/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="AdvisorPlanning.ecore#//IWaivable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AdvisorPlanning.ecore#//IWaivable/waiverRationale"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,93 @@
+MCS/L. Parris/028/02:15/2010
+036/36P_Docking/09
+<no comments>
+
+028/02:15/2010/approved
+0360215a.4hr
+4hr 276 (variable)
+MMC//007/15:55/07.01.2010//Tereshina I.
+036/02:15:00/05.02.2010
+-
+-
+Handover USS to RUS
+S-Band Y
+LVLH
++355.000  +359.300  +0.000
+MMT THR
+5.50  0.60
+0360220a.401
+
+028/02:15/2010/approved
+0360220a.401
+401 276 (variable)
+MMC//007/15:56/07.01.2010//Tereshina I.
+036/02:20:00/05.02.2010
+036/02:25:00/05.02.2010
+-
+Duty attitude ISS
+S-Band Y
+LVLH
++355.000  +359.300  +0.000
+THR THR
+0.60  0.60
+0360230a.402
+
+028/02:15/2010/approved
+0360230a.402
+402 276 (variable)
+MMC//007/15:57/07.01.2010//Tereshina I.
+036/02:30:00/05.02.2010
+036/02:35:00/05.02.2010
+-
+Mnvr to 36P Docking Attitude
+S-Band Y
+LVLH
++355.000  +359.300  +0.000
+THR THR
+0.60  0.60
+0360432a.4fd
+
+028/02:15/2010/approved
+0360426b.4fd
+4fd 277 (variable)
+MMC//022/13:40/22.01.2010//Timofeyeva N.
+036/04:26:00/05.02.2010
+036/04:46:00/05.02.2010
+-
+Free Drift
+S-Band Y
+LVLH
++355.000  +359.300  +0.000
+THR FDO
+-  -
+0360446c.403
+
+028/02:15/2010/approved
+0360446c.403
+403 277 (variable)
+MMC//022/13:42/22.01.2010//Timofeyeva N.
+036/04:46:00/05.02.2010
+036/04:56:00/05.02.2010
+-
+Mnvr to LVLH TEA
+S-Band Y
+LVLH
++355.000  +357.700  +0.900
+THR THR
+0.60  0.60
+0360542c.0ha
+
+028/02:15/2010/approved
+0360542c.0ha
+0ha 277 (variable)
+MCS//025/19:15/25.01.2010//Kimball
+036/05:42:00/05.02.2010
+-
+-
+Handover RUS to USS Momentum Management
+S-Band Y
+LVLH
++355.000  +357.700  +0.900
+THR MMT
+0.60  5.50
+tbd

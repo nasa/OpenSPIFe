@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="gov.nasa.ensemble.common">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="gov.nasa.ensemble.common" id="MissionExtension" name="MissionExtension"/>
+      </appInfo>
+      <documentation>
+         This extension point is used to provide mission-specific implementations of any class within Ensemble.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <complexType>
+         <sequence>
+            <element ref="MissionExtension" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="MissionExtension">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A unique name to identify this mission-specific extension.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="MissionIndependentClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The mission-independent class that you wish to override.  This class must implement the MissionExtendable interface.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="gov.nasa.ensemble.core.mission.MissionExtendable"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="MissionSpecificClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The mission-specific class that you wish to override the misson-independent class. This class must extend a class that implements the MissionExtendable interface.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="gov.nasa.ensemble.core.mission.MissionExtendable"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>

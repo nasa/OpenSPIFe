@@ -1,0 +1,22 @@
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+    <!-- In this one, the data values match some field of the timestamp in UTC.
+    Tests date, string, and integer parsing. -->
+    <columns timeFormat="ISO8601">
+         <column id="MMMM" description="month" type="String" interpolation="instantaneous"/>
+         <column id="d" description="day" type="Integer" interpolation="instantaneous"/>
+         <column id="yyyy" description="year" type="Integer" interpolation="instantaneous"/>
+         <column id="H" description="hour" type="Integer" interpolation="instantaneous"/>
+         <column id="m" description="minute" type="Integer" interpolation="instantaneous"/>
+         <column id="s" description="second" type="Integer" interpolation="instantaneous"/>
+    </columns>
+    <data>
+        <![CDATA[
+               StartTime,MMMM, d, yyyy, H,m,s
+    2011-05-01T12:34:56Z, May,1, 2011,   12,34,56
+    2011-04-06T00:00:10Z,April,6, 2011, 0,0,10
+    2011-04-15T12:34:56Z,April,15, 2011,   12,34,56
+    2011-04-05T12:34:56Z,April,5, 2011,   12,34,56
+    ]]>
+    </data>
+</resources>
