@@ -9,11 +9,10 @@ Open SPIFe requires the Eclipse Rich Client Platform in order for it to run and 
 - Eclipse Orbit third party libraries
 - Eclipse RCP delta pack for multi-platform exports (only required to build multi-platform product artifacts)
 
-## Getting Started
-
-- [Project Homepage]
-- [Code Repository]
-- [Bug Tracker]
+## Links
+- [Project Homepage][home]
+- [Code Repository][repo]
+- [Bug Tracker][bugs]
 
 ## How to submit patches
 One or more of:
@@ -35,10 +34,9 @@ See the license files for the original and updated contributions.  The initial r
 Copyright (c) 2014 United States Government as represented by the Administrator for The National Aeronautics and Space Administration.  All Rights Reserved.
  
 
-
-[home]: http://ti.arc.nasa.gov/projects/visionworkbench
-[repo]: http://github.com/visionworkbench/visionworkbench
-[bugs]: http://github.com/visionworkbench/visionworkbench/issues
+[home]: https://github.com/nasa/OpenSPIFe/wiki
+[repo]: https://github.com/nasa/OpenSPIFe
+[bugs]: https://github.com/nasa/OpenSPIFe/issues
 [list]: mailto:open-spife@lists.nasa.gov
 [clac]: http://ti.arc.nasa.gov/m/project/nasa-vision-workbench/VW-CLA-Corp.pdf
 [clai]: http://ti.arc.nasa.gov/m/project/nasa-vision-workbench/VW-CLA-Individual.pdf
