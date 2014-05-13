@@ -8,11 +8,6 @@ gen/
 # Mac
 .DS_Store
 
-# Android
-*.apk
-*.ap_
-*.dex
-
 # Gradle files
 .gradle/
 /build
