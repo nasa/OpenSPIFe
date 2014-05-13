@@ -1,0 +1,27 @@
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+    <!-- In this one, the data values increase by 1 at each datapoint,
+    	 and some datapoints are missing.  This tests the 'missing' logic.   -->
+    <columns timeFormat="ISO8601">
+         <column id="value1" type="Integer" interpolation="instantaneous"/>
+         <column id="value2" type="Integer" interpolation="instantaneous"/>
+         <column id="value3" type="Integer" interpolation="instantaneous"/>
+    </columns>
+    <data>
+        <![CDATA[
+    StartTime,value1,value2,value3
+    2011-04-06T00:00:10Z, 1, 1, 1
+    2011-04-06T00:00:11Z, 2,  , 2
+    2011-04-06T00:00:12Z, 3,,3
+    2011-04-06T00:00:13Z, 4,,
+    2011-04-06T00:00:14Z, 5,,4
+    2011-04-06T00:00:15Z, 6,,5
+    2011-04-06T00:00:16Z,,,6
+    2011-04-06T00:00:17Z,,,
+    2011-04-06T00:00:18Z, 7,,7
+    2011-04-06T00:00:19Z, ,,8
+    2011-04-06T00:00:20Z, ,2,
+    2011-04-06T00:00:21Z, 8,3,    
+    ]]>
+    </data>
+</resources>

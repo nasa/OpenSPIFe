@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Constraint Editing Plug-in
+Bundle-SymbolicName: gov.nasa.ensemble.core.plan.editor.constraints;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.ensemble.core.plan.editor.constraints.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ gov.nasa.ensemble.core.activityDictionary,
+ gov.nasa.ensemble.core.model.plan.temporal,
+ gov.nasa.ensemble.core.plan,
+ gov.nasa.ensemble.core.plan.constraints,
+ gov.nasa.ensemble.core.plan.editor;visibility:=reexport
+Export-Package: gov.nasa.ensemble.core.plan.editor.constraints
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName

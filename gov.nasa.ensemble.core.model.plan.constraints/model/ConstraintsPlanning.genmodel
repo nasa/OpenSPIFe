@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.core.model.plan.constraints/src"
+    editDirectory="/gov.nasa.ensemble.core.model.plan.constraints/src" modelPluginID="gov.nasa.ensemble.core.model.plan.constraints"
+    templateDirectory="" redirection="" modelName="ConstraintsPlanning" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    suppressEMFTypes="true" testsDirectory="/gov.nasa.ensemble.core.model.plan.constraints/src"
+    booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" usedGenPackages="../../gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.genmodel#//advisor ../../gov.nasa.ensemble.emf/model/Common.genmodel#//common platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../gov.nasa.ensemble.core.jscience/model/JScience.genmodel#//jscience ../../gov.nasa.ensemble.core.model.plan/model/Planning.genmodel#//plan">
+  <foreignModel>ConstraintsPlanning.ecore</foreignModel>
+  <genPackages prefix="Constraints" basePackage="gov.nasa.ensemble.core.model.plan"
+      resource="XML" disposableProviderFactory="true" ecorePackage="ConstraintsPlanning.ecore#/">
+    <genClasses ecoreClass="ConstraintsPlanning.ecore#//ConstraintsMember">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ConstraintsPlanning.ecore#//ConstraintsMember/binaryTemporalConstraints"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ConstraintsPlanning.ecore#//ConstraintsMember/periodicTemporalConstraints"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference ConstraintsPlanning.ecore#//ConstraintsMember/chain"/>
+    </genClasses>
+    <genClasses ecoreClass="ConstraintsPlanning.ecore#//ConstraintPoint">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ConstraintsPlanning.ecore#//ConstraintPoint/element"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ConstraintsPlanning.ecore#//ConstraintPoint/endpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="ConstraintsPlanning.ecore#//TemporalConstraint">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ConstraintsPlanning.ecore#//TemporalConstraint/rationale"/>
+      <genOperations ecoreOperation="ConstraintsPlanning.ecore#//TemporalConstraint/isViolated"/>
+    </genClasses>
+    <genClasses ecoreClass="ConstraintsPlanning.ecore#//BinaryTemporalConstraint">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ConstraintsPlanning.ecore#//BinaryTemporalConstraint/pointA"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ConstraintsPlanning.ecore#//BinaryTemporalConstraint/pointB"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ConstraintsPlanning.ecore#//BinaryTemporalConstraint/minimumBminusA"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ConstraintsPlanning.ecore#//BinaryTemporalConstraint/maximumBminusA"/>
+    </genClasses>
+    <genClasses ecoreClass="ConstraintsPlanning.ecore#//PeriodicTemporalConstraint">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ConstraintsPlanning.ecore#//PeriodicTemporalConstraint/point"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ConstraintsPlanning.ecore#//PeriodicTemporalConstraint/earliest"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ConstraintsPlanning.ecore#//PeriodicTemporalConstraint/latest"/>
+    </genClasses>
+    <genClasses ecoreClass="ConstraintsPlanning.ecore#//TemporalChain">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ConstraintsPlanning.ecore#//TemporalChain/elements"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

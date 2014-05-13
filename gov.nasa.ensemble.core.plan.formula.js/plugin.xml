@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.common.MissionExtension">
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.formula.FormulaEngine"
+            MissionSpecificClass="gov.nasa.ensemble.core.plan.formula.js.JSFormulaEngine"
+            id="JSFormulaEngine">
+      </MissionExtension>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest
+            class="gov.nasa.ensemble.core.plan.formula.js.AllTests">
+      </IEnsemblePluginTest>
+   </extension>
+   <extension
+         id="ActivitDictionaryScriptableAdapterFactory"
+         name="ActivitDictionaryScriptableAdapterFactory"
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="gov.nasa.ensemble.core.activityDictionary.ActivityDictionary"
+            class="gov.nasa.ensemble.core.plan.formula.js.ScriptableActivitDictionaryAdapterFactory">
+         <adapter
+               type="org.mozilla.javascript.Scriptable">
+         </adapter>
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintParsers">
+      <constraintParser
+            class="gov.nasa.ensemble.core.plan.formula.js.constraint.JSConstraintParser"
+            lang="JS">
+      </constraintParser>
+   </extension>
+</plugin>

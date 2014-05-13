@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="testNature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="gov.nasa.ensemble.resources.TestNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         id="testBuilder"
+         point="org.eclipse.core.resources.builders">
+      <builder hasNature="false">
+         <run
+               class="gov.nasa.ensemble.resources.TestBuilder">
+         </run>
+      </builder>
+   </extension>
+</plugin>

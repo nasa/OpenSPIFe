@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="builderFiles" name="Plan Resource Builder Files" schema="schema/builderFiles.exsd"/>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.core.model.plan.util.EPlanUtils$PlanResourceSetContributor">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.profile.PlanResourcesProfileResourceSetContributor">
+         </implementation>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.core.model.plan.temporal.edge.impl.TemporalEdgeContributor">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.edge.ProfileTemporalEdgeContributor">
+         </implementation>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.core.model.plan.PlanService">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.profile.PlanProfileService">
+         </implementation>
+      </lookup>
+      <lookup class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.dependency.impl.DependencySharingNotificationFilter">
+         </implementation>
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.dependency.impl.DerivedFeatureSharingNotificationFilter">
+         </implementation>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.core.jscience.util.ProfileContributor">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.ComputedResourceProfileContributor">
+         </implementation>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.core.jscience.util.ProfileContributor">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.InclusiveResourceProfileContributor">
+         </implementation>
+      </lookup>
+      <lookup
+          class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.resources.util.ColorNotificationsFilter">
+         </implementation>
+      </lookup>
+   </extension>
+
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.ensemble.core.plan.resources.AllTests"/>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.model.plan.PlanElementMemberFactory">
+      <planElementMemberFactory
+            class="gov.nasa.ensemble.core.plan.resources.member.ResourceConditionsMemberFactory">
+      </planElementMemberFactory>
+      <planElementMemberFactory
+            class="gov.nasa.ensemble.core.plan.resources.profile.ProfileMemberFactory">
+      </planElementMemberFactory>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.plan.PlanElementMember">
+      <PlanElementMemberExtension
+            class="gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMemberFactory"
+            id="gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMemberFactory"
+            name="ResourceProfileMemberFactory">
+      </PlanElementMemberExtension>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+   <package
+          class="gov.nasa.ensemble.core.plan.resources.member.MemberPackage"
+          genModel="model/ResourceMembers.genmodel"
+          uri="platform:/resource/gov.nasa.ensemble.core.plan.resources/model/ResourceMembers.ecore">
+    </package>
+    <package
+          class="gov.nasa.ensemble.core.plan.resources.dependency.DependencyPackage"
+          genModel="model/ResourceDependency.genmodel"
+          uri="path	/gov.nasa.ensemble.core.plan.resources/model/ResourceDependency.ecore">
+    </package> 
+   </extension>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="gov.nasa.ensemble.core.plan.resources.member.provider.MemberItemProviderAdapterFactory"
+            uri="platform:/resource/gov.nasa.ensemble.core.plan.resources/model/ResourceMembers.ecore"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+   <extension
+         id="numericviolationmarker"
+         name="Numeric Violation"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="false">
+      </persistent>
+   </extension>
+   <extension
+         id="planresourceproblemmarker"
+         name="Plan Resource Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         id="modelvalidationproblemmarker"
+         name="Validation Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.emf.validation.problem">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         id="PlanResourceIncrementalProjectBuilder"
+         name="Plan Resource Incremental Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            callOnEmptyDelta="false"
+            hasNature="false"
+            isConfigurable="false">
+         <run
+               class="gov.nasa.ensemble.core.plan.resources.PlanResourceIncrementalProjectBuilder">
+         </run>
+      </builder>
+   </extension>  
+   <extension
+        point="org.eclipse.emf.validation.traversal">
+     <traversalStrategy
+           class="gov.nasa.ensemble.core.plan.resources.PlanTraversalStrategy"
+           namespaceUri="platform:/resource/gov.nasa.ensemble.core.model.plan/model/Planning.ecore">
+        <eclass
+              name="EPlan">
+        </eclass>
+     </traversalStrategy>
+  </extension>
+</plugin>

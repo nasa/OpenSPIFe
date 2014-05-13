@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.common.TransferProvider">
+      <provider
+            class="gov.nasa.ensemble.core.jscience.ui.dnd.ProfileTransferProvider">
+      </provider>
+   </extension>
+   <extension point="org.eclipse.ui.editors">
+   </extension>
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="gov.nasa.ensemble.core.jscience.ui.ProfileNavigatorContentProvider"
+            id="gov.nasa.ensemble.core.jscience.ui.navigatorContent.profile"
+            labelProvider="gov.nasa.ensemble.core.jscience.ui.ProfileNavigatorLabelProvider"
+            name="Plato Profile Content"
+            priority="higher">
+         <triggerPoints>
+          <adapt
+                type="org.eclipse.core.resources.IFile">
+             <test
+                   property="gov.nasa.ensemble.common.ui.exists"
+                   value="true">
+             </test>
+             <test
+                   property="org.eclipse.core.resources.contentTypeId"
+                   value="gov.nasa.ensemble.jscience.profile">
+             </test>
+          </adapt>
+         </triggerPoints>
+         <possibleChildren>
+          <or>
+             <instanceof value="org.eclipse.core.resources.IFile"/>
+          </or>
+		 </possibleChildren>
+      </navigatorContent>
+   </extension>
+</plugin>

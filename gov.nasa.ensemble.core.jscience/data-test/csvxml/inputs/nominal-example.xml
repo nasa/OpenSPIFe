@@ -1,0 +1,30 @@
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+    <!-- Standard XML Comments -->
+    <columns timeFormat="ISO8601">
+        <column id="RN1" units="W" type="Double" description="test unit description"
+            interpolation="linear" displayName="Resource Name 1">
+            <property key="metadata test" value="one"/>
+            <property key="color" value="red"/>
+            <property key="flavor" value="strawberry"/>
+         </column>
+        <column id="RN2" type="Boolean" description="test description" interpolation="instantaneous"
+            displayName="Resource Name 2" defaultValue="false">
+            <property key="color" value="blue"/>
+            <property key="flavor" value="blueberry"/>
+            <property key="metadata test" value="two"/>
+        </column>
+        <column id="RN3" type="String" description="test description" interpolation="step"
+            displayName="Resource Name 3">
+            <property key="metadata test" value="three"/>
+        </column>
+    </columns>
+    <data>
+        <![CDATA[
+    StartTime,RN1,RN2,RN3
+    2011-02-03T16:27:00.000Z,50,true,Moon
+    2011-02-03T16:28:00Z,63,true,Earth
+    2011-02-03T16:29:00Z,63,,Earth
+    ]]>
+    </data>
+</resources>

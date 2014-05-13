@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.startup">
+      <startup class="gov.nasa.ensemble.core.plan.editor.constraints.Activator"/>
+   </extension>
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.ensemble.core.plan.editor.constraints.AllTests"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+         <command
+               id="gov.nasa.ensemble.core.plan.editor.constraints.pin"
+               name="Pin"
+               defaultHandler="gov.nasa.ensemble.core.plan.editor.constraints.PinHandler">
+               <state
+               		class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               		id="org.eclipse.ui.commands.toggleState">
+         		</state>
+         </command>
+         <command
+               id="gov.nasa.ensemble.core.plan.editor.constraints.earliest"
+               name="Earliest"
+               defaultHandler="gov.nasa.ensemble.core.plan.editor.constraints.EarliestHandler">
+               <state
+               		class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               		id="org.eclipse.ui.commands.toggleState">
+         		</state>
+         </command>
+         <command
+               id="gov.nasa.ensemble.core.plan.editor.constraints.latest"
+               name="Latest"
+               defaultHandler="gov.nasa.ensemble.core.plan.editor.constraints.LatestHandler">
+               <state
+               		class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               		id="org.eclipse.ui.commands.toggleState">
+         		</state>
+         </command>
+         <command
+               id="gov.nasa.ensemble.core.plan.editor.constraints.chain"
+               name="Chain/Unchain Items"
+               defaultHandler="gov.nasa.ensemble.core.plan.editor.constraints.ChainHandler">
+               <state
+               		class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               		id="org.eclipse.ui.commands.toggleState">
+         		</state>
+         </command>
+         <command
+               id="gov.nasa.ensemble.core.plan.editor.constraints.binary"
+               name="Constrain"
+               defaultHandler="gov.nasa.ensemble.core.plan.editor.constraints.CreateConstraintHandler">
+         </command>
+         <command
+               id="gov.nasa.ensemble.core.plan.editor.constraints.exactly"
+               name="Constrain Exactly"
+               defaultHandler="gov.nasa.ensemble.core.plan.editor.constraints.ConstrainExactlyHandler">
+               <state
+               		class="org.eclipse.ui.handlers.RegistryToggleState:false"
+               		id="org.eclipse.ui.commands.toggleState">
+         		</state>
+         </command>
+         <command
+               id="gov.nasa.ensemble.core.plan.editor.constraints.compress.chain"
+               name="Compress Chains"
+               defaultHandler="gov.nasa.ensemble.core.plan.editor.constraints.CompressChainHandler">
+         </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="gov.nasa.ensemble.core.plan.editor.constraints.pin"
+            icon="icons/at_exactly.png">
+      </image>
+      <image
+            commandId="gov.nasa.ensemble.core.plan.editor.constraints.earliest"
+            icon="icons/anytime_after.png">
+      </image>
+      <image
+            commandId="gov.nasa.ensemble.core.plan.editor.constraints.latest"
+            icon="icons/anytime_before.png">
+      </image>
+      <image
+            commandId="gov.nasa.ensemble.core.plan.editor.constraints.chain"
+            icon="icons/ChainIcon_3.gif">
+      </image>
+      <image
+            commandId="gov.nasa.ensemble.core.plan.editor.constraints.binary"
+            icon="icons/create_constraint_icon.gif">
+      </image>
+      <image
+            commandId="gov.nasa.ensemble.core.plan.editor.constraints.exactly"
+            icon="icons/constrain-exactly.png">
+      </image>
+      <image
+            commandId="gov.nasa.ensemble.core.plan.editor.constraints.compress.chain"
+            icon="icons/compress_chain.png">
+      </image>
+   </extension>
+  	<extension
+         point="org.eclipse.ui.menus">
+         <menuContribution
+         	locationURI="toolbar:org.eclipse.ui.main.toolbar?after=gov.nasa.arc.spife.ui.timeline.toolbar">
+          	<toolbar 
+          		id="gov.nasa.ensemble.core.plan.editor.constraints.toolbar"
+          		label="Constraints">
+				<dynamic
+					id="gov.nasa.ensemble.core.plan.editor.constraints.toolbar.items"
+					class="gov.nasa.ensemble.core.plan.editor.constraints.contributor.ConstraintsToolbarCommandContributor">
+	               	<visibleWhen
+						checkEnabled="false">
+						<reference
+							definitionId="gov.nasa.ensemble.core.plan.editor.constraints.inConstraintActionSet">
+						</reference>
+					</visibleWhen>
+				</dynamic>
+			</toolbar>
+		</menuContribution>
+      	<menuContribution
+            locationURI="menu:plan?after=groupActions">
+            <separator
+                  name="gov.nasa.ensemble.core.plan.editor.constraints.separator"
+                  visible="true">
+            </separator>
+		</menuContribution>
+		<menuContribution
+        	locationURI="menu:plan?after=gov.nasa.ensemble.core.plan.editor.constraints.separator">
+         	<dynamic
+                  id="gov.nasa.ensemble.core.plan.editor.constraints.menu"
+                  class="gov.nasa.ensemble.core.plan.editor.constraints.contributor.ConstraintsMenuCommandContributor">
+            </dynamic>
+		</menuContribution>
+	</extension>
+	<extension
+	      point="org.eclipse.core.expressions.definitions">
+    	<definition
+          	id="gov.nasa.ensemble.core.plan.editor.constraints.inConstraintActionSet">
+			<with
+				variable="activeContexts">
+				<iterate operator="or">
+					<equals
+						value="gov_nasa_ensemble_core_plan_editor_constraints_ConstraintEditingActionSet">
+					</equals>
+				</iterate>
+			</with>
+    	</definition>
+	</extension>
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet id="gov_nasa_ensemble_core_plan_editor_constraints_ConstraintEditingActionSet"
+            label="Constraint Editing Actions"
+            description="Actions for manipulating constraints on activities and activity groups">
+      </actionSet>      
+   </extension>
+   <extension point="org.eclipse.ui.actionSetPartAssociations">
+      <actionSetPartAssociation targetID="gov_nasa_ensemble_core_plan_editor_constraints_ConstraintEditingActionSet">
+         <part id="gov.nasa.ensemble.core.plan.editor.MultiPagePlanEditor"/>
+      </actionSetPartAssociation>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+       <key
+             commandId="gov.nasa.ensemble.core.plan.editor.constraints.exactly"
+             contextId="timeline"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="E">
+       </key>
+   </extension>
+</plugin>

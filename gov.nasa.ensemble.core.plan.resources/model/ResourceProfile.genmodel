@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.core.plan.resources/src"
+    editDirectory="/gov.nasa.ensemble.core.plan.resources/src" modelPluginID="gov.nasa.ensemble.core.plan.resources"
+    modelName="ResourceProfile" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6" usedGenPackages="../../gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.genmodel#//advisor ../../gov.nasa.ensemble.emf/model/Common.genmodel#//common ../../gov.nasa.ensemble.dictionary/model/Dictionary.genmodel#//dictionary platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../gov.nasa.ensemble.core.jscience/model/JScience.genmodel#//jscience ../../gov.nasa.ensemble.core.model.plan/model/Planning.genmodel#//plan platform:/plugin/org.eclipse.emf.ecore.change/model/Change.genmodel#//change">
+  <foreignModel>ResourceProfile.ecore</foreignModel>
+  <genPackages prefix="Profile" basePackage="gov.nasa.ensemble.core.plan.resources"
+      disposableProviderFactory="true" ecorePackage="ResourceProfile.ecore#/">
+    <genClasses image="false" ecoreClass="ResourceProfile.ecore#//IMember"/>
+    <genClasses image="false" ecoreClass="ResourceProfile.ecore#//ProfileConstraint"/>
+    <genClasses ecoreClass="ResourceProfile.ecore#//ProfileEffect" labelFeature="#//profile/ProfileReference/profileKey">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileEffect/startValueLiteral"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileEffect/endValueLiteral"/>
+      <genOperations ecoreOperation="ResourceProfile.ecore#//ProfileEffect/getEffectLiteral">
+        <genParameters ecoreParameter="ResourceProfile.ecore#//ProfileEffect/getEffectLiteral/timepoint"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="ResourceProfile.ecore#//ProfileEnvelopeConstraint" labelFeature="#//profile/ProfileReference/profileKey">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileEnvelopeConstraint/minLiteral"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileEnvelopeConstraint/maxLiteral"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileEnvelopeConstraint/fromAD"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceProfile.ecore#//ProfileEqualityConstraint" labelFeature="#//profile/ProfileReference/profileKey">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileEqualityConstraint/valueLiteral"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileEqualityConstraint/maximumGap"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceProfile.ecore#//ProfileMember">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceProfile.ecore#//ProfileMember/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceProfile.ecore#//ProfileMember/effects"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceProfile.ecore#//ResourceProfileMember">
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference ResourceProfile.ecore#//ResourceProfileMember/resourceProfiles"/>
+      <genOperations ecoreOperation="ResourceProfile.ecore#//ResourceProfileMember/getProfile">
+        <genParameters ecoreParameter="ResourceProfile.ecore#//ResourceProfileMember/getProfile/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="ResourceProfile.ecore#//ProfileReference">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileReference/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceProfile.ecore#//ProfileReference/metadata"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileReference/startOffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileReference/startOffsetAmount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileReference/startOffsetTimepoint"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileReference/endOffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileReference/endOffsetAmount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileReference/endOffsetTimepoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//ProfileReference/profileKey"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceProfile.ecore#//StructuralFeatureProfile">
+      <genTypeParameters ecoreTypeParameter="ResourceProfile.ecore#//StructuralFeatureProfile/T"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ResourceProfile.ecore#//StructuralFeatureProfile/description"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference ResourceProfile.ecore#//StructuralFeatureProfile/object"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference ResourceProfile.ecore#//StructuralFeatureProfile/feature"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

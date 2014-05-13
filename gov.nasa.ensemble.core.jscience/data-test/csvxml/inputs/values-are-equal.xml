@@ -1,0 +1,20 @@
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+    <!-- In this one, the data values at each date are equal to each other,
+    	 but some are defaulted to that value.  This tests that defaultValue is implemented.   -->
+    <columns timeFormat="ISO8601">
+         <column id="value1" type="Integer" interpolation="instantaneous" defaultValue="100"/>
+         <column id="value2" type="Integer" interpolation="instantaneous" defaultValue="200"/>
+         <column id="value3" type="Integer" interpolation="instantaneous" defaultValue="300"/>
+    </columns>
+    <data>
+        <![CDATA[
+    StartTime,value1,value2,value3
+    2011-04-06T00:00:10Z, 42,42,42
+    2011-04-06T00:00:11Z, 99,99,99
+    2011-04-06T00:00:12Z, 200,,200
+    2011-04-06T00:00:13Z, ,100,100
+    2011-04-06T00:00:14Z, 300,300,
+     ]]>
+    </data>
+</resources>

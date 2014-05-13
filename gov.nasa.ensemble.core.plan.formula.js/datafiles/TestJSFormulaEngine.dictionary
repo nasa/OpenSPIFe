@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="refad" nsURI="http://mod.nasa.gov/refad" nsPrefix="refad" version="JUnit-TestJSFormulaEngine-Reference-1.0">
+  <eClassifiers xsi:type="dict:ObjectDef" name="CrewMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EClaimableResourceDef" name="busy">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="ReferencingActivity" category="References" duration="duration">
+    <eStructuralFeatures xsi:type="dict:EReferenceParameter" name="crewMember" eType="//CrewMember">
+      <effects xsi:type="dict:EClaimableEffect" definition="//CrewMember/busy" description=""/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EReferenceParameter" name="crewMembers" upperBound="-1" eType="//CrewMember"/>
+  </eClassifiers>
+  <attributeDefs xsi:type="dict:EAttributeParameter" name="duration" defaultValueLiteral="1:00:00" description="How long the activity is expected to last">
+    <eAnnotations source="detail">
+      <details key="shortDescription"/>
+    </eAnnotations>
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+  </attributeDefs>
+</dict:EActivityDictionary>

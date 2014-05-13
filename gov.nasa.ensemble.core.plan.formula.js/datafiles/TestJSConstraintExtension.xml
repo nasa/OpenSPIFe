@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext
+            id="js.test.clientContext">
+         <selector
+               class="gov.nasa.ensemble.core.plan.formula.js.TestClientSelector">
+         </selector>
+      </clientContext>
+      <binding
+            category="gov.nasa.ensemble.core.plan.formula.js.test"
+            context="js.test.clientContext">
+      </binding>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="gov.nasa.ensemble.core.plan.formula.js.test"
+            name="Test Category">
+      </category>
+      <constraintProvider
+            cache="true">
+         <package
+               namespaceUri="platform:/resource/gov.nasa.ensemble.core.model.plan/model/Planning.ecore">
+         </package>
+         <constraints
+               categories="gov.nasa.ensemble.core.plan.formula.js.test">
+            <constraint
+                  id="gov.nasa.ensemble.core.plan.formula.js.Equals90"
+                  lang="JS"
+                  mode="Batch"
+                  name="Equals90"
+                  severity="ERROR"
+                  statusCode="2">
+               <message>
+                  Requires_equal_to_90 attribute of {0} was not 90.
+               </message>
+               <target
+                     class="EActivity">
+               </target>
+               <![CDATA[
+                  Requires_equal_to_90 == 90
+               ]]>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+</plugin>

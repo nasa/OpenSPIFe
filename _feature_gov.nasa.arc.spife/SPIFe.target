@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="SPIFe" sequenceNumber="336">
+<?pde version="3.8"?><target name="SPIFe" sequenceNumber="341">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.compare.source.feature.group" version="2.1.3.201402040808"/>
@@ -33,8 +33,8 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140114142710/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.widgets.cdatetime.feature.feature.group" version="0.14.0.201405061248"/>
-<unit id="org.eclipse.nebula.feature.feature.group" version="1.0.0.201405061248"/>
+<unit id="org.eclipse.nebula.widgets.cdatetime.feature.feature.group" version="0.14.0.201405131345"/>
+<unit id="org.eclipse.nebula.feature.feature.group" version="1.0.0.201405131345"/>
 <repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
 </location>
 </locations>

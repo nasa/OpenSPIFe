@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+    <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="gov.nasa.ensemble.core.rml3.diffActionSet"
+            label="Plan Diff Actions">
+         <action
+               class="gov.nasa.ensemble.core.model.plan.diff.report.action.ComparePlanAction"
+               id="gov.nasa.ensemble.core.model.plan.diff.report.action.ComparePlanAction"
+               label="Compare Plans..."
+               menubarPath="file/open.ext"
+               style="push">
+         </action>
+      </actionSet>
+   </extension>
+    <extension
+          point="org.eclipse.compare.contentMergeViewers">
+       <viewer
+             class="gov.nasa.ensemble.core.model.plan.diff.report.viewer.PlanDiffViewerCreator"
+             extensions="plan"
+             id="gov.nasa.ensemble.core.model.plan.diff.report.viewer1">
+       </viewer>
+    </extension>
+    <extension
+          point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+       <IEnsemblePluginTest
+             class="gov.nasa.ensemble.core.model.plan.diff.report.test.AllPlanDiffReportTests">
+       </IEnsemblePluginTest>
+    </extension>
+</plugin>

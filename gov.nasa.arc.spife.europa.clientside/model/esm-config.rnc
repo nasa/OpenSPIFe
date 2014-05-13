@@ -1,0 +1,16 @@
+include "europa-server-attrs.rnc"
+
+europa-server-manager =
+   element EuropaServerManager {
+      attribute port {xsd:int {minExclusive = "1024" maxExclusive = "65536"}},
+      attribute childTimeout {xsd:int {minInclusive = "0"}}?,
+      attribute defaultType {text},
+      attribute logLevel {log-type}?,
+      element EuropaServer {
+         attribute name {text},
+         (attribute config-path {text} |
+            europa-server-attrs)
+      }+
+   }
+
+

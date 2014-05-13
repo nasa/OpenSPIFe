@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+  <columns timeFormat="ISO8601">
+    <column id="col_1" interpolation="step" type="Integer"/>
+    <column id="col_2" interpolation="step" type="Integer"/>
+    <column id="col_3" interpolation="step" type="Integer"/>
+    <column id="col_4" interpolation="step" type="Integer"/>
+    <column id="col_5" interpolation="step" type="Integer"/>
+    <column id="col_6" interpolation="step" type="Integer"/>
+    <column id="col_7" interpolation="step" type="Integer"/>
+    <column id="col_8" interpolation="step" type="Integer"/>
+    <column id="col_9" interpolation="step" type="Integer"/>
+    <column id="col_10" interpolation="step" type="Integer"/>
+    <column id="col_11" interpolation="step" type="Integer"/>
+    <column id="col_12" interpolation="step" type="Integer"/>
+    <column id="col_13" interpolation="step" type="Integer"/>
+    <column id="col_14" interpolation="step" type="Integer"/>
+    <column id="col_15" interpolation="step" type="Integer"/>
+    <column id="col_16" interpolation="step" type="Integer"/>
+    <column id="col_17" interpolation="step" type="Integer"/>
+    <column id="col_18" interpolation="step" type="Integer"/>
+    <column id="col_19" interpolation="step" type="Integer"/>
+    <column id="col_20" interpolation="step" type="Integer"/>
+    <column id="col_21" interpolation="step" type="Integer"/>
+    <column id="col_22" interpolation="step" type="Integer"/>
+    <column id="col_23" interpolation="step" type="Integer"/>
+    <column id="col_24" interpolation="step" type="Integer"/>
+    <column id="col_25" interpolation="step" type="Integer"/>
+    <column id="col_26" interpolation="step" type="Integer"/>
+    <column id="col_27" interpolation="step" type="Integer"/>
+    <column id="col_28" interpolation="step" type="Integer"/>
+    <column id="col_29" interpolation="step" type="Integer"/>
+    <column id="col_30" interpolation="step" type="Integer"/>
+  </columns>
+  <data><![CDATA[
+Time,col_1,col_2,col_3,col_4,col_5,col_6,col_7,col_8,col_9,col_10,col_11,col_12,col_13,col_14,col_15,col_16,col_17,col_18,col_19,col_20,col_21,col_22,col_23,col_24,col_25,col_26,col_27,col_28,col_29,col_30
+2011-04-03T07:00:00Z,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2011-04-10T07:00:00Z,,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2011-04-17T07:00:00Z,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2011-04-24T07:00:00Z,,,,4,,,,,,,,,,,,,,,,,,,,,,,,,,
+2011-05-01T07:00:00Z,,,,,5,,,,,,,,,,,,,,,,,,,,,,,,,
+2011-05-08T07:00:00Z,,,,,,6,,,,,,,,,,,,,,,,,,,,,,,,
+2011-05-15T07:00:00Z,,,,,,,7,,,,,,,,,,,,,,,,,,,,,,,
+2011-05-22T07:00:00Z,,,,,,,,8,,,,,,,,,,,,,,,,,,,,,,
+2011-05-29T07:00:00Z,,,,,,,,,9,,,,,,,,,,,,,,,,,,,,,
+2011-06-05T07:00:00Z,,,,,,,,,,10,,,,,,,,,,,,,,,,,,,,
+2011-06-12T07:00:00Z,,,,,,,,,,,11,,,,,,,,,,,,,,,,,,,
+2011-06-19T07:00:00Z,,,,,,,,,,,,12,,,,,,,,,,,,,,,,,,
+2011-06-26T07:00:00Z,,,,,,,,,,,,,13,,,,,,,,,,,,,,,,,
+2011-07-03T07:00:00Z,,,,,,,,,,,,,,14,,,,,,,,,,,,,,,,
+2011-07-10T07:00:00Z,,,,,,,,,,,,,,,15,,,,,,,,,,,,,,,
+2011-07-17T07:00:00Z,,,,,,,,,,,,,,,,16,,,,,,,,,,,,,,
+2011-07-24T07:00:00Z,,,,,,,,,,,,,,,,,17,,,,,,,,,,,,,
+2011-07-31T07:00:00Z,,,,,,,,,,,,,,,,,,18,,,,,,,,,,,,
+2011-08-07T07:00:00Z,,,,,,,,,,,,,,,,,,,19,,,,,,,,,,,
+2011-08-14T07:00:00Z,,,,,,,,,,,,,,,,,,,,20,,,,,,,,,,
+2011-08-21T07:00:00Z,,,,,,,,,,,,,,,,,,,,,21,,,,,,,,,
+2011-08-28T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,22,,,,,,,,
+2011-09-04T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,,23,,,,,,,
+2011-09-11T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,,,24,,,,,,
+2011-09-18T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,,,,25,,,,,
+2011-09-25T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,,,,,26,,,,
+2011-10-02T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,,,,,,27,,,
+2011-10-09T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,,,,,,,28,,
+2011-10-16T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,,,,,,,,29,
+2011-10-23T07:00:00Z,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,30
+]]></data>
+</resources>

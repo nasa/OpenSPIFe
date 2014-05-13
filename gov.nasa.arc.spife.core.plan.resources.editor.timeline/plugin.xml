@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup class="gov.nasa.arc.spife.ui.timeline.TimelineBuilder">
+         <factory class="gov.nasa.arc.spife.core.plan.resources.editor.timeline.ResourceTimelineBuilder$Factory"/>
+      </lookup>
+      <lookup class="gov.nasa.arc.spife.ui.timeline.policy.EditPolicyFactory">
+         <implementation class="gov.nasa.arc.spife.core.plan.resources.editor.timeline.policies.ResourceDropTargetPolicyFactory"/>
+      </lookup>
+      <lookup
+            class="gov.nasa.arc.spife.core.plan.editor.timeline.PlanTimelineService">
+         <implementation
+               class="gov.nasa.arc.spife.core.plan.resources.editor.timeline.marker.ResourceConditionTimelineService">
+         </implementation>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.common.ui.detail.IDetailFactory">
+         <implementation
+               class="gov.nasa.arc.spife.core.plan.resources.editor.timeline.marker.ResourceConditionsDetailSheetFactory">
+         </implementation>
+      </lookup>
+   </extension>
+</plugin>

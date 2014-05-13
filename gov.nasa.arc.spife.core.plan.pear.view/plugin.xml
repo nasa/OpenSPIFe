@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension
+       point="org.eclipse.ui.views">
+    <view
+          category="gov.nasa.ensemble.core.plan"
+          class="gov.nasa.arc.spife.core.plan.pear.view.ui.ProfileEffectsAndRequirementsView"
+          icon="icons/effects_and_conditions.png"
+          id="gov.nasa.arc.spife.core.plan.pear.view.ui.ProfileEffectsAndRequirementsView"
+          name="Profile Effects &amp;&amp; Requirements"
+          restorable="true">
+    </view>
+ </extension>
+ <extension point="org.eclipse.ui.startup">
+      <startup
+            class="gov.nasa.arc.spife.core.plan.pear.view.ui.ProfileEffectsAndRequirementsViewStartup">
+      </startup>
+   </extension>
+   <extension
+       point="org.eclipse.ui.viewActions">
+    <viewContribution
+          id="gov.nasa.arc.spife.core.plan.pear.view.contribution"
+          targetID="gov.nasa.arc.spife.core.plan.pear.view.ui.ProfileEffectsAndRequirementsView">
+       <action
+             class="gov.nasa.arc.spife.core.plan.pear.view.ui.RemoveProfileMemberPageRowAction"
+             icon="icons/trash.png"
+             id="gov.nasa.arc.spife.core.plan.pear.view.remove"
+             label="-"
+             style="push"
+             toolbarPath="additions"
+             tooltip="Delete">
+       </action>
+       <action
+             class="gov.nasa.arc.spife.core.plan.pear.view.ui.AddProfileMemberPageRowAction"
+             icon="icons/add.png"
+             id="gov.nasa.arc.spife.core.plan.pear.view.add"
+             label="+"
+             style="push"
+             toolbarPath="additions"
+             tooltip="Add">
+       </action>
+    </viewContribution>
+    <viewContribution
+          id="gov.nasa.arc.score.member.profiletreeview.contribution"
+          targetID="gov.nasa.ensemble.core.jscience.ui.profile.tree.ProfileTreeView">
+       <action
+             class="gov.nasa.arc.spife.core.plan.pear.view.ui.DeleteProfileMemberAction"
+             icon="icons/trash.png"
+             id="gov.nasa.arc.spife.core.plan.pear.view.delete"
+             label="-"
+             style="push"
+             toolbarPath="additions"
+             tooltip="Delete">
+          <enablement>
+             <objectClass
+                   name="gov.nasa.ensemble.core.plan.editor.MultiPagePlanEditor">
+             </objectClass>
+          </enablement>
+       </action>
+       <action
+             class="gov.nasa.arc.spife.core.plan.pear.view.ui.CreateProfileMemberAction"
+             icon="icons/add.png"
+             id="gov.nasa.arc.spife.core.plan.pear.view.create"
+             label="+"
+             style="push"
+             toolbarPath="additions"
+             tooltip="Add">
+       </action>
+    </viewContribution>
+ </extension>
+
+</plugin>

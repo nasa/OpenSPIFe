@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Drudgery Plug-in
+Bundle-SymbolicName: gov.nasa.ensemble.core.plan.editor.drudgery;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.ensemble.core.plan.editor.drudgery.Activator
+Require-Bundle: gov.nasa.arc.spife.core.plan.editor.timeline;bundle-version="1.0.0",
+ gov.nasa.arc.spife.ui.timeline;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.plan.constraints,
+ gov.nasa.ensemble.core.plan.editor.constraints,
+ org.eclipse.ui.ide
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName
+Export-Package: gov.nasa.ensemble.core.plan.editor.drudgery,
+ gov.nasa.ensemble.core.plan.editor.drudgery.contributor

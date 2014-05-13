@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="constraints"
+    nsURI="platform:/resource/gov.nasa.ensemble.core.model.plan.constraints/model/ConstraintsPlanning.ecore"
+    nsPrefix="gov.nasa.ensemble.model.plan.constraints">
+  <eClassifiers xsi:type="ecore:EClass" name="ConstraintsMember" eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EMember">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="binaryTemporalConstraints"
+        upperBound="-1" eType="#//BinaryTemporalConstraint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="periodicTemporalConstraints"
+        upperBound="-1" eType="#//PeriodicTemporalConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" eType="#//TemporalChain"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstraintPoint">
+    <eOperations name="getAnchorElement" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
+    <eOperations name="getDate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDate"/>
+    <eOperations name="hasEndpoint" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anchor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="ecore:EClass ../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EPlanElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpoint" eType="ecore:EEnum ../../gov.nasa.ensemble.emf/model/Common.ecore#//Timepoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TemporalConstraint" abstract="true"
+      eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//IExternalizable ../../gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.ecore#//IWaivable">
+    <eOperations name="isViolated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryTemporalConstraint" eSuperTypes="#//TemporalConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pointA" eType="#//ConstraintPoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pointB" eType="#//ConstraintPoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumBminusA" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumBminusA" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PeriodicTemporalConstraint" eSuperTypes="#//TemporalConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="point" eType="#//ConstraintPoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="earliest" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="latest" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TemporalChain" eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//IExternalizable ../../gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.ecore#//IWaivable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="ecore:EClass ../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EPlanElement"/>
+  </eClassifiers>
+</ecore:EPackage>

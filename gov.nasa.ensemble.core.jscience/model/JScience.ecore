@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jscience"
+    nsURI="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore"
+    nsPrefix="jscience">
+  <eClassifiers xsi:type="ecore:EClass" name="AmountConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extent" eType="#//EAmountExtent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="waived" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComputableAmount">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="#//EAmount"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="computing" eType="#//ComputingState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComputingState">
+    <eLiterals name="Computing" literal="Computing"/>
+    <eLiterals name="Complete" value="1" literal="Complete"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EAmount" instanceTypeName="org.jscience.physics.amount.Amount&lt;?>">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="ecore:EJavaObject"/>
+    </eAnnotations>
+    <eAnnotations source="hibernate">
+      <details key="parameterType" value="AMOUNT"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EAmountExtent" instanceTypeName="gov.nasa.ensemble.core.jscience.AmountExtent&lt;?>"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EAngle" instanceTypeName="org.jscience.physics.amount.Amount&lt;javax.measure.quantity.Angle>">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="ecore:EJavaObject"/>
+    </eAnnotations>
+    <eAnnotations source="hibernate">
+      <details key="parameterType" value="AMOUNT"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EComputableAmount" instanceClassName="gov.nasa.ensemble.core.jscience.ComputableAmount">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="ecore:EJavaObject"/>
+    </eAnnotations>
+    <eAnnotations source="hibernate">
+      <details key="parameterType" value="COMPUTABLE_AMOUNT"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EDataPoint" instanceClassName="gov.nasa.ensemble.core.jscience.DataPoint">
+    <eTypeParameters name="T"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EDuration" instanceTypeName="org.jscience.physics.amount.Amount&lt;javax.measure.quantity.Duration>">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="ecore:EJavaObject"/>
+    </eAnnotations>
+    <eAnnotations source="hibernate">
+      <details key="parameterType" value="DURATION"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EUnit" instanceTypeName="javax.measure.unit.Unit&lt;?>"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Profile">
+    <eTypeParameters name="T"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="externalCondition" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" eType="#//EUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="detail">
+        <details key="shortDescription" value=".units"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="detail">
+        <details key="shortDescription" value=".units"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DefaultValue" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extent" eType="#//EAmountExtent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolation" eType="#//INTERPOLATION"
+        defaultValueLiteral="STEP"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataType" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EStringToStringMapEntry"
+        containment="true">
+      <eAnnotations source="detail">
+        <details key="table" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataPoints" upperBound="-1">
+      <eGenericType eClassifier="#//EDataPoint">
+        <eTypeArguments eTypeParameter="#//Profile/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TemporalExtent" instanceClassName="gov.nasa.ensemble.core.jscience.TemporalExtent"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="TemporalOffset" instanceClassName="gov.nasa.ensemble.core.jscience.TemporalOffset"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="INTERPOLATION">
+    <eLiterals name="LINEAR"/>
+    <eLiterals name="STEP" value="1"/>
+    <eLiterals name="INSTANTANEOUS" value="2" literal="INSTANTANEOUS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PowerValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dutyFactor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actualWattage" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateValue" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEnumLiteral"/>
+  </eClassifiers>
+</ecore:EPackage>

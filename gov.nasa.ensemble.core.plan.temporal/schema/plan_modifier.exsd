@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="gov.nasa.arc.spife.core.plan.modifier">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="gov.nasa.arc.spife.core.plan.modifier" id="PlanModifier" name="Plan Modifier"/>
+      </appInfo>
+      <documentation>
+         Implementers of this extension point provide one or more classes that implement the IPlanModifier interface.
+      </documentation>
+   </annotation>
+
+   <element name="modifier">
+      <complexType>
+         <sequence>
+         </sequence>
+         <attribute name="name" type="string" use="optional">
+            <annotation>
+               <documentation>
+                  A user-friendly name for this plan modifier.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="icon" type="string" use="optional">
+            <annotation>
+               <documentation>
+                  An icon to be displayed for this plan modifier.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The name of a class that implements the IPlanModifier interface.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="gov.nasa.arc.spife.core.plan.modifier.IPlanModifier"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         June 2005
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>

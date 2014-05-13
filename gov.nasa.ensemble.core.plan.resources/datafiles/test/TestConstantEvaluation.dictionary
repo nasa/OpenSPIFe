@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:ENumericResourceDef" name="Priority_1_data" units="b">
+    <eAnnotations source="detail">
+      <details key="shortDescription" value="bits"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="ConstantExample" category="TEST.ConstantIntialization" description="Uses constants to initialze parameters and duration" duration="MSLICE_TEST_CONSTANT_DURATION">
+    <eAnnotations source="descriptor">
+      <details key="displayName" value="ConstantExample"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="Init_by_Const_1" defaultValueLiteral="1.0">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="Init_by_Const_1"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="Init_by_Const_2" defaultValueLiteral="2.0">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="Init_by_Const_2"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="_2_times_Const_2" defaultValueLiteral="4">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="_2_times_Const_2"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="Init_String_Constant" defaultValueLiteral="AN_MSLICE_STRING_CONSTANT">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="Init_String_Constant"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="Init_By_doubleIt_4" defaultValueLiteral="8">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="Init_By_doubleIt_4"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="RangeWithConstants" defaultValueLiteral="0">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="RangeWithConstants"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <choices minimum="1" maximum="10"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="QuadrupleMe" defaultValueLiteral="1">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="QuadrupleMe"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="QuadrupleAConstant2" defaultValueLiteral="8">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="QuadrupleAConstant2"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="LocalVarCallsFunction" derived="true">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="LocalVarCallsFunction"/>
+      </eAnnotations>
+      <eAnnotations source="resource">
+        <details key="formula" value="quadrupleIt(QuadrupleMe)"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="LocalVarMultiplies" derived="true">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="LocalVarMultiplies"/>
+      </eAnnotations>
+      <eAnnotations source="resource">
+        <details key="formula" value="QuadrupleMe * 4"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="LocalVarToQuadrupleAConstant2" defaultValueLiteral="8">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="LocalVarToQuadrupleAConstant2"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+    <numericEffects definition="//Priority_1_data" endEffect="quadrupleIt(QuadrupleMe)"/>
+  </eClassifiers>
+  <constants xsi:type="dict:EAttributeParameter" name="MSLICE_TEST_CONSTANT_1" defaultValueLiteral="1.0" description="Test constant for MSL">
+    <eAnnotations source="detail">
+      <details key="shortDescription"/>
+    </eAnnotations>
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </constants>
+  <constants xsi:type="dict:EAttributeParameter" name="MSLICE_TEST_CONSTANT_2" defaultValueLiteral="2.0" description="Test constant for MSL">
+    <eAnnotations source="detail">
+      <details key="shortDescription"/>
+    </eAnnotations>
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </constants>
+  <constants xsi:type="dict:EAttributeParameter" name="MSLICE_TEST_CONSTANT_DURATION" defaultValueLiteral="0:30:00" description="Test constant for MSL" unitsDisplayName="hh:mm:ss">
+    <eAnnotations source="detail">
+      <details key="shortDescription" value="hh:mm:ss"/>
+    </eAnnotations>
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+  </constants>
+  <constants xsi:type="dict:EAttributeParameter" name="MSLICE_TEST_CONSTANT_STRING" defaultValueLiteral="AN_MSLICE_STRING_CONSTANT" description="Test string constant for MSL">
+    <eAnnotations source="detail">
+      <details key="shortDescription"/>
+    </eAnnotations>
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </constants>
+</dict:EActivityDictionary>

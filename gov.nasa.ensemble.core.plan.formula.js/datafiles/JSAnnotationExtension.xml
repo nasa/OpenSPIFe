@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext
+            id="gov.nasa.ensemble.core.plan.formula.js.constraint.clientContext">
+         <selector
+               class="gov.nasa.ensemble.core.plan.formula.js.constraint.JSAnnotationClientSelector">
+         </selector>
+      </clientContext>
+      <binding
+            category="JSAnnotationCategory"
+            context="gov.nasa.ensemble.core.plan.formula.js.constraint.clientContext">
+      </binding>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="JSAnnotationCategory"
+            name="JavaScript Annotation Category">
+      </category>
+      <constraintProvider
+            cache="true">
+         <package
+               namespaceUri="%namespaceUri">
+         </package>
+         <constraints
+               categories="JSAnnotationCategory">
+            <constraint
+                  class="gov.nasa.ensemble.core.plan.formula.js.constraint.JSAnnotationConstraint"
+                  id="JSAnnotationConstraint"
+                  lang="Java"
+                  mode="Live"
+                  name="JavaScript Annotations"
+                  severity="ERROR"
+                  statusCode="3">
+               <message>
+                  message body text
+               </message>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+</plugin>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="europa-server-attrs.xsd"/>
+  <xs:element name="EuropaServerManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="EuropaServer"/>
+      </xs:sequence>
+      <xs:attribute name="port" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minExclusive value="1024"/>
+            <xs:maxExclusive value="65536"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="childTimeout">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="defaultType" use="required"/>
+      <xs:attribute name="logLevel" type="log-type"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EuropaServer">
+    <xs:complexType>
+      <xs:attribute name="name" use="required"/>
+      <xs:attribute name="config-path"/>
+      <xs:attribute name="port">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minExclusive value="1024"/>
+            <xs:maxExclusive value="65536"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="debug" type="log-type"/>
+      <xs:attribute name="verbosity">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="initialState"/>
+      <xs:attribute name="serverVersion"/>
+      <xs:attribute name="timeout">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="logFile"/>
+      <xs:attribute name="plannerConfig"/>
+      <xs:attribute name="plannerConfigElement"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

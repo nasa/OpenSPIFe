@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Planning"
+            id="gov.nasa.ensemble.core.plan" />
+      <view 
+      		name="Activity Dictionary"
+            icon="icons/activity_dictionary_view.gif"
+            category="gov.nasa.ensemble.core.plan"
+            class="gov.nasa.ensemble.core.activityDictionary.view.ActivityDictionaryView"
+            id="gov.nasa.ensemble.core.activityDictionary.view.ActivityDictionaryView">
+      </view>
+   </extension>
+
+	<extension point="org.eclipse.ui.preferencePages">
+	 	<page id="gov.nasa.ensemble.activityDictionary.preference"
+	 		name="Activity Dictionary" class="gov.nasa.ensemble.core.activityDictionary.view.preferences.ActivityDictionaryPreferencePage">
+	   	</page>
+	</extension>
+
+   <extension point="gov.nasa.ensemble.common.TransferProvider">
+      <provider class="gov.nasa.ensemble.core.activityDictionary.view.transfer.StateResourceDefTransferProvider"/>
+      <provider class="gov.nasa.ensemble.core.activityDictionary.view.transfer.NumericResourceDefTransferProvider"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.arc.spife.europa.clientside/src"
+    editDirectory="/gov.nasa.arc.spife.europa.clientside/src" modelPluginID="gov.nasa.arc.spife.europa.clientside"
+    templateDirectory="" modelName="Esm-config" modelPluginClass="" editPluginClass="gov.nasa.arc.spife.europa.clientside.provider.EsmConfigEditPlugin"
+    editorPluginClass="gov.nasa.arc.spife.europa.clientside.presentation.EsmConfigEditorPlugin"
+    testsDirectory="/gov.nasa.arc.spife.europa.clientside/src-test" testSuiteClass="gov.nasa.arc.spife.europa.clientside.tests.EsmConfigAllTests"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false"
+    testsPluginID="gov.nasa.arc.spife.europa.clientside" classNamePattern="">
+  <foreignModel>esm-config.xsd</foreignModel>
+  <genPackages prefix="EsmConfig" basePackage="gov.nasa.arc.spife.europa.clientside"
+      resource="XML" disposableProviderFactory="true" ecorePackage="EsmConfig.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EsmConfig.ecore#//LogTypeMember1Item">
+      <genEnumLiterals ecoreEnumLiteral="EsmConfig.ecore#//LogTypeMember1Item/ERROR"/>
+      <genEnumLiterals ecoreEnumLiteral="EsmConfig.ecore#//LogTypeMember1Item/TRACE"/>
+      <genEnumLiterals ecoreEnumLiteral="EsmConfig.ecore#//LogTypeMember1Item/TRACEALL"/>
+      <genEnumLiterals ecoreEnumLiteral="EsmConfig.ecore#//LogTypeMember1Item/RETURN"/>
+      <genEnumLiterals ecoreEnumLiteral="EsmConfig.ecore#//LogTypeMember1Item/TIMER"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//ChildTimeoutType"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//ChildTimeoutTypeObject"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//LogType"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//LogTypeMember0"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//LogTypeMember0Object"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//LogTypeMember1"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//LogTypeMember1ItemObject"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//PortType"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//PortType1"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//PortTypeObject"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//PortTypeObject1"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//TimeoutType"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//TimeoutTypeObject"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//VerbosityType"/>
+    <genDataTypes ecoreDataType="EsmConfig.ecore#//VerbosityTypeObject"/>
+    <genClasses ecoreClass="EsmConfig.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EsmConfig.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EsmConfig.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsmConfig.ecore#//DocumentRoot/europaServer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsmConfig.ecore#//DocumentRoot/europaServerManager"/>
+    </genClasses>
+    <genClasses ecoreClass="EsmConfig.ecore#//EuropaServerManagerType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsmConfig.ecore#//EuropaServerManagerType/europaServer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerManagerType/childTimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerManagerType/defaultType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerManagerType/logLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerManagerType/port"/>
+    </genClasses>
+    <genClasses ecoreClass="EsmConfig.ecore#//EuropaServerType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/configPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/debug"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/initialState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/logFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/plannerConfig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/plannerConfigElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/serverVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/timeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsmConfig.ecore#//EuropaServerType/verbosity"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

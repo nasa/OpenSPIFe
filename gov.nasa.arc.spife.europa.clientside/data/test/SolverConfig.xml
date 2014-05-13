@@ -1,0 +1,30 @@
+<MER2PassiveSolver>
+ <Solver name="MER2PassiveSolver">
+  <UnboundVariableManager defaultPriority="10">
+     <FlawFilter var-match="DISTANCE_VAR"/>
+     <FlawFilter var-match="duration" />
+     <FlawFilter var-match="quantity" />
+     <FlawFilter var-match="time" />
+     <FlawFilter var-match="start" />
+     <FlawFilter var-match="end" />
+     <FlawFilter var-match="offset" />
+     <FlawFilter var-match="container_id" />
+     <FlawFilter var-match="name" />
+     <FlawFilter var-match="Name" />
+     <FlawFilter var-match="assignee" />
+     <FlawFilter var-match="crewMemberId" />
+     <FlawFilter var-match="NO_NAME" />
+     <FlawFilter var-match="guard" component="Singleton"/>
+     <FlawHandler var-match="object" priority="100" component="Min"/>
+     <FlawHandler var-match="solved" priority="0" component="Max"/>
+     <FlawHandler component="Max"/>
+  </UnboundVariableManager>
+  <OpenConditionManager defaultPriority="50">
+    <FlawHandler component="StandardOpenConditionHandler"/>
+  </OpenConditionManager>
+  <ThreatManager defaultPriority="30">
+    <FlawHandler component="PriorityMinPerturb"/>
+    <FlawFilter class-match="Reservoir"/>
+  </ThreatManager>
+ </Solver>
+</MER2PassiveSolver>

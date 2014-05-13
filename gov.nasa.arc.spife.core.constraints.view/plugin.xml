@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Planning"
+            id="gov.nasa.ensemble.core.plan">
+      </category>
+      <view
+            name="Constraints"
+            icon="icons/constraints_view.gif"
+            category="gov.nasa.ensemble.core.plan"
+            class="gov.nasa.arc.spife.core.constraints.view.ConstraintsView"
+            id="gov.nasa.arc.spife.core.constraints.view.ConstraintsView">
+      </view>
+   </extension>
+
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.arc.spife.tests.core.constraints.view.AllTests"/>
+   </extension>
+
+</plugin>
