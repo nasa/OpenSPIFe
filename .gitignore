@@ -5,9 +5,6 @@ gen/
 # Java class files
 *.class
 
-# Eclipse
-.classpath
-
 # Mac
 .DS_Store
 
