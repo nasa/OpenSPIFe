@@ -29,11 +29,6 @@ import java.util.ArrayList;
  */
 public final class VisitList<T> extends ArrayList<T> {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public interface Visitor<T> {
 		public void visit(T item);
 	}
