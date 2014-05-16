@@ -30,7 +30,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/sharedEffects"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/stateEffects"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/stateRequirements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/blockEffect"/>
     </genClasses>
     <genClasses ecoreClass="Dictionary.ecore#//EActivityDictionary">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityDictionary/author"/>
@@ -54,11 +53,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EAttributeParameter/units"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EAttributeParameter/unitsDisplayName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EAttributeParameter/choices"/>
-    </genClasses>
-    <genClasses ecoreClass="Dictionary.ecore#//EActivityBlockEffect">
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityBlockEffect/startEffect"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityBlockEffect/endEffect"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityBlockEffect/description"/>
     </genClasses>
     <genClasses ecoreClass="Dictionary.ecore#//EChoice">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Dictionary.ecore#//EChoice/parameterAttribute"/>
@@ -95,10 +89,6 @@
     <genClasses image="false" ecoreClass="Dictionary.ecore#//EParameterDef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EParameterDef/defaultLength"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EParameterDef/description"/>
-    </genClasses>
-    <genClasses ecoreClass="Dictionary.ecore#//EPowerLoadDef"/>
-    <genClasses ecoreClass="Dictionary.ecore#//EPowerLoadEffect">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EPowerLoadEffect/startEffectLoadFactor"/>
     </genClasses>
     <genClasses ecoreClass="Dictionary.ecore#//EReferenceParameter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EReferenceParameter/effects"/>
@@ -149,7 +139,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ETemporalEffect/startEffect"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ETemporalEffect/endEffect"/>
     </genClasses>
-    <genClasses ecoreClass="Dictionary.ecore#//EThresholdEnumDef"/>
     <genClasses image="false" ecoreClass="Dictionary.ecore#//INamedDefinition"/>
     <genClasses ecoreClass="Dictionary.ecore#//ObjectDef"/>
     <genClasses image="false" ecoreClass="Dictionary.ecore#//RuleResourceDef"/>

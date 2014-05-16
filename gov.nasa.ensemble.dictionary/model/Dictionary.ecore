@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dictionary"
-    nsURI="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dictionary" nsURI="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore"
     nsPrefix="dict">
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionContext" instanceClassName="gov.nasa.ensemble.dictionary.DefinitionContext"
       abstract="true" interface="true"/>
@@ -39,8 +37,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stateRequirements" upperBound="-1"
         eType="#//EStateRequirement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="blockEffect" eType="#//EActivityBlockEffect"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EActivityDictionary" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage #//DefinitionContext">
     <eOperations name="getActivityDefs" upperBound="-1" eType="#//EActivityDef"/>
@@ -70,11 +66,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitsDisplayName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="choices" upperBound="-1"
         eType="#//EChoice" containment="true" eOpposite="#//EChoice/parameterAttribute"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EActivityBlockEffect">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startEffect" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endEffect" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EChoice">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterAttribute" eType="#//EAttributeParameter"
@@ -136,14 +127,6 @@
       eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultLength" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EPowerLoadDef" eSuperTypes="#//EStateResourceDef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EPowerLoadEffect">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startEffectLoadFactor"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eGenericSuperTypes eClassifier="#//EStateResourceEffect">
-      <eTypeArguments eClassifier="#//EPowerLoadDef"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EReferenceParameter" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EReference #//EParameterDef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="effects" upperBound="-1"
@@ -219,7 +202,6 @@
       <eTypeArguments eTypeParameter="#//ETemporalEffect/T"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EThresholdEnumDef" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEnum #//INamedDefinition"/>
   <eClassifiers xsi:type="ecore:EClass" name="INamedDefinition" instanceClassName="gov.nasa.ensemble.dictionary.INamedDefinition"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectDef" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass #//INamedDefinition"/>

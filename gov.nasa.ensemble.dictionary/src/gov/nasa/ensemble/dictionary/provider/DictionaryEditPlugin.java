@@ -27,9 +27,7 @@ import gov.nasa.ensemble.core.jscience.provider.JScienceEditPlugin;
 import gov.nasa.ensemble.emf.model.common.provider.CommonEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**

@@ -750,11 +750,6 @@ public class EReferenceParameterItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DictionaryPackage.Literals.EREFERENCE_PARAMETER__EFFECTS,
-				 DictionaryFactory.eINSTANCE.createEPowerLoadEffect()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DictionaryPackage.Literals.EREFERENCE_PARAMETER__EFFECTS,
 				 DictionaryFactory.eINSTANCE.createESharableResourceEffect()));
 
 		newChildDescriptors.add

@@ -25,7 +25,6 @@ package gov.nasa.ensemble.dictionary.util;
 
 import gov.nasa.ensemble.dictionary.DefinitionContext;
 import gov.nasa.ensemble.dictionary.DictionaryPackage;
-import gov.nasa.ensemble.dictionary.EActivityBlockEffect;
 import gov.nasa.ensemble.dictionary.EActivityDef;
 import gov.nasa.ensemble.dictionary.EActivityDictionary;
 import gov.nasa.ensemble.dictionary.EActivityGroupDef;
@@ -39,8 +38,6 @@ import gov.nasa.ensemble.dictionary.ENumericRequirement;
 import gov.nasa.ensemble.dictionary.ENumericResourceDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceEffect;
 import gov.nasa.ensemble.dictionary.EParameterDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadEffect;
 import gov.nasa.ensemble.dictionary.EReferenceParameter;
 import gov.nasa.ensemble.dictionary.EResourceDef;
 import gov.nasa.ensemble.dictionary.ERule;
@@ -52,7 +49,6 @@ import gov.nasa.ensemble.dictionary.EStateResourceEffect;
 import gov.nasa.ensemble.dictionary.ESubActivity;
 import gov.nasa.ensemble.dictionary.ESummaryResourceDef;
 import gov.nasa.ensemble.dictionary.ETemporalEffect;
-import gov.nasa.ensemble.dictionary.EThresholdEnumDef;
 import gov.nasa.ensemble.dictionary.Effect;
 import gov.nasa.ensemble.dictionary.INamedDefinition;
 import gov.nasa.ensemble.dictionary.ObjectDef;
@@ -61,8 +57,6 @@ import gov.nasa.ensemble.dictionary.RuleResourceDef;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
@@ -129,6 +123,12 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case DictionaryPackage.DEFINITION_CONTEXT: {
+				DefinitionContext definitionContext = (DefinitionContext)theEObject;
+				T1 result = caseDefinitionContext(definitionContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DictionaryPackage.EACTIVITY_DEF: {
 				EActivityDef eActivityDef = (EActivityDef)theEObject;
 				T1 result = caseEActivityDef(eActivityDef);
@@ -176,12 +176,6 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseETypedElement(eAttributeParameter);
 				if (result == null) result = caseEcore_ENamedElement(eAttributeParameter);
 				if (result == null) result = caseEcore_EModelElement(eAttributeParameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DictionaryPackage.EACTIVITY_BLOCK_EFFECT: {
-				EActivityBlockEffect eActivityBlockEffect = (EActivityBlockEffect)theEObject;
-				T1 result = caseEActivityBlockEffect(eActivityBlockEffect);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -272,31 +266,6 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseETypedElement(eParameterDef);
 				if (result == null) result = caseEcore_ENamedElement(eParameterDef);
 				if (result == null) result = caseEcore_EModelElement(eParameterDef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DictionaryPackage.EPOWER_LOAD_DEF: {
-				EPowerLoadDef ePowerLoadDef = (EPowerLoadDef)theEObject;
-				T1 result = caseEPowerLoadDef(ePowerLoadDef);
-				if (result == null) result = caseEStateResourceDef(ePowerLoadDef);
-				if (result == null) result = caseRuleResourceDef(ePowerLoadDef);
-				if (result == null) result = caseEResourceDef(ePowerLoadDef);
-				if (result == null) result = caseEcore_EAttribute(ePowerLoadDef);
-				if (result == null) result = caseINamedDefinition(ePowerLoadDef);
-				if (result == null) result = caseEcore_EStructuralFeature(ePowerLoadDef);
-				if (result == null) result = caseEcore_ETypedElement(ePowerLoadDef);
-				if (result == null) result = caseENamedElement(ePowerLoadDef);
-				if (result == null) result = caseEModelElement(ePowerLoadDef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DictionaryPackage.EPOWER_LOAD_EFFECT: {
-				EPowerLoadEffect ePowerLoadEffect = (EPowerLoadEffect)theEObject;
-				T1 result = caseEPowerLoadEffect(ePowerLoadEffect);
-				if (result == null) result = caseEStateResourceEffect(ePowerLoadEffect);
-				if (result == null) result = caseETemporalEffect(ePowerLoadEffect);
-				if (result == null) result = caseEffect(ePowerLoadEffect);
-				if (result == null) result = caseINamedDefinition(ePowerLoadEffect);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -413,15 +382,9 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DictionaryPackage.ETHRESHOLD_ENUM_DEF: {
-				EThresholdEnumDef eThresholdEnumDef = (EThresholdEnumDef)theEObject;
-				T1 result = caseEThresholdEnumDef(eThresholdEnumDef);
-				if (result == null) result = caseEEnum(eThresholdEnumDef);
-				if (result == null) result = caseINamedDefinition(eThresholdEnumDef);
-				if (result == null) result = caseEDataType(eThresholdEnumDef);
-				if (result == null) result = caseEClassifier(eThresholdEnumDef);
-				if (result == null) result = caseENamedElement(eThresholdEnumDef);
-				if (result == null) result = caseEModelElement(eThresholdEnumDef);
+			case DictionaryPackage.INAMED_DEFINITION: {
+				INamedDefinition iNamedDefinition = (INamedDefinition)theEObject;
+				T1 result = caseINamedDefinition(iNamedDefinition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -559,21 +522,6 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EActivity Block Effect</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EActivity Block Effect</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseEActivityBlockEffect(EActivityBlockEffect object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EReference Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -690,21 +638,6 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseENumericResourceDef(ENumericResourceDef object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EPower Load Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EPower Load Def</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseEPowerLoadDef(EPowerLoadDef object) {
 		return null;
 	}
 
@@ -844,21 +777,6 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EThreshold Enum Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EThreshold Enum Def</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseEThresholdEnumDef(EThresholdEnumDef object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>ENumeric Resource Effect</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -870,21 +788,6 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseENumericResourceEffect(ENumericResourceEffect object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EPower Load Effect</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EPower Load Effect</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseEPowerLoadEffect(EPowerLoadEffect object) {
 		return null;
 	}
 
@@ -1155,36 +1058,6 @@ public class DictionarySwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseEReference(EReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EData Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EData Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseEDataType(EDataType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EEnum</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EEnum</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseEEnum(EEnum object) {
 		return null;
 	}
 

@@ -160,11 +160,6 @@ public class ObjectDefItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EcorePackage.Literals.ECLASS__ESTRUCTURAL_FEATURES,
-				 DictionaryFactory.eINSTANCE.createEPowerLoadDef()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EcorePackage.Literals.ECLASS__ESTRUCTURAL_FEATURES,
 				 DictionaryFactory.eINSTANCE.createESharableResourceDef()));
 
 		newChildDescriptors.add

@@ -20,8 +20,6 @@ package gov.nasa.ensemble.core.plan.resources.dependency.impl;
 import gov.nasa.ensemble.common.CommonUtils;
 import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.core.jscience.DataPoint;
-import gov.nasa.ensemble.core.jscience.JScienceFactory;
-import gov.nasa.ensemble.core.jscience.PowerValue;
 import gov.nasa.ensemble.core.jscience.TemporalOffset;
 import gov.nasa.ensemble.core.jscience.util.AmountUtils;
 import gov.nasa.ensemble.core.jscience.util.DateUtils;
@@ -34,7 +32,6 @@ import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
 import gov.nasa.ensemble.dictionary.EClaimableEffect;
 import gov.nasa.ensemble.dictionary.ENumericResourceDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceEffect;
-import gov.nasa.ensemble.dictionary.EPowerLoadEffect;
 import gov.nasa.ensemble.dictionary.EStateResourceEffect;
 import gov.nasa.ensemble.dictionary.Effect;
 import gov.nasa.ensemble.emf.model.common.Timepoint;
@@ -43,7 +40,6 @@ import java.util.Date;
 
 import javax.measure.unit.Unit;
 
-import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.jscience.physics.amount.Amount;
 
@@ -67,9 +63,7 @@ public class ActivityTemporalEffectDependency extends EffectDependency<Effect>
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean update() {
-		if (getEffect() instanceof EPowerLoadEffect) {
-			return updatePowerLoadEffect((EPowerLoadEffect) getEffect());
-		} else if (getEffect() instanceof EStateResourceEffect) {
+		if (getEffect() instanceof EStateResourceEffect) {
 			return updateStateEffect((EStateResourceEffect) getEffect(), null);
 		} else if (getEffect() instanceof EClaimableEffect) {
 			return updateClaimEffect((EClaimableEffect) getEffect(), null);
@@ -77,71 +71,6 @@ public class ActivityTemporalEffectDependency extends EffectDependency<Effect>
 			return updateNumericEffect((ENumericResourceEffect) getEffect(), null);
 		}
 		return super.update();
-	}
-
-	private boolean updatePowerLoadEffect(EPowerLoadEffect effect) {
-		Timepoint timepoint = getTimepoint();
-		Object value = null;
-		if (shouldCompute()) {
-			String literal = ResourceUtils.getActivityResourceTimepointExpression(effect, timepoint);
-			Object stateEffect = ResourceUtils.getStateResourceEffect(this, literal);
-			Double dutyFactor = null;
-			switch (timepoint) {
-			case START:
-				String dutyFactorExpression = effect.getStartEffectLoadFactor();
-				try {
-					if (dutyFactorExpression != null) {
-						dutyFactor = Double.valueOf(dutyFactorExpression);
-					}
-				} catch (Exception e) {
-					try {
-						// we tried
-						dutyFactor = (Double) getValue(dutyFactorExpression, getDate());
-					} catch (Exception x) {
-						// we tried again!
-					}
-				}
-				if (dutyFactor == null) {
-					dutyFactor = 1.0;
-				} else if (dutyFactor.isNaN()) {
-					LogUtil.errorOnce("duty factor is NaN " + dutyFactorExpression);
-					dutyFactor = 1.0;
-				} else if (dutyFactor.isInfinite()) {
-					dutyFactor = 1.0;
-					LogUtil.errorOnce("duty factor is Infinite " + dutyFactorExpression);
-				}
-				break;
-			case END:
-				dutyFactor = 1.0;
-				break;
-			}
-			final String effectName = effect.getName();
-			String actualWattageFormula = "(mmpat[\"" + effectName + "." + stateEffect + "\"])*" + dutyFactor;
-			Double actualWattage = (Double) getValue(actualWattageFormula, getDate());
-			if (actualWattage == null) {
-				actualWattage = 0.0;
-				LogUtil.errorOnce("wattage formula evaluated to null, making zero '" + actualWattageFormula + "'");
-			}
-			EEnumLiteral literalValue = null;
-			if (stateEffect instanceof EEnumLiteral) {
-				literalValue = (EEnumLiteral) stateEffect;
-			} else {
-				LogUtil.errorOnce("unrecognized type " + stateEffect);
-			}
-
-			PowerValue powerValue = JScienceFactory.eINSTANCE.createPowerValue();
-			powerValue.setStateName(effectName);
-			powerValue.setStateValue(literalValue);
-			powerValue.setActualWattage(actualWattage);
-			powerValue.setDutyFactor(dutyFactor);
-			powerValue.setContributor(getActivity());
-			value = JSCIENCE_FACTORY.createEDataPoint(getDate(), powerValue);
-		}
-		if (!CommonUtils.equals(value, getValue())) {
-			setValue(value);
-			return true;
-		}
-		return false;
 	}
 
 	protected boolean updateNumericEffect(ENumericResourceEffect effect, EObject object) {

@@ -39,7 +39,6 @@ import gov.nasa.ensemble.core.model.plan.util.PlanVisitor;
 import gov.nasa.ensemble.core.plan.ModelingConfigurationRegistry;
 import gov.nasa.ensemble.core.plan.resources.dependency.Dependency;
 import gov.nasa.ensemble.core.plan.resources.dependency.DependencyFactory;
-import gov.nasa.ensemble.core.plan.resources.dependency.DependencyPackage;
 import gov.nasa.ensemble.core.plan.resources.dependency.Graph;
 import gov.nasa.ensemble.core.plan.resources.member.Claim;
 import gov.nasa.ensemble.core.plan.resources.member.Conditions;
@@ -54,14 +53,12 @@ import gov.nasa.ensemble.core.plan.resources.profile.ProfileEffect;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileMember;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfilePackage;
 import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
-import gov.nasa.ensemble.dictionary.EActivityBlockEffect;
 import gov.nasa.ensemble.dictionary.EActivityDef;
 import gov.nasa.ensemble.dictionary.EActivityGroupDef;
 import gov.nasa.ensemble.dictionary.EClaimableEffect;
 import gov.nasa.ensemble.dictionary.EClaimableResourceDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceEffect;
-import gov.nasa.ensemble.dictionary.EPowerLoadEffect;
 import gov.nasa.ensemble.dictionary.EReferenceParameter;
 import gov.nasa.ensemble.dictionary.EResourceDef;
 import gov.nasa.ensemble.dictionary.ESharableResourceDef;
@@ -89,9 +86,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -214,23 +209,12 @@ public class DependencyMaintenanceSystem {
 				for (EStructuralFeature feature : activityDef.getEAllStructuralFeatures()) {
 					buildExpressionCache(ResourceUtils.getExpression(feature));
 				}
-				
-				EActivityBlockEffect blockEffect = activityDef.getBlockEffect();
-				if (blockEffect != null) {
-					buildExpressionCache(blockEffect.getStartEffect());
-					buildExpressionCache(blockEffect.getEndEffect());
-				}
-				
 				for(Timepoint timepoint : Timepoint.values()) {
 					for (ENumericResourceEffect effect : activityDef.getNumericEffects()) {
 						buildExpressionCache(ResourceUtils.getActivityResourceTimepointExpression(effect, timepoint));
 					}
 					for (EStateResourceEffect<?> effect : activityDef.getStateEffects()) {
 						buildExpressionCache(ResourceUtils.getActivityResourceTimepointExpression(effect, timepoint));
-						
-						if (effect instanceof EPowerLoadEffect && Timepoint.START == timepoint) {
-							buildExpressionCache(((EPowerLoadEffect)effect).getStartEffectLoadFactor());
-						}
 					}
 				}
 			}
@@ -283,63 +267,6 @@ public class DependencyMaintenanceSystem {
 	private void hookTimepointEffects(EActivity activity, EActivityDef activityDef) {
 		for (Timepoint timepoint : Timepoint.values()) {
 			if (activityDef != null) {
-				EActivityBlockEffect blockEffect = activityDef.getBlockEffect();
-				if (blockEffect != null) {
-					String expression = Timepoint.START == timepoint ? blockEffect.getStartEffect() :  blockEffect.getEndEffect();
-					if (!CommonUtils.isNullOrEmpty(expression)) {
-						ActivityBlockEffectDependency blockDependency = getDependency(new ActivityBlockEffectDependency(this, activity, blockEffect, timepoint));
-						//
-						// Parameter & Resource Profile
-						hookReferences(activity, blockDependency, expression);
-						//
-						// Temporal -> Edge Effect
-						hookTemporalDependencies(activity, blockDependency);
-						//
-						// Profile Dependencies
-						int start = expression.indexOf("[");
-						int end = expression.indexOf("]");
-						String keys = expression.substring(start+1, end);
-						String[] split = keys.split(",");
-						for (String variableName : split) {
-							String reference = variableName.substring(1, variableName.length()-1);
-							final EResourceDef resourceDef = AD.getDefinition(EResourceDef.class, reference);
-							if (resourceDef == null) {
-								LogUtil.errorOnce("block effect for '"+activityDef.getName()+"' references unknown resource '"+reference+"'");
-								continue;
-							}
-							//
-							// Plan resource profile -> Block Effect
-							Dependency profileDependency = getProfileDependencyByToken().get(reference);
-							if (profileDependency != null) {
-								profileDependency.getNext().add(blockDependency);
-							}
-							//
-							// Block Effect -> Activity Edge Effect
-							Dependency activityEdgeEffect = getDependency(new ActivityTemporalExplicitEffectDependency(this, activity, resourceDef, timepoint));
-							blockDependency.getNext().add(activityEdgeEffect);
-							//
-							// Edge Effect -> Activity Effect
-							Dependency activityEffect = getDependency(new EffectDependency<DummyEffect>(this, activity, new DummyEffect(resourceDef)));
-							activityEdgeEffect.getNext().add(activityEffect);
-							//
-							// Activity Effect -> Parent Effect
-							hookParentDependencies(activity, resourceDef, activityEffect, null);
-							//
-							// Block Effect -> Plan resource profile
-							activityEdgeEffect.getNext().add(profileDependency);
-							//
-							// Hook up summary effects
-							if (resourceDef instanceof ENumericResourceDef) {
-								Set<ESummaryResourceDef> set = getSummaryResourcesByNumericResources().get(resourceDef);
-								if (set != null) {
-									for (ESummaryResourceDef summaryResourceDef : set) {
-										hookEdgeEffectSummingDependencies(activity, activityEdgeEffect, summaryResourceDef, timepoint);
-									}
-								}
-							}
-						}
-					}
-				}
 				for (EClaimableEffect effect : activityDef.getClaimableEffects()) {
 					if (!isResourceEfectAllowed(effect)) {
 						continue;
@@ -416,14 +343,6 @@ public class DependencyMaintenanceSystem {
 					//
 					// Edge Effect -> Plan resource profile
 					activityEdgeEffect.getNext().add(getDependency(new PlanStateResourceDependency(plan, def)));
-					//
-					// If this is a power load effect, we want to hook up the effects for the start load factor
-					if (effect instanceof EPowerLoadEffect && Timepoint.START == timepoint) {
-						String loadFactorExpression = ((EPowerLoadEffect)effect).getStartEffectLoadFactor();
-						if (loadFactorExpression != null && loadFactorExpression.trim().length() != 0) {
-							hookReferences(activity, activityEdgeEffect, loadFactorExpression);
-						}
-					}
 				}
 			}
 			
@@ -822,6 +741,7 @@ public class DependencyMaintenanceSystem {
 		getProfileDependencyByToken(); // create all the profiles eagerly
 		getSummaryResourcesByNumericResources();
 		TransactionUtils.writing(resourceSet==null? plan : resourceSet, new Runnable() {
+			@Override
 			@SuppressWarnings("unchecked")
 			public void run() {
 				//

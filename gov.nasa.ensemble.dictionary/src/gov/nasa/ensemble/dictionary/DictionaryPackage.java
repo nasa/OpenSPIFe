@@ -115,7 +115,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getINamedDefinition()
 	 * @generated
 	 */
-	int INAMED_DEFINITION = 30;
+	int INAMED_DEFINITION = 26;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EActivityDefImpl <em>EActivity Def</em>}' class.
@@ -434,22 +434,13 @@ public interface DictionaryPackage extends EPackage {
 	int EACTIVITY_DEF__STATE_REQUIREMENTS = EcorePackage.ECLASS_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Block Effect</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTIVITY_DEF__BLOCK_EFFECT = EcorePackage.ECLASS_FEATURE_COUNT + 10;
-
-	/**
 	 * The number of structural features of the '<em>EActivity Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EACTIVITY_DEF_FEATURE_COUNT = EcorePackage.ECLASS_FEATURE_COUNT + 11;
+	int EACTIVITY_DEF_FEATURE_COUNT = EcorePackage.ECLASS_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
@@ -604,7 +595,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEChoice()
 	 * @generated
 	 */
-	int ECHOICE = 7;
+	int ECHOICE = 6;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.EParameterDef <em>EParameter Def</em>}' class.
@@ -614,7 +605,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEParameterDef()
 	 * @generated
 	 */
-	int EPARAMETER_DEF = 15;
+	int EPARAMETER_DEF = 14;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EAttributeParameterImpl <em>EAttribute Parameter</em>}' class.
@@ -634,7 +625,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEReferenceParameter()
 	 * @generated
 	 */
-	int EREFERENCE_PARAMETER = 18;
+	int EREFERENCE_PARAMETER = 15;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EResourceDefImpl <em>EResource Def</em>}' class.
@@ -644,7 +635,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEResourceDef()
 	 * @generated
 	 */
-	int ERESOURCE_DEF = 19;
+	int ERESOURCE_DEF = 16;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.RuleResourceDef <em>Rule Resource Def</em>}' class.
@@ -654,7 +645,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getRuleResourceDef()
 	 * @generated
 	 */
-	int RULE_RESOURCE_DEF = 32;
+	int RULE_RESOURCE_DEF = 28;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EClaimableResourceDefImpl <em>EClaimable Resource Def</em>}' class.
@@ -664,7 +655,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEClaimableResourceDef()
 	 * @generated
 	 */
-	int ECLAIMABLE_RESOURCE_DEF = 8;
+	int ECLAIMABLE_RESOURCE_DEF = 7;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ENumericResourceDefImpl <em>ENumeric Resource Def</em>}' class.
@@ -674,7 +665,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getENumericResourceDef()
 	 * @generated
 	 */
-	int ENUMERIC_RESOURCE_DEF = 13;
+	int ENUMERIC_RESOURCE_DEF = 12;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EStateResourceDefImpl <em>EState Resource Def</em>}' class.
@@ -684,17 +675,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEStateResourceDef()
 	 * @generated
 	 */
-	int ESTATE_RESOURCE_DEF = 24;
-
-	/**
-	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EPowerLoadDefImpl <em>EPower Load Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gov.nasa.ensemble.dictionary.impl.EPowerLoadDefImpl
-	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEPowerLoadDef()
-	 * @generated
-	 */
-	int EPOWER_LOAD_DEF = 16;
+	int ESTATE_RESOURCE_DEF = 21;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ESharableResourceDefImpl <em>ESharable Resource Def</em>}' class.
@@ -704,7 +685,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getESharableResourceDef()
 	 * @generated
 	 */
-	int ESHARABLE_RESOURCE_DEF = 21;
+	int ESHARABLE_RESOURCE_DEF = 18;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ESummaryResourceDefImpl <em>ESummary Resource Def</em>}' class.
@@ -714,7 +695,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getESummaryResourceDef()
 	 * @generated
 	 */
-	int ESUMMARY_RESOURCE_DEF = 27;
+	int ESUMMARY_RESOURCE_DEF = 24;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ENumericResourceEffectImpl <em>ENumeric Resource Effect</em>}' class.
@@ -724,7 +705,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getENumericResourceEffect()
 	 * @generated
 	 */
-	int ENUMERIC_RESOURCE_EFFECT = 14;
+	int ENUMERIC_RESOURCE_EFFECT = 13;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EStateResourceEffectImpl <em>EState Resource Effect</em>}' class.
@@ -734,17 +715,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEStateResourceEffect()
 	 * @generated
 	 */
-	int ESTATE_RESOURCE_EFFECT = 25;
-
-	/**
-	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EPowerLoadEffectImpl <em>EPower Load Effect</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gov.nasa.ensemble.dictionary.impl.EPowerLoadEffectImpl
-	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEPowerLoadEffect()
-	 * @generated
-	 */
-	int EPOWER_LOAD_EFFECT = 17;
+	int ESTATE_RESOURCE_EFFECT = 22;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ESubActivityImpl <em>ESub Activity</em>}' class.
@@ -754,7 +725,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getESubActivity()
 	 * @generated
 	 */
-	int ESUB_ACTIVITY = 26;
+	int ESUB_ACTIVITY = 23;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EClaimableEffectImpl <em>EClaimable Effect</em>}' class.
@@ -764,7 +735,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEClaimableEffect()
 	 * @generated
 	 */
-	int ECLAIMABLE_EFFECT = 9;
+	int ECLAIMABLE_EFFECT = 8;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ESharableResourceEffectImpl <em>ESharable Resource Effect</em>}' class.
@@ -774,7 +745,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getESharableResourceEffect()
 	 * @generated
 	 */
-	int ESHARABLE_RESOURCE_EFFECT = 22;
+	int ESHARABLE_RESOURCE_EFFECT = 19;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EActivityRequirementImpl <em>EActivity Requirement</em>}' class.
@@ -830,7 +801,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEffect()
 	 * @generated
 	 */
-	int EFFECT = 11;
+	int EFFECT = 10;
 
 	/**
 	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
@@ -1290,52 +1261,6 @@ public interface DictionaryPackage extends EPackage {
 	 * @ordered
 	 */
 	int EATTRIBUTE_PARAMETER_FEATURE_COUNT = EcorePackage.EATTRIBUTE_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EActivityBlockEffectImpl <em>EActivity Block Effect</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gov.nasa.ensemble.dictionary.impl.EActivityBlockEffectImpl
-	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEActivityBlockEffect()
-	 * @generated
-	 */
-	int EACTIVITY_BLOCK_EFFECT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Start Effect</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTIVITY_BLOCK_EFFECT__START_EFFECT = 0;
-
-	/**
-	 * The feature id for the '<em><b>End Effect</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTIVITY_BLOCK_EFFECT__END_EFFECT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTIVITY_BLOCK_EFFECT__DESCRIPTION = 2;
-
-	/**
-	 * The number of structural features of the '<em>EActivity Block Effect</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTIVITY_BLOCK_EFFECT_FEATURE_COUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Attribute</b></em>' container reference.
@@ -1840,7 +1765,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEExtendedNumericResourceDef()
 	 * @generated
 	 */
-	int EEXTENDED_NUMERIC_RESOURCE_DEF = 10;
+	int EEXTENDED_NUMERIC_RESOURCE_DEF = 9;
 
 	/**
 	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
@@ -2426,7 +2351,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getENumericRequirement()
 	 * @generated
 	 */
-	int ENUMERIC_REQUIREMENT = 12;
+	int ENUMERIC_REQUIREMENT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -2481,7 +2406,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getETemporalEffect()
 	 * @generated
 	 */
-	int ETEMPORAL_EFFECT = 28;
+	int ETEMPORAL_EFFECT = 25;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2815,6 +2740,728 @@ public interface DictionaryPackage extends EPackage {
 	 * @ordered
 	 */
 	int EPARAMETER_DEF_FEATURE_COUNT = EcorePackage.ESTRUCTURAL_FEATURE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__EANNOTATIONS = EcorePackage.EREFERENCE__EANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__NAME = EcorePackage.EREFERENCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__ORDERED = EcorePackage.EREFERENCE__ORDERED;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__UNIQUE = EcorePackage.EREFERENCE__UNIQUE;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__LOWER_BOUND = EcorePackage.EREFERENCE__LOWER_BOUND;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__UPPER_BOUND = EcorePackage.EREFERENCE__UPPER_BOUND;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__MANY = EcorePackage.EREFERENCE__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__REQUIRED = EcorePackage.EREFERENCE__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>EType</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__ETYPE = EcorePackage.EREFERENCE__ETYPE;
+
+	/**
+	 * The feature id for the '<em><b>EGeneric Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__EGENERIC_TYPE = EcorePackage.EREFERENCE__EGENERIC_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__CHANGEABLE = EcorePackage.EREFERENCE__CHANGEABLE;
+
+	/**
+	 * The feature id for the '<em><b>Volatile</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__VOLATILE = EcorePackage.EREFERENCE__VOLATILE;
+
+	/**
+	 * The feature id for the '<em><b>Transient</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__TRANSIENT = EcorePackage.EREFERENCE__TRANSIENT;
+
+	/**
+	 * The feature id for the '<em><b>Default Value Literal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__DEFAULT_VALUE_LITERAL = EcorePackage.EREFERENCE__DEFAULT_VALUE_LITERAL;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__DEFAULT_VALUE = EcorePackage.EREFERENCE__DEFAULT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Unsettable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__UNSETTABLE = EcorePackage.EREFERENCE__UNSETTABLE;
+
+	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__DERIVED = EcorePackage.EREFERENCE__DERIVED;
+
+	/**
+	 * The feature id for the '<em><b>EContaining Class</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__ECONTAINING_CLASS = EcorePackage.EREFERENCE__ECONTAINING_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Containment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__CONTAINMENT = EcorePackage.EREFERENCE__CONTAINMENT;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__CONTAINER = EcorePackage.EREFERENCE__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Resolve Proxies</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__RESOLVE_PROXIES = EcorePackage.EREFERENCE__RESOLVE_PROXIES;
+
+	/**
+	 * The feature id for the '<em><b>EOpposite</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__EOPPOSITE = EcorePackage.EREFERENCE__EOPPOSITE;
+
+	/**
+	 * The feature id for the '<em><b>EReference Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__EREFERENCE_TYPE = EcorePackage.EREFERENCE__EREFERENCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>EKeys</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__EKEYS = EcorePackage.EREFERENCE__EKEYS;
+
+	/**
+	 * The feature id for the '<em><b>Default Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__DEFAULT_LENGTH = EcorePackage.EREFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__DESCRIPTION = EcorePackage.EREFERENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Effects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__EFFECTS = EcorePackage.EREFERENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER__REQUIREMENTS = EcorePackage.EREFERENCE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>EReference Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EREFERENCE_PARAMETER_FEATURE_COUNT = EcorePackage.EREFERENCE_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ERuleImpl <em>ERule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gov.nasa.ensemble.dictionary.impl.ERuleImpl
+	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getERule()
+	 * @generated
+	 */
+	int ERULE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Hypertext Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERULE__HYPERTEXT_DESCRIPTION = INAMED_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERULE__NAME = INAMED_DEFINITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERULE__PATH = INAMED_DEFINITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Print Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERULE__PRINT_NAME = INAMED_DEFINITION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Short Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERULE__SHORT_DESCRIPTION = INAMED_DEFINITION_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>ERule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERULE_FEATURE_COUNT = INAMED_DEFINITION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__EANNOTATIONS = EEXTENDED_NUMERIC_RESOURCE_DEF__EANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__NAME = EEXTENDED_NUMERIC_RESOURCE_DEF__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__ORDERED = EEXTENDED_NUMERIC_RESOURCE_DEF__ORDERED;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__UNIQUE = EEXTENDED_NUMERIC_RESOURCE_DEF__UNIQUE;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__LOWER_BOUND = EEXTENDED_NUMERIC_RESOURCE_DEF__LOWER_BOUND;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__UPPER_BOUND = EEXTENDED_NUMERIC_RESOURCE_DEF__UPPER_BOUND;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__MANY = EEXTENDED_NUMERIC_RESOURCE_DEF__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__REQUIRED = EEXTENDED_NUMERIC_RESOURCE_DEF__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>EType</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__ETYPE = EEXTENDED_NUMERIC_RESOURCE_DEF__ETYPE;
+
+	/**
+	 * The feature id for the '<em><b>EGeneric Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__EGENERIC_TYPE = EEXTENDED_NUMERIC_RESOURCE_DEF__EGENERIC_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__CHANGEABLE = EEXTENDED_NUMERIC_RESOURCE_DEF__CHANGEABLE;
+
+	/**
+	 * The feature id for the '<em><b>Volatile</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__VOLATILE = EEXTENDED_NUMERIC_RESOURCE_DEF__VOLATILE;
+
+	/**
+	 * The feature id for the '<em><b>Transient</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__TRANSIENT = EEXTENDED_NUMERIC_RESOURCE_DEF__TRANSIENT;
+
+	/**
+	 * The feature id for the '<em><b>Default Value Literal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__DEFAULT_VALUE_LITERAL = EEXTENDED_NUMERIC_RESOURCE_DEF__DEFAULT_VALUE_LITERAL;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__DEFAULT_VALUE = EEXTENDED_NUMERIC_RESOURCE_DEF__DEFAULT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Unsettable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__UNSETTABLE = EEXTENDED_NUMERIC_RESOURCE_DEF__UNSETTABLE;
+
+	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__DERIVED = EEXTENDED_NUMERIC_RESOURCE_DEF__DERIVED;
+
+	/**
+	 * The feature id for the '<em><b>EContaining Class</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__ECONTAINING_CLASS = EEXTENDED_NUMERIC_RESOURCE_DEF__ECONTAINING_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__ID = EEXTENDED_NUMERIC_RESOURCE_DEF__ID;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__EATTRIBUTE_TYPE = EEXTENDED_NUMERIC_RESOURCE_DEF__EATTRIBUTE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__CATEGORY = EEXTENDED_NUMERIC_RESOURCE_DEF__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__DESCRIPTION = EEXTENDED_NUMERIC_RESOURCE_DEF__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Units</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__UNITS = EEXTENDED_NUMERIC_RESOURCE_DEF__UNITS;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__MINIMUM = EEXTENDED_NUMERIC_RESOURCE_DEF__MINIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__MAXIMUM = EEXTENDED_NUMERIC_RESOURCE_DEF__MAXIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Capacity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF__CAPACITY = EEXTENDED_NUMERIC_RESOURCE_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>ESharable Resource Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_DEF_FEATURE_COUNT = EEXTENDED_NUMERIC_RESOURCE_DEF_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_EFFECT__DESCRIPTION = EFFECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_EFFECT__NAME = EFFECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Start Offset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_EFFECT__START_OFFSET = EFFECT__START_OFFSET;
+
+	/**
+	 * The feature id for the '<em><b>End Offset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_EFFECT__END_OFFSET = EFFECT__END_OFFSET;
+
+	/**
+	 * The feature id for the '<em><b>Reservations</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_EFFECT__RESERVATIONS = EFFECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_EFFECT__DEFINITION = EFFECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>ESharable Resource Effect</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESHARABLE_RESOURCE_EFFECT_FEATURE_COUNT = EFFECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EStateRequirementImpl <em>EState Requirement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gov.nasa.ensemble.dictionary.impl.EStateRequirementImpl
+	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEStateRequirement()
+	 * @generated
+	 */
+	int ESTATE_REQUIREMENT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT__PERIOD = EACTIVITY_REQUIREMENT__PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Start Offset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT__START_OFFSET = EACTIVITY_REQUIREMENT__START_OFFSET;
+
+	/**
+	 * The feature id for the '<em><b>End Offset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT__END_OFFSET = EACTIVITY_REQUIREMENT__END_OFFSET;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT__DEFINITION = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Allowed States</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT__ALLOWED_STATES = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Disallowed State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT__DISALLOWED_STATE = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Required State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT__REQUIRED_STATE = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT__THRESHOLD = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>EState Requirement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESTATE_REQUIREMENT_FEATURE_COUNT = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
@@ -3249,231 +3896,6 @@ public interface DictionaryPackage extends EPackage {
 	int ESTATE_RESOURCE_DEF_FEATURE_COUNT = RULE_RESOURCE_DEF_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__EANNOTATIONS = ESTATE_RESOURCE_DEF__EANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__NAME = ESTATE_RESOURCE_DEF__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__ORDERED = ESTATE_RESOURCE_DEF__ORDERED;
-
-	/**
-	 * The feature id for the '<em><b>Unique</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__UNIQUE = ESTATE_RESOURCE_DEF__UNIQUE;
-
-	/**
-	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__LOWER_BOUND = ESTATE_RESOURCE_DEF__LOWER_BOUND;
-
-	/**
-	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__UPPER_BOUND = ESTATE_RESOURCE_DEF__UPPER_BOUND;
-
-	/**
-	 * The feature id for the '<em><b>Many</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__MANY = ESTATE_RESOURCE_DEF__MANY;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__REQUIRED = ESTATE_RESOURCE_DEF__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>EType</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__ETYPE = ESTATE_RESOURCE_DEF__ETYPE;
-
-	/**
-	 * The feature id for the '<em><b>EGeneric Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__EGENERIC_TYPE = ESTATE_RESOURCE_DEF__EGENERIC_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__CHANGEABLE = ESTATE_RESOURCE_DEF__CHANGEABLE;
-
-	/**
-	 * The feature id for the '<em><b>Volatile</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__VOLATILE = ESTATE_RESOURCE_DEF__VOLATILE;
-
-	/**
-	 * The feature id for the '<em><b>Transient</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__TRANSIENT = ESTATE_RESOURCE_DEF__TRANSIENT;
-
-	/**
-	 * The feature id for the '<em><b>Default Value Literal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__DEFAULT_VALUE_LITERAL = ESTATE_RESOURCE_DEF__DEFAULT_VALUE_LITERAL;
-
-	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__DEFAULT_VALUE = ESTATE_RESOURCE_DEF__DEFAULT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Unsettable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__UNSETTABLE = ESTATE_RESOURCE_DEF__UNSETTABLE;
-
-	/**
-	 * The feature id for the '<em><b>Derived</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__DERIVED = ESTATE_RESOURCE_DEF__DERIVED;
-
-	/**
-	 * The feature id for the '<em><b>EContaining Class</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__ECONTAINING_CLASS = ESTATE_RESOURCE_DEF__ECONTAINING_CLASS;
-
-	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__ID = ESTATE_RESOURCE_DEF__ID;
-
-	/**
-	 * The feature id for the '<em><b>EAttribute Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__EATTRIBUTE_TYPE = ESTATE_RESOURCE_DEF__EATTRIBUTE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__CATEGORY = ESTATE_RESOURCE_DEF__CATEGORY;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__DESCRIPTION = ESTATE_RESOURCE_DEF__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Allowed States</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__ALLOWED_STATES = ESTATE_RESOURCE_DEF__ALLOWED_STATES;
-
-	/**
-	 * The feature id for the '<em><b>Enumeration</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF__ENUMERATION = ESTATE_RESOURCE_DEF__ENUMERATION;
-
-	/**
-	 * The number of structural features of the '<em>EPower Load Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_DEF_FEATURE_COUNT = ESTATE_RESOURCE_DEF_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3544,809 +3966,6 @@ public interface DictionaryPackage extends EPackage {
 	 * @ordered
 	 */
 	int ESTATE_RESOURCE_EFFECT_FEATURE_COUNT = ETEMPORAL_EFFECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT__DESCRIPTION = ESTATE_RESOURCE_EFFECT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT__NAME = ESTATE_RESOURCE_EFFECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Start Offset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT__START_OFFSET = ESTATE_RESOURCE_EFFECT__START_OFFSET;
-
-	/**
-	 * The feature id for the '<em><b>End Offset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT__END_OFFSET = ESTATE_RESOURCE_EFFECT__END_OFFSET;
-
-	/**
-	 * The feature id for the '<em><b>Start Effect</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT__START_EFFECT = ESTATE_RESOURCE_EFFECT__START_EFFECT;
-
-	/**
-	 * The feature id for the '<em><b>End Effect</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT__END_EFFECT = ESTATE_RESOURCE_EFFECT__END_EFFECT;
-
-	/**
-	 * The feature id for the '<em><b>Definition</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT__DEFINITION = ESTATE_RESOURCE_EFFECT__DEFINITION;
-
-	/**
-	 * The feature id for the '<em><b>Start Effect Load Factor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT__START_EFFECT_LOAD_FACTOR = ESTATE_RESOURCE_EFFECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>EPower Load Effect</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EPOWER_LOAD_EFFECT_FEATURE_COUNT = ESTATE_RESOURCE_EFFECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__EANNOTATIONS = EcorePackage.EREFERENCE__EANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__NAME = EcorePackage.EREFERENCE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__ORDERED = EcorePackage.EREFERENCE__ORDERED;
-
-	/**
-	 * The feature id for the '<em><b>Unique</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__UNIQUE = EcorePackage.EREFERENCE__UNIQUE;
-
-	/**
-	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__LOWER_BOUND = EcorePackage.EREFERENCE__LOWER_BOUND;
-
-	/**
-	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__UPPER_BOUND = EcorePackage.EREFERENCE__UPPER_BOUND;
-
-	/**
-	 * The feature id for the '<em><b>Many</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__MANY = EcorePackage.EREFERENCE__MANY;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__REQUIRED = EcorePackage.EREFERENCE__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>EType</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__ETYPE = EcorePackage.EREFERENCE__ETYPE;
-
-	/**
-	 * The feature id for the '<em><b>EGeneric Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__EGENERIC_TYPE = EcorePackage.EREFERENCE__EGENERIC_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__CHANGEABLE = EcorePackage.EREFERENCE__CHANGEABLE;
-
-	/**
-	 * The feature id for the '<em><b>Volatile</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__VOLATILE = EcorePackage.EREFERENCE__VOLATILE;
-
-	/**
-	 * The feature id for the '<em><b>Transient</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__TRANSIENT = EcorePackage.EREFERENCE__TRANSIENT;
-
-	/**
-	 * The feature id for the '<em><b>Default Value Literal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__DEFAULT_VALUE_LITERAL = EcorePackage.EREFERENCE__DEFAULT_VALUE_LITERAL;
-
-	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__DEFAULT_VALUE = EcorePackage.EREFERENCE__DEFAULT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Unsettable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__UNSETTABLE = EcorePackage.EREFERENCE__UNSETTABLE;
-
-	/**
-	 * The feature id for the '<em><b>Derived</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__DERIVED = EcorePackage.EREFERENCE__DERIVED;
-
-	/**
-	 * The feature id for the '<em><b>EContaining Class</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__ECONTAINING_CLASS = EcorePackage.EREFERENCE__ECONTAINING_CLASS;
-
-	/**
-	 * The feature id for the '<em><b>Containment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__CONTAINMENT = EcorePackage.EREFERENCE__CONTAINMENT;
-
-	/**
-	 * The feature id for the '<em><b>Container</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__CONTAINER = EcorePackage.EREFERENCE__CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Resolve Proxies</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__RESOLVE_PROXIES = EcorePackage.EREFERENCE__RESOLVE_PROXIES;
-
-	/**
-	 * The feature id for the '<em><b>EOpposite</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__EOPPOSITE = EcorePackage.EREFERENCE__EOPPOSITE;
-
-	/**
-	 * The feature id for the '<em><b>EReference Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__EREFERENCE_TYPE = EcorePackage.EREFERENCE__EREFERENCE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>EKeys</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__EKEYS = EcorePackage.EREFERENCE__EKEYS;
-
-	/**
-	 * The feature id for the '<em><b>Default Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__DEFAULT_LENGTH = EcorePackage.EREFERENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__DESCRIPTION = EcorePackage.EREFERENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Effects</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__EFFECTS = EcorePackage.EREFERENCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER__REQUIREMENTS = EcorePackage.EREFERENCE_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>EReference Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EREFERENCE_PARAMETER_FEATURE_COUNT = EcorePackage.EREFERENCE_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ERuleImpl <em>ERule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gov.nasa.ensemble.dictionary.impl.ERuleImpl
-	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getERule()
-	 * @generated
-	 */
-	int ERULE = 20;
-
-	/**
-	 * The feature id for the '<em><b>Hypertext Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ERULE__HYPERTEXT_DESCRIPTION = INAMED_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ERULE__NAME = INAMED_DEFINITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ERULE__PATH = INAMED_DEFINITION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Print Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ERULE__PRINT_NAME = INAMED_DEFINITION_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Short Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ERULE__SHORT_DESCRIPTION = INAMED_DEFINITION_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>ERule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ERULE_FEATURE_COUNT = INAMED_DEFINITION_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__EANNOTATIONS = EEXTENDED_NUMERIC_RESOURCE_DEF__EANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__NAME = EEXTENDED_NUMERIC_RESOURCE_DEF__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__ORDERED = EEXTENDED_NUMERIC_RESOURCE_DEF__ORDERED;
-
-	/**
-	 * The feature id for the '<em><b>Unique</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__UNIQUE = EEXTENDED_NUMERIC_RESOURCE_DEF__UNIQUE;
-
-	/**
-	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__LOWER_BOUND = EEXTENDED_NUMERIC_RESOURCE_DEF__LOWER_BOUND;
-
-	/**
-	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__UPPER_BOUND = EEXTENDED_NUMERIC_RESOURCE_DEF__UPPER_BOUND;
-
-	/**
-	 * The feature id for the '<em><b>Many</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__MANY = EEXTENDED_NUMERIC_RESOURCE_DEF__MANY;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__REQUIRED = EEXTENDED_NUMERIC_RESOURCE_DEF__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>EType</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__ETYPE = EEXTENDED_NUMERIC_RESOURCE_DEF__ETYPE;
-
-	/**
-	 * The feature id for the '<em><b>EGeneric Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__EGENERIC_TYPE = EEXTENDED_NUMERIC_RESOURCE_DEF__EGENERIC_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__CHANGEABLE = EEXTENDED_NUMERIC_RESOURCE_DEF__CHANGEABLE;
-
-	/**
-	 * The feature id for the '<em><b>Volatile</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__VOLATILE = EEXTENDED_NUMERIC_RESOURCE_DEF__VOLATILE;
-
-	/**
-	 * The feature id for the '<em><b>Transient</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__TRANSIENT = EEXTENDED_NUMERIC_RESOURCE_DEF__TRANSIENT;
-
-	/**
-	 * The feature id for the '<em><b>Default Value Literal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__DEFAULT_VALUE_LITERAL = EEXTENDED_NUMERIC_RESOURCE_DEF__DEFAULT_VALUE_LITERAL;
-
-	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__DEFAULT_VALUE = EEXTENDED_NUMERIC_RESOURCE_DEF__DEFAULT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Unsettable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__UNSETTABLE = EEXTENDED_NUMERIC_RESOURCE_DEF__UNSETTABLE;
-
-	/**
-	 * The feature id for the '<em><b>Derived</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__DERIVED = EEXTENDED_NUMERIC_RESOURCE_DEF__DERIVED;
-
-	/**
-	 * The feature id for the '<em><b>EContaining Class</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__ECONTAINING_CLASS = EEXTENDED_NUMERIC_RESOURCE_DEF__ECONTAINING_CLASS;
-
-	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__ID = EEXTENDED_NUMERIC_RESOURCE_DEF__ID;
-
-	/**
-	 * The feature id for the '<em><b>EAttribute Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__EATTRIBUTE_TYPE = EEXTENDED_NUMERIC_RESOURCE_DEF__EATTRIBUTE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__CATEGORY = EEXTENDED_NUMERIC_RESOURCE_DEF__CATEGORY;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__DESCRIPTION = EEXTENDED_NUMERIC_RESOURCE_DEF__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Units</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__UNITS = EEXTENDED_NUMERIC_RESOURCE_DEF__UNITS;
-
-	/**
-	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__MINIMUM = EEXTENDED_NUMERIC_RESOURCE_DEF__MINIMUM;
-
-	/**
-	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__MAXIMUM = EEXTENDED_NUMERIC_RESOURCE_DEF__MAXIMUM;
-
-	/**
-	 * The feature id for the '<em><b>Capacity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF__CAPACITY = EEXTENDED_NUMERIC_RESOURCE_DEF_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>ESharable Resource Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_DEF_FEATURE_COUNT = EEXTENDED_NUMERIC_RESOURCE_DEF_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_EFFECT__DESCRIPTION = EFFECT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_EFFECT__NAME = EFFECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Start Offset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_EFFECT__START_OFFSET = EFFECT__START_OFFSET;
-
-	/**
-	 * The feature id for the '<em><b>End Offset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_EFFECT__END_OFFSET = EFFECT__END_OFFSET;
-
-	/**
-	 * The feature id for the '<em><b>Reservations</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_EFFECT__RESERVATIONS = EFFECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Definition</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_EFFECT__DEFINITION = EFFECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>ESharable Resource Effect</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESHARABLE_RESOURCE_EFFECT_FEATURE_COUNT = EFFECT_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EStateRequirementImpl <em>EState Requirement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gov.nasa.ensemble.dictionary.impl.EStateRequirementImpl
-	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEStateRequirement()
-	 * @generated
-	 */
-	int ESTATE_REQUIREMENT = 23;
-
-	/**
-	 * The feature id for the '<em><b>Period</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT__PERIOD = EACTIVITY_REQUIREMENT__PERIOD;
-
-	/**
-	 * The feature id for the '<em><b>Start Offset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT__START_OFFSET = EACTIVITY_REQUIREMENT__START_OFFSET;
-
-	/**
-	 * The feature id for the '<em><b>End Offset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT__END_OFFSET = EACTIVITY_REQUIREMENT__END_OFFSET;
-
-	/**
-	 * The feature id for the '<em><b>Definition</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT__DEFINITION = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Allowed States</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT__ALLOWED_STATES = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Disallowed State</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT__DISALLOWED_STATE = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Required State</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT__REQUIRED_STATE = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT__THRESHOLD = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>EState Requirement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESTATE_REQUIREMENT_FEATURE_COUNT = EACTIVITY_REQUIREMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Definition</b></em>' container reference.
@@ -4592,115 +4211,6 @@ public interface DictionaryPackage extends EPackage {
 	int ESUMMARY_RESOURCE_DEF_FEATURE_COUNT = ERESOURCE_DEF_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.EThresholdEnumDefImpl <em>EThreshold Enum Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gov.nasa.ensemble.dictionary.impl.EThresholdEnumDefImpl
-	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEThresholdEnumDef()
-	 * @generated
-	 */
-	int ETHRESHOLD_ENUM_DEF = 29;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__EANNOTATIONS = EcorePackage.EENUM__EANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__NAME = EcorePackage.EENUM__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Instance Class Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__INSTANCE_CLASS_NAME = EcorePackage.EENUM__INSTANCE_CLASS_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Instance Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__INSTANCE_CLASS = EcorePackage.EENUM__INSTANCE_CLASS;
-
-	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__DEFAULT_VALUE = EcorePackage.EENUM__DEFAULT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Instance Type Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__INSTANCE_TYPE_NAME = EcorePackage.EENUM__INSTANCE_TYPE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>EPackage</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__EPACKAGE = EcorePackage.EENUM__EPACKAGE;
-
-	/**
-	 * The feature id for the '<em><b>EType Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__ETYPE_PARAMETERS = EcorePackage.EENUM__ETYPE_PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>Serializable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__SERIALIZABLE = EcorePackage.EENUM__SERIALIZABLE;
-
-	/**
-	 * The feature id for the '<em><b>ELiterals</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF__ELITERALS = EcorePackage.EENUM__ELITERALS;
-
-	/**
-	 * The number of structural features of the '<em>EThreshold Enum Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ETHRESHOLD_ENUM_DEF_FEATURE_COUNT = EcorePackage.EENUM_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.impl.ObjectDefImpl <em>Object Def</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4708,7 +4218,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getObjectDef()
 	 * @generated
 	 */
-	int OBJECT_DEF = 31;
+	int OBJECT_DEF = 27;
 
 	/**
 	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
@@ -4943,7 +4453,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getENumericResourceEffectMode()
 	 * @generated
 	 */
-	int ENUMERIC_RESOURCE_EFFECT_MODE = 33;
+	int ENUMERIC_RESOURCE_EFFECT_MODE = 29;
 
 	/**
 	 * The meta object id for the '{@link gov.nasa.ensemble.dictionary.Period <em>Period</em>}' enum.
@@ -4953,7 +4463,7 @@ public interface DictionaryPackage extends EPackage {
 	 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getPeriod()
 	 * @generated
 	 */
-	int PERIOD = 34;
+	int PERIOD = 30;
 
 	/**
 	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.DefinitionContext <em>Definition Context</em>}'.
@@ -5141,17 +4651,6 @@ public interface DictionaryPackage extends EPackage {
 	EReference getEActivityDef_StateRequirements();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link gov.nasa.ensemble.dictionary.EActivityDef#getBlockEffect <em>Block Effect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Block Effect</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EActivityDef#getBlockEffect()
-	 * @see #getEActivityDef()
-	 * @generated
-	 */
-	EReference getEActivityDef_BlockEffect();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link gov.nasa.ensemble.dictionary.EActivityDef#getChildren <em>Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5322,49 +4821,6 @@ public interface DictionaryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEAttributeParameter_Choices();
-
-	/**
-	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.EActivityBlockEffect <em>EActivity Block Effect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EActivity Block Effect</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EActivityBlockEffect
-	 * @generated
-	 */
-	EClass getEActivityBlockEffect();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.nasa.ensemble.dictionary.EActivityBlockEffect#getStartEffect <em>Start Effect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Start Effect</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EActivityBlockEffect#getStartEffect()
-	 * @see #getEActivityBlockEffect()
-	 * @generated
-	 */
-	EAttribute getEActivityBlockEffect_StartEffect();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.nasa.ensemble.dictionary.EActivityBlockEffect#getEndEffect <em>End Effect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>End Effect</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EActivityBlockEffect#getEndEffect()
-	 * @see #getEActivityBlockEffect()
-	 * @generated
-	 */
-	EAttribute getEActivityBlockEffect_EndEffect();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.nasa.ensemble.dictionary.EActivityBlockEffect#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EActivityBlockEffect#getDescription()
-	 * @see #getEActivityBlockEffect()
-	 * @generated
-	 */
-	EAttribute getEActivityBlockEffect_Description();
 
 	/**
 	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.EReferenceParameter <em>EReference Parameter</em>}'.
@@ -5599,16 +5055,6 @@ public interface DictionaryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getENumericResourceDef_Maximum();
-
-	/**
-	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.EPowerLoadDef <em>EPower Load Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EPower Load Def</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EPowerLoadDef
-	 * @generated
-	 */
-	EClass getEPowerLoadDef();
 
 	/**
 	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.EResourceDef <em>EResource Def</em>}'.
@@ -5941,16 +5387,6 @@ public interface DictionaryPackage extends EPackage {
 	EAttribute getETemporalEffect_EndEffect();
 
 	/**
-	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.EThresholdEnumDef <em>EThreshold Enum Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EThreshold Enum Def</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EThresholdEnumDef
-	 * @generated
-	 */
-	EClass getEThresholdEnumDef();
-
-	/**
 	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.ENumericResourceEffect <em>ENumeric Resource Effect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5981,27 +5417,6 @@ public interface DictionaryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getENumericResourceEffect_Mode();
-
-	/**
-	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.EPowerLoadEffect <em>EPower Load Effect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EPower Load Effect</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EPowerLoadEffect
-	 * @generated
-	 */
-	EClass getEPowerLoadEffect();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.nasa.ensemble.dictionary.EPowerLoadEffect#getStartEffectLoadFactor <em>Start Effect Load Factor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Start Effect Load Factor</em>'.
-	 * @see gov.nasa.ensemble.dictionary.EPowerLoadEffect#getStartEffectLoadFactor()
-	 * @see #getEPowerLoadEffect()
-	 * @generated
-	 */
-	EAttribute getEPowerLoadEffect_StartEffectLoadFactor();
 
 	/**
 	 * Returns the meta object for class '{@link gov.nasa.ensemble.dictionary.EStateResourceEffect <em>EState Resource Effect</em>}'.
@@ -6242,14 +5657,6 @@ public interface DictionaryPackage extends EPackage {
 		EReference EACTIVITY_DEF__STATE_REQUIREMENTS = eINSTANCE.getEActivityDef_StateRequirements();
 
 		/**
-		 * The meta object literal for the '<em><b>Block Effect</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EACTIVITY_DEF__BLOCK_EFFECT = eINSTANCE.getEActivityDef_BlockEffect();
-
-		/**
 		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6384,40 +5791,6 @@ public interface DictionaryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EATTRIBUTE_PARAMETER__CHOICES = eINSTANCE.getEAttributeParameter_Choices();
-
-		/**
-		 * The meta object literal for the '{@link gov.nasa.ensemble.dictionary.impl.EActivityBlockEffectImpl <em>EActivity Block Effect</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see gov.nasa.ensemble.dictionary.impl.EActivityBlockEffectImpl
-		 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEActivityBlockEffect()
-		 * @generated
-		 */
-		EClass EACTIVITY_BLOCK_EFFECT = eINSTANCE.getEActivityBlockEffect();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Effect</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EACTIVITY_BLOCK_EFFECT__START_EFFECT = eINSTANCE.getEActivityBlockEffect_StartEffect();
-
-		/**
-		 * The meta object literal for the '<em><b>End Effect</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EACTIVITY_BLOCK_EFFECT__END_EFFECT = eINSTANCE.getEActivityBlockEffect_EndEffect();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EACTIVITY_BLOCK_EFFECT__DESCRIPTION = eINSTANCE.getEActivityBlockEffect_Description();
 
 		/**
 		 * The meta object literal for the '{@link gov.nasa.ensemble.dictionary.impl.EReferenceParameterImpl <em>EReference Parameter</em>}' class.
@@ -6610,16 +5983,6 @@ public interface DictionaryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENUMERIC_RESOURCE_DEF__MAXIMUM = eINSTANCE.getENumericResourceDef_Maximum();
-
-		/**
-		 * The meta object literal for the '{@link gov.nasa.ensemble.dictionary.impl.EPowerLoadDefImpl <em>EPower Load Def</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see gov.nasa.ensemble.dictionary.impl.EPowerLoadDefImpl
-		 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEPowerLoadDef()
-		 * @generated
-		 */
-		EClass EPOWER_LOAD_DEF = eINSTANCE.getEPowerLoadDef();
 
 		/**
 		 * The meta object literal for the '{@link gov.nasa.ensemble.dictionary.impl.EResourceDefImpl <em>EResource Def</em>}' class.
@@ -6892,16 +6255,6 @@ public interface DictionaryPackage extends EPackage {
 		EAttribute ETEMPORAL_EFFECT__END_EFFECT = eINSTANCE.getETemporalEffect_EndEffect();
 
 		/**
-		 * The meta object literal for the '{@link gov.nasa.ensemble.dictionary.impl.EThresholdEnumDefImpl <em>EThreshold Enum Def</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see gov.nasa.ensemble.dictionary.impl.EThresholdEnumDefImpl
-		 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEThresholdEnumDef()
-		 * @generated
-		 */
-		EClass ETHRESHOLD_ENUM_DEF = eINSTANCE.getEThresholdEnumDef();
-
-		/**
 		 * The meta object literal for the '{@link gov.nasa.ensemble.dictionary.impl.ENumericResourceEffectImpl <em>ENumeric Resource Effect</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6926,24 +6279,6 @@ public interface DictionaryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENUMERIC_RESOURCE_EFFECT__MODE = eINSTANCE.getENumericResourceEffect_Mode();
-
-		/**
-		 * The meta object literal for the '{@link gov.nasa.ensemble.dictionary.impl.EPowerLoadEffectImpl <em>EPower Load Effect</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see gov.nasa.ensemble.dictionary.impl.EPowerLoadEffectImpl
-		 * @see gov.nasa.ensemble.dictionary.impl.DictionaryPackageImpl#getEPowerLoadEffect()
-		 * @generated
-		 */
-		EClass EPOWER_LOAD_EFFECT = eINSTANCE.getEPowerLoadEffect();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Effect Load Factor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EPOWER_LOAD_EFFECT__START_EFFECT_LOAD_FACTOR = eINSTANCE.getEPowerLoadEffect_StartEffectLoadFactor();
 
 		/**
 		 * The meta object literal for the '{@link gov.nasa.ensemble.dictionary.impl.EStateResourceEffectImpl <em>EState Resource Effect</em>}' class.

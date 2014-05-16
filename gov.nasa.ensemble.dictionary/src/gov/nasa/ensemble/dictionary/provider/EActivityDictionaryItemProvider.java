@@ -278,11 +278,6 @@ public class EActivityDictionaryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EcorePackage.Literals.EPACKAGE__ECLASSIFIERS,
-				 DictionaryFactory.eINSTANCE.createEThresholdEnumDef()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EcorePackage.Literals.EPACKAGE__ECLASSIFIERS,
 				 DictionaryFactory.eINSTANCE.createObjectDef()));
 
 		newChildDescriptors.add
@@ -343,17 +338,7 @@ public class EActivityDictionaryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DictionaryPackage.Literals.EACTIVITY_DICTIONARY__EXTENDED_DEFINITIONS,
-				 DictionaryFactory.eINSTANCE.createEPowerLoadDef()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DictionaryPackage.Literals.EACTIVITY_DICTIONARY__EXTENDED_DEFINITIONS,
 				 DictionaryFactory.eINSTANCE.createEStateResourceEffect()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DictionaryPackage.Literals.EACTIVITY_DICTIONARY__EXTENDED_DEFINITIONS,
-				 DictionaryFactory.eINSTANCE.createEPowerLoadEffect()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -379,11 +364,6 @@ public class EActivityDictionaryItemProvider
 			(createChildParameter
 				(DictionaryPackage.Literals.EACTIVITY_DICTIONARY__EXTENDED_DEFINITIONS,
 				 DictionaryFactory.eINSTANCE.createESummaryResourceDef()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DictionaryPackage.Literals.EACTIVITY_DICTIONARY__EXTENDED_DEFINITIONS,
-				 DictionaryFactory.eINSTANCE.createEThresholdEnumDef()));
 
 		newChildDescriptors.add
 			(createChildParameter

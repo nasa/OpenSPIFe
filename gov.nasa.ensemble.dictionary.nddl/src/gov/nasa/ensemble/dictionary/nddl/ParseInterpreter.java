@@ -28,7 +28,6 @@ import gov.nasa.ensemble.dictionary.ESharableResourceEffect;
 import gov.nasa.ensemble.dictionary.EStateRequirement;
 import gov.nasa.ensemble.dictionary.EStateResourceDef;
 import gov.nasa.ensemble.dictionary.EStateResourceEffect;
-import gov.nasa.ensemble.dictionary.EThresholdEnumDef;
 import gov.nasa.ensemble.dictionary.ObjectDef;
 import gov.nasa.ensemble.dictionary.Period;
 import gov.nasa.ensemble.dictionary.nddl.CommandLineArguments.Option;
@@ -48,7 +47,6 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EEnum;
@@ -234,25 +232,7 @@ public class ParseInterpreter {
 			if (typeDef == null)
 				typeDef = state.getEType();
 			stateNames.add(stateName);
-			if (typeDef instanceof EThresholdEnumDef) {
-				EThresholdEnumDef eEnumDef = (EThresholdEnumDef) typeDef;
-				List<String> values = new ArrayList<String>();
-				for (EEnumLiteral l : eEnumDef.getELiterals()) {
-				    values.add(NDDLUtil.escape(l.getLiteral()));
-				}
-				// Remove the last value, since this can never be used in a
-				// requirement
-				// since the state is always less than or equal to this value
-				if (values.size() < 2) {
-					System.err.printf(
-							"\n * ThresholdEnum %s has less than 2 values *\n",
-							stateName);
-				} else {
-					values.remove(values.size() - 1);
-				}
-				stateValuesMap.put(stateName, values);
-				stateTypesMap.put(stateName, "Threshold");
-			} else if (typeDef instanceof EEnum) {
+			if (typeDef instanceof EEnum) {
 				EEnum eEnumDef = (EEnum) typeDef;
 				List<String> values = new ArrayList<String>();
 				for (EEnumLiteral l : eEnumDef.getELiterals()) {
@@ -262,7 +242,7 @@ public class ParseInterpreter {
 				stateTypesMap.put(stateName, "Enum");
 			} else {
 				System.err.print("*State " + stateName
-						+ " is not of type Enum nor ThresholdEnum*\n\n");
+						+ " is not of type Enum *\n\n");
 			}
 		}
 		// For G1, treat PowerLoad resources as State Resources of type Enum
@@ -2665,7 +2645,7 @@ public class ParseInterpreter {
     {
 		if (parm.getDefaultValue() instanceof EEnumLiteral)
 			return true;
-		if (parm.getEType() instanceof EEnum || parm.getEType() instanceof EThresholdEnumDef )
+		if (parm.getEType() instanceof EEnum)
 			return true;
 		EAnnotation europa = parm.getEAnnotation("europa");
 		if (europa != null && europa.getDetails().containsKey("translate"))

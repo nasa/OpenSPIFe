@@ -159,7 +159,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 */
 	public EAttributeParameter getParameterAttribute() {
 		if (eContainerFeatureID() != DictionaryPackage.ECHOICE__PARAMETER_ATTRIBUTE) return null;
-		return (EAttributeParameter)eContainer();
+		return (EAttributeParameter)eInternalContainer();
 	}
 
 	/**

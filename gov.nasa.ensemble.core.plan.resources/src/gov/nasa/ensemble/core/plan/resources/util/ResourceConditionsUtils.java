@@ -17,7 +17,6 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.resources.util;
 
-import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
 import gov.nasa.ensemble.core.activityDictionary.resources.NumericResourceDef;
 import gov.nasa.ensemble.core.model.plan.EPlan;
@@ -34,7 +33,6 @@ import gov.nasa.ensemble.core.plan.resources.member.StateResource;
 import gov.nasa.ensemble.core.plan.resources.member.UndefinedResource;
 import gov.nasa.ensemble.core.plan.resources.member.util.MemberResourceFactoryImpl;
 import gov.nasa.ensemble.dictionary.EClaimableResourceDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadDef;
 import gov.nasa.ensemble.dictionary.ESharableResourceDef;
 import gov.nasa.ensemble.dictionary.EStateResourceDef;
 import gov.nasa.ensemble.emf.util.EMFUtils;
@@ -42,7 +40,6 @@ import gov.nasa.ensemble.emf.util.EMFUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -130,7 +127,6 @@ public class ResourceConditionsUtils {
 	private static Conditions createDefaultIncon() {
 		ActivityDictionary AD = ActivityDictionary.getInstance();
 		Conditions conditions = MemberFactory.eINSTANCE.createConditions();
-		populatePowerLoads(AD, conditions);
 		populateClaims(AD, conditions);
 		populateSharableResources(AD, conditions);
 		populateStateResources(AD, conditions);
@@ -141,24 +137,6 @@ public class ResourceConditionsUtils {
 		return conditions;
 	}
 
-	private static void populatePowerLoads(ActivityDictionary AD, Conditions conditions) {
-		List<PowerLoad> powerLoads = conditions.getPowerLoads();
-		List<EPowerLoadDef> powerLoadDefs = AD.getDefinitions(EPowerLoadDef.class);
-		for (EPowerLoadDef def : powerLoadDefs) {
-			String name = def.getName();
-			List<String> values = def.getAllowedStates();
-			if ((values == null) || values.isEmpty()) {
-				String message = "PowerLoadDef with no values: " + name;
-				LogUtil.warn(message);
-			} else {
-				PowerLoad powerLoad = MemberFactory.eINSTANCE.createPowerLoad();
-				powerLoad.setName(name);
-				powerLoad.setState(values.get(0));
-				powerLoads.add(powerLoad);
-			}
-		}
-	}
-	
 	private static void populateClaims(ActivityDictionary AD, Conditions conditions) {
 		List<Claim> claims = conditions.getClaims();
 		List<EClaimableResourceDef> claimableResourceDefs = AD.getDefinitions(EClaimableResourceDef.class);
@@ -340,9 +318,6 @@ public class ResourceConditionsUtils {
 		List<StateResource> stateResources = conditions.getStateResources();
 		List<EStateResourceDef> stateResourceDefs = AD.getDefinitions(EStateResourceDef.class);
 		for (EStateResourceDef stateDef : stateResourceDefs) {
-			if(stateDef instanceof EPowerLoadDef) {
-				continue;
-			}
 			String name = stateDef.getName();
 			List<String> values = stateDef.getAllowedStates();
 			if ((values == null) || values.isEmpty()) {

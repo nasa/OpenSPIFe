@@ -23,7 +23,6 @@
  */
 package gov.nasa.ensemble.dictionary.impl;
 
-import gov.nasa.ensemble.dictionary.*;
 import gov.nasa.ensemble.dictionary.DictionaryFactory;
 import gov.nasa.ensemble.dictionary.DictionaryPackage;
 import gov.nasa.ensemble.dictionary.EActivityDef;
@@ -39,8 +38,6 @@ import gov.nasa.ensemble.dictionary.ENumericRequirement;
 import gov.nasa.ensemble.dictionary.ENumericResourceDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceEffect;
 import gov.nasa.ensemble.dictionary.ENumericResourceEffectMode;
-import gov.nasa.ensemble.dictionary.EPowerLoadDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadEffect;
 import gov.nasa.ensemble.dictionary.EReferenceParameter;
 import gov.nasa.ensemble.dictionary.EResourceDef;
 import gov.nasa.ensemble.dictionary.ERule;
@@ -51,7 +48,6 @@ import gov.nasa.ensemble.dictionary.EStateResourceDef;
 import gov.nasa.ensemble.dictionary.EStateResourceEffect;
 import gov.nasa.ensemble.dictionary.ESubActivity;
 import gov.nasa.ensemble.dictionary.ESummaryResourceDef;
-import gov.nasa.ensemble.dictionary.EThresholdEnumDef;
 import gov.nasa.ensemble.dictionary.ObjectDef;
 import gov.nasa.ensemble.dictionary.Period;
 
@@ -82,7 +78,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 */
 	public static DictionaryFactory init() {
 		try {
-			DictionaryFactory theDictionaryFactory = (DictionaryFactory)EPackage.Registry.INSTANCE.getEFactory("platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore"); 
+			DictionaryFactory theDictionaryFactory = (DictionaryFactory)EPackage.Registry.INSTANCE.getEFactory(DictionaryPackage.eNS_URI);
 			if (theDictionaryFactory != null) {
 				return theDictionaryFactory;
 			}
@@ -116,7 +112,6 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 			case DictionaryPackage.EACTIVITY_REQUIREMENT: return createEActivityRequirement();
 			case DictionaryPackage.EACTIVITY_GROUP_DEF: return createEActivityGroupDef();
 			case DictionaryPackage.EATTRIBUTE_PARAMETER: return createEAttributeParameter();
-			case DictionaryPackage.EACTIVITY_BLOCK_EFFECT: return createEActivityBlockEffect();
 			case DictionaryPackage.ECHOICE: return createEChoice();
 			case DictionaryPackage.ECLAIMABLE_RESOURCE_DEF: return createEClaimableResourceDef();
 			case DictionaryPackage.ECLAIMABLE_EFFECT: return createEClaimableEffect();
@@ -124,8 +119,6 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 			case DictionaryPackage.ENUMERIC_REQUIREMENT: return createENumericRequirement();
 			case DictionaryPackage.ENUMERIC_RESOURCE_DEF: return createENumericResourceDef();
 			case DictionaryPackage.ENUMERIC_RESOURCE_EFFECT: return createENumericResourceEffect();
-			case DictionaryPackage.EPOWER_LOAD_DEF: return createEPowerLoadDef();
-			case DictionaryPackage.EPOWER_LOAD_EFFECT: return createEPowerLoadEffect();
 			case DictionaryPackage.EREFERENCE_PARAMETER: return createEReferenceParameter();
 			case DictionaryPackage.ERESOURCE_DEF: return createEResourceDef();
 			case DictionaryPackage.ERULE: return createERule();
@@ -136,7 +129,6 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 			case DictionaryPackage.ESTATE_RESOURCE_EFFECT: return createEStateResourceEffect();
 			case DictionaryPackage.ESUB_ACTIVITY: return createESubActivity();
 			case DictionaryPackage.ESUMMARY_RESOURCE_DEF: return createESummaryResourceDef();
-			case DictionaryPackage.ETHRESHOLD_ENUM_DEF: return createEThresholdEnumDef();
 			case DictionaryPackage.OBJECT_DEF: return createObjectDef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -239,16 +231,6 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EActivityBlockEffect createEActivityBlockEffect() {
-		EActivityBlockEffectImpl eActivityBlockEffect = new EActivityBlockEffectImpl();
-		return eActivityBlockEffect;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReferenceParameter createEReferenceParameter() {
 		EReferenceParameterImpl eReferenceParameter = new EReferenceParameterImpl();
 		return eReferenceParameter;
@@ -312,16 +294,6 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	public ENumericResourceDef createENumericResourceDef() {
 		ENumericResourceDefImpl eNumericResourceDef = new ENumericResourceDefImpl();
 		return eNumericResourceDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EPowerLoadDef createEPowerLoadDef() {
-		EPowerLoadDefImpl ePowerLoadDef = new EPowerLoadDefImpl();
-		return ePowerLoadDef;
 	}
 
 	/**
@@ -401,16 +373,6 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EThresholdEnumDef createEThresholdEnumDef() {
-		EThresholdEnumDefImpl eThresholdEnumDef = new EThresholdEnumDefImpl();
-		return eThresholdEnumDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ObjectDef createObjectDef() {
 		ObjectDefImpl objectDef = new ObjectDefImpl();
 		return objectDef;
@@ -434,11 +396,6 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 */
 	public String convertENumericResourceEffectModeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	public EThresholdEnumDef createEThresholdEnumDef(String name, List<String> values) {
-		EThresholdEnumDefImpl eThresholdEnumDef = new EThresholdEnumDefImpl(name, values);
-		return eThresholdEnumDef;
 	}
 
 	/**
@@ -501,16 +458,6 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	public ENumericResourceEffect createENumericResourceEffect() {
 		ENumericResourceEffectImpl eNumericResourceEffect = new ENumericResourceEffectImpl();
 		return eNumericResourceEffect;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EPowerLoadEffect createEPowerLoadEffect() {
-		EPowerLoadEffectImpl ePowerLoadEffect = new EPowerLoadEffectImpl();
-		return ePowerLoadEffect;
 	}
 
 	/**

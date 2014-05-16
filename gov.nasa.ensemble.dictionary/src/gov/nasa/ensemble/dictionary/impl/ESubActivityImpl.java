@@ -96,7 +96,7 @@ public class ESubActivityImpl extends MinimalEObjectImpl.Container implements ES
 	 */
 	public EActivityDef getDefinition() {
 		if (eContainerFeatureID() != DictionaryPackage.ESUB_ACTIVITY__DEFINITION) return null;
-		return (EActivityDef)eContainer();
+		return (EActivityDef)eInternalContainer();
 	}
 
 	/**
