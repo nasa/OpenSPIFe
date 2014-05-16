@@ -38,6 +38,7 @@ public final class VisitList<T> extends ArrayList<T> {
 		public void visit(T item);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void visitAll(Visitor<T> visitor) {
 		int expectedModCount = modCount;
 		T[] array = (T[])toArray();
