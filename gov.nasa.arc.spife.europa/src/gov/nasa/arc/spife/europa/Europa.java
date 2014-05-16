@@ -42,13 +42,11 @@ import gov.nasa.ensemble.core.plan.constraints.ui.advisor.INogoodPart;
 import gov.nasa.ensemble.core.plan.resources.member.Claim;
 import gov.nasa.ensemble.core.plan.resources.member.Conditions;
 import gov.nasa.ensemble.core.plan.resources.member.MemberFactory;
-import gov.nasa.ensemble.core.plan.resources.member.PowerLoad;
 import gov.nasa.ensemble.core.plan.resources.member.SharableResource;
 import gov.nasa.ensemble.core.plan.resources.member.StateResource;
 import gov.nasa.ensemble.core.plan.resources.util.ResourceConditionsUtils;
 import gov.nasa.ensemble.dictionary.EActivityDictionary;
 import gov.nasa.ensemble.dictionary.EClaimableResourceDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadDef;
 import gov.nasa.ensemble.dictionary.ERule;
 import gov.nasa.ensemble.dictionary.ESharableResourceDef;
 import gov.nasa.ensemble.dictionary.EStateResourceDef;
@@ -216,17 +214,6 @@ public class Europa {
 		MemberFactory factory = MemberFactory.eINSTANCE;
 		Conditions conditions = factory.createConditions();
 		ActivityDictionary AD = ActivityDictionary.getInstance();
-		List<EPowerLoadDef> powerLoadDefs = AD.getDefinitions(EPowerLoadDef.class);
-		for (EPowerLoadDef powerLoadDef : powerLoadDefs) {
-			String powerLoadDefName = powerLoadDef.getName();
-			String state = getStringValue(powerLoadDefName, powerLoadDef.getAllowedStates(), fincon);
-			if (state != null) {
-				PowerLoad powerLoad = factory.createPowerLoad();
-				powerLoad.setName(powerLoadDefName);
-				powerLoad.setState(state);
-				conditions.getPowerLoads().add(powerLoad);
-			}
-		}
 		List<EClaimableResourceDef> claimDefs = AD.getDefinitions(EClaimableResourceDef.class);
 		for (EClaimableResourceDef claimDef : claimDefs) {
 			String claimDefName = claimDef.getName();

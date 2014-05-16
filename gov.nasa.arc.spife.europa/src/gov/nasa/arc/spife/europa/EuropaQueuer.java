@@ -44,17 +44,14 @@ import gov.nasa.ensemble.core.plan.constraints.ui.preference.PlanConstraintsPref
 import gov.nasa.ensemble.core.plan.resources.member.Claim;
 import gov.nasa.ensemble.core.plan.resources.member.Conditions;
 import gov.nasa.ensemble.core.plan.resources.member.NumericResource;
-import gov.nasa.ensemble.core.plan.resources.member.PowerLoad;
 import gov.nasa.ensemble.core.plan.resources.member.SharableResource;
 import gov.nasa.ensemble.core.plan.resources.member.StateResource;
 import gov.nasa.ensemble.dictionary.EClaimableResourceDef;
 import gov.nasa.ensemble.dictionary.EExtendedNumericResourceDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadDef;
 import gov.nasa.ensemble.dictionary.ERule;
 import gov.nasa.ensemble.dictionary.ESharableResourceDef;
 import gov.nasa.ensemble.dictionary.EStateResourceDef;
-import gov.nasa.ensemble.dictionary.EThresholdEnumDef;
 import gov.nasa.ensemble.dictionary.ObjectDef;
 import gov.nasa.ensemble.dictionary.nddl.NDDLUtil;
 import gov.nasa.ensemble.emf.model.common.Timepoint;
@@ -1070,47 +1067,11 @@ public class EuropaQueuer {
 	public int queueUpdateIncon(Conditions conditions) {
 		int work = 0;
 		if (conditions != null) {
-//			work += queuePowerLoads(conditions.getPowerLoads()); // Europa doesn't support this now
 			work += queueClaims(conditions.getClaims());
 			work += queueSharables(conditions.getSharableResources());
 			work += queueStates(conditions.getStateResources());
 			if (EuropaPreferences.isTranslateNumericResources())
 			    work += queueNumerics(conditions.getNumericResources());
-		}
-		return work;
-	}
-
-	@SuppressWarnings("unused") // For later when Europa supports these
-	private int queuePowerLoads(List<PowerLoad> powerLoads) {
-		Map<String, PowerLoad> powerLoadConditions = new HashMap<String, PowerLoad>();
-		for (PowerLoad powerLoad : powerLoads) {
-			PowerLoad previous = powerLoadConditions.put(powerLoad.getName(), powerLoad);
-			if (previous != null) {
-				String message = "multiple values for PowerLoad: " + powerLoad.getName();
-				Logger.getLogger(EuropaQueuer.class).warn(message);
-			}
-		}
-		int work = 0;
-		List<EPowerLoadDef> powerLoadDefs = ActivityDictionary.getInstance().getDefinitions(EPowerLoadDef.class);
-		for (EPowerLoadDef powerLoadDef : powerLoadDefs) {
-			String name = powerLoadDef.getName();
-			List<String> values = powerLoadDef.getAllowedStates();
-			if ((values == null) || values.isEmpty()) {
-				String message = "no state values for PowerLoadDef: " + name;
-				Logger.getLogger(EuropaQueuer.class).warn(message);
-				continue;
-			}
-			String state = values.get(0); // default value
-			PowerLoad powerLoad = powerLoadConditions.get(name);
-			if (powerLoad == null) {
-				// Logger.getLogger(getClass()).warn("Missing power load in initial conditions: " + name + ", using default: " + state);
-			} else if (!values.contains(powerLoad.getState())) {
-				String message = "The initial conditions state " + powerLoad.getState() + " wasn't defined for PowerLoadDef: " + name + ", using default: " + state;
-				Logger.getLogger(EuropaQueuer.class).warn(message);
-			} else {
-				state = powerLoad.getState();
-			}
-			work += queueInconParameter(name, values, state);
 		}
 		return work;
 	}
@@ -1249,11 +1210,6 @@ public class EuropaQueuer {
 					Object eTypeDef = stateDef.getEType();
 					if (eTypeDef instanceof EEnum) {
 						for (EEnumLiteral l : ((EEnum) eTypeDef).getELiterals()) {
-							values.add(l.getLiteral());
-						}
-					}
-					else if (eTypeDef instanceof EThresholdEnumDef) {
-						for (EEnumLiteral l : ((EThresholdEnumDef) eTypeDef).getELiterals()) {
 							values.add(l.getLiteral());
 						}
 					}

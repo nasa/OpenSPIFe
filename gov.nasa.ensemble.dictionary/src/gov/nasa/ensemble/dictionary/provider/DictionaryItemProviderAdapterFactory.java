@@ -208,29 +208,6 @@ public class DictionaryItemProviderAdapterFactory extends DictionaryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link gov.nasa.ensemble.dictionary.EActivityBlockEffect} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EActivityBlockEffectItemProvider eActivityBlockEffectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link gov.nasa.ensemble.dictionary.EActivityBlockEffect}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEActivityBlockEffectAdapter() {
-		if (eActivityBlockEffectItemProvider == null) {
-			eActivityBlockEffectItemProvider = new EActivityBlockEffectItemProvider(this);
-		}
-
-		return eActivityBlockEffectItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link gov.nasa.ensemble.dictionary.EReferenceParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,29 +369,6 @@ public class DictionaryItemProviderAdapterFactory extends DictionaryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link gov.nasa.ensemble.dictionary.EPowerLoadDef} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EPowerLoadDefItemProvider ePowerLoadDefItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link gov.nasa.ensemble.dictionary.EPowerLoadDef}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEPowerLoadDefAdapter() {
-		if (ePowerLoadDefItemProvider == null) {
-			ePowerLoadDefItemProvider = new EPowerLoadDefItemProvider(this);
-		}
-
-		return ePowerLoadDefItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link gov.nasa.ensemble.dictionary.EResourceDef} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -553,29 +507,6 @@ public class DictionaryItemProviderAdapterFactory extends DictionaryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link gov.nasa.ensemble.dictionary.EThresholdEnumDef} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EThresholdEnumDefItemProvider eThresholdEnumDefItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link gov.nasa.ensemble.dictionary.EThresholdEnumDef}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEThresholdEnumDefAdapter() {
-		if (eThresholdEnumDefItemProvider == null) {
-			eThresholdEnumDefItemProvider = new EThresholdEnumDefItemProvider(this);
-		}
-
-		return eThresholdEnumDefItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link gov.nasa.ensemble.dictionary.ObjectDef} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,29 +573,6 @@ public class DictionaryItemProviderAdapterFactory extends DictionaryAdapterFacto
 		}
 
 		return eNumericResourceEffectItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link gov.nasa.ensemble.dictionary.EPowerLoadEffect} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EPowerLoadEffectItemProvider ePowerLoadEffectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link gov.nasa.ensemble.dictionary.EPowerLoadEffect}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEPowerLoadEffectAdapter() {
-		if (ePowerLoadEffectItemProvider == null) {
-			ePowerLoadEffectItemProvider = new EPowerLoadEffectItemProvider(this);
-		}
-
-		return ePowerLoadEffectItemProvider;
 	}
 
 	/**
@@ -817,7 +725,6 @@ public class DictionaryItemProviderAdapterFactory extends DictionaryAdapterFacto
 		if (eActivityRequirementItemProvider != null) eActivityRequirementItemProvider.dispose();
 		if (eActivityGroupDefItemProvider != null) eActivityGroupDefItemProvider.dispose();
 		if (eAttributeParameterItemProvider != null) eAttributeParameterItemProvider.dispose();
-		if (eActivityBlockEffectItemProvider != null) eActivityBlockEffectItemProvider.dispose();
 		if (eChoiceItemProvider != null) eChoiceItemProvider.dispose();
 		if (eClaimableResourceDefItemProvider != null) eClaimableResourceDefItemProvider.dispose();
 		if (eClaimableEffectItemProvider != null) eClaimableEffectItemProvider.dispose();
@@ -825,8 +732,6 @@ public class DictionaryItemProviderAdapterFactory extends DictionaryAdapterFacto
 		if (eNumericRequirementItemProvider != null) eNumericRequirementItemProvider.dispose();
 		if (eNumericResourceDefItemProvider != null) eNumericResourceDefItemProvider.dispose();
 		if (eNumericResourceEffectItemProvider != null) eNumericResourceEffectItemProvider.dispose();
-		if (ePowerLoadDefItemProvider != null) ePowerLoadDefItemProvider.dispose();
-		if (ePowerLoadEffectItemProvider != null) ePowerLoadEffectItemProvider.dispose();
 		if (eReferenceParameterItemProvider != null) eReferenceParameterItemProvider.dispose();
 		if (eResourceDefItemProvider != null) eResourceDefItemProvider.dispose();
 		if (eRuleItemProvider != null) eRuleItemProvider.dispose();
@@ -837,7 +742,6 @@ public class DictionaryItemProviderAdapterFactory extends DictionaryAdapterFacto
 		if (eStateResourceEffectItemProvider != null) eStateResourceEffectItemProvider.dispose();
 		if (eSubActivityItemProvider != null) eSubActivityItemProvider.dispose();
 		if (eSummaryResourceDefItemProvider != null) eSummaryResourceDefItemProvider.dispose();
-		if (eThresholdEnumDefItemProvider != null) eThresholdEnumDefItemProvider.dispose();
 		if (objectDefItemProvider != null) objectDefItemProvider.dispose();
 	}
 

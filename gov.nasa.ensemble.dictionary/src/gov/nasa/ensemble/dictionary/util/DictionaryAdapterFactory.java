@@ -125,10 +125,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 				return createEAttributeParameterAdapter();
 			}
 			@Override
-			public Adapter caseEActivityBlockEffect(EActivityBlockEffect object) {
-				return createEActivityBlockEffectAdapter();
-			}
-			@Override
 			public Adapter caseEChoice(EChoice object) {
 				return createEChoiceAdapter();
 			}
@@ -163,14 +159,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEParameterDef(EParameterDef object) {
 				return createEParameterDefAdapter();
-			}
-			@Override
-			public Adapter caseEPowerLoadDef(EPowerLoadDef object) {
-				return createEPowerLoadDefAdapter();
-			}
-			@Override
-			public Adapter caseEPowerLoadEffect(EPowerLoadEffect object) {
-				return createEPowerLoadEffectAdapter();
 			}
 			@Override
 			public Adapter caseEReferenceParameter(EReferenceParameter object) {
@@ -215,10 +203,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public <T extends EResourceDef> Adapter caseETemporalEffect(ETemporalEffect<T> object) {
 				return createETemporalEffectAdapter();
-			}
-			@Override
-			public Adapter caseEThresholdEnumDef(EThresholdEnumDef object) {
-				return createEThresholdEnumDefAdapter();
 			}
 			@Override
 			public Adapter caseINamedDefinition(INamedDefinition object) {
@@ -295,14 +279,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEReference(EReference object) {
 				return createEReferenceAdapter();
-			}
-			@Override
-			public Adapter caseEDataType(EDataType object) {
-				return createEDataTypeAdapter();
-			}
-			@Override
-			public Adapter caseEEnum(EEnum object) {
-				return createEEnumAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -423,20 +399,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link gov.nasa.ensemble.dictionary.EActivityBlockEffect <em>EActivity Block Effect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see gov.nasa.ensemble.dictionary.EActivityBlockEffect
-	 * @generated
-	 */
-	public Adapter createEActivityBlockEffectAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link gov.nasa.ensemble.dictionary.EReferenceParameter <em>EReference Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -545,20 +507,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createENumericResourceDefAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link gov.nasa.ensemble.dictionary.EPowerLoadDef <em>EPower Load Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see gov.nasa.ensemble.dictionary.EPowerLoadDef
-	 * @generated
-	 */
-	public Adapter createEPowerLoadDefAdapter() {
 		return null;
 	}
 
@@ -689,20 +637,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link gov.nasa.ensemble.dictionary.EThresholdEnumDef <em>EThreshold Enum Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see gov.nasa.ensemble.dictionary.EThresholdEnumDef
-	 * @generated
-	 */
-	public Adapter createEThresholdEnumDefAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link gov.nasa.ensemble.dictionary.ENumericResourceEffect <em>ENumeric Resource Effect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -713,20 +647,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createENumericResourceEffectAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link gov.nasa.ensemble.dictionary.EPowerLoadEffect <em>EPower Load Effect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see gov.nasa.ensemble.dictionary.EPowerLoadEffect
-	 * @generated
-	 */
-	public Adapter createEPowerLoadEffectAdapter() {
 		return null;
 	}
 
@@ -979,34 +899,6 @@ public class DictionaryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecore.EDataType <em>EData Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecore.EDataType
-	 * @generated
-	 */
-	public Adapter createEDataTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecore.EEnum <em>EEnum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecore.EEnum
-	 * @generated
-	 */
-	public Adapter createEEnumAdapter() {
 		return null;
 	}
 

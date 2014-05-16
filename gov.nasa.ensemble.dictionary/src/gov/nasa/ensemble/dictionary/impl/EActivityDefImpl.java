@@ -26,7 +26,6 @@ package gov.nasa.ensemble.dictionary.impl;
 import gov.nasa.ensemble.dictionary.DefinitionContext;
 import gov.nasa.ensemble.dictionary.DefinitionContextImpl;
 import gov.nasa.ensemble.dictionary.DictionaryPackage;
-import gov.nasa.ensemble.dictionary.EActivityBlockEffect;
 import gov.nasa.ensemble.dictionary.EActivityDef;
 import gov.nasa.ensemble.dictionary.EClaimableEffect;
 import gov.nasa.ensemble.dictionary.ENumericRequirement;
@@ -68,7 +67,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link gov.nasa.ensemble.dictionary.impl.EActivityDefImpl#getSharedEffects <em>Shared Effects</em>}</li>
  *   <li>{@link gov.nasa.ensemble.dictionary.impl.EActivityDefImpl#getStateEffects <em>State Effects</em>}</li>
  *   <li>{@link gov.nasa.ensemble.dictionary.impl.EActivityDefImpl#getStateRequirements <em>State Requirements</em>}</li>
- *   <li>{@link gov.nasa.ensemble.dictionary.impl.EActivityDefImpl#getBlockEffect <em>Block Effect</em>}</li>
  * </ul>
  * </p>
  *
@@ -204,16 +202,6 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * @ordered
 	 */
 	protected EList<EStateRequirement> stateRequirements;
-
-	/**
-	 * The cached value of the '{@link #getBlockEffect() <em>Block Effect</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBlockEffect()
-	 * @generated
-	 * @ordered
-	 */
-	protected EActivityBlockEffect blockEffect;
 
 	protected final DefinitionContext definitionContextDelegate;
 	
@@ -365,49 +353,6 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EActivityBlockEffect getBlockEffect() {
-		return blockEffect;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBlockEffect(EActivityBlockEffect newBlockEffect, NotificationChain msgs) {
-		EActivityBlockEffect oldBlockEffect = blockEffect;
-		blockEffect = newBlockEffect;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT, oldBlockEffect, newBlockEffect);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBlockEffect(EActivityBlockEffect newBlockEffect) {
-		if (newBlockEffect != blockEffect) {
-			NotificationChain msgs = null;
-			if (blockEffect != null)
-				msgs = ((InternalEObject)blockEffect).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT, null, msgs);
-			if (newBlockEffect != null)
-				msgs = ((InternalEObject)newBlockEffect).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT, null, msgs);
-			msgs = basicSetBlockEffect(newBlockEffect, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT, newBlockEffect, newBlockEffect));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public List<ESubActivity> getChildren() {
 		if (children == null) {
 			children = new EObjectContainmentWithInverseEList<ESubActivity>(ESubActivity.class, this, DictionaryPackage.EACTIVITY_DEF__CHILDREN, DictionaryPackage.ESUB_ACTIVITY__DEFINITION);
@@ -464,8 +409,6 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 				return ((InternalEList<?>)getStateEffects()).basicRemove(otherEnd, msgs);
 			case DictionaryPackage.EACTIVITY_DEF__STATE_REQUIREMENTS:
 				return ((InternalEList<?>)getStateRequirements()).basicRemove(otherEnd, msgs);
-			case DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT:
-				return basicSetBlockEffect(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -498,8 +441,6 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 				return getStateEffects();
 			case DictionaryPackage.EACTIVITY_DEF__STATE_REQUIREMENTS:
 				return getStateRequirements();
-			case DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT:
-				return getBlockEffect();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -550,9 +491,6 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 				getStateRequirements().clear();
 				getStateRequirements().addAll((Collection<? extends EStateRequirement>)newValue);
 				return;
-			case DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT:
-				setBlockEffect((EActivityBlockEffect)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -595,9 +533,6 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 			case DictionaryPackage.EACTIVITY_DEF__STATE_REQUIREMENTS:
 				getStateRequirements().clear();
 				return;
-			case DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT:
-				setBlockEffect((EActivityBlockEffect)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -630,8 +565,6 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 				return stateEffects != null && !stateEffects.isEmpty();
 			case DictionaryPackage.EACTIVITY_DEF__STATE_REQUIREMENTS:
 				return stateRequirements != null && !stateRequirements.isEmpty();
-			case DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT:
-				return blockEffect != null;
 		}
 		return super.eIsSet(featureID);
 	}

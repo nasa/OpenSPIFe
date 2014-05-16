@@ -20,7 +20,6 @@ package gov.nasa.ensemble.core.plan.resources.profile;
 import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
 import gov.nasa.ensemble.core.jscience.DataPoint;
-import gov.nasa.ensemble.core.jscience.PowerValue;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.translator.WrapperUtils;
@@ -28,19 +27,16 @@ import gov.nasa.ensemble.core.plan.resources.member.Claim;
 import gov.nasa.ensemble.core.plan.resources.member.Conditions;
 import gov.nasa.ensemble.core.plan.resources.member.MemberFactory;
 import gov.nasa.ensemble.core.plan.resources.member.NumericResource;
-import gov.nasa.ensemble.core.plan.resources.member.PowerLoad;
 import gov.nasa.ensemble.core.plan.resources.member.StateResource;
 import gov.nasa.ensemble.core.plan.resources.wizards.ConditionsProvider;
 import gov.nasa.ensemble.dictionary.EClaimableResourceDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadDef;
 import gov.nasa.ensemble.dictionary.EStateResourceDef;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.emf.ecore.EEnumLiteral;
 import org.jscience.physics.amount.Amount;
 
 public class ResourceProfileConditionsProvider extends ConditionsProvider {
@@ -69,23 +65,7 @@ public class ResourceProfileConditionsProvider extends ConditionsProvider {
 				LogUtil.error("exporting resource "+nrd.getName(), e);
 			}
 		}
-		for (EPowerLoadDef pld : AD.getDefinitions(EPowerLoadDef.class)) {
-			DataPoint dataPoint = conditionValues.get(pld.getName());
-			Object value = (dataPoint != null ? value = dataPoint.getValue() : null);
-			PowerLoad powerResource = factory.createPowerLoad();
-			powerResource.setName(pld.getName());
-			if (value instanceof PowerValue) {
-				EEnumLiteral stateValue = ((PowerValue)value).getStateValue();
-				if (stateValue != null) {
-					powerResource.setState(stateValue.getName());
-				}
-			}
-			conditions.getPowerLoads().add(powerResource);
-		}
 		for (EStateResourceDef srd : AD.getDefinitions(EStateResourceDef.class)) {
-			if (srd instanceof EPowerLoadDef) {
-				continue;
-			}
 			DataPoint dataPoint = conditionValues.get(srd.getName());
 			Object value = (dataPoint != null ? value = dataPoint.getValue() : null);
 			StateResource stateResource = factory.createStateResource();

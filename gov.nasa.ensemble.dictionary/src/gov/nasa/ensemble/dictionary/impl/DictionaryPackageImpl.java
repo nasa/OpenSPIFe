@@ -27,7 +27,6 @@ import gov.nasa.ensemble.core.jscience.JSciencePackage;
 import gov.nasa.ensemble.dictionary.DefinitionContext;
 import gov.nasa.ensemble.dictionary.DictionaryFactory;
 import gov.nasa.ensemble.dictionary.DictionaryPackage;
-import gov.nasa.ensemble.dictionary.EActivityBlockEffect;
 import gov.nasa.ensemble.dictionary.EActivityDef;
 import gov.nasa.ensemble.dictionary.EActivityDictionary;
 import gov.nasa.ensemble.dictionary.EActivityGroupDef;
@@ -42,8 +41,6 @@ import gov.nasa.ensemble.dictionary.ENumericResourceDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceEffect;
 import gov.nasa.ensemble.dictionary.ENumericResourceEffectMode;
 import gov.nasa.ensemble.dictionary.EParameterDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadDef;
-import gov.nasa.ensemble.dictionary.EPowerLoadEffect;
 import gov.nasa.ensemble.dictionary.EReferenceParameter;
 import gov.nasa.ensemble.dictionary.EResourceDef;
 import gov.nasa.ensemble.dictionary.ERule;
@@ -55,7 +52,6 @@ import gov.nasa.ensemble.dictionary.EStateResourceEffect;
 import gov.nasa.ensemble.dictionary.ESubActivity;
 import gov.nasa.ensemble.dictionary.ESummaryResourceDef;
 import gov.nasa.ensemble.dictionary.ETemporalEffect;
-import gov.nasa.ensemble.dictionary.EThresholdEnumDef;
 import gov.nasa.ensemble.dictionary.Effect;
 import gov.nasa.ensemble.dictionary.INamedDefinition;
 import gov.nasa.ensemble.dictionary.ObjectDef;
@@ -135,13 +131,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eActivityBlockEffectEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass eReferenceParameterEClass = null;
 
 	/**
@@ -192,13 +181,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * @generated
 	 */
 	private EClass eNumericResourceDefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass ePowerLoadDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -282,21 +264,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eThresholdEnumDefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass eNumericResourceEffectEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass ePowerLoadEffectEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -549,15 +517,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEActivityDef_BlockEffect() {
-		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getEActivityDef_Children() {
 		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(1);
 	}
@@ -695,42 +654,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 */
 	public EReference getEAttributeParameter_Choices() {
 		return (EReference)eAttributeParameterEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEActivityBlockEffect() {
-		return eActivityBlockEffectEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEActivityBlockEffect_StartEffect() {
-		return (EAttribute)eActivityBlockEffectEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEActivityBlockEffect_EndEffect() {
-		return (EAttribute)eActivityBlockEffectEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEActivityBlockEffect_Description() {
-		return (EAttribute)eActivityBlockEffectEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -929,15 +852,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 */
 	public EAttribute getENumericResourceDef_Maximum() {
 		return (EAttribute)eNumericResourceDefEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEPowerLoadDef() {
-		return ePowerLoadDefEClass;
 	}
 
 	/**
@@ -1224,15 +1138,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEThresholdEnumDef() {
-		return eThresholdEnumDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getENumericResourceEffect() {
 		return eNumericResourceEffectEClass;
 	}
@@ -1253,24 +1158,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 */
 	public EAttribute getENumericResourceEffect_Mode() {
 		return (EAttribute)eNumericResourceEffectEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEPowerLoadEffect() {
-		return ePowerLoadEffectEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEPowerLoadEffect_StartEffectLoadFactor() {
-		return (EAttribute)ePowerLoadEffectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1377,7 +1264,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		createEReference(eActivityDefEClass, EACTIVITY_DEF__SHARED_EFFECTS);
 		createEReference(eActivityDefEClass, EACTIVITY_DEF__STATE_EFFECTS);
 		createEReference(eActivityDefEClass, EACTIVITY_DEF__STATE_REQUIREMENTS);
-		createEReference(eActivityDefEClass, EACTIVITY_DEF__BLOCK_EFFECT);
 
 		eActivityDictionaryEClass = createEClass(EACTIVITY_DICTIONARY);
 		createEAttribute(eActivityDictionaryEClass, EACTIVITY_DICTIONARY__AUTHOR);
@@ -1398,11 +1284,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		createEAttribute(eAttributeParameterEClass, EATTRIBUTE_PARAMETER__UNITS);
 		createEAttribute(eAttributeParameterEClass, EATTRIBUTE_PARAMETER__UNITS_DISPLAY_NAME);
 		createEReference(eAttributeParameterEClass, EATTRIBUTE_PARAMETER__CHOICES);
-
-		eActivityBlockEffectEClass = createEClass(EACTIVITY_BLOCK_EFFECT);
-		createEAttribute(eActivityBlockEffectEClass, EACTIVITY_BLOCK_EFFECT__START_EFFECT);
-		createEAttribute(eActivityBlockEffectEClass, EACTIVITY_BLOCK_EFFECT__END_EFFECT);
-		createEAttribute(eActivityBlockEffectEClass, EACTIVITY_BLOCK_EFFECT__DESCRIPTION);
 
 		eChoiceEClass = createEClass(ECHOICE);
 		createEReference(eChoiceEClass, ECHOICE__PARAMETER_ATTRIBUTE);
@@ -1439,11 +1320,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		eParameterDefEClass = createEClass(EPARAMETER_DEF);
 		createEAttribute(eParameterDefEClass, EPARAMETER_DEF__DEFAULT_LENGTH);
 		createEAttribute(eParameterDefEClass, EPARAMETER_DEF__DESCRIPTION);
-
-		ePowerLoadDefEClass = createEClass(EPOWER_LOAD_DEF);
-
-		ePowerLoadEffectEClass = createEClass(EPOWER_LOAD_EFFECT);
-		createEAttribute(ePowerLoadEffectEClass, EPOWER_LOAD_EFFECT__START_EFFECT_LOAD_FACTOR);
 
 		eReferenceParameterEClass = createEClass(EREFERENCE_PARAMETER);
 		createEReference(eReferenceParameterEClass, EREFERENCE_PARAMETER__EFFECTS);
@@ -1491,8 +1367,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		eTemporalEffectEClass = createEClass(ETEMPORAL_EFFECT);
 		createEAttribute(eTemporalEffectEClass, ETEMPORAL_EFFECT__START_EFFECT);
 		createEAttribute(eTemporalEffectEClass, ETEMPORAL_EFFECT__END_EFFECT);
-
-		eThresholdEnumDefEClass = createEClass(ETHRESHOLD_ENUM_DEF);
 
 		iNamedDefinitionEClass = createEClass(INAMED_DEFINITION);
 
@@ -1570,11 +1444,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		g1.getETypeArguments().add(g2);
 		eNumericResourceEffectEClass.getEGenericSuperTypes().add(g1);
 		eParameterDefEClass.getESuperTypes().add(ecorePackage.getEStructuralFeature());
-		ePowerLoadDefEClass.getESuperTypes().add(this.getEStateResourceDef());
-		g1 = createEGenericType(this.getEStateResourceEffect());
-		g2 = createEGenericType(this.getEPowerLoadDef());
-		g1.getETypeArguments().add(g2);
-		ePowerLoadEffectEClass.getEGenericSuperTypes().add(g1);
 		eReferenceParameterEClass.getESuperTypes().add(ecorePackage.getEReference());
 		eReferenceParameterEClass.getESuperTypes().add(this.getEParameterDef());
 		eResourceDefEClass.getESuperTypes().add(theEcorePackage.getEAttribute());
@@ -1598,8 +1467,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		g2 = createEGenericType(eTemporalEffectEClass_T);
 		g1.getETypeArguments().add(g2);
 		eTemporalEffectEClass.getEGenericSuperTypes().add(g1);
-		eThresholdEnumDefEClass.getESuperTypes().add(theEcorePackage.getEEnum());
-		eThresholdEnumDefEClass.getESuperTypes().add(this.getINamedDefinition());
 		objectDefEClass.getESuperTypes().add(theEcorePackage.getEClass());
 		objectDefEClass.getESuperTypes().add(this.getINamedDefinition());
 		ruleResourceDefEClass.getESuperTypes().add(this.getEResourceDef());
@@ -1621,7 +1488,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		g1.getETypeArguments().add(g2);
 		initEReference(getEActivityDef_StateEffects(), g1, null, "stateEffects", null, 0, -1, EActivityDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEActivityDef_StateRequirements(), this.getEStateRequirement(), null, "stateRequirements", null, 0, -1, EActivityDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEActivityDef_BlockEffect(), this.getEActivityBlockEffect(), null, "blockEffect", null, 0, 1, EActivityDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eActivityDictionaryEClass, EActivityDictionary.class, "EActivityDictionary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEActivityDictionary_Author(), theEcorePackage.getEString(), "author", null, 0, 1, EActivityDictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1647,11 +1513,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		initEAttribute(getEAttributeParameter_Units(), theJSciencePackage.getEUnit(), "units", "", 0, 1, EAttributeParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAttributeParameter_UnitsDisplayName(), theEcorePackage.getEString(), "unitsDisplayName", null, 0, 1, EAttributeParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEAttributeParameter_Choices(), this.getEChoice(), this.getEChoice_ParameterAttribute(), "choices", null, 0, -1, EAttributeParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eActivityBlockEffectEClass, EActivityBlockEffect.class, "EActivityBlockEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEActivityBlockEffect_StartEffect(), theEcorePackage.getEString(), "startEffect", null, 0, 1, EActivityBlockEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEActivityBlockEffect_EndEffect(), theEcorePackage.getEString(), "endEffect", null, 0, 1, EActivityBlockEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEActivityBlockEffect_Description(), theEcorePackage.getEString(), "description", null, 0, 1, EActivityBlockEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eChoiceEClass, EChoice.class, "EChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEChoice_ParameterAttribute(), this.getEAttributeParameter(), this.getEAttributeParameter_Choices(), "parameterAttribute", null, 0, 1, EChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1692,11 +1553,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		initEClass(eParameterDefEClass, EParameterDef.class, "EParameterDef", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEParameterDef_DefaultLength(), theEcorePackage.getEInt(), "defaultLength", null, 0, 1, EParameterDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEParameterDef_Description(), theEcorePackage.getEString(), "description", null, 0, 1, EParameterDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(ePowerLoadDefEClass, EPowerLoadDef.class, "EPowerLoadDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(ePowerLoadEffectEClass, EPowerLoadEffect.class, "EPowerLoadEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEPowerLoadEffect_StartEffectLoadFactor(), theEcorePackage.getEString(), "startEffectLoadFactor", null, 0, 1, EPowerLoadEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eReferenceParameterEClass, EReferenceParameter.class, "EReferenceParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getEffect());
@@ -1747,8 +1603,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		initEClass(eTemporalEffectEClass, ETemporalEffect.class, "ETemporalEffect", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getETemporalEffect_StartEffect(), theEcorePackage.getEString(), "startEffect", null, 0, 1, ETemporalEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getETemporalEffect_EndEffect(), theEcorePackage.getEString(), "endEffect", null, 0, 1, ETemporalEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eThresholdEnumDefEClass, EThresholdEnumDef.class, "EThresholdEnumDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iNamedDefinitionEClass, INamedDefinition.class, "INamedDefinition", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 

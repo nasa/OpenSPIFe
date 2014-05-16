@@ -45,7 +45,6 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link gov.nasa.ensemble.dictionary.EActivityDef#getSharedEffects <em>Shared Effects</em>}</li>
  *   <li>{@link gov.nasa.ensemble.dictionary.EActivityDef#getStateEffects <em>State Effects</em>}</li>
  *   <li>{@link gov.nasa.ensemble.dictionary.EActivityDef#getStateRequirements <em>State Requirements</em>}</li>
- *   <li>{@link gov.nasa.ensemble.dictionary.EActivityDef#getBlockEffect <em>Block Effect</em>}</li>
  * </ul>
  * </p>
  *
@@ -213,32 +212,6 @@ public interface EActivityDef extends EClass, INamedDefinition, DefinitionContex
 	 * @generated
 	 */
 	List<EStateRequirement> getStateRequirements();
-
-	/**
-	 * Returns the value of the '<em><b>Block Effect</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Block Effect</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Block Effect</em>' containment reference.
-	 * @see #setBlockEffect(EActivityBlockEffect)
-	 * @see gov.nasa.ensemble.dictionary.DictionaryPackage#getEActivityDef_BlockEffect()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EActivityBlockEffect getBlockEffect();
-
-	/**
-	 * Sets the value of the '{@link gov.nasa.ensemble.dictionary.EActivityDef#getBlockEffect <em>Block Effect</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Block Effect</em>' containment reference.
-	 * @see #getBlockEffect()
-	 * @generated
-	 */
-	void setBlockEffect(EActivityBlockEffect value);
 
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.

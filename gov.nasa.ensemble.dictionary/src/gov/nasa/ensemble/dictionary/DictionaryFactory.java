@@ -92,15 +92,6 @@ public interface DictionaryFactory extends EFactory {
 	EAttributeParameter createEAttributeParameter();
 
 	/**
-	 * Returns a new object of class '<em>EActivity Block Effect</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EActivity Block Effect</em>'.
-	 * @generated
-	 */
-	EActivityBlockEffect createEActivityBlockEffect();
-
-	/**
 	 * Returns a new object of class '<em>EReference Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,15 +155,6 @@ public interface DictionaryFactory extends EFactory {
 	ENumericResourceDef createENumericResourceDef();
 
 	/**
-	 * Returns a new object of class '<em>EPower Load Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EPower Load Def</em>'.
-	 * @generated
-	 */
-	EPowerLoadDef createEPowerLoadDef();
-
-	/**
 	 * Returns a new object of class '<em>EResource Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,15 +211,6 @@ public interface DictionaryFactory extends EFactory {
 	ESummaryResourceDef createESummaryResourceDef();
 
 	/**
-	 * Returns a new object of class '<em>EThreshold Enum Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EThreshold Enum Def</em>'.
-	 * @generated
-	 */
-	EThresholdEnumDef createEThresholdEnumDef();
-	
-	/**
 	 * Returns a new object of class '<em>Object Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,8 +219,6 @@ public interface DictionaryFactory extends EFactory {
 	 */
 	ObjectDef createObjectDef();
 
-	EThresholdEnumDef createEThresholdEnumDef(String name, List<String> values);
-	
 	/**
 	 * Returns a new object of class '<em>EState Requirement</em>'.
 	 * <!-- begin-user-doc -->
@@ -265,15 +236,6 @@ public interface DictionaryFactory extends EFactory {
 	 * @generated
 	 */
 	ENumericResourceEffect createENumericResourceEffect();
-
-	/**
-	 * Returns a new object of class '<em>EPower Load Effect</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EPower Load Effect</em>'.
-	 * @generated
-	 */
-	EPowerLoadEffect createEPowerLoadEffect();
 
 	/**
 	 * Returns a new object of class '<em>EState Resource Effect</em>'.

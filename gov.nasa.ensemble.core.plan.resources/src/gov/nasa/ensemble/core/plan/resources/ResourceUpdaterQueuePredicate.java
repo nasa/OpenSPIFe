@@ -22,7 +22,6 @@ import gov.nasa.ensemble.common.mission.MissionExtendable;
 import gov.nasa.ensemble.common.mission.MissionExtender;
 import gov.nasa.ensemble.common.mission.MissionExtender.ConstructionException;
 import gov.nasa.ensemble.core.plan.resources.dependency.Dependency;
-import gov.nasa.ensemble.core.plan.resources.dependency.impl.ActivityBlockEffectDependency;
 import gov.nasa.ensemble.core.plan.resources.dependency.impl.ActivityTemporalExplicitEffectDependency;
 
 public class ResourceUpdaterQueuePredicate extends Predicate<Dependency> implements MissionExtendable {
@@ -42,8 +41,7 @@ public class ResourceUpdaterQueuePredicate extends Predicate<Dependency> impleme
 	
 	@Override
 	public boolean apply(Dependency dependency) {
-		return dependency instanceof ActivityBlockEffectDependency
-		|| dependency instanceof ActivityTemporalExplicitEffectDependency;
+		return dependency instanceof ActivityTemporalExplicitEffectDependency;
 	}
 
 }

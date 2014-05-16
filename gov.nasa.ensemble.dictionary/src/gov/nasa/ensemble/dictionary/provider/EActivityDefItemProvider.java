@@ -221,7 +221,6 @@ public class EActivityDefItemProvider
 			childrenFeatures.add(DictionaryPackage.Literals.EACTIVITY_DEF__SHARED_EFFECTS);
 			childrenFeatures.add(DictionaryPackage.Literals.EACTIVITY_DEF__STATE_EFFECTS);
 			childrenFeatures.add(DictionaryPackage.Literals.EACTIVITY_DEF__STATE_REQUIREMENTS);
-			childrenFeatures.add(DictionaryPackage.Literals.EACTIVITY_DEF__BLOCK_EFFECT);
 		}
 		return childrenFeatures;
 	}
@@ -285,7 +284,6 @@ public class EActivityDefItemProvider
 			case DictionaryPackage.EACTIVITY_DEF__SHARED_EFFECTS:
 			case DictionaryPackage.EACTIVITY_DEF__STATE_EFFECTS:
 			case DictionaryPackage.EACTIVITY_DEF__STATE_REQUIREMENTS:
-			case DictionaryPackage.EACTIVITY_DEF__BLOCK_EFFECT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -339,11 +337,6 @@ public class EActivityDefItemProvider
 			(createChildParameter
 				(DictionaryPackage.Literals.EACTIVITY_DEF__STATE_EFFECTS,
 				 DictionaryFactory.eINSTANCE.createEStateResourceEffect()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DictionaryPackage.Literals.EACTIVITY_DEF__STATE_EFFECTS,
-				 DictionaryFactory.eINSTANCE.createEPowerLoadEffect()));
 
 		newChildDescriptors.add
 		(createChildParameter
