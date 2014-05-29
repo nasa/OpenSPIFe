@@ -52,6 +52,11 @@
             MissionSpecificClass="gov.nasa.arc.spife.rcp.events.SPIFeResourceUpdaterQueuePredicate"
             id="ResourceUpdaterQueuePredicate">
       </MissionExtension>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.activityDictionary.ActivityDictionary"
+            MissionSpecificClass="gov.nasa.arc.spife.rcp.dictionary.XActivityDictionary"
+            id="ActivityDictionaryImpl">
+      </MissionExtension>
 	</extension>
 	
    <extension

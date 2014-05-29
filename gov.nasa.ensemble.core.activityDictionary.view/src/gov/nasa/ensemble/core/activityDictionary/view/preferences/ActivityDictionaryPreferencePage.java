@@ -141,7 +141,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 	private String[] getDictionaryExtensions() {
 		List<String> list = new ArrayList<String>();
 		String pattern = EnsembleProperties.getProperty(ActivityDictionaryPlugin.ACTIVITY_DICTIONARY_FILE_PATTERN_PROPERTY,
-				"*.dictionary,*.xml");
+				"*.xad, *.ad, *.dictionary,*.xml");
 		StringTokenizer tokenizer = new StringTokenizer(pattern, ",");
 		while (tokenizer.hasMoreTokens()) {
 			list.add(tokenizer.nextToken().trim());

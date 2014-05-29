@@ -22,7 +22,10 @@ Require-Bundle: org.eclipse.ui,
  gov.nasa.ensemble.core.plan.constraints,
  gov.nasa.ensemble.core.plan.editor.merge,
  gov.nasa.ensemble.core.model.plan.provider;bundle-version="1.0.0",
- gov.nasa.ensemble.core.plan.advisor;bundle-version="1.0.0"
+ gov.nasa.ensemble.core.plan.advisor;bundle-version="1.0.0",
+ gov.nasa.ensemble.dictionary.xtext;bundle-version="1.0.0",
+ gov.nasa.arc.spife.ui.timeline.chart,
+ gov.nasa.ensemble.core.detail.emf
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Localization: plugin
