@@ -1,0 +1,169 @@
+grammar gov.nasa.ensemble.dictionary.xtext.XDictionary with org.eclipse.xtext.common.Terminals
+
+generate xDictionary "http://www.nasa.gov/ensemble/dictionary/xtext/XDictionary"
+
+Dictionary:
+	(('name' '=' name=ID) 
+		& ('author' '=' author=STRING)? 
+		& ('date' '=' date=STRING)? 
+		& ('description' '=' description=STRING)? 
+		& ('version' '=' version=STRING)? 
+		& ('domain' '=' domain=STRING)
+	)
+	definitions+=Definition*;
+
+Definition:
+	EnumDef
+//	 | Datatype 
+	 | ParameterDef 
+	 | ActivityDef 
+	 | ActivityGroupDef 
+	 | ObjectDef 
+	 | ResourceDef
+;
+
+EnumDef:
+	'Enum' name=ID '{'
+		values+=EnumValue*
+	'}'
+;
+
+EnumValue:
+	'Literal' (('name' '=' name=STRING)
+				& ('color' '=' color=STRING)?
+				 & ('literal' '=' literal=STRING)?)
+;
+
+//Datatype:
+//	
+//;
+
+ParameterDef:
+	AttributeDef | ReferenceDef
+;
+
+AttributeDef:
+	'attribute' name=ID type=STRING '{'
+		(('defaultValueLiteral' '=' defaultValueLiteral=STRING)?
+		 & ('description' '=' description=STRING)?
+		 & ('shortDescription' '=' shortDescription=STRING)?
+		 & ('units' '=' units=STRING)?
+		 & ('displayName' '=' displayName=STRING)?
+		 & ('category' '=' category=STRING)?
+		 & ('parameterName' '=' parameterName=STRING)?
+		)
+		annotations+=Annotation*
+	'}'
+;
+
+ReferenceDef:
+	'reference' name=ID type=STRING '{'
+		(('description' '=' description=STRING)?
+		 & ('displayName' '=' displayName=STRING)?
+		 & ('category' '=' category=STRING)?
+		 & ('containment' '=' containment=Boolean)?
+		)
+		annotations+=Annotation*
+		requirements+=Requirement*
+		effects+=Effect*
+	'}'
+;
+
+Boolean:
+	'true' | 'false'
+;
+
+ActivityDef:
+	'ActivityDef' name=ID '{'
+		(('description' '=' description=STRING)?
+		 & ('category' '=' category=STRING)?
+		 & ('duration' '=' duration=STRING)?
+		 & ('displayName' '=' displayName=STRING)?
+		 & ('hidden' '=' hiddenParams=STRING)?
+		)
+		annotations+=Annotation*
+		parameters+=ParameterDef*
+		requirements+=Requirement*
+		effects+=Effect*
+	'}'
+;
+
+Annotation:
+	'annotation' source=STRING key=STRING value=STRING
+;
+
+Requirement:
+	NumericRequirement | StateRequirement
+;
+
+NumericRequirement:
+	'numericRequirement' 'expression' '=' expression=STRING
+;
+
+StateRequirement:
+	'stateRequirement' (('definition' '=' definition=STRING) & ('requiredState' '=' requiredState=STRING))
+;
+
+
+Effect:
+	NumericEffect | StateEffect | ClaimableEffect | SharedEffect 
+;
+
+NumericEffect:
+	'numericEffect'
+;
+
+StateEffect:
+	'stateEffect'
+;
+
+ClaimableEffect:
+	'claimableEffect'
+;
+
+SharedEffect:
+	'sharedEffect'
+;
+
+ActivityGroupDef:
+	'ActivityGroupDef' name=ID '{'
+		annotations+=Annotation*
+		parameters+=ParameterDef*
+	'}'
+;
+
+ObjectDef:
+	'ObjectDef' name=ID 
+;
+
+ResourceDef:
+	NumericResource | StateResource | ClaimableResource | SharableResource | SummaryResource
+;
+
+NumericResource:
+	'NumericResource' name=ID
+;
+
+StateResource:
+	'StateResource' name=ID
+;
+
+ClaimableResource:
+	'ClaimableResource' name=ID
+;
+
+SharableResource:
+	'SharableResource' name=ID
+;
+
+SummaryResource:
+	'Summaryresource' name=ID
+;
+
+
+
+
+
+
+
+
