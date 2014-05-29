@@ -71,6 +71,10 @@ public class DictionaryUtil {
 		EMFUtils.addAnnotation(element, ANNOTATION_SOURE_DESCRIPTOR, new String[] { ANNOTATION_DETAIL_DESCRIPTOR_HIDDEN, Boolean.toString(hidden) });
 	}
 	
+	public static void setHidden(EModelElement element, String hidden) {
+		EMFUtils.addAnnotation(element, ANNOTATION_SOURE_DESCRIPTOR, new String[] { ANNOTATION_DETAIL_DESCRIPTOR_HIDDEN, hidden });
+	}
+	
 	public static boolean isHidden(EModelElement element) {
 		String value = EMFUtils.getAnnotation(element, ANNOTATION_SOURE_DESCRIPTOR, ANNOTATION_DETAIL_DESCRIPTOR_HIDDEN);
 		return value == null ? false : Boolean.parseBoolean(value);
