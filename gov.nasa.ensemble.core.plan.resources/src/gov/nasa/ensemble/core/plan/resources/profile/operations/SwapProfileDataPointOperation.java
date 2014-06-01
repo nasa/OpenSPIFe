@@ -17,9 +17,7 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.resources.profile.operations;
 
-import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.common.operation.AbstractEnsembleUndoableOperation;
-import gov.nasa.ensemble.common.operation.AbstractEnsembleUndoableOperation.UndoableState;
 import gov.nasa.ensemble.core.jscience.DataPoint;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.jscience.util.ProfileUtil;

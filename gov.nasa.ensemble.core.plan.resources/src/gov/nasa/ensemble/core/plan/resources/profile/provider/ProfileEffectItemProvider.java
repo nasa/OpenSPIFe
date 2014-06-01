@@ -26,7 +26,6 @@ package gov.nasa.ensemble.core.plan.resources.profile.provider;
 
 import gov.nasa.ensemble.common.functional.Predicate;
 import gov.nasa.ensemble.core.jscience.Profile;
-import gov.nasa.ensemble.core.jscience.TemporalOffset;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileEffect;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfilePackage;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileReference;

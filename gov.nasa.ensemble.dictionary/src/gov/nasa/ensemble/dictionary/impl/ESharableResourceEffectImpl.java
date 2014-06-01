@@ -180,6 +180,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -189,6 +190,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -201,6 +203,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String getName() {
 		EResourceDef resource = getDefinition();
 		return resource == null ? null : getDefinition().getName();
@@ -211,6 +214,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getStartOffset() {
 		return startOffset;
 	}
@@ -220,6 +224,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartOffset(TemporalOffset newStartOffset) {
 		TemporalOffset oldStartOffset = startOffset;
 		startOffset = newStartOffset;
@@ -232,6 +237,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getEndOffset() {
 		return endOffset;
 	}
@@ -241,6 +247,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndOffset(TemporalOffset newEndOffset) {
 		TemporalOffset oldEndOffset = endOffset;
 		endOffset = newEndOffset;
@@ -253,6 +260,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getReservations() {
 		return reservations;
 	}
@@ -262,6 +270,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReservations(int newReservations) {
 		int oldReservations = reservations;
 		reservations = newReservations;
@@ -274,6 +283,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ESharableResourceDef getDefinition() {
 		if (definition != null && definition.eIsProxy()) {
 			InternalEObject oldDefinition = (InternalEObject)definition;
@@ -300,6 +310,7 @@ public class ESharableResourceEffectImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefinition(ESharableResourceDef newDefinition) {
 		ESharableResourceDef oldDefinition = definition;
 		definition = newDefinition;

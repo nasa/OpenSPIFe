@@ -157,6 +157,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttributeParameter getParameterAttribute() {
 		if (eContainerFeatureID() != DictionaryPackage.ECHOICE__PARAMETER_ATTRIBUTE) return null;
 		return (EAttributeParameter)eInternalContainer();
@@ -177,6 +178,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParameterAttribute(EAttributeParameter newParameterAttribute) {
 		if (newParameterAttribute != eInternalContainer() || (eContainerFeatureID() != DictionaryPackage.ECHOICE__PARAMETER_ATTRIBUTE && newParameterAttribute != null)) {
 			if (EcoreUtil.isAncestor(this, newParameterAttribute))
@@ -198,6 +200,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return value;
 	}
@@ -207,6 +210,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
@@ -219,6 +223,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMultipleOf() {
 		return multipleOf;
 	}
@@ -228,6 +233,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultipleOf(String newMultipleOf) {
 		String oldMultipleOf = multipleOf;
 		multipleOf = newMultipleOf;
@@ -240,6 +246,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMinimum() {
 		return minimum;
 	}
@@ -249,6 +256,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimum(String newMinimum) {
 		String oldMinimum = minimum;
 		minimum = newMinimum;
@@ -261,6 +269,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMaximum() {
 		return maximum;
 	}
@@ -270,6 +279,7 @@ public class EChoiceImpl extends MinimalEObjectImpl.Container implements EChoice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximum(String newMaximum) {
 		String oldMaximum = maximum;
 		maximum = newMaximum;

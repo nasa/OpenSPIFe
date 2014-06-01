@@ -106,6 +106,7 @@ public class TestDataTransferScenario extends AbstractResourceTest {
 		ExtensionPointResourceSetListener.addListener(domain);
 		
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getChildren().add(dataSource);
 				plan.getChildren().add(dataMultiplexer);
@@ -120,6 +121,7 @@ public class TestDataTransferScenario extends AbstractResourceTest {
 		recomputePlan(plan);
 		
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				assertNotNull(dataSourceTemporalMember.getDuration());
 				assertAmountProximity(ONE_HOUR, dataSourceTemporalMember.getDuration());
@@ -151,6 +153,7 @@ public class TestDataTransferScenario extends AbstractResourceTest {
 		recomputePlan(plan);
 		assertResourceProfileScenario(Amount.valueOf(200, MB));
 		TransactionUtils.writing(dataSource, new Runnable() {
+			@Override
 			public void run() {
 				dataSource.getMember(TemporalMember.class).setScheduled(false);
 			}
@@ -164,6 +167,7 @@ public class TestDataTransferScenario extends AbstractResourceTest {
 		dataSource2.setName("DataSource02");
 		final TemporalMember eDataSource2TemporalMember = dataSource2.getMember(TemporalMember.class);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getChildren().add(dataSource2);
 				eDataSource2TemporalMember.setStartTime(DATA_SOURCE_ACTIVITY_START);
@@ -171,6 +175,7 @@ public class TestDataTransferScenario extends AbstractResourceTest {
 		});
 		recomputePlan(plan);
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				Amount<Duration> duration = eDataSource2TemporalMember.getDuration();
 				assertAmountProximity(ONE_HOUR.to(SI.SECOND), duration); 
@@ -183,12 +188,14 @@ public class TestDataTransferScenario extends AbstractResourceTest {
 	
 	public void testMoveMultiplexerScenario() {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				dataMultiplexerTemporalMember.setStartTime(PLAN_START);
 			}
 		});
 		recomputePlan(plan);
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				Date dataMultiplexerEndTime = DateUtils.add(PLAN_START, ONE_HOUR);
 				assertEquals(dataMultiplexerEndTime, dataMultiplexerTemporalMember.getEndTime());
@@ -211,12 +218,14 @@ public class TestDataTransferScenario extends AbstractResourceTest {
 	
 	public void testMoveSinkScenario() {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				dataSinkTemporalMember.setStartTime(PLAN_START);
 			}
 		});
 		recomputePlan(plan);
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				Amount<DataAmount> expectedData = Amount.valueOf(100, MB);
 				Amount<DataAmount> bucket01Data = expectedData.times(2).divide(5);
@@ -242,6 +251,7 @@ public class TestDataTransferScenario extends AbstractResourceTest {
 	private void assertResourceProfileScenario(final Amount<DataAmount> expectedData) {
 		TransactionUtils.reading(plan, new Runnable() {
 
+			@Override
 			public void run() {
 				Amount<DataAmount> bucket01Data = expectedData.times(2).divide(5);
 				Amount<DataAmount> bucket02Data = expectedData.times(3).divide(5);

@@ -71,10 +71,12 @@ public abstract class IconAndLinkDetail extends SimpleDetail {
 	 */
 	protected abstract void execute();
 
+	@Override
 	public String getName() {
 		return "";
 	}
 
+	@Override
 	public String getToolTipText() {
 		return null; //no tooltip required for a hyperlink
 	}

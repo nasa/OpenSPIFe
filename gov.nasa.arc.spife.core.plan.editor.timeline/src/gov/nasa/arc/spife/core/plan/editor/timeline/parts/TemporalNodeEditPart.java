@@ -175,6 +175,7 @@ public class TemporalNodeEditPart extends TreeTimelineNodeEditPart<EPlanElement>
 		}
 	}
 
+	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
 		Object model = connection.getModel();
 		if (model instanceof BinaryTemporalConstraint) {
@@ -191,10 +192,12 @@ public class TemporalNodeEditPart extends TreeTimelineNodeEditPart<EPlanElement>
 		return null;
 	}
 
+	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
 		return null;
 	}
 
+	@Override
 	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
 		Object model = connection.getModel();
 		if (model instanceof BinaryTemporalConstraint) {
@@ -207,6 +210,7 @@ public class TemporalNodeEditPart extends TreeTimelineNodeEditPart<EPlanElement>
 		return null;
 	}
 
+	@Override
 	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
 		return null;
 	}
@@ -469,6 +473,7 @@ public class TemporalNodeEditPart extends TreeTimelineNodeEditPart<EPlanElement>
 
 	public class Listener extends AdapterImpl implements PropertyChangeListener {
 
+		@Override
 		public void propertyChange(PropertyChangeEvent evt) {
 			if (PLAN_CONSTRAINTS_VISIBLE == evt.getPropertyName()) {
 				refreshInDisplayThread();
@@ -515,6 +520,7 @@ public class TemporalNodeEditPart extends TreeTimelineNodeEditPart<EPlanElement>
 			else if (notification.getNotifier() instanceof TemporalMember) {
 				if (notification.getEventType() != Notification.REMOVING_ADAPTER) {
 					GEFUtils.runInDisplayThread(TemporalNodeEditPart.this, new Runnable() {
+						@Override
 						public void run() {
 							updateFigureBounds();
 						}

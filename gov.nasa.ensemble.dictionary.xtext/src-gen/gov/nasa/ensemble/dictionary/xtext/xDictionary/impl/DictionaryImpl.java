@@ -199,7 +199,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  @Override
+public String getName()
   {
     return name;
   }
@@ -209,7 +210,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  @Override
+public void setName(String newName)
   {
     String oldName = name;
     name = newName;
@@ -222,7 +224,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getAuthor()
+  @Override
+public String getAuthor()
   {
     return author;
   }
@@ -232,7 +235,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAuthor(String newAuthor)
+  @Override
+public void setAuthor(String newAuthor)
   {
     String oldAuthor = author;
     author = newAuthor;
@@ -245,7 +249,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDate()
+  @Override
+public String getDate()
   {
     return date;
   }
@@ -255,7 +260,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDate(String newDate)
+  @Override
+public void setDate(String newDate)
   {
     String oldDate = date;
     date = newDate;
@@ -268,7 +274,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  @Override
+public String getDescription()
   {
     return description;
   }
@@ -278,7 +285,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  @Override
+public void setDescription(String newDescription)
   {
     String oldDescription = description;
     description = newDescription;
@@ -291,7 +299,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getVersion()
+  @Override
+public String getVersion()
   {
     return version;
   }
@@ -301,7 +310,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVersion(String newVersion)
+  @Override
+public void setVersion(String newVersion)
   {
     String oldVersion = version;
     version = newVersion;
@@ -314,7 +324,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDomain()
+  @Override
+public String getDomain()
   {
     return domain;
   }
@@ -324,7 +335,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDomain(String newDomain)
+  @Override
+public void setDomain(String newDomain)
   {
     String oldDomain = domain;
     domain = newDomain;
@@ -337,7 +349,8 @@ public class DictionaryImpl extends MinimalEObjectImpl.Container implements Dict
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Definition> getDefinitions()
+  @Override
+public EList<Definition> getDefinitions()
   {
     if (definitions == null)
     {

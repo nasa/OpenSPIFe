@@ -63,6 +63,7 @@ public class PlanTimelineEditPartFactory implements EditPartFactory {
 	 *                      +- TemporalNodeEditPart					  +- SubActivity
 	 *      
 	 */
+	@Override
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart editPart = null;
 		//

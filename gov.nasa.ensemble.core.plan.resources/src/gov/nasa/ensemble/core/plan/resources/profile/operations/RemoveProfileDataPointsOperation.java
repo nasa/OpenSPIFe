@@ -18,12 +18,7 @@
 package gov.nasa.ensemble.core.plan.resources.profile.operations;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import gov.nasa.ensemble.common.operation.AbstractEnsembleUndoableOperation;
-import gov.nasa.ensemble.common.operation.AbstractEnsembleUndoableOperation.UndoableState;
 import gov.nasa.ensemble.core.jscience.DataPoint;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.emf.transaction.TransactionUtils;

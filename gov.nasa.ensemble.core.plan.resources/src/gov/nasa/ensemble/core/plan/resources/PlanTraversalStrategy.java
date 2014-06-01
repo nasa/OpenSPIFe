@@ -46,6 +46,7 @@ public class PlanTraversalStrategy extends AbstractTraversalStrategy {
 			private TreeIterator<? extends EObject> delegate = EcoreUtil.getAllContents(traversalRoots);
 			private EObject next;
 
+			@Override
 			public boolean hasNext() {
 				while (next == null && delegate.hasNext()) {
 					next = delegate.next();
@@ -61,6 +62,7 @@ public class PlanTraversalStrategy extends AbstractTraversalStrategy {
 				return next != null;
 			}
 
+			@Override
 			public EObject next() {
 				if (!hasNext()) {
 					throw new NoSuchElementException();
@@ -70,6 +72,7 @@ public class PlanTraversalStrategy extends AbstractTraversalStrategy {
 				return result;
 			}
 
+			@Override
 			public void remove() {
 				throw new UnsupportedOperationException();
 			}

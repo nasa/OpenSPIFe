@@ -32,6 +32,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 public class TemporalEdgeManagerConsistencyListener implements IConsistencyMaintenanceListener {
 
+	@Override
 	public Command createConsistencyMaintenanceCommand(ResourceSetChangeEvent event) {
 		final TemporalEdgeManager manager = getTemporalEdgeManager(event);
 		if (manager != null) {

@@ -147,6 +147,7 @@ public class PlanAdvisorMember implements IMember {
 		return result[0];
 	}
 	
+	@Override
 	public void dispose() {
 		removeViolationsListener(markerListener);
 		markerListener.dispose();

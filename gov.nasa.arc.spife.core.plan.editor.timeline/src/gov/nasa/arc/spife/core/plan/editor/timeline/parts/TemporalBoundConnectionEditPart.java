@@ -83,6 +83,7 @@ public class TemporalBoundConnectionEditPart extends ConstraintConnectionEditPar
 					final Date date = b.getPoint().getDate();
 					final IFigure figure = this.getFigure();
 					runnable = new Runnable() {
+						@Override
 						public void run() {
 							Date minTime = ConstraintUtils.getPeriodicConstraintEarliestDate(b);
 							Date maxTime = ConstraintUtils.getPeriodicConstraintLatestDate(b);
@@ -93,6 +94,7 @@ public class TemporalBoundConnectionEditPart extends ConstraintConnectionEditPar
 				} else {
 					if(figure.isVisible()) {
 						runnable = new Runnable() {
+							@Override
 							public void run() {
 								figure.setVisible(false);
 							}

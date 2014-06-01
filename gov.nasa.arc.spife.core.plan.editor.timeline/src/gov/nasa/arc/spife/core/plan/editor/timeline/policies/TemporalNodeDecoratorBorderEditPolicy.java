@@ -258,6 +258,7 @@ public class TemporalNodeDecoratorBorderEditPolicy extends PlanTimelineViewerEdi
 	 */
 	private void updateBorderToReflectCurrentState() {
 		GEFUtils.runLaterInDisplayThread(getHost(), new Runnable() {
+			@Override
 			public void run() {
 				if(!isViolated && !isConstrained && !isOstpvUpdateRequired) {
 					borderFigure.setVisible(false);

@@ -17,19 +17,7 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.resources.dependency.impl;
 
-import gov.nasa.ensemble.common.type.IStringifier;
-import gov.nasa.ensemble.common.type.StringifierRegistry;
 import gov.nasa.ensemble.core.model.plan.EActivity;
-import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
-import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
-
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import org.apache.log4j.Logger;
-import org.eclipse.emf.ecore.EObject;
-import org.jscience.physics.amount.Amount;
 
 public class ActivityDependency extends PlanElementDependency<EActivity> {
 	

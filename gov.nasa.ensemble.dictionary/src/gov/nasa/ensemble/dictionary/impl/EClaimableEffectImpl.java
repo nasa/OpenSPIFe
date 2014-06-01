@@ -152,6 +152,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -161,6 +162,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -173,6 +175,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String getName() {
 		EResourceDef resource = getDefinition();
 		return resource == null ? null : getDefinition().getName();
@@ -183,6 +186,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getStartOffset() {
 		return startOffset;
 	}
@@ -192,6 +196,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartOffset(TemporalOffset newStartOffset) {
 		TemporalOffset oldStartOffset = startOffset;
 		startOffset = newStartOffset;
@@ -204,6 +209,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getEndOffset() {
 		return endOffset;
 	}
@@ -213,6 +219,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndOffset(TemporalOffset newEndOffset) {
 		TemporalOffset oldEndOffset = endOffset;
 		endOffset = newEndOffset;
@@ -225,6 +232,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClaimableResourceDef getDefinition() {
 		if (definition != null && definition.eIsProxy()) {
 			InternalEObject oldDefinition = (InternalEObject)definition;
@@ -251,6 +259,7 @@ public class EClaimableEffectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefinition(EClaimableResourceDef newDefinition) {
 		EClaimableResourceDef oldDefinition = definition;
 		definition = newDefinition;

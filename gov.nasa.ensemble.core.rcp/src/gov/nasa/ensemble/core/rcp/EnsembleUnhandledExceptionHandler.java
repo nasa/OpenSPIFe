@@ -45,6 +45,7 @@ public class EnsembleUnhandledExceptionHandler implements UncaughtExceptionHandl
 		// create through getInstance()
 	}
 	
+	@Override
 	public void uncaughtException(Thread thread, Throwable exception) {
 		if (exception instanceof ThreadDeath) {
 			// carry on
@@ -64,6 +65,7 @@ public class EnsembleUnhandledExceptionHandler implements UncaughtExceptionHandl
 		return instance;
 	}
 
+	@Override
 	public void logging(IStatus status, String plugin) {
 		String message = status.getMessage();
 		for (String error : SPURIOUS_ERRORS) {

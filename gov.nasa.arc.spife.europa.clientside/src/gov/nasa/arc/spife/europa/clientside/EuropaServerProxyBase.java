@@ -65,6 +65,7 @@ public abstract class EuropaServerProxyBase
     	);
     }
 
+	@Override
 	public void startServer(String sessionId)
 	{
 		serverLauncher_.startServer(sessionId);
@@ -74,6 +75,7 @@ public abstract class EuropaServerProxyBase
 			throw new RuntimeException("Failed starting DynamicEuropa server");		
 	}
 	
+	@Override
 	public void stopServer()
 	{
 		try {
@@ -276,6 +278,7 @@ public abstract class EuropaServerProxyBase
 				embeddedServerThread_ = executor.submit(
 					new Callable<Object>() 
 					{ 
+						@Override
 						public Object call() { return embeddedServer_.Start(); }
 					}
 				);

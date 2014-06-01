@@ -51,6 +51,7 @@ public class ConstraintsView extends PlanPageBookView {
 	    	ConstraintsPage constraintsPage = (ConstraintsPage)page;
 	    	final EPlan plan = constraintsPage.getPlan();
 			WidgetUtils.runInDisplayThread(page.getControl(), new Runnable() {
+				@Override
 				public void run() {
 					String planName = plan.getName();
 					if(planName == null) {

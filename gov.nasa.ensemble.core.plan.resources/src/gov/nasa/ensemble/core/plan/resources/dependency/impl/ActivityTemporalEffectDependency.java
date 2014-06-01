@@ -175,6 +175,7 @@ public class ActivityTemporalEffectDependency extends EffectDependency<Effect>
 		setValid(false);
 	}
 
+	@Override
 	public Date getDate() {
 		Effect effect = getEffect();
 		TemporalOffset offset = null;
@@ -193,6 +194,7 @@ public class ActivityTemporalEffectDependency extends EffectDependency<Effect>
 		return DateUtils.add(timepointDate, offset.getOffset());
 	}
 
+	@Override
 	public Timepoint getTimepoint() {
 		return timepoint;
 	}

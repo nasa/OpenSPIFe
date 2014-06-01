@@ -112,6 +112,7 @@ public interface SharableResource extends NamedCondition {
 	 * @model opposite="sharableResources" transient="false"
 	 * @generated
 	 */
+	@Override
 	Conditions getConditions();
 
 	/**

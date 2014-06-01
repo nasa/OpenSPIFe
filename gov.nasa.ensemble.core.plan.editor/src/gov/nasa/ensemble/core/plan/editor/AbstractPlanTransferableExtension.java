@@ -26,50 +26,62 @@ import org.eclipse.swt.dnd.TransferData;
 
 public abstract class AbstractPlanTransferableExtension implements IPlanTransferableExtension {
 
+	@Override
 	public boolean vetoInsertHook(TransferData type, PlanElementState state) {
 		return false;
 	}
 	
+	@Override
 	public void postGetLocation(PlanTransferable transferable, PlanOriginalLocation location) {
 		// ignore
 	}
 	
+	@Override
 	public void postGetInsertionHook(ITransferable transferable, PlanInsertionLocation location) {
 		// ignore
 	}
 	
+	@Override
 	public void postGetHook(PlanTransferable transferable) {
 		// ignore
 	}
 
+	@Override
 	public void postCopyHook(PlanTransferable original, PlanTransferable copy) {
 		// ignore
 	}
 	
+	@Override
 	public void postInstantiationHook(PlanTransferable original, PlanTransferable copy) {
 		// ignore
 	}
 
+	@Override
 	public void mergeHook(PlanTransferable copy, PlanTransferable mergedCopy) {
 		// ignore
 	}
 
+	@Override
 	public void postUnpackHook(PlanTransferable planTransferable) {
 		// ignore
 	}
 
+	@Override
 	public void preAddHook(IPlanElementTransferable transferable, IStructureLocation location) {
 		// ignore
 	}
 
+	@Override
 	public void postAddHook(IPlanElementTransferable transferable, IStructureLocation location) {
 		// ignore
 	}
 
+	@Override
 	public void preRemoveHook(IPlanElementTransferable transferable, IStructureLocation location) {
 		// ignore
 	}
 
+	@Override
 	public void postRemoveHook(IPlanElementTransferable transferable, IStructureLocation location) {
 		// ignore
 	}
@@ -78,6 +90,7 @@ public abstract class AbstractPlanTransferableExtension implements IPlanTransfer
 		// ignore
 	}
 	
+	@Override
 	public Object getAdapter(Class adapter) {
 		if (IPlanTransferableExtension.class.isAssignableFrom(adapter)) {
 			return this;

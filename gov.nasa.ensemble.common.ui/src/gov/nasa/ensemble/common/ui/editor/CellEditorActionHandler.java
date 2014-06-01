@@ -93,7 +93,8 @@ public class CellEditorActionHandler {
 	private IAction oldRedoAction;
 
     private class ControlListener implements Listener {
-        public void handleEvent(Event event) {
+        @Override
+		public void handleEvent(Event event) {
             switch (event.type) {
             case SWT.Activate:
                 activeEditor = controlToEditor.get(event.widget);
@@ -119,7 +120,8 @@ public class CellEditorActionHandler {
     }
     
     private class CellChangeListener implements IPropertyChangeListener {
-        public void propertyChange(PropertyChangeEvent event) {
+        @Override
+		public void propertyChange(PropertyChangeEvent event) {
             if (activeEditor == null) {
 				return;
 			}

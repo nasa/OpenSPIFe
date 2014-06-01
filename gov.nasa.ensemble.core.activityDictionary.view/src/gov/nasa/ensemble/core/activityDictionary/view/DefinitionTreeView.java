@@ -121,6 +121,7 @@ public abstract class DefinitionTreeView extends ViewPart {
 		treeViewer = buildTreeViewer(rootComposite);
 		treeViewer.addFilter(new FindFilter());
         treeViewer.getTree().addMouseMoveListener(new MouseMoveListener() {
+			@Override
 			public void mouseMove(MouseEvent e) {
 				updateToolTip(e);
 			}
@@ -142,6 +143,7 @@ public abstract class DefinitionTreeView extends ViewPart {
 		// add a modify listeners to enable on-the-fly filtering as search
 		// criteria is entered
 		findFilterMode.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				treeViewer.refresh();
 				applyExpandHeuristic(treeViewer);
@@ -153,6 +155,7 @@ public abstract class DefinitionTreeView extends ViewPart {
 		findFilterText = new Text(comboTextComposite, SWT.SEARCH | SWT.CANCEL);
 		findFilterText.setData("name", "ActivityDictionaryView.findFilterText");
 		findFilterText.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				treeViewer.refresh();
 				applyExpandHeuristic(treeViewer);
@@ -177,9 +180,11 @@ public abstract class DefinitionTreeView extends ViewPart {
 			ToolItem clearButton = new ToolItem (toolBar, SWT.PUSH);
 			clearButton.setImage (image);
 			clearButton.addSelectionListener(new SelectionListener() {
+				@Override
 				public void widgetDefaultSelected(SelectionEvent e) {
 					widgetSelected(e);
 				}
+				@Override
 				public void widgetSelected(SelectionEvent e) {
 					searchCancelled();
 				}

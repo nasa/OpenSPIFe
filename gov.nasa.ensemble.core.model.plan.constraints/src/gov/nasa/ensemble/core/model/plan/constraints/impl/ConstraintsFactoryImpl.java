@@ -92,6 +92,7 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintsMember createConstraintsMember() {
 		ConstraintsMemberImpl constraintsMember = new ConstraintsMemberImpl();
 		return constraintsMember;
@@ -102,6 +103,7 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintPoint createConstraintPoint() {
 		ConstraintPointImpl constraintPoint = new ConstraintPointImpl();
 		return constraintPoint;
@@ -112,6 +114,7 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BinaryTemporalConstraint createBinaryTemporalConstraint() {
 		BinaryTemporalConstraintImpl binaryTemporalConstraint = new BinaryTemporalConstraintImpl();
 		return binaryTemporalConstraint;
@@ -122,6 +125,7 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PeriodicTemporalConstraint createPeriodicTemporalConstraint() {
 		PeriodicTemporalConstraintImpl periodicTemporalConstraint = new PeriodicTemporalConstraintImpl();
 		return periodicTemporalConstraint;
@@ -132,6 +136,7 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalChain createTemporalChain() {
 		TemporalChainImpl temporalChain = new TemporalChainImpl();
 		return temporalChain;
@@ -142,6 +147,7 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintsPackage getConstraintsPackage() {
 		return (ConstraintsPackage)getEPackage();
 	}

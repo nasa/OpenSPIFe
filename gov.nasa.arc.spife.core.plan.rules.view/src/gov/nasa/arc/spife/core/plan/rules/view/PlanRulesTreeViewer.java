@@ -53,6 +53,7 @@ public final class PlanRulesTreeViewer extends ContainerCheckedTreeViewer {
 	public PlanRulesTreeViewer(Composite parent) {
 		super(parent, SWT.MULTI | SWT.FULL_SELECTION);
 		addDoubleClickListener(new IDoubleClickListener() {
+			@Override
 			public void doubleClick(DoubleClickEvent event) {
 				if (event.getSelection() instanceof IStructuredSelection) {
 					IStructuredSelection selection = (IStructuredSelection) event.getSelection();
@@ -67,6 +68,7 @@ public final class PlanRulesTreeViewer extends ContainerCheckedTreeViewer {
 		tree.setData("name", "PlanRuleView.ruleTree");
 		tree.setHeaderVisible(true);
 		tree.addMouseMoveListener(new MouseMoveListener() {
+			@Override
 			public void mouseMove(MouseEvent e) {
 				updateToolTip(e);
 			}
@@ -96,15 +98,18 @@ public final class PlanRulesTreeViewer extends ContainerCheckedTreeViewer {
 			}
 			viewerColumn.setLabelProvider(labelProvider);
 			column.addSelectionListener(new SelectionListener() {
+				@Override
 				public void widgetSelected(SelectionEvent e) {
 					handleColumnSelected(labelProvider, column);
 				}
+				@Override
 				public void widgetDefaultSelected(SelectionEvent e) {
 					handleColumnSelected(labelProvider, column);
 				}
 			});
 		}
 		addCheckStateListener(new ICheckStateListener() {
+			@Override
 			public void checkStateChanged(CheckStateChangedEvent event) {
 				Object element = event.getElement();
 				refresh(element, true);

@@ -134,6 +134,7 @@ final class PlotFitFormPart extends SectionPart {
 		maxText = toolkit.createText(minMaxComposite, null, SWT.BORDER);
 		maxText.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 		new TextEditor(maxText, stringifier).addPropertyChangeListener(new PropertyChangeListener() {
+			@Override
 			@SuppressWarnings("unchecked")
 			public void propertyChange(final PropertyChangeEvent evt) {
 				Object newValue = evt.getNewValue();
@@ -147,6 +148,7 @@ final class PlotFitFormPart extends SectionPart {
 		minText = toolkit.createText(minMaxComposite, null, SWT.BORDER);
 		minText.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 		new TextEditor(minText, stringifier).addPropertyChangeListener(new PropertyChangeListener() {
+			@Override
 			@SuppressWarnings("unchecked")
 			public void propertyChange(final PropertyChangeEvent evt) {
 				Object newValue = evt.getNewValue();
@@ -157,7 +159,9 @@ final class PlotFitFormPart extends SectionPart {
 		});
 		
 		SelectionListener listener = new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {/* do nothing */}
+			@Override
 			@SuppressWarnings("unchecked")
 			public void widgetSelected(SelectionEvent e) 		{
 				Button source = (Button) e.getSource();
@@ -171,7 +175,7 @@ final class PlotFitFormPart extends SectionPart {
 					Amount max = parseLimitTextSafely(maxText.getText());
 					
 					final Plot plot = (Plot) getManagedForm().getInput();
-					final TransactionalEditingDomain domain = TransactionUtils.getDomain(plot);
+					final TransactionalEditingDomain domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(plot);
 					CompoundCommand command = new CompoundCommand("Plot extents change");
 					command.append(SetCommand.create(domain, plot, ChartPackage.Literals.PLOT__EXTENT, new AmountExtent(min, max)));
 					command.append(SetCommand.create(domain, plot, ChartPackage.Literals.PLOT__FIT, FitPolicy.CUSTOM));
@@ -323,6 +327,7 @@ final class PlotFitFormPart extends SectionPart {
 					|| ChartPackage.Literals.PLOT__EXTENT == feature
 					|| ChartPackage.Literals.CHART__STYLE == feature) {
 				WidgetUtils.runLaterInDisplayThread(getManagedForm().getForm(), new Runnable() {
+					@Override
 					public void run() {
 						refresh();
 					}

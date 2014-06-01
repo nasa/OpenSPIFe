@@ -22,6 +22,7 @@ import gov.nasa.ensemble.core.plan.advisor.PlanAdvisor;
 import gov.nasa.ensemble.core.plan.advisor.PlanAdvisorMember;
 
 public class MarkerPlanAdvisorFactory implements IPlanAdvisorFactory {
+	@Override
 	public PlanAdvisor create(PlanAdvisorMember planAdvisorMember) {
 		return new MarkerPlanAdvisor(planAdvisorMember);
 	}

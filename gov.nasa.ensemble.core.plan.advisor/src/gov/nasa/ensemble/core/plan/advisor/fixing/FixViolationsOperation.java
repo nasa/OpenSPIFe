@@ -122,7 +122,8 @@ public class FixViolationsOperation extends AbstractTransactionUndoableOperation
 
 	private void addActivitiesToPlan(final List<EActivity> activities) {
 		Display.getDefault().syncExec(
-				new Runnable() {  public void run()
+				new Runnable() {  @Override
+				public void run()
 				{
 					PlanEditorModel model = PlanEditorModelRegistry.getCurrent();
 					EPlan plan = model.getEPlan();
@@ -133,7 +134,8 @@ public class FixViolationsOperation extends AbstractTransactionUndoableOperation
 
 	private void removeActivitiesFromPlan(final List<EActivity> activities) {
 		Display.getDefault().syncExec(
-				new Runnable() {  public void run()
+				new Runnable() {  @Override
+				public void run()
 				{
 					PlanEditorModel model = PlanEditorModelRegistry.getCurrent();
 					doDeleteOperation(model, activities);
@@ -164,6 +166,7 @@ public class FixViolationsOperation extends AbstractTransactionUndoableOperation
 	
 	private static void sortByEndTime(List<EPlanElement> ePlanElements, final boolean sortDescendingOrder) {
 		Collections.sort(ePlanElements, new Comparator<EPlanElement>() {
+			@Override
 			public int compare(EPlanElement e1, EPlanElement e2) {
 				TemporalMember m1 = e1.getMember(TemporalMember.class);
 				TemporalMember m2 = e2.getMember(TemporalMember.class);
@@ -186,6 +189,7 @@ public class FixViolationsOperation extends AbstractTransactionUndoableOperation
 	
 	private static void sortByIdealTime(List<SuggestedStartTime> startTimes, final boolean sortDescendingOrder) {
 		Collections.sort(startTimes, new Comparator<SuggestedStartTime>() {
+			@Override
 			public int compare(SuggestedStartTime e1, SuggestedStartTime e2) {
 			    
 				Date m1 = e1.ideal;
@@ -260,6 +264,7 @@ public class FixViolationsOperation extends AbstractTransactionUndoableOperation
 						//LogUtil.error(e);
 					}
 					TransactionUtils.writing(nodes, new Runnable() {
+						@Override
 						public void run() {
 							executeSuggestion(suggestion);
 						}
@@ -268,6 +273,7 @@ public class FixViolationsOperation extends AbstractTransactionUndoableOperation
 				// Would need something for unsatisfiable nodes if SPF-823 (see below) were reversed
 			} else {
 				TransactionUtils.writing(nodes, new Runnable() {
+					@Override
 					public void run() {
 						for (final SuggestedStartTime suggestion : startTimes) {
 							executeSuggestion(suggestion);
@@ -294,6 +300,7 @@ public class FixViolationsOperation extends AbstractTransactionUndoableOperation
 				nodes.add(startTime.node);
 			}
 			TransactionUtils.writing(nodes, new Runnable () {
+				@Override
 				public void run() {
 					for (int i = 0 ; i < oldExtents.size() ; i++) {
 						EPlanElement node = startTimes.get(i).node;

@@ -79,7 +79,8 @@ public abstract class EnsembleBasicNewResourceWizard
      * by calling <code>initializeDefaultPageImageDescriptor</code>.
      * Subclasses may extend.
      */
-    public void init(IWorkbench workbench, IStructuredSelection currentSelection) {
+    @Override
+	public void init(IWorkbench workbench, IStructuredSelection currentSelection) {
         this.workbench = workbench;
         this.selection = currentSelection;
 

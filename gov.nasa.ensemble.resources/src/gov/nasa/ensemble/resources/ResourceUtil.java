@@ -104,6 +104,7 @@ public class ResourceUtil {
 	}
 
 	public static final F<ICommand, String> cmdToName = new F<ICommand, String>() {
+		@Override
 		public String f(final ICommand cmd) {
 			return cmd.getBuilderName();
 		}
@@ -111,6 +112,7 @@ public class ResourceUtil {
 
 	public static final F<String, ICommand> idToCmd(final IProjectDescription desc) {
 		return new F<String, ICommand>() {
+			@Override
 			public ICommand f(final String id) {
 				final ICommand cmd = desc.newCommand();
 				cmd.setBuilderName(id);
@@ -124,6 +126,7 @@ public class ResourceUtil {
 		final List<ICommand> existing = list(desc.getBuildSpec());
 		final List<String> toAdd = list(builderIds);
 		final List<ICommand> result = existing.append(toAdd.removeAll(new F<String, Boolean>() {
+			@Override
 			public Boolean f(final String id) {
 				return existing.map(cmdToName).exists(stringEqual.eq(id));
 			}
@@ -173,6 +176,7 @@ public class ResourceUtil {
 
 	public static Option<Boolean> getPersistentBoolean(final IResource resource, final QualifiedName key) {
 		return getPersistentProperty(resource, key).map(new F<String, Boolean>() {
+			@Override
 			public Boolean f(final String stringProp) {
 				return Boolean.parseBoolean(stringProp);
 			}
@@ -189,6 +193,7 @@ public class ResourceUtil {
 
 	public static void addPersistentPropertyListener(final IResource resource, final PropertyChangeListener listener, final QualifiedName... keys) {
 		final String[] strKeys = Sets.j(array(keys).map(new F<QualifiedName, String>() {
+			@Override
 			public String f(final QualifiedName input) {
 				return stringify(input);
 			}
@@ -219,6 +224,7 @@ public class ResourceUtil {
 		if (to.getParent() == null)
 			return none();
 		return getRelativePath(from, to.getParent()).map(new F<IPath, IPath>() {
+			@Override
 			public IPath f(final IPath input) {
 				return input.append(to.getName());
 			}
@@ -255,6 +261,7 @@ public class ResourceUtil {
 		container.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 		// monitor.beginTask("Zipping " + container.getName(), container.get);
 		container.accept(new IResourceVisitor() {
+			@Override
 			public boolean visit(IResource resource) throws CoreException {
 				// MSLICE-1258
 				for (IProjectPublishFilter filter : publishFilters)
@@ -343,6 +350,7 @@ public class ResourceUtil {
 	public static void printDeltas(final IResourceDelta delta) {
 		try {
 			delta.accept(new IResourceDeltaVisitor() {
+				@Override
 				public boolean visit(IResourceDelta delta) {
 					final IResource rsrc = delta.getResource();
 					switch (delta.getKind()) {
@@ -389,6 +397,7 @@ public class ResourceUtil {
 	 */
 	public static void runAndListen(final IWorkspaceRunnable runnable, final IResourceDeltaVisitor visitor, final IProgressMonitor monitor) throws CoreException {
 		final IResourceChangeListener listener = new IResourceChangeListener() {
+			@Override
 			public void resourceChanged(IResourceChangeEvent event) {
 				if (event.getDelta() != null) {
 					try {
@@ -403,6 +412,7 @@ public class ResourceUtil {
 		final IWorkspace workspace = getWorkspace();
 		try {
 			workspace.run(new IWorkspaceRunnable() {
+				@Override
 				public void run(IProgressMonitor monitor) throws CoreException {
 					workspace.addResourceChangeListener(listener);
 					runnable.run(monitor);
@@ -418,6 +428,7 @@ public class ResourceUtil {
 	 */
 	public static void touchDescendents(final IContainer folder) throws CoreException {
 		ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
+			@Override
 			public void run(IProgressMonitor monitor) throws CoreException {
 				for (final IResource resource : folder.members()) {
 					if (resource instanceof IFolder)
@@ -492,6 +503,7 @@ public class ResourceUtil {
 					try {
 						final IWorkspace ws = ResourcesPlugin.getWorkspace();
 						final IWorkspaceRunnable runnable = new IWorkspaceRunnable() {
+							@Override
 							public void run(IProgressMonitor monitor) {
 								if (v.isNone())
 									v = some(p._1());

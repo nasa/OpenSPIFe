@@ -230,6 +230,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComputableAmount() {
 		return computableAmountEClass;
 	}
@@ -239,6 +240,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComputableAmount_Amount() {
 		return (EAttribute)computableAmountEClass.getEStructuralFeatures().get(0);
 	}
@@ -248,6 +250,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComputableAmount_Computing() {
 		return (EAttribute)computableAmountEClass.getEStructuralFeatures().get(1);
 	}
@@ -257,6 +260,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAmountConstraint() {
 		return amountConstraintEClass;
 	}
@@ -266,6 +270,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountConstraint_Extent() {
 		return (EAttribute)amountConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -275,6 +280,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountConstraint_Key() {
 		return (EAttribute)amountConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -284,6 +290,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountConstraint_Waived() {
 		return (EAttribute)amountConstraintEClass.getEStructuralFeatures().get(2);
 	}
@@ -293,6 +300,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProfile() {
 		return profileEClass;
 	}
@@ -302,6 +310,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_DataPoints() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(13);
 	}
@@ -311,6 +320,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_MinLiteral() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(5);
 	}
@@ -320,6 +330,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_MaxLiteral() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(6);
 	}
@@ -329,6 +340,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProfile_Attributes() {
 		return (EReference)profileEClass.getEStructuralFeatures().get(12);
 	}
@@ -338,6 +350,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProfile_DataType() {
 		return (EReference)profileEClass.getEStructuralFeatures().get(11);
 	}
@@ -347,6 +360,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_Extent() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(8);
 	}
@@ -356,6 +370,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_Interpolation() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(9);
 	}
@@ -365,6 +380,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_Id() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(0);
 	}
@@ -374,6 +390,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_Name() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(1);
 	}
@@ -383,6 +400,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_Category() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(2);
 	}
@@ -392,6 +410,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_ExternalCondition() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(3);
 	}
@@ -401,6 +420,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_Units() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(4);
 	}
@@ -410,6 +430,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_DefaultValue() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(7);
 	}
@@ -419,6 +440,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfile_Valid() {
 		return (EAttribute)profileEClass.getEStructuralFeatures().get(10);
 	}
@@ -428,6 +450,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPowerValue() {
 		return powerValueEClass;
 	}
@@ -437,6 +460,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPowerValue_StateName() {
 		return (EAttribute)powerValueEClass.getEStructuralFeatures().get(0);
 	}
@@ -446,6 +470,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPowerValue_StateValue() {
 		return (EReference)powerValueEClass.getEStructuralFeatures().get(3);
 	}
@@ -455,6 +480,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPowerValue_DutyFactor() {
 		return (EAttribute)powerValueEClass.getEStructuralFeatures().get(1);
 	}
@@ -464,6 +490,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPowerValue_ActualWattage() {
 		return (EAttribute)powerValueEClass.getEStructuralFeatures().get(2);
 	}
@@ -473,6 +500,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getComputingState() {
 		return computingStateEEnum;
 	}
@@ -482,6 +510,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getINTERPOLATION() {
 		return interpolationEEnum;
 	}
@@ -491,6 +520,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEUnit() {
 		return eUnitEDataType;
 	}
@@ -500,6 +530,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEAmount() {
 		return eAmountEDataType;
 	}
@@ -509,6 +540,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEDuration() {
 		return eDurationEDataType;
 	}
@@ -518,6 +550,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEComputableAmount() {
 		return eComputableAmountEDataType;
 	}
@@ -527,6 +560,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getTemporalExtent() {
 		return temporalExtentEDataType;
 	}
@@ -536,6 +570,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getTemporalOffset() {
 		return temporalOffsetEDataType;
 	}
@@ -545,6 +580,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEAmountExtent() {
 		return eAmountExtentEDataType;
 	}
@@ -554,6 +590,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEDataPoint() {
 		return eDataPointEDataType;
 	}
@@ -563,6 +600,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEAngle() {
 		return eAngleEDataType;
 	}
@@ -572,6 +610,7 @@ public class JSciencePackageImpl extends EPackageImpl implements JSciencePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JScienceFactory getJScienceFactory() {
 		return (JScienceFactory)getEFactoryInstance();
 	}

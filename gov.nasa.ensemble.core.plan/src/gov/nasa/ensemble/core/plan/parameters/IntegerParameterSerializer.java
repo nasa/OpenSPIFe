@@ -23,6 +23,7 @@ public class IntegerParameterSerializer implements IParameterSerializer<Integer>
 
 	private final Logger trace = Logger.getLogger(getClass());
 	
+	@Override
 	public String getHibernateString(Integer javaObject) {
 		if (javaObject == null) {
 			return null;
@@ -30,6 +31,7 @@ public class IntegerParameterSerializer implements IParameterSerializer<Integer>
 		return Integer.toString(javaObject);
 	}
 
+	@Override
 	public Integer getJavaObject(String hibernateString) {
 		if (hibernateString == null || hibernateString.equals("")) {
 			return null;

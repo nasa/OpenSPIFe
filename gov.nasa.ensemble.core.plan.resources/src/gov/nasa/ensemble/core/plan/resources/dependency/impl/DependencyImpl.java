@@ -157,6 +157,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public abstract String getName();
 
 	/**
@@ -164,6 +165,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<Dependency> getNext() {
 		if (next == null) {
 			next = new EObjectWithInverseResolvingEList.ManyInverse<Dependency>(Dependency.class, this, DependencyPackage.DEPENDENCY__NEXT, DependencyPackage.DEPENDENCY__PREVIOUS);
@@ -176,6 +178,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<Dependency> getPrevious() {
 		if (previous == null) {
 			previous = new EObjectWithInverseResolvingEList.ManyInverse<Dependency>(Dependency.class, this, DependencyPackage.DEPENDENCY__PREVIOUS, DependencyPackage.DEPENDENCY__NEXT);
@@ -188,6 +191,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getValue() {
 		return value;
 	}
@@ -198,6 +202,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setValue(Object newValue) {
 //		Object oldValue = value;
 		value = newValue;
@@ -210,6 +215,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return (eFlags & VALID_EFLAG) != 0;
 	}
@@ -219,6 +225,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = (eFlags & VALID_EFLAG) != 0;
 		if (newValid) eFlags |= VALID_EFLAG; else eFlags &= ~VALID_EFLAG;
@@ -231,6 +238,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean update() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -243,6 +251,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void applyValue() {
 		setValid(true);
 	}
@@ -253,6 +262,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void invalidate() {
 		setValid(false);
 	}
@@ -263,6 +273,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void dispose() {
 		// no default implementation
 	}
@@ -272,6 +283,7 @@ public abstract class DependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean shouldUpdateIfRemoved() {
 		return true;
 	}

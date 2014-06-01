@@ -84,6 +84,7 @@ public class PlanSectionImpl extends AbstractPlanSectionImpl implements PlanSect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PlanSectionRow> getRows() {
 		if (rows == null) {
 			rows = new EObjectContainmentEList<PlanSectionRow>(PlanSectionRow.class, this, PlanTimelinePackage.PLAN_SECTION__ROWS);

@@ -93,6 +93,7 @@ public class ActivityDefinitionSelectionDialog extends FilteredItemsSelectionDia
 	protected Comparator getItemsComparator() {
 		return new Comparator<EActivityDef>() {
 
+			@Override
 			public int compare(EActivityDef a0, EActivityDef a1) {
 				return a0.getName().compareTo(a1.getName());
 			}

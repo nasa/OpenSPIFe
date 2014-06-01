@@ -54,18 +54,21 @@ public class PlanRulesContentProvider implements ITreeContentProvider {
 		}
 	}
 	
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		if (newInput instanceof EPlanElement) {
 			currentPlanElement = (EPlanElement) newInput;
 		}
 	}
 
+	@Override
 	public void dispose() {
 		if (currentPlanElement != null) {
 			currentPlanElement = null;
 		}
 	}
 
+	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof RuleGroup) {
 			RuleGroup group = (RuleGroup)parentElement;
@@ -84,6 +87,7 @@ public class PlanRulesContentProvider implements ITreeContentProvider {
 		return NO_CHILDREN;
 	}
 
+	@Override
 	public Object getParent(Object element) {
 		if (element instanceof RuleGroup) {
 			RuleGroup group = (RuleGroup)element;
@@ -97,6 +101,7 @@ public class PlanRulesContentProvider implements ITreeContentProvider {
 		return null;
 	}
 
+	@Override
 	public boolean hasChildren(Object element) {
 		if (element instanceof RuleGroup) {
 			RuleGroup group = (RuleGroup)element;
@@ -110,6 +115,7 @@ public class PlanRulesContentProvider implements ITreeContentProvider {
 		return false;
 	}
 
+	@Override
 	public Object[] getElements(Object inputElement) {
 		if (inputElement == currentPlanElement) {
 			return rootObjects;

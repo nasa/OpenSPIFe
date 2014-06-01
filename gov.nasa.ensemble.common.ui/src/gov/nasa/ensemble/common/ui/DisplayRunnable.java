@@ -40,8 +40,10 @@ public abstract class DisplayRunnable implements Runnable {
 		this.widget = widget;
 	}
 
+	@Override
 	public final void run() {
 		WidgetUtils.runInDisplayThread(widget, new Runnable() {
+			@Override
 			public void run() {
 				runInDisplay();
 			}

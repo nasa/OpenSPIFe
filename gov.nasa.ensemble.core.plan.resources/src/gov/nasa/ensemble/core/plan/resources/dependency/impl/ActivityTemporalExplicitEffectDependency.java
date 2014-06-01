@@ -20,7 +20,6 @@ package gov.nasa.ensemble.core.plan.resources.dependency.impl;
 import gov.nasa.ensemble.common.CommonUtils;
 import gov.nasa.ensemble.core.jscience.DataPoint;
 import gov.nasa.ensemble.core.model.plan.EActivity;
-import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
 import gov.nasa.ensemble.dictionary.EResourceDef;
 import gov.nasa.ensemble.emf.model.common.Timepoint;
 
@@ -43,7 +42,7 @@ public class ActivityTemporalExplicitEffectDependency extends ActivityDependency
 
 	@Override
 	public boolean update() {
-		DataPoint explicitValue = (DataPoint) getExplicitValue();
+		DataPoint explicitValue = getExplicitValue();
 		DataPoint currentValue = (DataPoint) getValue();
 		if (!CommonUtils.equals(explicitValue, currentValue)) {
 			setValue(explicitValue);
@@ -77,6 +76,7 @@ public class ActivityTemporalExplicitEffectDependency extends ActivityDependency
 		return resourceDef;
 	}
 
+	@Override
 	public Date getDate() {
 		switch (getTimepoint()) {
 		case START:

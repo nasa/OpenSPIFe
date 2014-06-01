@@ -57,7 +57,7 @@ public class TestProfileOperations extends TestCase {
 		
 		//test dates that are not equal
 		for (int i = 0; i < count; i++) { 
-			DataPoint<Boolean> dp = (DataPoint<Boolean>) p.getDataPoints().remove(i);
+			DataPoint<Boolean> dp = p.getDataPoints().remove(i);
 			assertEquals(count-1, p.getDataPoints().size());
 			
 			AddProfileDataPointOperation op = new AddProfileDataPointOperation(p, dp);
@@ -74,7 +74,7 @@ public class TestProfileOperations extends TestCase {
 		//test dates that are equal
 		for (int i = 0; i < count; i++) { 
 			assertEquals(count, p.getDataPoints().size());
-			DataPoint dp = (DataPoint) p.getDataPoints().get(i);
+			DataPoint dp = p.getDataPoints().get(i);
 			DataPoint<Boolean> newDataPoint = JSCIENCE_FACTORY.createEDataPoint(dp.getDate(), !((Boolean)dp.getValue()));
 			
 			AddProfileDataPointOperation op = new AddProfileDataPointOperation(p, newDataPoint);
@@ -115,7 +115,7 @@ public class TestProfileOperations extends TestCase {
 		
 		//test dates that are not equal
 		for (int i = 0; i < count; i++) { 
-			DataPoint<Boolean> dp = (DataPoint<Boolean>) p.getDataPoints().get(i);
+			DataPoint<Boolean> dp = p.getDataPoints().get(i);
 			RemoveProfileDataPointsOperation op = new RemoveProfileDataPointsOperation(p, new DataPoint[] { dp });
 			op.execute(null, null);
 			assertEquals(count-1, p.getDataPoints().size());

@@ -41,6 +41,7 @@ public class InspectedTimelineService extends TimelineService {
 	
 	private static class Listener implements PropertyChangeListener {
 
+		@Override
 		public void propertyChange(PropertyChangeEvent evt) {
 			String propertyName = evt.getPropertyName();
 			if (TimelineConstants.CURSOR_TIME.equals(propertyName)) {

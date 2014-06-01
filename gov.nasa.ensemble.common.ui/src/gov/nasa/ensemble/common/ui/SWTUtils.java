@@ -157,6 +157,7 @@ public class SWTUtils {
 		final List<IWorkbenchPart> result = new ArrayList<IWorkbenchPart>();
 		
 		applyToAllParts(new PartOperator() {
+			@Override
 			public void execute(IWorkbenchPart part) {
 				if (accepter.f(part))
 					result.add(part);

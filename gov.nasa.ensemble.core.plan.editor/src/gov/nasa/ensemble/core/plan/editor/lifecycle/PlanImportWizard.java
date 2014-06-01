@@ -76,6 +76,7 @@ public abstract class PlanImportWizard extends Wizard implements IImportWizard {
 					}
 					addTransientPropeties(plan);
 					Display.getDefault().asyncExec(new Runnable() {
+						@Override
 						public void run() {
 							MultiPagePlanEditor.openEditor(plan);
 						}
@@ -100,6 +101,7 @@ public abstract class PlanImportWizard extends Wizard implements IImportWizard {
 		WrapperUtils.getRegistered(plan).addTransientProperty(Plan.ATTRIBUTE_NEEDS_SAVE_AS, Boolean.TRUE);
 	}
 
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		// default implementation does nothing
 	}

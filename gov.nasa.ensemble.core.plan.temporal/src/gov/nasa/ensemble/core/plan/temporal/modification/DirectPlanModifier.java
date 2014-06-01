@@ -43,6 +43,7 @@ public class DirectPlanModifier implements IPlanModifier {
 
 	private EPlan plan;
 
+	@Override
 	public void initialize(EPlan plan) {
 		this.plan = plan;
 	}
@@ -51,6 +52,7 @@ public class DirectPlanModifier implements IPlanModifier {
 		// nothing to do
 	}
 
+	@Override
 	public Map<EPlanElement, TemporalExtent> setStart(EPlanElement element, Date start, TemporalExtentsCache initialState) {
 		List<? extends EPlanChild> children = EPlanUtils.getChildren(element);
 		TemporalExtent newExtent = getNewExtentFromStart(element, start, initialState);
@@ -101,6 +103,7 @@ public class DirectPlanModifier implements IPlanModifier {
 		return newExtent;
 	}
 
+	@Override
 	public Map<EPlanElement, TemporalExtent> setEnd(EPlanElement element, Date end, TemporalExtentsCache initialState) {
 		List<? extends EPlanChild> children = EPlanUtils.getChildren(element);
 		TemporalExtent newExtent = getNewExtentFromEnd(element, end, initialState);
@@ -155,6 +158,7 @@ public class DirectPlanModifier implements IPlanModifier {
 	 * @param delta
 	 * @param initialState
 	 */
+	@Override
 	public Map<EPlanElement, TemporalExtent> shiftElement(EPlanElement pe, Amount<Duration> delta, TemporalExtentsCache initialState) {
 		Map<EPlanElement, TemporalExtent> changedTimes = new HashMap<EPlanElement, TemporalExtent>();
 		if (!AmountUtils.approximatesZero(delta)) {
@@ -169,6 +173,7 @@ public class DirectPlanModifier implements IPlanModifier {
 		return changedTimes;
 	}
 
+	@Override
 	public Map<EPlanElement, TemporalExtent> moveToStart(EPlanElement pe, final Date start, TemporalExtentsCache initialState) {
 		if (start == null) {
 			return Collections.emptyMap(); // nothing to do
@@ -197,6 +202,7 @@ public class DirectPlanModifier implements IPlanModifier {
 		}.visitAll(parent);
 	}
 
+	@Override
 	public Map<EPlanElement, TemporalExtent> moveToEnd(EPlanElement pe, final Date end, TemporalExtentsCache initialState) {
 		if (end == null) {
 			return Collections.emptyMap(); // nothing to do
@@ -250,6 +256,7 @@ public class DirectPlanModifier implements IPlanModifier {
 		}
 	}
 
+	@Override
 	public Map<EPlanElement, TemporalExtent> setDuration(EPlanElement element, Amount<Duration> duration, TemporalExtentsCache initialState, boolean fromStart) {
 		Map<EPlanElement, TemporalExtent> changedTimes = new LinkedHashMap<EPlanElement, TemporalExtent>();
 		TemporalExtent oldExtent = initialState.get(element);

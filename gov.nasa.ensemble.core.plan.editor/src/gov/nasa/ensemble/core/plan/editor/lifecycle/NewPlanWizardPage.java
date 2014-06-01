@@ -82,6 +82,7 @@ public class NewPlanWizardPage extends EnsembleWizardPage implements MissionExte
 	 * @param parent the parent Composite that will contain this control
 	 * @see IDialogPage#createControl(Composite)
 	 */
+	@Override
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();

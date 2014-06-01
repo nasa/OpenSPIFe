@@ -37,6 +37,7 @@ public class MultiContentProposalProvider implements IContentProposalProvider {
 		proposalProviders.add(provider);
 	}
 	
+	@Override
 	public IContentProposal[] getProposals(String contents, int position) {
 		List<IContentProposal> proposals = new ArrayList<IContentProposal>();
 		for (IContentProposalProvider provider : proposalProviders) {
@@ -46,6 +47,7 @@ public class MultiContentProposalProvider implements IContentProposalProvider {
 				proposals.add(prop);
 		}
 		Collections.sort(proposals, new Comparator<IContentProposal>() {
+			@Override
 			public int compare(IContentProposal arg0, IContentProposal arg1) {
 				return arg0.getLabel().compareTo(arg1.getLabel());
 			}			

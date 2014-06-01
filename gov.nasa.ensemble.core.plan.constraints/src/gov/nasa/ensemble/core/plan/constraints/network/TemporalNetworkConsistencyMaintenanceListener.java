@@ -59,6 +59,7 @@ public class TemporalNetworkConsistencyMaintenanceListener implements IConsisten
 	private static final EReference BINARY_CONSTRAINTS_FEATURE = ConstraintsPackage.Literals.CONSTRAINTS_MEMBER__BINARY_TEMPORAL_CONSTRAINTS;
 	private static final EReference CHAIN_FEATURE = ConstraintsPackage.Literals.CONSTRAINTS_MEMBER__CHAIN;
 
+	@Override
 	public Command createConsistencyMaintenanceCommand(ResourceSetChangeEvent event) {
 		EPlan plan = EPlanUtils.getPlanNotifications(event);
 		if (plan != null) {

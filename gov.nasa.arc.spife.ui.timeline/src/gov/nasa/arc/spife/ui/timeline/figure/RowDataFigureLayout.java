@@ -103,6 +103,7 @@ public class RowDataFigureLayout extends AbstractLayout implements LayoutManager
 		return size;
 	}
 	
+	@Override
 	public void layout(IFigure container) {
 		updateFigureToBoundsCache(container);
 		Rectangle bounds = container.getBounds();
@@ -318,6 +319,7 @@ public class RowDataFigureLayout extends AbstractLayout implements LayoutManager
 			return side;
 		}
 		
+		@Override
 		public final int compareTo(NodeEdgeWrapper o) {
 			int result = CommonUtils.compare(this.x, o.x);
 			if (result != 0) {

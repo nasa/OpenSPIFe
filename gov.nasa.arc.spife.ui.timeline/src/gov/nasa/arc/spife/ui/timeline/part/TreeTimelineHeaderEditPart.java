@@ -174,6 +174,7 @@ public class TreeTimelineHeaderEditPart<T> extends TimelineViewerEditPart<T> {
 	
 	private class Listener implements PropertyChangeListener, IPropertyChangeListener, TreeTimelineContentProvider.Listener {
 
+		@Override
 		public void contentRefresh(Set<? extends Object> elements) {
 			refresh();
 			Timeline timeline = TimelineUtils.getTimeline(TreeTimelineHeaderEditPart.this);
@@ -182,10 +183,12 @@ public class TreeTimelineHeaderEditPart<T> extends TimelineViewerEditPart<T> {
 			}
 		}
 		
+		@Override
 		public void labelUpdate(Set<? extends Object> elements) {
 			// do nothing
 		}
 		
+		@Override
 		public void propertyChange(PropertyChangeEvent evt) {
 			String p = evt.getPropertyName();
 			if (ExpansionModel.EXPANDED.equals(p)) {
@@ -206,6 +209,7 @@ public class TreeTimelineHeaderEditPart<T> extends TimelineViewerEditPart<T> {
 			}
 		}
 		
+		@Override
 		public void propertyChange(org.eclipse.jface.util.PropertyChangeEvent event) {
 			String p = event.getProperty();
 			if (TimelinePreferencePage.P_ALTERNATING_COLOR.equals(p)) {

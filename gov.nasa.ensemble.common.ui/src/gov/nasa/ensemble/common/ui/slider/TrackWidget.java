@@ -52,6 +52,7 @@ public class TrackWidget extends Canvas implements PaintListener {
 	 * @param e
 	 *            the PaintEvent
 	 */
+	@Override
 	public void paintControl(PaintEvent e) {
 		e.gc.setBackground(ColorConstants.white);
 		e.gc.fillRectangle(0, 0, getBounds().width, getBounds().height);

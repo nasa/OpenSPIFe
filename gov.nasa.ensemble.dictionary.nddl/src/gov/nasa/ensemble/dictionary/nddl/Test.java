@@ -28,6 +28,7 @@ public class Test implements IApplication {
 		test.run(args);
 	}
 
+	@Override
 	public Object start(IApplicationContext context) throws Exception {
 		return run(context);
 	}
@@ -38,6 +39,7 @@ public class Test implements IApplication {
 		return null;
 	}
 
+	@Override
 	public void stop() {
 		// no implementation
 	}

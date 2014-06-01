@@ -136,6 +136,7 @@ public abstract class TemporalConstraintImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRationale() {
 		return rationale;
 	}
@@ -145,6 +146,7 @@ public abstract class TemporalConstraintImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRationale(String newRationale) {
 		String oldRationale = rationale;
 		rationale = newRationale;
@@ -157,6 +159,7 @@ public abstract class TemporalConstraintImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getWaiverRationale() {
 		return waiverRationale;
 	}
@@ -166,6 +169,7 @@ public abstract class TemporalConstraintImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWaiverRationale(String newWaiverRationale) {
 		String oldWaiverRationale = waiverRationale;
 		waiverRationale = newWaiverRationale;
@@ -178,6 +182,7 @@ public abstract class TemporalConstraintImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -187,6 +192,7 @@ public abstract class TemporalConstraintImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -199,6 +205,7 @@ public abstract class TemporalConstraintImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public abstract boolean isViolated();
 
 	/**

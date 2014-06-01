@@ -178,6 +178,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResourceConditionsMember() {
 		return resourceConditionsMemberEClass;
 	}
@@ -187,6 +188,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getResourceConditionsMember_Conditions() {
 		return (EReference)resourceConditionsMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -196,6 +198,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConditions() {
 		return conditionsEClass;
 	}
@@ -205,6 +208,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConditions_Time() {
 		return (EAttribute)conditionsEClass.getEStructuralFeatures().get(0);
 	}
@@ -214,6 +218,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConditions_Description() {
 		return (EAttribute)conditionsEClass.getEStructuralFeatures().get(1);
 	}
@@ -223,6 +228,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConditions_Editable() {
 		return (EAttribute)conditionsEClass.getEStructuralFeatures().get(2);
 	}
@@ -232,6 +238,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConditions_Active() {
 		return (EAttribute)conditionsEClass.getEStructuralFeatures().get(3);
 	}
@@ -241,6 +248,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConditions_Claims() {
 		return (EReference)conditionsEClass.getEStructuralFeatures().get(4);
 	}
@@ -250,6 +258,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConditions_PowerLoads() {
 		return (EReference)conditionsEClass.getEStructuralFeatures().get(5);
 	}
@@ -259,6 +268,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConditions_NumericResources() {
 		return (EReference)conditionsEClass.getEStructuralFeatures().get(6);
 	}
@@ -268,6 +278,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConditions_StateResources() {
 		return (EReference)conditionsEClass.getEStructuralFeatures().get(7);
 	}
@@ -277,6 +288,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConditions_SharableResources() {
 		return (EReference)conditionsEClass.getEStructuralFeatures().get(8);
 	}
@@ -286,6 +298,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConditions_UndefinedResources() {
 		return (EReference)conditionsEClass.getEStructuralFeatures().get(9);
 	}
@@ -295,6 +308,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConditions_Member() {
 		return (EReference)conditionsEClass.getEStructuralFeatures().get(10);
 	}
@@ -304,6 +318,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNamedCondition() {
 		return namedConditionEClass;
 	}
@@ -313,6 +328,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNamedCondition_Name() {
 		return (EAttribute)namedConditionEClass.getEStructuralFeatures().get(0);
 	}
@@ -322,6 +338,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getClaim() {
 		return claimEClass;
 	}
@@ -331,6 +348,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getClaim_Used() {
 		return (EAttribute)claimEClass.getEStructuralFeatures().get(0);
 	}
@@ -340,6 +358,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getClaim_Conditions() {
 		return (EReference)claimEClass.getEStructuralFeatures().get(1);
 	}
@@ -349,6 +368,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPowerLoad() {
 		return powerLoadEClass;
 	}
@@ -358,6 +378,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPowerLoad_State() {
 		return (EAttribute)powerLoadEClass.getEStructuralFeatures().get(0);
 	}
@@ -367,6 +388,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPowerLoad_Conditions() {
 		return (EReference)powerLoadEClass.getEStructuralFeatures().get(1);
 	}
@@ -376,6 +398,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNumericResource() {
 		return numericResourceEClass;
 	}
@@ -385,6 +408,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNumericResource_Float() {
 		return (EAttribute)numericResourceEClass.getEStructuralFeatures().get(0);
 	}
@@ -394,6 +418,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getNumericResource_Conditions() {
 		return (EReference)numericResourceEClass.getEStructuralFeatures().get(1);
 	}
@@ -403,6 +428,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateResource() {
 		return stateResourceEClass;
 	}
@@ -412,6 +438,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStateResource_State() {
 		return (EAttribute)stateResourceEClass.getEStructuralFeatures().get(0);
 	}
@@ -421,6 +448,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStateResource_Conditions() {
 		return (EReference)stateResourceEClass.getEStructuralFeatures().get(1);
 	}
@@ -430,6 +458,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getUndefinedResource() {
 		return undefinedResourceEClass;
 	}
@@ -439,6 +468,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getUndefinedResource_Conditions() {
 		return (EReference)undefinedResourceEClass.getEStructuralFeatures().get(0);
 	}
@@ -448,6 +478,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUndefinedResource_ValueLiteral() {
 		return (EAttribute)undefinedResourceEClass.getEStructuralFeatures().get(1);
 	}
@@ -457,6 +488,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSharableResource() {
 		return sharableResourceEClass;
 	}
@@ -466,6 +498,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSharableResource_Used() {
 		return (EAttribute)sharableResourceEClass.getEStructuralFeatures().get(0);
 	}
@@ -475,6 +508,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSharableResource_Conditions() {
 		return (EReference)sharableResourceEClass.getEStructuralFeatures().get(1);
 	}
@@ -484,6 +518,7 @@ public class MemberPackageImpl extends EPackageImpl implements MemberPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MemberFactory getMemberFactory() {
 		return (MemberFactory)getEFactoryInstance();
 	}

@@ -62,6 +62,7 @@ public class GotoContributionItem extends ContributionItem {
 		super(ID);
 		service = partService;
 		partService.addPartListener(partListener = new IPartListener() {
+			@Override
 			public void partActivated(IWorkbenchPart part) {
 				if (part instanceof MultiPagePlanEditor) {
 					MultiPagePlanEditor editor = (MultiPagePlanEditor)part;
@@ -74,17 +75,22 @@ public class GotoContributionItem extends ContributionItem {
 					}
 				}
 			}
+			@Override
 			public void partBroughtToTop(IWorkbenchPart p) 	{ /* no operation */ }
+			@Override
 			public void partClosed(IWorkbenchPart p) 		{ /* no operation */ }
+			@Override
 			public void partDeactivated(IWorkbenchPart p) {
 				timeline = null;
 			}
+			@Override
 			public void partOpened(IWorkbenchPart p) 		{ /* no operation */ }
 		});
 	}
 	
 	private void refresh() {
 		WidgetUtils.runInDisplayThread(shell, new Runnable() {
+			@Override
 			public void run() {
 				final boolean b = (timeline != null);
 				text.setEnabled(b);
@@ -117,9 +123,11 @@ public class GotoContributionItem extends ContributionItem {
 		IStringifier<Date> dateStringifier = StringifierRegistry.getStringifier(Date.class);
 		textEditor = new StringTypeEditor(dateStringifier, text);
 		text.addKeyListener(new KeyListener() {
+			@Override
 			public void keyPressed(KeyEvent e) {
 				// no operation
 			}
+			@Override
 			public void keyReleased(KeyEvent e) {
 				if (e.keyCode == SWT.CR) {
 					doit();
@@ -130,9 +138,11 @@ public class GotoContributionItem extends ContributionItem {
 		goButton = new Button (shell, SWT.PUSH);
 		goButton.setText("Go!");
 		goButton.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				widgetSelected(e);
 			}
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				doit();
 			}

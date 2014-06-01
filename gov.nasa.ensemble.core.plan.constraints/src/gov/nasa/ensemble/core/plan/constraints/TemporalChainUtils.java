@@ -145,6 +145,7 @@ public class TemporalChainUtils {
 	 */
 	public static final Comparator<EPlanElement> CHAIN_ORDER
 		= new Comparator<EPlanElement>() {
+		@Override
 		public int compare(EPlanElement o1, EPlanElement o2) {
 			TemporalMember m1 = o1.getMember(TemporalMember.class);
 			TemporalMember m2 = o2.getMember(TemporalMember.class);

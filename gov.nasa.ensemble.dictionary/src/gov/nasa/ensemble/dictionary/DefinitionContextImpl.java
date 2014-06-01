@@ -53,6 +53,7 @@ public class DefinitionContextImpl implements DefinitionContext {
 		});
 	}
 	
+	@Override
 	public final void clearCache() {
 		definitionsByClass.clear();
 		definitionsByNameByClass.clear();
@@ -61,6 +62,7 @@ public class DefinitionContextImpl implements DefinitionContext {
 	/* (non-Javadoc)
 	 * @see gov.nasa.ensemble.core.activityDictionary.IDefinitionContext#getDefinitions(java.lang.Class)
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public <T extends Object> List<T> getDefinitions(Class<T> klass) {
 		if (definitionsByClass.containsKey(klass)) {
@@ -81,6 +83,7 @@ public class DefinitionContextImpl implements DefinitionContext {
 	/* (non-Javadoc)
 	 * @see gov.nasa.ensemble.core.activityDictionary.IDefinitionContext#getDefinition(java.lang.Class, java.lang.String)
 	 */
+	@Override
 	public <T extends INamedDefinition> T getDefinition(Class<T> klass, String name) {
 		if (definitionsByNameByClass.containsKey(klass)) {
 			@SuppressWarnings("unchecked")

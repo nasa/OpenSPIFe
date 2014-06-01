@@ -91,6 +91,7 @@ public class ConstraintsPlanAdvisor extends PlanAdvisor implements IConstraintNe
 	@Override
 	protected List<? extends Violation> initialize() {
 		return TransactionUtils.reading(plan, new RunnableWithResult.Impl<List<? extends Violation>>() {
+			@Override
 			public void run() {
 				if (isQuit()) {
 					return;
@@ -138,6 +139,7 @@ public class ConstraintsPlanAdvisor extends PlanAdvisor implements IConstraintNe
 	@Override
 	protected List<? extends Violation> check(final List<Notification> notifications) {
 		return TransactionUtils.reading(plan, new RunnableWithResult.Impl<List<? extends Violation>>() {
+			@Override
 			public void run() {
 				Set<EPlanElement> affectedElements = getAffectedElements(notifications);
 				List<Violation> violations = findViolations(affectedElements);
@@ -278,6 +280,7 @@ public class ConstraintsPlanAdvisor extends PlanAdvisor implements IConstraintNe
 	/* (non-Javadoc)
 	 * @see gov.nasa.ensemble.core.plan.constraints.advisor.IConstraintNetworkAdvisor#areViolationsFixable()
 	 */
+	@Override
 	public boolean areViolationsFixable() {
 		TemporalNetworkMember networkMember = TemporalNetworkMember.get(plan);
 		return networkMember.isConsistent();

@@ -274,6 +274,7 @@ public class PlanResourceIncrementalProjectBuilder extends
 			final IMarker[] validationMarkers = resource.findMarkers(IResourceMarkers.MODEL_VALIDATION_PROBLEM_MARKER, includeSubtypes, depth);
 			if (problemMarkers.length > 0 || validationMarkers.length > 0) {
 				ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {		
+					@Override
 					public void run(IProgressMonitor monitor) throws CoreException {
 						monitor.beginTask("Removing old markers", problemMarkers.length + validationMarkers.length);
 						try {
@@ -442,6 +443,7 @@ public class PlanResourceIncrementalProjectBuilder extends
 		}
 		
 		IWorkspaceRunnable workspaceRunnable = new IWorkspaceRunnable() {					
+			@Override
 			public void run(IProgressMonitor monitor) throws CoreException {
 				IMarker marker = file.createMarker(IResourceMarkers.PLAN_RESOURCE_PROBLEM_MARKER);
 				Map<String, Object> attributes = new HashMap<String, Object>();
@@ -463,9 +465,11 @@ public class PlanResourceIncrementalProjectBuilder extends
 			addResourceDependencies(flatStatus, file);
 			if (!status.isOK()) {
 				IWorkspaceRunnable workspaceRunnable = new IWorkspaceRunnable() {
+					@Override
 					public void run(IProgressMonitor monitor) throws CoreException {
 						createMarkers(file, flatStatus, IResourceMarkers.MODEL_VALIDATION_PROBLEM_MARKER, new IMarkerConfigurator() {
 
+							@Override
 							public void appendMarkerConfiguration(IMarker marker, IConstraintStatus status) throws CoreException {
 								EObject target = status.getTarget();
 								EPlanElement element = null;

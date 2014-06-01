@@ -125,6 +125,7 @@ public class DateFormatTimepointParameterColumn extends AbstractMergeColumn<Temp
 	public Comparator<TemporalMember> getComparator() {
 		return new Comparator<TemporalMember>() {
 			
+			@Override
 			public int compare(TemporalMember facet1, TemporalMember facet2) {
 				if (facet1 == facet2) return 0;
 				if (facet1==null) return +1;

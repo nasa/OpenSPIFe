@@ -36,6 +36,7 @@ public class AllTests implements IEnsemblePluginTest {
 		return suite;
 	}
 
+	@Override
 	public void addTests(TestSuite suite) {
 		//$JUnit-BEGIN$
 		//$JUnit-END$

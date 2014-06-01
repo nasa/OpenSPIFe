@@ -283,7 +283,7 @@ public class ProfileImportOperation extends AbstractTransactionUndoableOperation
 		IStatus operationStatus = super.execute(monitor, info);
 		IStatus[] errors = errorTable.toArray(new IStatus[errorTable.size()]);
 		if (errors.length > 0) {
-			MultiStatus status = new MultiStatus(Activator.PLUGIN_ID, Status.ERROR, errors, "Problems were encountered during import:", null);
+			MultiStatus status = new MultiStatus(Activator.PLUGIN_ID, IStatus.ERROR, errors, "Problems were encountered during import:", null);
 			status.add(operationStatus);
 			this.status = status;
 			return status;
@@ -340,6 +340,7 @@ public class ProfileImportOperation extends AbstractTransactionUndoableOperation
 			final Resource resource = getResource(uri);
 			resource.unload();
 			TransactionUtils.writing(resource, new Runnable() {
+				@Override
 				public void run() {
 					for (ListIterator<EObject> it = resource.getContents().listIterator(); it.hasNext();) {
 						EObject resourceNode = it.next();
@@ -667,6 +668,7 @@ public class ProfileImportOperation extends AbstractTransactionUndoableOperation
 			super(keyClass);
 		}
 
+		@Override
 		public int compare(EActivity o1, EActivity o2) {
 			TemporalMember member1 = o1.getMember(TemporalMember.class);
 			TemporalMember member2 = o2.getMember(TemporalMember.class);
@@ -713,6 +715,7 @@ public class ProfileImportOperation extends AbstractTransactionUndoableOperation
 				newGroups.add(group);
 			}
 			TransactionUtils.writing(plan, new Runnable() {
+				@Override
 				public void run() {
 					TemporalUtils.setExtents(changedTimes);
 					for (Map.Entry<EActivityGroup, List<EActivity>> entry : activitiesToAddToExistingGroup.entrySet()) {
@@ -731,6 +734,7 @@ public class ProfileImportOperation extends AbstractTransactionUndoableOperation
 
 		public void undo() {
 			TransactionUtils.writing(plan, new Runnable() {
+				@Override
 				public void run() {
 					TemporalUtils.resetExtents(changedTimes.keySet(), temporalExtentsCache);
 					for (Map.Entry<EActivityGroup, List<EActivity>> entry : activitiesToAddToExistingGroup.entrySet()) {

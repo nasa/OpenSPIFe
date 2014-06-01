@@ -29,16 +29,19 @@ import org.eclipse.swt.widgets.Shell;
 
 	private int nestingDepth = 0;
 	
-    public void showBlocked(IProgressMonitor blocking, IStatus blockingStatus, String blockedName) {
+    @Override
+	public void showBlocked(IProgressMonitor blocking, IStatus blockingStatus, String blockedName) {
         showBlocked(null, blocking, blockingStatus, blockedName);
     }
 
-    public void showBlocked(Shell parentShell, IProgressMonitor blocking, IStatus blockingStatus, String blockedName) {
+    @Override
+	public void showBlocked(Shell parentShell, IProgressMonitor blocking, IStatus blockingStatus, String blockedName) {
 //	    	System.out.println("showBlocked");
     	nestingDepth++;
     }
 
-    public void clearBlocked() {
+    @Override
+	public void clearBlocked() {
 //	    	System.out.println("clearBlocked");
     	if (nestingDepth > 0) {
     		nestingDepth--;

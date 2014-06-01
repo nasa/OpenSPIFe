@@ -226,6 +226,7 @@ class EuropaMemberInitializationThread extends Thread {
 			System.out.println(message);
 		} else {
 			SWTUtils.runInDisplayThread(new Runnable() {
+				@Override
 				public void run() {
 					IWorkbench workbench = PlatformUI.getWorkbench();
 					if (workbench != null) {

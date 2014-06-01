@@ -82,6 +82,7 @@ public class TestConstraintsIO extends AbstractTestPlanIORoundTrip {
 		final EPlan plan = PlanFactory.getInstance().createPlan("TestConstraints");
 		
 		final List<EActivity> activities = TransactionUtils.writing(plan, new RunnableWithResult.Impl<List<EActivity>>() {
+			@Override
 			public void run() {
 				EActivityGroup group = PlanFactory.getInstance().createActivityGroup(plan);
 				group.setName("Group1");
@@ -168,6 +169,7 @@ public class TestConstraintsIO extends AbstractTestPlanIORoundTrip {
 		at(RELATION_TIMEPOINT_A, RELATION_TIMEPOINT_B, activity1, activity2);
 		
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				TemporalChain chain = TemporalChainUtils.createChain(activities);
 				TemporalChainUtils.attachChain(chain);
@@ -225,6 +227,7 @@ public class TestConstraintsIO extends AbstractTestPlanIORoundTrip {
 		ptc.getPoint().setEndpoint(timepoint);
 		
 		TransactionUtils.writing(EPlanUtils.getPlan(planElement), new Runnable() { 
+			@Override
 			public void run() { 
 				gov.nasa.ensemble.core.model.plan.constraints.util.ConstraintUtils.attachConstraint(ptc); 
 			}
@@ -252,6 +255,7 @@ public class TestConstraintsIO extends AbstractTestPlanIORoundTrip {
 		btc.getPointA().setEndpoint(timepointA);
 		btc.getPointB().setEndpoint(timepointB);
 		TransactionUtils.writing(EPlanUtils.getPlan(planElementA), new Runnable() { 
+			@Override
 			public void run() { 
 				gov.nasa.ensemble.core.model.plan.constraints.util.ConstraintUtils.attachConstraint(btc);
 			}

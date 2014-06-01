@@ -88,6 +88,7 @@ public interface ERule extends EObject, INamedDefinition {
 	 * @model
 	 * @generated
 	 */
+	@Override
 	String getName();
 
 	/**

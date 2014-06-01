@@ -56,6 +56,7 @@ public interface EClaimableEffect extends Effect<EClaimableResourceDef> {
 	 * @model annotation="detail hidden='true'"
 	 * @generated
 	 */
+	@Override
 	EClaimableResourceDef getDefinition();
 
 	/**

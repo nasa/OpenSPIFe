@@ -85,6 +85,7 @@ public interface PowerLoad extends NamedCondition {
 	 * @model opposite="powerLoads" transient="false"
 	 * @generated
 	 */
+	@Override
 	Conditions getConditions();
 
 	/**

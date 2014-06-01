@@ -99,8 +99,11 @@ public class CustomTimelineBuilder extends AbstractPlanTimelineBuilder {
 			Label upLabel = new Label(toolbar, SWT.SHADOW_IN);
 			upLabel.setImage(WidgetPlugin.getImageFromRegistry(WidgetPlugin.KEY_IMAGE_PLUS));
 			upLabel.addMouseListener(new MouseListener() {
+				@Override
 				public void mouseDoubleClick(MouseEvent e) 	{/* no action */}
+				@Override
 				public void mouseDown(MouseEvent e) 		{/* no action */}
+				@Override
 				public void mouseUp(MouseEvent e) 			{
 					FeatureValueRow row = PlanTimelineFactory.eINSTANCE.createFeatureValueRow();
 					EditingDomain domain = viewer.getPlanEditorModel().getEditingDomain();

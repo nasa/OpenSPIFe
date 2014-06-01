@@ -71,6 +71,7 @@ public class PlanTimelinePageService extends PlanTimelineService {
 		final TemporalExtent extent = getPlanExtent();
 		final Page page = getTimeline().getPage();
 		TransactionUtils.writing(page, new Runnable() {
+			@Override
 			public void run() {
 				page.setStartTime(extent.getStart());
 				page.setDuration(extent.getDuration());

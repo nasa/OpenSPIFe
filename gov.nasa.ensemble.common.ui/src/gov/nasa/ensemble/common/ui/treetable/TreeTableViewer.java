@@ -343,6 +343,7 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 		if (!newSelection.equals(currentSelection)) {
 			final Tree tree = getTree();
 			WidgetUtils.runInDisplayThread(tree, new Runnable() {
+				@Override
 				public void run() {
 					TreeItem[] array = (TreeItem[])newSelection.toArray(new TreeItem[newSelection.size()]);
 					if (!tree.isDisposed()) {
@@ -541,14 +542,17 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 		super.hookControl(control);
 		final Tree tree = (Tree) control;
 		tree.addMouseMoveListener(new MouseMoveListener() {
+			@Override
 			public void mouseMove(MouseEvent e) {
 				updateTooltip(e);
 			}
 		});
 		tree.addKeyListener(new KeyListener() {
+			@Override
 			public void keyPressed(KeyEvent e) {
 				// ignore
 			}
+			@Override
 			public void keyReleased(KeyEvent e) {
 				if (e.keyCode == SWT.F2) {
 					TreeItem[] selection = getTree().getSelection();
@@ -559,9 +563,11 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 			}
 		});
 		tree.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				handleSelection(e);
 			}
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				handleSelection(e);
 			}
@@ -571,6 +577,7 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 		tree.addListener(SWT.EraseItem, new EraseListener(tree));
 		tree.addListener(SWT.PaintItem, new PaintListener(tree));
 		tree.addDisposeListener(new DisposeListener() {
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				TreeTableViewer.this.configuration.removeConfigurationListener(listener);
 			}
@@ -861,6 +868,7 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 		boolean refresh = needsFilterRefresh(allModifiedFeatures);
 		if (refresh) {
 			update(new Runnable() {
+				@Override
 				public void run() {
 					refresh();
 				}
@@ -898,6 +906,7 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 			this.elementsNeedingUpdates = elementsNeedingUpdates;
 		}
 
+		@Override
 		public void run() {
 			synchronized (elementsBeingUpdated) {
 				elementsBeingUpdated.removeAll(elementsNeedingUpdates);
@@ -1117,6 +1126,7 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 			this.control = control;
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void handleEvent(Event event) {
 			TreeItem treeItem = (TreeItem)event.item;
@@ -1146,6 +1156,7 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 			this.control = control;
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void handleEvent(Event event) {
 			boolean handled = false;
@@ -1193,6 +1204,7 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 			this.control = control;
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void handleEvent(Event event) {
 			TreeItem treeItem = (TreeItem)event.item;
@@ -1233,6 +1245,7 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 			}
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void applyEditorValue() {
 			if (cellEditor.isActivated()) {
@@ -1255,20 +1268,24 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 			}
 		}
 
+		@Override
 		public void cancelEditor() {
 			trace.debug("cancelEditor");
 			releaseCellEditor();
 		}
 
+		@Override
 		public void editorValueChanged(boolean oldValidState, boolean newValidState) {
 			trace.debug("editorValueChanged: " + oldValidState + " -> " + newValidState);
 			changed = true;
 		}
 
+		@Override
 		public void focusGained(FocusEvent e) {
 			// don't care about focus gained
 		}
 
+		@Override
 		public void focusLost(FocusEvent e) {
 			trace.debug("focusLost");
 			applyEditorValue();
@@ -1293,10 +1310,12 @@ public class TreeTableViewer<O, F> extends AbstractTreeViewer {
 
 	private class TreeTableColumnConfigurationListenerImpl implements ITreeTableColumnConfigurationListener<ITreeTableColumn> {
 
+		@Override
 		public void columnResized(ITreeTableColumn treeTableColumn, int width) {
 			/* no op */
 		}
 		
+		@Override
 		public void columnsChanged(List<? extends ITreeTableColumn> oldColumns, List<? extends ITreeTableColumn> newColumns) {
 			refresh(true);
 		}

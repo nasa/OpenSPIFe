@@ -56,6 +56,7 @@ public class TestActivityRequirementEnumConstant extends AbstractResourcePlanAdv
 	public void testCoveragePasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				
@@ -75,6 +76,7 @@ public class TestActivityRequirementEnumConstant extends AbstractResourcePlanAdv
 	public void testCoverageFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				

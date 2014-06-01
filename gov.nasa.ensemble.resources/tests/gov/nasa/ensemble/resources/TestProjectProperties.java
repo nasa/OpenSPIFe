@@ -217,10 +217,12 @@ public class TestProjectProperties {
 		
 		final BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>();
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(new IResourceChangeListener() {
+			@Override
 			public void resourceChanged(IResourceChangeEvent event) {
 				if (event.getDelta() != null) {
 					try {
 						event.getDelta().accept(new IResourceDeltaVisitor() {
+							@Override
 							public boolean visit(IResourceDelta delta) {
 								if (propFile.equals(delta.getResource()))
 									try {
@@ -277,6 +279,7 @@ public class TestProjectProperties {
 		Option<String> lastVal = none();
 		BlockingQueue<ProjectPropertyEvent> queue = new LinkedBlockingQueue<ProjectPropertyEvent>();
 		
+		@Override
 		public void propertyChanged(final ProjectPropertyEvent event) {
 			changed = true;
 			lastVal = event.value;

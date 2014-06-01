@@ -130,6 +130,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPatchTestModel() {
 		return patchTestModelEClass;
 	}
@@ -139,6 +140,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchTestModel_Id() {
 		return (EAttribute)patchTestModelEClass.getEStructuralFeatures().get(0);
 	}
@@ -148,6 +150,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchTestModel_OneAttribute() {
 		return (EAttribute)patchTestModelEClass.getEStructuralFeatures().get(1);
 	}
@@ -157,6 +160,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchTestModel_MultiAttribute() {
 		return (EAttribute)patchTestModelEClass.getEStructuralFeatures().get(2);
 	}
@@ -166,6 +170,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchTestModel_OneNonContainmentReference() {
 		return (EReference)patchTestModelEClass.getEStructuralFeatures().get(3);
 	}
@@ -175,6 +180,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchTestModel_MultiNonContainmentReferences() {
 		return (EReference)patchTestModelEClass.getEStructuralFeatures().get(4);
 	}
@@ -184,6 +190,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchTestModel_OneContainmentReference() {
 		return (EReference)patchTestModelEClass.getEStructuralFeatures().get(5);
 	}
@@ -193,6 +200,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchTestModel_MultiContainmentReference() {
 		return (EReference)patchTestModelEClass.getEStructuralFeatures().get(6);
 	}
@@ -202,6 +210,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSomeTestClass() {
 		return someTestClassEClass;
 	}
@@ -211,6 +220,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSomeTestClass_Attribute() {
 		return (EAttribute)someTestClassEClass.getEStructuralFeatures().get(0);
 	}
@@ -220,6 +230,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSomeTestClassWithID() {
 		return someTestClassWithIDEClass;
 	}
@@ -229,6 +240,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSomeTestClassWithID_Id() {
 		return (EAttribute)someTestClassWithIDEClass.getEStructuralFeatures().get(0);
 	}
@@ -238,6 +250,7 @@ public class PatchTestPackageImpl extends EPackageImpl implements PatchTestPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchTestFactory getPatchTestFactory() {
 		return (PatchTestFactory)getEFactoryInstance();
 	}

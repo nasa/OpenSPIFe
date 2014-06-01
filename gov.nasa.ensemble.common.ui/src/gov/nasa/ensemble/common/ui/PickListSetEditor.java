@@ -93,7 +93,9 @@ public class PickListSetEditor extends FieldEditor {
         
         combo = new Combo(composite, SWT.DROP_DOWN | SWT.READ_ONLY);
         combo.addSelectionListener(new SelectionListener() {
-        	public void widgetDefaultSelected(SelectionEvent e) {widgetSelected(e);}
+        	@Override
+			public void widgetDefaultSelected(SelectionEvent e) {widgetSelected(e);}
+			@Override
 			public void widgetSelected(SelectionEvent e) 		{
 				int selection = combo.getSelectionIndex();
 				String key = combo.getItem(selection);
@@ -115,6 +117,7 @@ public class PickListSetEditor extends FieldEditor {
 					"Configuration title", 
 					"Select new name", "", 
 					new IInputValidator() {
+						@Override
 						public String isValid(String newText) {
 							if (newText == null || newText.length() == 0) {
 								return "Name must be of non-zero length";

@@ -92,6 +92,7 @@ public abstract class GroupingTimelineContentProvider extends PlanTimelineConten
 	
 	public void update() {
 		TransactionUtils.reading(getPlan(), new Runnable() {
+			@Override
 			public void run() {
 				clearCache();
 				for (Object o : getGroupingValues()) {

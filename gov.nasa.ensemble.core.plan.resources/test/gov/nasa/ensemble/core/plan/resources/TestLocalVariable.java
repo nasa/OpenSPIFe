@@ -52,6 +52,7 @@ public class TestLocalVariable extends AbstractResourceTest {
 		assertEquals(10, ADParameterUtils.getParameterObject(activity, "variableParameter"));
 
 		Exception exception = TransactionUtils.writing(activity, new RunnableWithResult.Impl<Exception>() {
+			@Override
 			public void run() {
 				try {
 	                ADParameterUtils.setParameterObject(activity, "baseParameter", 10);

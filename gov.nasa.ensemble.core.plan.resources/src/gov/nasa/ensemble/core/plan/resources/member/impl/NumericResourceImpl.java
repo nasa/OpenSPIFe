@@ -105,6 +105,7 @@ public class NumericResourceImpl extends NamedConditionImpl implements NumericRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public float getFloat() {
 		return float_;
 	}
@@ -114,6 +115,7 @@ public class NumericResourceImpl extends NamedConditionImpl implements NumericRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFloat(float newFloat) {
 		float oldFloat = float_;
 		float_ = newFloat;
@@ -128,6 +130,7 @@ public class NumericResourceImpl extends NamedConditionImpl implements NumericRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetFloat() {
 		float oldFloat = float_;
 		boolean oldFloatESet = (eFlags & FLOAT_ESETFLAG) != 0;
@@ -142,6 +145,7 @@ public class NumericResourceImpl extends NamedConditionImpl implements NumericRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetFloat() {
 		return (eFlags & FLOAT_ESETFLAG) != 0;
 	}
@@ -172,6 +176,7 @@ public class NumericResourceImpl extends NamedConditionImpl implements NumericRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConditions(Conditions newConditions) {
 		if (newConditions != eInternalContainer() || (eContainerFeatureID() != MemberPackage.NUMERIC_RESOURCE__CONDITIONS && newConditions != null)) {
 			if (EcoreUtil.isAncestor(this, newConditions))

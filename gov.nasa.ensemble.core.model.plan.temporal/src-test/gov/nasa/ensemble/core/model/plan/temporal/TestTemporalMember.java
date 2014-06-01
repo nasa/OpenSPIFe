@@ -21,7 +21,6 @@ import gov.nasa.ensemble.core.jscience.util.AmountUtils;
 import gov.nasa.ensemble.core.jscience.util.DateUtils;
 import gov.nasa.ensemble.core.model.plan.EPlanElement;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
-import gov.nasa.ensemble.core.model.plan.util.PlanURIHandler;
 import gov.nasa.ensemble.emf.util.NotificationAdapter;
 
 import java.util.Arrays;

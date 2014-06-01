@@ -37,21 +37,26 @@ public class ChangedConstraintOrProfileImpl implements ChangedConstraintOrProfil
 		this.object = object;
 	}
 	
+	@Override
 	public DiffType getDiffType() {
 		return diffType;
 	}
+	@Override
 	public EObject getObject() {
 		return object;
 	}
 	
+	@Override
 	public OldAndNewCopyOfSameThing getOldAndNew() {
 		return oldAndNew;
 	}
 	
+	@Override
 	public EPlanElement getNewCopyOfOwner() {
 		return oldAndNew.getNewCopy();
 	}
 
+	@Override
 	public EPlanElement getOldCopyOfOwner() {
 		return oldAndNew.getOldCopy();
 	}

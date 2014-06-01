@@ -56,6 +56,7 @@ public class ActivityDefTransferable extends PlanElementTransferable {
 	}
 
 	/** Dispose of each plan element that is itself a plan. */
+	@Override
 	public void dispose() {
 		for (EPlanElement element : elements) {
 			if (element instanceof EPlan) {
@@ -86,6 +87,7 @@ public class ActivityDefTransferable extends PlanElementTransferable {
 	 * Return a reference to the stored list of plan elements.
 	 * @return a reference to the stored list of plan elements.
 	 */
+	@Override
 	public List<? extends EPlanElement> getPlanElements() {
 		return elements;
 	}

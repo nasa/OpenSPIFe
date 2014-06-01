@@ -39,6 +39,7 @@ public class CreateTemporalRelationOperation extends AbstractTransactionUndoable
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(relation.getPointA().getElement(), new Runnable() {
+			@Override
 			public void run() {
 				ConstraintUtils.attachConstraint(relation);
 			}
@@ -48,6 +49,7 @@ public class CreateTemporalRelationOperation extends AbstractTransactionUndoable
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(relation.getPointA().getElement(), new Runnable() {
+			@Override
 			public void run() {
 				ConstraintUtils.detachConstraint(relation);
 			}

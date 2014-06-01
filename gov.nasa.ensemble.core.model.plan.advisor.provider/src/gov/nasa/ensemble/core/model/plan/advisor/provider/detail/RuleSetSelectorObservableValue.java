@@ -42,6 +42,7 @@ public class RuleSetSelectorObservableValue extends AbstractObservableValue {
 		this.planRulesSelector = planRulesSelector;
 		planRulesSelector.addListener(widgetListener);
 		planRulesSelector.getButton().addDisposeListener(new DisposeListener() {
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				dispose();
 			}
@@ -83,11 +84,13 @@ public class RuleSetSelectorObservableValue extends AbstractObservableValue {
 		return names;
 	}
 
+	@Override
 	public Object getValueType() {
 		return List.class;
 	}
 
 	private final class WidgetListener implements IPropertyChangeListener {
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			Object oldValue = event.getOldValue();
 			Object newValue = event.getNewValue();

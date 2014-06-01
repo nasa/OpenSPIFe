@@ -139,6 +139,7 @@ public class PlanProfileTreePage extends ProfileTreePage {
 	 */
 	private void saveProfileResource(final Resource resource) {
 		Runnable runnable = new Runnable() {
+			@Override
 			public void run() {
 				WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 					@Override

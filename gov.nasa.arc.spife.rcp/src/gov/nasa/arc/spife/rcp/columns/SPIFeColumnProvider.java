@@ -37,6 +37,7 @@ import java.util.TimeZone;
 public class SPIFeColumnProvider implements IMergeColumnProvider {
 
 
+	@Override
 	public List<? extends AbstractMergeColumn<?>> getColumns() {
 		List<AbstractMergeColumn<?>> columns = new ArrayList<AbstractMergeColumn<?>>();
 		columns.add(new DurationSecondsColumn(this));
@@ -56,6 +57,7 @@ public class SPIFeColumnProvider implements IMergeColumnProvider {
 		}
 	}
 
+	@Override
 	public String getName() {
 		return "SPIFe";
 	}

@@ -166,6 +166,7 @@ public class MultiLineStyledText extends Composite {
 		
 		// When users make "modifications" update the text field size.
 		stext.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				updateTextSize();
 			}
@@ -177,6 +178,7 @@ public class MultiLineStyledText extends Composite {
 		// is incorect.)
 		stext.addPaintListener(new PaintListener() {
 
+			@Override
 			public void paintControl(PaintEvent e) {
 				// Painted once, update the display with any textual information.
 				if (initialPaint) {

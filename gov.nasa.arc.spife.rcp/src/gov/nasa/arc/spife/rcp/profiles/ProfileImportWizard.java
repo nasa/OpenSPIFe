@@ -100,6 +100,7 @@ public class ProfileImportWizard extends ActivePlanImportWizard {
 		final ProfileImportOperation operation = buildImportOperation();
 		try {
 			getContainer().run(true, true, new IRunnableWithProgress() {
+				@Override
 				public void run(IProgressMonitor monitor) {
 					operation.addContext(TransactionUtils.getUndoContext(getPlan()));
 					// If the selected profile exists, we just want to override

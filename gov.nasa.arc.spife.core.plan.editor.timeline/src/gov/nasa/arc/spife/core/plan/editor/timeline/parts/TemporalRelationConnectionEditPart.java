@@ -87,6 +87,7 @@ public class TemporalRelationConnectionEditPart extends ConstraintConnectionEdit
 		@Override
 		public void notifyChanged(final Notification notification) {
 			GEFUtils.runInDisplayThread(TemporalRelationConnectionEditPart.this, new Runnable() {
+				@Override
 				public void run() {
 					Object f = notification.getFeature();
 					if (PlanPackage.Literals.COMMON_MEMBER__VISIBLE == f) {

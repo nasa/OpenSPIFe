@@ -53,10 +53,14 @@ public class TimelineMarkerEditPart extends TimelineViewerEditPart<TimelineMarke
 	public void addNotify() {
 		getLayer(LAYER_DATA_MARKER_LAYER).setConstraint(getFigure(), toRectangle(getModel().getTemporalExtent()));
 		getLayer(LAYER_DATA_MARKER_LAYER).addAncestorListener(new AncestorListener() {
+			@Override
 			public void ancestorAdded(IFigure ancestor) 	{/* no implementation */}
+			@Override
 			public void ancestorRemoved(IFigure ancestor) 	{/* no implementation */}
+			@Override
 			public void ancestorMoved(IFigure ancestor) 	{
 				GEFUtils.runInDisplayThread(TimelineMarkerEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						IFigure layer = getLayer(LAYER_DATA_MARKER_LAYER);
 						IFigure figure = getFigure();
@@ -141,6 +145,7 @@ public class TimelineMarkerEditPart extends TimelineViewerEditPart<TimelineMarke
 					|| TimelinePackage.Literals.PAGE__START_TIME == f
 					|| TimelinePackage.Literals.PAGE__ZOOM_OPTION == f) {
 				GEFUtils.runInDisplayThread(TimelineMarkerEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						TemporalExtent newExtent = getModel().getTemporalExtent();
 						IFigure layer = getLayer(LAYER_DATA_MARKER_LAYER);
@@ -150,6 +155,7 @@ public class TimelineMarkerEditPart extends TimelineViewerEditPart<TimelineMarke
 			}
 		}
 		
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			propertyChangeInDisplayThread(event);
 		}
@@ -157,6 +163,7 @@ public class TimelineMarkerEditPart extends TimelineViewerEditPart<TimelineMarke
 		public void propertyChangeInDisplayThread(final PropertyChangeEvent event) {
 			GEFUtils.runInDisplayThread(TimelineMarkerEditPart.this, new Runnable() {
 
+				@Override
 				public void run() {
 					String propertyName = event.getPropertyName();
 					IFigure figure = getFigure();

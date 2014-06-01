@@ -43,6 +43,7 @@ public abstract class PlanAction extends Action implements IWorkbenchWindowActio
 	/**
 	 *
 	 */
+	@Override
 	public void run(IAction action)
 	{
 		// cache the action
@@ -70,7 +71,10 @@ public abstract class PlanAction extends Action implements IWorkbenchWindowActio
 	public abstract void runImpl(MultiPagePlanEditor editor, EPlan plan);
 	
 	
+	@Override
 	public void init(IWorkbenchWindow window)                          { this.window = window; }
+	@Override
 	public void dispose()                                              { /* do nothing */ } 
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) { /* do nothing */ }
 }

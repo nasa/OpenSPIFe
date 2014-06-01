@@ -52,6 +52,7 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.LayoutListener;
+import org.eclipse.draw2d.OrderedLayout;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.ToolbarLayout;
@@ -187,7 +188,7 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 			}
 			
 		};
-		layout.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+		layout.setMinorAlignment(OrderedLayout.ALIGN_CENTER);
 		figure.setLayoutManager(layout);
 		String text = getModel().toString();
 		if (labelProvider != null) {
@@ -219,7 +220,7 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 		final int rowHeight = TimelineUtils.getRowElementHeight(TreeTimelineHeaderRowEditPart.this);
 		Figure title = new Figure();
 		ToolbarLayout layout = new ToolbarLayout(true);
-		layout.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+		layout.setMinorAlignment(OrderedLayout.ALIGN_CENTER);
 		title.setLayoutManager(layout);
 		layout.setSpacing(6);
 		
@@ -256,6 +257,7 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 			expansionButton.setForegroundColor(ColorConstants.black);
 			expansionButton.setVisible(cp != null && cp.hasChildren(model));
 			expansionButton.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent event) {
 					toggleExpanded();
 				}
@@ -348,6 +350,7 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 	public void performRequest(final Request req) {
 		if (REQ_ROW_DATA_LAYOUT == req.getType()) {
 			GEFUtils.runInDisplayThread(this, new Runnable() {
+				@Override
 				public void run() {
 					Integer newHeight = (Integer) req.getExtendedData().get("height");
 					if (minFigureHeight != newHeight) {
@@ -361,6 +364,7 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 			final ExpansionModel model = (ExpansionModel) getViewer().getProperty(ExpansionModel.ID);
 			if (model != null) {
 				GEFUtils.runLaterInDisplayThread(this, new Runnable() {
+					@Override
 					public void run() {
 						T model2 = getModel();
 						Set<Object> objects = Collections.<Object>singleton(model2);
@@ -401,9 +405,11 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 	
 	private class Listener extends SafeAdapter implements TreeTimelineContentProvider.Listener, ILabelProviderListener, IPropertyChangeListener, PropertyChangeListener {
 
+		@Override
 		public void labelProviderChanged(LabelProviderChangedEvent event) {
 			if (event.getElement() == getModel()) {
 				GEFUtils.runInDisplayThread(TreeTimelineHeaderRowEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						updateTitleVisual();
 					}
@@ -411,6 +417,7 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 			}
 		}
 		
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			if (TimelinePreferencePage.P_ROW_ELEMENT_HEIGHT.equals(event.getProperty())
 					|| TimelinePreferencePage.P_SCALE_FONT_SIZE.equals(event.getProperty())
@@ -421,6 +428,7 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 			}
 		}
 		
+		@Override
 		public void propertyChange(java.beans.PropertyChangeEvent event) {
 			if (ExpansionModel.EXPANDED.equalsIgnoreCase(event.getPropertyName())) {
 				refreshInDisplayThread();
@@ -443,12 +451,14 @@ public class TreeTimelineHeaderRowEditPart<T> extends TimelineViewerEditPart<T> 
 			}
 		}
 
+		@Override
 		public void contentRefresh(Set<? extends Object> elements) {
 			if (elements.contains(getModel())) {
 				refresh();
 			}
 		}
 		
+		@Override
 		public void labelUpdate(Set<? extends Object> elements) {
 			if (elements.contains(getModel())) {
 				updateTitleVisual();

@@ -43,6 +43,7 @@ public class ResourceUpdaterModelChangeListener extends IModelChangedListener.Im
 		}
 	}
 	
+	@Override
 	public void enqueue(ResourceSetChangeEvent event) {
 		EPlan plan = EPlanUtils.getPlanNotifications(event);
 		if (plan != null) {

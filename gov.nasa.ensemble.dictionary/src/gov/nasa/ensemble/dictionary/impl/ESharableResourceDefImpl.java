@@ -78,6 +78,7 @@ public class ESharableResourceDefImpl extends EExtendedNumericResourceDefImpl im
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Double getCapacity() {
 		return getMaximum();
 	}

@@ -26,7 +26,6 @@ package gov.nasa.ensemble.core.plan.resources.profile.impl;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfilePackage;
 import gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMember;
-import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.util.Collection;
@@ -39,8 +38,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.BasicEObjectImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -106,6 +103,7 @@ public class ResourceProfileMemberImpl extends MinimalEObjectImpl.Container impl
 		});
 	}
 
+	@Override
 	public void dispose() {
 		profileById.clear();
 		resourceProfiles = null;
@@ -126,6 +124,7 @@ public class ResourceProfileMemberImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public EList<Profile<?>> getResourceProfiles() {
 		if (resourceProfiles == null) {
@@ -139,6 +138,7 @@ public class ResourceProfileMemberImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Profile<?> getProfile(String name) {
 		return profileById.get(name);
 	}

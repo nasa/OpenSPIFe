@@ -30,6 +30,7 @@ public final class PlanStructureComparator implements Comparator<EPlanChild> {
 	
 	public static final PlanStructureComparator INSTANCE = new PlanStructureComparator(); 
 	
+	@Override
 	public int compare(EPlanChild element1, EPlanChild element2) {
 		if (element1 == element2) {
 			return 0;

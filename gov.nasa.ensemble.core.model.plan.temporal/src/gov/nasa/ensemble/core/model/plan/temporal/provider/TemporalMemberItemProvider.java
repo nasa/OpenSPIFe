@@ -24,11 +24,9 @@
 package gov.nasa.ensemble.core.model.plan.temporal.provider;
 
 
-import gov.nasa.ensemble.common.extension.ClassRegistry;
 import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.common.type.IStringifier;
 import gov.nasa.ensemble.common.type.StringifierRegistry;
-import gov.nasa.ensemble.core.model.plan.EMember;
 import gov.nasa.ensemble.core.model.plan.EPlanElement;
 import gov.nasa.ensemble.core.model.plan.provider.EMemberItemPropertyDescriptor;
 import gov.nasa.ensemble.core.model.plan.provider.EMemberItemProvider;
@@ -39,7 +37,6 @@ import gov.nasa.ensemble.core.model.plan.temporal.impl.TemporalModifier;
 import gov.nasa.ensemble.core.model.plan.temporal.util.TemporalMemberUtils;
 import gov.nasa.ensemble.core.model.plan.translator.transactions.FeatureTransactionChangeOperation;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
-import gov.nasa.ensemble.core.model.plan.util.PlanElementApprover;
 import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
@@ -474,10 +471,12 @@ public class TemporalMemberItemProvider
 
 				private final IStringifier<Date> stringifier = StringifierRegistry.getStringifier(Date.class);
 
+				@Override
 				public Object getImage(Object object) {
 					return null;
 				}
 
+				@Override
 				public String getText(Object object) {
 					return stringifier.getDisplayString((Date) object);
 				}

@@ -128,6 +128,7 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Patch createPatch() {
 		PatchImpl patch = new PatchImpl();
 		return patch;
@@ -138,6 +139,7 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ObjectChanges createObjectChanges() {
 		ObjectChangesImpl objectChanges = new ObjectChangesImpl();
 		return objectChanges;
@@ -148,6 +150,7 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchFeatureChange createPatchFeatureChange() {
 		PatchFeatureChangeImpl patchFeatureChange = new PatchFeatureChangeImpl();
 		return patchFeatureChange;
@@ -158,6 +161,7 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchListChange createPatchListChange() {
 		PatchListChangeImpl patchListChange = new PatchListChangeImpl();
 		return patchListChange;
@@ -168,6 +172,7 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchResourceChange createPatchResourceChange() {
 		PatchResourceChangeImpl patchResourceChange = new PatchResourceChangeImpl();
 		return patchResourceChange;
@@ -198,6 +203,7 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchPackage getPatchPackage() {
 		return (PatchPackage)getEPackage();
 	}

@@ -206,6 +206,7 @@ public class MarkerPlanAdvisor extends PlanAdvisor implements IResourceChangeLis
 	private void reportNoFix(final MarkerViolation markerViolation) {
 		Display display = WidgetUtils.getDisplay();
 		display.syncExec(new Runnable() {
+			@Override
 			public void run() {
 				MessageDialog.openInformation (
 						WidgetUtils.getShell(),
@@ -220,6 +221,7 @@ public class MarkerPlanAdvisor extends PlanAdvisor implements IResourceChangeLis
 		Display display = WidgetUtils.getDisplay();
 		final int[] returnCode = new int[1];
 		display.syncExec(new Runnable() {
+			@Override
 			public void run() {
 				returnCode[0] = dialog.open();
 			}
@@ -233,6 +235,7 @@ public class MarkerPlanAdvisor extends PlanAdvisor implements IResourceChangeLis
 		}
 	}
 
+	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		if (planAdvisorMember == null) {
 			// if PlanAdvisor.cleanup() has been called

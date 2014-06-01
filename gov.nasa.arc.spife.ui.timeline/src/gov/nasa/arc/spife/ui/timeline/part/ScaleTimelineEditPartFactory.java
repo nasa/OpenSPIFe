@@ -25,6 +25,7 @@ import org.eclipse.gef.EditPartFactory;
 
 public class ScaleTimelineEditPartFactory implements EditPartFactory {
 
+	@Override
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart editPart = null;
 		if (context == null)		 						editPart = new ScaleTimelineEditPart();

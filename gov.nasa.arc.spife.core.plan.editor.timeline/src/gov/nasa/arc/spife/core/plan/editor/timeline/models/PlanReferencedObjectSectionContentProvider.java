@@ -150,6 +150,7 @@ public class PlanReferencedObjectSectionContentProvider extends GroupingTimeline
 	}
 
 	private static final class ComparatorImpl implements Comparator<Object> {
+		@Override
 		public int compare(Object o1, Object o2) {
 			if (o1 == VALUE_LOST && o1 == o2) {
 				return 0;

@@ -29,10 +29,12 @@ public class CpuWindow implements ICpuWindow {
 		this.end = end;
 	}
 	
+	@Override
 	public Date getStartTime() {
 		return start;
 	}
 
+	@Override
 	public Date getEndTime() {
 		return end;
 	}

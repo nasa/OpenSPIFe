@@ -25,6 +25,7 @@ public interface ChartProvider {
 	
 	public static abstract class STUB implements ChartProvider {
 
+		@Override
 		public Chart createChart(Object object) {
 			return null;
 		}

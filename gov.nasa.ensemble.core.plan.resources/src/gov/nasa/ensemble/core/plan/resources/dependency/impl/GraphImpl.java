@@ -88,6 +88,7 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<Dependency> getDependencies() {
 		if (dependencies == null) {
 			dependencies = new EObjectContainmentEList<Dependency>(Dependency.class, this, DependencyPackage.GRAPH__DEPENDENCIES);
@@ -210,6 +211,7 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 		return buf.toString();		
 	}
 	
+	@Override
 	public String toXML()
 	{
 		StringBuffer buf = new StringBuffer();

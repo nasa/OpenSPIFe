@@ -43,6 +43,7 @@ public class CocoaCompatibleTextCellEditor extends TextCellEditor {
 				ReflectionUtils.invoke(this, "checkSelectable");
 				Display display = text.getDisplay();
 				display.timerExec(700, new Runnable() {
+					@Override
 					public void run() {
 						timerExec(string);
 					}

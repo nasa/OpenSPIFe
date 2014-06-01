@@ -35,6 +35,7 @@ public class PlanRulePrintNameCellLabelProvider extends CellLabelProvider implem
 		cell.setText(text);
 	}
 
+	@Override
 	public int compare(ERule o1, ERule o2) {
 		String value1 = o1.getPrintName();
 		String value2 = o2.getPrintName();

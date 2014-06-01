@@ -123,7 +123,7 @@ public class UniqueMultiSelectSetOperation extends AbstractTransactionUndoableOp
 			}
 		}
 		if (!compoundCommand.isEmpty()) {
-			TransactionUtils.writing(domain, new Runnable() {
+			gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(domain, new Runnable() {
 				@Override
 				public void run() {
 					compoundCommand.execute();
@@ -140,7 +140,7 @@ public class UniqueMultiSelectSetOperation extends AbstractTransactionUndoableOp
 	@Override
 	protected void undo() throws Throwable {
 		if (compoundCommand != null && !compoundCommand.isEmpty()) {
-			TransactionUtils.writing(domain, new Runnable() {
+			gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(domain, new Runnable() {
 				@Override
 				public void run() {
 					compoundCommand.undo();

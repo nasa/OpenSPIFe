@@ -25,7 +25,6 @@ package gov.nasa.ensemble.dictionary.provider;
 
 import gov.nasa.ensemble.dictionary.DictionaryPackage;
 
-import gov.nasa.ensemble.dictionary.EStateResourceEffect;
 import java.util.Collection;
 import java.util.List;
 

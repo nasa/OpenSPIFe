@@ -81,6 +81,7 @@ public abstract class SimpleDetail extends Detail {
 	 * -----------------------
 	 * 
 	 */
+	@Override
 	public Composite createValueEditorComposite(Composite parent) {
 	    try {
 	    	label = createLabel(parent);

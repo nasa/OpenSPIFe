@@ -32,6 +32,7 @@ import org.junit.Assert;
 
 public class BasicConsistencyPropertyTester implements IConsistencyPropertyTester {
 
+	@Override
 	public void test(EPlanElement element) {
 		TemporalMember member = element.getMember(TemporalMember.class);
 		Date startTime = member.getStartTime();

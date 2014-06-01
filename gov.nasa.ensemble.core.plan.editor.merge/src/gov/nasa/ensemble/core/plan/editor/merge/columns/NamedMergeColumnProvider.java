@@ -34,10 +34,12 @@ public class NamedMergeColumnProvider implements IMergeColumnProvider {
 		this.name = name;
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
 
+	@Override
 	public List<? extends AbstractMergeColumn<?>> getColumns() {
 		return Collections.emptyList();
 	}

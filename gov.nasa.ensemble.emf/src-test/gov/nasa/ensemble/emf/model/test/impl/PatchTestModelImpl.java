@@ -176,6 +176,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -185,6 +186,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -197,6 +199,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getOneAttribute() {
 		return oneAttribute;
 	}
@@ -206,6 +209,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOneAttribute(String newOneAttribute) {
 		String oldOneAttribute = oneAttribute;
 		oneAttribute = newOneAttribute;
@@ -218,6 +222,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Integer> getMultiAttribute() {
 		if (multiAttribute == null) {
 			multiAttribute = new EDataTypeUniqueEList<Integer>(Integer.class, this, PatchTestPackage.PATCH_TEST_MODEL__MULTI_ATTRIBUTE);
@@ -230,6 +235,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SomeTestClass getOneNonContainmentReference() {
 		if (oneNonContainmentReference != null && oneNonContainmentReference.eIsProxy()) {
 			InternalEObject oldOneNonContainmentReference = (InternalEObject)oneNonContainmentReference;
@@ -256,6 +262,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOneNonContainmentReference(SomeTestClass newOneNonContainmentReference) {
 		SomeTestClass oldOneNonContainmentReference = oneNonContainmentReference;
 		oneNonContainmentReference = newOneNonContainmentReference;
@@ -268,6 +275,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SomeTestClass> getMultiNonContainmentReferences() {
 		if (multiNonContainmentReferences == null) {
 			multiNonContainmentReferences = new EObjectResolvingEList<SomeTestClass>(SomeTestClass.class, this, PatchTestPackage.PATCH_TEST_MODEL__MULTI_NON_CONTAINMENT_REFERENCES);
@@ -280,6 +288,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SomeTestClass getOneContainmentReference() {
 		return oneContainmentReference;
 	}
@@ -304,6 +313,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOneContainmentReference(SomeTestClass newOneContainmentReference) {
 		if (newOneContainmentReference != oneContainmentReference) {
 			NotificationChain msgs = null;
@@ -323,6 +333,7 @@ public class PatchTestModelImpl extends EObjectImpl implements PatchTestModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SomeTestClass> getMultiContainmentReference() {
 		if (multiContainmentReference == null) {
 			multiContainmentReference = new EObjectContainmentEList<SomeTestClass>(SomeTestClass.class, this, PatchTestPackage.PATCH_TEST_MODEL__MULTI_CONTAINMENT_REFERENCE);

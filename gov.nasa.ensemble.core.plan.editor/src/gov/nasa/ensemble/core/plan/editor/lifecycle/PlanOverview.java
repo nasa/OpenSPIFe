@@ -100,6 +100,7 @@ public class PlanOverview implements ICompositeListLabel, PropertyChangeListener
 		}
 	}
 	
+	@Override
 	public Composite getComposite() {
 		return composite;
 	}
@@ -123,6 +124,7 @@ public class PlanOverview implements ICompositeListLabel, PropertyChangeListener
 		iconRow.setLayoutData(new GridData(-1, imageData.height + 2));
 		final Set<String> categories = getCategorySet();
 		WidgetUtils.runInDisplayThread(composite, new Runnable() {
+			@Override
 			public void run() {
 				for (String category : categories) {
 					if (category != null) {
@@ -154,6 +156,7 @@ public class PlanOverview implements ICompositeListLabel, PropertyChangeListener
 		notesLabel = new Label(composite, SWT.NO_FOCUS);
 		final String notes = getNotes();
 		WidgetUtils.runInDisplayThread(composite, new Runnable() {
+			@Override
 			public void run() {
 				setNotesText(notes);
 			}
@@ -178,7 +181,8 @@ public class PlanOverview implements ICompositeListLabel, PropertyChangeListener
 			canvas.setLayoutData(new RowData(imageData.width, imageData.height));
 			canvas.setBackground(iconRow.getBackground());
 		    canvas.addPaintListener(new PaintListener() {
-		        public void paintControl(PaintEvent e) {
+		        @Override
+				public void paintControl(PaintEvent e) {
 		        	e.gc.drawImage(image,0,0);
 		        }
 		    });
@@ -197,6 +201,7 @@ public class PlanOverview implements ICompositeListLabel, PropertyChangeListener
 		final String group = getGroup();
 		final String lastModified = getLastModified();
 		WidgetUtils.runInDisplayThread(composite, new Runnable() {
+			@Override
 			public void run() {
 				setPlanSummaryText(
 						activityCount,
@@ -218,6 +223,7 @@ public class PlanOverview implements ICompositeListLabel, PropertyChangeListener
 		final String group = getGroup();
 		final String lastModified = getLastModified();
 		WidgetUtils.runInDisplayThread(composite, new Runnable() {
+			@Override
 			public void run() {
 				setPlanSummaryText(
 						activityCount,
@@ -337,6 +343,7 @@ public class PlanOverview implements ICompositeListLabel, PropertyChangeListener
 		composite.layout(true, true);
 	}
 
+	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		String name = evt.getPropertyName();
 		if (EditorPlugin.ATTRIBUTE_NOTES.equals(name)) {

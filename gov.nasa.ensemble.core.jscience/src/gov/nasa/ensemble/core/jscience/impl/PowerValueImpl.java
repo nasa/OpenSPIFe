@@ -148,6 +148,7 @@ public class PowerValueImpl extends MinimalEObjectImpl.Container implements Powe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getStateName() {
 		return stateName;
 	}
@@ -157,6 +158,7 @@ public class PowerValueImpl extends MinimalEObjectImpl.Container implements Powe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStateName(String newStateName) {
 		String oldStateName = stateName;
 		stateName = newStateName;
@@ -169,6 +171,7 @@ public class PowerValueImpl extends MinimalEObjectImpl.Container implements Powe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnumLiteral getStateValue() {
 		if (stateValue != null && stateValue.eIsProxy()) {
 			InternalEObject oldStateValue = (InternalEObject)stateValue;
@@ -195,6 +198,7 @@ public class PowerValueImpl extends MinimalEObjectImpl.Container implements Powe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStateValue(EEnumLiteral newStateValue) {
 		EEnumLiteral oldStateValue = stateValue;
 		stateValue = newStateValue;
@@ -207,6 +211,7 @@ public class PowerValueImpl extends MinimalEObjectImpl.Container implements Powe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getDutyFactor() {
 		return dutyFactor;
 	}
@@ -216,6 +221,7 @@ public class PowerValueImpl extends MinimalEObjectImpl.Container implements Powe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDutyFactor(double newDutyFactor) {
 		double oldDutyFactor = dutyFactor;
 		dutyFactor = newDutyFactor;
@@ -228,6 +234,7 @@ public class PowerValueImpl extends MinimalEObjectImpl.Container implements Powe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getActualWattage() {
 		return actualWattage;
 	}
@@ -237,6 +244,7 @@ public class PowerValueImpl extends MinimalEObjectImpl.Container implements Powe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setActualWattage(double newActualWattage) {
 		double oldActualWattage = actualWattage;
 		actualWattage = newActualWattage;

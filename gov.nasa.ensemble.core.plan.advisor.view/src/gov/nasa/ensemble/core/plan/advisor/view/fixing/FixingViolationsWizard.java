@@ -186,6 +186,7 @@ public class FixingViolationsWizard extends Wizard {
 	 */
 	
 	private final class ChangingListener implements IPageChangingListener {
+		@Override
 		public void handlePageChanging(PageChangingEvent event) {
 			if (event.getTargetPage() == fixesPage) {
 				if (!runFixViolations()) {
@@ -201,12 +202,14 @@ public class FixingViolationsWizard extends Wizard {
 		public ChangedListener(WizardDialog wizardDialog) {
 			this.wizardDialog = wizardDialog;
 		}
+		@Override
 		public void pageChanged(org.eclipse.jface.dialogs.PageChangedEvent event) {
 			Shell shell = wizardDialog.getShell();
 			shell.setText("Fixing violations");
 			if (PlanAdvisorPreferences.isAutomaticallyStartFixing() && !alreadyTried) {
 				alreadyTried = true;
 				WidgetUtils.runLaterInDisplayThread(shell, new Runnable() {
+					@Override
 					public void run() {
 						if (runFixViolations()) {
 							wizardDialog.showPage(fixesPage);

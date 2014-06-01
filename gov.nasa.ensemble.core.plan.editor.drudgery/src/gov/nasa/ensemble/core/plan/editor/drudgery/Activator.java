@@ -68,6 +68,7 @@ public class Activator extends AbstractUIPlugin implements IStartup {
 		return plugin;
 	}
 
+	@Override
 	public void earlyStartup() {
 		//do nothing
 	}

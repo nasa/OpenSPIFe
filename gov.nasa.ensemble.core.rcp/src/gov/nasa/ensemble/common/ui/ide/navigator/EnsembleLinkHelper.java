@@ -43,6 +43,7 @@ public class EnsembleLinkHelper implements ILinkHelper {
 	
 	public static IWorkbenchPage lastPage = null;
 	
+	@Override
 	public void activateEditor(IWorkbenchPage aPage,
 			IStructuredSelection aSelection) {
 		Iterator iterator = aSelection.iterator();
@@ -127,6 +128,7 @@ public class EnsembleLinkHelper implements ILinkHelper {
 		return result;
 	}
 	
+	@Override
 	public IStructuredSelection findSelection(IEditorInput input) {
 		Object result = null;
 		if(input instanceof IFileEditorInput) {

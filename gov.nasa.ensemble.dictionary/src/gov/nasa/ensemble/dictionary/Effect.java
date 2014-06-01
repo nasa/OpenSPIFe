@@ -82,6 +82,7 @@ public interface Effect<T extends EResourceDef> extends EObject, INamedDefinitio
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
+	@Override
 	String getName();
 
 	/**

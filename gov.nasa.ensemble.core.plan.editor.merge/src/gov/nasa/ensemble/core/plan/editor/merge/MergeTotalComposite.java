@@ -80,12 +80,14 @@ public class MergeTotalComposite extends EnsembleComposite {
 		table.setLinesVisible(true);
 		table.setHeaderVisible(false);
 		table.addMouseMoveListener(new MouseMoveListener() {
+			@Override
 			public void mouseMove(MouseEvent e) {
 				updateTooltip(e);
 			}
 		});
 		configuration.addConfigurationListener(configurationListener);
 		addDisposeListener(new DisposeListener() {
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				getConfiguration().removeConfigurationListener(configurationListener);
 			}
@@ -188,6 +190,7 @@ public class MergeTotalComposite extends EnsembleComposite {
 			lastElement = element;
 			rowsBeingUpdated.add(row);
 			WidgetUtils.runLaterInDisplayThread(row, new Runnable() {
+				@Override
 				public void run() {
 					rowsBeingUpdated.remove(row);
 					updateDisplayedRow(element, row);
@@ -269,6 +272,7 @@ public class MergeTotalComposite extends EnsembleComposite {
 
 	private class ColumnConfigurationListener implements ITreeTableColumnConfigurationListener<AbstractMergeColumn> {
 
+		@Override
 		public void columnsChanged(List<? extends AbstractMergeColumn> oldColumns, List<? extends AbstractMergeColumn> newColumns) {
 			for (ITreeTableColumn column : oldColumns) {
 				if (!newColumns.contains(column)) {
@@ -285,6 +289,7 @@ public class MergeTotalComposite extends EnsembleComposite {
 			table.setColumnOrder(order);
 		}
 
+		@Override
 		public void columnResized(AbstractMergeColumn mergeColumn, int width) {
 			TableColumn tableColumn = mergeColumnToTableColumn.get(mergeColumn);
 			if (tableColumn != null) {

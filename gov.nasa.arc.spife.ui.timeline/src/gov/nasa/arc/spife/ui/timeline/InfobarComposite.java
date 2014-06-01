@@ -254,6 +254,7 @@ public class InfobarComposite extends Composite implements IPropertyChangeListen
 		label.redraw();
 	}
 
+	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		if (TimelinePreferencePage.P_INFO_FONT_SIZE.equals(event.getProperty())) {
 			updateFont();

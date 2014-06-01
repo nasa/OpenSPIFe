@@ -203,6 +203,7 @@ public class TestParameterChangeOperation extends UndoableOperationTestCase {
 		final EPlan plan = PLAN_FACTORY.createPlanInstance("TestParameterChangeOperation");
 		final ResourceSet set = TransactionUtils.createTransactionResourceSet(false);
 		EActivity act = TransactionUtils.writing(set, new RunnableWithResult.Impl<EActivity>() {
+			@Override
 			public void run() {
 				set.getResources().add(plan.eResource());
 				EActivityGroup group = PLAN_FACTORY.createActivityGroup(plan);
@@ -222,12 +223,14 @@ public class TestParameterChangeOperation extends UndoableOperationTestCase {
 	        throw new RuntimeException(e);
         }
         TransactionUtils.writing(data, new Runnable() {
-        	public void run() {
+        	@Override
+			public void run() {
         		data.eSet(feature, oldObject);
         	}
         });
 		IUndoableOperation operation = new FeatureTransactionChangeOperation("testChange", data, feature, oldObject, newObject);
 		testUndoableOperation(plan, operation, new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(newObject, data.eGet(feature));
 			}
@@ -249,6 +252,7 @@ public class TestParameterChangeOperation extends UndoableOperationTestCase {
 		final EPlan plan = PLAN_FACTORY.createPlanInstance("TestParameterChangeOperation");
 		final ResourceSet set = TransactionUtils.createTransactionResourceSet(false);
 		EActivity act = TransactionUtils.writing(set, new RunnableWithResult.Impl<EActivity>() {
+			@Override
 			public void run() {
 				set.getResources().add(plan.eResource());
 				EActivityGroup group = PLAN_FACTORY.createActivityGroup(plan);
@@ -270,7 +274,8 @@ public class TestParameterChangeOperation extends UndoableOperationTestCase {
 	        throw new RuntimeException(e);
         }
         TransactionUtils.writing(data, new Runnable() {
-        	public void run() {
+        	@Override
+			public void run() {
         		data.eSet(feature, object);
         	}
         });

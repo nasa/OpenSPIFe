@@ -177,6 +177,7 @@ public class PlanSearchResultPage extends AbstractTextSearchViewPage {
 		
 		// set listeners
 		viewer.addSelectionChangedListener(new ISelectionChangedListener(){
+			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				IStructuredSelection realSelect = (IStructuredSelection) event.getSelection();
 				if (realSelect == null || realSelect.size() == 0){
@@ -248,26 +249,32 @@ public class PlanSearchResultPage extends AbstractTextSearchViewPage {
 	private IStyledLabelProvider getStyledLabelProvider() {
 		return new IStyledLabelProvider() {
 
+			@Override
 			public Image getImage(Object element) {
 				return PlanUtils.getIcon((EPlanElement)element);
 			}
 
+			@Override
 			public StyledString getStyledText(Object element) {
 				return new StyledString(element.toString(), StyledString.DECORATIONS_STYLER);
 			}
 
+			@Override
 			public void addListener(ILabelProviderListener listener) {
 				// do nothing
 			}
 
+			@Override
 			public void dispose() {
 				// do nothing
 			}
 
+			@Override
 			public boolean isLabelProperty(Object element, String property) {
 				return false;
 			}
 
+			@Override
 			public void removeListener(ILabelProviderListener listener) {
 				// do nothing
 			}
@@ -284,10 +291,12 @@ public class PlanSearchResultPage extends AbstractTextSearchViewPage {
 	private ILabelDecorator getLabelDecorator() {
 		return new ILabelDecorator() {
 
+			@Override
 			public Image decorateImage(Image image, Object element) {
 				return null;
 			}
 
+			@Override
 			public String decorateText(String text, Object element) {
 				if (element instanceof EPlanElement) {
 					IStringifier<Date> DATE_STRINGIFIER = StringifierRegistry.getStringifier(Date.class);
@@ -302,18 +311,22 @@ public class PlanSearchResultPage extends AbstractTextSearchViewPage {
 				return element.toString();
 			}
 
+			@Override
 			public void addListener(ILabelProviderListener listener) {
 				// do nothing
 			}
 
+			@Override
 			public void dispose() {
 				// do nothing
 			}
 
+			@Override
 			public boolean isLabelProperty(Object element, String property) {
 				return false;
 			}
 
+			@Override
 			public void removeListener(ILabelProviderListener listener) {
 				// do nothing
 			}

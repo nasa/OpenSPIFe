@@ -95,6 +95,7 @@ public abstract class AbstractPlanSectionImpl extends GanttSectionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isShowUnreferecedRow() {
 		return (eFlags & SHOW_UNREFERECED_ROW_EFLAG) != 0;
 	}
@@ -104,6 +105,7 @@ public abstract class AbstractPlanSectionImpl extends GanttSectionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setShowUnreferecedRow(boolean newShowUnreferecedRow) {
 		boolean oldShowUnreferecedRow = (eFlags & SHOW_UNREFERECED_ROW_EFLAG) != 0;
 		if (newShowUnreferecedRow) eFlags |= SHOW_UNREFERECED_ROW_EFLAG; else eFlags &= ~SHOW_UNREFERECED_ROW_EFLAG;

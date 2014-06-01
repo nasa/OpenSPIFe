@@ -77,7 +77,8 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 		super((ScalableFigure) null, null);
 		this.page = page;
 		if (page.getZoomOptions().isEmpty()) {
-			TransactionUtils.writing(page, new Runnable() {
+			gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(page, new Runnable() {
+				@Override
 				public void run() {
 					page.getZoomOptions().addAll(getDefaultZoomOptions());
 					if (page.getZoomOption() == null) {
@@ -94,7 +95,8 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 					zoomLevel = 0;
 				}
 			}
-			TransactionUtils.writing(page, new Runnable() {
+			gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(page, new Runnable() {
+				@Override
 				public void run() {
 					page.setZoomOption(page.getZoomOptions().get(zoomLevel));
 				}

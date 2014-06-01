@@ -72,6 +72,7 @@ public class NewSpifeProjectResourceWizard extends EnsembleBasicNewProjectResour
 		createFolderStructure();
 		Display display = getShell().getDisplay();
 		display.syncExec(new Runnable() {
+			@Override
 			public void run() {				
 				createEmptyPlans();
 			}
@@ -112,6 +113,7 @@ public class NewSpifeProjectResourceWizard extends EnsembleBasicNewProjectResour
 		try {
 			ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
 
+				@Override
 				public void run(IProgressMonitor monitor) throws CoreException {
 					resourcesFolder.create(force, local, monitor);
 					conditionsFolder.create(force, local, monitor);

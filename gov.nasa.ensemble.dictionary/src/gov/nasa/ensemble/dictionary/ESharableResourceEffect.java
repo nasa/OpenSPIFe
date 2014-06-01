@@ -82,6 +82,7 @@ public interface ESharableResourceEffect extends Effect<ESharableResourceDef> {
 	 * @model
 	 * @generated
 	 */
+	@Override
 	ESharableResourceDef getDefinition();
 
 	/**

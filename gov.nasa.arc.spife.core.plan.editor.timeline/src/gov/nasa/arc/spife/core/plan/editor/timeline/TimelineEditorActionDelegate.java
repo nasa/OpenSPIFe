@@ -34,11 +34,13 @@ public abstract class TimelineEditorActionDelegate implements IEditorActionDeleg
 	private IAction action = null;
 	
 	private IPropertyListener listener = new IPropertyListener() {
+		@Override
 		public void propertyChanged(Object source, int propId) {
 			action.setEnabled(currentEditor.getCurrentEditor() instanceof TimelineEditorPart);
 		}
 	};
 	
+	@Override
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
 		if (!(targetEditor instanceof MultiPagePlanEditor)) {
 			action.setEnabled(false);

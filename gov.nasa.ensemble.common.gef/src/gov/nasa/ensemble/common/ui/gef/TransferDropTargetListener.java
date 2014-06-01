@@ -122,6 +122,7 @@ public class TransferDropTargetListener extends AbstractTransferDropTargetListen
 				EditPartViewer viewer = getViewer();
 				final CommandStack commandStack = viewer.getEditDomain().getCommandStack();
 				WidgetUtils.runLaterInDisplayThread(viewer.getControl(), new Runnable() {
+					@Override
 					public void run() {
 						commandStack.execute(command);
 					}

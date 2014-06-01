@@ -29,6 +29,7 @@ import org.jscience.mathematics.function.Interpolator;
 import org.jscience.physics.amount.Amount;
 
 public class Linear<F extends Quantity> implements Interpolator<Date, Amount<F>> {
+	@Override
 	public Amount<F> interpolate(Date point, SortedMap<Date, Amount<F>> pointValues) {
 		// Searches exact.
 		Amount<F> y = pointValues.get(point);

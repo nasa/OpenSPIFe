@@ -74,18 +74,22 @@ public class OneOfEachAction extends Action implements IWorkbenchWindowActionDel
 	protected IWorkbenchWindow window;
 	private ActionHandler proxy;
 	
+	@Override
 	public void dispose() {
 		window = null;
 	}
 
+	@Override
 	public void init(IWorkbenchWindow window) {
 		this.window = window;
 	}
 
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// do nothing
 	}
 
+	@Override
 	public void run(IAction arg0) {
 		run();
 	}
@@ -152,6 +156,7 @@ public class OneOfEachAction extends Action implements IWorkbenchWindowActionDel
 
 	private static Set<EActivityDef> activityDefs() {
 		Comparator<EActivityDef> c = new Comparator<EActivityDef>() {
+			@Override
 			public int compare(EActivityDef o1, EActivityDef o2) {
 				String s1 = o1.getCategory();
 				String s2 = o2.getCategory();
@@ -215,15 +220,18 @@ public class OneOfEachAction extends Action implements IWorkbenchWindowActionDel
 		return proxy;
 	}
 	
+	@Override
 	public void addHandlerListener(IHandlerListener handlerListener) {
 		getProxy().addHandlerListener(handlerListener);
 	}
 
+	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		getProxy().execute(event);
 		return null;
 	}
 
+	@Override
 	public void removeHandlerListener(IHandlerListener handlerListener) {
 		getProxy().removeHandlerListener(handlerListener);
 	}	

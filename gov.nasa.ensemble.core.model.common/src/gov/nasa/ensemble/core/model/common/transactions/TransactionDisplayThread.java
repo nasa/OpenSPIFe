@@ -95,14 +95,15 @@ public class TransactionDisplayThread extends Thread {
 		}
 		Runnable runnable = pair.getRight();
 		if (reading) {
-			TransactionUtils.reading(domain, displayRunnable(control, runnable));
+			gov.nasa.ensemble.emf.transaction.TransactionUtils.reading(domain, displayRunnable(control, runnable));
 		} else {
-			TransactionUtils.writing(domain, displayRunnable(control, runnable));
+			gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(domain, displayRunnable(control, runnable));
 		}
 	}
 
 	private Runnable displayRunnable(final Control control, final Runnable runnable) {
 		return new Runnable() {
+			@Override
 			public void run() {
 				if (control.isDisposed()) {
 					return;
@@ -113,6 +114,7 @@ public class TransactionDisplayThread extends Thread {
 				}
 				final RunnableWithResult<?> privilegedRunnable = domain.createPrivilegedRunnable(runnable);
 				display.syncExec(new Runnable() {
+					@Override
 					public void run() {
 						if (!control.isDisposed()) {
 							privilegedRunnable.run();

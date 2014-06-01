@@ -28,6 +28,7 @@ public class HibernateMemberFactory implements IPlanElementMemberFactory {
 
 	public static final String KEY = "gov.nasa.ensemble.core.model.plan.hibernate";
 
+	@Override
 	public EMember createMember(EClass eClass) {
 		if (eClass == PlanPackage.Literals.EPLAN) {
 			return HibernateFactory.eINSTANCE.createHibernateMember();
@@ -35,10 +36,12 @@ public class HibernateMemberFactory implements IPlanElementMemberFactory {
 		return null;
 	}
 
+	@Override
 	public String getKey() {
 		return KEY;
 	}
 	
+	@Override
 	public int getSortKey() {
 		return UNSORTED;
 	}

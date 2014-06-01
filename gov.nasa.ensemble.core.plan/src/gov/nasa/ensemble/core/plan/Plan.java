@@ -74,6 +74,7 @@ public class Plan implements Externalizable, IAdaptable, HPlanElement {
 		WrapperUtils.initHibernateMember(this, ePlan);
 	}
 	
+	@Override
 	public Object getAdapter(Class type) {
 		Object eAdapter = ePlan.getAdapter(type);
 		if (eAdapter != null) {
@@ -188,6 +189,7 @@ public class Plan implements Externalizable, IAdaptable, HPlanElement {
 	/**
 	 * Writes this to an externalized object.
 	 */
+	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		WrapperUtils.writeExternal(out, ePlan);
 	}
@@ -195,6 +197,7 @@ public class Plan implements Externalizable, IAdaptable, HPlanElement {
 	/**
 	 * @throws ClassNotFoundException  
 	 */
+	@Override
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 		EObject eObject = WrapperUtils.readExternal(in);
 		if (eObject instanceof EPlan) {

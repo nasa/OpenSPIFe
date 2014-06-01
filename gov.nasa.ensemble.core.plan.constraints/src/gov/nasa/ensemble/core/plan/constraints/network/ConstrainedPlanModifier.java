@@ -53,10 +53,12 @@ public abstract class ConstrainedPlanModifier implements IPlanModifier {
 		return plan;
 	}
 
+	@Override
 	public void initialize(EPlan plan) {
 		this.plan = plan;
 	}
 	
+	@Override
 	public Map<EPlanElement, TemporalExtent> setStart(EPlanElement element, Date start, TemporalExtentsCache initialState) {
 		Amount<Duration> duration = initialState.getDuration(element);
 		IPlanConstraintInfo info = getPlanConstraintInfo();
@@ -74,6 +76,7 @@ public abstract class ConstrainedPlanModifier implements IPlanModifier {
 		return changedTimes;
 	}
 	
+	@Override
 	public Map<EPlanElement, TemporalExtent> setEnd(EPlanElement element, Date end, TemporalExtentsCache initialState) {
 		Amount<Duration> duration = initialState.getDuration(element);
 		IPlanConstraintInfo info = getPlanConstraintInfo();
@@ -91,6 +94,7 @@ public abstract class ConstrainedPlanModifier implements IPlanModifier {
 		return changedTimes;
 	}
 	
+	@Override
 	public Map<EPlanElement, TemporalExtent> shiftElement(EPlanElement element, Amount<Duration> delta, TemporalExtentsCache initialExtents) {
 		Map<EPlanElement, TemporalExtent> changedTimes = new LinkedHashMap<EPlanElement, TemporalExtent>();
 		moveRelative(element, delta, initialExtents, changedTimes);
@@ -98,6 +102,7 @@ public abstract class ConstrainedPlanModifier implements IPlanModifier {
 		return changedTimes;
 	}
 	
+	@Override
 	public Map<EPlanElement, TemporalExtent> moveToStart(EPlanElement element, Date start, TemporalExtentsCache initialExtents) {
 		if (start == null) {
 			return Collections.singletonMap(element, null);
@@ -138,6 +143,7 @@ public abstract class ConstrainedPlanModifier implements IPlanModifier {
 		affectElements(element, newStart, newEnd, properties, initialExtents, changedTimes);
 	}
 
+	@Override
 	public Map<EPlanElement, TemporalExtent> moveToEnd(EPlanElement element, Date end, TemporalExtentsCache initialExtents) {
 		if (end == null) {
 			return Collections.singletonMap(element, null);
@@ -360,6 +366,7 @@ public abstract class ConstrainedPlanModifier implements IPlanModifier {
 	 * Compute the expected extent of the element, which should be as close to duration as possible.
 	 * This will affect the start or end and may affect both.
 	 */
+	@Override
 	public Map<EPlanElement, TemporalExtent> setDuration(EPlanElement element, Amount<Duration> duration, TemporalExtentsCache initialState, boolean fromStart) {
 		IPlanConstraintInfo info = getPlanConstraintInfo();
 		ConsistencyProperties properties = info.getConstraintProperties(element);

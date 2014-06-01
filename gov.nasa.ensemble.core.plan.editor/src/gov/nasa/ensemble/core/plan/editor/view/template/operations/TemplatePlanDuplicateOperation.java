@@ -61,6 +61,7 @@ public class TemplatePlanDuplicateOperation extends TemplatePlanOperation {
 			final EPlanElement copy = TemplatePlanUtils.getCopy(element, false);
 			final Object currentName = copy.eGet(PlanPackage.Literals.EPLAN_ELEMENT__NAME);				
 			TransactionUtils.writing(getTemplatePlan(), new Runnable() {
+				@Override
 				public void run() {
 					copy.eSet(PlanPackage.Literals.EPLAN_ELEMENT__NAME, "copy of " + currentName);
 					CommonMember commonMember = copy.getMember(CommonMember.class);

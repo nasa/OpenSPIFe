@@ -25,6 +25,7 @@ public class DurationParameterSerializer implements IParameterSerializer<Number>
 
 	private final Logger trace = Logger.getLogger(getClass());
 	
+	@Override
 	public String getHibernateString(Number javaObject) {
 		if (javaObject == null) {
 			return null;
@@ -34,6 +35,7 @@ public class DurationParameterSerializer implements IParameterSerializer<Number>
 		return DurationFormat.getHHMMSSDuration(duration);
 	}
 	
+	@Override
 	public Number getJavaObject(String hibernateString) {
 		if (hibernateString == null) {
 			return null;

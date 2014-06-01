@@ -32,6 +32,7 @@ import org.eclipse.gef.EditPartFactory;
 
 public class EMFTimelineEditPartFactory implements EditPartFactory {
 
+	@Override
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart ep = null;
 		if (context == null) {

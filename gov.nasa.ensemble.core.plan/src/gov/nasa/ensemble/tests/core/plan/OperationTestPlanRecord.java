@@ -60,6 +60,7 @@ public class OperationTestPlanRecord {
 	public OperationTestPlanRecord() {
 		final ResourceSet set = TransactionUtils.createTransactionResourceSet(false);
 		TransactionUtils.writing(set, new Runnable() {
+			@Override
 			public void run() {
 				set.getResources().add(plan.eResource());
 				plan.setName("OperationTestPlan");

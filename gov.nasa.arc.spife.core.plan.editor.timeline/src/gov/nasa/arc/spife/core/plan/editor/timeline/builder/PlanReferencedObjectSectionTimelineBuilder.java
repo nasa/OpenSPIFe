@@ -81,6 +81,7 @@ public class PlanReferencedObjectSectionTimelineBuilder extends AbstractPlanTime
 	
 	public static class Factory implements ClassRegistryFactory<TimelineBuilder> {
 
+		@Override
 		public List<TimelineBuilder> createInstances() {
 			List<TimelineBuilder> builders = new ArrayList<TimelineBuilder>();
 			for (ObjectDef def : ActivityDictionary.getInstance().getDefinitions(ObjectDef.class)) {

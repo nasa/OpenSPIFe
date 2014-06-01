@@ -24,14 +24,17 @@ import org.eclipse.emf.ecore.EClass;
 
 public class ProfileMemberFactory implements IPlanElementMemberFactory {
 
+	@Override
 	public EMember createMember(EClass eClass) {
 		return ProfileFactory.eINSTANCE.createProfileMember();
 	}
 
+	@Override
 	public String getKey() {
 		return ProfileMember.KEY;
 	}
 
+	@Override
 	public int getSortKey() {
 		return 0;
 	}

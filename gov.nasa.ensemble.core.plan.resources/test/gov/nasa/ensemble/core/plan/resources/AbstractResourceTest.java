@@ -29,7 +29,6 @@ import gov.nasa.ensemble.core.model.plan.EPlanElement;
 import gov.nasa.ensemble.core.model.plan.activityDictionary.ADEffectUtils;
 import gov.nasa.ensemble.core.model.plan.activityDictionary.util.ADParameterUtils;
 import gov.nasa.ensemble.core.model.plan.activityDictionary.util.ADParameterUtils.UndefinedParameterException;
-import gov.nasa.ensemble.core.model.plan.translator.WrapperUtils;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
 import gov.nasa.ensemble.core.plan.PlanFactory;
 import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
@@ -80,6 +79,7 @@ public abstract class AbstractResourceTest extends TestCase {
 	public EPlan createPlan(final EActivity activity) {
 		final EPlan plan = createPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getChildren().add(activity);
 			}
@@ -130,6 +130,7 @@ public abstract class AbstractResourceTest extends TestCase {
 	
 	protected void setParameterValue(final EActivity activity, final String key, final Object value) {
 		TransactionUtils.writing(activity, new Runnable() {
+			@Override
 			public void run() {
 				try {
 					ADParameterUtils.setParameterObject(activity, key, value);

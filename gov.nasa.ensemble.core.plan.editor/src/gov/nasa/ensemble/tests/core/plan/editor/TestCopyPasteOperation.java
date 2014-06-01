@@ -71,6 +71,7 @@ public class TestCopyPasteOperation extends UndoableOperationTestCase {
 				};
 		final EPlanElement[] targetElements = selectedElements;
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivity activity = ((EActivity)target);
@@ -96,6 +97,7 @@ public class TestCopyPasteOperation extends UndoableOperationTestCase {
 				plan.group2
 				};
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivityGroup group = ((EActivityGroup)target);
@@ -126,6 +128,7 @@ public class TestCopyPasteOperation extends UndoableOperationTestCase {
 			expectedString = null;
 		}
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivityGroup group = ((EActivityGroup)target);
@@ -171,6 +174,7 @@ public class TestCopyPasteOperation extends UndoableOperationTestCase {
 			expectedString = null;
 		}
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivityGroup group = ((EActivityGroup)target);
@@ -225,6 +229,7 @@ public class TestCopyPasteOperation extends UndoableOperationTestCase {
 		
 		testUndoableOperation(plan.plan, paste, 
 				new Runnable() {
+					@Override
 					public void run() {
 						assertPostconditions.run(paste);
 					}

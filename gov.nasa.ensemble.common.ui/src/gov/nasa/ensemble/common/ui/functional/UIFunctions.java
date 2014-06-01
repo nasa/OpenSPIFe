@@ -24,6 +24,7 @@ import fj.F;
 
 public class UIFunctions {
 	public static final F<IWorkbenchSite, Shell> siteToShell = new F<IWorkbenchSite, Shell>() {
+		@Override
 		public Shell f(final IWorkbenchSite site) {
 			return site.getShell();
 		}

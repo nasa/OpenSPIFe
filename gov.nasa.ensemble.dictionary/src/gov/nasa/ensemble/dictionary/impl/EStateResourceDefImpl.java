@@ -96,6 +96,7 @@ public class EStateResourceDefImpl extends EResourceDefImpl implements EStateRes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<String> getAllowedStates() {
 		if (allowedStates == null) {
 			allowedStates = new EDataTypeUniqueEList<String>(String.class, this, DictionaryPackage.ESTATE_RESOURCE_DEF__ALLOWED_STATES);
@@ -108,6 +109,7 @@ public class EStateResourceDefImpl extends EResourceDefImpl implements EStateRes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getEnumeration() {
 		if (enumeration != null && enumeration.eIsProxy()) {
 			InternalEObject oldEnumeration = (InternalEObject)enumeration;
@@ -134,6 +136,7 @@ public class EStateResourceDefImpl extends EResourceDefImpl implements EStateRes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEnumeration(EEnum newEnumeration) {
 		EEnum oldEnumeration = enumeration;
 		enumeration = newEnumeration;

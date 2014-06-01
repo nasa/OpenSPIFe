@@ -56,6 +56,7 @@ public interface EStateResourceEffect<T extends EStateResourceDef> extends ETemp
 	 * @model
 	 * @generated
 	 */
+	@Override
 	EStateResourceDef getDefinition();
 
 	/**

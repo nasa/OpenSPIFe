@@ -90,6 +90,7 @@ public class TemporalBoundEditPart extends PlanTimelineViewerEditPart<PeriodicTe
 		ePlanElement.getMember(CommonMember.class).eAdapters().add(listener);
 		ePlanElement.getMember(TemporalMember.class).eAdapters().add(listener);
 		GEFUtils.runInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				IFigure parent = figure.getParent();
 				if (parent != null) {
@@ -168,14 +169,17 @@ public class TemporalBoundEditPart extends PlanTimelineViewerEditPart<PeriodicTe
 		return Collections.singletonList(new TemporalBoundLink(ePlanElement, b));
 	}
 
+	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
 		return null;
 	}
 
+	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
 		return null;
 	}
 
+	@Override
 	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
 		if (connection.getModel() instanceof TemporalBoundLink) {
 			return new ChopboxAnchor(getFigure());
@@ -183,6 +187,7 @@ public class TemporalBoundEditPart extends PlanTimelineViewerEditPart<PeriodicTe
 		return null;
 	}
 
+	@Override
 	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
 		return null;
 	}

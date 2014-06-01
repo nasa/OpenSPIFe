@@ -88,6 +88,7 @@ public class DependencyFactoryImpl extends EFactoryImpl implements DependencyFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Graph createGraph() {
 		GraphImpl graph = new GraphImpl();
 		return graph;
@@ -98,6 +99,7 @@ public class DependencyFactoryImpl extends EFactoryImpl implements DependencyFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DependencyPackage getDependencyPackage() {
 		return (DependencyPackage)getEPackage();
 	}

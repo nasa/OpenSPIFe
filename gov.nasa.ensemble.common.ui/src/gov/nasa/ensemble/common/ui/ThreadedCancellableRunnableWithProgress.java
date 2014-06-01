@@ -45,7 +45,8 @@ public abstract class ThreadedCancellableRunnableWithProgress implements IRunnab
 		}
 	};
 
-    @SuppressWarnings("deprecation")
+    @Override
+	@SuppressWarnings("deprecation")
     public final void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
     	this.monitor = monitor;
     	worker.start();

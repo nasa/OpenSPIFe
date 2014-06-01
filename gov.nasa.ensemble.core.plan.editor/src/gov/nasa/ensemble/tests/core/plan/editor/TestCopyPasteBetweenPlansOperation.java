@@ -78,6 +78,7 @@ public class TestCopyPasteBetweenPlansOperation extends UndoableOperationTestCas
 				destinationPlan.activity2_2,
 				};
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				Date targetDate = target.getMember(TemporalMember.class).getEndTime();
@@ -112,6 +113,7 @@ public class TestCopyPasteBetweenPlansOperation extends UndoableOperationTestCas
 				destinationPlan.group1,
 				};
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivityGroup group = ((EActivityGroup)target);
@@ -142,6 +144,7 @@ public class TestCopyPasteBetweenPlansOperation extends UndoableOperationTestCas
 				};
 		final int childCount = destinationPlan.group2.getChildren().size();
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivityGroup group = ((EActivityGroup)target);
@@ -178,6 +181,7 @@ public class TestCopyPasteBetweenPlansOperation extends UndoableOperationTestCas
 				destinationPlan.plan,
 				};
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EPlan plan = ((EPlan)target);
@@ -222,6 +226,7 @@ public class TestCopyPasteBetweenPlansOperation extends UndoableOperationTestCas
 		
 		testUndoableOperation(destinationPlan.plan, paste, 
 				new Runnable() {
+					@Override
 					public void run() {
 						assertPostconditions.run(paste);
 					}

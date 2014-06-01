@@ -161,6 +161,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbstractPlanSection() {
 		return abstractPlanSectionEClass;
 	}
@@ -170,6 +171,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAbstractPlanSection_ShowUnreferecedRow() {
 		return (EAttribute)abstractPlanSectionEClass.getEStructuralFeatures().get(0);
 	}
@@ -179,6 +181,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPlanReferencedObjectSection() {
 		return planReferencedObjectSectionEClass;
 	}
@@ -188,6 +191,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPlanReferencedObjectSection_Type() {
 		return (EReference)planReferencedObjectSectionEClass.getEStructuralFeatures().get(0);
 	}
@@ -197,6 +201,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPlanSection() {
 		return planSectionEClass;
 	}
@@ -206,6 +211,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPlanSection_Rows() {
 		return (EReference)planSectionEClass.getEStructuralFeatures().get(0);
 	}
@@ -215,6 +221,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPlanSectionRow() {
 		return planSectionRowEClass;
 	}
@@ -224,6 +231,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlanSectionRow_Name() {
 		return (EAttribute)planSectionRowEClass.getEStructuralFeatures().get(0);
 	}
@@ -233,6 +241,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReferencedObjectRow() {
 		return referencedObjectRowEClass;
 	}
@@ -242,6 +251,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getReferencedObjectRow_Reference() {
 		return (EReference)referencedObjectRowEClass.getEStructuralFeatures().get(0);
 	}
@@ -251,6 +261,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFeatureValueRow() {
 		return featureValueRowEClass;
 	}
@@ -260,6 +271,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFeatureValueRow_FeatureName() {
 		return (EAttribute)featureValueRowEClass.getEStructuralFeatures().get(0);
 	}
@@ -269,6 +281,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFeatureValueRow_ValueLiteral() {
 		return (EAttribute)featureValueRowEClass.getEStructuralFeatures().get(1);
 	}
@@ -278,6 +291,7 @@ public class PlanTimelinePackageImpl extends EPackageImpl implements PlanTimelin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PlanTimelineFactory getPlanTimelineFactory() {
 		return (PlanTimelineFactory)getEFactoryInstance();
 	}

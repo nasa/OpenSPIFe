@@ -36,7 +36,6 @@ import gov.nasa.ensemble.core.plan.resources.profile.ProfileEffect;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileFactory;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileMember;
 import gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMember;
-import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
 import gov.nasa.ensemble.dictionary.EActivityDef;
 import gov.nasa.ensemble.dictionary.ENumericResourceDef;
 import gov.nasa.ensemble.dictionary.EStateResourceDef;
@@ -106,6 +105,7 @@ public class TestConditions extends AbstractResourceTest {
 		plan = PLAN_FACTORY.createPlan("TEST_PLAN");
 		EPlanUtils.contributeProductResources(plan);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				plan.getMember(TemporalMember.class).setDuration(ONE_DAY);
@@ -178,6 +178,7 @@ public class TestConditions extends AbstractResourceTest {
 		effect.setEndOffset(new TemporalOffset(Timepoint.END, DateUtils.ZERO_DURATION));
 		effect.setStartValueLiteral("-10");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				activity.getMember(ProfileMember.class).getEffects().add(effect);
 			}
@@ -187,6 +188,7 @@ public class TestConditions extends AbstractResourceTest {
 
 	private void addintermediateConditions() {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(ResourceConditionsMember.class).getConditions().add(intermediateConditions);
 			}
@@ -197,6 +199,7 @@ public class TestConditions extends AbstractResourceTest {
 		final Profile profile = JScienceFactory.eINSTANCE.createProfile();
 		profile.setId(UNDEFINED_RESOURCE);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				WrapperUtils.getMember(plan, ResourceProfileMember.class).getResourceProfiles().add(profile);
 			}
@@ -208,6 +211,7 @@ public class TestConditions extends AbstractResourceTest {
 		activity.getMember(TemporalMember.class).setStartTime(ACTIVITY_START);
 		activity.getMember(TemporalMember.class).setDuration(DateUtils.ZERO_DURATION);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getChildren().add(activity);
 				// Set the plan start time 'back' to original start time since

@@ -177,6 +177,7 @@ public class EventTimeUpdateOperation extends AbstractTransactionUndoableOperati
 		allChanges = new HashMap<EPlanElement, TemporalExtent>();
 		TransactionUtils.writing(plan, new Runnable() {
 
+			@Override
 			public void run() {
 				modifier.initialize(plan);
 				try {
@@ -222,6 +223,7 @@ public class EventTimeUpdateOperation extends AbstractTransactionUndoableOperati
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				pinOperation.doUndo();
 				unpinOperation.doUndo();

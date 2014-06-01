@@ -115,7 +115,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSource()
+  @Override
+public String getSource()
   {
     return source;
   }
@@ -125,7 +126,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSource(String newSource)
+  @Override
+public void setSource(String newSource)
   {
     String oldSource = source;
     source = newSource;
@@ -138,7 +140,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getKey()
+  @Override
+public String getKey()
   {
     return key;
   }
@@ -148,7 +151,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKey(String newKey)
+  @Override
+public void setKey(String newKey)
   {
     String oldKey = key;
     key = newKey;
@@ -161,7 +165,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  @Override
+public String getValue()
   {
     return value;
   }
@@ -171,7 +176,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  @Override
+public void setValue(String newValue)
   {
     String oldValue = value;
     value = newValue;

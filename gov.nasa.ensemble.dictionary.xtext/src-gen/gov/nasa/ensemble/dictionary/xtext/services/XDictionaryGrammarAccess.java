@@ -58,6 +58,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		//Dictionary:
 		//	("name" "=" name=ID & ("author" "=" author=STRING)? & ("date" "=" date=STRING)? & ("description" "="
 		//	description=STRING)? & ("version" "=" version=STRING)? & "domain" "=" domain=STRING) definitions+=Definition*;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//("name" "=" name=ID & ("author" "=" author=STRING)? & ("date" "=" date=STRING)? & ("description" "="
@@ -178,6 +179,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		//Definition:
 		//	EnumDef //	 | Datatype 
 		//	| ParameterDef | ActivityDef | ActivityGroupDef | ObjectDef | ResourceDef;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//EnumDef //	 | Datatype 
@@ -216,6 +218,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EnumDef:
 		//	"Enum" name=ID "{" values+=EnumValue* "}";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"Enum" name=ID "{" values+=EnumValue* "}"
@@ -266,6 +269,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EnumValue:
 		//	"Literal" ("name" "=" name=STRING & ("color" "=" color=STRING)? & ("literal" "=" literal=STRING)?);
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"Literal" ("name" "=" name=STRING & ("color" "=" color=STRING)? & ("literal" "=" literal=STRING)?)
@@ -334,6 +338,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		////;
 		//ParameterDef:
 		//	AttributeDef | ReferenceDef;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//AttributeDef | ReferenceDef
@@ -400,6 +405,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		//	description=STRING)? & ("shortDescription" "=" shortDescription=STRING)? & ("units" "=" units=STRING)? &
 		//	("displayName" "=" displayName=STRING)? & ("category" "=" category=STRING)? & ("parameterName" "="
 		//	parameterName=STRING)?) annotations+=Annotation* "}";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"attribute" name=ID type=STRING "{" (("defaultValueLiteral" "=" defaultValueLiteral=STRING)? & ("description" "="
@@ -588,6 +594,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		//	"reference" name=ID type=STRING "{" (("description" "=" description=STRING)? & ("displayName" "=" displayName=STRING)?
 		//	& ("category" "=" category=STRING)? & ("containment" "=" containment=Boolean)?) annotations+=Annotation*
 		//	requirements+=Requirement* effects+=Effect* "}";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"reference" name=ID type=STRING "{" (("description" "=" description=STRING)? & ("displayName" "=" displayName=STRING)? &
@@ -707,6 +714,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Boolean:
 		//	"true" | "false";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"true" | "false"
@@ -766,6 +774,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		//	"ActivityDef" name=ID "{" (("description" "=" description=STRING)? & ("category" "=" category=STRING)? & ("duration"
 		//	"=" duration=STRING)? & ("displayName" "=" displayName=STRING)? & ("hidden" "=" hiddenParams=STRING)?)
 		//	annotations+=Annotation* parameters+=ParameterDef* requirements+=Requirement* effects+=Effect* "}";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"ActivityDef" name=ID "{" (("description" "=" description=STRING)? & ("category" "=" category=STRING)? & ("duration" "="
@@ -905,6 +914,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Annotation:
 		//	"annotation" source=STRING key=STRING value=STRING;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"annotation" source=STRING key=STRING value=STRING
@@ -940,6 +950,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Requirement:
 		//	NumericRequirement | StateRequirement;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//NumericRequirement | StateRequirement
@@ -963,6 +974,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//NumericRequirement:
 		//	"numericRequirement" "expression" "=" expression=STRING;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"numericRequirement" "expression" "=" expression=STRING
@@ -1002,6 +1014,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//StateRequirement:
 		//	"stateRequirement" ("definition" "=" definition=STRING & "requiredState" "=" requiredState=STRING);
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"stateRequirement" ("definition" "=" definition=STRING & "requiredState" "=" requiredState=STRING)
@@ -1054,6 +1067,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Effect:
 		//	NumericEffect | StateEffect | ClaimableEffect | SharedEffect;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//NumericEffect | StateEffect | ClaimableEffect | SharedEffect
@@ -1078,6 +1092,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//NumericEffect:
 		//	"numericEffect";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"numericEffect"
@@ -1090,6 +1105,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//StateEffect:
 		//	"stateEffect";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"stateEffect"
@@ -1102,6 +1118,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ClaimableEffect:
 		//	"claimableEffect";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"claimableEffect"
@@ -1114,6 +1131,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SharedEffect:
 		//	"sharedEffect";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"sharedEffect"
@@ -1135,6 +1153,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ActivityGroupDef:
 		//	"ActivityGroupDef" name=ID "{" annotations+=Annotation* parameters+=ParameterDef* "}";
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"ActivityGroupDef" name=ID "{" annotations+=Annotation* parameters+=ParameterDef* "}"
@@ -1177,6 +1196,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ObjectDef:
 		//	"ObjectDef" name=ID;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"ObjectDef" name=ID
@@ -1203,6 +1223,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ResourceDef:
 		//	NumericResource | StateResource | ClaimableResource | SharableResource | SummaryResource;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//NumericResource | StateResource | ClaimableResource | SharableResource | SummaryResource
@@ -1233,6 +1254,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//NumericResource:
 		//	"NumericResource" name=ID;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"NumericResource" name=ID
@@ -1257,6 +1279,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//StateResource:
 		//	"StateResource" name=ID;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"StateResource" name=ID
@@ -1281,6 +1304,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ClaimableResource:
 		//	"ClaimableResource" name=ID;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"ClaimableResource" name=ID
@@ -1305,6 +1329,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SharableResource:
 		//	"SharableResource" name=ID;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"SharableResource" name=ID
@@ -1329,6 +1354,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SummaryResource:
 		//	"Summaryresource" name=ID;
+		@Override
 		public ParserRule getRule() { return rule; }
 
 		//"Summaryresource" name=ID
@@ -1400,6 +1426,7 @@ public class XDictionaryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	@Override
 	public Grammar getGrammar() {
 		return grammar;
 	}

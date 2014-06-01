@@ -33,6 +33,7 @@ public class AllPlanTests implements IEnsemblePluginTest {
 		return suite;
 	}
 
+	@Override
 	public void addTests(TestSuite suite) {
 		//$JUnit-BEGIN$
 		suite.addTestSuite(TestCombinations.class);

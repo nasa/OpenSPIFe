@@ -30,27 +30,33 @@ public abstract class AbstractChangedByModifyingParameterImpl implements
 	protected OldAndNewCopyOfSameThing oldAndNew;
 	protected EStructuralFeature parameter;
 
+	@Override
 	public DiffType getDiffType() {
 		return DiffType.MODIFY;
 	}
 	
+	@Override
 	public EStructuralFeature getParameter() {
 		return parameter;
 	}
 
+	@Override
 	public EPlanElement getNewCopyOfOwner() {
 		return oldAndNew.getNewCopy();
 	}
 
+	@Override
 	public EPlanElement getOldCopyOfOwner() {
 		return oldAndNew.getOldCopy();
 	}
 
 
+	@Override
 	public Object getOldValue() {
 		return getRelevantPartOf(getOldCopyOfOwner()).eGet(parameter);
 	}
 
+	@Override
 	public Object getNewValue() {
 		return getRelevantPartOf(getNewCopyOfOwner()).eGet(parameter);
 	}

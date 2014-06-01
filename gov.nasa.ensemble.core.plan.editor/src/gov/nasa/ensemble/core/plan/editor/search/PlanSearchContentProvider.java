@@ -51,10 +51,12 @@ public class PlanSearchContentProvider implements ITreeContentProvider, ISearchR
 		this.flat = flat;
 	}
 
+	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(invisibleRoot);
 	}
 	
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewer = (ColumnViewer) viewer;
 		if (fSearchResult != null) {
@@ -73,6 +75,7 @@ public class PlanSearchContentProvider implements ITreeContentProvider, ISearchR
 		}
 	}
 
+	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (flat) {
 			return getFlattenedChildren(fSearchResult.getPlans());
@@ -101,6 +104,7 @@ public class PlanSearchContentProvider implements ITreeContentProvider, ISearchR
 		return flattenedChildren.toArray();
 	}
 
+	@Override
 	public Object getParent(Object element) {
 		if (element == invisibleRoot) {
 			return null;
@@ -111,6 +115,7 @@ public class PlanSearchContentProvider implements ITreeContentProvider, ISearchR
 		return ((EPlanElement)element).eContainer();
 	}
 
+	@Override
 	public boolean hasChildren(Object element) {	
 		Object[] children = getChildren(element);
 		if (children == null || children.length == 0) {
@@ -119,12 +124,14 @@ public class PlanSearchContentProvider implements ITreeContentProvider, ISearchR
 		return true;
 	}
 
+	@Override
 	public void searchResultChanged(SearchResultEvent event) {
 		if (viewer != null) {
 			viewer.refresh();
 		}
 	}
 	
+	@Override
 	public void dispose() {
 		// do nothing
 	}

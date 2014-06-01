@@ -67,22 +67,27 @@ public class FlightRuleViolation implements IFlightRuleViolation {
 		return super.equals(obj);
 	}
 	
+	@Override
 	public Date getStartTime() {
 		return startTime;
 	}
 	
+	@Override
 	public String getType() {
 		return type;
 	}
 	
+	@Override
 	public double getLevel() {
 		return level;
 	}
 	
+	@Override
 	public List<EActivity> getCulprits() {
 		return culprits;
 	}
 	
+	@Override
 	public boolean isWaived () {
 		for (EActivity culprit : culprits) {
 			ActivityAdvisorMember advisorMember = culprit.getMember(ActivityAdvisorMember.class);

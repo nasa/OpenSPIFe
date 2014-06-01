@@ -39,30 +39,36 @@ public final class TreeTableViewerSelectionListener implements IPostSelectionPro
 		treeTableViewer = mergeEditor;
 	}
 
+	@Override
 	public void addPostSelectionChangedListener(ISelectionChangedListener listener) {
     	treeTableViewer.addPostSelectionChangedListener(listener);
     }
 
-    public void removePostSelectionChangedListener(ISelectionChangedListener listener) {
+    @Override
+	public void removePostSelectionChangedListener(ISelectionChangedListener listener) {
     	treeTableViewer.removePostSelectionChangedListener(listener);
     }
 
-    public void addSelectionChangedListener(ISelectionChangedListener listener) {
+    @Override
+	public void addSelectionChangedListener(ISelectionChangedListener listener) {
     	treeTableViewer.addSelectionChangedListener(listener);
     }
 
-    public ISelection getSelection() {
+    @Override
+	public ISelection getSelection() {
     	return treeTableViewer.getSelection();
     }
 
-    public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+    @Override
+	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
     	treeTableViewer.removeSelectionChangedListener(listener);
     }
 
     /**
      * Suppress the "reveal" on the tree table viewer.
      */
-    public void setSelection(ISelection selection) {
+    @Override
+	public void setSelection(ISelection selection) {
     	treeTableViewer.setSelection(selection, false);
     }
 }

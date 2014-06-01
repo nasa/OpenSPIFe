@@ -49,6 +49,7 @@ public interface TemporalActivityDependency extends Dependency {
 		
 		public static TemporalActivityDependencyComparator INSTANCE = new TemporalActivityDependencyComparator();
 
+		@Override
 		public int compare(TemporalActivityDependency o1, TemporalActivityDependency o2) {
 			DataPoint pt1 = (DataPoint)o1.getValue();
 			DataPoint pt2 = (DataPoint)o2.getValue();

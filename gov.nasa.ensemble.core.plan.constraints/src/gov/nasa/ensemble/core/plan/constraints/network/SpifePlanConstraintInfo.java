@@ -42,6 +42,7 @@ public class SpifePlanConstraintInfo implements IPlanConstraintInfo {
 		// nothing to do yet
 	}
 
+	@Override
 	public ConsistencyProperties getConstraintProperties(EPlanElement element) {
 		synchronized (temporalNetwork) {
 			if (temporalNetwork.isConsistent()) {
@@ -51,6 +52,7 @@ public class SpifePlanConstraintInfo implements IPlanConstraintInfo {
 		return ConsistencyProperties.EMPTY_PROPERTIES;
 	}
 
+	@Override
 	public ConsistencyBounds getBounds(EPlanElement element) {
 		synchronized (temporalNetwork) {
 			if (temporalNetwork.isConsistent()) {

@@ -76,13 +76,13 @@ public class CompareToPlanWizard extends Wizard {
 			protected IStatus run(IProgressMonitor monitor) {
 				EnsembleUsageLogger.logUsage("CompareToPlanPage.readPlan", file.getPath());
 				if (openPlan == null) {
-					return new Status(Status.ERROR, pluginId, "You don't seem to have a plan open.");	
+					return new Status(IStatus.ERROR, pluginId, "You don't seem to have a plan open.");	
 				}
 				monitor.beginTask("Comparing plans", 100);
 				try {
 					final EPlan planReadFromFile = PlanDiffUtils.loadPlanFromFile(file, openPlan.eResource().getResourceSet());
 					if (planReadFromFile == null) {
-						return new Status(Status.ERROR, pluginId, "Unable to read the other plan from that file.");	
+						return new Status(IStatus.ERROR, pluginId, "Unable to read the other plan from that file.");	
 					}
 					monitor.worked(10);
 					EPlan plan1 = reverse? openPlan : planReadFromFile;
@@ -90,7 +90,7 @@ public class CompareToPlanWizard extends Wizard {
 
 					PlanDiffList differences = PlanDiffEngine.findChanges(plan1, plan2);
 					if (differences == null) {
-						return new Status(Status.ERROR, pluginId, "Sorry, unable to compare plans.");
+						return new Status(IStatus.ERROR, pluginId, "Sorry, unable to compare plans.");
 					}
 					if (differences != null) {
 						final String title = plan1.getName() + " vs. " + plan2.getName();

@@ -128,6 +128,7 @@ public class ENumericResourceEffectImpl extends ETemporalEffectImpl<ENumericReso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefinition(ENumericResourceDef newDefinition) {
 		ENumericResourceDef oldDefinition = definition;
 		definition = newDefinition;
@@ -140,6 +141,7 @@ public class ENumericResourceEffectImpl extends ETemporalEffectImpl<ENumericReso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ENumericResourceEffectMode getMode() {
 		return mode;
 	}
@@ -149,6 +151,7 @@ public class ENumericResourceEffectImpl extends ETemporalEffectImpl<ENumericReso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMode(ENumericResourceEffectMode newMode) {
 		ENumericResourceEffectMode oldMode = mode;
 		mode = newMode == null ? MODE_EDEFAULT : newMode;

@@ -16,6 +16,7 @@ import org.eclipse.xtext.formatting.impl.FormattingConfig;
  */
 @SuppressWarnings("all")
 public class XDictionaryFormatter extends AbstractDeclarativeFormatter {
-  protected void configureFormatting(final FormattingConfig c) {
+  @Override
+protected void configureFormatting(final FormattingConfig c) {
   }
 }

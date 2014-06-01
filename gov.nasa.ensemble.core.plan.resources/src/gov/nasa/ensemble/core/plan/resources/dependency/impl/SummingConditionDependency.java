@@ -24,8 +24,6 @@ import gov.nasa.ensemble.core.plan.resources.dependency.Dependency;
 import gov.nasa.ensemble.core.plan.resources.member.Conditions;
 import gov.nasa.ensemble.dictionary.ESummaryResourceDef;
 
-import java.util.Date;
-
 import org.jscience.physics.amount.Amount;
 
 public class SummingConditionDependency extends DependencyImpl {

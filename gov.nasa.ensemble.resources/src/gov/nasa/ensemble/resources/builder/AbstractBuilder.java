@@ -50,6 +50,7 @@ public abstract class AbstractBuilder extends IncrementalProjectBuilder {
 			this.monitor = monitor;
 		}
 
+		@Override
 		public boolean visit(IResource resource) throws CoreException {
 			handleFullBuild(resource, monitor);
 			if (resource instanceof IContainer)
@@ -57,6 +58,7 @@ public abstract class AbstractBuilder extends IncrementalProjectBuilder {
 			return false;
 		}
 
+		@Override
 		public boolean visit(IResourceDelta delta) throws CoreException {
 			final IResource resource = delta.getResource();
 			final int kind = delta.getKind();

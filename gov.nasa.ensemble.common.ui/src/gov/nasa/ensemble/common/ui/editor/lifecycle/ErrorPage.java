@@ -29,6 +29,7 @@ public class ErrorPage extends EnsembleWizardPage {
 		this.message = message;
 	}
 
+	@Override
 	public void createControl(Composite parent) {
 		setError(ErrorPage.class, message);
 		setControl(new Composite (parent, SWT.NONE));

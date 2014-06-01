@@ -123,6 +123,7 @@ public class PlanEditorModel extends AbstractEnsembleEditorModel {
 		return WrapperUtils.getRegistered(plan);
 	}
 
+	@Override
 	public IUndoContext getUndoContext() {
 		return TransactionUtils.getUndoContext(plan);
 	}
@@ -164,6 +165,7 @@ public class PlanEditorModel extends AbstractEnsembleEditorModel {
 		// Protect against interference from a concurrent thread (e.g. a PlanAdviser) that may also
 		// be adding to the the editing domain's resource set
 		TransactionUtils.reading(editingDomain, new Runnable() {
+			@Override
 			public void run() {
 				EPlanUtils.contributeProductResources(plan);
 			}
@@ -228,6 +230,7 @@ public class PlanEditorModel extends AbstractEnsembleEditorModel {
 
 	private void pruneDanglingReferences(final EPlan plan) {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			@SuppressWarnings("unchecked")
 			public void run() {
 				Map<EObject, Collection<Setting>> proxiesMap = UnresolvedProxyCrossReferencer.find(plan);

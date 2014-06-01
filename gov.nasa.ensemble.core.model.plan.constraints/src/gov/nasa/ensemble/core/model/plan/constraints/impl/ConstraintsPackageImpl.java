@@ -156,6 +156,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConstraintsMember() {
 		return constraintsMemberEClass;
 	}
@@ -165,6 +166,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConstraintsMember_BinaryTemporalConstraints() {
 		return (EReference)constraintsMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -174,6 +176,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConstraintsMember_PeriodicTemporalConstraints() {
 		return (EReference)constraintsMemberEClass.getEStructuralFeatures().get(1);
 	}
@@ -183,6 +186,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConstraintsMember_Chain() {
 		return (EReference)constraintsMemberEClass.getEStructuralFeatures().get(2);
 	}
@@ -192,6 +196,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConstraintPoint() {
 		return constraintPointEClass;
 	}
@@ -201,6 +206,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConstraintPoint_Anchor() {
 		return (EAttribute)constraintPointEClass.getEStructuralFeatures().get(0);
 	}
@@ -210,6 +216,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConstraintPoint_Element() {
 		return (EReference)constraintPointEClass.getEStructuralFeatures().get(1);
 	}
@@ -219,6 +226,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConstraintPoint_Endpoint() {
 		return (EAttribute)constraintPointEClass.getEStructuralFeatures().get(2);
 	}
@@ -228,6 +236,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTemporalConstraint() {
 		return temporalConstraintEClass;
 	}
@@ -237,6 +246,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalConstraint_Id() {
 		return (EAttribute)temporalConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -246,6 +256,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalConstraint_Rationale() {
 		return (EAttribute)temporalConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -255,6 +266,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBinaryTemporalConstraint() {
 		return binaryTemporalConstraintEClass;
 	}
@@ -264,6 +276,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBinaryTemporalConstraint_PointA() {
 		return (EReference)binaryTemporalConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -273,6 +286,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBinaryTemporalConstraint_PointB() {
 		return (EReference)binaryTemporalConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -282,6 +296,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBinaryTemporalConstraint_MinimumBminusA() {
 		return (EAttribute)binaryTemporalConstraintEClass.getEStructuralFeatures().get(2);
 	}
@@ -291,6 +306,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBinaryTemporalConstraint_MaximumBminusA() {
 		return (EAttribute)binaryTemporalConstraintEClass.getEStructuralFeatures().get(3);
 	}
@@ -300,6 +316,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPeriodicTemporalConstraint() {
 		return periodicTemporalConstraintEClass;
 	}
@@ -309,6 +326,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPeriodicTemporalConstraint_Point() {
 		return (EReference)periodicTemporalConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -318,6 +336,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPeriodicTemporalConstraint_Earliest() {
 		return (EAttribute)periodicTemporalConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -327,6 +346,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPeriodicTemporalConstraint_Latest() {
 		return (EAttribute)periodicTemporalConstraintEClass.getEStructuralFeatures().get(2);
 	}
@@ -336,6 +356,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTemporalChain() {
 		return temporalChainEClass;
 	}
@@ -345,6 +366,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalChain_Id() {
 		return (EAttribute)temporalChainEClass.getEStructuralFeatures().get(0);
 	}
@@ -354,6 +376,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTemporalChain_Elements() {
 		return (EReference)temporalChainEClass.getEStructuralFeatures().get(1);
 	}
@@ -363,6 +386,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintsFactory getConstraintsFactory() {
 		return (ConstraintsFactory)getEFactoryInstance();
 	}

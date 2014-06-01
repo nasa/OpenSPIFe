@@ -33,6 +33,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 public class DependencyMaintenanceSystemConsistencyListener implements IConsistencyMaintenanceListener {
 
+	@Override
 	public Command createConsistencyMaintenanceCommand(ResourceSetChangeEvent event) {
 		EPlan plan = EPlanUtils.getPlanNotifications(event);
 		if (plan != null) {

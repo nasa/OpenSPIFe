@@ -40,6 +40,7 @@ public class DurationStringifier extends AbstractTrimmingStringifier<Amount<Dura
 		this.durationType = durationType;
 	}
 
+	@Override
 	public String getDisplayString(Amount<Duration> javaObject) {
 		if (javaObject == null) {
 			return "NaN";

@@ -27,7 +27,6 @@ package gov.nasa.ensemble.core.plan.resources.member.provider;
 import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
 import gov.nasa.ensemble.core.plan.resources.member.MemberPackage;
-import gov.nasa.ensemble.core.plan.resources.member.NamedCondition;
 import gov.nasa.ensemble.core.plan.resources.member.StateResource;
 import gov.nasa.ensemble.dictionary.EStateResourceDef;
 

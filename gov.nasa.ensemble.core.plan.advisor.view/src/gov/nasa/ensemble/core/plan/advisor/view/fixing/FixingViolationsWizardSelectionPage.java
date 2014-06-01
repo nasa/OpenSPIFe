@@ -65,6 +65,7 @@ public class FixingViolationsWizardSelectionPage extends WizardPage {
 		advisorMember = null;
 	}
 
+	@Override
 	@SuppressWarnings("unused")
 	public void createControl(Composite parent) {
 		Composite composite = new EnsembleComposite(parent, SWT.NONE);

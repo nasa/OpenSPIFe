@@ -41,6 +41,7 @@ public abstract class AbstractPreferencePage extends FieldEditorPreferencePage i
 		setPreferenceStore(store);
 	}
 
+	@Override
 	public void init(IWorkbench workbench) {
 		// no implementation
 	}

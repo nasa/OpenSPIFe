@@ -177,6 +177,7 @@ public class MoveToOrbitOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				changedTimes.clear();
 				modifier.initialize(context);
@@ -210,6 +211,7 @@ public class MoveToOrbitOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				TemporalUtils.resetExtents(changedTimes.keySet(), initialExtents);
 			}

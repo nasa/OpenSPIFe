@@ -89,6 +89,7 @@ public class NamedConditionImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -98,6 +99,7 @@ public class NamedConditionImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -110,6 +112,7 @@ public class NamedConditionImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Conditions getConditions() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

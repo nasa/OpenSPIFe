@@ -54,6 +54,7 @@ public class ActivityAttributeTimelineBuilder extends AbstractGroupingTimelineBu
 	
 	public static class Factory implements ClassRegistryFactory<AbstractPlanTimelineBuilder> {
 
+		@Override
 		public List<AbstractPlanTimelineBuilder> createInstances() {
 			List<AbstractPlanTimelineBuilder> builders = new ArrayList<AbstractPlanTimelineBuilder>();
 			for (EParameterDef p : ActivityDictionary.getInstance().getAttributeDefs()) {

@@ -66,6 +66,7 @@ public class FlattenHandler extends AbstractHandler implements IElementUpdater {
 	/**
 	 * @throws ExecutionException
 	 */
+	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IToggleFlattenEditor editor = getMergeEditor(HandlerUtil.getActiveEditor(event));
 		editor.toggleFlatten();
@@ -75,11 +76,13 @@ public class FlattenHandler extends AbstractHandler implements IElementUpdater {
 		return null;
 	}
 
+	@Override
 	public void updateElement(UIElement element, Map parameters) {
 		IServiceLocator serviceLocator = element.getServiceLocator();
 		IPartService partService = (IPartService)serviceLocator.getService(IPartService.class);
 		if(propertyListener == null) {
 			propertyListener = new IPropertyListener() {
+				@Override
 				public void propertyChanged(Object source, int propId) {
 					if(source instanceof MultiPagePlanEditor) {
 						MultiPagePlanEditor multiPagePlanEditor

@@ -70,6 +70,7 @@ public class TestProfileEffect extends AbstractResourceTest {
 		profile = JScienceFactory.eINSTANCE.createProfile();
 		profile.setId(KEY_TEST_PROFILE);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(ACTIVITY_START);
 				plan.getMember(TemporalMember.class).setDuration(Amount.valueOf(1, NonSI.DAY));
@@ -85,6 +86,7 @@ public class TestProfileEffect extends AbstractResourceTest {
 		assertNotNull(ResourceUtils.getProfile(plan, KEY_TEST_PROFILE));
 		final ProfileEffect effect = createProfileEffect(DateUtils.ZERO_DURATION, "10", DateUtils.ZERO_DURATION, "-10");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				profileMember.getEffects().add(effect);
 			}
@@ -103,6 +105,7 @@ public class TestProfileEffect extends AbstractResourceTest {
 		assertNotNull(ResourceUtils.getProfile(plan, KEY_TEST_PROFILE));
 		final ProfileEffect effect = createProfileEffect(startOffset, "10", DateUtils.ZERO_DURATION, "-10");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				profileMember.getEffects().add(effect);
 			}
@@ -120,6 +123,7 @@ public class TestProfileEffect extends AbstractResourceTest {
 		assertNotNull(ResourceUtils.getProfile(plan, KEY_TEST_PROFILE));
 		final ProfileEffect effect = createProfileEffect(DateUtils.ZERO_DURATION, "\"XYZ\"", DateUtils.ZERO_DURATION, "\"ABC\"");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				profileMember.getEffects().add(effect);
 			}
@@ -136,6 +140,7 @@ public class TestProfileEffect extends AbstractResourceTest {
 		assertNotNull(ResourceUtils.getProfile(plan, KEY_TEST_PROFILE));
 		final ProfileEffect effect = createProfileEffect(DateUtils.ZERO_DURATION, "10", DateUtils.ZERO_DURATION, ProfileEffect.NO_EFFECT);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				profileMember.getEffects().add(effect);
 			}
@@ -152,6 +157,7 @@ public class TestProfileEffect extends AbstractResourceTest {
 		assertNotNull(ResourceUtils.getProfile(plan, KEY_TEST_PROFILE));
 		final ProfileEffect effect = createProfileEffect(DateUtils.ZERO_DURATION, "\"XYZ\"", DateUtils.ZERO_DURATION, ProfileEffect.NULL_VALUE);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				profileMember.getEffects().add(effect);
 			}
@@ -168,6 +174,7 @@ public class TestProfileEffect extends AbstractResourceTest {
 		assertNotNull(ResourceUtils.getProfile(plan, KEY_TEST_PROFILE));
 		final ProfileEffect effect = createProfileEffect(DateUtils.ZERO_DURATION, "\"XYZ\"", DateUtils.ZERO_DURATION, "\"ABC\"");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				profileMember.getEffects().add(effect);
 			}

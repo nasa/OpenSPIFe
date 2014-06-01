@@ -190,6 +190,7 @@ public class EsmConfigFactoryImpl extends EFactoryImpl implements EsmConfigFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DocumentRoot createDocumentRoot() {
 		DocumentRootImpl documentRoot = new DocumentRootImpl();
 		return documentRoot;
@@ -200,6 +201,7 @@ public class EsmConfigFactoryImpl extends EFactoryImpl implements EsmConfigFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EuropaServerManagerType createEuropaServerManagerType() {
 		EuropaServerManagerTypeImpl europaServerManagerType = new EuropaServerManagerTypeImpl();
 		return europaServerManagerType;
@@ -210,6 +212,7 @@ public class EsmConfigFactoryImpl extends EFactoryImpl implements EsmConfigFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EuropaServerType createEuropaServerType() {
 		EuropaServerTypeImpl europaServerType = new EuropaServerTypeImpl();
 		return europaServerType;
@@ -566,6 +569,7 @@ public class EsmConfigFactoryImpl extends EFactoryImpl implements EsmConfigFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EsmConfigPackage getEsmConfigPackage() {
 		return (EsmConfigPackage)getEPackage();
 	}

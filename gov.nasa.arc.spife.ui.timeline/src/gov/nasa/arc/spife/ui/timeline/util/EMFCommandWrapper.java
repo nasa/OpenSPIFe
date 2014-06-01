@@ -50,7 +50,7 @@ public class EMFCommandWrapper extends org.eclipse.gef.commands.Command {
 
 	@Override
 	public void execute() {
-		TransactionUtils.writing(domain, new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(domain, new Runnable() {
 			@Override
 			public void run() {
 				emfCommand.execute();
@@ -60,7 +60,7 @@ public class EMFCommandWrapper extends org.eclipse.gef.commands.Command {
 
 	@Override
 	public void redo() {
-		TransactionUtils.writing(domain, new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(domain, new Runnable() {
 			@Override
 			public void run() {
 				emfCommand.redo();
@@ -70,7 +70,7 @@ public class EMFCommandWrapper extends org.eclipse.gef.commands.Command {
 
 	@Override
 	public void undo() {
-		TransactionUtils.writing(domain, new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(domain, new Runnable() {
 			@Override
 			public void run() {
 				emfCommand.undo();

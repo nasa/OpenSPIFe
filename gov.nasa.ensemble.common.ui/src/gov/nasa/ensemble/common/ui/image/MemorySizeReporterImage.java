@@ -33,6 +33,7 @@ public class MemorySizeReporterImage implements SizeReporter {
 		size = image.width *  image.height * 4;
 	}
 	
+	@Override
 	public long getSize() {
 		return size;
 	}

@@ -143,6 +143,7 @@ public class ADParameterObjectItemProvider extends ReflectiveItemProvider {
 	 */
 	private void sortPropertyDescriptors(final Object o, List<IItemPropertyDescriptor> itemPropertyDescriptors) {
 		Collections.sort(itemPropertyDescriptors, new Comparator<IItemPropertyDescriptor>() {
+			@Override
 			public int compare(IItemPropertyDescriptor pd1, IItemPropertyDescriptor pd2) {
 				String c1 = pd1.getCategory(o);
 				String c2 = pd2.getCategory(o);

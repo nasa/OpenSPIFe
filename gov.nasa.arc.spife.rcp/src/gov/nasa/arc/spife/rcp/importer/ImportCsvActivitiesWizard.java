@@ -47,6 +47,7 @@ public class ImportCsvActivitiesWizard extends EnsembleImportWizard {
 	= AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID
 		   , "icons/full/wizban/csv.png");  
 
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		PlanEditorModel model = PlanEditorModelRegistry.getCurrent(workbench);
 		if (model != null) {

@@ -31,6 +31,7 @@ public class ScriptableActivitDictionaryAdapterFactory implements IAdapterFactor
 
 	private final Logger trace = Logger.getLogger(ScriptableActivitDictionaryAdapterFactory.class);
 	
+	@Override
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
 		if (adaptableObject instanceof ActivityDictionary
 			&& adapterType == Scriptable.class)
@@ -45,6 +46,7 @@ public class ScriptableActivitDictionaryAdapterFactory implements IAdapterFactor
 		return null;
 	}
 
+	@Override
 	public Class[] getAdapterList() {
 		return new Class[] {Scriptable.class};
 	}

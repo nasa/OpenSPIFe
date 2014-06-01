@@ -27,7 +27,6 @@ import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
 import gov.nasa.ensemble.dictionary.EActivityGroupDef;
 
 import org.eclipse.swt.graphics.RGB;
-import org.mozilla.javascript.Undefined;
 
 public class ActivityGroupColorDependency extends PlanElementDependency<EActivityGroup> {
 

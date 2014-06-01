@@ -666,6 +666,7 @@ public class ConstraintDialog extends org.eclipse.jface.dialogs.Dialog {
 		public SelectButtonModifyListener(Button button) {
 			this.button = button;
 		}
+		@Override
 		public void modifyText(ModifyEvent e) {
 			if (button.getSelection() != true) {
 				anyTimeBeforeRadioButton.setSelection(false);

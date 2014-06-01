@@ -104,6 +104,7 @@ public class DistanceConstraintTransferExtension extends AbstractPlanTransferabl
 			return;
 		}
 		TransactionUtils.writing(constraints.iterator().next(), new Runnable() {
+			@Override
 			public void run() {
 				for (BinaryTemporalConstraint constraint : constraints) {
 					EPlanElement planElementA = constraint.getPointA().getElement();
@@ -126,6 +127,7 @@ public class DistanceConstraintTransferExtension extends AbstractPlanTransferabl
 			return;
 		}
 		TransactionUtils.writing(constraints.iterator().next(), new Runnable() {
+			@Override
 			public void run() {
 				for (BinaryTemporalConstraint constraint : constraints) {
 					ConstraintUtils.detachConstraint(constraint);

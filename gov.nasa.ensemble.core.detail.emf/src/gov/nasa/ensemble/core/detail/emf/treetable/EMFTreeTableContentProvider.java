@@ -145,7 +145,7 @@ public class EMFTreeTableContentProvider extends AdapterFactoryContentProvider {
 		adapterFactory.adapt(newInput, IStructuredItemContentProvider.class);
 		//
 		if (newInput instanceof EObject) {
-			domain = TransactionUtils.getDomain(newInput);
+			domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(newInput);
 			if (domain != null) {
 				domain.addResourceSetListener(listener);
 			}

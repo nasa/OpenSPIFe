@@ -349,9 +349,11 @@ class ConstraintsPage extends Page {
 		deleteButton.setEnabled(editable);
 		deleteButton.setImage(DELETE_IMAGE);
 		deleteButton.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				deleteConstraint(constraint);
 			}
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				deleteConstraint(constraint);
 			}
@@ -379,9 +381,11 @@ class ConstraintsPage extends Page {
 		editButton.setText("Edit");
 		editButton.setEnabled(isConstraintEditable(constraint));
 		editButton.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				editConstraint(constraint);
 			}
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				editConstraint(constraint);
 			}
@@ -442,6 +446,7 @@ class ConstraintsPage extends Page {
     private void updateLater() {
     	if (pendingRunnable == null) {
 			Runnable runnable = new Runnable() {
+				@Override
 				public void run() {
 					if (pendingRunnable == this) {
 						synchronized (ConstraintsPage.this) {
@@ -480,7 +485,8 @@ class ConstraintsPage extends Page {
 	}
 
 	private class SelectionChangedListener implements ISelectionListener {
-        public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+        @Override
+		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
         	if ((selection != null) && (selection instanceof IStructuredSelection)) {
 	        	try {
 	        		setNodes(new HashSet<EPlanElement>(PlanEditorUtil.emfFromSelection(selection)));

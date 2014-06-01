@@ -92,6 +92,7 @@ public class PlanSectionRowImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -101,6 +102,7 @@ public class PlanSectionRowImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -113,6 +115,7 @@ public class PlanSectionRowImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean satisfies(EObject object) {
 		LogUtil.errorOnce("unsupported method satisfies for PlanSectionRow "+getName());
 		return false;
@@ -123,6 +126,7 @@ public class PlanSectionRowImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isRelevant(EStructuralFeature feature) {
 		LogUtil.errorOnce("unsupported method isRelevant for PlanSectionRow "+getName());
 		return false;

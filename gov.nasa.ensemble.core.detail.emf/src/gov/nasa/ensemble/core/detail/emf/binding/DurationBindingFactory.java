@@ -89,6 +89,7 @@ public class DurationBindingFactory extends BindingFactory {
 				final IStringifier stringifier = EMFUtils.getStringifier((EAttribute) toType);
 				return new Converter(fromType, toType)
 				{
+					@Override
 					public Object convert(Object fromObject)
 					{
 						Date from = (Date)fromObject;
@@ -106,6 +107,7 @@ public class DurationBindingFactory extends BindingFactory {
 				final IStringifier stringifier = EMFUtils.getStringifier((EAttribute) fromType);
 				return new Converter(fromType, toType)
 				{
+					@Override
 					public Object convert(Object fromObject)
 					{
 						String durationString = stringifier.getDisplayString(fromObject);

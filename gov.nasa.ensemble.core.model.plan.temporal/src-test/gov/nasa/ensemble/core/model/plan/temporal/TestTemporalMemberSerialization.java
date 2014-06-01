@@ -23,8 +23,6 @@ import gov.nasa.ensemble.core.jscience.util.DateUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 import gov.nasa.ensemble.core.model.plan.EPlanElement;
 import gov.nasa.ensemble.core.model.plan.util.PlanResourceImpl;
-import gov.nasa.ensemble.emf.util.EMFUtils;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;

@@ -100,6 +100,7 @@ public class ZoomSweepToolHandler extends ZoomTimelineCommandHandler implements 
 		return null;
 	}
 
+	@Override
 	public void handleEvent(ToolListenerEvent event) {
 		if (this.tool == event.getTool()
 				&& event.getType() == ToolListenerEvent.TYPE.DEACTIVATED) {

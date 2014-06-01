@@ -35,6 +35,7 @@ public class DefaultOverwriteQueryImpl implements IOverwriteQuery {
 		this.shell = shell;
 	}
 
+	@Override
 	public String queryOverwrite(String pathString) {
 		if (alwaysOverwrite) {
 			return ALL;
@@ -43,6 +44,7 @@ public class DefaultOverwriteQueryImpl implements IOverwriteQuery {
 		final String msg = NLS.bind(IDEWorkbenchMessages.CopyFilesAndFoldersOperation_overwriteQuestion, pathString);
 		final String[] options = { IDialogConstants.YES_LABEL, IDialogConstants.YES_TO_ALL_LABEL, IDialogConstants.NO_LABEL, IDialogConstants.CANCEL_LABEL };
 		shell.getDisplay().syncExec(new Runnable() {
+			@Override
 			public void run() {
 				MessageDialog dialog = new MessageDialog(shell, IDEWorkbenchMessages.CopyFilesAndFoldersOperation_question, null, msg, MessageDialog.QUESTION, options, 0) {
 					@Override

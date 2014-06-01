@@ -37,6 +37,7 @@ public class InvertedBooleanEditor extends AbstractTypeEditor<Boolean> {
 		button = createButton();
 	}
 	
+	@Override
 	public Control getEditorControl() {
 		return button;
 	}
@@ -45,6 +46,7 @@ public class InvertedBooleanEditor extends AbstractTypeEditor<Boolean> {
 	public void setObject(final Object object) {
 		super.setObject(object);
 		WidgetUtils.runInDisplayThread(button, new Runnable() {
+			@Override
 			public void run() {
 				if (object != null) {
 					button.setSelection(!(Boolean)object);
@@ -58,9 +60,11 @@ public class InvertedBooleanEditor extends AbstractTypeEditor<Boolean> {
 	private Button createButton() {
 		final Button button = new Button(parent, SWT.CHECK | SWT.FLAT);
 		button.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				updateEditor();
 			}
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				updateEditor();
 			}

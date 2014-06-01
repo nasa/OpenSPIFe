@@ -289,6 +289,7 @@ public class FileResourceMarkerService extends TimelineService
 		return color;
 	}
 
+	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		IResource resource = getTimelineResource();
 		if (resource == null) {
@@ -325,6 +326,7 @@ public class FileResourceMarkerService extends TimelineService
 		}
 	}
 
+	@Override
 	public void propertyChange(PropertyChangeEvent event)
 	{
 		Object property = event.getProperty();

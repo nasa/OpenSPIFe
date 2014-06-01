@@ -113,6 +113,7 @@ public interface Claim extends NamedCondition {
 	 * @model opposite="claims" transient="false"
 	 * @generated
 	 */
+	@Override
 	Conditions getConditions();
 
 	/**

@@ -42,6 +42,7 @@ public class ChainTestPlan extends BasicTestPlan {
 	public ChainTestPlan() {
 		super("ChainTestPlan");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				TemporalChainUtils.attachChain(chain1);
 				TemporalChainUtils.attachChain(chain2);

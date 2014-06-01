@@ -85,6 +85,7 @@ public abstract class AbstractInPlaceDialog extends PopupDialog {
 	
 	DisposeListener disposeListener = new DisposeListener() {
 
+		@Override
 		public void widgetDisposed(DisposeEvent e) {
 			dispose();
 		}
@@ -173,6 +174,7 @@ public abstract class AbstractInPlaceDialog extends PopupDialog {
 		button.setText(text);
 		button.addSelectionListener(new SelectionListener() {
 
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				setReturnCode(returnCode);
 				if (shouldClose) {
@@ -182,6 +184,7 @@ public abstract class AbstractInPlaceDialog extends PopupDialog {
 				}
 			}
 
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				widgetSelected(e);
 			}
@@ -227,10 +230,12 @@ public abstract class AbstractInPlaceDialog extends PopupDialog {
 		for (final IInPlaceDialogListener listener : listeners) {
 			SafeRunnable.run(new ISafeRunnable() {
 
+				@Override
 				public void run() throws Exception {
 					listener.buttonPressed(event);
 				}
 
+				@Override
 				public void handleException(Throwable exception) {
 					LogUtil.error(new Status(IStatus.ERROR, "Multiselect Widget!", "Error while notifying IInPlaceCloseListener", exception));
 				}

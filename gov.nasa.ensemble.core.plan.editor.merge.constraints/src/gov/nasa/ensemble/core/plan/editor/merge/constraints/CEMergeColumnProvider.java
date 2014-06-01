@@ -28,6 +28,7 @@ public class CEMergeColumnProvider implements IMergeColumnProvider {
 
 	private List<AbstractMergeColumn<?>> columns = null;
 	
+	@Override
 	public List<AbstractMergeColumn<?>> getColumns() {
 		if (columns == null) {
 			columns = new ArrayList<AbstractMergeColumn<?>>();
@@ -40,6 +41,7 @@ public class CEMergeColumnProvider implements IMergeColumnProvider {
 		return columns;
 	}
 	
+	@Override
 	public String getName() {
 		return "Constraints";
 	}

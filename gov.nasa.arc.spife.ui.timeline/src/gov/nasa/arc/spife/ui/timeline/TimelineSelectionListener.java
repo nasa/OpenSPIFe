@@ -46,6 +46,7 @@ public class TimelineSelectionListener implements ISelectionChangedListener, IDi
 		this.timeline = timeline;
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public void selectionChanged(SelectionChangedEvent event) {
 		if (timeline == null || timeline.isProcessingSelection()) {

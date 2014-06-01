@@ -82,6 +82,7 @@ public class CursorTimeFeedbackEditPolicy extends TimelineViewerEditPolicy {
 	
 	private class Listener implements PropertyChangeListener, IPropertyChangeListener {
 
+		@Override
 		public void propertyChange(PropertyChangeEvent evt) {
 			String propertyName = evt.getPropertyName();
 			if (TimelineConstants.CURSOR_TIME.equals(propertyName)) {
@@ -90,6 +91,7 @@ public class CursorTimeFeedbackEditPolicy extends TimelineViewerEditPolicy {
 			}
 		}
 
+		@Override
 		public void propertyChange(org.eclipse.jface.util.PropertyChangeEvent event) {
 			if (CommonUtils.equals(TimelinePreferencePage.P_CURSOR_TIME_ENABLED, event.getProperty())) {
 				//

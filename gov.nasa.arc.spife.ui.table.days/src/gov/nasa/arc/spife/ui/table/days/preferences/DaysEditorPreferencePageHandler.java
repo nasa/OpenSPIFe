@@ -27,6 +27,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 public class DaysEditorPreferencePageHandler extends AbstractHandler {
 
+	@Override
 	public final Object execute(final ExecutionEvent event) {
 		final IWorkbenchWindow activeWorkbenchWindow = HandlerUtil.getActiveWorkbenchWindow(event);
 

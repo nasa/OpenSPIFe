@@ -47,6 +47,7 @@ public class PatchOperation extends AbstractTransactionUndoableOperation {
 	
 	private void doit() {
 		TransactionUtils.writeIfNecessary(target, new Runnable() {
+			@Override
 			public void run() {
 				if (patch != null) {
 					try {

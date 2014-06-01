@@ -101,6 +101,7 @@ public class ComputableAmountImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<?> getAmount() {
 		return amount;
 	}
@@ -110,6 +111,7 @@ public class ComputableAmountImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAmount(Amount<?> newAmount) {
 		Amount<?> oldAmount = amount;
 		amount = newAmount;
@@ -122,6 +124,7 @@ public class ComputableAmountImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComputingState getComputing() {
 		return computing;
 	}
@@ -131,6 +134,7 @@ public class ComputableAmountImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setComputing(ComputingState newComputing) {
 		ComputingState oldComputing = computing;
 		computing = newComputing == null ? COMPUTING_EDEFAULT : newComputing;

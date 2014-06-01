@@ -121,6 +121,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGraph() {
 		return graphEClass;
 	}
@@ -130,6 +131,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getGraph_Dependencies() {
 		return (EReference)graphEClass.getEStructuralFeatures().get(0);
 	}
@@ -139,6 +141,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDependency() {
 		return dependencyEClass;
 	}
@@ -148,6 +151,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDependency_Name() {
 		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(0);
 	}
@@ -157,6 +161,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDependency_Next() {
 		return (EReference)dependencyEClass.getEStructuralFeatures().get(1);
 	}
@@ -166,6 +171,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDependency_Previous() {
 		return (EReference)dependencyEClass.getEStructuralFeatures().get(2);
 	}
@@ -175,6 +181,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDependency_Value() {
 		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(3);
 	}
@@ -184,6 +191,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDependency_Valid() {
 		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(4);
 	}
@@ -193,6 +201,7 @@ public class DependencyPackageImpl extends EPackageImpl implements DependencyPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DependencyFactory getDependencyFactory() {
 		return (DependencyFactory)getEFactoryInstance();
 	}

@@ -117,6 +117,7 @@ public class PlanSearchDialogQuery {
 		attributesCombo.setFont(queryComposite.getFont());
 		attributesCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, true, 1, 1));			
 		attributesCombo.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				updateSearchSelection();
 			}

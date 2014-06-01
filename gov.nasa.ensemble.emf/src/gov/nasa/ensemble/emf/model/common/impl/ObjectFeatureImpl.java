@@ -93,6 +93,7 @@ public class ObjectFeatureImpl extends EObjectImpl implements ObjectFeature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getObject() {
 		if (object != null && object.eIsProxy()) {
 			InternalEObject oldObject = (InternalEObject)object;
@@ -119,6 +120,7 @@ public class ObjectFeatureImpl extends EObjectImpl implements ObjectFeature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setObject(EObject newObject) {
 		EObject oldObject = object;
 		object = newObject;
@@ -131,6 +133,7 @@ public class ObjectFeatureImpl extends EObjectImpl implements ObjectFeature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EStructuralFeature getFeature() {
 		if (feature != null && feature.eIsProxy()) {
 			InternalEObject oldFeature = (InternalEObject)feature;
@@ -157,6 +160,7 @@ public class ObjectFeatureImpl extends EObjectImpl implements ObjectFeature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFeature(EStructuralFeature newFeature) {
 		EStructuralFeature oldFeature = feature;
 		feature = newFeature;

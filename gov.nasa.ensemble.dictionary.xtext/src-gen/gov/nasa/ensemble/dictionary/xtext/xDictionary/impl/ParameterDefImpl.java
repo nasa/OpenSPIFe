@@ -156,7 +156,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
+  @Override
+public String getType()
   {
     return type;
   }
@@ -166,7 +167,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(String newType)
+  @Override
+public void setType(String newType)
   {
     String oldType = type;
     type = newType;
@@ -179,7 +181,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  @Override
+public String getDescription()
   {
     return description;
   }
@@ -189,7 +192,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  @Override
+public void setDescription(String newDescription)
   {
     String oldDescription = description;
     description = newDescription;
@@ -202,7 +206,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDisplayName()
+  @Override
+public String getDisplayName()
   {
     return displayName;
   }
@@ -212,7 +217,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDisplayName(String newDisplayName)
+  @Override
+public void setDisplayName(String newDisplayName)
   {
     String oldDisplayName = displayName;
     displayName = newDisplayName;
@@ -225,7 +231,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCategory()
+  @Override
+public String getCategory()
   {
     return category;
   }
@@ -235,7 +242,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCategory(String newCategory)
+  @Override
+public void setCategory(String newCategory)
   {
     String oldCategory = category;
     category = newCategory;
@@ -248,7 +256,8 @@ public class ParameterDefImpl extends DefinitionImpl implements ParameterDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Annotation> getAnnotations()
+  @Override
+public EList<Annotation> getAnnotations()
   {
     if (annotations == null)
     {

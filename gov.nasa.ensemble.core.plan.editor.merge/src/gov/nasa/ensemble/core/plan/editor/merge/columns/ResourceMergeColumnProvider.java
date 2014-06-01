@@ -36,6 +36,7 @@ public class ResourceMergeColumnProvider implements IMergeColumnProvider {
 
 	private static final String COLUMN_PROVIDER_NAME = "Effects";
 
+	@Override
 	public List<? extends AbstractMergeColumn<?>> getColumns() {
 		List<AbstractMergeColumn<?>> columns = new ArrayList<AbstractMergeColumn<?>>();
 		Iterable<EResourceDef> definitions = getResourceDefs();
@@ -47,6 +48,7 @@ public class ResourceMergeColumnProvider implements IMergeColumnProvider {
 		return columns;
 	}
 
+	@Override
 	public String getName() {
 		return COLUMN_PROVIDER_NAME;
 	}

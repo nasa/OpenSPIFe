@@ -196,6 +196,7 @@ public class TestConstraintViolationBoundPrinter extends TestCase {
 	private EActivity createActivity(final String name, final Date start, final Amount<Duration> duration) {
 		final EActivity activity = PlanFactory.getInstance().createActivityInstance();
 		TransactionUtils.writing(activity, new Runnable() {
+			@Override
 			public void run() {
 				activity.setName(name);
 				activity.getMember(TemporalMember.class).setStartTime(start);

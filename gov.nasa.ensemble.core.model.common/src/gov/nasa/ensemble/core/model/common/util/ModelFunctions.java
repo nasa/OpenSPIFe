@@ -37,8 +37,10 @@ public class ModelFunctions {
 	
 	public static <A, B> F<A, B> transactional(final F<A, B> f) {
 		return new F<A, B>() {
+			@Override
 			public B f(final A a) {
 				return TransactionUtils.reading(a, new RunnableWithResult.Impl<B>() {
+					@Override
 					public void run() {
 						setResult(f.f(a));
 					}
@@ -49,30 +51,35 @@ public class ModelFunctions {
 	
 	public static final F<EEnum, List<Enumerator>> enumToLiterals = 
 		new F<EEnum, List<Enumerator>>() {
+		@Override
 		public List<Enumerator> f(final EEnum eenum) {
 			return fj(eenum.getELiterals()).map(Functions.<EEnumLiteral, Enumerator>cast());
 		}
 	};
 	
 	public static final F<Enumerator, String> literalToString = new F<Enumerator, String>() {
+		@Override
 		public String f(final Enumerator literal) {
 			return literal.getLiteral();
 		}
 	};
 	
 	public static final F<Enumerator, String> literalToName = new F<Enumerator, String>() {
+		@Override
 		public String f(final Enumerator literal) {
 			return literal.getName();
 		}
 	};
 	
 	public static final F<Enumerator, Integer> literalToValue = new F<Enumerator, Integer>() {
+		@Override
 		public Integer f(final Enumerator literal) {
 			return literal.getValue();
 		}
 	};
 	
 	public static final F<EEnum, List<String>> enumToNames = new F<EEnum, List<String>>() {
+		@Override
 		public List<String> f(final EEnum eenum) {
 			return enumToLiterals.f(eenum).map(literalToName);
 		}
@@ -84,6 +91,7 @@ public class ModelFunctions {
 	 */
 	public static final F<Notification, Boolean> cameFrom(final EObject object) {
 		return new F<Notification, Boolean>() {
+			@Override
 			public Boolean f(final Notification notification) {
 				final Object notifier = notification.getNotifier();
 				if (notifier instanceof EObject)

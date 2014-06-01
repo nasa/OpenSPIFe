@@ -143,6 +143,7 @@ public class EnsembleSelectionProvider implements ISelectionProvider {
 	 * Get the currently selected items in this input
 	 * @return the selection
 	 */
+	@Override
 	public ISelection getSelection() {
 		return theSelection;
 	}
@@ -151,6 +152,7 @@ public class EnsembleSelectionProvider implements ISelectionProvider {
 	 * Set the currently selected items in this input
 	 * @param selection
 	 */
+	@Override
 	public void setSelection(final ISelection selection) {
 		
 		//if (!sameSelection(selection, theSelection))
@@ -167,6 +169,7 @@ public class EnsembleSelectionProvider implements ISelectionProvider {
 	/**
 	 * Add a listener to be notified for every change to the selection.
 	 */
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		if (!selectionListeners.contains(listener)) {
 			selectionListeners.add(listener);
@@ -176,6 +179,7 @@ public class EnsembleSelectionProvider implements ISelectionProvider {
 	/**
 	 * Remove a listener to be notified for every change to the selection.
 	 */
+	@Override
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionListeners.remove(listener);
 	}
@@ -203,7 +207,8 @@ public class EnsembleSelectionProvider implements ISelectionProvider {
         for (int i = 0; i < listenersArray.length; i++) {
             final ISelectionChangedListener l = (ISelectionChangedListener) listenersArray[i];
             SafeRunner.run(new SafeRunnable() {
-                public void run() {
+                @Override
+				public void run() {
                     l.selectionChanged(e);
                 }
             });
@@ -212,7 +217,8 @@ public class EnsembleSelectionProvider implements ISelectionProvider {
         for (int i = 0; i < providersArray.length; i++) {
             final ISelectionProvider provider = (ISelectionProvider) providersArray[i];
             SafeRunner.run(new SafeRunnable() {
-                public void run() {
+                @Override
+				public void run() {
                 	ISelection providerSelection = provider.getSelection();
 					if (!sameSelection(providerSelection, selection)) {
                 		provider.setSelection(selection);
@@ -224,6 +230,7 @@ public class EnsembleSelectionProvider implements ISelectionProvider {
 	}
 	
 	private class SelectionChangedListener implements ISelectionChangedListener {
+		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
 			if (!firingSelection) {
 				setSelection(event.getSelection());

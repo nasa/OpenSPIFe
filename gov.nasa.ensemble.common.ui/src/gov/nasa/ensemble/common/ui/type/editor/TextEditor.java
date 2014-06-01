@@ -66,6 +66,7 @@ public class TextEditor extends AbstractTypeEditor<Object> {
 			bubble = new ToolTip(text.getShell(), SWT.BALLOON | SWT.ICON_ERROR);
     }
 
+	@Override
 	public Control getEditorControl() {
 		return text;
 	}
@@ -82,6 +83,7 @@ public class TextEditor extends AbstractTypeEditor<Object> {
 	
 	protected final void updateText() {
 		WidgetUtils.runInDisplayThread(text, new Runnable() {
+			@Override
 			@SuppressWarnings("unchecked")
 			
 			public void run() {
@@ -178,15 +180,18 @@ public class TextEditor extends AbstractTypeEditor<Object> {
 	
 	private class TextListener implements FocusListener, KeyListener, ModifyListener {
 
+		@Override
 		public void modifyText(ModifyEvent event) {
 			edited = true;
 			updateValidityColor();
 		}
 
+		@Override
 		public void keyPressed(KeyEvent event) {
 			// special keys handled in release
 		}
 		
+		@Override
 		public void keyReleased(KeyEvent event) {
 			if (event.keyCode == SWT.ESC) {
 				resetText();
@@ -205,10 +210,12 @@ public class TextEditor extends AbstractTypeEditor<Object> {
 			}
 		}
 
+		@Override
 		public void focusGained(FocusEvent event) {
 			edited = false;
 		}
 		
+		@Override
 		public void focusLost(FocusEvent event) {
 			if (edited) {
 				String string = text.getText();

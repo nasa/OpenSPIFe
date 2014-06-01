@@ -39,6 +39,7 @@ public class ColorEditor extends AbstractTypeEditor<String> {
 		this.colorChooser = createColorSelector();
 	}
 	
+	@Override
 	public Control getEditorControl() {
 		return colorChooser.getButton();
 	}
@@ -47,6 +48,7 @@ public class ColorEditor extends AbstractTypeEditor<String> {
 	public void setObject(final Object object) {
 		super.setObject(object);
 		WidgetUtils.runInDisplayThread(parent, new Runnable() {
+			@Override
 			public void run() {
 				if (object != null) {
 					try {
@@ -74,6 +76,7 @@ public class ColorEditor extends AbstractTypeEditor<String> {
 	private ColorSelector createColorSelector() {
 		final ColorSelector chooser = new ColorSelector(parent);
 		chooser.addListener(new IPropertyChangeListener() {
+			@Override
 			public void propertyChange(PropertyChangeEvent event) {
 				String oldValue = getObject();
 				

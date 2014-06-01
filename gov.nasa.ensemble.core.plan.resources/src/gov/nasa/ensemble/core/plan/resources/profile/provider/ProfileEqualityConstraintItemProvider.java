@@ -25,14 +25,9 @@ package gov.nasa.ensemble.core.plan.resources.profile.provider;
 
 
 import gov.nasa.ensemble.core.jscience.Profile;
-import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.advisor.AdvisorPackage;
-import gov.nasa.ensemble.core.model.plan.translator.WrapperUtils;
-import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileEqualityConstraint;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfilePackage;
-import gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMember;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

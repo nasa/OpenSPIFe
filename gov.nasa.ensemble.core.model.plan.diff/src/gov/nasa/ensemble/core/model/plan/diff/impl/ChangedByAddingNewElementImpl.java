@@ -30,14 +30,17 @@ public class ChangedByAddingNewElementImpl implements ChangedByAddingNewElement 
 		this.element = element;
 	}
 
+	@Override
 	public EPlanChild getAddedElement() {
 		return element;
 	}
 
+	@Override
 	public EPlanElement getNewParent() {
 		return element.getParent();
 	}
 
+	@Override
 	public DiffType getDiffType() {
 		return DiffType.ADD;
 	}

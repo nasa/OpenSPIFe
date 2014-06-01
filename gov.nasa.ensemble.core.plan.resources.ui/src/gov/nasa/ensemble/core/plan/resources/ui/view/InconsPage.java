@@ -81,7 +81,9 @@ public class InconsPage extends Page {
 				ResourceConditionsMember member = plan.getMember(ResourceConditionsMember.class);
 				return member.getConditions().toArray();
 			}
+			@Override
 			public void dispose() { /* empty */ }
+			@Override
 			public void inputChanged(Viewer viewer, Object oldInput, Object newInput) { /* empty */ }
 		};
 		inconsViewer = InconsTableUtils.getTableViewer(composite, contentProvider);
@@ -90,7 +92,7 @@ public class InconsPage extends Page {
 	}
 
 	private void setup() {
-		TransactionalEditingDomain domain = TransactionUtils.getDomain(plan);
+		TransactionalEditingDomain domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(plan);
 		domain.addResourceSetListener(modelChangeListener);
 		selectionProvider = new EnsembleSelectionProvider(this.toString());
 		selectionProvider.attachSelectionProvider(inconsViewer);
@@ -102,7 +104,7 @@ public class InconsPage extends Page {
 	
 	@Override
 	public void dispose() {
-		TransactionalEditingDomain domain = TransactionUtils.getDomain(plan);
+		TransactionalEditingDomain domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(plan);
 		domain.removeResourceSetListener(modelChangeListener);
 		selectionProvider.removeSelectionChangedListener(deleteInconsAction);
 		getSite().setSelectionProvider(null);
@@ -148,7 +150,8 @@ public class InconsPage extends Page {
     		}
     		if (update) {
     			TransactionUtils.runInDisplayThread(control, plan, new Runnable() {
-    				public void run() {
+    				@Override
+					public void run() {
     					inconsViewer.refresh(true);
     				}
     			});

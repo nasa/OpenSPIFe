@@ -99,6 +99,7 @@ public class TitleFormPart extends AbstractFormPart {
 	@Override
 	public boolean setFormInput(final Object input) {
 		WidgetUtils.runInDisplayThread(titleComposite, new Runnable() {
+			@Override
 			public void run() {
 				if (input == null) {
 					textLabel.setText("");

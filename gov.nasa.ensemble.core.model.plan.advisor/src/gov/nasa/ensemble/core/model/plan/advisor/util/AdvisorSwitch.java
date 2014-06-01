@@ -26,10 +26,6 @@ package gov.nasa.ensemble.core.model.plan.advisor.util;
 import gov.nasa.ensemble.core.model.plan.EMember;
 import gov.nasa.ensemble.core.model.plan.advisor.*;
 
-import java.util.List;
-
-import java.util.Map;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;

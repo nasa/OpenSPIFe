@@ -94,7 +94,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Dictionary createDictionary()
+  @Override
+public Dictionary createDictionary()
   {
     DictionaryImpl dictionary = new DictionaryImpl();
     return dictionary;
@@ -105,7 +106,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Definition createDefinition()
+  @Override
+public Definition createDefinition()
   {
     DefinitionImpl definition = new DefinitionImpl();
     return definition;
@@ -116,7 +118,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public EnumDef createEnumDef()
+  @Override
+public EnumDef createEnumDef()
   {
     EnumDefImpl enumDef = new EnumDefImpl();
     return enumDef;
@@ -127,7 +130,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public EnumValue createEnumValue()
+  @Override
+public EnumValue createEnumValue()
   {
     EnumValueImpl enumValue = new EnumValueImpl();
     return enumValue;
@@ -138,7 +142,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ParameterDef createParameterDef()
+  @Override
+public ParameterDef createParameterDef()
   {
     ParameterDefImpl parameterDef = new ParameterDefImpl();
     return parameterDef;
@@ -149,7 +154,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public AttributeDef createAttributeDef()
+  @Override
+public AttributeDef createAttributeDef()
   {
     AttributeDefImpl attributeDef = new AttributeDefImpl();
     return attributeDef;
@@ -160,7 +166,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ReferenceDef createReferenceDef()
+  @Override
+public ReferenceDef createReferenceDef()
   {
     ReferenceDefImpl referenceDef = new ReferenceDefImpl();
     return referenceDef;
@@ -171,7 +178,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActivityDef createActivityDef()
+  @Override
+public ActivityDef createActivityDef()
   {
     ActivityDefImpl activityDef = new ActivityDefImpl();
     return activityDef;
@@ -182,7 +190,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotation createAnnotation()
+  @Override
+public Annotation createAnnotation()
   {
     AnnotationImpl annotation = new AnnotationImpl();
     return annotation;
@@ -193,7 +202,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Requirement createRequirement()
+  @Override
+public Requirement createRequirement()
   {
     RequirementImpl requirement = new RequirementImpl();
     return requirement;
@@ -204,7 +214,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumericRequirement createNumericRequirement()
+  @Override
+public NumericRequirement createNumericRequirement()
   {
     NumericRequirementImpl numericRequirement = new NumericRequirementImpl();
     return numericRequirement;
@@ -215,7 +226,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public StateRequirement createStateRequirement()
+  @Override
+public StateRequirement createStateRequirement()
   {
     StateRequirementImpl stateRequirement = new StateRequirementImpl();
     return stateRequirement;
@@ -226,7 +238,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActivityGroupDef createActivityGroupDef()
+  @Override
+public ActivityGroupDef createActivityGroupDef()
   {
     ActivityGroupDefImpl activityGroupDef = new ActivityGroupDefImpl();
     return activityGroupDef;
@@ -237,7 +250,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ObjectDef createObjectDef()
+  @Override
+public ObjectDef createObjectDef()
   {
     ObjectDefImpl objectDef = new ObjectDefImpl();
     return objectDef;
@@ -248,7 +262,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ResourceDef createResourceDef()
+  @Override
+public ResourceDef createResourceDef()
   {
     ResourceDefImpl resourceDef = new ResourceDefImpl();
     return resourceDef;
@@ -259,7 +274,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumericResource createNumericResource()
+  @Override
+public NumericResource createNumericResource()
   {
     NumericResourceImpl numericResource = new NumericResourceImpl();
     return numericResource;
@@ -270,7 +286,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public StateResource createStateResource()
+  @Override
+public StateResource createStateResource()
   {
     StateResourceImpl stateResource = new StateResourceImpl();
     return stateResource;
@@ -281,7 +298,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClaimableResource createClaimableResource()
+  @Override
+public ClaimableResource createClaimableResource()
   {
     ClaimableResourceImpl claimableResource = new ClaimableResourceImpl();
     return claimableResource;
@@ -292,7 +310,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public SharableResource createSharableResource()
+  @Override
+public SharableResource createSharableResource()
   {
     SharableResourceImpl sharableResource = new SharableResourceImpl();
     return sharableResource;
@@ -303,7 +322,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public SummaryResource createSummaryResource()
+  @Override
+public SummaryResource createSummaryResource()
   {
     SummaryResourceImpl summaryResource = new SummaryResourceImpl();
     return summaryResource;
@@ -314,7 +334,8 @@ public class XDictionaryFactoryImpl extends EFactoryImpl implements XDictionaryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public XDictionaryPackage getXDictionaryPackage()
+  @Override
+public XDictionaryPackage getXDictionaryPackage()
   {
     return (XDictionaryPackage)getEPackage();
   }

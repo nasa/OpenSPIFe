@@ -44,6 +44,7 @@ public class TestActivityNumericRequirementPlanAdvisor extends AbstractResourceP
 		model = createPlanEditorModel();
 		plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				
@@ -79,6 +80,7 @@ public class TestActivityNumericRequirementPlanAdvisor extends AbstractResourceP
 
 	private void setFeature(final String featureName, final Object featureValue) {
 		TransactionUtils.writing(parameterTestActivity, new Runnable() {
+			@Override
 			public void run() {
 				EObject eObject = parameterTestActivity.getData();
 				EClass eClass = eObject.eClass();

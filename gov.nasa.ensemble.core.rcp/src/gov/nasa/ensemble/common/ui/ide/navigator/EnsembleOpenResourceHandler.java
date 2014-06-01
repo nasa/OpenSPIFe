@@ -85,6 +85,7 @@ public abstract class EnsembleOpenResourceHandler extends Action implements IHan
 		artificialResourceManager = getNewArtificialResourceManager();
 	}
 
+	@Override
 	public final void addHandlerListener(final IHandlerListener listener) {
 		if (listenerList == null) {
 			listenerList = new ListenerList(ListenerList.IDENTITY);
@@ -93,10 +94,12 @@ public abstract class EnsembleOpenResourceHandler extends Action implements IHan
 		listenerList.add(listener);
 	}
 
+	@Override
 	public final void dispose() {
 		listenerList = null;
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public final Object execute(final ExecutionEvent event)
 			throws ExecutionException {
@@ -167,6 +170,7 @@ public abstract class EnsembleOpenResourceHandler extends Action implements IHan
 		return null;
 	}
 
+	@Override
 	public final void init(final IWorkbenchWindow window) {
 		// Do nothing.
 	}
@@ -200,6 +204,7 @@ public abstract class EnsembleOpenResourceHandler extends Action implements IHan
 	public abstract SelectionDialog getNewSelectionDialogInstance
 		(Shell parentShell,	IContainer container, int typesMask);
 
+	@Override
 	public final void removeHandlerListener(final IHandlerListener listener) {
 		if (listenerList != null) {
 			listenerList.remove(listener);
@@ -210,6 +215,7 @@ public abstract class EnsembleOpenResourceHandler extends Action implements IHan
 		}
 	}
 
+	@Override
 	public final void run(final IAction action) {
 		try {
 			execute(new ExecutionEvent());
@@ -218,6 +224,7 @@ public abstract class EnsembleOpenResourceHandler extends Action implements IHan
 		}
 	}
 
+	@Override
 	public final void selectionChanged(final IAction action,
 			final ISelection selection) {
 		// Do nothing.

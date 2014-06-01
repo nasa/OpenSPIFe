@@ -88,6 +88,7 @@ public class TestCutOperation extends UndoableOperationTestCase {
 		IUndoableOperation operation = new ClipboardCutOperation(transferable, modifier);
 
 		testUndoableOperation(plan.plan, operation, new Runnable() {
+			@Override
 			public void run() {
 				Set<EPlanElement> planElements = EPlanUtils.computeContainedElements(Collections.singletonList(plan.plan));
 				for (EPlanElement element : expectedElements) {

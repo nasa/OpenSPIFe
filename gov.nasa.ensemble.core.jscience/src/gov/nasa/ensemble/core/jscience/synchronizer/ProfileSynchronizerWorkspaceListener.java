@@ -76,6 +76,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 	/**
 	 * Process the event into changes and kick off a job to handle those changes.
 	 */
+	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		final Map<IResource, List<CHANGE_TYPE>> changes = new AutoListMap<IResource, CHANGE_TYPE>(IResource.class);
 		resourceDeltaChanged(event.getDelta(), changes);

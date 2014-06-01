@@ -93,7 +93,8 @@ public class PlanClipboardPasteOperation extends ClipboardPasteOperation impleme
 	@Override
 	protected void doit() {
 		TransactionUtils.writing(context, new Runnable() {
- 			public void run() {
+ 			@Override
+			public void run() {
  				PlanClipboardPasteOperation.super.doit();
  			}
  		});
@@ -102,6 +103,7 @@ public class PlanClipboardPasteOperation extends ClipboardPasteOperation impleme
 	@Override
 	protected void undo() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanClipboardPasteOperation.super.undo();
 			}

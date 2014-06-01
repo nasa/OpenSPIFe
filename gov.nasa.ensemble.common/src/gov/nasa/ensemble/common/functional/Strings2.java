@@ -58,6 +58,7 @@ public class Strings2 {
 	}
 	
 	public static final F<String, String> toLowerCase = new F<String, String>() {
+		@Override
 		public String f(final String string) {
 			return string.toLowerCase();
 		}

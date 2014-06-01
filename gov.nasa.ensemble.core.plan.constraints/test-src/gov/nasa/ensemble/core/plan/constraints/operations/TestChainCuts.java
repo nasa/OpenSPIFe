@@ -67,6 +67,7 @@ public class TestChainCuts extends TestChainOperation {
 		final Runnable postcondition1 = new RemovingChainActivitiesPostconditionRunnable("cut", plan, planElementsToCut);
 		final Runnable postcondition2 = new ClipboardContentsPostconditionRunnable(planElementsToCut, false);
 		testUndoableOperation(plan.plan, operation, new Runnable() {
+			@Override
 			public void run() {
 				postcondition1.run();
 				postcondition2.run();

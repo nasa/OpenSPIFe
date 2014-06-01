@@ -115,6 +115,7 @@ public class Client
      */
     private Object executeCall(final String command, final Vector params) throws ClientException {
 		return WidgetUtils.avoidDisplayThread(new GenericRunnable<ClientException, Object>() {
+			@Override
 			public Object run() throws ClientException {
 				Object result = null;
 				try {

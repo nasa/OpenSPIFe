@@ -138,7 +138,8 @@ public class MoveSelectedDialog extends Dialog {
                 | GridData.HORIZONTAL_ALIGN_FILL));
         text.setText(DEFAULT_TO_CURRENT? DATE_STRINGIFIER.getDisplayString(referenceDate) : "");
         text.addModifyListener(new ModifyListener() {
-            public void modifyText(ModifyEvent e) {
+            @Override
+			public void modifyText(ModifyEvent e) {
                 validateInput();
             }
         });

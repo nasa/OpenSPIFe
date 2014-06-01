@@ -73,6 +73,7 @@ public class TemporalPropertyDescriptorContributor implements PropertyDescriptor
 	private static final String LATEST_END_TIME = "Latest End Time";
 	private static final String DURATION_SUM = "Sum of Durations";
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(EObject target) {
 		if (target instanceof MultiEObject) {
@@ -109,6 +110,7 @@ public class TemporalPropertyDescriptorContributor implements PropertyDescriptor
 			super(new ComposedAdapterFactory(), name, null, (EStructuralFeature)null, false, MULTI_SELECT_SCHEDULE);
 		}
 
+		@Override
 		public Object getAdapter(Class adapter) {
 			if (IDetailProvider.class == adapter) {
 				return new TemporalDetailsProvider();

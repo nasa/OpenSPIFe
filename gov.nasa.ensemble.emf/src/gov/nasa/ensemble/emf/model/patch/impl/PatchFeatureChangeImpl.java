@@ -203,6 +203,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EStructuralFeature getFeature() {
 		if (feature != null && feature.eIsProxy()) {
 			InternalEObject oldFeature = (InternalEObject)feature;
@@ -225,6 +226,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setFeature(EStructuralFeature newFeature) {
 		feature = newFeature;
 	}
@@ -234,6 +236,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Object getValue() {
 		EStructuralFeature feature = getFeature();
 		if (value == null) {
@@ -264,6 +267,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setValue(Object newValue) {
 		value = newValue;
 		valueString = getObjectAsString(newValue);
@@ -274,6 +278,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValueString() {
 		return valueString;
 	}
@@ -283,6 +288,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValueString(String newValueString) {
 		String oldValueString = valueString;
 		valueString = newValueString;
@@ -295,6 +301,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getOldValueString() {
 		return oldValueString;
 	}
@@ -304,6 +311,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOldValueString(String newOldValueString) {
 		String oldOldValueString = oldValueString;
 		oldValueString = newOldValueString;
@@ -316,6 +324,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PatchListChange> getListChanges() {
 		if (listChanges == null) {
 			listChanges = new EObjectContainmentEList<PatchListChange>(PatchListChange.class, this, PatchPackage.PATCH_FEATURE_CHANGE__LIST_CHANGES);
@@ -328,6 +337,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDisplayMessage() {
 		return displayMessage;
 	}
@@ -337,6 +347,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDisplayMessage(String newDisplayMessage) {
 		String oldDisplayMessage = displayMessage;
 		displayMessage = newDisplayMessage;
@@ -349,6 +360,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getReference() {
 		return reference;
 	}
@@ -373,6 +385,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReference(EObject newReference) {
 		if (newReference != reference) {
 			NotificationChain msgs = null;
@@ -392,6 +405,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void apply(EObject target) {
 		EStructuralFeature feature = getFeature();
 		if (!feature.isMany()) {
@@ -413,6 +427,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void applyAndReverse(EObject target) {
 		EStructuralFeature feature = getFeature();
 		if (!feature.isMany()) {
@@ -439,6 +454,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String getObjectAsString(Object object) {
 		if (feature instanceof EAttribute) {
 			if (object instanceof String) {
@@ -462,6 +478,7 @@ public class PatchFeatureChangeImpl extends EObjectImpl implements PatchFeatureC
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setOldValue(Object oldValue) {
 		oldValueString = getObjectAsString(oldValue);
 	}

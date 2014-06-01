@@ -25,7 +25,6 @@ import gov.nasa.ensemble.core.jscience.util.DateUtils;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.EPlanChild;
 import gov.nasa.ensemble.core.model.plan.EPlanElement;
-import gov.nasa.ensemble.core.model.plan.EPlanParent;
 import gov.nasa.ensemble.core.model.plan.constraints.BinaryTemporalConstraint;
 import gov.nasa.ensemble.core.model.plan.constraints.ConstraintPoint;
 import gov.nasa.ensemble.core.model.plan.constraints.ConstraintsFactory;
@@ -48,10 +47,8 @@ import java.util.Set;
 import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 
-import org.eclipse.core.commands.operations.IUndoableOperation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.jscience.physics.amount.Amount;
 
 public class ConstraintUtils {

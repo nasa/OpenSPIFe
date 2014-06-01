@@ -26,10 +26,12 @@ public class ProfileTransferProvider extends SimpleByteArrayTransferProvider {
 	
 	public static final Transfer transfer = createSimpleByteArrayTransfer(ProfileTransferProvider.class.getCanonicalName());
 	
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		return transferable instanceof ProfileTransferable;
 	}
 	
+	@Override
 	public Transfer getTransfer() {
 		return transfer;
 	}

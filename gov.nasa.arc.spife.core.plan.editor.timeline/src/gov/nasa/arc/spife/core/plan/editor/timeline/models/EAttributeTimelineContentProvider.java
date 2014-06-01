@@ -76,6 +76,7 @@ public class EAttributeTimelineContentProvider extends GroupingTimelineContentPr
 		if (eType instanceof EEnum) {
 			final EEnum eEnum = (EEnum) eType;
 			return new Comparator<EEnumLiteral>() {
+				@Override
 				public int compare(EEnumLiteral o1, EEnumLiteral o2) {
 					int v1 = eEnum.getELiterals().indexOf(o1);
 					int v2 = eEnum.getELiterals().indexOf(o2);

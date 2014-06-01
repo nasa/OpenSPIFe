@@ -28,26 +28,32 @@ public abstract class PreCommitListener implements ResourceSetListener {
 	/**
 	 * Our transactions don't notify on touch, so just use ANY. (fast and cheap!)
 	 */
+	@Override
 	public NotificationFilter getFilter() {
 		return NotificationFilter.ANY;
 	}
 
+	@Override
 	public final boolean isAggregatePrecommitListener() {
 		return true;
 	}
 
+	@Override
 	public final boolean isPostcommitOnly() {
 		return false;
 	}
 
+	@Override
 	public final boolean isPrecommitOnly() {
 		return true;
 	}
 
+	@Override
 	public final void resourceSetChanged(ResourceSetChangeEvent event) {
 		throw new UnsupportedOperationException("PostCommitListeners should not be notified here");
 	}
 
+	@Override
 	public abstract Command transactionAboutToCommit(ResourceSetChangeEvent event) throws RollbackException;
 
 }

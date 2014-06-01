@@ -92,6 +92,7 @@ public class CopyManyTimesHandler extends DrudgerySavingHandler {
 			// nothing to do
 		}
 
+		@Override
 		public String isValid(String newText) {
 			if (newText != null && newText.length() > 0) {
 				try {

@@ -51,6 +51,7 @@ public class CreateConstraintHandler extends AbstractPlanEditorHandler {
 		return 2;
 	}
 	
+	@Override
 	public Object execute(ExecutionEvent event) {
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
 		List<EPlanElement> elements = getPlanElementPair(selection);

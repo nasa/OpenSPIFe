@@ -55,6 +55,7 @@ public class ActivityProfileEffectDependency extends ActivityDependency implemen
 		return super.getName() + "." + effect.getProfileKey() + "." + timepoint;
 	}
 
+	@Override
 	public Date getDate() {
 		TemporalOffset offset = null;
 		switch (timepoint) {
@@ -170,6 +171,7 @@ public class ActivityProfileEffectDependency extends ActivityDependency implemen
 		}
 	}
 
+	@Override
 	public Timepoint getTimepoint() {
 		return timepoint;
 	}

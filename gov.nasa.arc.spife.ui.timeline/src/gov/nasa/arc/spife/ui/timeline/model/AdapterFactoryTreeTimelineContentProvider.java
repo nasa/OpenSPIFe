@@ -47,10 +47,12 @@ public class AdapterFactoryTreeTimelineContentProvider extends TreeTimelineConte
 		}
 	}
 
+	@Override
 	public Collection<?> getChildren(Object object) {
 		return Arrays.asList(provider.getChildren(object));
 	}
 
+	@Override
 	public Object getParent(Object object) {
 		if (object instanceof Resource 
 				|| !(object instanceof EObject)

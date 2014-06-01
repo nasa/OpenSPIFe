@@ -105,7 +105,8 @@ public class ReferenceDefImpl extends ParameterDefImpl implements ReferenceDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getContainment()
+  @Override
+public String getContainment()
   {
     return containment;
   }
@@ -115,7 +116,8 @@ public class ReferenceDefImpl extends ParameterDefImpl implements ReferenceDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setContainment(String newContainment)
+  @Override
+public void setContainment(String newContainment)
   {
     String oldContainment = containment;
     containment = newContainment;
@@ -128,7 +130,8 @@ public class ReferenceDefImpl extends ParameterDefImpl implements ReferenceDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Requirement> getRequirements()
+  @Override
+public EList<Requirement> getRequirements()
   {
     if (requirements == null)
     {
@@ -142,7 +145,8 @@ public class ReferenceDefImpl extends ParameterDefImpl implements ReferenceDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getEffects()
+  @Override
+public EList<String> getEffects()
   {
     if (effects == null)
     {

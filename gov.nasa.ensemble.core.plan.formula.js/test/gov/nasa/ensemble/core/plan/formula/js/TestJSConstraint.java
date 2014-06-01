@@ -107,7 +107,8 @@ public class TestJSConstraint extends Assert {
 		parameterTestActivity = PLAN_FACTORY.createActivity(parameterTestActivityDef);
 		plan = PLAN_FACTORY.createPlan("TEST_JSCONSTRAINT_PLAN");
 		
-		TransactionUtils.writing(plan, new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				
@@ -137,7 +138,8 @@ public class TestJSConstraint extends Assert {
 	
 	@Test
 	public void testFailingParameterCondition() {
-		TransactionUtils.writing(parameterTestActivity, new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(parameterTestActivity, new Runnable() {
+			@Override
 			public void run() {
 				EObject eObject = parameterTestActivity.getData();
 				EClass eClass = eObject.eClass();

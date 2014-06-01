@@ -26,10 +26,12 @@ import org.eclipse.swt.dnd.Transfer;
 /* package */ final class MarkerTransferProvider extends SimpleByteArrayTransferProvider {
 	public static final Transfer transfer = createSimpleByteArrayTransfer(MarkerTransferProvider.class.getCanonicalName()); 
 	
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		return (transferable instanceof MarkerTransferable);
 	}
 
+	@Override
 	public Transfer getTransfer() {
 		return transfer;
 	}

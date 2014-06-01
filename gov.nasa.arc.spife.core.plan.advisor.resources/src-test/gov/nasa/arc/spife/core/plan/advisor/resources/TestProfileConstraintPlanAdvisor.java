@@ -62,6 +62,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileConstraintNullProfileKeyFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEnvelopeConstraint(activity, null, null, "99");
@@ -76,6 +77,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileConstraintMissingProfileFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEnvelopeConstraint(activity, "SomeMissingProfile", null, "99");
@@ -90,6 +92,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testDerivedProfileConstraintFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = createActivity(ACTIVITY_DEF_VIOLATES_DERIVED_RESOURCE);
 				activity.getMember(TemporalMember.class).setStartTime(PLAN_START);
@@ -102,6 +105,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testDerivedProfileConstraintPasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				generatesResource.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				plan.getChildren().add(generatesResource);
@@ -113,6 +117,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEqualityConstraintPasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				addEqualityConstraint(addActivity(plan), ON_OFF_RESOUCE, "ON");
 			}
@@ -123,6 +128,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEqualityConstraintFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEqualityConstraint(activity, ON_OFF_RESOUCE, "OFF");
@@ -134,6 +140,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEqualityConstraintFailsOnNullValueForOn() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEqualityConstraint(activity, ON_OFF_RESOUCE, "OFF");
@@ -147,6 +154,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEqualityConstraintFailsOnNullValueForOff() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEqualityConstraint(activity, ON_OFF_RESOUCE, "OFF");
@@ -163,6 +171,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEqualityConstraintPassesMaximumGap() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				//
 				// Two generates resource activities spread apart
@@ -187,6 +196,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEqualityConstraintFailsMaximumGap() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				//
 				// Two generates resource activities spread apart
@@ -208,6 +218,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEqualityConstraintWithNullValueFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEqualityConstraint(activity, INTEGER_RESOURCE, null);
@@ -219,6 +230,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEqualityConstraintUnparsableFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEqualityConstraint(activity, INTEGER_RESOURCE, "99A");
@@ -230,6 +242,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEnvelopeConstraintFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEnvelopeConstraint(activity, INTEGER_RESOURCE, "0", "99");
@@ -241,6 +254,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEnvelopeConstraintPassesMinOnly() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEnvelopeConstraint(activity, INTEGER_RESOURCE, "0", null);
@@ -252,6 +266,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEnvelopeConstraintFailsMaxOnly() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEnvelopeConstraint(activity, INTEGER_RESOURCE, null, "99");
@@ -263,6 +278,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEnvelopeConstraintWithNullMinAndMaxFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEnvelopeConstraint(activity, INTEGER_RESOURCE, null, null);
@@ -274,6 +290,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEnvelopeConstraintUnparsableFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEnvelopeConstraint(activity, "SomeMissingProfile", "0A", "99");
@@ -285,6 +302,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEffectConstraintWithNullStartAndEndFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEffect(activity, INTEGER_RESOURCE, null, null);
@@ -296,6 +314,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 	public void testProfileEffectConstraintUnparsableFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = addActivity(plan);
 				addEffect(activity, ON_OFF_RESOUCE, "0A", "99");
@@ -309,6 +328,7 @@ public class TestProfileConstraintPlanAdvisor extends AbstractResourcePlanAdviso
 		PlanEditorModel model = super.createPlanEditorModel();
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 			}

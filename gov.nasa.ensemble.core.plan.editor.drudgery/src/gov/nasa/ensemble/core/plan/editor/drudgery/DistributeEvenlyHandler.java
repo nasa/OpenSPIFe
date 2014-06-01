@@ -189,6 +189,7 @@ public class DistributeEvenlyHandler extends DrudgerySavingHandler {
 	private static Comparator<? super EPlanElement> getComparator() {
 		if (COMPARATOR == null) {
 			COMPARATOR = new Comparator<EPlanElement>() {
+				@Override
 				public int compare(EPlanElement arg0, EPlanElement arg1) {
 					TemporalMember temporalMember0 = arg0.getMember(TemporalMember.class);
 					TemporalMember temporalMember1 = arg1.getMember(TemporalMember.class);

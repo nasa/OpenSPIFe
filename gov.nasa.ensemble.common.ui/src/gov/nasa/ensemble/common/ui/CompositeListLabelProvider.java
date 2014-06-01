@@ -38,14 +38,16 @@ public abstract class CompositeListLabelProvider implements IBaseLabelProvider {
 
 	/// Just implementation of IBaseLabelProvider IF below here - not really used.
 	
-    public void dispose() {
+    @Override
+	public void dispose() {
     	// override and implement if necessary
     }
 	
 	/**
      * Method declared on IBaseLabelProvider.
      */
-    public void addListener(ILabelProviderListener listener) {
+    @Override
+	public void addListener(ILabelProviderListener listener) {
         listeners.add(listener);
     }
 
@@ -62,7 +64,8 @@ public abstract class CompositeListLabelProvider implements IBaseLabelProvider {
         for (int i = 0; i < listeners.length; ++i) {
             final ILabelProviderListener l = (ILabelProviderListener) listeners[i];
             SafeRunnable.run(new SafeRunnable() {
-                public void run() {
+                @Override
+				public void run() {
                     l.labelProviderChanged(event);
                 }
             });
@@ -74,14 +77,16 @@ public abstract class CompositeListLabelProvider implements IBaseLabelProvider {
      * <code>IBaseLabelProvider</code> method returns <code>true</code>. Subclasses may 
      * override.
      */
-    public boolean isLabelProperty(Object element, String property) {
+    @Override
+	public boolean isLabelProperty(Object element, String property) {
         return true;
     }
 
     /**
      * Method declared on IBaseLabelProvider.
      */
-    public void removeListener(ILabelProviderListener listener) {
+    @Override
+	public void removeListener(ILabelProviderListener listener) {
         listeners.remove(listener);
     }
 

@@ -177,6 +177,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getWaiverRationale() {
 		return waiverRationale;
 	}
@@ -186,6 +187,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWaiverRationale(String newWaiverRationale) {
 		String oldWaiverRationale = waiverRationale;
 		waiverRationale = newWaiverRationale;
@@ -198,6 +200,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMinLiteral() {
 		return minLiteral;
 	}
@@ -207,6 +210,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinLiteral(String newMinLiteral) {
 		String oldMinLiteral = minLiteral;
 		minLiteral = newMinLiteral;
@@ -219,6 +223,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMaxLiteral() {
 		return maxLiteral;
 	}
@@ -228,6 +233,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxLiteral(String newMaxLiteral) {
 		String oldMaxLiteral = maxLiteral;
 		maxLiteral = newMaxLiteral;
@@ -240,6 +246,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFromAD() {
 		return (eFlags & FROM_AD_EFLAG) != 0;
 	}
@@ -249,6 +256,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFromAD(boolean newFromAD) {
 		boolean oldFromAD = (eFlags & FROM_AD_EFLAG) != 0;
 		if (newFromAD) eFlags |= FROM_AD_EFLAG; else eFlags &= ~FROM_AD_EFLAG;
@@ -261,6 +269,7 @@ public class ProfileEnvelopeConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ViolationWaiver> getWaivers() {
 		if (waivers == null) {
 			waivers = new EObjectContainmentEList<ViolationWaiver>(ViolationWaiver.class, this, ProfilePackage.PROFILE_ENVELOPE_CONSTRAINT__WAIVERS);

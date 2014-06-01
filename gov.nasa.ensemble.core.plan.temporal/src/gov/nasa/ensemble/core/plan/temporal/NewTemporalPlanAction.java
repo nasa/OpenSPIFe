@@ -31,10 +31,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 public class NewTemporalPlanAction implements IPlanFactory {
 
+	@Override
 	public void execute(File file, String planName, Date startDate, Date stopDate) throws IOException {
 		execute(file, planName, startDate, stopDate);
 	}
 
+	@Override
 	public void execute(IProject project, File file, String planName, Date startDate, Date stopDate) throws IOException {
 		if (startDate == null || stopDate == null) {
 			return;

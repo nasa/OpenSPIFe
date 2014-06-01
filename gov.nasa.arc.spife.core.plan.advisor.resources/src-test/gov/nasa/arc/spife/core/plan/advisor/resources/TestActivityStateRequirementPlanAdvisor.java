@@ -73,6 +73,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void test90PercentCoveragePasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, requires90PercentCoverage, PLAN_START);
@@ -85,6 +86,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void test90PercentCoverageFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, requires90PercentCoverage, PLAN_START);
@@ -101,6 +103,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void testRequiresBeforeAndGeneratePasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, turnOnResource, PLAN_START);
@@ -117,6 +120,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void testRequiresThroughoutAndGeneratePasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, turnOnResource, PLAN_START);
@@ -129,6 +133,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void testDisallowsThroughoutFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, turnOnResource, PLAN_START);
@@ -141,6 +146,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void testDisallowsThroughoutPasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, turnOffResource, PLAN_START);
@@ -153,6 +159,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void testAllowsMultipleThroughoutFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, turnOffResource, PLAN_START);
@@ -165,6 +172,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void testAllowsMultipleThroughoutPasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, turnOnResource, PLAN_START);
@@ -178,6 +186,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void testRequiresOffsetCoverageFails() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, generatesCoverage, DateUtils.add(PLAN_START, Amount.valueOf(1, NonSI.HOUR)));
@@ -191,6 +200,7 @@ public class TestActivityStateRequirementPlanAdvisor extends AbstractResourcePla
 	public void testRequiresOffsetCoveragePasses() {
 		final EPlan plan = model.getEPlan();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				addActivityAtTime(plan, generatesOffsetCoverage, DateUtils.add(PLAN_START, Amount.valueOf(1, NonSI.HOUR)));

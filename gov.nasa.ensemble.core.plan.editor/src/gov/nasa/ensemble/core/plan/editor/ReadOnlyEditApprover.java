@@ -29,14 +29,17 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 public class ReadOnlyEditApprover implements IPlanEditApprover {
 
+	@Override
 	public boolean canModify(EPlanElement planElement) {
 		return isWritable(planElement);
 	}
 
+	@Override
 	public boolean canModifyStructure(EPlan plan) {
 		return isWritable(plan);
 	}
 
+	@Override
 	public boolean needsUpdate(ResourceSetChangeEvent event) {
 		return false;
 	}

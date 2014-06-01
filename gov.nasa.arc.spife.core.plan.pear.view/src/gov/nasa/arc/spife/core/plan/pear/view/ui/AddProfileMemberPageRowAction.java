@@ -26,6 +26,7 @@ public class AddProfileMemberPageRowAction implements IViewActionDelegate {
 
 	private IViewPart view;
 
+	@Override
 	public void run(IAction action) {
 		ProfileEffectsAndRequirementsView profileMemberView = (ProfileEffectsAndRequirementsView)view;
 		ProfileEffectsAndRequirementsPage profileMemberPage = (ProfileEffectsAndRequirementsPage) profileMemberView.getCurrentPage();
@@ -35,10 +36,12 @@ public class AddProfileMemberPageRowAction implements IViewActionDelegate {
 		profileMemberPage.addRow();
 	}
 
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// no implementation
 	}
 
+	@Override
 	public void init(IViewPart view) {
 		this.view = view;
 	}

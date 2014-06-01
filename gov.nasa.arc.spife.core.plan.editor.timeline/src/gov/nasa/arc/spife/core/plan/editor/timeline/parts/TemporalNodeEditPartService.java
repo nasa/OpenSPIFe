@@ -92,6 +92,7 @@ public class TemporalNodeEditPartService extends PlanTimelineService {
 			}
 			if (!parts.isEmpty()) {
 				WidgetUtils.runInDisplayThread(timeline.getControl(), new Runnable() {
+					@Override
 					public void run() {
 						for (EditPart ep : parts) {
 							if (ep instanceof TemporalNodeEditPart) {

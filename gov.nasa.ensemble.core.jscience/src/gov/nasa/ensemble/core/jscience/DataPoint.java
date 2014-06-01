@@ -37,6 +37,7 @@ import org.jscience.physics.amount.Amount;
 public abstract class DataPoint<T> {
 	
 	public static final Comparator<DataPoint> DEFAULT_COMPARATOR = new Comparator<DataPoint>() {
+		@Override
 		public int compare(DataPoint o1, DataPoint o2) {
 			return o1.getDate().compareTo(o2.getDate());
 		}

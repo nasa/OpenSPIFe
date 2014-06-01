@@ -73,7 +73,7 @@ public class TimelineBuilderContributionItem extends ContributionItem {
 					}
 					EObject section = builder.createTimelineSection();
 					final ETimeline timelineModel = timeline.getTimelineModel();
-					TransactionalEditingDomain domain = TransactionUtils.getDomain(timelineModel);
+					TransactionalEditingDomain domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(timelineModel);
 					Command command = AddCommand.create(domain, timelineModel, TimelinePackage.Literals.ETIMELINE__CONTENTS, Collections.singleton(section));
 					EMFUtils.executeCommand(domain, command);
 				}

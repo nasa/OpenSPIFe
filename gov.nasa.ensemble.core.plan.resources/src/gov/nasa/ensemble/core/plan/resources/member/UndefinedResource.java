@@ -58,6 +58,7 @@ public interface UndefinedResource extends NamedCondition {
 	 * @model opposite="undefinedResources" transient="false"
 	 * @generated
 	 */
+	@Override
 	Conditions getConditions();
 
 	/**

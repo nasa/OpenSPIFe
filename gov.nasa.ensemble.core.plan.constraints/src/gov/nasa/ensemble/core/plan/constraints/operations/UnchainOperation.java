@@ -91,6 +91,7 @@ public class UnchainOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				trace.debug("executing " + UnchainOperation.class.getSimpleName() + ": " + this);
 				for (TemporalChain oldChain : oldChains) {
@@ -106,6 +107,7 @@ public class UnchainOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				trace.debug("undoing " + UnchainOperation.class.getSimpleName() + ": " + this);
 				for (TemporalChain newChain : newChains) {

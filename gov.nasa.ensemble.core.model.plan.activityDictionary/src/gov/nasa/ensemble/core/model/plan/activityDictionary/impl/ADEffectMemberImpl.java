@@ -85,6 +85,7 @@ public class ADEffectMemberImpl extends EMemberImpl implements ADEffectMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EMap<ADEffectKey, ComputableAmount> getEffects() {
 		if (effects == null) {
 			effects = new EcoreEMap<ADEffectKey,ComputableAmount>(ActivityDictionaryPackage.Literals.AD_EFFECT_ENTRY, ADEffectEntryImpl.class, this, ActivityDictionaryPackage.AD_EFFECT_MEMBER__EFFECTS);

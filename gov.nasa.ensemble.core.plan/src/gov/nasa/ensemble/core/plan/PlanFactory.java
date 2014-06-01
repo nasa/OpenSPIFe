@@ -155,6 +155,7 @@ public class PlanFactory implements MissionExtendable {
 			resourceSet = TransactionUtils.createTransactionResourceSet(false);
 		}
 		TransactionUtils.writing(resourceSet, new Runnable() {
+			@Override
 			public void run() {
 				Resource resource = plan.eResource();
 				if (resource.getResourceSet() == null) {
@@ -183,6 +184,7 @@ public class PlanFactory implements MissionExtendable {
 		String nameOfPlan = "Unnamed";
 		if (parent != null) {
 			nameOfPlan = TransactionUtils.reading(parent, new RunnableWithResult.Impl<String>() {
+				@Override
 				public void run() {
 					setResult(createName(parent, EPlanUtils.getActivityGroupDisplayName()));
 				}
@@ -191,6 +193,7 @@ public class PlanFactory implements MissionExtendable {
 		final String name = nameOfPlan; 
 		final EActivityGroup group = createActivityGroupInstance();
 		TransactionUtils.writeIfNecessary(group, new Runnable() {
+			@Override
 			public void run() {
 				group.setData(ADParameterMemberFactory.FACTORY.createData(PlanPackage.Literals.EACTIVITY_GROUP));
 				group.setName(name);

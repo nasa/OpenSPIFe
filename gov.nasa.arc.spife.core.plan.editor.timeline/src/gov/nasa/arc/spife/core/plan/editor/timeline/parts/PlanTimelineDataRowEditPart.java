@@ -147,6 +147,7 @@ public class PlanTimelineDataRowEditPart extends PlanTreeTimelineDataRowEditPart
 				final boolean doRefresh = refresh;
 				final boolean doRefreshChildren = refreshChildren;
 				GEFUtils.runInDisplayThread(PlanTimelineDataRowEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						if (doRefresh) {
 							refresh();
@@ -158,6 +159,7 @@ public class PlanTimelineDataRowEditPart extends PlanTreeTimelineDataRowEditPart
 			}
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent evt) {
 			String p = evt.getPropertyName();
 			if (PLAN_CONSTRAINTS_VISIBLE.equals(p)) {

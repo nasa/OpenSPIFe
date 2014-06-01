@@ -26,8 +26,6 @@ package gov.nasa.ensemble.core.model.plan.advisor.util;
 import gov.nasa.ensemble.core.model.plan.EMember;
 import gov.nasa.ensemble.core.model.plan.advisor.*;
 
-import java.util.List;
-import java.util.Map;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 

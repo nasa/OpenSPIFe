@@ -52,6 +52,7 @@ public abstract class ZoomTimelineCommandHandler extends AbstractTimelineCommand
 		super.dispose();
 	}
 
+	@Override
 	public void zoomChanged(double zoom) {
 		this.updateEnablement();
 	}

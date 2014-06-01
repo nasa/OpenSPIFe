@@ -91,6 +91,7 @@ public class NewPlanWizard extends Wizard implements INewWizard, MissionExtendab
 	@Override
 	public boolean performFinish() {
 		IRunnableWithProgress op = new IRunnableWithProgress() {
+			@Override
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
 					doFinish(monitor);
@@ -134,6 +135,7 @@ public class NewPlanWizard extends Wizard implements INewWizard, MissionExtendab
 		Display display = getShell().getDisplay();
 		final EPlan[] plans = new EPlan[] { null };
 		display.syncExec(new Runnable() {
+			@Override
 			public void run() {
 				plans[0] = page.createNewPlan(monitor);
 			}
@@ -145,6 +147,7 @@ public class NewPlanWizard extends Wizard implements INewWizard, MissionExtendab
 		EnsembleUsageLogger.logUsage("PlanLifecycle.createPlan", plan.getName());
 		monitor.worked(3);
 		display.asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				MultiPagePlanEditor.openEditor(plan);
 			}
@@ -158,6 +161,7 @@ public class NewPlanWizard extends Wizard implements INewWizard, MissionExtendab
 	 * 
 	 * @see IWorkbenchWizard#init(IWorkbench, IStructuredSelection)
 	 */
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.selection = selection;
 	}

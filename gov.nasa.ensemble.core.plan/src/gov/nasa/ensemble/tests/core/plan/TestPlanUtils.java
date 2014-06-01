@@ -438,6 +438,7 @@ public class TestPlanUtils extends TestCase {
 		
 		final EPlan plan = PlanFactory.getInstance().createPlan(TestPlanUtils.TEST_PLAN_NAME);
 		Exception exception = TransactionUtils.writing(plan, new RunnableWithResult.Impl<Exception>() {
+			@Override
 			public void run() {
 				try {
 	                constructPlan(adict, plan);

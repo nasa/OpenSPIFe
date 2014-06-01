@@ -109,8 +109,11 @@ public class ChartTimelineBuilder extends TimelineBuilder<Chart> {
 			Label smaller = new Label(toolbar, SWT.NONE);
 			smaller.setImage(registry.get(WidgetPlugin.KEY_IMAGE_MINUS));
 			smaller.addMouseListener(new MouseListener() {
+				@Override
 				public void mouseDoubleClick(MouseEvent e) 	{/* no impl */}
+				@Override
 				public void mouseDown(MouseEvent e) 		{/* no impl */}
+				@Override
 				public void mouseUp(MouseEvent e) 			{
 					int minHeight = getMinimumHeight();
 					
@@ -128,8 +131,11 @@ public class ChartTimelineBuilder extends TimelineBuilder<Chart> {
 			Label bigger = new Label(toolbar, SWT.NONE);
 			bigger.setImage(registry.get(WidgetPlugin.KEY_IMAGE_PLUS));
 			bigger.addMouseListener(new MouseListener() {
+				@Override
 				public void mouseDoubleClick(MouseEvent e) 	{/* no impl */}
+				@Override
 				public void mouseDown(MouseEvent e) 		{/* no impl */}
+				@Override
 				public void mouseUp(MouseEvent e) 			{
 					int minHeight = getMinimumHeight();
 					

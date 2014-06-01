@@ -52,6 +52,7 @@ public class PlanProfileTreeContentProvider implements ITreeContentProvider {
 	private Map<EClass, List<ObjectDef>> objectDefsByType = new LinkedHashMap<EClass, List<ObjectDef>>(); 
 	private Map<String, List<Profile>> profilesByCategory = new LinkedHashMap<String, List<Profile>>();
 	
+	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof EPlan) {
 			return profilesByCategory.keySet().toArray(new String[0]);
@@ -61,6 +62,7 @@ public class PlanProfileTreeContentProvider implements ITreeContentProvider {
 		return new Object[0];
 	}
 
+	@Override
 	public Object getParent(Object element) {
 		if (element instanceof Profile) {
 			return getCategory((Profile) element);
@@ -70,6 +72,7 @@ public class PlanProfileTreeContentProvider implements ITreeContentProvider {
 		return null;
 	}
 
+	@Override
 	public boolean hasChildren(Object element) {
 		if (element instanceof EPlan) {
 			EPlan plan = (EPlan) element;
@@ -80,6 +83,7 @@ public class PlanProfileTreeContentProvider implements ITreeContentProvider {
 		return element instanceof String;
 	}
 
+	@Override
 	public Object[] getElements(Object inputElement) {
 		if (inputElement instanceof EPlan) {
 			return getChildren(inputElement);
@@ -87,10 +91,12 @@ public class PlanProfileTreeContentProvider implements ITreeContentProvider {
 		return new Object[0];
 	}
 
+	@Override
 	public void dispose() {
 		this.viewer = null;
 	}
 
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewer = (TreeViewer) viewer;
 		if (oldInput instanceof EPlan) {
@@ -191,6 +197,7 @@ public class PlanProfileTreeContentProvider implements ITreeContentProvider {
 				for (Profile profile : adds) 	addProfileToCategory(profile);
 				for (Profile profile : removes) removeProfileFromCategory(profile);
 				WidgetUtils.runInDisplayThread(viewer.getControl(), new Runnable() {
+					@Override
 					public void run() {
 						viewer.refresh();
 					}

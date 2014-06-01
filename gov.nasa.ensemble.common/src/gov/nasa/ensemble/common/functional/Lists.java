@@ -280,6 +280,7 @@ public class Lists {
 
 	public static <A> List<A> getDuplicates(final List<A> as, final Ord<A> ord) {
 		final F<List<A>, Boolean> dupGroups = new F<List<A>, Boolean>() {
+			@Override
 			public Boolean f(final List<A> list) {
 				return list.length() > 1;
 			}
@@ -293,6 +294,7 @@ public class Lists {
 
 	public static <A> F<List<A>, A> last_() {
 		return new F<List<A>, A>() {
+			@Override
 			public A f(final List<A> list) {
 				return list.last();
 			}

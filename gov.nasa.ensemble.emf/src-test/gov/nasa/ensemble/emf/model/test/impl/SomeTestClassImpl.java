@@ -89,6 +89,7 @@ public class SomeTestClassImpl extends EObjectImpl implements SomeTestClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getAttribute() {
 		return attribute;
 	}
@@ -98,6 +99,7 @@ public class SomeTestClassImpl extends EObjectImpl implements SomeTestClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAttribute(String newAttribute) {
 		String oldAttribute = attribute;
 		attribute = newAttribute;

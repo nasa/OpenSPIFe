@@ -45,6 +45,7 @@ public class ActivityDefGenerator implements Iterator<EActivityDef>, Iterable<EA
 		defCount = 0;
 	}
 	
+	@Override
 	public EActivityDef next() {
 		EActivityDef candidate = defs.get(defCount++ % defsSize);
 		boolean isSubActivity = DictionaryUtil.isHidden(candidate);
@@ -54,14 +55,17 @@ public class ActivityDefGenerator implements Iterator<EActivityDef>, Iterable<EA
 		return candidate;
 	}
 
+	@Override
 	public boolean hasNext() {
 		return (defCount < defsSize);
 	}
 
+	@Override
 	public void remove() {
 		throw new UnsupportedOperationException("can not remove an ActivityDef via ActivityDefGenerator");
 	}
 	
+	@Override
 	public Iterator<EActivityDef> iterator() {
 		return this;
 	}

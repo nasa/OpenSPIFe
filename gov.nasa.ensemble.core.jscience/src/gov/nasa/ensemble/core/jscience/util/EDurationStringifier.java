@@ -42,6 +42,7 @@ public class EDurationStringifier extends AbstractTrimmingStringifier<Amount<Dur
 		}
 	}
 	
+	@Override
 	public String getDisplayString(Amount<Duration> amount) {
 		if (amount == null) {
 			return "";

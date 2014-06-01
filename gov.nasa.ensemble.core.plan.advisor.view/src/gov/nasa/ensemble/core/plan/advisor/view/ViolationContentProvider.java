@@ -64,6 +64,7 @@ class ViolationContentProvider implements ITreePathContentProvider {
 		updateGroupingOrder();
 	}
 
+	@Override
 	public synchronized void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewer = viewer;
 		if (newInput instanceof EPlan) {
@@ -73,6 +74,7 @@ class ViolationContentProvider implements ITreePathContentProvider {
 		createGroupMap();
 	}
 	
+	@Override
 	public void dispose() {
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 		store.removePropertyChangeListener(preferenceListener);
@@ -80,10 +82,12 @@ class ViolationContentProvider implements ITreePathContentProvider {
 		planAdvisorMember = null;
 	}
 	
+	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(null);
 	}
 	
+	@Override
 	public synchronized Object[] getChildren(TreePath parentPath) {
 		if (flatten) {
 			if (parentPath == null) {
@@ -115,6 +119,7 @@ class ViolationContentProvider implements ITreePathContentProvider {
 		return groupsFor(groupingOrder[count], trackers);
 	}
 
+	@Override
 	public synchronized boolean hasChildren(TreePath path) {
 		if (flatten) {
 			return false;
@@ -122,6 +127,7 @@ class ViolationContentProvider implements ITreePathContentProvider {
 		return (path == null) || (path.getSegmentCount() <= groupingOrder.length);
 	}
 
+	@Override
 	public TreePath[] getParents(Object element) {
 		List<Object> segments = new ArrayList<Object>();
 		Object segment = getSegment(element);
@@ -223,6 +229,7 @@ class ViolationContentProvider implements ITreePathContentProvider {
 	}
 	
 	private class PlanAdvisorViewPreferencePropertyChangeListener implements IPropertyChangeListener {
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			if (CommonUtils.equals(event.getProperty(), PlanAdvisorViewPreferencePage.P_GROUP_BY_COLUMNS)) {
 				updateGroupingOrder();

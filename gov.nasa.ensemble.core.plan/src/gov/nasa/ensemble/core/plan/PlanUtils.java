@@ -93,6 +93,7 @@ public class PlanUtils {
 	private static final IStringifier<Date> DATE_STRINGIFIER = StringifierRegistry.getStringifier(Date.class);
 	
 	public static final Comparator<EPlanElement> INHERENT_ORDER = new Comparator<EPlanElement>() {
+		@Override
 		public int compare(EPlanElement o1, EPlanElement o2) {
 			List<EPlanElement> path1 = getPath(o1);
 			List<EPlanElement> path2 = getPath(o2);
@@ -130,6 +131,7 @@ public class PlanUtils {
 	};
 
 	public static final Comparator<EPlanElement> START_TIME_ORDER = new Comparator<EPlanElement>() {
+		@Override
 		public int compare(EPlanElement o1, EPlanElement o2) {
 			Date startTime1 = o1.getMember(TemporalMember.class).getStartTime();
 			Date startTime2 = o2.getMember(TemporalMember.class).getStartTime();
@@ -147,6 +149,7 @@ public class PlanUtils {
 	};
 
 	public static final Comparator<EPlanElement> NAME_ORDER = new Comparator<EPlanElement>() {
+		@Override
 		public int compare(EPlanElement o1, EPlanElement o2) {
 			return o1.getName().compareTo(o2.getName());
 		}
@@ -403,6 +406,7 @@ public class PlanUtils {
 		if (file.exists()) {
 			try {
 				new IWorkspaceRunnable() {
+					@Override
 					public void run(IProgressMonitor monitor) throws CoreException {
 						file.delete(true, null);
 					}
@@ -426,6 +430,7 @@ public class PlanUtils {
     }
     
 	public static final F<IResource, Boolean> isPlanFile = new F<IResource, Boolean>() {
+		@Override
 		public Boolean f(final IResource rsrc) {
 			return rsrc instanceof IFile && PLAN_FILE_EXTENSION.equals(rsrc.getFileExtension());
 		}

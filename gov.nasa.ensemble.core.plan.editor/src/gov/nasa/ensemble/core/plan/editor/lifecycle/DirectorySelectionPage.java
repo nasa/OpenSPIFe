@@ -59,6 +59,7 @@ public class DirectorySelectionPage extends EnsembleWizardPage {
 		this.labelText = labelText;
 	}
 
+	@Override
 	public void createControl(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout(1, true);
@@ -102,6 +103,7 @@ public class DirectorySelectionPage extends EnsembleWizardPage {
 		browseButton.setFocus();
 		browseButton.setText("Browse...");
 		browseButton.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				DirectoryDialog dialog = new DirectoryDialog(getContainer().getShell());
 				String filePath = dialog.open();
@@ -110,6 +112,7 @@ public class DirectorySelectionPage extends EnsembleWizardPage {
 					pathText.setText(filePath);
 				}
 			}
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {/* default impl */}
 		});
 		return composite;

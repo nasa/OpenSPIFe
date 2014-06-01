@@ -181,6 +181,7 @@ public class TreeTimelineDataRowEditPart<T> extends TimelineViewerEditPart<T> {
 			super.notifyChanged(msg);
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			String property = event.getProperty();
 			if (TimelinePreferencePage.P_ROW_ELEMENT_OVERLAP.equals(property)) {
@@ -192,6 +193,7 @@ public class TreeTimelineDataRowEditPart<T> extends TimelineViewerEditPart<T> {
 			}
 		}
 
+		@Override
 		public void propertyChange(java.beans.PropertyChangeEvent e) {
 			if (TIMELINE_GROUP_ELEMENTS.equals(e.getPropertyName())) {
 				refreshInDisplayThread();
@@ -200,6 +202,7 @@ public class TreeTimelineDataRowEditPart<T> extends TimelineViewerEditPart<T> {
 			}
 		}
 
+		@Override
 		public void contentRefresh(Set<? extends Object> elements) {
 			if (!getBoolean(TIMELINE_GROUP_ELEMENTS)
 					&& elements.contains(getModel())) {
@@ -207,6 +210,7 @@ public class TreeTimelineDataRowEditPart<T> extends TimelineViewerEditPart<T> {
 			}
 		}
 		
+		@Override
 		public void labelUpdate(Set<? extends Object> elements) {
 			// do nothing
 		}

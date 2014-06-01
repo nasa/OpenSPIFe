@@ -67,6 +67,7 @@ public abstract class SpifeResourceUtils extends ResourceUtils {
 		final IEditorPart[] result = new IEditorPart[1];
 		try {
 			container.run(false, false, new IRunnableWithProgress() {
+				@Override
 				public void run(IProgressMonitor monitor) {
 					try {
 						monitor.beginTask("Opening " + planFile.getName() + " in editor", IProgressMonitor.UNKNOWN);

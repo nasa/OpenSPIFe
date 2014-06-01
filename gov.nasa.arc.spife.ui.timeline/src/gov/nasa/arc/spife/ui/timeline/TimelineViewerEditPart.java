@@ -49,7 +49,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 
 	protected TransactionalEditingDomain getEditingDomain() {
 		if (domain == null) {
-			domain = TransactionUtils.getDomain(getViewer().getModel());
+			domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(getViewer().getModel());
 		}
 		return domain;
 	}
@@ -196,6 +196,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 	 */
 	protected void refreshInDisplayThread() {
 		GEFUtils.runInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				refresh();
 			}
@@ -207,6 +208,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 	 */
 	protected void refreshVisualsInDisplayThread() {
 		GEFUtils.runInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				refreshVisuals();
 			}
@@ -218,6 +220,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 	 */
 	protected void refreshChildrenInDisplayThread() {
 		GEFUtils.runInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				refreshChildren();
 			}

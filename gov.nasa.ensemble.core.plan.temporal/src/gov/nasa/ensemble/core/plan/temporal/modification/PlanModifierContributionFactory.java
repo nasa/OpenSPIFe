@@ -70,6 +70,7 @@ class PlanModifierContributionFactory extends AbstractContributionFactory {
 	        this.factory = factory;
         }
 
+		@Override
 		public Object getService(Class api) {
 			if (api == PlanModifierFactory.class) {
 				return factory;
@@ -77,6 +78,7 @@ class PlanModifierContributionFactory extends AbstractContributionFactory {
 	        return parent.getService(api);
         }
 
+		@Override
 		public boolean hasService(Class api) {
 	        return (api == PlanModifierFactory.class) || parent.hasService(api);
         }

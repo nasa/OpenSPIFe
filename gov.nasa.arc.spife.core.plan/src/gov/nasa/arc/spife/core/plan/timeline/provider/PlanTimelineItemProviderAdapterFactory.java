@@ -222,6 +222,7 @@ public class PlanTimelineItemProviderAdapterFactory extends PlanTimelineAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -232,6 +233,7 @@ public class PlanTimelineItemProviderAdapterFactory extends PlanTimelineAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -280,6 +282,7 @@ public class PlanTimelineItemProviderAdapterFactory extends PlanTimelineAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -290,6 +293,7 @@ public class PlanTimelineItemProviderAdapterFactory extends PlanTimelineAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -300,6 +304,7 @@ public class PlanTimelineItemProviderAdapterFactory extends PlanTimelineAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -314,6 +319,7 @@ public class PlanTimelineItemProviderAdapterFactory extends PlanTimelineAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (featureValueRowItemProvider != null) featureValueRowItemProvider.dispose();
 		if (planReferencedObjectSectionItemProvider != null) planReferencedObjectSectionItemProvider.dispose();
@@ -398,6 +404,7 @@ public class PlanTimelineItemProviderAdapterFactory extends PlanTimelineAdapterF
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
 			ArrayList<Object> result = new ArrayList<Object>();
 		   new CreationSwitch(result, editingDomain).doSwitch((EObject)object);
@@ -409,6 +416,7 @@ public class PlanTimelineItemProviderAdapterFactory extends PlanTimelineAdapterF
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public ResourceLocator getResourceLocator() {
 			return PlanTimelineEditPlugin.INSTANCE;
 		}

@@ -20,6 +20,7 @@ public class PartialXDictionaryContentAssistParser extends XDictionaryParser imp
 
 	private AbstractRule rule;
 
+	@Override
 	public void initializeFor(AbstractRule rule) {
 		this.rule = rule;
 	}

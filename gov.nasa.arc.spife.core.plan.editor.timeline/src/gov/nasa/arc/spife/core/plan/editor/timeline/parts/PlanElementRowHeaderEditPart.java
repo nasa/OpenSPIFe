@@ -108,26 +108,32 @@ public class PlanElementRowHeaderEditPart extends TreeTimelineHeaderRowEditPart<
 			this.delegate = delegate;
 		}
 
+		@Override
 		public void removeListener(ILabelProviderListener listener) {
 			delegate.removeListener(listener);
 		}
 
+		@Override
 		public boolean isLabelProperty(Object element, String property) {
 			return delegate.isLabelProperty(element, property);
 		}
 
+		@Override
 		public void dispose() {
 			delegate.dispose();
 		}
 
+		@Override
 		public void addListener(ILabelProviderListener listener) {
 			delegate.addListener(listener);
 		}
 
+		@Override
 		public String getText(Object element) {
 			return delegate.getText(element);
 		}
 
+		@Override
 		public Image getImage(Object element) {
 			if (element instanceof DynamicActivityGroup) {
 				DynamicActivityGroup dag = (DynamicActivityGroup) element;

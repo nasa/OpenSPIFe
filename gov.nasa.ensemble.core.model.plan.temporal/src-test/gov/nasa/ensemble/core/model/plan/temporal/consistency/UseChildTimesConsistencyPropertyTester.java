@@ -33,6 +33,7 @@ public class UseChildTimesConsistencyPropertyTester implements IConsistencyPrope
 	private static final Date MAX_DATE = new Date(Long.MAX_VALUE);
 	private static final Date MIN_DATE = new Date(Long.MIN_VALUE);
 
+	@Override
 	public void test(EPlanElement element) {
 		List<? extends EPlanChild> children = element.getChildren();
 		if (!children.isEmpty()) {

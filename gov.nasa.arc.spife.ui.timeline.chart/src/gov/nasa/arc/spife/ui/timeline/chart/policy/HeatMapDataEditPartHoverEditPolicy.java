@@ -643,6 +643,7 @@ public class HeatMapDataEditPartHoverEditPolicy extends TimelineViewerEditPolicy
 	}
 	
 	private static final class FigureListenerImpl implements FigureListener {
+		@Override
 		public void figureMoved(IFigure source) {
 		if(tooltipShell != null && !tooltipShell.isDisposed()) {
 				tooltipShell.setVisible(false);
@@ -657,6 +658,7 @@ public class HeatMapDataEditPartHoverEditPolicy extends TimelineViewerEditPolicy
 			TimelineConstants.TIMELINE_PREFERENCES.addPropertyChangeListener(this);
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			int newValueLabelWidthInPixels = TIMELINE_PREFERENCES.getInt(TimelineConstants.TOOLTIP_WIDTH);
 			if(newValueLabelWidthInPixels != valueLabelWidthInPixels) {
@@ -677,15 +679,18 @@ public class HeatMapDataEditPartHoverEditPolicy extends TimelineViewerEditPolicy
 			super();
 		}
 
+		@Override
 		public void windowActivated(IWorkbenchWindow window) {
 			windowActive = true;
 		}
 
+		@Override
 		public void windowClosed(IWorkbenchWindow window) {
 			windowActive = false;
 		}
 		
 		// hide a tooltip if the window is deactivated
+		@Override
 		public void windowDeactivated(IWorkbenchWindow window) {
 			if(tooltipShell != null && !tooltipShell.isDisposed() && tooltipShell.isVisible()) {
 				tooltipShell.setVisible(false);
@@ -693,6 +698,7 @@ public class HeatMapDataEditPartHoverEditPolicy extends TimelineViewerEditPolicy
 			windowActive = false;
 		}
 
+		@Override
 		public void windowOpened(IWorkbenchWindow window) {
 			// no impl
 		}
@@ -708,6 +714,7 @@ public class HeatMapDataEditPartHoverEditPolicy extends TimelineViewerEditPolicy
 			this.timeline = timeline;
 		}
 		
+		@Override
 		public void run() {
 			Tool tool = getCurrentTool();
 

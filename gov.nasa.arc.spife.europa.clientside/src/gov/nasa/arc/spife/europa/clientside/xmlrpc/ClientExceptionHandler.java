@@ -25,6 +25,7 @@ public class ClientExceptionHandler {
 	public static void handle(final Exception e) {
 
 		Display.getDefault().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				openErrorDialog(e, MessageDialog.WARNING, new String[] { "OK" });
 			}

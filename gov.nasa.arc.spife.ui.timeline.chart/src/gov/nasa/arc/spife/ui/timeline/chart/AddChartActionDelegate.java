@@ -40,6 +40,7 @@ public abstract class AddChartActionDelegate implements IWorkbenchWindowActionDe
 
 	private IWorkbenchWindow window = null;
 	
+	@Override
 	public void run(IAction action) {
 		Timeline timeline = EditorPartUtils.getAdapter(window, Timeline.class);
 		if (timeline != null) {
@@ -57,14 +58,17 @@ public abstract class AddChartActionDelegate implements IWorkbenchWindowActionDe
 	
 	protected abstract Chart createChart();
 
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// don't care
 	}
 
+	@Override
 	public void dispose() {
 		window = null;
 	}
 
+	@Override
 	public void init(IWorkbenchWindow window) {
 		this.window = window;
 	}

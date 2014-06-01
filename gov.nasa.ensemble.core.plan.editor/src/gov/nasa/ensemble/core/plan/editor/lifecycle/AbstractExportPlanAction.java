@@ -40,10 +40,12 @@ abstract public class AbstractExportPlanAction implements IWorkbenchWindowAction
 		super();
 	}
 
+	@Override
 	public void dispose() {
 		window = null;
 	}
 
+	@Override
 	public void init(IWorkbenchWindow window) {
 		this.window = window;
 	}
@@ -65,6 +67,7 @@ abstract public class AbstractExportPlanAction implements IWorkbenchWindowAction
 		return structuredSeleciton;
 	}
 
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		IEditorPart current = EditorPartUtils.getCurrent(window);
 		if(current instanceof MultiPagePlanEditor) {

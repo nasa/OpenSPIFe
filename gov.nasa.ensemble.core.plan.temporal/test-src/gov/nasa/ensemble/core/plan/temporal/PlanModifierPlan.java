@@ -79,6 +79,7 @@ public class PlanModifierPlan {
 	public PlanModifierPlan(String name) {
 		plan = PlanFactory.getInstance().createPlan(name);
 		TransactionUtils.writing(plan, new Runnable( ) {
+			@Override
 			public void run() {
 				constructPlan();
 			}

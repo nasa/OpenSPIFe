@@ -59,6 +59,7 @@ public class TimestampedNoteEditor extends AbstractTypeEditor<TimestampedNote> {
 		this.noteComposite = createNoteComposite();
 	}
 	
+	@Override
 	public Control getEditorControl() {
 		return noteComposite;
 	}
@@ -76,6 +77,7 @@ public class TimestampedNoteEditor extends AbstractTypeEditor<TimestampedNote> {
 			storedObject = (TimestampedNote) object;
 		}
 		WidgetUtils.runInDisplayThread(parent, new Runnable() {
+			@Override
 			public void run() {
 				if (noteField != null) {
 					noteField.setText(storedObject.value==null? "" : storedObject.value);
@@ -133,10 +135,12 @@ public class TimestampedNoteEditor extends AbstractTypeEditor<TimestampedNote> {
 		}
 		
 		noteField.addFocusListener(new FocusListener() {
+			@Override
 			public void focusGained(FocusEvent arg0) {
 				// No-op				
 			}
 
+			@Override
 			public void focusLost(FocusEvent arg0) {
 				{
 					final Date now = new Date();
@@ -155,6 +159,7 @@ public class TimestampedNoteEditor extends AbstractTypeEditor<TimestampedNote> {
 							}
 							firePropertyChange(oldStoredObject, storedObject);
 							WidgetUtils.runInDisplayThread(parent, new Runnable() {
+								@Override
 								public void run() {
 									setDateTextInField(creationTimestamp, storedObject.created);
 									setDateTextInField(modificationTimestamp, storedObject.modified);		

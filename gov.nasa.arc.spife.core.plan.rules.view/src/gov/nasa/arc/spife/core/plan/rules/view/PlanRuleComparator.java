@@ -25,6 +25,7 @@ public class PlanRuleComparator implements Comparator<ERule> {
 
 	public static PlanRuleComparator INSTANCE = new PlanRuleComparator();
 	
+	@Override
 	public int compare(ERule rule1, ERule rule2) {
 		int result = String.CASE_INSENSITIVE_ORDER.compare(rule1.getPrintName(), rule2.getPrintName());
 		if (result == 0) {

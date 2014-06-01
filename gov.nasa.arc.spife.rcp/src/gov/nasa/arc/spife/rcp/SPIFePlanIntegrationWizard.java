@@ -74,7 +74,8 @@ public class SPIFePlanIntegrationWizard extends EnsembleImportWizard {
     /* (non-Javadoc)
      * Method declared on IWorkbenchWizard.
      */
-    public void init(IWorkbench workbench, IStructuredSelection currentSelection) {
+    @Override
+	public void init(IWorkbench workbench, IStructuredSelection currentSelection) {
         setDefaultPageImageDescriptor(IDEWorkbenchPlugin.getIDEImageDescriptor("wizban/importproj_wiz.png")); //$NON-NLS-1$
     }
 

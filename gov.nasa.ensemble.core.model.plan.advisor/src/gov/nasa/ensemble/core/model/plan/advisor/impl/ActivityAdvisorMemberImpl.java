@@ -129,6 +129,7 @@ public class ActivityAdvisorMemberImpl extends RuleAdvisorMemberImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getWaivingAllFlightRules() {
 		return waivingAllFlightRules;
 	}
@@ -138,6 +139,7 @@ public class ActivityAdvisorMemberImpl extends RuleAdvisorMemberImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWaivingAllFlightRules(Boolean newWaivingAllFlightRules) {
 		Boolean oldWaivingAllFlightRules = waivingAllFlightRules;
 		waivingAllFlightRules = newWaivingAllFlightRules;
@@ -150,6 +152,7 @@ public class ActivityAdvisorMemberImpl extends RuleAdvisorMemberImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getPriority() {
 		return priority;
 	}
@@ -159,6 +162,7 @@ public class ActivityAdvisorMemberImpl extends RuleAdvisorMemberImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPriority(int newPriority) {
 		int oldPriority = priority;
 		priority = newPriority;
@@ -173,6 +177,7 @@ public class ActivityAdvisorMemberImpl extends RuleAdvisorMemberImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetPriority() {
 		int oldPriority = priority;
 		boolean oldPriorityESet = (eFlags & PRIORITY_ESETFLAG) != 0;
@@ -187,6 +192,7 @@ public class ActivityAdvisorMemberImpl extends RuleAdvisorMemberImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetPriority() {
 		return (eFlags & PRIORITY_ESETFLAG) != 0;
 	}

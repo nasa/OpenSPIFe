@@ -909,6 +909,7 @@ public class DistanceGraph<Time extends Long> {
 		/**
 		 * Modeled after Integer.compareTo(..)
 		 */
+		@Override
 		public final int compareTo(Dnode other) {
 			int thisVal = this.m_id;
 			int anotherVal = other.m_id;

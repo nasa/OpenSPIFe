@@ -77,6 +77,7 @@ public class TransferableImportWizard extends PlanImportWizard {
 		if (!elements.isEmpty() && (elements.get(0) instanceof EPlan)) {
 			plan = (EPlan)elements.get(0);
 			TransactionUtils.writing(plan, new Runnable() {
+				@Override
 				public void run() {
 					List<EPlanChild> groups = new ArrayList<EPlanChild>(plan.getChildren());
 					plan.getChildren().clear();

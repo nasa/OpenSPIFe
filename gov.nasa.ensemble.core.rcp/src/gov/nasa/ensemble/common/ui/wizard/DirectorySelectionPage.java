@@ -50,6 +50,7 @@ public class DirectorySelectionPage extends WizardPage {
 		this.labelText = labelText;
 	}
 
+	@Override
 	public void createControl(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout(1, true);
@@ -84,6 +85,7 @@ public class DirectorySelectionPage extends WizardPage {
 		pathText = new Text(composite, SWT.BORDER | SWT.SINGLE);
 		pathText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		pathText.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				dialogChanged();
 			}
@@ -93,6 +95,7 @@ public class DirectorySelectionPage extends WizardPage {
 		browseButton.setFocus();
 		browseButton.setText("Browse...");
 		browseButton.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				DirectoryDialog dialog = new DirectoryDialog(getContainer().getShell());
 				String filePath = dialog.open();
@@ -102,6 +105,7 @@ public class DirectorySelectionPage extends WizardPage {
 				}
 			}
 
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {/* default impl */
 			}
 		});

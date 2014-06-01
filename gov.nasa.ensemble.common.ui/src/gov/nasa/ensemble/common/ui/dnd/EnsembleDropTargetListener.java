@@ -143,6 +143,7 @@ public abstract class EnsembleDropTargetListener implements DropTargetListener {
 	 *  failures.
 	 */
 	
+	@Override
 	public void dragEnter(DropTargetEvent event) {
 		try {
 			DropTarget target = (DropTarget)event.widget;
@@ -165,6 +166,7 @@ public abstract class EnsembleDropTargetListener implements DropTargetListener {
 		}
 	}
 
+	@Override
 	public void dragLeave(DropTargetEvent event) {
 		try {
 			DropTarget target = (DropTarget)event.widget;
@@ -179,6 +181,7 @@ public abstract class EnsembleDropTargetListener implements DropTargetListener {
 		}
 	}
 
+	@Override
 	public void dragOperationChanged(DropTargetEvent event) {
 		try {
 			DropTarget target = (DropTarget)event.widget;
@@ -195,6 +198,7 @@ public abstract class EnsembleDropTargetListener implements DropTargetListener {
 		}
 	}
 
+	@Override
 	public void dragOver(DropTargetEvent event) {
 		try {
 			DropTarget target = (DropTarget)event.widget;
@@ -211,6 +215,7 @@ public abstract class EnsembleDropTargetListener implements DropTargetListener {
 		}
 	}
 
+	@Override
 	public void drop(DropTargetEvent event) {
 		try {
 			DropTarget target = (DropTarget)event.widget;
@@ -230,6 +235,7 @@ public abstract class EnsembleDropTargetListener implements DropTargetListener {
 		}
 	}
 
+	@Override
 	public void dropAccept(DropTargetEvent event) {
 		try {
 			DropTarget target = (DropTarget)event.widget;

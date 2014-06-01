@@ -116,6 +116,7 @@ public class TooltipShellManager {
 			final int tooltipDisplayTime = getCurrentTooltipDisplayTime();
 			lastTimeTooltipDisplayed = time;
 			WidgetUtils.runInDisplayThreadAfterTime(tooltipDisplayTime, tooltip, new Runnable() {
+				@Override
 				public void run() {
 					if (lastTimeTooltipDisplayed == time) {
 						deactivateTooltip();
@@ -133,6 +134,7 @@ public class TooltipShellManager {
 		final Shell oldTooltip = tooltip;
 		if (oldTooltip != null && !oldTooltip.isDisposed()) {
 			WidgetUtils.runInDisplayThread(oldTooltip, new Runnable() {
+				@Override
 				public void run() {
 					if (!oldTooltip.isDisposed()) {
 						oldTooltip.dispose();
@@ -215,6 +217,7 @@ public class TooltipShellManager {
 	}
 
 	private final class FigureListenerImpl implements FigureListener {
+		@Override
 		public void figureMoved(IFigure source) {
 			deactivateTooltip();
 		}
@@ -227,20 +230,24 @@ public class TooltipShellManager {
 			PlatformUI.getWorkbench().addWindowListener(this);
 		}
 		
+		@Override
 		public void windowActivated(IWorkbenchWindow window) {
 			windowActive = true;
 		}
 
+		@Override
 		public void windowClosed(IWorkbenchWindow window) {
 			windowActive = false;
 		}
 
 		// hide a tooltip if the window is deactivated
+		@Override
 		public void windowDeactivated(IWorkbenchWindow window) {
 			deactivateTooltip();
 			windowActive = false;
 		}
 
+		@Override
 		public void windowOpened(IWorkbenchWindow window) {
 			// no impl
 		}

@@ -82,6 +82,7 @@ public class WorkbenchUtils {
 		ViewCapturingLayout layout = new ViewCapturingLayout();
 		factory.createInitialLayout(layout);
 		final F<String, Boolean> missing = new F<String, Boolean>() {
+			@Override
 			public Boolean f(final String viewId) {
 				return page.findView(viewId) == null;
 			}
@@ -91,8 +92,10 @@ public class WorkbenchUtils {
 	
 	public static fj.data.List<IWorkbenchPage> pagesFor(final String perspectiveId) {
 		return currentWindows().bind(new F<IWorkbenchWindow, fj.data.List<IWorkbenchPage>>() {
+				@Override
 				public List<IWorkbenchPage> f(final IWorkbenchWindow window) {
 					return fj(window.getPages()).filter(new F<IWorkbenchPage, Boolean>() {
+						@Override
 						public Boolean f(final IWorkbenchPage page) {
 							return perspectiveId.equals(page.getPerspective().getId());
 						}
@@ -121,6 +124,7 @@ public class WorkbenchUtils {
 	
 	public static final Option<Shell> getShell() {
 		final F<IWorkbenchWindow, Option<Shell>> windowToOptShell = new F<IWorkbenchWindow, Option<Shell>>() {
+			@Override
 			public Option<Shell> f(final IWorkbenchWindow window) {
 				return fromNull(window.getShell());
 			}

@@ -68,6 +68,7 @@ public class PlanEditorInput implements IFileEditorInput {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorInput#exists()
 	 */
+	@Override
 	public boolean exists() {
 		return true;
 	}
@@ -75,6 +76,7 @@ public class PlanEditorInput implements IFileEditorInput {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
 	 */
+	@Override
 	public ImageDescriptor getImageDescriptor() {
 		return ImageDescriptor.getMissingImageDescriptor();
 	}
@@ -82,6 +84,7 @@ public class PlanEditorInput implements IFileEditorInput {
 	/**
 	 * Returns the name of the embedded plan.
 	 */
+	@Override
 	public String getName() {
 		return plan.getName();
 	}
@@ -89,14 +92,17 @@ public class PlanEditorInput implements IFileEditorInput {
 	/* 
 	 * @see org.eclipse.ui.IEditorInput#getPersistable()
 	 */
+	@Override
 	public IPersistableElement getPersistable() {
 		return null;
 	}
 	
+	@Override
 	public String getToolTipText() {
 		return "";
 	}
 	
+	@Override
 	public Object getAdapter(Class adapter) {
 		Object object = null;
 		if (adapter.isInstance(file)) {
@@ -133,6 +139,7 @@ public class PlanEditorInput implements IFileEditorInput {
 		return super.toString() + "[" + editorModel.toString() + "]";
 	}
 
+	@Override
 	public IFile getFile() {
 		// check if the file is null, try to pull up the resource instance
 		if (file == null) {
@@ -141,6 +148,7 @@ public class PlanEditorInput implements IFileEditorInput {
 		return file;
 	}
 	
+	@Override
 	public IStorage getStorage() {
 		return getFile();
 	}

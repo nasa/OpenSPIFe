@@ -59,6 +59,7 @@ public class AlignToEndHandler extends DrudgerySavingHandler {
 	
 	public static final Comparator<EPlanElement> END_TIME_ORDER = new Comparator<EPlanElement>() {
 		
+		@Override
 		public int compare(EPlanElement o1, EPlanElement o2) {
 			TemporalMember m1 = o1.getMember(TemporalMember.class);
 			TemporalMember m2 = o2.getMember(TemporalMember.class);

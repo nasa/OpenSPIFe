@@ -159,6 +159,7 @@ public class PlanSearchInput {
 		options.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, true,
 				1, 1));
 		options.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				updateBooleanID();
 				refresh();

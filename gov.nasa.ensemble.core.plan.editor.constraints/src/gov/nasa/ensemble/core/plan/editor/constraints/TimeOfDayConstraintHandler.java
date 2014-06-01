@@ -141,6 +141,7 @@ public abstract class TimeOfDayConstraintHandler extends AbstractPlanEditorHandl
 	}
 
 	private class MyValidator implements IInputValidator {
+		@Override
 		public String isValid(String newText) {
 			if (newText==null || newText.trim().length()==0) {
 				return "Please enter a time of day.";

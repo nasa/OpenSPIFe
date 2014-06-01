@@ -120,6 +120,7 @@ public class HibernateFactoryImpl extends EFactoryImpl implements HibernateFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HibernateMember createHibernateMember() {
 		HibernateMemberImpl hibernateMember = new HibernateMemberImpl();
 		return hibernateMember;
@@ -148,6 +149,7 @@ public class HibernateFactoryImpl extends EFactoryImpl implements HibernateFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HibernatePackage getHibernatePackage() {
 		return (HibernatePackage)getEPackage();
 	}

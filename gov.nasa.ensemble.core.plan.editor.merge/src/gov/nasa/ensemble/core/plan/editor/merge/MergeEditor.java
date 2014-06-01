@@ -103,6 +103,7 @@ public class MergeEditor extends AbstractPlanEditorPart implements IReusableEdit
 	private MergeTotalViewer totalViewer;
 	private final MergeRowHighlightDecorator rowHighlightDecorator = new MergeRowHighlightDecorator(getRowHighlightDecoratorKey());
 	
+	@Override
 	public String getRowHighlightDecoratorKey() {
 		return "table_row_highlight_property";
 	}
@@ -253,6 +254,7 @@ public class MergeEditor extends AbstractPlanEditorPart implements IReusableEdit
 		setupFonts(editorComposite, treeComposite, totalComposite);
 		
 		MenuManager menuManager = WidgetUtils.createContextMenu(treeComposite.getTree(), new IMenuListener() {
+			@Override
 			public void menuAboutToShow(IMenuManager mgr) {
 				fillContextMenu(mgr);
 			}
@@ -269,9 +271,11 @@ public class MergeEditor extends AbstractPlanEditorPart implements IReusableEdit
 		final ScrollBar totalBar = totalComposite.getTable().getHorizontalBar();
 		treeBar.setVisible(false);
 		treeBar.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				scrollTable();
 			}
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				scrollTable();
 			}
@@ -281,9 +285,11 @@ public class MergeEditor extends AbstractPlanEditorPart implements IReusableEdit
 			}
 		});
 		totalBar.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				scrollTree();
 			}
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				scrollTree();
 			}
@@ -377,11 +383,13 @@ public class MergeEditor extends AbstractPlanEditorPart implements IReusableEdit
 		TreeTableComposite treeComposite = new TreeTableComposite(parent, configuration, true);
 		treeComposite.setLayout(new FillLayout());
 		treeComposite.getTree().addKeyListener(new KeyListener() {
+			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.keyCode == SWT.INSERT) {
 					duplicateCurrentSelection(e);
 				}
 			}
+			@Override
 			public void keyReleased(KeyEvent e) {
 				// nothing
 			}
@@ -391,6 +399,7 @@ public class MergeEditor extends AbstractPlanEditorPart implements IReusableEdit
 
 	private void setupFonts(Composite parent, final TreeTableComposite tree, final MergeTotalComposite total) {
 		final IPropertyChangeListener preferenceListener = new IPropertyChangeListener() {
+			@Override
 			public void propertyChange(PropertyChangeEvent event) {
 				if (event.getProperty().equals(MergeEditorPreferencePage.P_MERGE_EDITOR_FONT_SIZE)) {
 					Font font = getMergeTreeFont();
@@ -406,6 +415,7 @@ public class MergeEditor extends AbstractPlanEditorPart implements IReusableEdit
 			}
 		};
 		parent.addDisposeListener(new DisposeListener() {
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				MergePlugin.getDefault().getPreferenceStore().removePropertyChangeListener(preferenceListener);
 			}
@@ -441,6 +451,7 @@ public class MergeEditor extends AbstractPlanEditorPart implements IReusableEdit
 			return null;
 		}
 		TreeSet<TreeItem> selectionSet = new TreeSet<TreeItem>(new Comparator<TreeItem>() {
+			@Override
 			public final int compare(TreeItem o1, TreeItem o2) {
 				return CommonUtils.compare(o1.getBounds().y, o2.getBounds().y);
 			}

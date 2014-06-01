@@ -108,6 +108,7 @@ public class ResourceUpdater extends ThreadedNotificationDelegate implements IMe
 		}
 		updater.joinInitialization();
 		TransactionUtils.writing(ePlan, new Runnable() {
+			@Override
 			public void run() {
 				updater.update(updater.dms.getGraph().getDependencies()); 
 			}
@@ -119,6 +120,7 @@ public class ResourceUpdater extends ThreadedNotificationDelegate implements IMe
 		}
 	}
 	
+	@Override
 	public void dispose() {
 		quit();
 		if (dms != null) dms.dispose();
@@ -221,6 +223,7 @@ public class ResourceUpdater extends ThreadedNotificationDelegate implements IMe
 		
 		return TransactionUtils.writing(getDependencyMaintenanceSystem().getGraph(), new RunnableWithResult.Impl<Integer>() {
 			
+			@Override
 			public void run() {
 				Set<Dependency> visited = new HashSet<Dependency>();
 				Set<Dependency> dependencies = new LinkedHashSet<Dependency>(nodes);

@@ -115,6 +115,7 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 		for (ITreeTableColumn column : configuration.getColumns()) {
 			if (column instanceof AbstractMergeColumn && ((AbstractMergeColumn) column).updateAll()) {
 				update(new Runnable() {
+					@Override
 					public void run() {
 						refresh();
 					}

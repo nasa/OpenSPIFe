@@ -113,6 +113,7 @@ public class MarkerManagerEditPart extends TimelineViewerEditPart<TimelineMarker
 	
 	private class PropertyChangeListenerImpl implements PropertyChangeListener {
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			if (TimelineMarkerManager.MARKER == event.getPropertyName()) {
 				refreshChildrenInDisplayThread();

@@ -46,6 +46,7 @@ public class ProjectPropertyListeners {
 			this.listener = listener;
 		}
 		
+		@Override
 		public void propertyChanged(final ProjectPropertyEvent event) {
 			if (keys.contains(event.key))
 				listener.propertyChanged(event);

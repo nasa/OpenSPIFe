@@ -86,6 +86,7 @@ public class EarthDateTypeEditor extends AbstractTypeEditor<Date> {
     	addListeners();
     }
 
+	@Override
 	public Control getEditorControl() {
 		return top;
 	}
@@ -96,6 +97,7 @@ public class EarthDateTypeEditor extends AbstractTypeEditor<Date> {
 		
 		final Date dateObj = getObject();
 		WidgetUtils.runInDisplayThread(dateTime, new Runnable() {
+			@Override
 			public void run() {
 				EnsembleDateWidgetHelper.setDate(dateTime, dateObj);
 			}
@@ -106,6 +108,7 @@ public class EarthDateTypeEditor extends AbstractTypeEditor<Date> {
 		final Button calB = new Button(comp, SWT.PUSH | SWT.FLAT);
 		calB.setImage(MissionUIConstants.getInstance().getIcon(CALENDAR_ICON));
 		calB.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				Date d = EnsembleDateWidgetHelper.getDate(dateTime); // always use time from dateTime
 				Point display = calB.toDisplay(new Point(0, 0));
@@ -118,6 +121,7 @@ public class EarthDateTypeEditor extends AbstractTypeEditor<Date> {
 				}
 			}
 
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				widgetDefaultSelected(e);
 			}
@@ -157,10 +161,12 @@ public class EarthDateTypeEditor extends AbstractTypeEditor<Date> {
 	
 	private class DateTimeListener implements FocusListener, KeyListener, SelectionListener {
 
+		@Override
 		public void focusGained(FocusEvent event) {
 			edited = false;
 		}
 		
+		@Override
 		public void focusLost(FocusEvent event) {
 			if (edited) {
 				Date d = EnsembleDateWidgetHelper.getDate(dateTime);
@@ -168,22 +174,26 @@ public class EarthDateTypeEditor extends AbstractTypeEditor<Date> {
 			}
 		}
 
+		@Override
 		public void keyPressed(KeyEvent event) {
 			// special keys handled in release
 		}
 		
+		@Override
 		public void keyReleased(KeyEvent event) {
 			if (event.keyCode == SWT.ESC) {
 				resetText();
 			} 
 		}
 
+		@Override
 		public void widgetDefaultSelected(SelectionEvent e) {
 			// When user makes modifications should trigger this event
 			Date d = EnsembleDateWidgetHelper.getDate(dateTime);
 			acceptValue(d);
 		}
 
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			widgetDefaultSelected(e);
 		}

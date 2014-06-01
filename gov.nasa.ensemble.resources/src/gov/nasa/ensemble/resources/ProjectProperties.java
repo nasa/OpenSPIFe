@@ -103,6 +103,7 @@ public class ProjectProperties {
 		public Map<String,String> _1() {
 			final Map<String, String> map = new HashMap<String, String>();
 			final IWorkspaceRunnable runnable = new IWorkspaceRunnable() {
+				@Override
 				public void run(IProgressMonitor monitor) throws CoreException {
 					try {
 						readAllProps(resource, map);
@@ -152,11 +153,13 @@ public class ProjectProperties {
 	}.memo();
 	
 	private final IResourceChangeListener resourceListener = new IResourceChangeListener() {
+		@Override
 		public void resourceChanged(final IResourceChangeEvent event) {
 			final IResourceDelta delta = event.getDelta();
 			if (delta != null) {
 				try {
 					delta.accept(new IResourceDeltaVisitor() {
+						@Override
 						public boolean visit(IResourceDelta delta) throws CoreException {
 							final IResource deltaRsrc = delta.getResource();
 							final int kind = delta.getKind();
@@ -213,6 +216,7 @@ public class ProjectProperties {
 			public Option<String> _1() {
 				// TODO memoize this
 				return Option.join(defaults._1().map(new F<IProjectPropertyDefaults, Option<String>>() {
+					@Override
 					public Option<String> f(final IProjectPropertyDefaults defaults) {
 						return defaults.getDefault(resource, key);
 					}
@@ -379,6 +383,7 @@ public class ProjectProperties {
 			throws CoreException {
 		if (event.resource.exists()) {
 			ws().run(new IWorkspaceRunnable() {
+				@Override
 				public void run(IProgressMonitor monitor) {
 					try {
 						if (event.resource.exists())
@@ -395,8 +400,10 @@ public class ProjectProperties {
 	
 	public static Option<IResource> getResourceForPropertyFile(final IFile propFile) {
 		return fromNull(propFile.getProject()).bind(new F<IProject, Option<IResource>>() {
+			@Override
 			public Option<IResource> f(final IProject project) {
 				return ResourceUtil.getRelativePath(project.getFolder(ROOT_PROPS_FOLDER_NAME), propFile).bind(new F<IPath, Option<IResource>>() {
+					@Override
 					public Option<IResource> f(final IPath path) {
 						return fromNull(project.findMember(path.removeLastSegments(1)));
 					}

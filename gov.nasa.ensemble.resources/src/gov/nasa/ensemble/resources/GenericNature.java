@@ -46,6 +46,7 @@ public class GenericNature implements IProjectNature {
 	 * 
 	 * @see org.eclipse.core.resources.IProjectNature#configure()
 	 */
+	@Override
 	public void configure() throws CoreException {
 		ResourceUtil.addBuilders(project, builderIds);
 	}
@@ -55,6 +56,7 @@ public class GenericNature implements IProjectNature {
 	 * 
 	 * @see org.eclipse.core.resources.IProjectNature#deconfigure()
 	 */
+	@Override
 	public void deconfigure() throws CoreException {
 		ResourceUtil.removeBuilders(project, builderIds);
 	}
@@ -64,6 +66,7 @@ public class GenericNature implements IProjectNature {
 	 * 
 	 * @see org.eclipse.core.resources.IProjectNature#getProject()
 	 */
+	@Override
 	public IProject getProject() {
 		return project;
 	}
@@ -73,6 +76,7 @@ public class GenericNature implements IProjectNature {
 	 * 
 	 * @see org.eclipse.core.resources.IProjectNature#setProject(org.eclipse.core.resources.IProject)
 	 */
+	@Override
 	public void setProject(IProject project) {
 		this.project = project;
 	}

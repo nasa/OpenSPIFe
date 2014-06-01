@@ -97,6 +97,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ResourceConditionsMember createResourceConditionsMember() {
 		ResourceConditionsMemberImpl resourceConditionsMember = new ResourceConditionsMemberImpl();
 		return resourceConditionsMember;
@@ -107,6 +108,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Conditions createConditions() {
 		ConditionsImpl conditions = new ConditionsImpl();
 		return conditions;
@@ -117,6 +119,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NamedCondition createNamedCondition() {
 		NamedConditionImpl namedCondition = new NamedConditionImpl();
 		return namedCondition;
@@ -127,6 +130,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Claim createClaim() {
 		ClaimImpl claim = new ClaimImpl();
 		return claim;
@@ -137,6 +141,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PowerLoad createPowerLoad() {
 		PowerLoadImpl powerLoad = new PowerLoadImpl();
 		return powerLoad;
@@ -147,6 +152,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NumericResource createNumericResource() {
 		NumericResourceImpl numericResource = new NumericResourceImpl();
 		return numericResource;
@@ -157,6 +163,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateResource createStateResource() {
 		StateResourceImpl stateResource = new StateResourceImpl();
 		return stateResource;
@@ -167,6 +174,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public UndefinedResource createUndefinedResource() {
 		UndefinedResourceImpl undefinedResource = new UndefinedResourceImpl();
 		return undefinedResource;
@@ -177,6 +185,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SharableResource createSharableResource() {
 		SharableResourceImpl sharableResource = new SharableResourceImpl();
 		return sharableResource;
@@ -187,6 +196,7 @@ public class MemberFactoryImpl extends EFactoryImpl implements MemberFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MemberPackage getMemberPackage() {
 		return (MemberPackage)getEPackage();
 	}

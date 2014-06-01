@@ -120,6 +120,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public synchronized void start() throws InterruptedException {
 		if (Thread.currentThread() != getOwner()) {
 			IllegalStateException exc = new IllegalStateException("Not transaction owner"); //$NON-NLS-1$
@@ -198,6 +199,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public final TransactionalEditingDomain getEditingDomain() {
 		return domain;
 	}
@@ -217,11 +219,13 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public final Transaction getParent() {
 		return parent;
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public final void setParent(InternalTransaction parent) {
 		this.parent = parent;
 		
@@ -231,36 +235,43 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public final InternalTransaction getRoot() {
 		return root;
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public final Thread getOwner() {
 		return owner;
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public final boolean isReadOnly() {
 		return readOnly;
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public final Map<Object, Object> getOptions() {
 		return options;
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public synchronized boolean isActive() {
 		return active;
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public IStatus getStatus() {
 		return status;
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public void setStatus(IStatus status) {
 		if (status == null) {
 			status = Status.OK_STATUS;
@@ -270,6 +281,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public synchronized void abort(IStatus status) {
 		assert status != null;
 		
@@ -294,6 +306,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public void commit() throws RollbackException {
 		if (Thread.currentThread() != getOwner()) {
 			IllegalStateException exc = new IllegalStateException("Not transaction owner"); //$NON-NLS-1$
@@ -438,6 +451,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 //	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public void rollback() {
 		if (Thread.currentThread() != getOwner()) {
 			IllegalStateException exc = new IllegalStateException("Not transaction owner"); //$NON-NLS-1$
@@ -521,11 +535,13 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public void yield() {
 		getEditingDomain().yield();
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public TransactionChangeDescription getChangeDescription() {
 		return (isActive() && !closing) ? null : change;
 	}
@@ -577,6 +593,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public void pause() {
 		// if we are rolling back, then we don't need to worry about recording
 		//    changes because we are permanently undoing changes.
@@ -588,6 +605,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public void resume(TransactionChangeDescription nestedChanges) {
 		// if we are rolling back, then we don't need to worry about recording
 		//    changes because we are permanently undoing changes.  It can happen
@@ -605,6 +623,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public boolean isRollingBack() {
 		return rollingBack || ((parent != null) && parent.isRollingBack());
 	}
@@ -651,6 +670,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public void add(Notification notification) {
 		if (!rollingBack && (notifications != null) && !notification.isTouch()) {
 			notifications.add(notification);
@@ -658,6 +678,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public List<Notification> getNotifications() {
 		return (notifications == null)? Collections.<Notification>emptyList()
 			: notifications;
@@ -674,11 +695,13 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public Command getTriggers() {
 		return triggers;
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public void addTriggers(TriggerCommand triggers) {
 		// extract out only the triggered commands (exclude the triggering command)
 		List<Command> triggerCommands = triggers.getTriggers();
@@ -705,6 +728,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 	
 	// Documentation copied from the inherited specification
+	@Override
 	public void startPrivileged(PrivilegedRunnable<?> runnable) {
 		if (runnable.getTransaction() != this) {
 			throw new IllegalArgumentException(
@@ -725,6 +749,7 @@ public class FixedTransactionImpl implements InternalTransaction {
 	}
 
 	// Documentation copied from the inherited specification
+	@Override
 	public void endPrivileged(PrivilegedRunnable<?> runnable) {
 		if (runnable.getTransaction() != this) {
 			throw new IllegalArgumentException(

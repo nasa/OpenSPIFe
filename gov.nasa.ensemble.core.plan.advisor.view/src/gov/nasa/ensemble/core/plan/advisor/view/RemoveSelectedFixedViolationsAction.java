@@ -80,6 +80,7 @@ public class RemoveSelectedFixedViolationsAction extends Action {
 		@Override
 		public void advisorsUpdated() {
 			WidgetUtils.runInDisplayThread(planAdvisorTreeViewer.getControl(), new Runnable() {
+				@Override
 				public void run() {
 					ISelection selection = planAdvisorTreeViewer.getSelection();
 					updateEnablement(selection);
@@ -90,8 +91,10 @@ public class RemoveSelectedFixedViolationsAction extends Action {
 
 	private class SelectionChangedListener implements ISelectionChangedListener {
 
+		@Override
 		public void selectionChanged(final SelectionChangedEvent event) {
 			WidgetUtils.runInDisplayThread(planAdvisorTreeViewer.getControl(), new Runnable() {
+				@Override
 				public void run() {
 					ISelection selection = event.getSelection();
 					updateEnablement(selection);

@@ -26,9 +26,6 @@ package gov.nasa.ensemble.core.model.plan.constraints.provider;
 
 import gov.nasa.ensemble.core.model.plan.constraints.ConstraintPoint;
 import gov.nasa.ensemble.core.model.plan.constraints.ConstraintsPackage;
-import gov.nasa.ensemble.emf.model.common.Timepoint;
-
-
 import java.util.Collection;
 import java.util.List;
 

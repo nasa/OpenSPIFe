@@ -286,6 +286,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 		text.setText(STRINGIFIER.getDisplayString(effectValue));
 		EStructuralFeature valueFeature = ActivityDictionaryPackage.Literals.AD_EFFECT_ENTRY__VALUE;
 		observeValueAndRunOnChange(text, (EObject) entry, valueFeature, new Runnable() {
+			@Override
 			public void run() {
 				text.setText(STRINGIFIER.getDisplayString(entry.getValue()));
 			}

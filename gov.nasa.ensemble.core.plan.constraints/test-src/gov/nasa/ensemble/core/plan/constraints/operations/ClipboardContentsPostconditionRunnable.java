@@ -64,6 +64,7 @@ public class ClipboardContentsPostconditionRunnable implements Runnable {
 		this.pasteOperation = new PlanClipboardPasteOperation(selection, modifier);
 	}
 
+	@Override
 	public void run() {
 		PlanTransferable clipboardTransferable = TestUtils.getClipboardContents();
 		List<? extends EPlanElement> planElements = clipboardTransferable.getPlanElements(); 

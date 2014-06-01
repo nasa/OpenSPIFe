@@ -52,6 +52,7 @@ public class PlanRulesView extends PlanPageBookView {
 			PlanRulesPage planRulesPage = (PlanRulesPage)page;
 			final EPlan plan = planRulesPage.getPlan();
 			WidgetUtils.runInDisplayThread(page.getControl(), new Runnable() {
+				@Override
 				public void run() {
 					setContentDescription(plan.getName());
 				}

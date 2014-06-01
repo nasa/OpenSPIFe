@@ -208,6 +208,7 @@ public class ActivityRequirementPlanAdvisor extends AbstractResourcePlanAdvisor 
 			return Collections.emptyList();
 		}
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				try {
 					new PlanVisitor(true) {

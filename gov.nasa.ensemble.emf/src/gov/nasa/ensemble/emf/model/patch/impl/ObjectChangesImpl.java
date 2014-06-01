@@ -94,6 +94,7 @@ public class ObjectChangesImpl extends EObjectImpl implements ObjectChanges {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getObject() {
 		if (object != null && object.eIsProxy()) {
 			InternalEObject oldObject = (InternalEObject)object;
@@ -120,6 +121,7 @@ public class ObjectChangesImpl extends EObjectImpl implements ObjectChanges {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setObject(EObject newObject) {
 		EObject oldObject = object;
 		object = newObject;
@@ -132,6 +134,7 @@ public class ObjectChangesImpl extends EObjectImpl implements ObjectChanges {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchFeatureChange getChange() {
 		return change;
 	}
@@ -156,6 +159,7 @@ public class ObjectChangesImpl extends EObjectImpl implements ObjectChanges {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setChange(PatchFeatureChange newChange) {
 		if (newChange != change) {
 			NotificationChain msgs = null;

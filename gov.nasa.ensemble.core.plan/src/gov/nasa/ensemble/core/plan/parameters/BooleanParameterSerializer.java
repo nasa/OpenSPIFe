@@ -23,6 +23,7 @@ public class BooleanParameterSerializer implements IParameterSerializer<Boolean>
 
 	private final Logger trace = Logger.getLogger(getClass());
 	
+	@Override
 	public String getHibernateString(Boolean javaObject) {
 		if (javaObject == null) {
 			return null;
@@ -30,6 +31,7 @@ public class BooleanParameterSerializer implements IParameterSerializer<Boolean>
 		return Boolean.toString(javaObject);
 	}
 
+	@Override
 	public Boolean getJavaObject(String hibernateString) {
 		if (hibernateString == null) {
 			return null;

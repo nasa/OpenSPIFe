@@ -55,6 +55,7 @@ public class CDateTimeObservableValue extends AbstractObservableValue implements
 	protected Date currentSelection;
 
 	private SelectionListener selectionListener = new SelectionListener() {
+		@Override
 		public void widgetDefaultSelected(SelectionEvent e) {
 			if (!updating) {
 				Date newSelection = CDateTimeObservableValue.this.dateTime.getSelection();
@@ -62,6 +63,7 @@ public class CDateTimeObservableValue extends AbstractObservableValue implements
 				currentSelection = newSelection;
 			}
 		}
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			// skip
 		}
@@ -128,6 +130,7 @@ public class CDateTimeObservableValue extends AbstractObservableValue implements
 		}
 	}
 
+	@Override
 	public Object getValueType() {
 		return Date.class;
 	}

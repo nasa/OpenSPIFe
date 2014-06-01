@@ -39,6 +39,7 @@ public class DeleteTemporalBoundOperation extends AbstractTransactionUndoableOpe
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(constraint.getPoint().getElement(), new Runnable() {
+			@Override
 			public void run() {
 				ConstraintUtils.detachConstraint(constraint);
 			}
@@ -48,6 +49,7 @@ public class DeleteTemporalBoundOperation extends AbstractTransactionUndoableOpe
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(constraint.getPoint().getElement(), new Runnable() {
+			@Override
 			public void run() {
 				ConstraintUtils.attachConstraint(constraint);
 			}

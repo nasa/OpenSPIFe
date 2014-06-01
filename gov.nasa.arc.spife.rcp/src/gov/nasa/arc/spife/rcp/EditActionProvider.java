@@ -260,6 +260,7 @@ public class EditActionProvider extends CommonActionProvider {
 
 			final IResource[][] clipboardData = new IResource[1][];
 			shell.getDisplay().syncExec(new Runnable() {
+				@Override
 				public void run() {
 					// clipboard must have resources or files
 					ResourceTransfer resTransfer = ResourceTransfer.getInstance();

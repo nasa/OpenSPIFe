@@ -141,6 +141,7 @@ public class ChainOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				trace.debug("executing " + ChainOperation.class.getSimpleName() + ": " + this);
 				for (TemporalChain oldChain : oldChains) {
@@ -157,6 +158,7 @@ public class ChainOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				trace.debug("undoing " + ChainOperation.class.getSimpleName() + ": " + this);
 				TemporalChainUtils.detachChain(newChain);

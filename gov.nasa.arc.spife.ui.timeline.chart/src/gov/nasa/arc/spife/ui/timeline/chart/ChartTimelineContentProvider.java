@@ -55,12 +55,14 @@ public class ChartTimelineContentProvider extends TreeTimelineContentProvider {
 		}
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public Collection<?> getChildren(Object object) {
 		ITreeItemContentProvider cp = (ITreeItemContentProvider) this.adapterFactory.adapt(object, ITreeItemContentProvider.class);
 		return cp == null ? Collections.emptyList() : cp.getChildren(object);
 	}
 	
+	@Override
 	public Object getParent(Object object) {
 		ITreeItemContentProvider cp = (ITreeItemContentProvider) this.adapterFactory.adapt(object, ITreeItemContentProvider.class);
 		return cp == null ? null : cp.getParent(object);

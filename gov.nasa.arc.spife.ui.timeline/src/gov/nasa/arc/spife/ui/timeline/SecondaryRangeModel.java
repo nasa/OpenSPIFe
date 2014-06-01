@@ -36,50 +36,62 @@ public class SecondaryRangeModel implements RangeModel {
 		this.primaryRangeModel = primaryRangeModel;
 	}
 
+	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		primaryRangeModel.addPropertyChangeListener(listener);
 	}
 
+	@Override
 	public int getExtent() {
 		return primaryRangeModel.getExtent();
 	}
 
+	@Override
 	public int getMaximum() {
 		return primaryRangeModel.getMaximum();
 	}
 
+	@Override
 	public int getMinimum() {
 		return primaryRangeModel.getMinimum();
 	}
 
+	@Override
 	public int getValue() {
 		return primaryRangeModel.getValue();
 	}
 
+	@Override
 	public boolean isEnabled() {
 		return primaryRangeModel.isEnabled();
 	}
 
+	@Override
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		primaryRangeModel.removePropertyChangeListener(listener);
 	}
 
+	@Override
 	public void setAll(int min, int extent, int max) {
 		// this range model defers to the primary range model
 	}
 
+	@Override
 	public void setExtent(int extent) {
 		// this range model defers to the primary range model
 	}
 
+	@Override
 	public void setMaximum(int max) {
 		// this range model defers to the primary range model
 	}
 
+	@Override
 	public void setMinimum(int min) {
 		// this range model defers to the primary range model
 	}
 
+	@Override
 	public void setValue(int value) {
 		primaryRangeModel.setValue(value);
 	}

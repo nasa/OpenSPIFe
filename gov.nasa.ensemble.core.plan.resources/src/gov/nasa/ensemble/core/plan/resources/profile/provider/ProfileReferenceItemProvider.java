@@ -24,7 +24,6 @@
 package gov.nasa.ensemble.core.plan.resources.profile.provider;
 
 
-import fj.Function;
 import gov.nasa.ensemble.common.functional.Lists;
 import gov.nasa.ensemble.common.functional.Predicate;
 import gov.nasa.ensemble.core.jscience.Profile;
@@ -32,7 +31,6 @@ import gov.nasa.ensemble.core.jscience.TemporalOffset;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.translator.WrapperUtils;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
-import gov.nasa.ensemble.core.plan.resources.profile.ProfileEqualityConstraint;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfilePackage;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileReference;
 import gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMember;
@@ -50,18 +48,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.CopyCommand;
-import org.eclipse.emf.edit.command.CreateCopyCommand;
 import org.eclipse.emf.edit.command.CopyCommand.Helper;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -426,6 +418,7 @@ public class ProfileReferenceItemProvider
 			final EPlan plan = EPlanUtils.getPlan(reference);
 			return new IItemLabelProvider() {
 				
+				@Override
 				public String getText(Object object) {
 					Profile<?> profile = null;
 					if (object instanceof Profile) {
@@ -442,6 +435,7 @@ public class ProfileReferenceItemProvider
 					return null;
 				}
 				
+				@Override
 				public Object getImage(Object object) {
 					Profile<?> profile = null;
 					if (object instanceof Profile) {
@@ -477,6 +471,7 @@ public class ProfileReferenceItemProvider
 				profileKeys.add(profile);
 			}
 			Collections.sort(profileKeys, new Comparator<Profile>() {
+				@Override
 				public int compare(Profile o1, Profile o2) {
 					return o1.getId().compareTo(o2.getId());
 				}

@@ -120,6 +120,7 @@ public class ENumericResourceDefImpl extends EResourceDefImpl implements ENumeri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Unit<?> getUnits() {
 		return units;
 	}
@@ -129,6 +130,7 @@ public class ENumericResourceDefImpl extends EResourceDefImpl implements ENumeri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUnits(Unit<?> newUnits) {
 		Unit<?> oldUnits = units;
 		units = newUnits;
@@ -141,6 +143,7 @@ public class ENumericResourceDefImpl extends EResourceDefImpl implements ENumeri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Double getMinimum() {
 		return minimum;
 	}
@@ -150,6 +153,7 @@ public class ENumericResourceDefImpl extends EResourceDefImpl implements ENumeri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimum(Double newMinimum) {
 		Double oldMinimum = minimum;
 		minimum = newMinimum;
@@ -162,6 +166,7 @@ public class ENumericResourceDefImpl extends EResourceDefImpl implements ENumeri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Double getMaximum() {
 		return maximum;
 	}
@@ -171,6 +176,7 @@ public class ENumericResourceDefImpl extends EResourceDefImpl implements ENumeri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximum(Double newMaximum) {
 		Double oldMaximum = maximum;
 		maximum = newMaximum;

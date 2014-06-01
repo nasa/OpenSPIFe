@@ -52,7 +52,8 @@ public class MergePlanClipboardCutOperation extends PlanClipboardCutOperation {
     @Override
     protected void execute() {
     	WidgetUtils.runInDisplayThread(tree, new Runnable() {
-    		public void run() {
+    		@Override
+			public void run() {
     			TreeItem newSelectedItem = MergeEditor.getNewlySelectedItem(tree);
     			if (newSelectedItem != null) {
     				newSelection = new StructuredSelection(newSelectedItem.getData());
@@ -63,7 +64,8 @@ public class MergePlanClipboardCutOperation extends PlanClipboardCutOperation {
     	}, true);
     	super.execute();
     	WidgetUtils.runInDisplayThread(tree, new Runnable() {
-    		public void run() {
+    		@Override
+			public void run() {
 		    	if ((provider != null) && (newSelection != null)) {
 		    		provider.setSelection(newSelection);
 		    	}
@@ -75,7 +77,8 @@ public class MergePlanClipboardCutOperation extends PlanClipboardCutOperation {
     protected void undo() {
     	super.undo();
     	WidgetUtils.runInDisplayThread(tree, new Runnable() {
-    		public void run() {
+    		@Override
+			public void run() {
 		    	if ((provider != null) && (oldSelection != null)) {
 		    		provider.setSelection(oldSelection);
 		    	}

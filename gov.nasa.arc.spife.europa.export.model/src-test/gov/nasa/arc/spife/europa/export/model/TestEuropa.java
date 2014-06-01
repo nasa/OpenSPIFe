@@ -103,6 +103,7 @@ public class TestEuropa extends TestCase {
 		activity1 = PlanFactory.getInstance().createActivity(activityThatClaimsDef);
 		
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.eResource().getContents().add(object0);
 				plan.eResource().getContents().add(object1);

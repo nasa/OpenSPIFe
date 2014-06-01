@@ -47,9 +47,11 @@ public class PlanRulesSelector extends RulesSelector {
 		this.button = new Button(parent, SWT.PUSH);
 		updateButtonText();
 		getButton().addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				open();
 			}
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				open();
 			}

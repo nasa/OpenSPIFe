@@ -26,10 +26,12 @@ public class NumericResourceDefTransferProvider extends SimpleByteArrayTransferP
 
 	public static final Transfer transfer = createSimpleByteArrayTransfer(NumericResourceDefTransferProvider.class.getCanonicalName()); 
 
+	@Override
 	public Transfer getTransfer() {
 		return transfer;
 	}
 	
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		return transferable instanceof NumericResourceDefTransferable;
 	}

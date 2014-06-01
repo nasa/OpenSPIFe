@@ -97,6 +97,7 @@ class PlanRulesPage extends Page {
 		treeViewer.setInput(model.getEPlan());
 		treeViewer.expandToLevel(2);
 		treeViewer.addCheckStateListener(new ICheckStateListener() {
+			@Override
 			public void checkStateChanged(CheckStateChangedEvent event) {
 				Object element = event.getElement();
 				boolean active = event.getChecked();
@@ -116,7 +117,7 @@ class PlanRulesPage extends Page {
     }
 
 	private void setup() {
-	    domain = TransactionUtils.getDomain(model.getEPlan());
+	    domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(model.getEPlan());
 		domain.addResourceSetListener(modelChangeListener);
         updateRules();
         getSite().setSelectionProvider(selectionProvider);
@@ -213,7 +214,8 @@ class PlanRulesPage extends Page {
     		}
     		if (update) {
     			TransactionUtils.runInDisplayThread(control, model.getEPlan(), new Runnable() {
-    				public void run() {
+    				@Override
+					public void run() {
     					updateRules();
     				}
     			});

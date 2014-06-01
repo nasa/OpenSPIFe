@@ -46,10 +46,12 @@ public class TickIntervalsEditPolicy extends TimelineViewerEditPolicy implements
 		return getViewer().getTickManager();
 	}
 
+	@Override
 	public void propertyChange(PropertyChangeEvent e) {
 		String propertyName = e.getPropertyName();
 		if (TickManager.TICK_INTERVALS.equals(propertyName)) {
 			GEFUtils.runInDisplayThread(getHost(), new Runnable() {
+				@Override
 				public void run() {
 					updateTickIntervals();
 				}

@@ -23,6 +23,7 @@ public class LongParameterSerializer implements IParameterSerializer<Long> {
 
 	private final Logger trace = Logger.getLogger(getClass());
 	
+	@Override
 	public String getHibernateString(Long javaObject) {
 		if (javaObject == null) {
 			return null;
@@ -30,6 +31,7 @@ public class LongParameterSerializer implements IParameterSerializer<Long> {
 		return Long.toString(javaObject);
 	}
 
+	@Override
 	public Long getJavaObject(String hibernateString) {
 		if (hibernateString == null || hibernateString.equals("")) {
 			return null;

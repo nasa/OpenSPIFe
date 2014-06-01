@@ -176,6 +176,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getDefaultLength() {
 		return defaultLength;
 	}
@@ -185,6 +186,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefaultLength(int newDefaultLength) {
 		int oldDefaultLength = defaultLength;
 		defaultLength = newDefaultLength;
@@ -197,6 +199,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -206,6 +209,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -218,6 +222,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Unit<?> getUnits() {
 		return units;
 	}
@@ -227,6 +232,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUnits(Unit<?> newUnits) {
 		Unit<?> oldUnits = units;
 		units = newUnits;
@@ -239,6 +245,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUnitsDisplayName() {
 		return unitsDisplayName;
 	}
@@ -248,6 +255,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUnitsDisplayName(String newUnitsDisplayName) {
 		String oldUnitsDisplayName = unitsDisplayName;
 		unitsDisplayName = newUnitsDisplayName;
@@ -260,6 +268,7 @@ public class EAttributeParameterImpl extends EAttributeImpl implements EAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<EChoice> getChoices() {
 		if (choices == null) {
 			choices = new EObjectContainmentWithInverseEList<EChoice>(EChoice.class, this, DictionaryPackage.EATTRIBUTE_PARAMETER__CHOICES, DictionaryPackage.ECHOICE__PARAMETER_ATTRIBUTE);

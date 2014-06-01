@@ -90,6 +90,7 @@ public class PatchTestFactoryImpl extends EFactoryImpl implements PatchTestFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchTestModel createPatchTestModel() {
 		PatchTestModelImpl patchTestModel = new PatchTestModelImpl();
 		return patchTestModel;
@@ -100,6 +101,7 @@ public class PatchTestFactoryImpl extends EFactoryImpl implements PatchTestFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SomeTestClass createSomeTestClass() {
 		SomeTestClassImpl someTestClass = new SomeTestClassImpl();
 		return someTestClass;
@@ -110,6 +112,7 @@ public class PatchTestFactoryImpl extends EFactoryImpl implements PatchTestFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SomeTestClassWithID createSomeTestClassWithID() {
 		SomeTestClassWithIDImpl someTestClassWithID = new SomeTestClassWithIDImpl();
 		return someTestClassWithID;
@@ -120,6 +123,7 @@ public class PatchTestFactoryImpl extends EFactoryImpl implements PatchTestFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchTestPackage getPatchTestPackage() {
 		return (PatchTestPackage)getEPackage();
 	}

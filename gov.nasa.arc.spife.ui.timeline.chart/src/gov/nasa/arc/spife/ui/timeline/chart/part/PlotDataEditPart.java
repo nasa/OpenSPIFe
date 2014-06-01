@@ -64,12 +64,13 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 	@Override
 	public void activate() {
 		super.activate();
-		domain = TransactionUtils.getDomain(getTimeline().getTimelineModel());
+		domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(getTimeline().getTimelineModel());
 		if (domain != null) {
 			domain.addResourceSetListener(listener);
 			getModel().eAdapters().add(adapter);
 		}
 		GEFUtils.runLaterInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				try {
 					updatePointList();
@@ -101,6 +102,7 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 		try {
 			updatePointList();
 			GEFUtils.runInDisplayThread(this, new Runnable() {
+				@Override
 				public void run() {
 					getFigure().repaint();
 				}
@@ -134,6 +136,7 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 		final Color color = PlotUtil.getColor(getModel());
 		if (color != null) {
 			GEFUtils.runInDisplayThread(PlotDataEditPart.this, new Runnable() {
+				@Override
 				public void run() {
 					getFigure().setForegroundColor(color);
 				}

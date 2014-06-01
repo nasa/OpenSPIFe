@@ -29,9 +29,6 @@ import gov.nasa.ensemble.core.model.plan.advisor.AdvisorFactory;
 import gov.nasa.ensemble.core.model.plan.advisor.AdvisorPackage;
 import gov.nasa.ensemble.core.model.plan.advisor.PlanAdvisorMember;
 
-import java.util.List;
-import java.util.Map;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -95,6 +92,7 @@ public class AdvisorFactoryImpl extends EFactoryImpl implements AdvisorFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PlanAdvisorMember createPlanAdvisorMember() {
 		PlanAdvisorMemberImpl planAdvisorMember = new PlanAdvisorMemberImpl();
 		return planAdvisorMember;
@@ -105,6 +103,7 @@ public class AdvisorFactoryImpl extends EFactoryImpl implements AdvisorFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ActivityAdvisorMember createActivityAdvisorMember() {
 		ActivityAdvisorMemberImpl activityAdvisorMember = new ActivityAdvisorMemberImpl();
 		return activityAdvisorMember;
@@ -115,6 +114,7 @@ public class AdvisorFactoryImpl extends EFactoryImpl implements AdvisorFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public WaiverPropertiesEntry createWaiverPropertiesEntry() {
 		WaiverPropertiesEntryImpl waiverPropertiesEntry = new WaiverPropertiesEntryImpl();
 		return waiverPropertiesEntry;
@@ -125,6 +125,7 @@ public class AdvisorFactoryImpl extends EFactoryImpl implements AdvisorFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdvisorPackage getAdvisorPackage() {
 		return (AdvisorPackage)getEPackage();
 	}

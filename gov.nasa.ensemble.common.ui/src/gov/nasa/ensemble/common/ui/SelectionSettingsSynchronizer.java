@@ -46,10 +46,12 @@ public class SelectionSettingsSynchronizer implements SelectionListener {
 		this.key = key;
 	}
 	
+	@Override
 	public void widgetDefaultSelected(SelectionEvent e) {
 		widgetSelected(e);
 	}
 	
+	@Override
 	public void widgetSelected(SelectionEvent e) {
 		Button button = (Button) e.getSource();
 		if (settings != null) {

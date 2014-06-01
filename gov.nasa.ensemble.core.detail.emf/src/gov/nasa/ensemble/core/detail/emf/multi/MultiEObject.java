@@ -78,7 +78,7 @@ public class MultiEObject extends EObjectImpl implements IAdaptable, IEditingDom
 
 	@Override
 	public void eSet(final EStructuralFeature feature, final Object newValue) {
-		TransactionUtils.writing(eObjects.toArray()[0], new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(eObjects.toArray()[0], new Runnable() {
 			@Override
 			public void run() {
 				for (EObject eObject : eObjects) {

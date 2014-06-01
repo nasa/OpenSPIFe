@@ -31,6 +31,7 @@ import org.junit.Assert;
 
 public class PeriodicConstraintConsistencyPropertyTester implements IConsistencyPropertyTester {
 
+	@Override
 	public void test(EPlanElement element) {
 		TemporalMember temporalMember = element.getMember(TemporalMember.class);
 		Boolean scheduled = temporalMember.getScheduled();

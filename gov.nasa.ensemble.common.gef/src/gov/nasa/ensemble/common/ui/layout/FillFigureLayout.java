@@ -90,6 +90,7 @@ public class FillFigureLayout extends AbstractLayout {
 	 * @param container
 	 *            the figure to layout.
 	 */
+	@Override
 	public void layout(IFigure container) {
 		List children = container.getChildren();
 		if (children.isEmpty()) {

@@ -1806,7 +1806,8 @@ public class diff_match_patch {
    * @return LinkedList of Patch objects.
    * @deprecated Prefer patch_make(String text1, LinkedList<Diff> diffs).
    */
-  public LinkedList<Patch> patch_make(String text1, String text2,
+  @Deprecated
+public LinkedList<Patch> patch_make(String text1, String text2,
       LinkedList<Diff> diffs) {
     return patch_make(text1, diffs);
   }
@@ -2333,7 +2334,8 @@ public class diff_match_patch {
      * Display a human-readable version of this Diff.
      * @return text version.
      */
-    public String toString() {
+    @Override
+	public String toString() {
       String prettyText = this.text.replace('\n', '\u00b6');
       return "Diff(" + this.operation + ",\"" + prettyText + "\")";
     }
@@ -2406,7 +2408,8 @@ public class diff_match_patch {
      * Indicies are printed as 1-based, not 0-based.
      * @return The GNU diff string.
      */
-    public String toString() {
+    @Override
+	public String toString() {
       String coords1, coords2;
       if (this.length1 == 0) {
         coords1 = this.start1 + ",0";

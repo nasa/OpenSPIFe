@@ -50,6 +50,7 @@ public abstract class AbstractTreeTableColumn<T> implements ITreeTableColumn<T> 
 		this.headerName = headerName;
 	}
 
+	@Override
 	public String getHeaderName() {
 		return headerName;
 	}
@@ -58,10 +59,12 @@ public abstract class AbstractTreeTableColumn<T> implements ITreeTableColumn<T> 
 		this.headerImage = headerImage;
 	}
 	
+	@Override
 	public Image getHeaderImage() {
 		return headerImage;
 	}
 	
+	@Override
 	public int getAlignment() {
 		return SWT.CENTER;
 	}
@@ -70,38 +73,47 @@ public abstract class AbstractTreeTableColumn<T> implements ITreeTableColumn<T> 
 		this.defaultWidth = defaultWidth;
 	}
 
+	@Override
 	public int getDefaultWidth() {
 		return defaultWidth;
 	}
 
+	@Override
 	public abstract boolean needsUpdate(Object feature);
 
+	@Override
 	public abstract T getFacet(Object element);
 
     //
     // facet presentation (default to empty)
     //
     
+	@Override
 	public Image getImage(T facet) {
 		return null;
 	}
 
+	@Override
 	public String getText(T facet) {
 		return "";
 	}
 
+	@Override
 	public String getToolTipText(T facet) {
 		return null;
 	}
 	
+	@Override
 	public Color getForeground(T facet) {
 		return null;
 	}
 
+	@Override
 	public Color getBackground(T facet) {
 		return null;
 	}
 
+	@Override
 	public Font getFont(T facet) {
 		return null;
 	}
@@ -110,26 +122,32 @@ public abstract class AbstractTreeTableColumn<T> implements ITreeTableColumn<T> 
     // support for in-place editing (default to read-only)
     //
     
+	@Override
 	public CellEditor getCellEditor(Composite parent, T facet) {
 		return null;
 	}
 
+	@Override
 	public boolean canModify(T facet) {
 		return false;
 	}
 
+	@Override
 	public boolean editOnActivate(T facet, IUndoContext undoContext, TreeItem item, int index) {
 		return false;
 	}
 	
+	@Override
 	public boolean editOnDoubleClick() {
 		return false;
 	}
 
+	@Override
 	public Object getValue(T facet) {
 		return null;
 	}
 
+	@Override
 	public void modify(T facet, Object value, IUndoContext undoContext) {
 		// no default implementation
 	}
@@ -138,6 +156,7 @@ public abstract class AbstractTreeTableColumn<T> implements ITreeTableColumn<T> 
 	// default sort based on text of facet
 	//
 	
+	@Override
 	public Comparator<T> getComparator() {
 		return defaultComparator;
 	}
@@ -150,6 +169,7 @@ public abstract class AbstractTreeTableColumn<T> implements ITreeTableColumn<T> 
 	 * @author Andrew
 	 */
 	private class DefaultComparator implements Comparator<T> {
+		@Override
 		@SuppressWarnings("unchecked")
 		public int compare(T facet1, T facet2) {
 			if ((facet1 instanceof Number) && (facet2 instanceof Number)) {

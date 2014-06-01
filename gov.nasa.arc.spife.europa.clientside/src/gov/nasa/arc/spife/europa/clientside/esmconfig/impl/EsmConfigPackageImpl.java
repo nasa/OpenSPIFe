@@ -245,7 +245,8 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 		EValidator.Registry.INSTANCE.put
 			(theEsmConfigPackage, 
 			 new EValidator.Descriptor() {
-				 public EValidator getEValidator() {
+				 @Override
+				public EValidator getEValidator() {
 					 return EsmConfigValidator.INSTANCE;
 				 }
 			 });
@@ -264,6 +265,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDocumentRoot() {
 		return documentRootEClass;
 	}
@@ -273,6 +275,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDocumentRoot_Mixed() {
 		return (EAttribute)documentRootEClass.getEStructuralFeatures().get(0);
 	}
@@ -282,6 +285,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDocumentRoot_XMLNSPrefixMap() {
 		return (EReference)documentRootEClass.getEStructuralFeatures().get(1);
 	}
@@ -291,6 +295,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDocumentRoot_XSISchemaLocation() {
 		return (EReference)documentRootEClass.getEStructuralFeatures().get(2);
 	}
@@ -300,6 +305,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDocumentRoot_EuropaServer() {
 		return (EReference)documentRootEClass.getEStructuralFeatures().get(3);
 	}
@@ -309,6 +315,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDocumentRoot_EuropaServerManager() {
 		return (EReference)documentRootEClass.getEStructuralFeatures().get(4);
 	}
@@ -318,6 +325,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEuropaServerManagerType() {
 		return europaServerManagerTypeEClass;
 	}
@@ -327,6 +335,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEuropaServerManagerType_EuropaServer() {
 		return (EReference)europaServerManagerTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -336,6 +345,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerManagerType_ChildTimeout() {
 		return (EAttribute)europaServerManagerTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -345,6 +355,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerManagerType_DefaultType() {
 		return (EAttribute)europaServerManagerTypeEClass.getEStructuralFeatures().get(2);
 	}
@@ -354,6 +365,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerManagerType_LogLevel() {
 		return (EAttribute)europaServerManagerTypeEClass.getEStructuralFeatures().get(3);
 	}
@@ -363,6 +375,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerManagerType_Port() {
 		return (EAttribute)europaServerManagerTypeEClass.getEStructuralFeatures().get(4);
 	}
@@ -372,6 +385,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEuropaServerType() {
 		return europaServerTypeEClass;
 	}
@@ -381,6 +395,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_ConfigPath() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -390,6 +405,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_Debug() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -399,6 +415,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_InitialState() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(2);
 	}
@@ -408,6 +425,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_LogFile() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(3);
 	}
@@ -417,6 +435,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_Name() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(4);
 	}
@@ -426,6 +445,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_PlannerConfig() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(5);
 	}
@@ -435,6 +455,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_PlannerConfigElement() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(6);
 	}
@@ -444,6 +465,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_Port() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(7);
 	}
@@ -453,6 +475,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_ServerVersion() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(8);
 	}
@@ -462,6 +485,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_Timeout() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(9);
 	}
@@ -471,6 +495,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEuropaServerType_Verbosity() {
 		return (EAttribute)europaServerTypeEClass.getEStructuralFeatures().get(10);
 	}
@@ -480,6 +505,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getLogTypeMember1Item() {
 		return logTypeMember1ItemEEnum;
 	}
@@ -489,6 +515,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getChildTimeoutType() {
 		return childTimeoutTypeEDataType;
 	}
@@ -498,6 +525,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getChildTimeoutTypeObject() {
 		return childTimeoutTypeObjectEDataType;
 	}
@@ -507,6 +535,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getLogType() {
 		return logTypeEDataType;
 	}
@@ -516,6 +545,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getLogTypeMember0() {
 		return logTypeMember0EDataType;
 	}
@@ -525,6 +555,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getLogTypeMember0Object() {
 		return logTypeMember0ObjectEDataType;
 	}
@@ -534,6 +565,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getLogTypeMember1() {
 		return logTypeMember1EDataType;
 	}
@@ -543,6 +575,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getLogTypeMember1ItemObject() {
 		return logTypeMember1ItemObjectEDataType;
 	}
@@ -552,6 +585,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getPortType() {
 		return portTypeEDataType;
 	}
@@ -561,6 +595,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getPortType1() {
 		return portType1EDataType;
 	}
@@ -570,6 +605,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getPortTypeObject() {
 		return portTypeObjectEDataType;
 	}
@@ -579,6 +615,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getPortTypeObject1() {
 		return portTypeObject1EDataType;
 	}
@@ -588,6 +625,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getTimeoutType() {
 		return timeoutTypeEDataType;
 	}
@@ -597,6 +635,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getTimeoutTypeObject() {
 		return timeoutTypeObjectEDataType;
 	}
@@ -606,6 +645,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getVerbosityType() {
 		return verbosityTypeEDataType;
 	}
@@ -615,6 +655,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getVerbosityTypeObject() {
 		return verbosityTypeObjectEDataType;
 	}
@@ -624,6 +665,7 @@ public class EsmConfigPackageImpl extends EPackageImpl implements EsmConfigPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EsmConfigFactory getEsmConfigFactory() {
 		return (EsmConfigFactory)getEFactoryInstance();
 	}

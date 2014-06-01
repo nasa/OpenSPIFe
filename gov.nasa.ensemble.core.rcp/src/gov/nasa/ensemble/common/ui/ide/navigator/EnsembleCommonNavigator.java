@@ -65,6 +65,7 @@ public class EnsembleCommonNavigator extends CommonNavigator {
 	protected CommonViewer createCommonViewer(Composite parent) {
 		viewer = super.createCommonViewer(parent);
 		WidgetUtils.runInDisplayThread(viewer.getControl(), new Runnable() {
+			@Override
 			public void run() {
 				viewer.refresh();
 			}

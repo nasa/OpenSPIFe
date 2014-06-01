@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EClass;
 
 public class ADPlanMemberFactory implements IPlanElementMemberFactory {
 
+	@Override
 	public EMember createMember(EClass eClass) {
 		if (eClass == PlanPackage.Literals.EPLAN) {
 			ADPlanMember member = ActivityDictionaryFactory.eINSTANCE.createADPlanMember();
@@ -39,10 +40,12 @@ public class ADPlanMemberFactory implements IPlanElementMemberFactory {
 		return null;
 	}
 
+	@Override
 	public String getKey() {
 		return ADPlanMember.KEY;
 	}
 	
+	@Override
 	public int getSortKey() {
 		return UNSORTED;
 	}

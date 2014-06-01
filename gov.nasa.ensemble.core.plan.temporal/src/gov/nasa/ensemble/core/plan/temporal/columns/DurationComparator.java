@@ -27,7 +27,8 @@ public class DurationComparator implements Comparator<Amount<Duration>> {
 
 	public static final DurationComparator INSTANCE = new DurationComparator();
 	
-    public int compare(Amount<Duration> duration1, Amount<Duration> duration2) {
+    @Override
+	public int compare(Amount<Duration> duration1, Amount<Duration> duration2) {
 	    if (duration1 == duration2) {
 	    	return 0;
 	    }

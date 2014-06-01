@@ -49,31 +49,38 @@ public class ChangedByAddingOrRemovingReferenceImpl implements
 		else return referenceInOldPlan;
 	}
 
+	@Override
 	public EActivity getOwner() {
 		return getNewCopyOfOwner();
 	}
 	
 
+	@Override
 	public EActivity getOldCopyOfOwner() {
 		return oldOwner;
 	}
 
+	@Override
 	public EActivity getNewCopyOfOwner() {
 		return newOwner;
 	}
 	
+	@Override
 	public String getParameterName() {
 		return getReference().getReference().getName();
 	}
 
+	@Override
 	public String getReferenceName() {
 		return PlanDiffUtils.getNameOfReference(getReference());
 	}
 
+	@Override
 	public String getReferenceTypeName() {
 		return getReference().getObject().eClass().getName();
 	}
 
+	@Override
 	public DiffType getDiffType() {
 		return diffType;
 	}

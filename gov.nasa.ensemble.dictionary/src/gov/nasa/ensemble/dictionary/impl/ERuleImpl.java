@@ -168,6 +168,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getHypertextDescription() {
 		return hypertextDescription;
 	}
@@ -177,6 +178,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHypertextDescription(String newHypertextDescription) {
 		String oldHypertextDescription = hypertextDescription;
 		hypertextDescription = newHypertextDescription;
@@ -189,6 +191,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -198,6 +201,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -210,6 +214,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<String> getPath() {
 		if (path == null) {
 			path = new EDataTypeUniqueEList<String>(String.class, this, DictionaryPackage.ERULE__PATH);
@@ -222,6 +227,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPrintName() {
 		return printName;
 	}
@@ -231,6 +237,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPrintName(String newPrintName) {
 		String oldPrintName = printName;
 		printName = newPrintName;
@@ -243,6 +250,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getShortDescription() {
 		return shortDescription;
 	}
@@ -252,6 +260,7 @@ public class ERuleImpl extends MinimalEObjectImpl.Container implements ERule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setShortDescription(String newShortDescription) {
 		String oldShortDescription = shortDescription;
 		shortDescription = newShortDescription;

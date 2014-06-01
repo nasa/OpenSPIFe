@@ -110,6 +110,7 @@ public class ResourceTimelineBuilder extends AbstractPlanTimelineBuilder {
 			}
 		}
 		TransactionUtils.writing(chart, new Runnable() {
+			@Override
 			public void run() {
 				chart.getPlots().removeAll(unusedPlots);
 			}
@@ -118,6 +119,7 @@ public class ResourceTimelineBuilder extends AbstractPlanTimelineBuilder {
 	
 	public static class Factory implements ClassRegistryFactory<AbstractPlanTimelineBuilder> {
 
+		@Override
 		public List<AbstractPlanTimelineBuilder> createInstances() {
 			List<AbstractPlanTimelineBuilder> builders = new ArrayList<AbstractPlanTimelineBuilder>();
 			addDefaultChartBuilder(builders);

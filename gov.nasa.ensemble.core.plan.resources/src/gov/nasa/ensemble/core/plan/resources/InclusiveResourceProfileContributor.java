@@ -27,7 +27,6 @@ import gov.nasa.ensemble.core.jscience.util.ProfileContributor;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.translator.WrapperUtils;
 import gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMember;
-import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
 
 public class InclusiveResourceProfileContributor implements ProfileContributor {
 

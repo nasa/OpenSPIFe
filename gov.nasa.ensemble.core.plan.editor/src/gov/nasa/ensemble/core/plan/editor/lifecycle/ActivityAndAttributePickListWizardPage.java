@@ -36,6 +36,7 @@ public class ActivityAndAttributePickListWizardPage extends EnsembleWizardPage {
 		this.preferenceNameForDefault = preference_name_for_default;
 	}
 
+	@Override
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
@@ -46,6 +47,7 @@ public class ActivityAndAttributePickListWizardPage extends EnsembleWizardPage {
 		
 		fieldEditor.setPropertyChangeListener(new IPropertyChangeListener() {
 
+			@Override
 			public void propertyChange(PropertyChangeEvent event) {
 				getContainer().updateButtons();
 			}

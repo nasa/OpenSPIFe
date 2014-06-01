@@ -193,6 +193,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<EuropaServerType> getEuropaServer() {
 		if (europaServer == null) {
 			europaServer = new EObjectContainmentEList<EuropaServerType>(EuropaServerType.class, this, EsmConfigPackage.EUROPA_SERVER_MANAGER_TYPE__EUROPA_SERVER);
@@ -205,6 +206,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getChildTimeout() {
 		return childTimeout;
 	}
@@ -214,6 +216,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setChildTimeout(int newChildTimeout) {
 		int oldChildTimeout = childTimeout;
 		childTimeout = newChildTimeout;
@@ -228,6 +231,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetChildTimeout() {
 		int oldChildTimeout = childTimeout;
 		boolean oldChildTimeoutESet = childTimeoutESet;
@@ -242,6 +246,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetChildTimeout() {
 		return childTimeoutESet;
 	}
@@ -251,6 +256,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getDefaultType() {
 		return defaultType;
 	}
@@ -260,6 +266,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefaultType(Object newDefaultType) {
 		Object oldDefaultType = defaultType;
 		defaultType = newDefaultType;
@@ -272,6 +279,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getLogLevel() {
 		return logLevel;
 	}
@@ -281,6 +289,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLogLevel(Object newLogLevel) {
 		Object oldLogLevel = logLevel;
 		logLevel = newLogLevel;
@@ -293,6 +302,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getPort() {
 		return port;
 	}
@@ -302,6 +312,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPort(int newPort) {
 		int oldPort = port;
 		port = newPort;
@@ -316,6 +327,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetPort() {
 		int oldPort = port;
 		boolean oldPortESet = portESet;
@@ -330,6 +342,7 @@ public class EuropaServerManagerTypeImpl extends EObjectImpl implements EuropaSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetPort() {
 		return portESet;
 	}

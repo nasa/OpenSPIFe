@@ -176,6 +176,7 @@ public class ResourcefulPlanForPlanDiffTest {
 	@SuppressWarnings("unchecked")
 	private void addResource(final EPlanElement activity, final EObject resource) {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EObject data = activity.getData();
 				((Collection)data.eGet(digitalResourceFeature)).add(resource);
@@ -195,6 +196,7 @@ public class ResourcefulPlanForPlanDiffTest {
 		plan.setName("TEST_PLAN");
 		plan.setData(ADParameterMemberFactory.FACTORY.createData(PlanPackage.Literals.EPLAN));
 		TransactionUtils.writing(resourceSet, new Runnable() {
+			@Override
 			public void run() {
 				Resource resource = resourceSet.createResource(URI.createURI("http://junit/in.plan"));
 				resource.getContents().add(plan);

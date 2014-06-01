@@ -45,6 +45,7 @@ public class JSConstraintParser implements IParameterizedConstraintParser {
 	/* (non-Javadoc)
 	 * @see org.eclipse.emf.validation.service.IParameterizedConstraintParser#parseConstraint(org.eclipse.emf.validation.service.IParameterizedConstraintDescriptor)
 	 */
+	@Override
 	public IModelConstraint parseConstraint(
 			IParameterizedConstraintDescriptor descriptor)
 			throws ConstraintParserException {
@@ -67,10 +68,12 @@ public class JSConstraintParser implements IParameterizedConstraintParser {
 			this.expression = expression;
 		}
 		
+		@Override
 		public IConstraintDescriptor getDescriptor() {
 			return descriptor;
 		}
 
+		@Override
 		public IStatus validate(IValidationContext ctx) {
 			EObject target = ctx.getTarget();
 			Object value = null;

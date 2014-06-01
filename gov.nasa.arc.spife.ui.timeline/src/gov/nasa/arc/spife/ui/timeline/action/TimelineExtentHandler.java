@@ -62,7 +62,8 @@ public class TimelineExtentHandler extends AbstractTimelineCommandHandler {
 			if (result == Window.OK) {
 				final Date sTime = extentDialog.getStartTime();
 				final Date eTime = extentDialog.getEndTime();
-				TransactionUtils.writing(timeline.getPage(), new Runnable() {
+				gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(timeline.getPage(), new Runnable() {
+					@Override
 					public void run() {
 						Page page = timeline.getPage();
 						page.setStartTime(sTime);
@@ -136,6 +137,7 @@ public class TimelineExtentHandler extends AbstractTimelineCommandHandler {
 			final Text text = (Text)editor.getEditorControl();
 			text.addModifyListener(
 					new ModifyListener() {
+						@Override
 						public void modifyText(ModifyEvent e) {
 							final Button button = getButton(IDialogConstants.OK_ID);
 							final String txt = text.getText();

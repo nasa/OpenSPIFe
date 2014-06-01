@@ -24,11 +24,13 @@ public abstract class CompositeListContentProvider implements IContentProvider {
 
 	public abstract Object[] getElements();
 
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		if (viewer instanceof CompositeListViewer)
 			((CompositeListViewer)viewer).addElements(getElements());
 	}
 
+	@Override
 	public void dispose() { 
 		// do nothing by default; subclasses may override
 	}

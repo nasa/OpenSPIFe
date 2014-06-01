@@ -41,10 +41,12 @@ public class EuropaServerMonitor extends ServerMonitor {
 		EuropaServerMonitor.info = info;
 	}
 	
+	@Override
 	public String getHost() {
 		return host;
 	}
 
+	@Override
 	public int getPort() {
 		return port;
 	}
@@ -54,6 +56,7 @@ public class EuropaServerMonitor extends ServerMonitor {
 		return info;
 	}
 
+	@Override
 	public String getShortName() {
 		return "Europa";
 	}

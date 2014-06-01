@@ -34,8 +34,6 @@ import gov.nasa.ensemble.core.model.plan.constraints.TemporalChain;
 import gov.nasa.ensemble.core.model.plan.impl.EMemberImpl;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
 import gov.nasa.ensemble.emf.SafeAdapter;
-import gov.nasa.ensemble.emf.util.EMFUtils;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -148,6 +146,7 @@ public class ConstraintsMemberImpl extends EMemberImpl implements ConstraintsMem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<BinaryTemporalConstraint> getBinaryTemporalConstraints() {
 		if (binaryTemporalConstraints == null) {
@@ -161,6 +160,7 @@ public class ConstraintsMemberImpl extends EMemberImpl implements ConstraintsMem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<PeriodicTemporalConstraint> getPeriodicTemporalConstraints() {
 		if (periodicTemporalConstraints == null) {
@@ -174,6 +174,7 @@ public class ConstraintsMemberImpl extends EMemberImpl implements ConstraintsMem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalChain getChain() {
 		if (chain != null && chain.eIsProxy()) {
 			InternalEObject oldChain = (InternalEObject)chain;
@@ -200,6 +201,7 @@ public class ConstraintsMemberImpl extends EMemberImpl implements ConstraintsMem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setChain(TemporalChain newChain) {
 		TemporalChain oldChain = chain;
 		chain = newChain;

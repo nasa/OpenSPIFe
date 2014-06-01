@@ -57,6 +57,7 @@ public abstract class AbstractTimelineCommandHandler extends AbstractHandler
 	 * Methods to be implemented by subclasses
 	 */
 	public abstract String getCommandId();
+	@Override
 	public abstract Object execute(ExecutionEvent event) throws ExecutionException;
 
 	protected void installListeners(IPartService partService) {
@@ -90,6 +91,7 @@ public abstract class AbstractTimelineCommandHandler extends AbstractHandler
 
 		if(propertyListener == null) {
 			propertyListener = new IPropertyListener() {
+				@Override
 				public void propertyChanged(Object source, int propId) {
 					updateEnablement();
 				}
@@ -156,6 +158,7 @@ public abstract class AbstractTimelineCommandHandler extends AbstractHandler
 	}
 
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public final void updateElement(UIElement element, Map parameters) {
 		IServiceLocator serviceLocator = element.getServiceLocator();

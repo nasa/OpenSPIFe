@@ -44,6 +44,7 @@ public class NextEditorPageAction extends Action implements IWorkbenchWindowActi
 		final IEditorPart editorPart = EditorPartUtils.getCurrent();
 		if (editorPart instanceof MultiPagePlanEditor) {
 			WidgetUtils.runLaterInDisplayThread(editorPart.getSite().getShell(), new Runnable() {
+				@Override
 				public void run() {
 					((MultiPagePlanEditor) editorPart).prevPage();
 				}
@@ -105,6 +106,7 @@ public class NextEditorPageAction extends Action implements IWorkbenchWindowActi
 	 * @param action ignored
 	 * @param event ignored
 	 */
+	@Override
 	public void runWithEvent(IAction action, Event event) {
 		runWithEvent(event);
 	}
@@ -113,6 +115,7 @@ public class NextEditorPageAction extends Action implements IWorkbenchWindowActi
 	 * There is nothing to initialize.
 	 * @param action ignored
 	 */
+	@Override
 	public void init(IAction action) {
 		// do nothing.
 	}

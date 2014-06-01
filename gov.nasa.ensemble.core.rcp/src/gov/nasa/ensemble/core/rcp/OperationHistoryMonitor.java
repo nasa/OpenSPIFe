@@ -25,6 +25,7 @@ import org.eclipse.core.commands.operations.OperationHistoryEvent;
 
 public class OperationHistoryMonitor implements IOperationHistoryListener {
 
+	@Override
 	public void historyNotification(OperationHistoryEvent event) {
 		
 		IUndoableOperation op = event.getOperation();

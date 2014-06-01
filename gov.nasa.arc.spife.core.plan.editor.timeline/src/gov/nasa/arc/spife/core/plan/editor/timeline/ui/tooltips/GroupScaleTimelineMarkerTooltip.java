@@ -82,6 +82,7 @@ public class GroupScaleTimelineMarkerTooltip extends ScaleTimelineMarkerTooltip 
 		
 		// add a mouse move listener, to clear out a child violation when applicable
 		mouseMoveListener = new MouseMoveListener() {
+			@Override
 			public void mouseMove(MouseEvent e) {
 				if (solitaryScaleTimelineMarkerTooltip != null
 						&& !solitaryScaleTimelineMarkerTooltip.shell.isDisposed()) {

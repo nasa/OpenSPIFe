@@ -266,6 +266,7 @@ public class TreeTimelineDataEditPart<T> extends AbstractTimelineDataEditPart<T>
 		}
 	}
 
+	@Override
 	public void propertyChange(org.eclipse.jface.util.PropertyChangeEvent event) {
 		if (event.getProperty().equals(TimelinePreferencePage.P_ALTERNATING_COLOR)) {
 			createAlternatingColors();
@@ -286,6 +287,7 @@ public class TreeTimelineDataEditPart<T> extends AbstractTimelineDataEditPart<T>
 	
 	private class Listener implements PropertyChangeListener, TreeTimelineContentProvider.Listener {
 		
+		@Override
 		public void propertyChange(PropertyChangeEvent evt) {
 			String p = evt.getPropertyName();
 			Timeline timeline = TimelineUtils.getTimeline(TreeTimelineDataEditPart.this);
@@ -312,10 +314,12 @@ public class TreeTimelineDataEditPart<T> extends AbstractTimelineDataEditPart<T>
 			}
 		}
 		
+		@Override
 		public void contentRefresh(Set<? extends Object> element) {
 			refresh();
 		}
 		
+		@Override
 		public void labelUpdate(Set<? extends Object> element) {
 			// do nothing
 		}

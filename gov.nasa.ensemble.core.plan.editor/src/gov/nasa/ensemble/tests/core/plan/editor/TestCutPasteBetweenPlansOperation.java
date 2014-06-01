@@ -79,6 +79,7 @@ public class TestCutPasteBetweenPlansOperation extends UndoableOperationTestCase
 				destinationPlan.activity2_2,
 		};
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				assertFalse(sourcePlan.group1.getChildren().contains(sourcePlan.activity1_3));
 				assertFalse(sourcePlan.group2.getChildren().contains(sourcePlan.activity2_1));
@@ -116,6 +117,7 @@ public class TestCutPasteBetweenPlansOperation extends UndoableOperationTestCase
 				destinationPlan.group1,
 				};
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				assertFalse(sourcePlan.group2.getChildren().contains(sourcePlan.activity2_2));
 				assertFalse(sourcePlan.group2.getChildren().contains(sourcePlan.activity2_3));
@@ -152,6 +154,7 @@ public class TestCutPasteBetweenPlansOperation extends UndoableOperationTestCase
 		final Date endTime = sourcePlan.activity2_3.getMember(TemporalMember.class).getEndTime();
 		final OperationTestPlanRecord destinationPlan = new OperationTestPlanRecord();
 		TransactionUtils.writing(destinationPlan.plan, new Runnable() {
+			@Override
 			public void run() {
 				destinationPlan.plan.getChildren().removeAll(destinationPlan.plan.getChildren());
 				TemporalMember destinationTemporal = destinationPlan.plan.getMember(TemporalMember.class);
@@ -162,6 +165,7 @@ public class TestCutPasteBetweenPlansOperation extends UndoableOperationTestCase
 				destinationPlan.plan,
 				};
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				assertFalse(sourcePlan.group2.getChildren().contains(sourcePlan.activity2_2));
 				assertFalse(sourcePlan.group2.getChildren().contains(sourcePlan.activity2_3));
@@ -204,6 +208,7 @@ public class TestCutPasteBetweenPlansOperation extends UndoableOperationTestCase
 				};
 		final int childCount = destinationPlan.group2.getChildren().size();
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				Set<EPlanElement> planElements = EPlanUtils.computeContainedElements(Collections.singletonList(sourcePlan.plan));
 				assertFalse(planElements.contains(sourcePlan.group1));
@@ -243,6 +248,7 @@ public class TestCutPasteBetweenPlansOperation extends UndoableOperationTestCase
 				destinationPlan.plan,
 				};
 		PasteOperationRunnable assertPostconditions = new PasteOperationRunnable() {
+			@Override
 			public void run(PlanClipboardPasteOperation pasteOperation) {
 				Set<EPlanElement> planElements = EPlanUtils.computeContainedElements(Collections.singletonList(sourcePlan.plan));
 				assertFalse(planElements.contains(sourcePlan.group2));
@@ -277,12 +283,14 @@ public class TestCutPasteBetweenPlansOperation extends UndoableOperationTestCase
 		IUndoableOperation cut = new PlanClipboardCutOperation(transferable, sourceModifier);
 		EPlan sourcePlan = EPlanUtils.getPlan(selectedElements[0]);
 		testUndoableOperation(sourcePlan, cut, new Runnable() {
+			@Override
 			public void run() {
 				final IStructuredSelection targetSelection = new StructuredSelection(targetElements);
 				final IStructureModifier destinationModifier = PlanStructureModifier.INSTANCE;
 				final PlanClipboardPasteOperation paste = new PlanClipboardPasteOperation(targetSelection, destinationModifier);
 				testUndoableOperation(destinationPlan, paste, 
 					new Runnable() {
+						@Override
 						public void run() {
 							assertPostconditions.run(paste);
 						}

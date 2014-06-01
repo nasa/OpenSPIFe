@@ -35,6 +35,7 @@ public class StructuredViewerUtils {
 		final Control control = structuredViewer.getControl();
 		if ((control != null) && (!control.isDisposed())) {
 			control.getDisplay().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					if (!control.isDisposed()) {
 						structuredViewer.update(element, properties);

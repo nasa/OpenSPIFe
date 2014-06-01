@@ -116,6 +116,7 @@ public class WidgetUtils {
 			final boolean[] result = new boolean[] { true };
 
 			Runnable safeRunnable = new Runnable() {
+				@Override
 				public void run() {
 					// check the widget for validity before running the posted runnable
 					if (!widget.isDisposed()) {
@@ -161,6 +162,7 @@ public class WidgetUtils {
 			return;
 
 		controlDisplay.asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				// check the widget for validity before running the posted runnable
 				if (!widget.isDisposed()) {
@@ -176,6 +178,7 @@ public class WidgetUtils {
 			runInDisplayThread(widget, runnable);
 		} else {
 			runLaterInDisplayThread(widget, new Runnable() {
+				@Override
 				public void run() {
 					runInDisplayThreadAfter(thisManyIterations - 1, widget, runnable);
 				}
@@ -187,6 +190,7 @@ public class WidgetUtils {
 		if ((widget != null) && !widget.isDisposed()) {
 			Display display = widget.getDisplay();
 			display.timerExec(millisecondDelay, new Runnable() {
+				@Override
 				public void run() {
 					if ((widget != null) && !widget.isDisposed()) {
 						runnable.run();
@@ -399,6 +403,7 @@ public class WidgetUtils {
 				
 				final int[] startAlpha = new int[1];
 				runInDisplayThread(shell, new Runnable() {
+					@Override
 					public void run() {
 						if (visibility && !shell.isVisible())
 							shell.setAlpha(0);
@@ -425,6 +430,7 @@ public class WidgetUtils {
 					final int stepSize = Math.max(1, 255 / numSteps);
 					
 					boolean wasRun = runInDisplayThread(shell, new Runnable() {
+						@Override
 						public void run() {
 							currentAlpha[0] = Math.min(255, currentAlpha[0] + stepSize);
 							int alpha = visibility ? currentAlpha[0] : 255 - currentAlpha[0];
@@ -439,6 +445,7 @@ public class WidgetUtils {
 				}
 				
 				runInDisplayThread(shell, new Runnable() {
+					@Override
 					public void run() {
 						if (!visibility)
 							shell.setVisible(false);
@@ -465,6 +472,7 @@ public class WidgetUtils {
 		MenuManager menuManager = new MenuManager();
 		menuManager.setRemoveAllWhenShown(true);
 		menuManager.addMenuListener(new IMenuListener() {
+			@Override
 			public void menuAboutToShow(IMenuManager mgr) {
 				try {
 					listener.menuAboutToShow(mgr);

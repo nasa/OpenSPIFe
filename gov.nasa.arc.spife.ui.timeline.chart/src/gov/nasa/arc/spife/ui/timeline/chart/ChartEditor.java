@@ -127,12 +127,12 @@ public class ChartEditor extends EditorPart {
 		listener = new EditorPartInputActivationListener(this);
 		IFile file = CommonUtils.getAdapter(input, IFile.class);
 		IProject project = file.getProject();
-		synchronizer = new ProjectResourceSetSynchronizer(project, TransactionUtils.createTransactionResourceSet());
+		synchronizer = new ProjectResourceSetSynchronizer(project, gov.nasa.ensemble.emf.transaction.TransactionUtils.createTransactionResourceSet());
 		ResourceSet resourceSet = synchronizer.getResourceSet();
 		resourceSet.setURIConverter(new ProjectURIConverter(project));
 		resourceSet.getPackageRegistry().put(ChartPackage.eNS_URI, ChartPackage.eINSTANCE);
 		profileSynchronizer = ProfileSynchronizer.createInstance(project, resourceSet);
-		editingDomain = TransactionUtils.getDomain(resourceSet);
+		editingDomain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(resourceSet);
 		undoContext = new ObjectUndoContext(getEditingDomain());
 		site.setSelectionProvider(new EnsembleSelectionProvider(this.toString()));
 		UndoRedoUtils.setupUndoRedo(site.getActionBars(), site, undoContext);
@@ -213,7 +213,8 @@ public class ChartEditor extends EditorPart {
 				populateTimelineFromFragment((URIEditorInput)input, resource);
 			} else {
 				final List<Section> sections = createDefaultSections(resource);
-				TransactionUtils.writing(timelineModel, new Runnable() {
+				gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(timelineModel, new Runnable() {
+					@Override
 					public void run() {
 						timelineModel.getContents().addAll(sections);
 					}
@@ -258,7 +259,8 @@ public class ChartEditor extends EditorPart {
 		if (start.getTime() != Long.MAX_VALUE) {
 			final Page page = timelineModel.getPage();
 			final TemporalExtent extent = new TemporalExtent(start, end);
-			TransactionUtils.writing(timelineModel, new Runnable() {
+			gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(timelineModel, new Runnable() {
+				@Override
 				public void run() {
 					page.setStartTime(extent.getStart());
 					page.setDuration(extent.getDuration());
@@ -291,7 +293,8 @@ public class ChartEditor extends EditorPart {
 			}
 			chart.getPlots().add(plot);
 		}
-		TransactionUtils.writing(timelineModel, new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(timelineModel, new Runnable() {
+			@Override
 			public void run() {
 				timelineModel.getContents().add(chart);
 			}
@@ -542,8 +545,10 @@ public class ChartEditor extends EditorPart {
 	private class DirtyMonitor extends AbstractEnsembleEditorModel {
 
 		private final IDirtyListener listener = new IDirtyListener() {
+			@Override
 			public void dirtyStateChanged() {
 				WidgetUtils.runInDisplayThread(ChartEditor.this.getSite().getShell(), new Runnable() {
+					@Override
 					public void run() {
 						firePropertyChange(ISaveablePart.PROP_DIRTY);
 					}
@@ -561,6 +566,7 @@ public class ChartEditor extends EditorPart {
 			removeDirtyListener(listener);
 		}
 
+		@Override
 		public IUndoContext getUndoContext() {
 			return undoContext;
 		}

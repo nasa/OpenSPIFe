@@ -255,6 +255,7 @@ public abstract class ActivityDictionary extends EActivityDictionaryImpl impleme
 		return getDefinitions(ERule.class);
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public Object getAdapter(Class adapter) {
 		return Platform.getAdapterManager().getAdapter(this, adapter);

@@ -123,12 +123,15 @@ public class CompositeListViewer extends ContentViewer {
 			for (Object element: elements) {
 				final ICompositeListLabel label = labelProvider.addLabelForElement(fillableComposite, element);
 				label.getComposite().addMouseListener(new MouseListener() {
+					@Override
 					public void mouseDoubleClick(MouseEvent event) {
 						labelMouseDoubleClick(label, event);
 					}
+					@Override
 					public void mouseDown(MouseEvent event) {
 						labelMouseDown(label, event);					
 					}
+					@Override
 					public void mouseUp(MouseEvent event) {
 						labelMouseUp(label, event);
 					}

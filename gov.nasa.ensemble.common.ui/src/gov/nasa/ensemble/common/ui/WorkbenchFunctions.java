@@ -47,54 +47,63 @@ public class WorkbenchFunctions {
 	}
 	
 	public static final F<Shell, Display> shellDisplay = new F<Shell, Display>() {
+		@Override
 		public Display f(final Shell shell) {
 			return shell.getDisplay();
 		}
 	};
 	
 	public static final F<IWorkbenchWindow, Shell> windowShell = new F<IWorkbenchWindow, Shell>() {
+		@Override
 		public Shell f(final IWorkbenchWindow window) {
 			return window.getShell();
 		}
 	};
 	
 	public static final F<IWorkbenchWindow, List<IWorkbenchPage>> windowPages = new F<IWorkbenchWindow, List<IWorkbenchPage>>() {
+		@Override
 		public List<IWorkbenchPage> f(final IWorkbenchWindow window) {
 			return list(window.getPages());
 		}
 	};
 	
 	public static final F<IWorkbenchWindow, Option<IWorkbenchPage>> windowActivePage = new F<IWorkbenchWindow, Option<IWorkbenchPage>>() {
+		@Override
 		public Option<IWorkbenchPage> f(final IWorkbenchWindow window) {
 			return fromNull(window.getActivePage());
 		}
 	};
 	
 	public static final F<IWorkbenchPage, List<IViewReference>> pageViewRefs = new F<IWorkbenchPage, List<IViewReference>>() {
+		@Override
 		public List<IViewReference> f(final IWorkbenchPage page) {
 			return list(page.getViewReferences());
 		}
 	};
 	
 	public static final F<IWorkbenchPage, List<IEditorReference>> pageEditorRefs = new F<IWorkbenchPage, List<IEditorReference>>() {
+		@Override
 		public List<IEditorReference> f(final IWorkbenchPage page) {
 			return list(page.getEditorReferences());
 		}
 	};
 	
 	public static final F<IViewReference, IViewPart> refToView = new F<IViewReference, IViewPart>() {
+		@Override
 		public IViewPart f(final IViewReference ref) {
 			return ref.getView(true);
 		}
 	};
 
 	public static final F<IEditorReference, IEditorPart> refToEditor = new F<IEditorReference, IEditorPart>() {
+		@Override
 		public IEditorPart f(final IEditorReference ref) {
 			return ref.getEditor(true);
 		}
 	};
 	
 	public static final F<IEditorPart, Boolean> isDirty = new F<IEditorPart, Boolean>() {
+		@Override
 		public Boolean f(final IEditorPart editor) {
 			return editor.isDirty();
 		}
@@ -102,6 +111,7 @@ public class WorkbenchFunctions {
 	
 	public static final F<IWorkbenchPage, Option<IViewPart>> findView(final String id) {
 		return new F<IWorkbenchPage, Option<IViewPart>>() {
+			@Override
 			public Option<IViewPart> f(final IWorkbenchPage page) {
 				return fromNull(page.findView(id));
 			}
@@ -111,6 +121,7 @@ public class WorkbenchFunctions {
 	public static final F<IWorkbenchPage, List<IEditorReference>> 
 	findEditors(final IEditorInput input, final String id, final int matchFlags) {
 		return new F<IWorkbenchPage, List<IEditorReference>>() {
+			@Override
 			public List<IEditorReference> f(final IWorkbenchPage page) {
 				return list(page.findEditors(input, id, matchFlags));
 			}
@@ -127,6 +138,7 @@ public class WorkbenchFunctions {
 	
 	public static F<IWorkbenchPage, Option<IEditorPart>> findEditor(final IEditorInput input) {
 		return new F<IWorkbenchPage, Option<IEditorPart>>() {
+			@Override
 			public Option<IEditorPart> f(final IWorkbenchPage page) {
 				return fromNull(page.findEditor(input));
 			}
@@ -139,8 +151,10 @@ public class WorkbenchFunctions {
 	
 	public static Effect<Display> asyncExec(final Runnable runnable) {
 		return new Effect<Display>() {
+			@Override
 			public void e(Display display) {
 				display.asyncExec(new Runnable() {
+					@Override
 					public void run() {
 						runnable.run();
 					}

@@ -1,22 +1,13 @@
 package gov.nasa.ensemble.dictionary.xtext.parser.antlr.internal; 
 
-import org.eclipse.xtext.*;
-import org.eclipse.xtext.parser.*;
-import org.eclipse.xtext.parser.impl.*;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
-import org.eclipse.xtext.parser.antlr.XtextTokenStream;
-import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
 import org.eclipse.xtext.parser.antlr.AntlrDatatypeRuleToken;
 import gov.nasa.ensemble.dictionary.xtext.services.XDictionaryGrammarAccess;
 
 
 
 import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalXDictionaryParser extends AbstractInternalAntlrParser {
@@ -89,8 +80,10 @@ public class InternalXDictionaryParser extends AbstractInternalAntlrParser {
         }
         
 
-    public String[] getTokenNames() { return InternalXDictionaryParser.tokenNames; }
-    public String getGrammarFileName() { return "../gov.nasa.ensemble.dictionary.xtext/src-gen/gov/nasa/ensemble/dictionary/xtext/parser/antlr/internal/InternalXDictionary.g"; }
+    @Override
+	public String[] getTokenNames() { return InternalXDictionaryParser.tokenNames; }
+    @Override
+	public String getGrammarFileName() { return "../gov.nasa.ensemble.dictionary.xtext/src-gen/gov/nasa/ensemble/dictionary/xtext/parser/antlr/internal/InternalXDictionary.g"; }
 
 
 
