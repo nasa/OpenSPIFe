@@ -16,14 +16,6 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="_feature_gov.nasa.ensemble.plan"
-         version="0.0.0"/>
-
-   <includes
-         id="_feature_gov.nasa.ensemble.plan.resources"
-         version="0.0.0"/>
-
    <plugin
          id="gov.nasa.arc.spife.europa"
          download-size="0"
