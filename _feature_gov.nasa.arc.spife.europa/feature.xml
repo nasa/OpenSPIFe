@@ -39,15 +39,6 @@
          fragment="true"/>
 
    <plugin
-         id="gov.nasa.arc.spife.europa.clientside.macosx.x86"
-         os="macosx"
-         arch="x86"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"/>
-
-   <plugin
          id="gov.nasa.ensemble.core.plan.editor.constraints"
          download-size="0"
          install-size="0"
