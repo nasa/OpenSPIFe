@@ -67,6 +67,7 @@ public class ComputableAmountStringifier extends AbstractTrimmingStringifier<Com
 		return JScienceFactory.eINSTANCE.createComputableAmount(Amount.valueOf(value, unit), ComputingState.COMPLETE);
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public String getDisplayString(ComputableAmount formulaAmount) {
 		if (formulaAmount == null || formulaAmount.getAmount() == null) {

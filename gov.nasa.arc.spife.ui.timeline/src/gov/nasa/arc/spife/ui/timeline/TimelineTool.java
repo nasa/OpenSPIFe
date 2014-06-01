@@ -315,6 +315,7 @@ public class TimelineTool extends SelectionTool implements TimelineConstants
 		}
 		Point pt = getLocation();
 		EditPart editPart = viewer.findObjectAtExcluding(pt, Collections.emptySet(), new Conditional() {
+			@Override
 			public boolean evaluate(EditPart editPart) {
 				return editPart.understandsRequest(request);
 			}

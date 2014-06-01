@@ -89,6 +89,7 @@ public class HibernateMemberImpl extends EMemberImpl implements HibernateMember 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HPlanElement getWrapper() {
 		return wrapper;
 	}
@@ -98,6 +99,7 @@ public class HibernateMemberImpl extends EMemberImpl implements HibernateMember 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWrapper(HPlanElement newWrapper) {
 		HPlanElement oldWrapper = wrapper;
 		wrapper = newWrapper;

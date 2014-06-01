@@ -113,6 +113,7 @@ public class PeriodicTemporalConstraintImpl extends TemporalConstraintImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintPoint getPoint() {
 		return point;
 	}
@@ -137,6 +138,7 @@ public class PeriodicTemporalConstraintImpl extends TemporalConstraintImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setPoint(ConstraintPoint newPoint) {
 		newPoint = sanitizePoint(newPoint);
 		if (newPoint != point) {
@@ -157,6 +159,7 @@ public class PeriodicTemporalConstraintImpl extends TemporalConstraintImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<Duration> getEarliest() {
 		return earliest;
 	}
@@ -166,6 +169,7 @@ public class PeriodicTemporalConstraintImpl extends TemporalConstraintImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEarliest(Amount<Duration> newEarliest) {
 		Amount<Duration> oldEarliest = earliest;
 		earliest = newEarliest;
@@ -178,6 +182,7 @@ public class PeriodicTemporalConstraintImpl extends TemporalConstraintImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<Duration> getLatest() {
 		return latest;
 	}
@@ -187,6 +192,7 @@ public class PeriodicTemporalConstraintImpl extends TemporalConstraintImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLatest(Amount<Duration> newLatest) {
 		Amount<Duration> oldLatest = latest;
 		latest = newLatest;
@@ -305,6 +311,7 @@ public class PeriodicTemporalConstraintImpl extends TemporalConstraintImpl imple
 		return result.toString();
 	}
 
+	@Override
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 		setEarliest((Amount<Duration>)in.readObject());
 		setLatest((Amount<Duration>)in.readObject());
@@ -314,6 +321,7 @@ public class PeriodicTemporalConstraintImpl extends TemporalConstraintImpl imple
 		setRationale((String)in.readObject());
 	}
 
+	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		out.writeObject(getEarliest());
 		out.writeObject(getLatest());

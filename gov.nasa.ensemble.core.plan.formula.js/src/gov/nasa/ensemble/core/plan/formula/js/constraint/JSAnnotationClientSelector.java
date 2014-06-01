@@ -61,6 +61,7 @@ public class JSAnnotationClientSelector implements IClientSelector {
 		registeredPackages.remove(packageUri);
 	}
 
+	@Override
 	public synchronized boolean selects(Object object) {
 		if (!(object instanceof EObject)) {
             return false;

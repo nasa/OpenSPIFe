@@ -35,6 +35,7 @@ public class CommandExecutionMonitor  implements IExecutionListener {
 	
 	private Map<String, Long> durationMap = new HashMap<String, Long>();
 	
+	@Override
 	public void notHandled(String commandId, NotHandledException exception) {
 		StringBuilder sb = new StringBuilder(commandId);
 		double duration = addDuration(sb, commandId);
@@ -42,6 +43,7 @@ public class CommandExecutionMonitor  implements IExecutionListener {
 		EnsembleUsageLogger.logUsage("CMD.notHandled: "+commandId, duration);
 	}
 
+	@Override
 	public void postExecuteFailure(String commandId, ExecutionException exception) {
 		StringBuilder sb = new StringBuilder(commandId);
 		double duration = addDuration(sb, commandId);
@@ -49,6 +51,7 @@ public class CommandExecutionMonitor  implements IExecutionListener {
 		EnsembleUsageLogger.logUsage("CMD.postExecuteFailure: "+sb.toString(), duration);
 	}
 
+	@Override
 	public void postExecuteSuccess(String commandId, Object returnValue) {
 		StringBuilder sb = new StringBuilder(commandId);
 		double duration = addDuration(sb, commandId);
@@ -56,6 +59,7 @@ public class CommandExecutionMonitor  implements IExecutionListener {
 		EnsembleUsageLogger.logUsage("CMD.postExecuteSuccess: "+sb.toString(), duration);
 	}
 
+	@Override
 	public void preExecute(String commandId, ExecutionEvent event) {
 		StringBuilder sb = new StringBuilder(commandId);
 		addLine(sb, "active part", HandlerUtil.getActivePartId(event));

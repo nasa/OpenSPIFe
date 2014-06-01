@@ -27,6 +27,7 @@ import org.eclipse.ui.IEditorPart;
 
 public class PlanProfileTreePageAdapterFactory implements IAdapterFactory {
 
+	@Override
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
 		if (adaptableObject instanceof IEditorPart
 				&& ProfileTreePage.class == adapterType) {
@@ -40,6 +41,7 @@ public class PlanProfileTreePageAdapterFactory implements IAdapterFactory {
 		return null;
 	}
 
+	@Override
 	public Class[] getAdapterList() {
 		return new Class[] { ProfileTreePage.class };
 	}

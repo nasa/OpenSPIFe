@@ -23,10 +23,12 @@ import org.eclipse.emf.ecore.EObject;
 
 public class EObjectParameterSerializer implements IParameterSerializer<EObject> {
 
+	@Override
 	public String getHibernateString(EObject javaObject) {
 		return EMFUtils.convertToXML(javaObject);
 	}
 
+	@Override
 	public EObject getJavaObject(String hibernateString) {
 		return EMFUtils.createFromXML(hibernateString);
 	}

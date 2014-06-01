@@ -27,6 +27,7 @@ import org.junit.Assert;
 
 public class ScheduledConsistencyPropertyTester implements IConsistencyPropertyTester {
 
+	@Override
 	public void test(EPlanElement parent) {
 		List<? extends EPlanChild> children = parent.getChildren();
 		if (!children.isEmpty()) {

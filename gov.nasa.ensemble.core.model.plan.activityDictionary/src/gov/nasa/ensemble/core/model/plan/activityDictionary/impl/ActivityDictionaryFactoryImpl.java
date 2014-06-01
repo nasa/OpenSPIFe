@@ -93,6 +93,7 @@ public class ActivityDictionaryFactoryImpl extends EFactoryImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ADEffectMember createADEffectMember() {
 		ADEffectMemberImpl adEffectMember = new ADEffectMemberImpl();
 		return adEffectMember;
@@ -103,6 +104,7 @@ public class ActivityDictionaryFactoryImpl extends EFactoryImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ADPlanMember createADPlanMember() {
 		ADPlanMemberImpl adPlanMember = new ADPlanMemberImpl();
 		return adPlanMember;
@@ -123,6 +125,7 @@ public class ActivityDictionaryFactoryImpl extends EFactoryImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ADEffectKey createADEffectKey() {
 		ADEffectKeyImpl adEffectKey = new ADEffectKeyImpl();
 		return adEffectKey;
@@ -133,6 +136,7 @@ public class ActivityDictionaryFactoryImpl extends EFactoryImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ActivityDictionaryPackage getActivityDictionaryPackage() {
 		return (ActivityDictionaryPackage)getEPackage();
 	}

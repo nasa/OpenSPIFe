@@ -31,6 +31,7 @@ import org.apache.log4j.Logger;
 
 public class TemporalColumnProvider implements IMergeColumnProvider {
 	
+	@Override
 	public List<? extends AbstractMergeColumn<?>> getColumns() {
 		List<AbstractMergeColumn<?>> columns = new ArrayList<AbstractMergeColumn<?>>();
 		columns.add(new StartTimeParameterColumn(this));
@@ -61,6 +62,7 @@ public class TemporalColumnProvider implements IMergeColumnProvider {
 		}
 	}
 
+	@Override
 	public String getName() {
 		return "Temporal";
 	}

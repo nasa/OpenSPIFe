@@ -44,6 +44,7 @@ import org.eclipse.gef.GraphicalEditPart;
 
 public class SplitScrollEditPartFactory<T> implements EditPartFactory {
 
+	@Override
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart ep = new SplitScroller<T>();
 		ep.setModel(model);
@@ -135,6 +136,7 @@ public class SplitScrollEditPartFactory<T> implements EditPartFactory {
 					ZoomOption nval = (ZoomOption)notification.getNewValue();
 					final double d = ((double)oval.getMsInterval()) / nval.getMsInterval();
 					GEFUtils.runLaterInDisplayThread(ScrollPaneEditPart.this, new Runnable() {
+						@Override
 						public void run() {
 							HbarUpdater updater = new HbarUpdater(viewer.getTimeline(), dataScrollPane, (int)(d * oldCenter)
 									, split[0], viewer.getZoomManager().getZoomDate());
@@ -146,6 +148,7 @@ public class SplitScrollEditPartFactory<T> implements EditPartFactory {
 							|| TimelinePackage.Literals.PAGE__START_TIME == f
 							|| TimelinePackage.Literals.PAGE__DURATION == f) {
 					GEFUtils.runLaterInDisplayThread(ScrollPaneEditPart.this, new Runnable() {
+						@Override
 						public void run() {
 							refresh();
 						}

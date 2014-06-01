@@ -56,6 +56,7 @@ public class OffsetsConsistencyMaintenanceListener implements IConsistencyMainte
 	private static final EAttribute END_OFFSET_TIMEPOINT_FEATURE = TemporalPackage.Literals.TEMPORAL_MEMBER__END_OFFSET_TIMEPOINT;
 	private static final EAttribute END_OFFSET_AMOUNT_FEATURE = TemporalPackage.Literals.TEMPORAL_MEMBER__END_OFFSET_AMOUNT;
 
+	@Override
 	public Command createConsistencyMaintenanceCommand(ResourceSetChangeEvent event) {
 		Set<EPlanElement> timeUpdated = new LinkedHashSet<EPlanElement>();
 		Set<EPlanChild> offsetUpdated = new LinkedHashSet<EPlanChild>();
@@ -99,6 +100,7 @@ public class OffsetsConsistencyMaintenanceListener implements IConsistencyMainte
 	private Command createCommand(TransactionalEditingDomain domain, final Set<EPlanElement> timeUpdated, final Set<EPlanChild> offsetUpdated) {
 		Command command = new RunnableRecordingCommand("UpdateOffsets", 
 				new Runnable() {
+			@Override
 			public void run() {
 				for (EPlanChild child : offsetUpdated) {
 					updateTimesFromOffsets(child, false);

@@ -35,6 +35,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.window.Window;
 import org.eclipse.ui.part.IPage;
 
 /**
@@ -68,7 +69,7 @@ public class SPIFeTemplatePlanViewAddNewItemAction extends TemplatePlanViewAddAc
 		AdapterFactoryLabelProvider labelProvider = (AdapterFactoryLabelProvider)viewer.getLabelProvider();
 		EPlan selectedPlan = getSelectedTemplatePlan(templatePlans);
 		AddTemplateDialog dialog = new AddTemplateDialog(WidgetUtils.getShell(), templatePlans, labelProvider, selectedPlan);
-		if (dialog.open() == Dialog.OK) {
+		if (dialog.open() == Window.OK) {
 			String templateName = dialog.getTemplateName();
 			selectedPlan = dialog.getSelectedPlan();
 			lastSelectedPlanName = selectedPlan.getName();

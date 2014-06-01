@@ -156,6 +156,7 @@ public abstract class ScaleTimelineMarkerTooltip {
 	 */
 	private void updateTooltipVisibilityForCursorLocation(final Display display) {
 		display.timerExec(1000, new Runnable() {
+			@Override
 			@SuppressWarnings("null")
 			public void run() {
 				boolean cursorContainedInGroupTooltip = false;
@@ -531,15 +532,20 @@ public abstract class ScaleTimelineMarkerTooltip {
 			activePage.addPartListener(this);
 		}
 
+		@Override
 		public void partClosed(IWorkbenchPart part) {
 			resourceManager = null;
 			solitaryScaleTimelineMarkerTooltip = null;
 			groupScaleTimelineMarkerTooltip = null;
 		}
 
+		@Override
 		public void partActivated(IWorkbenchPart part) 		{ /* unimplemented */ }
+		@Override
 		public void partBroughtToTop(IWorkbenchPart part) 	{ /* unimplemented */ }
+		@Override
 		public void partDeactivated(IWorkbenchPart part) 	{ /* unimplemented */ }
+		@Override
 		public void partOpened(IWorkbenchPart part) 		{ /* unimplemented */ }	
 	}	
 }

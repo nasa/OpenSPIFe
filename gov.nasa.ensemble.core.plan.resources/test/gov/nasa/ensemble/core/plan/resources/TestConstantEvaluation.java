@@ -49,6 +49,7 @@ public class TestConstantEvaluation extends AbstractResourceTest {
 		
 		final EPlan plan = PlanFactory.getInstance().createPlan("TestPlan");
 		EActivity activity = TransactionUtils.writing(plan, new RunnableWithResult.Impl<EActivity>() {
+			@Override
 			public void run() {
 				EActivityGroup activityGroup = PlanFactory.getInstance().createActivityGroup(plan);
 				plan.getChildren().add(activityGroup);

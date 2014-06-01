@@ -89,6 +89,7 @@ public class PlanEditApproverRegistry implements IPlanEditApprover {
 	 * @return the conjunction of all return values or true if the chain is
 	 *         empty
 	 */
+	@Override
 	public boolean canModify(EPlanElement planElement) {
 		if (trace.isDebugEnabled()) {
 			trace.debug("canModify(" + planElement + ")");
@@ -111,6 +112,7 @@ public class PlanEditApproverRegistry implements IPlanEditApprover {
 	 * @return the conjunction of all return values or true if the chain is
 	 *         empty
 	 */
+	@Override
 	public boolean canModifyStructure(EPlan plan)
 	{
 		for (IPlanEditApprover approver : chain) {
@@ -121,6 +123,7 @@ public class PlanEditApproverRegistry implements IPlanEditApprover {
 		return true;
 	}
 
+	@Override
 	public boolean needsUpdate(ResourceSetChangeEvent event) {
 		for (IPlanEditApprover approver : chain) {
 			if (approver.needsUpdate(event)) {

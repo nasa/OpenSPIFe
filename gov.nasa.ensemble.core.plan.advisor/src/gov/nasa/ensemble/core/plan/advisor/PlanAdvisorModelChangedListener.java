@@ -39,6 +39,7 @@ public class PlanAdvisorModelChangedListener implements IModelChangedListener {
 		this.force = force;
 	}
 	
+	@Override
 	public void enqueue(ResourceSetChangeEvent event) {
 		if (!force && CommonPlugin.isJunitRunning()) {
 			return;

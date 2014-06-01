@@ -40,6 +40,7 @@ public class AmountStringifier extends AbstractTrimmingStringifier<Amount> {
 		}
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public String getDisplayString(Amount amount) {
 		if (amount == null) {

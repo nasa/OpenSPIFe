@@ -34,6 +34,7 @@ public class LineChartTimelineFactory implements EditPartFactory {
 	
 	public static final Logger trace = Logger.getLogger(LineChartTimelineFactory.class);
 	
+	@Override
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart editPart = null;
 		if (context == null) {

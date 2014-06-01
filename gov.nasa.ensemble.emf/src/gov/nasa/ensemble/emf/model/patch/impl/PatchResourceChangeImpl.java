@@ -132,6 +132,7 @@ public class PatchResourceChangeImpl extends EObjectImpl implements PatchResourc
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Resource getResource() {
 		if (resource == null) {
 			Resource eResource = eResource();
@@ -153,6 +154,7 @@ public class PatchResourceChangeImpl extends EObjectImpl implements PatchResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResource(Resource newResource) {
 		Resource oldResource = resource;
 		resource = newResource;
@@ -165,6 +167,7 @@ public class PatchResourceChangeImpl extends EObjectImpl implements PatchResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getResourceURI() {
 		return resourceURI;
 	}
@@ -174,6 +177,7 @@ public class PatchResourceChangeImpl extends EObjectImpl implements PatchResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResourceURI(String newResourceURI) {
 		String oldResourceURI = resourceURI;
 		resourceURI = newResourceURI;
@@ -186,6 +190,7 @@ public class PatchResourceChangeImpl extends EObjectImpl implements PatchResourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PatchListChange> getListChanges() {
 		if (listChanges == null) {
 			listChanges = new EObjectContainmentEList<PatchListChange>(PatchListChange.class, this, PatchPackage.PATCH_RESOURCE_CHANGE__LIST_CHANGES);
@@ -198,6 +203,7 @@ public class PatchResourceChangeImpl extends EObjectImpl implements PatchResourc
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void apply(Resource resource) {
 		for (PatchListChange listChange : getListChanges()) {
 			listChange.apply(resource);

@@ -54,6 +54,7 @@ import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.graphics.Device;
@@ -336,7 +337,7 @@ public class TimelineUtils implements TimelineConstants {
 	}
 	
 	public static boolean isMoveable(EditPart editPart) {
-		if(editPart.understandsRequest(new Request(TimelineConstants.REQ_MOVE))) {
+		if(editPart.understandsRequest(new Request(RequestConstants.REQ_MOVE))) {
 			return true;
 		}
 		return false;

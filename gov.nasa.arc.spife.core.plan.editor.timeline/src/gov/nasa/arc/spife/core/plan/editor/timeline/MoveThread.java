@@ -158,6 +158,7 @@ public class MoveThread extends Thread {
 			TransactionUtils.checkTransaction(domain, true); // this will throw an illegal state exception if we are processing a transaction in this thread
 			final Display display = planTimeline.getControl().getDisplay();
 			BusyIndicator.showWhile(display, new Runnable() {
+				@Override
 				public void run() {
 					boolean hadWork = true;
 					while (hadWork) {
@@ -344,6 +345,7 @@ public class MoveThread extends Thread {
 					}
 					if (nextEditParts != null) {
 						TransactionUtils.writing(plan, new Runnable() {
+							@Override
 							public void run() {
 								if (!paused) {
 									paused = true;
@@ -430,6 +432,7 @@ public class MoveThread extends Thread {
 			final GraphicalEditPart part = focusPart;
 			Display display = part.getViewer().getControl().getDisplay();
 			display.asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					planTimeline.doHorizontalScroll(part);
 				}				

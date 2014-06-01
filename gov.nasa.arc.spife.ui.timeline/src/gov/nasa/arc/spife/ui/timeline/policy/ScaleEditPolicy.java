@@ -122,6 +122,7 @@ public class ScaleEditPolicy extends TimelineViewerEditPolicy {
 
 	private class Listener implements IPropertyChangeListener {
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			if (TimelineDateFormatPreferencePage.P_DATE_FORMATS.equals(event.getProperty())) {
 				final List<DateFormat> dateFormats = TimelineDateFormatRegistry.getDateFormats();
@@ -129,6 +130,7 @@ public class ScaleEditPolicy extends TimelineViewerEditPolicy {
 			} else if (TimelinePreferencePage.P_ALTERNATING_COLOR.equals(event.getProperty())) {
 				disposeAlternatingColor();
 				GEFUtils.runInDisplayThread(getHost(), new Runnable() {
+					@Override
 					public void run() {
 						figure.setAlternatingRowColor(getAlternatingColor());
 					}
@@ -137,6 +139,7 @@ public class ScaleEditPolicy extends TimelineViewerEditPolicy {
 			else if (TimelinePreferencePage.P_VERTICAL_LINES_COLOR.equals(event.getProperty())) {
 				disposeVerticalLineColor();
 				GEFUtils.runInDisplayThread(getHost(), new Runnable() {
+					@Override
 					public void run() {
 						figure.setVerticalLineColor(getVerticalLineColor());
 					}
@@ -144,6 +147,7 @@ public class ScaleEditPolicy extends TimelineViewerEditPolicy {
 			} else if (TimelinePreferencePage.P_SCALE_TICKMARK_COLOR.equals(event.getProperty())) {
 				disposeTickmarkColor();
 				GEFUtils.runInDisplayThread(getHost(), new Runnable() {
+					@Override
 					public void run() {
 						figure.setTickmarkColor(getTickmarkColor());
 					}

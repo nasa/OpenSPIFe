@@ -191,6 +191,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getAuthor() {
 		return author;
 	}
@@ -200,6 +201,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAuthor(String newAuthor) {
 		String oldAuthor = author;
 		author = newAuthor;
@@ -212,6 +214,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<EParameterDef> getAttributeDefs() {
 		if (attributeDefs == null) {
 			attributeDefs = new EObjectContainmentEList<EParameterDef>(EParameterDef.class, this, DictionaryPackage.EACTIVITY_DICTIONARY__ATTRIBUTE_DEFS);
@@ -224,6 +227,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDate() {
 		return date;
 	}
@@ -233,6 +237,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDate(String newDate) {
 		String oldDate = date;
 		date = newDate;
@@ -245,6 +250,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -254,6 +260,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -266,6 +273,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<INamedDefinition> getExtendedDefinitions() {
 		if (extendedDefinitions == null) {
 			extendedDefinitions = new EObjectContainmentEList<INamedDefinition>(INamedDefinition.class, this, DictionaryPackage.EACTIVITY_DICTIONARY__EXTENDED_DEFINITIONS);
@@ -278,6 +286,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getVersion() {
 		return version;
 	}
@@ -287,6 +296,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
@@ -313,6 +323,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public List<EActivityDef> getActivityDefs() {
 		return getDefinitions(EActivityDef.class);
 	}
@@ -323,6 +334,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EActivityDef getActivityDef(String name) {
 		return getDefinition(EActivityDef.class, name);
 	}
@@ -476,6 +488,7 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 		return result.toString();
 	}
 
+	@Override
 	public void clearCache() {
 		if (eNameToEClassifierMap != null) {
 			eNameToEClassifierMap.clear();
@@ -491,10 +504,12 @@ public class EActivityDictionaryImpl extends EPackageImpl implements EActivityDi
 		definitionContextDelegate.clearCache();
 	}
 
+	@Override
 	public <T extends INamedDefinition> T getDefinition(Class<T> klass, String name) {
 		return definitionContextDelegate.getDefinition(klass, name);
 	}
 
+	@Override
 	public <T> List<T> getDefinitions(Class<T> klass) {
 		return definitionContextDelegate.getDefinitions(klass);
 	}

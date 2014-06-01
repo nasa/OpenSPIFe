@@ -135,6 +135,7 @@ public class EActivityRequirementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Period getPeriod() {
 		return period;
 	}
@@ -144,6 +145,7 @@ public class EActivityRequirementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPeriod(Period newPeriod) {
 		Period oldPeriod = period;
 		period = newPeriod == null ? PERIOD_EDEFAULT : newPeriod;
@@ -156,6 +158,7 @@ public class EActivityRequirementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getStartOffset() {
 		return startOffset;
 	}
@@ -165,6 +168,7 @@ public class EActivityRequirementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartOffset(TemporalOffset newStartOffset) {
 		TemporalOffset oldStartOffset = startOffset;
 		startOffset = newStartOffset;
@@ -177,6 +181,7 @@ public class EActivityRequirementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getEndOffset() {
 		return endOffset;
 	}
@@ -186,6 +191,7 @@ public class EActivityRequirementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndOffset(TemporalOffset newEndOffset) {
 		TemporalOffset oldEndOffset = endOffset;
 		endOffset = newEndOffset;

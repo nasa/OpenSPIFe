@@ -944,6 +944,7 @@ public class EMFUtils {
 	
 	public static Stream<EObject> getAncestors(final EObject object) {
 		return Stream.unfold(new F<EObject, Option<P2<EObject, EObject>>>() {
+			@Override
 			public Option<P2<EObject, EObject>> f(final EObject object) {
 				if (null == object)
 					return none();
@@ -970,11 +971,13 @@ public class EMFUtils {
 	public static fj.data.List<P2<EStructuralFeature, EObject>> getAllFeatureValuePairs(final EObject object) {
 		return iterableList(object.eClass().getEAllAttributes()).map(
 			new F<EAttribute, P2<EStructuralFeature, EObject>>() {
+			@Override
 			public P2<EStructuralFeature, EObject> f(final EAttribute attr) {
 				return p((EStructuralFeature)attr, object);
 			}
 		}).append(iterableList(object.eClass().getEAllReferences()).bind(
 			new F<EReference, fj.data.List<P2<EStructuralFeature, EObject>>>() {
+				@Override
 				public fj.data.List<P2<EStructuralFeature, EObject>> f(final EReference ref) {
 					final P2<EStructuralFeature, EObject> pair = p((EStructuralFeature)ref, object);
 					final Object referent = object.eGet(ref);
@@ -986,6 +989,7 @@ public class EMFUtils {
 					else
 						referents = single((EObject)referent);
 					return referents.bind(new F<EObject, fj.data.List<P2<EStructuralFeature, EObject>>>() {
+						@Override
 						public fj.data.List<P2<EStructuralFeature, EObject>> f(final EObject obj) {
 							return iterableList(getAllFeatureValuePairs(obj).cons(pair));
 						}
@@ -1145,6 +1149,7 @@ public class EMFUtils {
 		// MAE-4898 - run this inside a transaction since it can potentially
 		// modify the resource while saving
 		return TransactionUtils.writing(resource, new RunnableWithResult.Impl<byte[]>() {
+			@Override
 			public void run() {
 				final ByteArrayOutputStream stream = new ByteArrayOutputStream();
 				try {
@@ -1244,6 +1249,7 @@ public class EMFUtils {
 					TransactionalEditingDomain domain = TransactionUtils.getDomain(resourceSet);
 					if (domain != null) {
 						collection = TransactionUtils.reading(domain, new RunnableWithResult.Impl<Collection<EObject>>() {
+							@Override
 							public void run() {
 								try {
 									setResult(ItemPropertyDescriptor.getReachableObjectsOfType(object, type));
@@ -1266,6 +1272,7 @@ public class EMFUtils {
 	
 	public static void reload(final Resource resource) throws IOException {
 		TransactionUtils.writing(resource, IOException.class, new RunnableWithThrowable() {
+			@Override
 			public void run() throws IOException {
 				resource.unload();
 				resource.load(null);

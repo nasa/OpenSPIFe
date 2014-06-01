@@ -71,6 +71,7 @@ public class ProjectSelectionPage extends EnsembleWizardPage {
 		this.labelText = labelText;
 	}
 
+	@Override
 	public void createControl(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout(1, true);

@@ -1,7 +1,6 @@
 package gov.nasa.ensemble.dictionary.xtext.serializer;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 import gov.nasa.ensemble.dictionary.xtext.services.XDictionaryGrammarAccess;
 import gov.nasa.ensemble.dictionary.xtext.xDictionary.ActivityDef;
 import gov.nasa.ensemble.dictionary.xtext.xDictionary.ActivityGroupDef;
@@ -21,15 +20,9 @@ import gov.nasa.ensemble.dictionary.xtext.xDictionary.StateResource;
 import gov.nasa.ensemble.dictionary.xtext.xDictionary.SummaryResource;
 import gov.nasa.ensemble.dictionary.xtext.xDictionary.XDictionaryPackage;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
-import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
 import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
-import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
@@ -38,6 +31,7 @@ public class XDictionarySemanticSequencer extends AbstractDelegatingSemanticSequ
 	@Inject
 	private XDictionaryGrammarAccess grammarAccess;
 	
+	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == XDictionaryPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case XDictionaryPackage.ACTIVITY_DEF:

@@ -133,7 +133,8 @@ public class FileSelectionPage extends EnsembleWizardPage {
     return (absoluteFilePath == null || absoluteFilePath.equals(""))? null : new File(absoluteFilePath);
   }
 
-  public void createControl(Composite parent) {
+  @Override
+public void createControl(Composite parent) {
     Composite composite = new Composite(parent, SWT.NONE);
     GridLayout layout = new GridLayout(1, true);
     composite.setLayout(layout);

@@ -131,6 +131,7 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 			super.notifyChanged(msg);
 		}
 
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			ZoomOption zoomOption = page.getZoomOption();
 			TemporalExtent currentExtent = page.getExtent();
@@ -149,7 +150,8 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 			if (newStartTime != null) {
 				newStartTime = MissionCalendarUtils.round(newStartTime.getTime(), (int) scrollInterval.longValue(DateUtils.MILLISECONDS));
 				final Date fNewStartTime = newStartTime;
-				TransactionUtils.writing(page, new Runnable() {
+				gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(page, new Runnable() {
+					@Override
 					public void run() {
 						page.setStartTime(fNewStartTime);
 					}
@@ -158,6 +160,7 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 			}
 		}
 
+		@Override
 		public void widgetDefaultSelected(SelectionEvent e) {
 			widgetSelected(e);
 		}

@@ -92,6 +92,7 @@ public class StateResourceImpl extends NamedConditionImpl implements StateResour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getState() {
 		return state;
 	}
@@ -101,6 +102,7 @@ public class StateResourceImpl extends NamedConditionImpl implements StateResour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setState(String newState) {
 		String oldState = state;
 		state = newState;
@@ -134,6 +136,7 @@ public class StateResourceImpl extends NamedConditionImpl implements StateResour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConditions(Conditions newConditions) {
 		if (newConditions != eInternalContainer() || (eContainerFeatureID() != MemberPackage.STATE_RESOURCE__CONDITIONS && newConditions != null)) {
 			if (EcoreUtil.isAncestor(this, newConditions))

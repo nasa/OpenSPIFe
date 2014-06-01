@@ -81,6 +81,7 @@ public class Functions {
 
 	public static <A extends Enum<A>> F<String, Option<A>> enumFromString(final Class<A> clazz) {
 		return new F<String, Option<A>>() {
+			@Override
 			public Option<A> f(final String input) {
 				try {
 					return some(Enum.valueOf(clazz, input));

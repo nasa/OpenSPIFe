@@ -73,11 +73,13 @@ public class PrefUtil {
         if (uiPreferenceStore == null) {
         	if(uiCallback == null) {
                 PrefUtil.setUICallback(new PrefUtil.ICallback() {
-                    public IPreferenceStore getPreferenceStore() {
+                    @Override
+					public IPreferenceStore getPreferenceStore() {
                         return UIPlugin.getDefault().getPreferenceStore();
                     }
 
-                    @SuppressWarnings("deprecation")
+                    @Override
+					@SuppressWarnings("deprecation")
 					public void savePreferences() {
                         UIPlugin.getDefault().savePluginPreferences();
                     }

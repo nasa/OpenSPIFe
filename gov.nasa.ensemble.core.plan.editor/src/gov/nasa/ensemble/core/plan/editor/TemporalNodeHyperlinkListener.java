@@ -51,6 +51,7 @@ public class TemporalNodeHyperlinkListener implements IHyperlinkListener {
 		this.identifiableRegistry = identifiableRegistry;
 	}
 
+	@Override
 	public void linkEntered(HyperlinkEvent e) {
 		EPlanElement node = getTargetNode(e);
 		if (node != null) {
@@ -58,6 +59,7 @@ public class TemporalNodeHyperlinkListener implements IHyperlinkListener {
 		}
 	}
 
+	@Override
 	public void linkExited(HyperlinkEvent e) {
 		EPlanElement node = getTargetNode(e);
 		if (node != null) {
@@ -65,6 +67,7 @@ public class TemporalNodeHyperlinkListener implements IHyperlinkListener {
 		}
 	}
 
+	@Override
 	public void linkActivated(HyperlinkEvent e) {
 		EPlanElement node = getTargetNode(e);
 		if (node != null) {

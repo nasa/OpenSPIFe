@@ -104,6 +104,7 @@ public class TemporalNodeDecoratorColorEditPolicy extends PlanTimelineViewerEdit
 			}
 		}
 		GEFUtils.runInDisplayThread(getHost(), new Runnable() {
+			@Override
 			public void run() {
 				figure.repaint();
 			}

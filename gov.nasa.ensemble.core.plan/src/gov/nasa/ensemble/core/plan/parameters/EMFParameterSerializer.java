@@ -32,10 +32,12 @@ public class EMFParameterSerializer implements IParameterSerializer<Object> {
 		this.eDataType = eDataType;
 	}
 	
+	@Override
 	public String getHibernateString(Object javaObject) {
 		return eDataType.getEPackage().getEFactoryInstance().convertToString(eDataType, javaObject);
 	}
 
+	@Override
 	public Object getJavaObject(String hibernateString) {
 		try {
 			return EcoreUtil.createFromString(eDataType, hibernateString);

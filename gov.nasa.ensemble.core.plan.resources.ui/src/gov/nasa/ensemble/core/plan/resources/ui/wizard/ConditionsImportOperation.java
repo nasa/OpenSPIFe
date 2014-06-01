@@ -58,6 +58,7 @@ public class ConditionsImportOperation extends AbstractEnsembleUndoableOperation
 	protected void execute() throws Throwable {
 		initialize();
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				ResourceConditionsMember member = plan.getMember(ResourceConditionsMember.class);
 				member.getConditions().removeAll(conditionsToRemove);
@@ -71,6 +72,7 @@ public class ConditionsImportOperation extends AbstractEnsembleUndoableOperation
 			conditionToAdd = ResourceConditionsUtils.readConditions(file);
 			conditionToAdd.setActive(true);
 			TransactionUtils.reading(plan, new Runnable() {
+				@Override
 				public void run() {
 					ResourceConditionsMember member = plan.getMember(ResourceConditionsMember.class);
 					Date time = conditionToAdd.getTime();
@@ -90,6 +92,7 @@ public class ConditionsImportOperation extends AbstractEnsembleUndoableOperation
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				ResourceConditionsMember member = plan.getMember(ResourceConditionsMember.class);
 				member.getConditions().remove(conditionToAdd);

@@ -83,10 +83,12 @@ public class MultiselectDropdownWidget implements ISelectionProvider {
 		}
 	}
 	
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		listeners.add(listener);
 	}
 	
+	@Override
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
 		listeners.remove(listener);
 	}
@@ -117,6 +119,7 @@ public class MultiselectDropdownWidget implements ISelectionProvider {
 		tempGreyedValues.addAll(greyedValues);
 	
 		selectionDialog.addEventListener(new IInPlaceDialogListener() {
+			@Override
 			public void buttonPressed(InPlaceDialogEvent event) {
 				if (event.getReturnCode() == AbstractInPlaceDialog.ID_OK || event.getReturnCode() == Window.OK) {
 					List<String> newValues = selectionDialog.getSelectedValues();
@@ -274,6 +277,7 @@ public class MultiselectDropdownWidget implements ISelectionProvider {
 		
 		try {
 			WidgetUtils.runInDisplayThread(valueStyledText, new Runnable() {
+				@Override
 				public void run() {
 					try {
 						valueStyledText.setText(buffer.toString());

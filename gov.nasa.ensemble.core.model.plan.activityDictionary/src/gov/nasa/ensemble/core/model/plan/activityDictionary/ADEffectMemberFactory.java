@@ -24,14 +24,17 @@ import org.eclipse.emf.ecore.EClass;
 
 public class ADEffectMemberFactory implements IPlanElementMemberFactory {
 
+	@Override
 	public EMember createMember(EClass ePlanElementClass) {
 		return ActivityDictionaryFactory.eINSTANCE.createADEffectMember();
 	}
 	
+	@Override
 	public String getKey() {
 		return ADEffectMember.KEY;
 	}
 	
+	@Override
 	public int getSortKey() {
 		return 300;
 	}

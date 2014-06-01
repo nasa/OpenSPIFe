@@ -30,6 +30,7 @@ final class MarkerTransferable implements ITransferable, Serializable {
 		return marker;
 	}
 
+	@Override
 	public void dispose() {
 		// nothing to dispose
 	}

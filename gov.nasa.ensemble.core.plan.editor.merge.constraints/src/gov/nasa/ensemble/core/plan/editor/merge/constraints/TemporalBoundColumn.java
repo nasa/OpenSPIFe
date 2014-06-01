@@ -235,6 +235,7 @@ public class TemporalBoundColumn extends AbstractMergeColumn<ConstraintsMember> 
 	public void modify(final ConstraintsMember facet, Object value, final IUndoContext undoContext) {
 		final String text = (String) value;
 		TransactionUtils.writing(facet, new Runnable() {
+			@Override
 			public void run() {
 				modify(facet, text, undoContext);
 			}

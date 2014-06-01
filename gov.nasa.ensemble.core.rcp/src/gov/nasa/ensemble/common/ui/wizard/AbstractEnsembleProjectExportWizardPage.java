@@ -179,7 +179,8 @@ public abstract class AbstractEnsembleProjectExportWizardPage extends
         //run in syncExec because callback is from an operation,
         //which is probably not running in the UI thread.
 		WidgetUtils.runInDisplayThread(getShell(), new Runnable() {
-            public void run() {
+            @Override
+			public void run() {
                 dialog.open();
             }
         });
@@ -652,7 +653,8 @@ public abstract class AbstractEnsembleProjectExportWizardPage extends
      * Handle all events and enablements for widgets in this page
      * @param e Event
      */
-    public void handleEvent(Event e) {
+    @Override
+	public void handleEvent(Event e) {
         Widget source = e.widget;
 
         if (source == destinationBrowseButton) {

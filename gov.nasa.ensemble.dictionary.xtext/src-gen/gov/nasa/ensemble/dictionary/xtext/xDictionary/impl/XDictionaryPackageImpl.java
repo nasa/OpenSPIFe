@@ -248,7 +248,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDictionary()
+  @Override
+public EClass getDictionary()
   {
     return dictionaryEClass;
   }
@@ -258,7 +259,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDictionary_Name()
+  @Override
+public EAttribute getDictionary_Name()
   {
     return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(0);
   }
@@ -268,7 +270,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDictionary_Author()
+  @Override
+public EAttribute getDictionary_Author()
   {
     return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(1);
   }
@@ -278,7 +281,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDictionary_Date()
+  @Override
+public EAttribute getDictionary_Date()
   {
     return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(2);
   }
@@ -288,7 +292,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDictionary_Description()
+  @Override
+public EAttribute getDictionary_Description()
   {
     return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(3);
   }
@@ -298,7 +303,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDictionary_Version()
+  @Override
+public EAttribute getDictionary_Version()
   {
     return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(4);
   }
@@ -308,7 +314,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDictionary_Domain()
+  @Override
+public EAttribute getDictionary_Domain()
   {
     return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(5);
   }
@@ -318,7 +325,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDictionary_Definitions()
+  @Override
+public EReference getDictionary_Definitions()
   {
     return (EReference)dictionaryEClass.getEStructuralFeatures().get(6);
   }
@@ -328,7 +336,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDefinition()
+  @Override
+public EClass getDefinition()
   {
     return definitionEClass;
   }
@@ -338,7 +347,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDefinition_Name()
+  @Override
+public EAttribute getDefinition_Name()
   {
     return (EAttribute)definitionEClass.getEStructuralFeatures().get(0);
   }
@@ -348,7 +358,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEnumDef()
+  @Override
+public EClass getEnumDef()
   {
     return enumDefEClass;
   }
@@ -358,7 +369,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEnumDef_Values()
+  @Override
+public EReference getEnumDef_Values()
   {
     return (EReference)enumDefEClass.getEStructuralFeatures().get(0);
   }
@@ -368,7 +380,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEnumValue()
+  @Override
+public EClass getEnumValue()
   {
     return enumValueEClass;
   }
@@ -378,7 +391,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnumValue_Name()
+  @Override
+public EAttribute getEnumValue_Name()
   {
     return (EAttribute)enumValueEClass.getEStructuralFeatures().get(0);
   }
@@ -388,7 +402,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnumValue_Color()
+  @Override
+public EAttribute getEnumValue_Color()
   {
     return (EAttribute)enumValueEClass.getEStructuralFeatures().get(1);
   }
@@ -398,7 +413,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnumValue_Literal()
+  @Override
+public EAttribute getEnumValue_Literal()
   {
     return (EAttribute)enumValueEClass.getEStructuralFeatures().get(2);
   }
@@ -408,7 +424,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getParameterDef()
+  @Override
+public EClass getParameterDef()
   {
     return parameterDefEClass;
   }
@@ -418,7 +435,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParameterDef_Type()
+  @Override
+public EAttribute getParameterDef_Type()
   {
     return (EAttribute)parameterDefEClass.getEStructuralFeatures().get(0);
   }
@@ -428,7 +446,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParameterDef_Description()
+  @Override
+public EAttribute getParameterDef_Description()
   {
     return (EAttribute)parameterDefEClass.getEStructuralFeatures().get(1);
   }
@@ -438,7 +457,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParameterDef_DisplayName()
+  @Override
+public EAttribute getParameterDef_DisplayName()
   {
     return (EAttribute)parameterDefEClass.getEStructuralFeatures().get(2);
   }
@@ -448,7 +468,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParameterDef_Category()
+  @Override
+public EAttribute getParameterDef_Category()
   {
     return (EAttribute)parameterDefEClass.getEStructuralFeatures().get(3);
   }
@@ -458,7 +479,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameterDef_Annotations()
+  @Override
+public EReference getParameterDef_Annotations()
   {
     return (EReference)parameterDefEClass.getEStructuralFeatures().get(4);
   }
@@ -468,7 +490,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAttributeDef()
+  @Override
+public EClass getAttributeDef()
   {
     return attributeDefEClass;
   }
@@ -478,7 +501,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttributeDef_DefaultValueLiteral()
+  @Override
+public EAttribute getAttributeDef_DefaultValueLiteral()
   {
     return (EAttribute)attributeDefEClass.getEStructuralFeatures().get(0);
   }
@@ -488,7 +512,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttributeDef_ShortDescription()
+  @Override
+public EAttribute getAttributeDef_ShortDescription()
   {
     return (EAttribute)attributeDefEClass.getEStructuralFeatures().get(1);
   }
@@ -498,7 +523,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttributeDef_Units()
+  @Override
+public EAttribute getAttributeDef_Units()
   {
     return (EAttribute)attributeDefEClass.getEStructuralFeatures().get(2);
   }
@@ -508,7 +534,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttributeDef_ParameterName()
+  @Override
+public EAttribute getAttributeDef_ParameterName()
   {
     return (EAttribute)attributeDefEClass.getEStructuralFeatures().get(3);
   }
@@ -518,7 +545,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getReferenceDef()
+  @Override
+public EClass getReferenceDef()
   {
     return referenceDefEClass;
   }
@@ -528,7 +556,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReferenceDef_Containment()
+  @Override
+public EAttribute getReferenceDef_Containment()
   {
     return (EAttribute)referenceDefEClass.getEStructuralFeatures().get(0);
   }
@@ -538,7 +567,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReferenceDef_Requirements()
+  @Override
+public EReference getReferenceDef_Requirements()
   {
     return (EReference)referenceDefEClass.getEStructuralFeatures().get(1);
   }
@@ -548,7 +578,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReferenceDef_Effects()
+  @Override
+public EAttribute getReferenceDef_Effects()
   {
     return (EAttribute)referenceDefEClass.getEStructuralFeatures().get(2);
   }
@@ -558,7 +589,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getActivityDef()
+  @Override
+public EClass getActivityDef()
   {
     return activityDefEClass;
   }
@@ -568,7 +600,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActivityDef_Description()
+  @Override
+public EAttribute getActivityDef_Description()
   {
     return (EAttribute)activityDefEClass.getEStructuralFeatures().get(0);
   }
@@ -578,7 +611,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActivityDef_Category()
+  @Override
+public EAttribute getActivityDef_Category()
   {
     return (EAttribute)activityDefEClass.getEStructuralFeatures().get(1);
   }
@@ -588,7 +622,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActivityDef_Duration()
+  @Override
+public EAttribute getActivityDef_Duration()
   {
     return (EAttribute)activityDefEClass.getEStructuralFeatures().get(2);
   }
@@ -598,7 +633,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActivityDef_DisplayName()
+  @Override
+public EAttribute getActivityDef_DisplayName()
   {
     return (EAttribute)activityDefEClass.getEStructuralFeatures().get(3);
   }
@@ -608,7 +644,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActivityDef_HiddenParams()
+  @Override
+public EAttribute getActivityDef_HiddenParams()
   {
     return (EAttribute)activityDefEClass.getEStructuralFeatures().get(4);
   }
@@ -618,7 +655,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getActivityDef_Annotations()
+  @Override
+public EReference getActivityDef_Annotations()
   {
     return (EReference)activityDefEClass.getEStructuralFeatures().get(5);
   }
@@ -628,7 +666,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getActivityDef_Parameters()
+  @Override
+public EReference getActivityDef_Parameters()
   {
     return (EReference)activityDefEClass.getEStructuralFeatures().get(6);
   }
@@ -638,7 +677,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getActivityDef_Requirements()
+  @Override
+public EReference getActivityDef_Requirements()
   {
     return (EReference)activityDefEClass.getEStructuralFeatures().get(7);
   }
@@ -648,7 +688,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActivityDef_Effects()
+  @Override
+public EAttribute getActivityDef_Effects()
   {
     return (EAttribute)activityDefEClass.getEStructuralFeatures().get(8);
   }
@@ -658,7 +699,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAnnotation()
+  @Override
+public EClass getAnnotation()
   {
     return annotationEClass;
   }
@@ -668,7 +710,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAnnotation_Source()
+  @Override
+public EAttribute getAnnotation_Source()
   {
     return (EAttribute)annotationEClass.getEStructuralFeatures().get(0);
   }
@@ -678,7 +721,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAnnotation_Key()
+  @Override
+public EAttribute getAnnotation_Key()
   {
     return (EAttribute)annotationEClass.getEStructuralFeatures().get(1);
   }
@@ -688,7 +732,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAnnotation_Value()
+  @Override
+public EAttribute getAnnotation_Value()
   {
     return (EAttribute)annotationEClass.getEStructuralFeatures().get(2);
   }
@@ -698,7 +743,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRequirement()
+  @Override
+public EClass getRequirement()
   {
     return requirementEClass;
   }
@@ -708,7 +754,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getNumericRequirement()
+  @Override
+public EClass getNumericRequirement()
   {
     return numericRequirementEClass;
   }
@@ -718,7 +765,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNumericRequirement_Expression()
+  @Override
+public EAttribute getNumericRequirement_Expression()
   {
     return (EAttribute)numericRequirementEClass.getEStructuralFeatures().get(0);
   }
@@ -728,7 +776,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStateRequirement()
+  @Override
+public EClass getStateRequirement()
   {
     return stateRequirementEClass;
   }
@@ -738,7 +787,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStateRequirement_Definition()
+  @Override
+public EAttribute getStateRequirement_Definition()
   {
     return (EAttribute)stateRequirementEClass.getEStructuralFeatures().get(0);
   }
@@ -748,7 +798,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStateRequirement_RequiredState()
+  @Override
+public EAttribute getStateRequirement_RequiredState()
   {
     return (EAttribute)stateRequirementEClass.getEStructuralFeatures().get(1);
   }
@@ -758,7 +809,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getActivityGroupDef()
+  @Override
+public EClass getActivityGroupDef()
   {
     return activityGroupDefEClass;
   }
@@ -768,7 +820,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getActivityGroupDef_Annotations()
+  @Override
+public EReference getActivityGroupDef_Annotations()
   {
     return (EReference)activityGroupDefEClass.getEStructuralFeatures().get(0);
   }
@@ -778,7 +831,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getActivityGroupDef_Parameters()
+  @Override
+public EReference getActivityGroupDef_Parameters()
   {
     return (EReference)activityGroupDefEClass.getEStructuralFeatures().get(1);
   }
@@ -788,7 +842,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getObjectDef()
+  @Override
+public EClass getObjectDef()
   {
     return objectDefEClass;
   }
@@ -798,7 +853,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getResourceDef()
+  @Override
+public EClass getResourceDef()
   {
     return resourceDefEClass;
   }
@@ -808,7 +864,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getNumericResource()
+  @Override
+public EClass getNumericResource()
   {
     return numericResourceEClass;
   }
@@ -818,7 +875,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStateResource()
+  @Override
+public EClass getStateResource()
   {
     return stateResourceEClass;
   }
@@ -828,7 +886,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getClaimableResource()
+  @Override
+public EClass getClaimableResource()
   {
     return claimableResourceEClass;
   }
@@ -838,7 +897,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSharableResource()
+  @Override
+public EClass getSharableResource()
   {
     return sharableResourceEClass;
   }
@@ -848,7 +908,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSummaryResource()
+  @Override
+public EClass getSummaryResource()
   {
     return summaryResourceEClass;
   }
@@ -858,7 +919,8 @@ public class XDictionaryPackageImpl extends EPackageImpl implements XDictionaryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public XDictionaryFactory getXDictionaryFactory()
+  @Override
+public XDictionaryFactory getXDictionaryFactory()
   {
     return (XDictionaryFactory)getEFactoryInstance();
   }

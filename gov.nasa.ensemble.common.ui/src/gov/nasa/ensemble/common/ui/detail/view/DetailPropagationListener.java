@@ -34,6 +34,7 @@ public class DetailPropagationListener implements ISelectionChangedListener {
 		this.part = part;
 	}
 	
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		DetailPage details = DetailView.getDetailPageForPart(part);
 		if (details != null && details.getControl().isVisible())

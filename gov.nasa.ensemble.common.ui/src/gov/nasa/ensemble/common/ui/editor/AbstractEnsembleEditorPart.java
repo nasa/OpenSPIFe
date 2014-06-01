@@ -176,6 +176,7 @@ public abstract class AbstractEnsembleEditorPart extends EditorPart implements I
 	 * Override if necessary, be sure to call super
 	 * @param bars
 	 */
+	@Override
 	public void updateActionBars(IActionBars bars) {
 		if (bars != null) {
 			updateHandlerEnablements();
@@ -309,6 +310,7 @@ public abstract class AbstractEnsembleEditorPart extends EditorPart implements I
 	 * @author Andrew
 	 */
 	private class EditorSelectionChangedListener implements ISelectionChangedListener {
+		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
 			updateHandlerEnablements();
 		}

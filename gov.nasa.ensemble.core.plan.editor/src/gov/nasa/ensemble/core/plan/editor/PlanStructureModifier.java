@@ -86,6 +86,7 @@ public class PlanStructureModifier implements IStructureModifier {
 	 * @param semantics where to insert the selection
 	 * @return whether the selection can be transferred
 	 */
+	@Override
 	public boolean canInsert(TransferData type, ISelection selection, InsertionSemantics semantics) {
 		if (Level.DEBUG.isGreaterOrEqual(trace.getEffectiveLevel())) {
 			trace.debug("canInsert: selection: " + selection + " semantics: " + semantics);
@@ -133,6 +134,7 @@ public class PlanStructureModifier implements IStructureModifier {
 	 * @param selection the selection for which the PlanTransferable is being created
 	 * @return the newly-created PlanTransferable if it could be created; otherwise null
 	 */
+	@Override
 	public PlanTransferable getTransferable(ISelection selection) {
 		if (Level.DEBUG.isGreaterOrEqual(trace.getEffectiveLevel())) {
 			trace.debug("getTransferable: " + selection);
@@ -160,6 +162,7 @@ public class PlanStructureModifier implements IStructureModifier {
 	 * @param semantics where to insert the transferable into the selection relative to the target
 	 * element
 	 */
+	@Override
 	public IStructureLocation getInsertionLocation(ITransferable t, ISelection selection, InsertionSemantics semantics) {
 		if (Level.DEBUG.isGreaterOrEqual(trace.getEffectiveLevel())) {
 			trace.debug("getInsertionLocation: " + t);
@@ -195,6 +198,7 @@ public class PlanStructureModifier implements IStructureModifier {
 	 * @param transferable a transferable, which might be a plan element transferable
 	 * @param location the location to which the transferable is being dragged
 	 */
+	@Override
 	public void add(ITransferable transferable, IStructureLocation location) {
 		if (Level.DEBUG.isGreaterOrEqual(trace.getEffectiveLevel())) {
 			trace.debug("add: " + transferable + " at " + location);
@@ -208,6 +212,7 @@ public class PlanStructureModifier implements IStructureModifier {
 		}
 	}
 
+	@Override
 	public PlanOriginalLocation getLocation(ITransferable transferable) {
 		if (Level.DEBUG.isGreaterOrEqual(trace.getEffectiveLevel())) {
 			trace.debug("getLocation: " + transferable);
@@ -241,6 +246,7 @@ public class PlanStructureModifier implements IStructureModifier {
 	 * @param transferable a transferable, which might be a plan element transferable
 	 * @param location a structure location from which to remove the plan transferable's elements
 	 */
+	@Override
 	public void remove(ITransferable transferable, final IStructureLocation location) {
 		if (Level.DEBUG.isGreaterOrEqual(trace.getEffectiveLevel())) {
 			trace.debug("remove: " + transferable);
@@ -252,6 +258,7 @@ public class PlanStructureModifier implements IStructureModifier {
 				EPlan plan = EPlanUtils.getPlan(elements.iterator().next());
 				if (PlanEditApproverRegistry.getInstance().canModifyStructure(plan)) {
 					TransactionUtils.writing(plan, new Runnable() {
+						@Override
 						public void run() {
 							removeElements(location, peTransferable);
 						}
@@ -261,6 +268,7 @@ public class PlanStructureModifier implements IStructureModifier {
 		}
 	}
 
+	@Override
 	public ITransferable copy(ITransferable transferable) {
 		if (Level.DEBUG.isGreaterOrEqual(trace.getEffectiveLevel())) {
 			trace.debug("copy: " + transferable);
@@ -331,6 +339,7 @@ public class PlanStructureModifier implements IStructureModifier {
 				Set<EPlanChild> set = parentToNewChildren.get(parent);
 				if (set == null) {
 					set = new TreeSet<EPlanChild>(new Comparator<EPlanChild>() {
+						@Override
 						public int compare(EPlanChild o1, EPlanChild o2) {
 							return childToIndex.get(o1) - childToIndex.get(o2);
 						}
@@ -346,6 +355,7 @@ public class PlanStructureModifier implements IStructureModifier {
 				}
 			}
 			TransactionUtils.writing(plan, new Runnable() {
+				@Override
 				public void run() {
 					PlanUtils.addElementsAtIndices(parentToNewChildren, childToIndex);
 				}
@@ -356,6 +366,7 @@ public class PlanStructureModifier implements IStructureModifier {
 			final EPlanParent parent = state.getParent();
 			final int index = state.getIndex();
 			TransactionUtils.writing(parent, new Runnable() {
+				@Override
 				public void run() {
 					PlanUtils.addElementsHere(parent, index, CommonUtils.castList(EPlanChild.class, elements));
 				}

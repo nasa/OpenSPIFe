@@ -26,10 +26,12 @@ public class StateResourceDefTransferProvider extends SimpleByteArrayTransferPro
 	
 	public static final Transfer transfer = createSimpleByteArrayTransfer(StateResourceDefTransferProvider.class.getCanonicalName());
 	
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		return transferable instanceof StateResourceDefTransferable;
 	}
 	
+	@Override
 	public Transfer getTransfer() {
 		return transfer;
 	}

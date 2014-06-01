@@ -92,6 +92,7 @@ public class DistributeByDialog extends Dialog
 		{
 			IStringifier<Amount<Duration>> stringifier = new DurationStringifier();
 
+			@Override
 			public String isValid(String newText)
 			{
 				try
@@ -148,6 +149,7 @@ public class DistributeByDialog extends Dialog
 
 		textField = new Text(container, SWT.LEFT | SWT.BORDER);
 		textField.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(final ModifyEvent e) {
 				validateInput();
 			}

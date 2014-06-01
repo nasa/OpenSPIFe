@@ -134,6 +134,7 @@ public class HighlightUpdateEditPolicy extends PlanTimelineViewerEditPolicy impl
 		return (PlanTimelineDataRowEditPart) part;
 	}
 	
+	@Override
 	public void controlLost() {
 		// do nothing
 	}
@@ -185,6 +186,7 @@ public class HighlightUpdateEditPolicy extends PlanTimelineViewerEditPolicy impl
         	this.rightTime = planTemporalMember.getEndTime().getTime();
         }
 
+		@Override
 		public void run() {
             visitAll(plan);
         }
@@ -235,14 +237,17 @@ public class HighlightUpdateEditPolicy extends PlanTimelineViewerEditPolicy impl
 			}
 		}
 		
+		@Override
 		public BackgroundEventData getResult() {
 			return new BackgroundEventData(HighlightUpdateEditPolicy.this, currentNodes, leftTime, leftNode, leftTimepoint, rightTime, rightNode, rightTimepoint, getSelectionStartTime());
         }
 		
+		@Override
 		public void setStatus(IStatus status) {
             // nothing to do
         }
 		
+		@Override
 		public IStatus getStatus() {
             return null;
         }

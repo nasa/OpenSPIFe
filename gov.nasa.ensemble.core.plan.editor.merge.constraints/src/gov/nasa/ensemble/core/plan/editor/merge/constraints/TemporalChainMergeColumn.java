@@ -93,6 +93,7 @@ public class TemporalChainMergeColumn extends AbstractMergeColumn<ConstraintsMem
 		return "";
 	}
 	
+	@Override
 	public boolean handleMeasureItem(ConstraintsMember facet, Event event) {
 		if (facet != null) {
 			TemporalChain chain = facet.getChain();
@@ -118,11 +119,13 @@ public class TemporalChainMergeColumn extends AbstractMergeColumn<ConstraintsMem
 		return false;
 	}
 	
+	@Override
 	public boolean handleEraseItem(ConstraintsMember facet, Event event) {
 		// use default behavior
 		return false;
 	}
 	
+	@Override
 	public boolean handlePaintItem(ConstraintsMember facet, Event event) {
 		if (facet != null) {
 			TemporalChain chain = facet.getChain();

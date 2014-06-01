@@ -199,6 +199,7 @@ public class ScaleTimelineMarkerHoverEditPolicy extends TimelineViewerEditPolicy
 
 	public static final class Factory implements EditPolicyFactory {
 
+		@Override
 		public void installEditPolicy(EditPart editPart) {
 			if (editPart instanceof ScaleTimelineMarkerEditPart) {
 				Object model = editPart.getModel();

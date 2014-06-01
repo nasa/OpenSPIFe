@@ -56,6 +56,7 @@ public class ChoicesStringifier<T> implements IStringifier<T>
 	}
 	
 	// Simply show the specified object
+	@Override
 	public String getDisplayString(T javaObject) {
 		return stringifier.getDisplayString(javaObject);
 	}
@@ -65,6 +66,7 @@ public class ChoicesStringifier<T> implements IStringifier<T>
 	 * 
 	 * Will return null, if string is null
 	 */
+	@Override
 	public T getJavaObject(String userString, T defaultObject) throws ParseException {
 		if (userString == null || userString.trim().length() == 0) {
 			throw new ParseException(getChoiceFormatExceptionMessage(), -1);

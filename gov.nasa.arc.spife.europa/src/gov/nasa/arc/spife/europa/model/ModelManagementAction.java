@@ -45,6 +45,7 @@ public class ModelManagementAction extends AbstractHandler {
 		}
 	}
 
+	@Override
 	public Object execute(ExecutionEvent event) {
 		IWorkbench workbench = PlatformUI.getWorkbench();
 		if (workbench != null) {

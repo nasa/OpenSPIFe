@@ -205,6 +205,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -214,6 +215,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -226,6 +228,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getMetadata() {
 		if (metadata == null) {
 			metadata = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, ProfilePackage.PROFILE_REFERENCE__METADATA);
@@ -238,6 +241,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getEndOffset() {
 		return endOffset;
 	}
@@ -247,6 +251,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setEndOffset(TemporalOffset newEndOffset) {
 		TemporalOffset oldEndOffset = endOffset;
 		endOffset = newEndOffset;
@@ -261,6 +266,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Amount<Duration> getEndOffsetAmount() {
 		return getEndOffset().getOffset();
 	}
@@ -270,6 +276,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setEndOffsetAmount(Amount<Duration> newEndOffsetAmount) {
 		Amount<Duration> oldEndOffsetAmount = getEndOffsetAmount();
 		setEndOffset(getEndOffset().setOffset(newEndOffsetAmount));
@@ -282,6 +289,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Timepoint getEndOffsetTimepoint() {
 		return getEndOffset().getTimepoint();
 	}
@@ -291,6 +299,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setEndOffsetTimepoint(Timepoint newEndOffsetTimepoint) {
 		Timepoint oldEndOffsetTimepoint = getEndOffsetTimepoint();
 		setEndOffset(getEndOffset().setTimepoint(newEndOffsetTimepoint));
@@ -303,6 +312,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getProfileKey() {
 		return profileKey;
 	}
@@ -312,6 +322,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProfileKey(String newProfileKey) {
 		String oldProfileKey = profileKey;
 		profileKey = newProfileKey;
@@ -324,6 +335,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getStartOffset() {
 		return startOffset;
 	}
@@ -333,6 +345,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setStartOffset(TemporalOffset newStartOffset) {
 		TemporalOffset oldStartOffset = startOffset;
 		startOffset = newStartOffset;
@@ -347,6 +360,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Amount<Duration> getStartOffsetAmount() {
 		return getStartOffset().getOffset();
 	}
@@ -356,6 +370,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setStartOffsetAmount(Amount<Duration> newStartOffsetAmount) {
 		Amount<Duration> oldStartOffsetAmount = getStartOffsetAmount();
 		setStartOffset(getStartOffset().setOffset(newStartOffsetAmount));
@@ -368,6 +383,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Timepoint getStartOffsetTimepoint() {
 		return getStartOffset().getTimepoint();
 	}
@@ -377,6 +393,7 @@ public class ProfileReferenceImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setStartOffsetTimepoint(Timepoint newStartOffsetTimepoint) {
 		Timepoint oldStartOffsetTimepoint = getStartOffsetTimepoint();
 		setStartOffset(getStartOffset().setTimepoint(newStartOffsetTimepoint));

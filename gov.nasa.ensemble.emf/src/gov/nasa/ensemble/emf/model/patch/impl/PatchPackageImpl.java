@@ -159,6 +159,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPatch() {
 		return patchEClass;
 	}
@@ -168,6 +169,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatch_Reversed() {
 		return (EAttribute)patchEClass.getEStructuralFeatures().get(0);
 	}
@@ -177,6 +179,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatch_ObjectChanges() {
 		return (EReference)patchEClass.getEStructuralFeatures().get(2);
 	}
@@ -186,6 +189,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getObjectChanges() {
 		return objectChangesEClass;
 	}
@@ -195,6 +199,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectChanges_Object() {
 		return (EReference)objectChangesEClass.getEStructuralFeatures().get(0);
 	}
@@ -204,6 +209,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectChanges_Change() {
 		return (EReference)objectChangesEClass.getEStructuralFeatures().get(1);
 	}
@@ -213,6 +219,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatch_ResourceChanges() {
 		return (EReference)patchEClass.getEStructuralFeatures().get(1);
 	}
@@ -222,6 +229,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPatchFeatureChange() {
 		return patchFeatureChangeEClass;
 	}
@@ -231,6 +239,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchFeatureChange_Feature() {
 		return (EReference)patchFeatureChangeEClass.getEStructuralFeatures().get(0);
 	}
@@ -240,6 +249,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchFeatureChange_Value() {
 		return (EAttribute)patchFeatureChangeEClass.getEStructuralFeatures().get(1);
 	}
@@ -249,6 +259,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchFeatureChange_ValueString() {
 		return (EAttribute)patchFeatureChangeEClass.getEStructuralFeatures().get(2);
 	}
@@ -258,6 +269,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchFeatureChange_OldValueString() {
 		return (EAttribute)patchFeatureChangeEClass.getEStructuralFeatures().get(3);
 	}
@@ -267,6 +279,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchFeatureChange_ListChanges() {
 		return (EReference)patchFeatureChangeEClass.getEStructuralFeatures().get(4);
 	}
@@ -276,6 +289,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchFeatureChange_DisplayMessage() {
 		return (EAttribute)patchFeatureChangeEClass.getEStructuralFeatures().get(5);
 	}
@@ -285,6 +299,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchFeatureChange_Reference() {
 		return (EReference)patchFeatureChangeEClass.getEStructuralFeatures().get(6);
 	}
@@ -294,6 +309,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPatchListChange() {
 		return patchListChangeEClass;
 	}
@@ -303,6 +319,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchListChange_Reversed() {
 		return (EAttribute)patchListChangeEClass.getEStructuralFeatures().get(0);
 	}
@@ -312,6 +329,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchListChange_Type() {
 		return (EAttribute)patchListChangeEClass.getEStructuralFeatures().get(1);
 	}
@@ -321,6 +339,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchListChange_Index() {
 		return (EAttribute)patchListChangeEClass.getEStructuralFeatures().get(2);
 	}
@@ -330,6 +349,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchListChange_ContainedObject() {
 		return (EReference)patchListChangeEClass.getEStructuralFeatures().get(3);
 	}
@@ -339,6 +359,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchListChange_NonContainedObject() {
 		return (EReference)patchListChangeEClass.getEStructuralFeatures().get(4);
 	}
@@ -348,6 +369,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchListChange_ValueString() {
 		return (EAttribute)patchListChangeEClass.getEStructuralFeatures().get(5);
 	}
@@ -357,6 +379,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPatchResourceChange() {
 		return patchResourceChangeEClass;
 	}
@@ -366,6 +389,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchResourceChange_Resource() {
 		return (EAttribute)patchResourceChangeEClass.getEStructuralFeatures().get(0);
 	}
@@ -375,6 +399,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatchResourceChange_ResourceURI() {
 		return (EAttribute)patchResourceChangeEClass.getEStructuralFeatures().get(1);
 	}
@@ -384,6 +409,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPatchResourceChange_ListChanges() {
 		return (EReference)patchResourceChangeEClass.getEStructuralFeatures().get(2);
 	}
@@ -393,6 +419,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getChangeType() {
 		return changeTypeEEnum;
 	}
@@ -402,6 +429,7 @@ public class PatchPackageImpl extends EPackageImpl implements PatchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatchFactory getPatchFactory() {
 		return (PatchFactory)getEFactoryInstance();
 	}

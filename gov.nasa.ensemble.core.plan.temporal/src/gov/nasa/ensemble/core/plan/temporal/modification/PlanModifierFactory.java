@@ -63,6 +63,7 @@ public class PlanModifierFactory implements Comparable<PlanModifierFactory> {
 		}
 	}
 
+	@Override
 	public int compareTo(PlanModifierFactory o) {
 		return getName().compareTo(o.getName());
 	}

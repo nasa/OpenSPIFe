@@ -125,6 +125,7 @@ public class HibernatePackageImpl extends EPackageImpl implements HibernatePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHibernateMember() {
 		return hibernateMemberEClass;
 	}
@@ -134,6 +135,7 @@ public class HibernatePackageImpl extends EPackageImpl implements HibernatePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getHibernateMember_Wrapper() {
 		return (EAttribute)hibernateMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -143,6 +145,7 @@ public class HibernatePackageImpl extends EPackageImpl implements HibernatePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getHPlanElement() {
 		return hPlanElementEDataType;
 	}
@@ -152,6 +155,7 @@ public class HibernatePackageImpl extends EPackageImpl implements HibernatePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HibernateFactory getHibernateFactory() {
 		return (HibernateFactory)getEFactoryInstance();
 	}

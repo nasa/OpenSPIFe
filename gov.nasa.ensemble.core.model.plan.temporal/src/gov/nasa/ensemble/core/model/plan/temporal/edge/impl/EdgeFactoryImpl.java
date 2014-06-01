@@ -88,6 +88,7 @@ public class EdgeFactoryImpl extends EFactoryImpl implements EdgeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ETemporalEdgeManager createETemporalEdgeManager() {
 		ETemporalEdgeManagerImpl eTemporalEdgeManager = new ETemporalEdgeManagerImpl();
 		return eTemporalEdgeManager;
@@ -98,6 +99,7 @@ public class EdgeFactoryImpl extends EFactoryImpl implements EdgeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EdgePackage getEdgePackage() {
 		return (EdgePackage)getEPackage();
 	}

@@ -36,18 +36,22 @@ import org.eclipse.ui.IWorkbenchWindowActionDelegate;
  */
 public class FindUpdatesAction extends Action implements IWorkbenchWindowActionDelegate {
 
+	@Override
 	public void dispose() {
 		// no impl
     }
 
+	@Override
 	public void init(IWorkbenchWindow window) {
 		// no impl
     }
 
+	@Override
 	public void run(IAction action) {
 		// no impl
     }
 
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// no impl
     }

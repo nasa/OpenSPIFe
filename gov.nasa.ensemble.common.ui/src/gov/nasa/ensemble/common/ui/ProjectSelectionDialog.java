@@ -87,6 +87,7 @@ public class ProjectSelectionDialog extends SelectionDialog {
 		listViewer.setInput(ResourcesPlugin.getWorkspace());
 		listViewer.setSelection(new StructuredSelection(getInitialElementSelections()));
 		listViewer.addDoubleClickListener(new IDoubleClickListener() {
+			@Override
 			public void doubleClick(DoubleClickEvent event) {
 				ProjectSelectionDialog.this.okPressed();
 			}
@@ -111,8 +112,11 @@ public class ProjectSelectionDialog extends SelectionDialog {
     }
 
 	private class ProjectListProvider implements IStructuredContentProvider {		
+		@Override
 		public void dispose() {/* no operation */}
+		@Override
 		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {/* no operation */}
+		@Override
 		public Object[] getElements(Object inputElement) {
 			IProject[] allProjects = ((IWorkspace)inputElement).getRoot().getProjects();
 			if (projectFilter != null) {

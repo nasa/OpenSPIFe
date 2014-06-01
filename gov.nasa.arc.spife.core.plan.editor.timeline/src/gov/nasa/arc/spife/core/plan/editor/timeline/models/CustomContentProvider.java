@@ -48,7 +48,7 @@ public class CustomContentProvider extends PlanSectionContentProvider {
 	@Override
 	@SuppressWarnings("cast")
 	protected Object getValueWrapper(Object value) {
-		return (PlanSectionRow) value;
+		return value;
 	}
 
 	@Override

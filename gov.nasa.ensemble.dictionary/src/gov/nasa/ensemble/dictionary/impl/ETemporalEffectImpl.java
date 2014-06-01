@@ -188,6 +188,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -197,6 +198,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -209,6 +211,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String getName() {
 		EResourceDef resource = getDefinition();
 		return resource == null ? null : getDefinition().getName();
@@ -219,6 +222,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getStartOffset() {
 		return startOffset;
 	}
@@ -228,6 +232,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartOffset(TemporalOffset newStartOffset) {
 		TemporalOffset oldStartOffset = startOffset;
 		startOffset = newStartOffset;
@@ -240,6 +245,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalOffset getEndOffset() {
 		return endOffset;
 	}
@@ -249,6 +255,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndOffset(TemporalOffset newEndOffset) {
 		TemporalOffset oldEndOffset = endOffset;
 		endOffset = newEndOffset;
@@ -261,6 +268,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getStartEffect() {
 		return startEffect;
 	}
@@ -270,6 +278,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartEffect(String newStartEffect) {
 		String oldStartEffect = startEffect;
 		startEffect = newStartEffect;
@@ -282,6 +291,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getEndEffect() {
 		return endEffect;
 	}
@@ -291,6 +301,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndEffect(String newEndEffect) {
 		String oldEndEffect = endEffect;
 		endEffect = newEndEffect;
@@ -303,6 +314,7 @@ public abstract class ETemporalEffectImpl<T extends EResourceDef> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public T getDefinition() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

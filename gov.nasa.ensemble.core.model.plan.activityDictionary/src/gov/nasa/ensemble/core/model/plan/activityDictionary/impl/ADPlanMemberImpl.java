@@ -88,6 +88,7 @@ public class ADPlanMemberImpl extends EMemberImpl implements ADPlanMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getActivityDictionaryVersion() {
 		return activityDictionaryVersion;
 	}
@@ -97,6 +98,7 @@ public class ADPlanMemberImpl extends EMemberImpl implements ADPlanMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setActivityDictionaryVersion(String newActivityDictionaryVersion) {
 		String oldActivityDictionaryVersion = activityDictionaryVersion;
 		activityDictionaryVersion = newActivityDictionaryVersion;

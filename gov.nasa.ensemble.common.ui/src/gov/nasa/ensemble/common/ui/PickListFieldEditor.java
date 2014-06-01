@@ -452,7 +452,8 @@ public class PickListFieldEditor extends FieldEditor {
             buttonBox.setLayout(layout);
             createButtons(buttonBox);
             buttonBox.addDisposeListener(new DisposeListener() {
-                public void widgetDisposed(DisposeEvent event) {
+                @Override
+				public void widgetDisposed(DisposeEvent event) {
                     addButton = null;
                     removeButton = null;
                     addAllButton = null;
@@ -484,7 +485,8 @@ public class PickListFieldEditor extends FieldEditor {
     		pickableItemsList = getPickableListControl(leftColumn);
     		pickableItemsList.setLayoutData(new GridData(GridData.FILL_VERTICAL | GridData.GRAB_HORIZONTAL));
     		leftColumn.addDisposeListener(new DisposeListener() {
-    			public void widgetDisposed(DisposeEvent event) {
+    			@Override
+				public void widgetDisposed(DisposeEvent event) {
     				leftColumn = null;
     				pickableItemsList = null;
      			}});
@@ -508,7 +510,8 @@ public class PickListFieldEditor extends FieldEditor {
         if (pickableItemsList == null) {
         	pickableItemsList = createList(parent);
         	pickableItemsList.addDisposeListener(new DisposeListener() {
-                public void widgetDisposed(DisposeEvent event) {
+                @Override
+				public void widgetDisposed(DisposeEvent event) {
                 	pickableItemsList = null;
                 }
             });
@@ -524,7 +527,8 @@ public class PickListFieldEditor extends FieldEditor {
         if (selectedItemsList == null) {
         	selectedItemsList = createList(parent);
         	selectedItemsList.addDisposeListener(new DisposeListener() {
-                public void widgetDisposed(DisposeEvent event) {
+                @Override
+				public void widgetDisposed(DisposeEvent event) {
                 	selectedItemsList = null;
                 }
             });
@@ -793,7 +797,8 @@ public class PickListFieldEditor extends FieldEditor {
     
     private class PropertyChangeListenerImpl implements IPropertyChangeListener {
     
-    	public void propertyChange(PropertyChangeEvent event) {
+    	@Override
+		public void propertyChange(PropertyChangeEvent event) {
 			if (event.getProperty().equals(getPreferenceName())) {
 				doLoad((String) event.getNewValue());
 			}
@@ -803,6 +808,7 @@ public class PickListFieldEditor extends FieldEditor {
     
     private class PickableListComparator implements Comparator<String> {
     	
+		@Override
 		public int compare(String o1, String o2) {
 			int i1 = orginalPickableList.indexOf(o1);
 			int i2 = orginalPickableList.indexOf(o2);
@@ -812,7 +818,8 @@ public class PickListFieldEditor extends FieldEditor {
 	}
     
     private class SearchBoxModifyListener implements ModifyListener {
-    	public void modifyText(ModifyEvent e) {
+    	@Override
+		public void modifyText(ModifyEvent e) {
      		doLoad(selectedItemsList.getItems());
      		selectionChanged();
 		}
@@ -820,10 +827,12 @@ public class PickListFieldEditor extends FieldEditor {
     
     private class SearchBoxSelectionListener implements SelectionListener {
     	
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			widgetDefaultSelected(e);
 		}
     	
+		@Override
 		public void widgetDefaultSelected(SelectionEvent e) {
 			if (e.detail == SWT.CANCEL) {
 				searchCancelled();

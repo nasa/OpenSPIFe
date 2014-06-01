@@ -127,6 +127,7 @@ public abstract class TemporalPropertiesTest extends TestCase {
 		activity3_2.setName("activity 3.2");
 		activity3_3.setName("activity 3.3");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				constructPlan(plan);
 			}

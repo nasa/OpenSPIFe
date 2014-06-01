@@ -127,6 +127,7 @@ public class DaysComposite extends EnsembleComposite {
 		if (hBar != null) {
 			hBar.setVisible(true);
 			hBar.addListener (SWT.Selection, new Listener () {
+				@Override
 				public void handleEvent (Event e) {
 					updateDaysChildren();
 					daysEditor.daySelected(hBar.getSelection() / getChildWidth());
@@ -605,6 +606,7 @@ public class DaysComposite extends EnsembleComposite {
 		tree.setData(DAY_VIEWER_KEY, viewer);
 		tree.addFocusListener(focusListener);
 		MenuManager menuManager = WidgetUtils.createContextMenu(tree, new IMenuListener() {
+			@Override
 			public void menuAboutToShow(IMenuManager mgr) {
 				daysEditor.fillContextMenu(mgr);
 			}
@@ -723,6 +725,7 @@ public class DaysComposite extends EnsembleComposite {
 	
 	/*package*/ void setupPreferenceListener() {
 		final IPropertyChangeListener preferenceListener = new IPropertyChangeListener() {
+			@Override
 			public void propertyChange(PropertyChangeEvent event) {
 				if (event.getProperty().equals(DaysEditorPreferencePage.P_DAYS_EDITOR_FONT_SIZE)) {
 					daysTreeFontSize = null;
@@ -733,6 +736,7 @@ public class DaysComposite extends EnsembleComposite {
 			}
 		};
 		this.addDisposeListener(new DisposeListener() {
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				DaysPlugin.getDefault().getPreferenceStore().removePropertyChangeListener(preferenceListener);
 			}

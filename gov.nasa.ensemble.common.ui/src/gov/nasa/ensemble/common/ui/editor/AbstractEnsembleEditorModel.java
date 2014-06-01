@@ -158,6 +158,7 @@ public abstract class AbstractEnsembleEditorModel implements IEnsembleEditorMode
 	}
 	
 	public class DirtyStateOperationHistoryListener implements IOperationHistoryListener {
+		@Override
 		public void historyNotification(OperationHistoryEvent event) {
 			IUndoableOperation eventOperation = event.getOperation();
 			IUndoContext inputUndoContext = getUndoContext();

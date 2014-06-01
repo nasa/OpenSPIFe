@@ -37,18 +37,22 @@ public abstract class TemporalProvider extends AdapterImpl implements IChangeNot
 	
 	public abstract Amount<Duration> getDuration(Object object);
 	
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		notifier.addListener(notifyChangedListener);
 	}
 
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		notifier.fireNotifyChanged(notification);
 	}
 
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		notifier.removeListener(notifyChangedListener);
 	}
 
+	@Override
 	public void dispose() {
 		// no default implementation
 	}

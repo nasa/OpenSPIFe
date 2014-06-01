@@ -38,6 +38,7 @@ public class ViolationTracker implements Comparable<ViolationTracker> {
 		this.violation = violation;
 	}
 	
+	@Override
 	public int compareTo(ViolationTracker o2) {
 		long diff = DateUtils.subtract(o2.birthday, this.birthday);
 		return (diff == 0 ? 0 : (diff > 0 ? 1 : -1));

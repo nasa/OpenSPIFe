@@ -424,6 +424,7 @@ public class CheckResourceExistsConstraint extends AbstractModelConstraint {
 	
 	private static class WorkspaceListener implements IResourceChangeListener {
 		
+		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
 			resourceChanged(event.getDelta());
 		}
@@ -452,6 +453,7 @@ public class CheckResourceExistsConstraint extends AbstractModelConstraint {
 			}
 			Shell shell = WidgetUtils.getShell();
 			shell.getDisplay().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					for (ObjectFeature objectFeature : affected) {
 						EMFDetailUtils.reValidateFeature(objectFeature.getObject(), objectFeature.getFeature());

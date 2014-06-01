@@ -26,6 +26,7 @@ import org.eclipse.emf.validation.model.IClientSelector;
 
 public class TestClientSelector implements IClientSelector {
 
+	@Override
 	public boolean selects(Object object) {
 		EObject target = (EObject)object;
 		if (target instanceof EActivity) {

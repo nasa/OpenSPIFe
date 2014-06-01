@@ -156,6 +156,7 @@ public class TemporalNodeDecoratorTextEditPolicy extends PlanTimelineViewerEditP
 		}
 		final Color color = rgb == null ? ColorConstants.black : ColorMap.RGB_INSTANCE.getColor(rgb);
 		GEFUtils.runInDisplayThread(getHost(), new Runnable() {
+			@Override
 			public void run() {
 				textOverlayFigure.setForegroundColor(color);
 				setTextColor();
@@ -215,6 +216,7 @@ public class TemporalNodeDecoratorTextEditPolicy extends PlanTimelineViewerEditP
 
 	private void refreshFeedbackInDisplayThread() {
 		GEFUtils.runLaterInDisplayThread(getHost(), new Runnable() {
+			@Override
 			public void run() {
 				IFigure f = getHostFigure();
 				LayoutManager layout = f.getParent().getLayoutManager();
@@ -248,6 +250,7 @@ public class TemporalNodeDecoratorTextEditPolicy extends PlanTimelineViewerEditP
 			}
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			String property = event.getProperty();
 			if (TimelinePreferencePage.P_DECORATOR_TEXT_KEY.equals(property)) {

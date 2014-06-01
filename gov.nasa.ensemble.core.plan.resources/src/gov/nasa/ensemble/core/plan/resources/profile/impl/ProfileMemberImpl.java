@@ -101,6 +101,7 @@ public class ProfileMemberImpl extends EMemberImpl implements ProfileMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ProfileConstraint> getConstraints() {
 		if (constraints == null) {
 			constraints = new EObjectContainmentEList<ProfileConstraint>(ProfileConstraint.class, this, ProfilePackage.PROFILE_MEMBER__CONSTRAINTS);
@@ -113,6 +114,7 @@ public class ProfileMemberImpl extends EMemberImpl implements ProfileMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ProfileEffect> getEffects() {
 		if (effects == null) {
 			effects = new EObjectContainmentEList<ProfileEffect>(ProfileEffect.class, this, ProfilePackage.PROFILE_MEMBER__EFFECTS);

@@ -95,6 +95,7 @@ public class FixedTransactionChangeRecorder extends TransactionChangeRecorder {
 					Thread currentThread = Thread.currentThread();
 					if (owner != currentThread) {
 						TransactionUtils.writing(internalDomain, new Runnable() {
+							@Override
 							public void run() {
 								performNotifyChanged(notification);
 							}

@@ -126,6 +126,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getAnchor() {
 		return anchor;
 	}
@@ -135,6 +136,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAnchor(String newAnchor) {
 		String oldAnchor = anchor;
 		anchor = newAnchor;
@@ -147,6 +149,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EPlanElement getElement() {
 		if (element != null && element.eIsProxy()) {
 			InternalEObject oldElement = (InternalEObject)element;
@@ -173,6 +176,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setElement(EPlanElement newElement) {
 		EPlanElement oldElement = element;
 		element = newElement;
@@ -185,6 +189,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Timepoint getEndpoint() {
 		return endpoint;
 	}
@@ -194,6 +199,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndpoint(Timepoint newEndpoint) {
 		Timepoint oldEndpoint = endpoint;
 		endpoint = newEndpoint == null ? ENDPOINT_EDEFAULT : newEndpoint;
@@ -206,6 +212,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Object getAnchorElement() {
 		if (getAnchor() != null) {
 			return getAnchor();
@@ -213,6 +220,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 		return getEndpoint();
 	}
 
+	@Override
 	public Date getDate() {
 		EPlanElement element = getElement();
 		if (element == null) {
@@ -244,6 +252,7 @@ public class ConstraintPointImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public boolean hasEndpoint() {
 		return getAnchor() == null;
 	}

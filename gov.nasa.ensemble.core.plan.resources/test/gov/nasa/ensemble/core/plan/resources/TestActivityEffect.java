@@ -49,6 +49,7 @@ public class TestActivityEffect extends AbstractResourceTest {
 		final EActivity noOffset = PLAN_FACTORY.createActivity(noOffestDef);
 		final EPlan plan = createPlan(noOffset);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				noOffset.getMember(TemporalMember.class).setStartTime(OFFSET_TEST_ACTIVITY_START_TIME);
@@ -58,6 +59,7 @@ public class TestActivityEffect extends AbstractResourceTest {
 		recomputePlan(plan);
 		
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				Profile<?> profile = ResourceUtils.getProfile(plan, "Control");
 				assertNotNull(profile);
@@ -76,6 +78,7 @@ public class TestActivityEffect extends AbstractResourceTest {
 		final EActivity oneHourOffest = PLAN_FACTORY.createActivity(oneHourOffestDef);
 		final EPlan plan = createPlan(oneHourOffest);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				oneHourOffest.getMember(TemporalMember.class).setStartTime(DateUtils.add(PLAN_START, ONE_HOUR.times(2)));
@@ -85,6 +88,7 @@ public class TestActivityEffect extends AbstractResourceTest {
 		recomputePlan(plan);
 		
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				Profile<?> profile = ResourceUtils.getProfile(plan, "Control");
 				assertNotNull(profile);
@@ -116,6 +120,7 @@ public class TestActivityEffect extends AbstractResourceTest {
 		final EPlan plan = createPlan(handover);
 
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				handover.getMember(TemporalMember.class).setStartTime(PLAN_START);
@@ -126,6 +131,7 @@ public class TestActivityEffect extends AbstractResourceTest {
 		recomputePlan(plan);
 		
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				Profile<?> profile = ResourceUtils.getProfile(plan, "Control");
 				assertNotNull(profile);

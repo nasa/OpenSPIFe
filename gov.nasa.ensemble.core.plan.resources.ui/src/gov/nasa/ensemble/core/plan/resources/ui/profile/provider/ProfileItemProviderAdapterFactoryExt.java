@@ -64,6 +64,7 @@ public class ProfileItemProviderAdapterFactoryExt extends ProfileItemProviderAda
 		return super.adapt(target, type);
 	}
 
+	@Override
 	public ITreeTableColumn getTreeTableColumn(DetailProviderParameter parameter) {
 		EObject model = parameter.getTarget();
 		IItemPropertyDescriptor pd = parameter.getPropertyDescriptor();
@@ -80,9 +81,13 @@ public class ProfileItemProviderAdapterFactoryExt extends ProfileItemProviderAda
 		return null;
 	}
 
+	@Override
 	public void notifyChanged(Notification notification) 	{ /* no implementation */ }
+	@Override
 	public Notifier getTarget() 							{ return null; }
+	@Override
 	public void setTarget(Notifier newTarget) 				{ /* no implementation */ }
+	@Override
 	public boolean isAdapterForType(Object type) 			{ return false; }
 
 	private final static class ProfileReferenceValueLiteralColumn extends EMFTreeTableColumn<ProfileReference> {
@@ -134,6 +139,7 @@ public class ProfileItemProviderAdapterFactoryExt extends ProfileItemProviderAda
 	
 	private static final class MaximumGapStringifier extends AbstractTrimmingStringifier<Amount<Duration>> {
 
+		@Override
 		public String getDisplayString(Amount<Duration> duration) {
 			if (duration == null) { 
 				return null;

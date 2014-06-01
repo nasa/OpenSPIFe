@@ -27,6 +27,7 @@ import org.eclipse.gef.EditPart;
 
 public class ResourceDropTargetPolicyFactory implements EditPolicyFactory {
 
+	@Override
 	public void installEditPolicy(EditPart editPart) {
 		if (!(editPart.getViewer() instanceof PlanTimelineViewer)) {
 			return;

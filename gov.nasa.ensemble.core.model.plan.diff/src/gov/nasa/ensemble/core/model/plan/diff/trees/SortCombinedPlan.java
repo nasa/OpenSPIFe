@@ -48,6 +48,7 @@ public class SortCombinedPlan implements Comparator<PlanDiffNode> {
 		notePlanOrdering(plan1);
 	}
 	
+	@Override
 	public int compare(PlanDiffNode arg1, PlanDiffNode arg2) {
 		if (arg1 instanceof PlanDiffObjectNode && arg2 instanceof PlanDiffObjectNode)
 			return compare((PlanDiffObjectNode)arg1, (PlanDiffObjectNode)arg2);

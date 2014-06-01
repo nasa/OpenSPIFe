@@ -32,10 +32,12 @@ public class ChangedByRemovingElementImpl implements ChangedByRemovingElement {
 		this.diffInfo = diffInfo;
 	}
 
+	@Override
 	public EPlanChild getRemovedElement() {
 		return element;
 	}
 
+	@Override
 	public EPlanElement getParent() {
 		EPlanElement oldCopyOfParent = element.getParent();
 		EPlanElement newCopyOfParent = diffInfo.findNewCopy(oldCopyOfParent);
@@ -46,6 +48,7 @@ public class ChangedByRemovingElementImpl implements ChangedByRemovingElement {
 		}
 	}
 
+	@Override
 	public DiffType getDiffType() {
 		return DiffType.REMOVE;
 	}

@@ -72,17 +72,21 @@ public class PlanAdvisorTreeViewer extends TreeViewer {
 				sortColumn = column;
 			}
 			column.addControlListener(new ControlListener() {
+				@Override
 				public void controlMoved(ControlEvent e) {
 					updateOrder();
 				}
+				@Override
 				public void controlResized(ControlEvent e) {
 					// ignore resizes for now
 				}
 			});
 			column.addSelectionListener(new SelectionListener() {
+				@Override
 				public void widgetSelected(SelectionEvent e) {
 					handleColumnSelected(violationKey, column);
 				}
+				@Override
 				public void widgetDefaultSelected(SelectionEvent e) {
 					handleColumnSelected(violationKey, column);
 				}
@@ -129,6 +133,7 @@ public class PlanAdvisorTreeViewer extends TreeViewer {
 			this.control = control;
 		}
 
+		@Override
 		public void handleEvent(Event event) {
 			TreeItem treeItem = (TreeItem)event.item;
 			Object element = treeItem.getData();

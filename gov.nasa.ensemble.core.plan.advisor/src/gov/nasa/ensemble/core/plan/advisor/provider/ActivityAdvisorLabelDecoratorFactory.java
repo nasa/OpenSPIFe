@@ -26,6 +26,7 @@ import org.eclipse.jface.viewers.ILabelDecorator;
 
 public class ActivityAdvisorLabelDecoratorFactory implements ClassRegistryFactory{
 
+	@Override
 	public List createInstances() {
 		List<ILabelDecorator> labelDecorators = new ArrayList<ILabelDecorator>();
 		labelDecorators.add(new ActivityAdvisorLabelDecorator());

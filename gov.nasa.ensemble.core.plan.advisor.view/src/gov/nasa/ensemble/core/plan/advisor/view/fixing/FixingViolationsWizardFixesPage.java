@@ -79,6 +79,7 @@ public class FixingViolationsWizardFixesPage extends WizardPage {
 		updateViolationFixes();
 	}
 	
+	@Override
 	public void createControl(Composite parent) {
 		Composite controlComposite = new EnsembleComposite(parent, SWT.NONE);
 		controlComposite.setLayout(new FillLayout(SWT.VERTICAL));
@@ -300,6 +301,7 @@ public class FixingViolationsWizardFixesPage extends WizardPage {
 	 *
 	 */
 	private final class CheckboxTreeListener implements Listener {
+		@Override
 		public void handleEvent(Event event) {
 			if ((event.detail == SWT.CHECK)
 				&& (event.item instanceof TreeItem)) {

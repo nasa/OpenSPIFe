@@ -44,6 +44,7 @@ import org.eclipse.swt.widgets.Composite;
 		this.title = title;
 	}
 
+	@Override
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
@@ -89,6 +90,7 @@ import org.eclipse.swt.widgets.Composite;
 		
 		pickList.setPropertyChangeListener(new IPropertyChangeListener() {
 	
+			@Override
 			public void propertyChange(PropertyChangeEvent event) {
 				getContainer().updateButtons();
 			}

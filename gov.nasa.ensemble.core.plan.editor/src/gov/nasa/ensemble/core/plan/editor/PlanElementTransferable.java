@@ -32,10 +32,12 @@ public abstract class PlanElementTransferable implements IPlanElementTransferabl
 		return map;
 	}
 
+	@Override
 	public void setData(String key, Object value) {
 		map.put(key, value);
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public <T> T getData(String key) {
 		return (T)map.get(key);

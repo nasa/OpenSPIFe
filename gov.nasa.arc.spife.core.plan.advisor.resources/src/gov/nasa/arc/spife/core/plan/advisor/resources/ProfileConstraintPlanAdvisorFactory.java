@@ -30,6 +30,7 @@ public class ProfileConstraintPlanAdvisorFactory implements IPlanAdvisorFactory 
 		disabled = b;
 	}
 	
+	@Override
 	public PlanAdvisor create(PlanAdvisorMember planAdvisorMember) {
 		if (disabled && !CommonPlugin.isJunitRunning()) {
 			return null;

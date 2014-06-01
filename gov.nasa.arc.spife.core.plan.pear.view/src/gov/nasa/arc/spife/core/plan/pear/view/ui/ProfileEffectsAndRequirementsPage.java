@@ -381,6 +381,7 @@ public class ProfileEffectsAndRequirementsPage extends Page {
 
 	private class Listener implements ISelectionListener {
 
+		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 			if (part instanceof ProfileEffectsAndRequirementsView) {
 				return;

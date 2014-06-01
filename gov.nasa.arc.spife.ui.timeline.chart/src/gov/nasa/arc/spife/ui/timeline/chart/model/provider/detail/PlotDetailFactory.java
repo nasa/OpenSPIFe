@@ -27,6 +27,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 public class PlotDetailFactory extends AdapterImpl implements IDetailFactory {
 
+	@Override
 	public IDetailSheet buildDetailSheet(Object object, FormToolkit formToolkit, ScrolledForm scrolledForm, ISelectionProvider selectionProvider) {
 		IDetailSheet sheet = new PlotDetailSheet(formToolkit, scrolledForm);
 		sheet.setInput(object);

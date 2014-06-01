@@ -31,6 +31,7 @@ public class RolePlanEditApprover implements IPlanEditApprover {
 	/**
 	 * Check to see that the PlanElement can be modified with the current role
 	 */
+	@Override
 	public boolean canModify(EPlanElement e) {
 		EPlan p = EPlanUtils.getPlan(e);
 		// if the plan element's plan is null, then we have no context in which to make a decision, so we can safely return either true or false
@@ -41,6 +42,7 @@ public class RolePlanEditApprover implements IPlanEditApprover {
 		return r == null || r.canModify(e);
 	}
 
+	@Override
 	public boolean canModifyStructure(EPlan p) {
 		if (p == null) {
 			return false;
@@ -50,6 +52,7 @@ public class RolePlanEditApprover implements IPlanEditApprover {
 		return r == null || r.canModifyStructure(p);
 	}
 
+	@Override
 	public boolean needsUpdate(ResourceSetChangeEvent event) {
 		return false;
 	}

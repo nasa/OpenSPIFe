@@ -68,6 +68,7 @@ public class TemplatePlanAddNewOperation extends TemplatePlanOperation implement
 	   		List<? extends EObject> folders = getAllFolderModels(structuredSelection);
 	   		makeTemplateReferenceAllTheFolders(activity, folders);
 			TransactionUtils.writing(templatePlan, new Runnable() {
+				@Override
 				public void run() {
 					templatePlan.getChildren().add(activity);
 					addedElement = activity;

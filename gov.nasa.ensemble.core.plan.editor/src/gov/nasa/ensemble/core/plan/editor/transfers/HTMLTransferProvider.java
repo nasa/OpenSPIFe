@@ -34,10 +34,12 @@ import org.eclipse.swt.dnd.Transfer;
  */
 public class HTMLTransferProvider implements ITransferProvider<String> {
 
+	@Override
 	public Transfer getTransfer() {
 		return HTMLTransfer.getInstance(); 
 	}
 
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		// This transferable is disabled for now because it adds an unnecessary expense
 		// to each copy.  The file is not deleted because it is a good example of how
@@ -46,6 +48,7 @@ public class HTMLTransferProvider implements ITransferProvider<String> {
 		return false;
 	}
 
+	@Override
 	public String packTransferObject(ITransferable transferable) {
 		if ((transferable == null) || !(transferable instanceof IPlanElementTransferable)) {
 			return "null";
@@ -68,6 +71,7 @@ public class HTMLTransferProvider implements ITransferProvider<String> {
 		return string.toString();
 	}
 
+	@Override
 	public ITransferable unpackTransferObject(String clipboardObject) {
 		return null;
 	}

@@ -343,6 +343,7 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 				 * @param c2 the configuration element for an editor page
 				 * @return
 				 */
+				@Override
 				public int compare(IConfigurationElement c1, IConfigurationElement c2) {
 					return getPreferredTabPosition(c1) - getPreferredTabPosition(c2);
 				}
@@ -458,6 +459,7 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 			final IProject project = file.getProject();
 			if (project != null && project.exists()) {
 				IRunnableWithProgress op = new IRunnableWithProgress() {
+					@Override
 					public void run(IProgressMonitor monitor) throws InvocationTargetException {
 						DeleteResourcesOperation op = new DeleteResourcesOperation(new IResource[] {project}, "deleting project", true);
 						try {
@@ -512,6 +514,7 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 		//
 		// run the save in a job
 		IRunnableWithProgress job = new IRunnableWithProgress() {
+			@Override
 			public void run(IProgressMonitor monitor) {
 				savePlan(getPlan(), monitor);
 			}
@@ -917,7 +920,8 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 	@Override
 	public void setPartName(final String name) {
 		getSite().getShell().getDisplay().syncExec(new Runnable() {
-            public void run() {
+            @Override
+			public void run() {
             	MultiPagePlanEditor.super.setPartName(getShortName(name));
             }
         });
@@ -1158,6 +1162,7 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 			} else {
 				if (!version_ad.equals(version_plan)) {
 					WidgetUtils.runInDisplayThread(workbenchWindow.getShell(), new Runnable() {
+						@Override
 						public void run() {
 							MessageDialog.openWarning(workbenchWindow.getShell(), "Incompatible Activity Dictionary",
 									"You are attempting to load a plan created with AD version number " + version_plan
@@ -1234,6 +1239,7 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 		 * the plan editor.
 		 * @param event the change event; only post-change events are of interest
 		 */
+		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
 			if (IResourceChangeEvent.POST_CHANGE == event.getType()) {
 				List<IResource> changedResources = ResourceUtils.getChangedResources(event.getDelta());
@@ -1247,6 +1253,7 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 								if (!resource.exists()) {
 									Display display = WidgetUtils.getDisplay();
 									display.asyncExec(new Runnable() {
+										@Override
 										public void run() {
 											closePlan(ePlan);
 										}
@@ -1310,8 +1317,10 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 		/**
 		 * When the dirty state changes, fire a property-change event for the "dirty" property.
 		 */
+		@Override
 		public void dirtyStateChanged() {
 			WidgetUtils.runInDisplayThread(MultiPagePlanEditor.this.getContainer(), new Runnable() {
+				@Override
 				public void run() {
 					firePropertyChange(ISaveablePart.PROP_DIRTY);
 				}
@@ -1335,6 +1344,7 @@ public class MultiPagePlanEditor extends MultiPageEditorPart implements IReusabl
 		public void notifyChanged(Notification msg) {
 			if (nameHelper.getNameAttributes().contains(msg.getFeature())) {
 				WidgetUtils.runInDisplayThread(MultiPagePlanEditor.this.getContainer(), new Runnable() {
+					@Override
 					public void run() {
 						updatePartName(getPlan());
 					}

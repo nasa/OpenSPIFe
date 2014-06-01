@@ -135,7 +135,8 @@ public class AttributeDefImpl extends ParameterDefImpl implements AttributeDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDefaultValueLiteral()
+  @Override
+public String getDefaultValueLiteral()
   {
     return defaultValueLiteral;
   }
@@ -145,7 +146,8 @@ public class AttributeDefImpl extends ParameterDefImpl implements AttributeDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDefaultValueLiteral(String newDefaultValueLiteral)
+  @Override
+public void setDefaultValueLiteral(String newDefaultValueLiteral)
   {
     String oldDefaultValueLiteral = defaultValueLiteral;
     defaultValueLiteral = newDefaultValueLiteral;
@@ -158,7 +160,8 @@ public class AttributeDefImpl extends ParameterDefImpl implements AttributeDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getShortDescription()
+  @Override
+public String getShortDescription()
   {
     return shortDescription;
   }
@@ -168,7 +171,8 @@ public class AttributeDefImpl extends ParameterDefImpl implements AttributeDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setShortDescription(String newShortDescription)
+  @Override
+public void setShortDescription(String newShortDescription)
   {
     String oldShortDescription = shortDescription;
     shortDescription = newShortDescription;
@@ -181,7 +185,8 @@ public class AttributeDefImpl extends ParameterDefImpl implements AttributeDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getUnits()
+  @Override
+public String getUnits()
   {
     return units;
   }
@@ -191,7 +196,8 @@ public class AttributeDefImpl extends ParameterDefImpl implements AttributeDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setUnits(String newUnits)
+  @Override
+public void setUnits(String newUnits)
   {
     String oldUnits = units;
     units = newUnits;
@@ -204,7 +210,8 @@ public class AttributeDefImpl extends ParameterDefImpl implements AttributeDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getParameterName()
+  @Override
+public String getParameterName()
   {
     return parameterName;
   }
@@ -214,7 +221,8 @@ public class AttributeDefImpl extends ParameterDefImpl implements AttributeDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParameterName(String newParameterName)
+  @Override
+public void setParameterName(String newParameterName)
   {
     String oldParameterName = parameterName;
     parameterName = newParameterName;

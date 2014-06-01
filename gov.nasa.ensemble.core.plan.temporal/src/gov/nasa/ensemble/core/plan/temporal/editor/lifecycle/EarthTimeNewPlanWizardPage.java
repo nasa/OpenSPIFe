@@ -119,8 +119,10 @@ public class EarthTimeNewPlanWizardPage extends TemporalNewPlanWizardPage implem
 	private EnsembleTextBasedDateEditor createDateEditor(Composite parent, Date date) {
 		final EnsembleTextBasedDateEditor editor = new EnsembleTextBasedDateEditor(this, parent, date);
 		editor.addPropertyChangeListener(new PropertyChangeListener() {
+			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
 				WidgetUtils.runInDisplayThread(editor.getEditorControl(), new Runnable() {
+					@Override
 					public void run() {
 						if (validateTimeFields()) {
 							getPlanIdentification().setPlanStart(getPlanStartDate());

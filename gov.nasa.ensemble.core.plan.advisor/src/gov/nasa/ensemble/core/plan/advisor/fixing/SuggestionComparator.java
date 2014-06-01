@@ -23,6 +23,7 @@ import java.util.Comparator;
 
 public class SuggestionComparator implements Comparator<SuggestedStartTime> {
 
+	@Override
 	public int compare(SuggestedStartTime o1, SuggestedStartTime o2) {
 		return PlanUtils.INHERENT_ORDER.compare(o1.node, o2.node);
 //		long delta = DateUtils.subtract(o1.getStartTime(), o2.getStartTime());

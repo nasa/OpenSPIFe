@@ -127,6 +127,7 @@ public class AmountConstraintImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AmountExtent<?> getExtent() {
 		return extent;
 	}
@@ -136,6 +137,7 @@ public class AmountConstraintImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExtent(AmountExtent<?> newExtent) {
 		AmountExtent<?> oldExtent = extent;
 		extent = newExtent;
@@ -148,6 +150,7 @@ public class AmountConstraintImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return key;
 	}
@@ -157,6 +160,7 @@ public class AmountConstraintImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(String newKey) {
 		String oldKey = key;
 		key = newKey;
@@ -169,6 +173,7 @@ public class AmountConstraintImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isWaived() {
 		return (eFlags & WAIVED_EFLAG) != 0;
 	}
@@ -178,6 +183,7 @@ public class AmountConstraintImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWaived(boolean newWaived) {
 		boolean oldWaived = (eFlags & WAIVED_EFLAG) != 0;
 		if (newWaived) eFlags |= WAIVED_EFLAG; else eFlags &= ~WAIVED_EFLAG;

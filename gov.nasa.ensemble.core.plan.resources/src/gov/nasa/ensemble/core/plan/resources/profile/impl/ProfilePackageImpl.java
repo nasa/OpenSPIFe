@@ -198,6 +198,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProfileConstraint() {
 		return profileConstraintEClass;
 	}
@@ -207,6 +208,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProfileEffect() {
 		return profileEffectEClass;
 	}
@@ -216,6 +218,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileEffect_StartValueLiteral() {
 		return (EAttribute)profileEffectEClass.getEStructuralFeatures().get(0);
 	}
@@ -225,6 +228,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileEffect_EndValueLiteral() {
 		return (EAttribute)profileEffectEClass.getEStructuralFeatures().get(1);
 	}
@@ -234,6 +238,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProfileMember() {
 		return profileMemberEClass;
 	}
@@ -243,6 +248,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProfileMember_Constraints() {
 		return (EReference)profileMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -252,6 +258,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProfileMember_Effects() {
 		return (EReference)profileMemberEClass.getEStructuralFeatures().get(1);
 	}
@@ -261,6 +268,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResourceProfileMember() {
 		return resourceProfileMemberEClass;
 	}
@@ -270,6 +278,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getResourceProfileMember_ResourceProfiles() {
 		return (EReference)resourceProfileMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -279,6 +288,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProfileReference() {
 		return profileReferenceEClass;
 	}
@@ -288,6 +298,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileReference_Id() {
 		return (EAttribute)profileReferenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -297,6 +308,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProfileReference_Metadata() {
 		return (EReference)profileReferenceEClass.getEStructuralFeatures().get(1);
 	}
@@ -306,6 +318,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileReference_EndOffset() {
 		return (EAttribute)profileReferenceEClass.getEStructuralFeatures().get(5);
 	}
@@ -315,6 +328,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileReference_EndOffsetAmount() {
 		return (EAttribute)profileReferenceEClass.getEStructuralFeatures().get(6);
 	}
@@ -324,6 +338,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileReference_EndOffsetTimepoint() {
 		return (EAttribute)profileReferenceEClass.getEStructuralFeatures().get(7);
 	}
@@ -333,6 +348,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileReference_ProfileKey() {
 		return (EAttribute)profileReferenceEClass.getEStructuralFeatures().get(8);
 	}
@@ -342,6 +358,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileReference_StartOffset() {
 		return (EAttribute)profileReferenceEClass.getEStructuralFeatures().get(2);
 	}
@@ -351,6 +368,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileReference_StartOffsetAmount() {
 		return (EAttribute)profileReferenceEClass.getEStructuralFeatures().get(3);
 	}
@@ -360,6 +378,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileReference_StartOffsetTimepoint() {
 		return (EAttribute)profileReferenceEClass.getEStructuralFeatures().get(4);
 	}
@@ -369,6 +388,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStructuralFeatureProfile() {
 		return structuralFeatureProfileEClass;
 	}
@@ -378,6 +398,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStructuralFeatureProfile_Description() {
 		return (EAttribute)structuralFeatureProfileEClass.getEStructuralFeatures().get(0);
 	}
@@ -387,6 +408,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuralFeatureProfile_Object() {
 		return (EReference)structuralFeatureProfileEClass.getEStructuralFeatures().get(1);
 	}
@@ -396,6 +418,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStructuralFeatureProfile_Feature() {
 		return (EReference)structuralFeatureProfileEClass.getEStructuralFeatures().get(2);
 	}
@@ -405,6 +428,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getViolationWaiver() {
 		return violationWaiverEClass;
 	}
@@ -414,6 +438,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViolationWaiver_Id() {
 		return (EAttribute)violationWaiverEClass.getEStructuralFeatures().get(0);
 	}
@@ -423,6 +448,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViolationWaiver_Start() {
 		return (EAttribute)violationWaiverEClass.getEStructuralFeatures().get(1);
 	}
@@ -432,6 +458,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViolationWaiver_End() {
 		return (EAttribute)violationWaiverEClass.getEStructuralFeatures().get(2);
 	}
@@ -441,6 +468,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViolationWaiver_WaiverRationale() {
 		return (EAttribute)violationWaiverEClass.getEStructuralFeatures().get(3);
 	}
@@ -450,6 +478,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIMember() {
 		return iMemberEClass;
 	}
@@ -459,6 +488,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProfileEnvelopeConstraint() {
 		return profileEnvelopeConstraintEClass;
 	}
@@ -468,6 +498,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileEnvelopeConstraint_MinLiteral() {
 		return (EAttribute)profileEnvelopeConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -477,6 +508,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileEnvelopeConstraint_MaxLiteral() {
 		return (EAttribute)profileEnvelopeConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -486,6 +518,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileEnvelopeConstraint_FromAD() {
 		return (EAttribute)profileEnvelopeConstraintEClass.getEStructuralFeatures().get(2);
 	}
@@ -495,6 +528,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProfileEnvelopeConstraint_Waivers() {
 		return (EReference)profileEnvelopeConstraintEClass.getEStructuralFeatures().get(3);
 	}
@@ -504,6 +538,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProfileEqualityConstraint() {
 		return profileEqualityConstraintEClass;
 	}
@@ -513,6 +548,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileEqualityConstraint_ValueLiteral() {
 		return (EAttribute)profileEqualityConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -522,6 +558,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProfileEqualityConstraint_MaximumGap() {
 		return (EAttribute)profileEqualityConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -531,6 +568,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProfileFactory getProfileFactory() {
 		return (ProfileFactory)getEFactoryInstance();
 	}

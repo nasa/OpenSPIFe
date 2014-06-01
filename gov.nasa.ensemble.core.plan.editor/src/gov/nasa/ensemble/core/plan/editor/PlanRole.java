@@ -67,6 +67,7 @@ public class PlanRole implements IPlanEditApprover, Externalizable {
 		return false;
 	}
     
+	@Override
 	public boolean canModify(EPlanElement e) {
 		EPlan p = EPlanUtils.getPlan(e);
 		if (p == null) {
@@ -103,11 +104,13 @@ public class PlanRole implements IPlanEditApprover, Externalizable {
 		}
 	}
 
+	@Override
 	public boolean canModifyStructure(EPlan plan) {
 		return canModifyPlanStructure();
 	}
     
-    public boolean needsUpdate(ResourceSetChangeEvent event) {
+    @Override
+	public boolean needsUpdate(ResourceSetChangeEvent event) {
     	// want to set to true if plan role has changed
 		return false;
 	}
@@ -130,7 +133,8 @@ public class PlanRole implements IPlanEditApprover, Externalizable {
 		return "PlanRole[" + name + "]";
 	}
 
-    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+    @Override
+	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
     	this.name = (String) in.readObject();
 		int numOfCategories = in.readInt();
 		for (int i = 0; i < numOfCategories; i++) {
@@ -139,6 +143,7 @@ public class PlanRole implements IPlanEditApprover, Externalizable {
     	this.canModifyPlanStructure = in.readBoolean();
 	}
 
+	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		out.writeObject(name);
 		out.writeInt(categories.size());

@@ -46,6 +46,7 @@ public abstract class AbstractCommandItemContributor extends ContributionItem im
 	protected AbstractCommandItemContributor missionSpecificContributor = null;
 	private boolean dirty;
 	private IMenuListener menuListener = new IMenuListener() {
+		@Override
 		public void menuAboutToShow(IMenuManager manager) {
 			manager.markDirty();
 			dirty = true;

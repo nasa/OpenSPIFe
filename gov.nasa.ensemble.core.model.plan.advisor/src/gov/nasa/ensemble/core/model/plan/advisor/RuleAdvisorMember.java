@@ -26,7 +26,6 @@ package gov.nasa.ensemble.core.model.plan.advisor;
 import gov.nasa.ensemble.core.model.plan.EMember;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->

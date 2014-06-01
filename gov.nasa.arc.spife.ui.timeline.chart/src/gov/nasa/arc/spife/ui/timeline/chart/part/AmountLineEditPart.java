@@ -41,6 +41,7 @@ public class AmountLineEditPart extends ChartElementDataEditPart<AmountLine> {
 		getModel().eAdapters().add(listener);
 		getTimeline().getPage().eAdapters().add(listener);
 		GEFUtils.runLaterInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				refreshVisuals();
 			}

@@ -20,6 +20,7 @@ package gov.nasa.ensemble.emf.transaction;
 import org.eclipse.emf.transaction.RunnableWithResult;
 
 public abstract class ResultRunnable<T> extends RunnableWithResult.Impl<T> {
+	@Override
 	public void run() {
 		setResult(runWithResult());
 	}

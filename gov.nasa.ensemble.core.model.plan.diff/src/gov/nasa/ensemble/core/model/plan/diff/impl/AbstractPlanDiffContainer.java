@@ -50,22 +50,27 @@ public abstract class AbstractPlanDiffContainer implements PlanDiffList {
 		super();
 	}
 
+	@Override
 	public Collection<OldAndNewCopyOfSameThing> getCommonElements() {
 		return Collections.unmodifiableCollection(commonElements);
 	}
 
+	@Override
 	public Collection<ChangedByAddingNewElement> getAdditions() {
 		return Collections.unmodifiableCollection(additions);
 	}
 
+	@Override
 	public Collection<ChangedByRemovingElement> getDeletions() {
 		return Collections.unmodifiableCollection(deletions);
 	}
 
+	@Override
 	public Collection<ChangedByModifyingParameter> getParameterChanges() {
 		return Collections.unmodifiableCollection(parameterChanges);
 	}
 	
+	@Override
 	public Collection<ChangedByModifyingParameter> getParameterChangesIgnoringCaseAndWhitespaceDifferences() {
 		Collection<ChangedByModifyingParameter> changes = new ArrayList(parameterChanges.size());
 		for (ChangedByModifyingParameter change : parameterChanges) {
@@ -76,22 +81,27 @@ public abstract class AbstractPlanDiffContainer implements PlanDiffList {
 		return Collections.unmodifiableCollection(changes);
 	}
 
+	@Override
 	public Collection<ChangedByMovingChild> getMoves() {
 		return Collections.unmodifiableCollection(moves);
 	}
 
+	@Override
 	public Collection<ChangedByAddingOrRemovingReference> getReferenceChanges() {
 		return Collections.unmodifiableCollection(referenceChanges);
 	}
 
+	@Override
 	public Collection<ChangedConstraintOrProfile> getConstraintAndProfileChanges() {
 		return Collections.unmodifiableCollection(constraintAndProfileChanges);
 	}
 
+	@Override
 	public Collection<EActivity> getUnchangedActivities() {
 		return Collections.unmodifiableCollection(unchangedActivities);
 	}
 
+	@Override
 	public Collection<EActivityGroup> getUnchangedActivityGroups() {
 		return Collections.unmodifiableCollection(unchangedActivityGroups);
 	}

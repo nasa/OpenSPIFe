@@ -58,6 +58,7 @@ public class ProfileNavigatorContentProvider implements ITreeContentProvider, IR
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
 	}
 
+	@Override
 	public Object[] getChildren(Object element) {
 		if (!(element instanceof IFile))
 			return new Object[0];
@@ -74,6 +75,7 @@ public class ProfileNavigatorContentProvider implements ITreeContentProvider, IR
 		return list.toArray(new Object[0]);
 	}
 
+	@Override
 	public Object getParent(Object element) {
 		if (element instanceof EObject) {
 			return ((EObject)element).eContainer();
@@ -81,6 +83,7 @@ public class ProfileNavigatorContentProvider implements ITreeContentProvider, IR
 		return null;
 	}
 
+	@Override
 	public boolean hasChildren(Object element) {
 		if (element instanceof IFile) {
 			URI uri = getPlatformResourceURI((IFile) element);
@@ -95,14 +98,17 @@ public class ProfileNavigatorContentProvider implements ITreeContentProvider, IR
 		return false;
 	}
 
+	@Override
 	public Object[] getElements(Object element) {
 		return getChildren(element);
 	}
 
+	@Override
 	public void dispose() {
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 	}
 
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		_viewer = viewer;
 	}
@@ -111,6 +117,7 @@ public class ProfileNavigatorContentProvider implements ITreeContentProvider, IR
 		return EMFUtils.getURI(file);
 	}
 
+	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		try {
 			IResourceDelta delta = event.getDelta();
@@ -121,6 +128,7 @@ public class ProfileNavigatorContentProvider implements ITreeContentProvider, IR
 
 	}
 	
+	@Override
 	@SuppressWarnings("unused")
 	public boolean visit(IResourceDelta delta) throws CoreException {
 		IResource changedResource = delta.getResource();
@@ -138,6 +146,7 @@ public class ProfileNavigatorContentProvider implements ITreeContentProvider, IR
 						res.load(resourceSet.getLoadOptions());
 						final TreeViewer viewer = (TreeViewer) _viewer;
 						WidgetUtils.runInDisplayThread(viewer.getControl(), new Runnable() {
+							@Override
 							public void run() {
 								TreePath[] treePaths = viewer.getExpandedTreePaths();
 								viewer.refresh();

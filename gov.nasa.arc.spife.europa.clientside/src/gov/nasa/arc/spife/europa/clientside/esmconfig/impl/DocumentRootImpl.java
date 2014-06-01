@@ -117,6 +117,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FeatureMap getMixed() {
 		if (mixed == null) {
 			mixed = new BasicFeatureMap(this, EsmConfigPackage.DOCUMENT_ROOT__MIXED);
@@ -129,6 +130,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if (xMLNSPrefixMap == null) {
 			xMLNSPrefixMap = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, EsmConfigPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
@@ -141,6 +143,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getXSISchemaLocation() {
 		if (xSISchemaLocation == null) {
 			xSISchemaLocation = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, EsmConfigPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
@@ -153,6 +156,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EuropaServerType getEuropaServer() {
 		return (EuropaServerType)getMixed().get(EsmConfigPackage.Literals.DOCUMENT_ROOT__EUROPA_SERVER, true);
 	}
@@ -171,6 +175,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEuropaServer(EuropaServerType newEuropaServer) {
 		((FeatureMap.Internal)getMixed()).set(EsmConfigPackage.Literals.DOCUMENT_ROOT__EUROPA_SERVER, newEuropaServer);
 	}
@@ -180,6 +185,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EuropaServerManagerType getEuropaServerManager() {
 		return (EuropaServerManagerType)getMixed().get(EsmConfigPackage.Literals.DOCUMENT_ROOT__EUROPA_SERVER_MANAGER, true);
 	}
@@ -198,6 +204,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEuropaServerManager(EuropaServerManagerType newEuropaServerManager) {
 		((FeatureMap.Internal)getMixed()).set(EsmConfigPackage.Literals.DOCUMENT_ROOT__EUROPA_SERVER_MANAGER, newEuropaServerManager);
 	}

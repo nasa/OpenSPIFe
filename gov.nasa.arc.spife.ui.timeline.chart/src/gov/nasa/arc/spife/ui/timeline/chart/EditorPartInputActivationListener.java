@@ -95,18 +95,23 @@ public class EditorPartInputActivationListener  implements IPartListener, IWindo
 	/*
 	 * @see IPartListener#partActivated(org.eclipse.ui.IWorkbenchPart)
 	 */
+	@Override
 	public void partActivated(IWorkbenchPart part) {
 		fActivePart= part;
 		handleActivation();
 	}
 
+	@Override
 	public void partBroughtToTop(IWorkbenchPart part) { /* no implementation */ }
+	@Override
 	public void partClosed(IWorkbenchPart part) { /* no implementation */ }
+	@Override
 	public void partOpened(IWorkbenchPart part) { /* no implementation */ }
 
 	/*
 	 * @see IPartListener#partDeactivated(org.eclipse.ui.IWorkbenchPart)
 	 */
+	@Override
 	public void partDeactivated(IWorkbenchPart part) {
 		fActivePart= null;
 	}
@@ -133,6 +138,7 @@ public class EditorPartInputActivationListener  implements IPartListener, IWindo
 	 * @see org.eclipse.ui.IWindowListener#windowActivated(org.eclipse.ui.IWorkbenchWindow)
 	 * @since 3.1
 	 */
+	@Override
 	public void windowActivated(IWorkbenchWindow window) {
 		if (window == fEditor.getEditorSite().getWorkbenchWindow()) {
 			/*
@@ -141,6 +147,7 @@ public class EditorPartInputActivationListener  implements IPartListener, IWindo
 			 * Will be removed when SWT has solved the problem.
 			 */
 			window.getShell().getDisplay().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					handleActivation();
 				}
@@ -148,8 +155,11 @@ public class EditorPartInputActivationListener  implements IPartListener, IWindo
 		}
 	}
 
+	@Override
 	public void windowDeactivated(IWorkbenchWindow window) { /* no implementation */ }
+	@Override
 	public void windowClosed(IWorkbenchWindow window) { /* no implementation */ }
+	@Override
 	public void windowOpened(IWorkbenchWindow window) { /* no implementation */ }
 	
 	/**
@@ -202,6 +212,7 @@ public class EditorPartInputActivationListener  implements IPartListener, IWindo
 //		}
 	}
 
+	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		processDelta(event.getDelta());
 	}

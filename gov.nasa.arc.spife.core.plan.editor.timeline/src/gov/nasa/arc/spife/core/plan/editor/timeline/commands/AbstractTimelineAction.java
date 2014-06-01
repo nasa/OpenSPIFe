@@ -36,6 +36,7 @@ public abstract class AbstractTimelineAction extends GlobalAction
 	private IAction action = null;
 	
 	private IPropertyListener listener = new IPropertyListener() {
+		@Override
 		public void propertyChanged(Object source, int propId) {
 			action.setEnabled(getActiveTimelineEditorPart() != null);
 		}

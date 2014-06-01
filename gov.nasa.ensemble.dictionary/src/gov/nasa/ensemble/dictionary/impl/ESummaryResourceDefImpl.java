@@ -84,6 +84,7 @@ public class ESummaryResourceDefImpl extends EResourceDefImpl implements ESummar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<ENumericResourceDef> getNumericResourceDefs() {
 		if (numericResourceDefs == null) {
 			numericResourceDefs = new EObjectResolvingEList<ENumericResourceDef>(ENumericResourceDef.class, this, DictionaryPackage.ESUMMARY_RESOURCE_DEF__NUMERIC_RESOURCE_DEFS);

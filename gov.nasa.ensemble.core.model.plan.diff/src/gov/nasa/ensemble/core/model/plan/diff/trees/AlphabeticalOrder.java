@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 
 public class AlphabeticalOrder implements Comparator<PlanDiffNode> {
 
+	@Override
 	public int compare(PlanDiffNode arg1, PlanDiffNode arg2) {
 		if (arg1 instanceof PlanDiffReferenceNode && arg2 instanceof PlanDiffReferenceNode)
 			return compare((PlanDiffReferenceNode)arg1, (PlanDiffReferenceNode)arg2);

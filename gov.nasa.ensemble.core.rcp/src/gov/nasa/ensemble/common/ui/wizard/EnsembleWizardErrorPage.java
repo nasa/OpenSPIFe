@@ -34,6 +34,7 @@ public class EnsembleWizardErrorPage extends WizardPage {
 		this.setPageComplete(false);
 	}
 	
+	@Override
 	public void createControl(Composite parent) {
 		setControl(new Composite(parent, SWT.NONE));
 	}

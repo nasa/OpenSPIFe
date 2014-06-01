@@ -328,6 +328,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getConfigPath() {
 		return configPath;
 	}
@@ -337,6 +338,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConfigPath(Object newConfigPath) {
 		Object oldConfigPath = configPath;
 		configPath = newConfigPath;
@@ -349,6 +351,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getDebug() {
 		return debug;
 	}
@@ -358,6 +361,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDebug(Object newDebug) {
 		Object oldDebug = debug;
 		debug = newDebug;
@@ -370,6 +374,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getInitialState() {
 		return initialState;
 	}
@@ -379,6 +384,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInitialState(Object newInitialState) {
 		Object oldInitialState = initialState;
 		initialState = newInitialState;
@@ -391,6 +397,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getLogFile() {
 		return logFile;
 	}
@@ -400,6 +407,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLogFile(Object newLogFile) {
 		Object oldLogFile = logFile;
 		logFile = newLogFile;
@@ -412,6 +420,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getName() {
 		return name;
 	}
@@ -421,6 +430,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(Object newName) {
 		Object oldName = name;
 		name = newName;
@@ -433,6 +443,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getPlannerConfig() {
 		return plannerConfig;
 	}
@@ -442,6 +453,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPlannerConfig(Object newPlannerConfig) {
 		Object oldPlannerConfig = plannerConfig;
 		plannerConfig = newPlannerConfig;
@@ -454,6 +466,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getPlannerConfigElement() {
 		return plannerConfigElement;
 	}
@@ -463,6 +476,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPlannerConfigElement(Object newPlannerConfigElement) {
 		Object oldPlannerConfigElement = plannerConfigElement;
 		plannerConfigElement = newPlannerConfigElement;
@@ -475,6 +489,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getPort() {
 		return port;
 	}
@@ -484,6 +499,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPort(int newPort) {
 		int oldPort = port;
 		port = newPort;
@@ -498,6 +514,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetPort() {
 		int oldPort = port;
 		boolean oldPortESet = portESet;
@@ -512,6 +529,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetPort() {
 		return portESet;
 	}
@@ -521,6 +539,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getServerVersion() {
 		return serverVersion;
 	}
@@ -530,6 +549,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setServerVersion(Object newServerVersion) {
 		Object oldServerVersion = serverVersion;
 		serverVersion = newServerVersion;
@@ -542,6 +562,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getTimeout() {
 		return timeout;
 	}
@@ -551,6 +572,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTimeout(int newTimeout) {
 		int oldTimeout = timeout;
 		timeout = newTimeout;
@@ -565,6 +587,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetTimeout() {
 		int oldTimeout = timeout;
 		boolean oldTimeoutESet = timeoutESet;
@@ -579,6 +602,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetTimeout() {
 		return timeoutESet;
 	}
@@ -588,6 +612,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getVerbosity() {
 		return verbosity;
 	}
@@ -597,6 +622,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVerbosity(int newVerbosity) {
 		int oldVerbosity = verbosity;
 		verbosity = newVerbosity;
@@ -611,6 +637,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetVerbosity() {
 		int oldVerbosity = verbosity;
 		boolean oldVerbosityESet = verbosityESet;
@@ -625,6 +652,7 @@ public class EuropaServerTypeImpl extends EObjectImpl implements EuropaServerTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetVerbosity() {
 		return verbosityESet;
 	}

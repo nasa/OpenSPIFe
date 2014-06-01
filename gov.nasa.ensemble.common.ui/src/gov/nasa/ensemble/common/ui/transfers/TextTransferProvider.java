@@ -31,14 +31,17 @@ import org.eclipse.swt.dnd.Transfer;
  */
 public class TextTransferProvider implements ITransferProvider<String> {
 
+	@Override
 	public Transfer getTransfer() {
 		return TextTransfer.getInstance();
 	}
 
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		return true;
 	}
 
+	@Override
 	public String packTransferObject(ITransferable transferable) {
 		if (transferable == null) {
 			return "null";
@@ -61,6 +64,7 @@ public class TextTransferProvider implements ITransferProvider<String> {
 		return string;
 	}
 	
+	@Override
 	public ITransferable unpackTransferObject(String clipboardObject) {
 		return null;
 	}

@@ -50,6 +50,7 @@ public class TestPlanIORoundTrip extends AbstractTestPlanIORoundTrip {
 	protected EPlan createTestPlan() {
 		final EPlan plan = PlanFactory.getInstance().createPlan("TestPlanRMLRoundTripping");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivityGroup group = PlanFactory.getInstance().createActivityGroup(plan);
 				plan.getChildren().add(group);

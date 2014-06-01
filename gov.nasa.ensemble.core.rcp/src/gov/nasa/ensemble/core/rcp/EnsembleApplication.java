@@ -47,6 +47,7 @@ public class EnsembleApplication implements IApplication {
 
 	Logger trace = Logger.getLogger(EnsembleApplication.class);
 
+	@Override
 	public Object start(IApplicationContext context) throws Exception {
 		//
 		// Comment out check until the missing
@@ -165,6 +166,7 @@ public class EnsembleApplication implements IApplication {
 //		}
 //	}
 
+	@Override
 	public void stop() {
 //		Location workspaceLocation = Platform.getInstanceLocation();
 //		workspaceLocation.release();
@@ -178,6 +180,7 @@ public class EnsembleApplication implements IApplication {
 		final Display display = workbench.getDisplay();
 		if (!display.isDisposed()) {
 			display.syncExec(new Runnable() {
+				@Override
 				public void run() {
 					if (!display.isDisposed()) {
 						workbench.close();

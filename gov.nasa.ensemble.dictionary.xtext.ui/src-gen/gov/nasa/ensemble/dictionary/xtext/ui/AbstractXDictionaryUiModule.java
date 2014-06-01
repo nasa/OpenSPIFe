@@ -79,11 +79,13 @@ public abstract class AbstractXDictionaryUiModule extends DefaultUiModule {
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
+	@Override
 	public Class<? extends org.eclipse.jface.viewers.ILabelProvider> bindILabelProvider() {
 		return gov.nasa.ensemble.dictionary.xtext.ui.labeling.XDictionaryLabelProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
+	@Override
 	public void configureResourceUIServiceLabelProvider(com.google.inject.Binder binder) {
 		binder.bind(org.eclipse.jface.viewers.ILabelProvider.class).annotatedWith(org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider.class).to(gov.nasa.ensemble.dictionary.xtext.ui.labeling.XDictionaryDescriptionLabelProvider.class);
 	}
@@ -99,6 +101,7 @@ public abstract class AbstractXDictionaryUiModule extends DefaultUiModule {
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.quickfix.QuickfixProviderFragment
+	@Override
 	public Class<? extends org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider> bindIssueResolutionProvider() {
 		return gov.nasa.ensemble.dictionary.xtext.ui.quickfix.XDictionaryQuickfixProvider.class;
 	}

@@ -29,18 +29,22 @@ public class ModeledResourceDef extends NumericResourceDef implements IndexableR
 	private List<String> indices = null;
 	private List<IndexedResourceDef> indexedResourceDefs = null;
 
+	@Override
 	public List<String> getIndices() {
 		return indices;
 	}
 
+	@Override
 	public void setIndices(List<String> indices) {
 		this.indices = indices;
 	}
 
+	@Override
 	public List<IndexedResourceDef> getIndexedResourceDefs() {
 		return indexedResourceDefs;
 	}
 
+	@Override
 	public void setIndexedResourceDefs(List<IndexedResourceDef> indexedResourceDefs) {
 		this.indexedResourceDefs = indexedResourceDefs;
 	}

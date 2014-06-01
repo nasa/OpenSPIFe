@@ -68,6 +68,7 @@ public class SPIFeTemplatePlanPageProvider extends TemplatePlanPageProvider {
 		Date date = new Date(System.currentTimeMillis());
 		final EPlan templatePlan = TemporalUtils.createTemporalPlan(templateFile.getName(), uri, date, date);
 		TransactionUtils.writing(templatePlan, new Runnable() {				
+			@Override
 			public void run() {
 				templatePlan.setTemplate(true);	
 			}

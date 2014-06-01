@@ -169,8 +169,10 @@ public class PageSelectionWidget extends Composite implements IPageCountChangeLi
 	 * @param maxPages
 	 *            the newly updated total number of windowPages of data.
 	 */
+	@Override
 	public void pageCountChanged(final int maxPages) {
 		Display.getDefault().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				checkButtonState(maxPages);
 			}
@@ -204,10 +206,12 @@ public class PageSelectionWidget extends Composite implements IPageCountChangeLi
 	 */
 	private abstract class PageChangeSelectionListener implements
 			SelectionListener {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			changePage();
 		}
 
+		@Override
 		public void widgetDefaultSelected(SelectionEvent e) {
 			changePage();
 		}

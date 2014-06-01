@@ -104,6 +104,7 @@ public class CompressChainOperation extends AbstractTransactionUndoableOperation
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				trace.debug("executing " + CompressChainOperation.class.getSimpleName() + ": " + this);
 				TemporalUtils.setExtents(changedTimes);
@@ -114,6 +115,7 @@ public class CompressChainOperation extends AbstractTransactionUndoableOperation
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				trace.debug("undoing " + CompressChainOperation.class.getSimpleName() + ": " + this);
 				TemporalUtils.resetExtents(changedTimes.keySet(), initialExtents);
@@ -416,6 +418,7 @@ public class CompressChainOperation extends AbstractTransactionUndoableOperation
 		Map<TemporalChain, EPlanElement> chainToRepresentativeMap = createChainToRepresentiveMap(list);
 		EList<EPlanElement> representatives = new BasicEList<EPlanElement>(chainToRepresentativeMap.values());
 		ECollections.sort(representatives, new Comparator<EPlanElement>() {
+			@Override
 			public int compare(EPlanElement o1, EPlanElement o2) {
 				Date start1 = o1.getMember(TemporalMember.class).getStartTime();
 				Date start2 = o2.getMember(TemporalMember.class).getStartTime();

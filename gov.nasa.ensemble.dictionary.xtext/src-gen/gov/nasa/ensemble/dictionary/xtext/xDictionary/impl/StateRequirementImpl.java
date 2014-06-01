@@ -93,7 +93,8 @@ public class StateRequirementImpl extends RequirementImpl implements StateRequir
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDefinition()
+  @Override
+public String getDefinition()
   {
     return definition;
   }
@@ -103,7 +104,8 @@ public class StateRequirementImpl extends RequirementImpl implements StateRequir
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDefinition(String newDefinition)
+  @Override
+public void setDefinition(String newDefinition)
   {
     String oldDefinition = definition;
     definition = newDefinition;
@@ -116,7 +118,8 @@ public class StateRequirementImpl extends RequirementImpl implements StateRequir
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getRequiredState()
+  @Override
+public String getRequiredState()
   {
     return requiredState;
   }
@@ -126,7 +129,8 @@ public class StateRequirementImpl extends RequirementImpl implements StateRequir
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRequiredState(String newRequiredState)
+  @Override
+public void setRequiredState(String newRequiredState)
   {
     String oldRequiredState = requiredState;
     requiredState = newRequiredState;

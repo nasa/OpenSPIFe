@@ -81,6 +81,7 @@ public class DaysEditor extends AbstractPlanEditorPart implements IToggleFlatten
 		super();
 	}
 	
+	@Override
 	public String getRowHighlightDecoratorKey() {
 		return "days_row_highlight_property";
 	}

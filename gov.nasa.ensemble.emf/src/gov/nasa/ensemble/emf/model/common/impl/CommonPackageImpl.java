@@ -164,6 +164,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIAdaptable() {
 		return iAdaptableEClass;
 	}
@@ -173,6 +174,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getObjectFeature() {
 		return objectFeatureEClass;
 	}
@@ -182,6 +184,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectFeature_Object() {
 		return (EReference)objectFeatureEClass.getEStructuralFeatures().get(0);
 	}
@@ -191,6 +194,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectFeature_Feature() {
 		return (EReference)objectFeatureEClass.getEStructuralFeatures().get(1);
 	}
@@ -200,6 +204,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMissionExtendable() {
 		return missionExtendableEClass;
 	}
@@ -209,6 +214,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getTimepoint() {
 		return timepointEEnum;
 	}
@@ -218,6 +224,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEURI() {
 		return euriEDataType;
 	}
@@ -227,6 +234,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getEURL() {
 		return eurlEDataType;
 	}
@@ -236,6 +244,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getIPath() {
 		return iPathEDataType;
 	}
@@ -245,6 +254,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommonFactory getCommonFactory() {
 		return (CommonFactory)getEFactoryInstance();
 	}

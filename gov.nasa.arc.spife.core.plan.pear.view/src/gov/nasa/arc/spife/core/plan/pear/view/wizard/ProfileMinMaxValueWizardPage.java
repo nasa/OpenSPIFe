@@ -154,6 +154,7 @@ public class ProfileMinMaxValueWizardPage extends EnsembleWizardPage {
 		final Link siLink = new Link(unitComposite, SWT.NONE);
 		siLink.setText("<a>" + Messages.ProfileMinMaxValueWizardPage_UnitLinkLabel + "</a>");
 		siLink.addListener(SWT.Selection, new Listener() {
+			@Override
 			public void handleEvent(Event event) {
 				org.eclipse.swt.program.Program.launch(Messages.ProfileMinMaxValueWizardPage_UnitLinkDestination);
 			}

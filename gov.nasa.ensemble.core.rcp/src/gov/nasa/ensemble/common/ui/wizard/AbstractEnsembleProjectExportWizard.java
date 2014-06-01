@@ -70,7 +70,8 @@ public abstract class AbstractEnsembleProjectExportWizard extends EnsembleExport
         addPage(mainPage);
     }
 
-    public void init(IWorkbench workbench, IStructuredSelection currentSelection) {
+    @Override
+	public void init(IWorkbench workbench, IStructuredSelection currentSelection) {
         this.selection = currentSelection;
         List selectedResources = IDE.computeSelectedResources(currentSelection);
         if (!selectedResources.isEmpty()) {

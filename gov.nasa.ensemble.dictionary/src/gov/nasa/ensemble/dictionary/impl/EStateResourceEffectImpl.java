@@ -107,6 +107,7 @@ public class EStateResourceEffectImpl<T extends EStateResourceDef> extends ETemp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefinition(EStateResourceDef newDefinition) {
 		EStateResourceDef oldDefinition = definition;
 		definition = newDefinition;

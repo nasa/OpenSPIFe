@@ -53,6 +53,7 @@ public class EPlanElementTreeContentProvider implements IStructuredContentProvid
 	    return viewer;
     }
 	
+	@Override
 	public Object[] getChildren(Object parent) {
 		List<EPlanElement> planElements = new ArrayList<EPlanElement>();
 		if(contentProvider == null) {
@@ -69,10 +70,12 @@ public class EPlanElementTreeContentProvider implements IStructuredContentProvid
 		return planElements.toArray(new EPlanElement[0]);
 	}
 	
+	@Override
 	public boolean hasChildren(Object parent) {
 		return getChildren(parent).length != 0;
 	}
 	
+	@Override
 	public Object getParent(Object child) {
 		if(contentProvider != null) {
 			return contentProvider.getParent(child);
@@ -80,10 +83,12 @@ public class EPlanElementTreeContentProvider implements IStructuredContentProvid
 		return null;
 	}
 	
+	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(inputElement);
 	}
 
+	@Override
 	public void dispose() {
 		contentProvider= null;
 		if (plan != null) {
@@ -92,6 +97,7 @@ public class EPlanElementTreeContentProvider implements IStructuredContentProvid
 		}
 	}
 
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewer = (AbstractTreeViewer) viewer;
 		EPlan oldPlan = (EPlan) oldInput;
@@ -158,6 +164,7 @@ public class EPlanElementTreeContentProvider implements IStructuredContentProvid
 		public void resourceSetChanged(ResourceSetChangeEvent event) {
 			final List<Notification> notifications = new ArrayList<Notification>(event.getNotifications());
 			WidgetUtils.runInDisplayThread(viewer.getControl(), new Runnable() {
+				@Override
 				public void run() {
 					processNotifications(notifications);
 				}

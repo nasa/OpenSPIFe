@@ -117,6 +117,7 @@ public class UndefinedResourceImpl extends NamedConditionImpl implements Undefin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConditions(Conditions newConditions) {
 		if (newConditions != eInternalContainer() || (eContainerFeatureID() != MemberPackage.UNDEFINED_RESOURCE__CONDITIONS && newConditions != null)) {
 			if (EcoreUtil.isAncestor(this, newConditions))
@@ -138,6 +139,7 @@ public class UndefinedResourceImpl extends NamedConditionImpl implements Undefin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValueLiteral() {
 		return valueLiteral;
 	}
@@ -147,6 +149,7 @@ public class UndefinedResourceImpl extends NamedConditionImpl implements Undefin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValueLiteral(String newValueLiteral) {
 		String oldValueLiteral = valueLiteral;
 		valueLiteral = newValueLiteral;

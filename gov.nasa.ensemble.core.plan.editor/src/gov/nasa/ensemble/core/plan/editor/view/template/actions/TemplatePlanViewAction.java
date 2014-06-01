@@ -68,6 +68,7 @@ public abstract class TemplatePlanViewAction extends Action implements IViewActi
 	}
 
 	/** {@inheritDoc} */
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		if(selection instanceof IStructuredSelection) {
 			structuredSelection = (IStructuredSelection)selection;

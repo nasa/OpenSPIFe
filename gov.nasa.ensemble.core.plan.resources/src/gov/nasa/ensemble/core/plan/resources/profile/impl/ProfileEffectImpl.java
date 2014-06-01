@@ -23,8 +23,6 @@
  */
 package gov.nasa.ensemble.core.plan.resources.profile.impl;
 
-import gov.nasa.ensemble.common.logging.LogUtil;
-import gov.nasa.ensemble.common.mission.MissionExtendable;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileEffect;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfilePackage;
@@ -112,6 +110,7 @@ public class ProfileEffectImpl extends ProfileReferenceImpl implements ProfileEf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getStartValueLiteral() {
 		return startValueLiteral;
 	}
@@ -121,6 +120,7 @@ public class ProfileEffectImpl extends ProfileReferenceImpl implements ProfileEf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartValueLiteral(String newStartValueLiteral) {
 		String oldStartValueLiteral = startValueLiteral;
 		startValueLiteral = newStartValueLiteral;
@@ -133,6 +133,7 @@ public class ProfileEffectImpl extends ProfileReferenceImpl implements ProfileEf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getEndValueLiteral() {
 		return endValueLiteral;
 	}
@@ -142,6 +143,7 @@ public class ProfileEffectImpl extends ProfileReferenceImpl implements ProfileEf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndValueLiteral(String newEndValueLiteral) {
 		String oldEndValueLiteral = endValueLiteral;
 		endValueLiteral = newEndValueLiteral;
@@ -154,6 +156,7 @@ public class ProfileEffectImpl extends ProfileReferenceImpl implements ProfileEf
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String getEffectLiteral(Timepoint timepoint) {
 		switch (timepoint) {
 		case START:

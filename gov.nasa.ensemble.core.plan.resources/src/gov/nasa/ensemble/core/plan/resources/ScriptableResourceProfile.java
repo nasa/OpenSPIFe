@@ -17,7 +17,6 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.resources;
 
-import gov.nasa.ensemble.common.type.StringifierRegistry;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.plan.formula.js.JSFormulaEngine;
 import gov.nasa.ensemble.core.plan.formula.js.ScriptablePlan;

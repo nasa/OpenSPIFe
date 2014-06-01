@@ -168,6 +168,7 @@ public class Options {
 	
 	public static <A> F<A, Boolean> isNull(final Class<A> clazz) {
 		return new F<A, Boolean>() {
+			@Override
 			public Boolean f(final A a) {
 				return null == a;
 			}

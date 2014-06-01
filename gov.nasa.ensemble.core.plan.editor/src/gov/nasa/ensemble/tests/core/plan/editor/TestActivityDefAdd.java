@@ -70,6 +70,7 @@ public class TestActivityDefAdd extends UndoableOperationTestCase {
 			next = null;
 		}
 		testUndoableOperation(plan.plan, add, new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(group, target.getParent());
 				assertEquals(position, target.getListPosition());

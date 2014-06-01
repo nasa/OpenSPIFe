@@ -32,11 +32,13 @@ import org.eclipse.ui.navigator.ILinkHelper;
 
 public class EMFLinkHelper implements ILinkHelper {
 
+	@Override
 	public IStructuredSelection findSelection(IEditorInput anInput) {
 		// this should be taken care of by the resource linking
 		return null;
 	}
 
+	@Override
 	public void activateEditor(IWorkbenchPage aPage,
 			IStructuredSelection aSelection) {
 		EObject selectedObject = (EObject) aSelection.getFirstElement();

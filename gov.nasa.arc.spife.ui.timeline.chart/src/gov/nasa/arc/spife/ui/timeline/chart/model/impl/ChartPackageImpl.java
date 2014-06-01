@@ -186,6 +186,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCharts() {
 		return chartsEClass;
 	}
@@ -195,6 +196,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCharts_Charts() {
 		return (EReference)chartsEClass.getEStructuralFeatures().get(0);
 	}
@@ -204,6 +206,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLineChart() {
 		return lineChartEClass;
 	}
@@ -213,6 +216,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLineChart_Lines() {
 		return (EReference)lineChartEClass.getEStructuralFeatures().get(0);
 	}
@@ -222,6 +226,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLineChart_MaximumLine() {
 		return (EReference)lineChartEClass.getEStructuralFeatures().get(1);
 	}
@@ -231,6 +236,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLineChart_MinimumLine() {
 		return (EReference)lineChartEClass.getEStructuralFeatures().get(2);
 	}
@@ -240,6 +246,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChart() {
 		return chartEClass;
 	}
@@ -249,6 +256,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getChart_Plots() {
 		return (EReference)chartEClass.getEStructuralFeatures().get(1);
 	}
@@ -258,6 +266,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChart_Style() {
 		return (EAttribute)chartEClass.getEStructuralFeatures().get(2);
 	}
@@ -267,6 +276,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChart_MinimumHeight() {
 		return (EAttribute)chartEClass.getEStructuralFeatures().get(0);
 	}
@@ -276,6 +286,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPlot() {
 		return plotEClass;
 	}
@@ -285,6 +296,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPlot_Chart() {
 		return (EReference)plotEClass.getEStructuralFeatures().get(0);
 	}
@@ -294,6 +306,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlot_Extent() {
 		return (EAttribute)plotEClass.getEStructuralFeatures().get(1);
 	}
@@ -303,6 +316,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlot_Rgb() {
 		return (EAttribute)plotEClass.getEStructuralFeatures().get(2);
 	}
@@ -312,6 +326,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlot_Fit() {
 		return (EAttribute)plotEClass.getEStructuralFeatures().get(3);
 	}
@@ -321,6 +336,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPlot_Profile() {
 		return (EReference)plotEClass.getEStructuralFeatures().get(4);
 	}
@@ -330,6 +346,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlot_ShowText() {
 		return (EAttribute)plotEClass.getEStructuralFeatures().get(5);
 	}
@@ -339,6 +356,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlot_AutoAssignRGB() {
 		return (EAttribute)plotEClass.getEStructuralFeatures().get(6);
 	}
@@ -348,6 +366,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlot_Name() {
 		return (EAttribute)plotEClass.getEStructuralFeatures().get(7);
 	}
@@ -357,6 +376,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAmountLine() {
 		return amountLineEClass;
 	}
@@ -366,6 +386,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountLine_Amount() {
 		return (EAttribute)amountLineEClass.getEStructuralFeatures().get(0);
 	}
@@ -375,6 +396,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountLine_Rgb() {
 		return (EAttribute)amountLineEClass.getEStructuralFeatures().get(1);
 	}
@@ -384,6 +406,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChartElement() {
 		return chartElementEClass;
 	}
@@ -393,6 +416,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getFitPolicy() {
 		return fitPolicyEEnum;
 	}
@@ -402,6 +426,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getChartStyle() {
 		return chartStyleEEnum;
 	}
@@ -411,6 +436,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getERGB() {
 		return ergbEDataType;
 	}
@@ -420,6 +446,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ChartFactory getChartFactory() {
 		return (ChartFactory)getEFactoryInstance();
 	}

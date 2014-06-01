@@ -57,6 +57,7 @@ public class PlanClipboardCutOperation extends ClipboardCutOperation implements 
 	@Override
 	protected void doit() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanClipboardCutOperation.super.doit();
 			}
@@ -66,6 +67,7 @@ public class PlanClipboardCutOperation extends ClipboardCutOperation implements 
 	@Override
 	protected void undo() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanClipboardCutOperation.super.undo();
 			}

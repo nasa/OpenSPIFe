@@ -17,17 +17,14 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.resources;
 
-import gov.nasa.ensemble.common.CommonUtils;
 import gov.nasa.ensemble.core.jscience.DataPoint;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.jscience.util.DateUtils;
-import gov.nasa.ensemble.core.jscience.util.ProfileUtil;
 import gov.nasa.ensemble.core.model.plan.EActivity;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
 import gov.nasa.ensemble.core.plan.formula.js.JSUtils;
-import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
 import gov.nasa.ensemble.dictionary.EActivityDef;
 import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 
@@ -59,6 +56,7 @@ public class TestWorkSleepScenario extends AbstractResourceTest {
 		EPlanUtils.contributeProductResources(plan);
 		
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				Date currentDate = PLAN_START;
 				for (int i=0; i<5; i++) {

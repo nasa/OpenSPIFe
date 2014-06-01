@@ -68,6 +68,7 @@ public abstract class GlobalAction extends Action implements IAdaptable
 		Display display = WidgetUtils.getDisplay();
 		if (display != null) {
 			display.syncExec(new Runnable() {
+				@Override
 				public void run() {
 					IWorkbench workbench = PlatformUI.getWorkbench();
 					IWorkbenchWindow[] windows = workbench.getWorkbenchWindows();
@@ -106,6 +107,7 @@ public abstract class GlobalAction extends Action implements IAdaptable
 		return globalActions;
 	}
 
+	@Override
 	public Object getAdapter(Class adapter) {
 		if(adapter.equals(GlobalAction.class)) {
 			for(GlobalAction globalAction : globalActions) {

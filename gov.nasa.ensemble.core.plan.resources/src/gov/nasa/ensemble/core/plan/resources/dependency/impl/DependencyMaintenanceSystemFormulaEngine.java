@@ -23,7 +23,6 @@ import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
 import gov.nasa.ensemble.core.jscience.DataPoint;
 import gov.nasa.ensemble.core.jscience.JScienceFactory;
 import gov.nasa.ensemble.core.jscience.Profile;
-import gov.nasa.ensemble.core.jscience.TemporalExtent;
 import gov.nasa.ensemble.core.jscience.util.AmountUtils;
 import gov.nasa.ensemble.core.jscience.util.ProfileUtil;
 import gov.nasa.ensemble.core.model.plan.EActivity;

@@ -45,6 +45,7 @@ public class NamedDefTransferable<T extends INamedDefinition> implements ITransf
 		setNamedDefinitions(defs);
 	}
 	
+	@Override
 	public void dispose() {
 		// nothing to dispose
 	}
@@ -57,6 +58,7 @@ public class NamedDefTransferable<T extends INamedDefinition> implements ITransf
 		namedDefs = defs;
 	}
 
+	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		if (namedDefs == null) {
 			out.writeInt(0);
@@ -68,6 +70,7 @@ public class NamedDefTransferable<T extends INamedDefinition> implements ITransf
 		}
 	}
 
+	@Override
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 		int numOfDefs = in.readInt();
 		Collection<T> nameDefs = new ArrayList<T>();

@@ -23,8 +23,6 @@
  */
 package gov.nasa.ensemble.core.model.plan.temporal.edge;
 
-import gov.nasa.ensemble.emf.model.common.Timepoint;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

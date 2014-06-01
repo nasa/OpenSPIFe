@@ -44,6 +44,7 @@ public class ConditionsImportWizard extends Wizard implements IImportWizard {
 	private FileSelectionPage page;
 	private EPlan plan;
 
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		PlanEditorModel model = PlanEditorModelRegistry.getCurrent(workbench);
 		if (model != null) {
@@ -68,6 +69,7 @@ public class ConditionsImportWizard extends Wizard implements IImportWizard {
 		final File file = page.getSelectedFile();
 		try {
 			getContainer().run(true, true, new IRunnableWithProgress() {
+				@Override
 				public void run(IProgressMonitor monitor) {
 					ConditionsImportOperation op = new ConditionsImportOperation(plan, file);
 					op.addContext(EMFUtils.getUndoContext(plan));
@@ -97,6 +99,7 @@ public class ConditionsImportWizard extends Wizard implements IImportWizard {
 		public ErrorWizardPage() {
 			super("conditions import error");
 		}
+		@Override
 		public void createControl(Composite parent) {
 			setControl(new Composite(parent, SWT.NONE));
 		}

@@ -52,36 +52,42 @@ public class SimpleSpinner extends Composite {
 		up = new Button(this, style | SWT.ARROW | SWT.UP);
 		down = new Button(this, style | SWT.ARROW | SWT.DOWN);
 		text.addListener(SWT.Verify, new Listener() {
+			@Override
 			public void handleEvent(Event e) {
 				verify(e);
 			}
 		});
 
 		text.addListener(SWT.Traverse, new Listener() {
+			@Override
 			public void handleEvent(Event e) {
 				doTraverse(e);
 			}
 		});
 
 		up.addListener(SWT.Selection, new Listener() {
+			@Override
 			public void handleEvent(Event e) {
 				up();
 			}
 		});
 
 		down.addListener(SWT.Selection, new Listener() {
+			@Override
 			public void handleEvent(Event e) {
 				down();
 			}
 		});
 
 		addListener(SWT.Resize, new Listener() {
+			@Override
 			public void handleEvent(Event e) {
 				resize();
 			}
 		});
 
 		addListener(SWT.FocusIn, new Listener() {
+			@Override
 			public void handleEvent(Event e) {
 				focusIn();
 			}

@@ -33,6 +33,7 @@ public class BooleanParameterComparator implements Comparator<ParameterFacet<Boo
 	
 	public static final BooleanParameterComparator INSTANCE = new BooleanParameterComparator();
 	
+	@Override
 	public int compare(ParameterFacet<Boolean> facet1, ParameterFacet<Boolean> facet2) {
 		if (facet1 == null && facet2 == null) {
 			return 0;

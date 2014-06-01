@@ -48,6 +48,7 @@ public class EnsembleCommonNavigatorContentProvider implements ITreeContentProvi
 	 * 
 	 * @see org.eclipse.ui.model.BaseWorkbenchContentProvider#getElements(java.lang.Object)
 	 */
+	@Override
 	public Object[] getElements(Object element) {
 		return getChildren(element);
 	}
@@ -57,6 +58,7 @@ public class EnsembleCommonNavigatorContentProvider implements ITreeContentProvi
 	 * 
 	 * @see org.eclipse.ui.model.BaseWorkbenchContentProvider#getChildren(java.lang.Object)
 	 */
+	@Override
 	public Object[] getChildren(Object element) {
 		try {
 			if(element instanceof IContainer) {
@@ -74,6 +76,7 @@ public class EnsembleCommonNavigatorContentProvider implements ITreeContentProvi
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.model.BaseWorkbenchContentProvider#hasChildren(java.lang.Object)
 	 */
+	@Override
 	public boolean hasChildren(Object element) {
 		try {
 			if (element instanceof IProject && !((IProject)element).isOpen()) {
@@ -88,10 +91,12 @@ public class EnsembleCommonNavigatorContentProvider implements ITreeContentProvi
 		return false;
 	}
 
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) { 
 		this.viewer = viewer;
 	}
 
+	@Override
 	public Object getParent(Object element) {
 		if (element instanceof IResource) {
 			return ((IResource)element).getParent();
@@ -99,14 +104,17 @@ public class EnsembleCommonNavigatorContentProvider implements ITreeContentProvi
 		return null;
 	}
 	
+	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		// Execute in a separate thread to isolate needed delay
 		resourceChangeRefresher.execute(new Runnable() {
+			@Override
 			public void run() {
 				// Some delay seems to be needed to get the display of markers refreshed
 				ThreadUtils.sleep(200);
 				if(!viewer.getControl().isDisposed()) {
 					WidgetUtils.runInDisplayThread(viewer.getControl(), new Runnable() {
+						@Override
 						public void run() {
 								viewer.refresh();
 						}						
@@ -116,6 +124,7 @@ public class EnsembleCommonNavigatorContentProvider implements ITreeContentProvi
 		});
 	}
 
+	@Override
 	public void dispose() {
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 	}

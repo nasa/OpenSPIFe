@@ -138,6 +138,7 @@ public class EReferenceCellEditor extends ComboBoxViewerCellEditor {
 			String text = combo.getText();
 			if (text.length() == 0 && CommonUtils.isWSCocoa()) {
 				combo.getDisplay().timerExec(1000, new Runnable() {
+					@Override
 					public void run() {
 						focusIt(combo);
 					}

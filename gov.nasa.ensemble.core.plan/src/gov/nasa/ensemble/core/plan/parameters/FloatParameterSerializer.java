@@ -23,6 +23,7 @@ public class FloatParameterSerializer implements IParameterSerializer<Object> {
 
 	private final Logger trace = Logger.getLogger(getClass());
 
+	@Override
 	public String getHibernateString(Object javaObject) {
 		if (javaObject != null && javaObject instanceof Number) {
 			return getFloatHibernateString(((Number)javaObject).floatValue());
@@ -37,6 +38,7 @@ public class FloatParameterSerializer implements IParameterSerializer<Object> {
 		return Float.toString(javaObject);
 	}
 
+	@Override
 	public Float getJavaObject(String hibernateString) {
 		if (hibernateString == null || hibernateString.trim().equals("")) {
 			return null;

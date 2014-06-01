@@ -49,6 +49,7 @@ public class SetExtentsOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void execute() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				TemporalUtils.setExtents(changedTimes);
 			}
@@ -58,6 +59,7 @@ public class SetExtentsOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void undo() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				TemporalUtils.resetExtents(changedTimes.keySet(), initialExtents);
 			}

@@ -76,6 +76,7 @@ public class LevelIndicator extends Canvas
 			setLevel(getLevel());
 		} else {
 			Display.getDefault().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					reset();
 				}
@@ -89,12 +90,14 @@ public class LevelIndicator extends Canvas
 			setLevel(getLevel());
 		} else {
 			Display.getDefault().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					repaint();
 				}
 			});
 		}
 	}
+	@Override
 	public void paintControl(PaintEvent e) {
 		Color oldForegroundColor = e.gc.getForeground();
 		Color oldBackgroundColor = e.gc.getBackground();
@@ -133,6 +136,7 @@ public class LevelIndicator extends Canvas
 		return size;
 	}
 	
+	@Override
 	public void widgetDisposed(DisposeEvent e) {
 		black.dispose();
 		red.dispose();

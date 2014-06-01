@@ -78,6 +78,7 @@ public class EditableMergeColumn extends AbstractMergeColumn<EPlanElement> {
 	
 	private static final Comparator<EPlanElement> comparator =
 		new Comparator<EPlanElement>() {
+			@Override
 			public int compare(EPlanElement o1, EPlanElement o2) {
 				boolean locked1 = PlanEditApproverRegistry.getInstance().canModify(o1);
 				boolean locked2 = PlanEditApproverRegistry.getInstance().canModify(o2);

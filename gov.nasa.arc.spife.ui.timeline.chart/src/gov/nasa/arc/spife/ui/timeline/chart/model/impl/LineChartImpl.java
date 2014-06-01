@@ -97,6 +97,7 @@ public class LineChartImpl extends ChartImpl implements LineChart {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EList<AmountLine> getLines() {
 		EList list = new BasicEList<AmountLine>();
 		if (getMinimumLine() != null) list.add(getMinimumLine());
@@ -110,6 +111,7 @@ public class LineChartImpl extends ChartImpl implements LineChart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AmountLine getMaximumLine() {
 		return maximumLine;
 	}
@@ -134,6 +136,7 @@ public class LineChartImpl extends ChartImpl implements LineChart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximumLine(AmountLine newMaximumLine) {
 		if (newMaximumLine != maximumLine) {
 			NotificationChain msgs = null;
@@ -153,6 +156,7 @@ public class LineChartImpl extends ChartImpl implements LineChart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AmountLine getMinimumLine() {
 		return minimumLine;
 	}
@@ -177,6 +181,7 @@ public class LineChartImpl extends ChartImpl implements LineChart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimumLine(AmountLine newMinimumLine) {
 		if (newMinimumLine != minimumLine) {
 			NotificationChain msgs = null;

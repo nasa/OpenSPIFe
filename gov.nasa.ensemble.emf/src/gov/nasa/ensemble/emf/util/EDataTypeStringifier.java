@@ -65,6 +65,7 @@ public class EDataTypeStringifier extends AbstractTrimmingStringifier<Object> {
 		}
 	}
 
+	@Override
 	public String getDisplayString(Object javaObject) {
 		return eFactoryInstance.convertToString(eDataType, javaObject);
 	}

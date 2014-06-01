@@ -74,12 +74,14 @@ public class TestTemporalTransferableExtension extends UndoableOperationTestCase
 		activitiesToCopy = new ArrayList<EActivity>();
 		srcPlan = PLAN_FACTORY.createPlan("SRC_PLAN");
 		TransactionUtils.writing(srcPlan, new Runnable() {
+			@Override
 			public void run() {
 				constructSrcPlan();
 			}
 		});
 		dstPlan = PLAN_FACTORY.createPlan("DST_PLAN");
 		TransactionUtils.writing(dstPlan, new Runnable() {
+			@Override
 			public void run() {
 				constructDstPlan();
 			}

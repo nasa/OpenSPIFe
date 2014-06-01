@@ -22,10 +22,12 @@ import gov.nasa.ensemble.core.plan.IMemberFactory;
 
 public class EuropaMemberFactory implements IMemberFactory<EuropaMember> {
 	
+	@Override
 	public Class<EuropaMember> getMemberClass() {
 		return EuropaMember.class;
 	}
 
+	@Override
 	public EuropaMember getMember(EPlan plan) {
 		return new EuropaMember(plan);
 	}

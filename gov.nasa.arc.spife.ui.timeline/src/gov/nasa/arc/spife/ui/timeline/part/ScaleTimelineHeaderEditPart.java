@@ -58,6 +58,7 @@ public class ScaleTimelineHeaderEditPart extends TimelineViewerEditPart<Object> 
 	
 	private class Listener implements IPropertyChangeListener {
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			String property = event.getProperty();
 			if (TimelinePreferencePage.P_SCALE_FONT_SIZE.equals(property)) {

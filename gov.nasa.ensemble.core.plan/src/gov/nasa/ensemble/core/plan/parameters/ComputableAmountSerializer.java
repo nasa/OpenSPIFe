@@ -23,10 +23,12 @@ import gov.nasa.ensemble.core.jscience.JSciencePackage;
 
 public class ComputableAmountSerializer implements IParameterSerializer<ComputableAmount> {
 
+	@Override
 	public String getHibernateString(ComputableAmount javaObject) {
 		return JScienceFactory.eINSTANCE.convertToString(JSciencePackage.Literals.ECOMPUTABLE_AMOUNT, javaObject);
 	}
 
+	@Override
 	public ComputableAmount getJavaObject(String hibernateString) {
 		return (ComputableAmount) JScienceFactory.eINSTANCE.createFromString(JSciencePackage.Literals.ECOMPUTABLE_AMOUNT, hibernateString);
 	}

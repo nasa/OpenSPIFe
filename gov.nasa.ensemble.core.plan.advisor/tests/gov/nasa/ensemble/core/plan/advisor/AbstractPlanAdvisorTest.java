@@ -88,6 +88,7 @@ public abstract class AbstractPlanAdvisorTest
 	public EPlan createPlan(final EActivity activity) {
 		final EPlan plan = PLAN_FACTORY.createPlan("TEST_PLAN");
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				EActivityGroup activityGroup = PLAN_FACTORY.createActivityGroup(plan);
 				plan.getChildren().add(activityGroup);

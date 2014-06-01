@@ -147,6 +147,7 @@ public class MarchingAntsSelectionEditPolicy extends SelectionHandlesEditPolicy 
 			if (schedulePaint) {
 				if (paintRunnable == null) {
 					paintRunnable = new Runnable() {
+						@Override
 						public void run() {
 							marchStep = (marchStep+1)%maxMarchSteps;
 							schedulePaint = true;

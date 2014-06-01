@@ -119,7 +119,8 @@ public class MergeTreeContentProvider extends TreeTableContentProvider {
 		return elements;
 	}
 	
-    public Object[] getChildren(Object parent) {
+    @Override
+	public Object[] getChildren(Object parent) {
     	if (flattened) {
     		return getFlatChildren(parent);
     	}
@@ -216,6 +217,7 @@ public class MergeTreeContentProvider extends TreeTableContentProvider {
 		return false;
 	}
 	
+	@Override
 	public Object getParent(Object child) {
 		if (flattened) {
 			if (child instanceof EActivity) {
@@ -226,6 +228,7 @@ public class MergeTreeContentProvider extends TreeTableContentProvider {
 		return contentProvider.getParent(child);
 	}
 	
+	@Override
 	public void dispose() {
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceListener);
 		if (plan != null) {
@@ -313,8 +316,10 @@ public class MergeTreeContentProvider extends TreeTableContentProvider {
     	}
 		if (!events.isEmpty()) {
 			WidgetUtils.runInDisplayThread(viewer.getControl(), new Runnable() {
+				@Override
 				public void run() {
 					viewer.preservingSelection(new Runnable() {
+						@Override
 						public void run() {
 							for (Event event : events) {
 								switch (event.type) {
@@ -480,6 +485,7 @@ public class MergeTreeContentProvider extends TreeTableContentProvider {
 		 *
 		 * @param event the event
 		 */
+		@Override
 		@SuppressWarnings("unchecked")
 		public void resourceChanged(IResourceChangeEvent event) {
 			if (event.getType() == IResourceChangeEvent.POST_CHANGE) {

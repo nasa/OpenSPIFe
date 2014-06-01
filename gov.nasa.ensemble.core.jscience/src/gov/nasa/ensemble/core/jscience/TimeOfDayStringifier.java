@@ -63,6 +63,7 @@ public class TimeOfDayStringifier extends AbstractTrimmingStringifier<Amount<Dur
 	 * Accepts a time in standard seconds, aka SI seconds, aka Earth seconds.
 	 * Returns a time string representing the time as local hours, minutes, and seconds.
 	 */
+	@Override
 	public String getDisplayString(Amount<Duration> javaObject) {
 		if (javaObject == null) {
 			return null;

@@ -71,6 +71,7 @@ public class TemporalBoundEditOperation extends AbstractTransactionUndoableOpera
 
 	private void doit(final boolean execute) {
 		TransactionUtils.writing(element, new Runnable() {
+			@Override
 			public void run() {
 				ConstraintsMember constraintsMember = element.getMember(ConstraintsMember.class, true);
 				constraintsMember.getPeriodicTemporalConstraints().removeAll(oldConstraints);
@@ -80,6 +81,7 @@ public class TemporalBoundEditOperation extends AbstractTransactionUndoableOpera
 			computeChangedTimes(element, newConstraint);
 		}
 		TransactionUtils.writing(element, new Runnable() {
+			@Override
 			public void run() {
 				TemporalUtils.setExtents(changedTimes);
 				if (newConstraint != null) {
@@ -93,6 +95,7 @@ public class TemporalBoundEditOperation extends AbstractTransactionUndoableOpera
 	@Override
 	protected void undo() {
 		TransactionUtils.writing(element, new Runnable() {
+			@Override
 			public void run() {
 				ConstraintsMember constraintsMember = element.getMember(ConstraintsMember.class, true);
 				if (newConstraint != null) {

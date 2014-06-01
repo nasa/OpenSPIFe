@@ -49,6 +49,7 @@ public class ImportCsvActivitiesOperation extends AbstractTransactionUndoableOpe
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getChildren().addAll(addedActivities);
 			}
@@ -58,6 +59,7 @@ public class ImportCsvActivitiesOperation extends AbstractTransactionUndoableOpe
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				PlanUtils.removeElements(addedActivities);
 			}

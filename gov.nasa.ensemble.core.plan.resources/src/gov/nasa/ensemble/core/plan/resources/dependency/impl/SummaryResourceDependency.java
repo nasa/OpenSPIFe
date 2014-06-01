@@ -49,10 +49,12 @@ public class SummaryResourceDependency extends ActivityDependency implements Tem
 		return summaryResourceDef;
 	}
 
+	@Override
 	public Timepoint getTimepoint() {
 		return timepoint;
 	}
 
+	@Override
 	public Date getDate() {
 		return ResourceUtils.getDate(this, temporalMember);
 	}

@@ -276,7 +276,7 @@ public class ReflectionUtils {
 				break;
 			}
 			if (parametersMatch)
-				return (Constructor<T>)constructor;
+				return constructor;
 		}
 		return null;
 	}

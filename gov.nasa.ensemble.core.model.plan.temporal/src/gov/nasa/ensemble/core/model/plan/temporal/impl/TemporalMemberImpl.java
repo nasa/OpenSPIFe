@@ -51,7 +51,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.NotificationChainImpl;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -367,6 +366,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getStartTime() {
 		return startTime;
 	}
@@ -376,6 +376,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setStartTime(Date newStart) {
 		NotificationChain notifications = null;
 		if (eNotificationRequired()) {
@@ -434,6 +435,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public Amount<Duration> getDuration() {
 		return duration;
@@ -446,6 +448,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setDuration(Amount<Duration> newDuration) {
 		if (newDuration == null) {
 			throw new IllegalArgumentException("duration must be non-null");
@@ -505,6 +508,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getEndTime() {
 		return endTime;
 	}
@@ -514,6 +518,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setEndTime(Date newEnd) {
 		NotificationChain notifications = null;
 		if (eNotificationRequired()) {
@@ -580,6 +585,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getScheduled() {
 		return scheduled;
 	}
@@ -589,6 +595,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setScheduled(Boolean newScheduled) {
 		Boolean oldScheduled = scheduled;
 		scheduled = newScheduled;
@@ -601,6 +608,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUseChildTimes() {
 		return (eFlags & USE_CHILD_TIMES_EFLAG) != 0;
 	}
@@ -610,6 +618,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setUseChildTimes(boolean newUseChildTimes) {
 		NotificationChain notifications = null;
 		if (eNotificationRequired()) {
@@ -651,6 +660,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUseParentTimes() {
 		return (eFlags & USE_PARENT_TIMES_EFLAG) != 0;
 	}
@@ -660,6 +670,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setUseParentTimes(boolean newUseParentTimes) {
 		NotificationChain notifications = null;
 		if (eNotificationRequired()) {
@@ -690,6 +701,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CalculatedVariable getCalculatedVariable() {
 		return calculatedVariable;
 	}
@@ -699,6 +711,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setCalculatedVariable(CalculatedVariable newCalculatedVariable) {
 		NotificationChain notifications = null;
 		if (eNotificationRequired()) {
@@ -750,6 +763,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getTimepointDate(Timepoint timepoint) {
 		switch (timepoint) {
 		case START: return getStartTime();
@@ -783,6 +797,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public synchronized TemporalExtent getExtent() {
 		switch (calculatedVariable) {
 		case START:
@@ -834,6 +849,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setExtent(TemporalExtent extent) {
 		NotificationChain notifications = null;
 		if (eNotificationRequired()) {
@@ -850,6 +866,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Timepoint getStartOffsetTimepoint() {
 		return startOffsetTimepoint;
 	}
@@ -859,6 +876,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartOffsetTimepoint(Timepoint newStartOffsetTimepoint) {
 		Timepoint oldStartOffsetTimepoint = startOffsetTimepoint;
 		startOffsetTimepoint = newStartOffsetTimepoint == null ? START_OFFSET_TIMEPOINT_EDEFAULT : newStartOffsetTimepoint;
@@ -871,6 +889,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<Duration> getStartOffsetAmount() {
 		return startOffsetAmount;
 	}
@@ -880,6 +899,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartOffsetAmount(Amount<Duration> newStartOffsetAmount) {
 		Amount<Duration> oldStartOffsetAmount = startOffsetAmount;
 		startOffsetAmount = newStartOffsetAmount;
@@ -892,6 +912,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Timepoint getEndOffsetTimepoint() {
 		return endOffsetTimepoint;
 	}
@@ -901,6 +922,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndOffsetTimepoint(Timepoint newEndOffsetTimepoint) {
 		Timepoint oldEndOffsetTimepoint = endOffsetTimepoint;
 		endOffsetTimepoint = newEndOffsetTimepoint == null ? END_OFFSET_TIMEPOINT_EDEFAULT : newEndOffsetTimepoint;
@@ -913,6 +935,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<Duration> getEndOffsetAmount() {
 		return endOffsetAmount;
 	}
@@ -922,6 +945,7 @@ public class TemporalMemberImpl extends EMemberImpl implements TemporalMember {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndOffsetAmount(Amount<Duration> newEndOffsetAmount) {
 		Amount<Duration> oldEndOffsetAmount = endOffsetAmount;
 		endOffsetAmount = newEndOffsetAmount;

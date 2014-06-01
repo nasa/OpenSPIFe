@@ -85,6 +85,7 @@ public interface StateResource extends NamedCondition {
 	 * @model opposite="stateResources" transient="false"
 	 * @generated
 	 */
+	@Override
 	Conditions getConditions();
 
 	/**

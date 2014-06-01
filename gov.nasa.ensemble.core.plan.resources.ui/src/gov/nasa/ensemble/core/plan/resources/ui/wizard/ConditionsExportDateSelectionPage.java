@@ -66,8 +66,10 @@ public class ConditionsExportDateSelectionPage extends FileSelectionPage {
 		final Text text = new Text(composite, SWT.BORDER | SWT.SINGLE);
 		text.setText(DATE_STRINGIFIER.getDisplayString(defaultDate));
 		text.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				WidgetUtils.runInDisplayThread(text, new Runnable() {
+					@Override
 					public void run() {
 						parseTime(defaultDate, text.getText());
 					}

@@ -107,6 +107,7 @@ public class PlanTimelineViewer extends TimelineViewer implements PlanTimelineCo
 		return result;
 	}
 
+	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		Object property = event.getProperty();
 		if(property.equals(PLAN_CONSTRAINTS_VISIBLE)) {

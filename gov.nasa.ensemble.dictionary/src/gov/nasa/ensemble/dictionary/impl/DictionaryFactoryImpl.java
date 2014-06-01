@@ -174,6 +174,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EActivityDictionary createEActivityDictionary() {
 		EActivityDictionaryImpl eActivityDictionary = new EActivityDictionaryImpl();
 		return eActivityDictionary;
@@ -184,11 +185,13 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EActivityDef createEActivityDef() {
 		EActivityDefImpl eActivityDef = new EActivityDefImpl();
 		return eActivityDef;
 	}
 
+	@Override
 	public EActivityDef createEActivityDef(String name, String category) {
 		EActivityDef eActivityDef = createEActivityDef();
 		eActivityDef.setName(name);
@@ -201,6 +204,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EActivityGroupDef createEActivityGroupDef() {
 		EActivityGroupDefImpl eActivityGroupDef = new EActivityGroupDefImpl();
 		return eActivityGroupDef;
@@ -211,6 +215,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EChoice createEChoice() {
 		EChoiceImpl eChoice = new EChoiceImpl();
 		return eChoice;
@@ -221,6 +226,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttributeParameter createEAttributeParameter() {
 		EAttributeParameterImpl eAttributeParameter = new EAttributeParameterImpl();
 		return eAttributeParameter;
@@ -231,6 +237,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReferenceParameter createEReferenceParameter() {
 		EReferenceParameterImpl eReferenceParameter = new EReferenceParameterImpl();
 		return eReferenceParameter;
@@ -241,6 +248,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EActivityRequirement createEActivityRequirement() {
 		EActivityRequirementImpl eActivityRequirement = new EActivityRequirementImpl();
 		return eActivityRequirement;
@@ -251,6 +259,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClaimableResourceDef createEClaimableResourceDef() {
 		EClaimableResourceDefImpl eClaimableResourceDef = new EClaimableResourceDefImpl();
 		return eClaimableResourceDef;
@@ -261,6 +270,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClaimableEffect createEClaimableEffect() {
 		EClaimableEffectImpl eClaimableEffect = new EClaimableEffectImpl();
 		return eClaimableEffect;
@@ -271,6 +281,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EExtendedNumericResourceDef createEExtendedNumericResourceDef() {
 		EExtendedNumericResourceDefImpl eExtendedNumericResourceDef = new EExtendedNumericResourceDefImpl();
 		return eExtendedNumericResourceDef;
@@ -281,6 +292,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ENumericRequirement createENumericRequirement() {
 		ENumericRequirementImpl eNumericRequirement = new ENumericRequirementImpl();
 		return eNumericRequirement;
@@ -291,6 +303,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ENumericResourceDef createENumericResourceDef() {
 		ENumericResourceDefImpl eNumericResourceDef = new ENumericResourceDefImpl();
 		return eNumericResourceDef;
@@ -301,6 +314,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EResourceDef createEResourceDef() {
 		EResourceDefImpl eResourceDef = new EResourceDefImpl();
 		return eResourceDef;
@@ -311,6 +325,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ERule createERule() {
 		ERuleImpl eRule = new ERuleImpl();
 		return eRule;
@@ -318,6 +333,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	
 	
 
+	@Override
 	public ERule createERule(List<String> path, String name, String printName, String shortDescription, String hypertextDescription) {
 		ERule eRule = createERule();
 		eRule.setName(name != null ? name : "");
@@ -333,6 +349,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ESharableResourceDef createESharableResourceDef() {
 		ESharableResourceDefImpl eSharableResourceDef = new ESharableResourceDefImpl();
 		return eSharableResourceDef;
@@ -343,6 +360,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ESharableResourceEffect createESharableResourceEffect() {
 		ESharableResourceEffectImpl eSharableResourceEffect = new ESharableResourceEffectImpl();
 		return eSharableResourceEffect;
@@ -353,6 +371,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EStateResourceDef createEStateResourceDef() {
 		EStateResourceDefImpl eStateResourceDef = new EStateResourceDefImpl();
 		return eStateResourceDef;
@@ -363,6 +382,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ESummaryResourceDef createESummaryResourceDef() {
 		ESummaryResourceDefImpl eSummaryResourceDef = new ESummaryResourceDefImpl();
 		return eSummaryResourceDef;
@@ -373,6 +393,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ObjectDef createObjectDef() {
 		ObjectDefImpl objectDef = new ObjectDefImpl();
 		return objectDef;
@@ -403,6 +424,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EStateRequirement createEStateRequirement() {
 		EStateRequirementImpl eStateRequirement = new EStateRequirementImpl();
 		return eStateRequirement;
@@ -455,6 +477,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ENumericResourceEffect createENumericResourceEffect() {
 		ENumericResourceEffectImpl eNumericResourceEffect = new ENumericResourceEffectImpl();
 		return eNumericResourceEffect;
@@ -465,6 +488,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public <T extends EStateResourceDef> EStateResourceEffect<T> createEStateResourceEffect() {
 		EStateResourceEffectImpl<T> eStateResourceEffect = new EStateResourceEffectImpl<T>();
 		return eStateResourceEffect;
@@ -475,6 +499,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ESubActivity createESubActivity() {
 		ESubActivityImpl eSubActivity = new ESubActivityImpl();
 		return eSubActivity;
@@ -485,6 +510,7 @@ public class DictionaryFactoryImpl extends EFactoryImpl implements DictionaryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DictionaryPackage getDictionaryPackage() {
 		return (DictionaryPackage)getEPackage();
 	}

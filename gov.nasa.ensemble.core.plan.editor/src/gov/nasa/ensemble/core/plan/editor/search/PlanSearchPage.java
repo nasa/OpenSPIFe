@@ -288,6 +288,7 @@ public class PlanSearchPage extends DialogPage implements ISearchPage {
     /**
      * This is run when the "search" button is pressed.
      */
+	@Override
 	public boolean performAction() {	
 		saveWidgetValues();
 	
@@ -338,6 +339,7 @@ public class PlanSearchPage extends DialogPage implements ISearchPage {
 	 * Creates the initial set-up of the dialog page and stores the
 	 * composite for this page. 
 	 */
+	@Override
 	public void createControl(Composite parent) {
 		initializeDialogUnits(parent);
 		parent.setLayout(new GridLayout(1, false));
@@ -379,10 +381,12 @@ public class PlanSearchPage extends DialogPage implements ISearchPage {
 		previousQuery.setLayoutData(new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1));
 		previousQuery.setFont(group.getFont());
 		previousQuery.addSelectionListener(new SelectionListener(){
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				// do nothing
 			}
 
+			@Override
 			public void widgetSelected(SelectionEvent e) {		
 				for(int i = searchQueries.size(); i >= 0; i--){
 					deleteSearchPlanQuery(searchQueries.get(0).getComposite());
@@ -397,10 +401,12 @@ public class PlanSearchPage extends DialogPage implements ISearchPage {
 		clear.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, false, false, 1, 1));
 		clear.setFont(group.getFont());
 		clear.addSelectionListener(new SelectionListener(){
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				// do nothing
 			}
 
+			@Override
 			public void widgetSelected(SelectionEvent e) {	
 				defaultBooleanOption.select(PlanSearchInput.AND);
 				
@@ -544,6 +550,7 @@ public class PlanSearchPage extends DialogPage implements ISearchPage {
 	/**
 	 * ISearchPage mandatory method.
 	 */
+	@Override
 	public void setContainer(ISearchPageContainer container) {
 		// do nothing
 	}

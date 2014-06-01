@@ -74,6 +74,7 @@ public class TestCutPasteOperation extends UndoableOperationTestCase {
 				plan.activity3_1
 				};
 		Runnable assertPostconditions = new Runnable() {
+			@Override
 			public void run() {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivity activity = ((EActivity)target);
@@ -99,6 +100,7 @@ public class TestCutPasteOperation extends UndoableOperationTestCase {
 				plan.group2
 				};
 		Runnable assertPostconditions = new Runnable() {
+			@Override
 			public void run() {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivityGroup group = ((EActivityGroup)target);
@@ -125,6 +127,7 @@ public class TestCutPasteOperation extends UndoableOperationTestCase {
 				};
 		final int childCount = plan.group2.getChildren().size();
 		Runnable assertPostconditions = new Runnable() {
+			@Override
 			public void run() {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EActivityGroup group = ((EActivityGroup)target);
@@ -157,6 +160,7 @@ public class TestCutPasteOperation extends UndoableOperationTestCase {
 				plan.plan
 				};
 		Runnable assertPostconditions = new Runnable() {
+			@Override
 			public void run() {
 				EPlanElement target = targetElements[targetElements.length - 1];
 				EPlan plan = ((EPlan)target);

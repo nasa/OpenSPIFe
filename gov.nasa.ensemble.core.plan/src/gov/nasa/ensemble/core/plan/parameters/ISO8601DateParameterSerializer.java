@@ -35,6 +35,7 @@ public class ISO8601DateParameterSerializer implements IParameterSerializer<Date
 	}
 
 	
+	@Override
 	public String getHibernateString(Date javaObject) {
 		if (javaObject == null) {
 			return null;
@@ -44,6 +45,7 @@ public class ISO8601DateParameterSerializer implements IParameterSerializer<Date
 		}
 	}
 
+	@Override
 	public Date getJavaObject(String hibernateString) {
 		if (hibernateString == null) {
 			return null;

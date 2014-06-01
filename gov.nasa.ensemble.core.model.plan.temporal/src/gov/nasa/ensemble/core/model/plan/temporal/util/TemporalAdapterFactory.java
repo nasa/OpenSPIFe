@@ -24,7 +24,6 @@
 package gov.nasa.ensemble.core.model.plan.temporal.util;
 
 import gov.nasa.ensemble.core.model.plan.EMember;
-import gov.nasa.ensemble.core.model.plan.temporal.*;
 import gov.nasa.ensemble.core.model.plan.temporal.PlanTemporalMember;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalPackage;

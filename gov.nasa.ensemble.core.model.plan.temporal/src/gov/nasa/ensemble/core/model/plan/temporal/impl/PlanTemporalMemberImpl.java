@@ -112,6 +112,7 @@ public class PlanTemporalMemberImpl extends TemporalMemberImpl implements PlanTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getStartBoundary() {
 		return startBoundary;
 	}
@@ -121,6 +122,7 @@ public class PlanTemporalMemberImpl extends TemporalMemberImpl implements PlanTe
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setStartBoundary(Date newStartBoundary) {
 		NotificationChain notifications = null;
 		if (eNotificationRequired()) {
@@ -155,6 +157,7 @@ public class PlanTemporalMemberImpl extends TemporalMemberImpl implements PlanTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getEndBoundary() {
 		return endBoundary;
 	}
@@ -164,6 +167,7 @@ public class PlanTemporalMemberImpl extends TemporalMemberImpl implements PlanTe
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setEndBoundary(Date newEndBoundary) {
 		NotificationChain notifications = null;
 		if (eNotificationRequired()) {

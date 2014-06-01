@@ -125,6 +125,7 @@ public abstract class AbstractTimelineDataEditPart<T> extends TimelineViewerEdit
 			}
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			String propertyName = event.getPropertyName();
 			if (TickManager.TICK_INTERVALS.equals(propertyName)) {

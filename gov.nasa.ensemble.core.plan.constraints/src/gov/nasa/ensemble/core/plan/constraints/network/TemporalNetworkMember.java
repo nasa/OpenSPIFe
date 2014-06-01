@@ -86,6 +86,7 @@ public class TemporalNetworkMember<Time extends Long> implements IMember {
 		builder.initialize();
 	}
 
+	@Override
 	public void dispose() {
 		// nothing to do
 	}

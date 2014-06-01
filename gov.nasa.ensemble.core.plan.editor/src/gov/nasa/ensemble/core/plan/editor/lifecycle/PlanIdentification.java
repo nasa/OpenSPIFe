@@ -117,6 +117,7 @@ public class PlanIdentification implements MissionExtendable {
 		final String notes = notesText.getText();
 		final String planName = getPlanName();
 		TransactionUtils.writing(commonMember, new Runnable() {
+			@Override
 			public void run() {
 				plan.setName(planName);
 			    commonMember.setNotes(notes);
@@ -295,6 +296,7 @@ public class PlanIdentification implements MissionExtendable {
 			this.property = property;
 		}
 
+		@Override
 		public void modifyText(ModifyEvent e) {
 			Text text = (Text) e.getSource();
 			if (text == notesText) {

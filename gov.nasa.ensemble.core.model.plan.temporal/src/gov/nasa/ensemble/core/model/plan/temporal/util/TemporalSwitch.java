@@ -24,14 +24,10 @@
 package gov.nasa.ensemble.core.model.plan.temporal.util;
 
 import gov.nasa.ensemble.core.model.plan.EMember;
-import gov.nasa.ensemble.core.model.plan.temporal.*;
 import gov.nasa.ensemble.core.model.plan.temporal.PlanTemporalMember;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalPackage;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;

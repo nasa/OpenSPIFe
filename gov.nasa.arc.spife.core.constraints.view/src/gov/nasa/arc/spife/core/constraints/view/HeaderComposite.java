@@ -123,7 +123,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 		}
 		planElement = element;
 		if (planElement != null) {
-			TransactionalEditingDomain domain = TransactionUtils.getDomain(planElement);
+			TransactionalEditingDomain domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(planElement);
 			if (domain != null) {
 				AdapterFactory factory = ((AdapterFactoryEditingDomain)domain).getAdapterFactory();
 			    if (factory != null) {
@@ -140,10 +140,12 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 
 	private class NameChangeListener implements ILabelProviderListener {
 		
+		@Override
 		public void labelProviderChanged(LabelProviderChangedEvent event) {
 			Object[] elements = event.getElements();
 			if ((elements == null) || (Arrays.asList(elements).contains(planElement))) {
 				TransactionUtils.runInDisplayThread(imageLabel, planElement, new Runnable() {
+					@Override
 					public void run() {
 						textLabel.setText(labelize(PlanPrinter.getPrintName(planElement)));
 						imageLabel.setImage(PlanUtils.getIcon(planElement));

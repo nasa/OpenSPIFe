@@ -23,6 +23,7 @@ public class DoubleParameterSerializer implements IParameterSerializer<Double> {
 
 	private final Logger trace = Logger.getLogger(DoubleParameterSerializer.class);
 
+	@Override
 	public String getHibernateString(Double javaObject) {
 		if (javaObject != null) {
 			return getDoubleHibernateString(javaObject);
@@ -37,6 +38,7 @@ public class DoubleParameterSerializer implements IParameterSerializer<Double> {
 		return Double.toString(javaObject);
 	}
 
+	@Override
 	public Double getJavaObject(String hibernateString) {
 		if (hibernateString == null || hibernateString.trim().equals("")) {
 			return null;

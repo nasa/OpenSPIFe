@@ -132,7 +132,8 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 	
 	public void addResourceProfile(final Chart graph, Profile profile) {
 		final Plot plot = createPlot(profile);
-		TransactionUtils.writing(graph, new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(graph, new Runnable() {
+			@Override
 			public void run() {
 				graph.getPlots().add(plot);
 			}

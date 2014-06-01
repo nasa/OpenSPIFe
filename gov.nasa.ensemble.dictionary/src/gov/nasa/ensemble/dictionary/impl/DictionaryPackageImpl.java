@@ -364,6 +364,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDefinitionContext() {
 		return definitionContextEClass;
 	}
@@ -373,6 +374,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEActivityDictionary() {
 		return eActivityDictionaryEClass;
 	}
@@ -382,6 +384,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityDictionary_Author() {
 		return (EAttribute)eActivityDictionaryEClass.getEStructuralFeatures().get(0);
 	}
@@ -391,6 +394,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDictionary_AttributeDefs() {
 		return (EReference)eActivityDictionaryEClass.getEStructuralFeatures().get(1);
 	}
@@ -400,6 +404,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityDictionary_Date() {
 		return (EAttribute)eActivityDictionaryEClass.getEStructuralFeatures().get(2);
 	}
@@ -409,6 +414,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityDictionary_Description() {
 		return (EAttribute)eActivityDictionaryEClass.getEStructuralFeatures().get(3);
 	}
@@ -418,6 +424,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDictionary_ExtendedDefinitions() {
 		return (EReference)eActivityDictionaryEClass.getEStructuralFeatures().get(4);
 	}
@@ -427,6 +434,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityDictionary_Version() {
 		return (EAttribute)eActivityDictionaryEClass.getEStructuralFeatures().get(5);
 	}
@@ -436,6 +444,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEActivityDef() {
 		return eActivityDefEClass;
 	}
@@ -445,6 +454,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityDef_Category() {
 		return (EAttribute)eActivityDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -454,6 +464,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityDef_Description() {
 		return (EAttribute)eActivityDefEClass.getEStructuralFeatures().get(3);
 	}
@@ -463,6 +474,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityDef_Duration() {
 		return (EAttribute)eActivityDefEClass.getEStructuralFeatures().get(4);
 	}
@@ -472,6 +484,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDef_NumericEffects() {
 		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(5);
 	}
@@ -481,6 +494,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDef_NumericRequirements() {
 		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(6);
 	}
@@ -490,6 +504,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDef_SharedEffects() {
 		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(7);
 	}
@@ -499,6 +514,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDef_StateEffects() {
 		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(8);
 	}
@@ -508,6 +524,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDef_StateRequirements() {
 		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(9);
 	}
@@ -517,6 +534,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDef_Children() {
 		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(1);
 	}
@@ -526,6 +544,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEActivityDef_ClaimableEffects() {
 		return (EReference)eActivityDefEClass.getEStructuralFeatures().get(2);
 	}
@@ -535,6 +554,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEActivityGroupDef() {
 		return eActivityGroupDefEClass;
 	}
@@ -544,6 +564,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEChoice() {
 		return eChoiceEClass;
 	}
@@ -553,6 +574,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEChoice_ParameterAttribute() {
 		return (EReference)eChoiceEClass.getEStructuralFeatures().get(0);
 	}
@@ -562,6 +584,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEChoice_Value() {
 		return (EAttribute)eChoiceEClass.getEStructuralFeatures().get(1);
 	}
@@ -571,6 +594,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEChoice_MultipleOf() {
 		return (EAttribute)eChoiceEClass.getEStructuralFeatures().get(2);
 	}
@@ -580,6 +604,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEChoice_Minimum() {
 		return (EAttribute)eChoiceEClass.getEStructuralFeatures().get(3);
 	}
@@ -589,6 +614,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEChoice_Maximum() {
 		return (EAttribute)eChoiceEClass.getEStructuralFeatures().get(4);
 	}
@@ -598,6 +624,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEParameterDef() {
 		return eParameterDefEClass;
 	}
@@ -607,6 +634,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEParameterDef_DefaultLength() {
 		return (EAttribute)eParameterDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -616,6 +644,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEParameterDef_Description() {
 		return (EAttribute)eParameterDefEClass.getEStructuralFeatures().get(1);
 	}
@@ -625,6 +654,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEAttributeParameter() {
 		return eAttributeParameterEClass;
 	}
@@ -634,6 +664,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEAttributeParameter_Units() {
 		return (EAttribute)eAttributeParameterEClass.getEStructuralFeatures().get(0);
 	}
@@ -643,6 +674,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEAttributeParameter_UnitsDisplayName() {
 		return (EAttribute)eAttributeParameterEClass.getEStructuralFeatures().get(1);
 	}
@@ -652,6 +684,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEAttributeParameter_Choices() {
 		return (EReference)eAttributeParameterEClass.getEStructuralFeatures().get(2);
 	}
@@ -661,6 +694,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEReferenceParameter() {
 		return eReferenceParameterEClass;
 	}
@@ -670,6 +704,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEReferenceParameter_Effects() {
 		return (EReference)eReferenceParameterEClass.getEStructuralFeatures().get(0);
 	}
@@ -679,6 +714,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEReferenceParameter_Requirements() {
 		return (EReference)eReferenceParameterEClass.getEStructuralFeatures().get(1);
 	}
@@ -688,6 +724,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEActivityRequirement() {
 		return eActivityRequirementEClass;
 	}
@@ -697,6 +734,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityRequirement_Period() {
 		return (EAttribute)eActivityRequirementEClass.getEStructuralFeatures().get(0);
 	}
@@ -706,6 +744,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityRequirement_StartOffset() {
 		return (EAttribute)eActivityRequirementEClass.getEStructuralFeatures().get(1);
 	}
@@ -715,6 +754,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEActivityRequirement_EndOffset() {
 		return (EAttribute)eActivityRequirementEClass.getEStructuralFeatures().get(2);
 	}
@@ -724,6 +764,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEffect() {
 		return effectEClass;
 	}
@@ -733,6 +774,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEffect_Description() {
 		return (EAttribute)effectEClass.getEStructuralFeatures().get(0);
 	}
@@ -742,6 +784,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEffect_Name() {
 		return (EAttribute)effectEClass.getEStructuralFeatures().get(1);
 	}
@@ -751,6 +794,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEffect_StartOffset() {
 		return (EAttribute)effectEClass.getEStructuralFeatures().get(2);
 	}
@@ -760,6 +804,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEffect_EndOffset() {
 		return (EAttribute)effectEClass.getEStructuralFeatures().get(3);
 	}
@@ -769,6 +814,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEClaimableResourceDef() {
 		return eClaimableResourceDefEClass;
 	}
@@ -778,6 +824,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEClaimableEffect() {
 		return eClaimableEffectEClass;
 	}
@@ -787,6 +834,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEClaimableEffect_Definition() {
 		return (EReference)eClaimableEffectEClass.getEStructuralFeatures().get(0);
 	}
@@ -796,6 +844,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEExtendedNumericResourceDef() {
 		return eExtendedNumericResourceDefEClass;
 	}
@@ -805,6 +854,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getENumericRequirement() {
 		return eNumericRequirementEClass;
 	}
@@ -814,6 +864,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getENumericRequirement_Expression() {
 		return (EAttribute)eNumericRequirementEClass.getEStructuralFeatures().get(0);
 	}
@@ -823,6 +874,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getENumericResourceDef() {
 		return eNumericResourceDefEClass;
 	}
@@ -832,6 +884,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getENumericResourceDef_Units() {
 		return (EAttribute)eNumericResourceDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -841,6 +894,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getENumericResourceDef_Minimum() {
 		return (EAttribute)eNumericResourceDefEClass.getEStructuralFeatures().get(1);
 	}
@@ -850,6 +904,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getENumericResourceDef_Maximum() {
 		return (EAttribute)eNumericResourceDefEClass.getEStructuralFeatures().get(2);
 	}
@@ -859,6 +914,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEResourceDef() {
 		return eResourceDefEClass;
 	}
@@ -868,6 +924,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEResourceDef_Category() {
 		return (EAttribute)eResourceDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -877,6 +934,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEResourceDef_Description() {
 		return (EAttribute)eResourceDefEClass.getEStructuralFeatures().get(1);
 	}
@@ -886,6 +944,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getERule() {
 		return eRuleEClass;
 	}
@@ -895,6 +954,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getERule_HypertextDescription() {
 		return (EAttribute)eRuleEClass.getEStructuralFeatures().get(0);
 	}
@@ -904,6 +964,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getERule_Name() {
 		return (EAttribute)eRuleEClass.getEStructuralFeatures().get(1);
 	}
@@ -913,6 +974,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getERule_Path() {
 		return (EAttribute)eRuleEClass.getEStructuralFeatures().get(2);
 	}
@@ -922,6 +984,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getERule_PrintName() {
 		return (EAttribute)eRuleEClass.getEStructuralFeatures().get(3);
 	}
@@ -931,6 +994,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getERule_ShortDescription() {
 		return (EAttribute)eRuleEClass.getEStructuralFeatures().get(4);
 	}
@@ -940,6 +1004,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getESharableResourceDef() {
 		return eSharableResourceDefEClass;
 	}
@@ -949,6 +1014,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getESharableResourceDef_Capacity() {
 		return (EAttribute)eSharableResourceDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -958,6 +1024,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getESharableResourceEffect() {
 		return eSharableResourceEffectEClass;
 	}
@@ -967,6 +1034,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getESharableResourceEffect_Reservations() {
 		return (EAttribute)eSharableResourceEffectEClass.getEStructuralFeatures().get(0);
 	}
@@ -976,6 +1044,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getESharableResourceEffect_Definition() {
 		return (EReference)eSharableResourceEffectEClass.getEStructuralFeatures().get(1);
 	}
@@ -985,6 +1054,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEStateResourceDef() {
 		return eStateResourceDefEClass;
 	}
@@ -994,6 +1064,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEStateResourceDef_AllowedStates() {
 		return (EAttribute)eStateResourceDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -1003,6 +1074,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEStateResourceDef_Enumeration() {
 		return (EReference)eStateResourceDefEClass.getEStructuralFeatures().get(1);
 	}
@@ -1012,6 +1084,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRuleResourceDef() {
 		return ruleResourceDefEClass;
 	}
@@ -1021,6 +1094,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getENumericResourceEffectMode() {
 		return eNumericResourceEffectModeEEnum;
 	}
@@ -1030,6 +1104,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEStateRequirement() {
 		return eStateRequirementEClass;
 	}
@@ -1039,6 +1114,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEStateRequirement_Definition() {
 		return (EReference)eStateRequirementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1048,6 +1124,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEStateRequirement_AllowedStates() {
 		return (EAttribute)eStateRequirementEClass.getEStructuralFeatures().get(1);
 	}
@@ -1057,6 +1134,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEStateRequirement_DisallowedState() {
 		return (EAttribute)eStateRequirementEClass.getEStructuralFeatures().get(2);
 	}
@@ -1066,6 +1144,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEStateRequirement_RequiredState() {
 		return (EAttribute)eStateRequirementEClass.getEStructuralFeatures().get(3);
 	}
@@ -1075,6 +1154,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEStateRequirement_Threshold() {
 		return (EAttribute)eStateRequirementEClass.getEStructuralFeatures().get(4);
 	}
@@ -1084,6 +1164,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPeriod() {
 		return periodEEnum;
 	}
@@ -1093,6 +1174,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getESummaryResourceDef() {
 		return eSummaryResourceDefEClass;
 	}
@@ -1102,6 +1184,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getESummaryResourceDef_NumericResourceDefs() {
 		return (EReference)eSummaryResourceDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -1111,6 +1194,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getETemporalEffect() {
 		return eTemporalEffectEClass;
 	}
@@ -1120,6 +1204,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getETemporalEffect_StartEffect() {
 		return (EAttribute)eTemporalEffectEClass.getEStructuralFeatures().get(0);
 	}
@@ -1129,6 +1214,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getETemporalEffect_EndEffect() {
 		return (EAttribute)eTemporalEffectEClass.getEStructuralFeatures().get(1);
 	}
@@ -1138,6 +1224,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getENumericResourceEffect() {
 		return eNumericResourceEffectEClass;
 	}
@@ -1147,6 +1234,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getENumericResourceEffect_Definition() {
 		return (EReference)eNumericResourceEffectEClass.getEStructuralFeatures().get(0);
 	}
@@ -1156,6 +1244,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getENumericResourceEffect_Mode() {
 		return (EAttribute)eNumericResourceEffectEClass.getEStructuralFeatures().get(1);
 	}
@@ -1165,6 +1254,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEStateResourceEffect() {
 		return eStateResourceEffectEClass;
 	}
@@ -1174,6 +1264,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEStateResourceEffect_Definition() {
 		return (EReference)eStateResourceEffectEClass.getEStructuralFeatures().get(0);
 	}
@@ -1183,6 +1274,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getESubActivity() {
 		return eSubActivityEClass;
 	}
@@ -1192,6 +1284,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getESubActivity_Definition() {
 		return (EReference)eSubActivityEClass.getEStructuralFeatures().get(0);
 	}
@@ -1201,6 +1294,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getESubActivity_Name() {
 		return (EAttribute)eSubActivityEClass.getEStructuralFeatures().get(1);
 	}
@@ -1210,6 +1304,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getINamedDefinition() {
 		return iNamedDefinitionEClass;
 	}
@@ -1219,6 +1314,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getObjectDef() {
 		return objectDefEClass;
 	}
@@ -1228,6 +1324,7 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DictionaryFactory getDictionaryFactory() {
 		return (DictionaryFactory)getEFactoryInstance();
 	}

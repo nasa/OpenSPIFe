@@ -150,9 +150,11 @@ public class ScaleTimelineMarkerEditPart extends TimelineMarkerEditPart
 	 * @author Eugene Turkov
 	 */
 	private class PropertyChangeListenerImpl implements PropertyChangeListener {
+		@Override
 		public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
 			if(propertyChangeEvent.getPropertyName().equals(TimelineMarker.IMAGE)) {			
 				GEFUtils.runInDisplayThread(ScaleTimelineMarkerEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						IFigure figure = getFigure();
 						if(figure instanceof Label) {

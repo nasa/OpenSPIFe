@@ -94,6 +94,7 @@ public abstract class NamedDefinitionContentProvider implements ITreeContentProv
 	 *            the parent element
 	 * @return an array of child elements
 	 */
+	@Override
 	public synchronized Object[] getChildren(Object parent) {
 		if (parent == invisibleRoot || parent == AD) {
 			if (categories == null) {
@@ -121,6 +122,7 @@ public abstract class NamedDefinitionContentProvider implements ITreeContentProv
 	 * @return the parent element, or <code>null</code> if it has none or if
 	 *         the parent cannot be computed
 	 */
+	@Override
 	public Object getParent(Object element) {
 		// the root has not parent
 		if (element == invisibleRoot || element == AD) {
@@ -156,6 +158,7 @@ public abstract class NamedDefinitionContentProvider implements ITreeContentProv
 	 * @return <code>true</code> if the given element has children, and
 	 *         <code>false</code> if it has no children
 	 */
+	@Override
 	public synchronized boolean hasChildren(Object element) {
 		if (element == invisibleRoot || element == AD) {
 			return true;
@@ -173,6 +176,7 @@ public abstract class NamedDefinitionContentProvider implements ITreeContentProv
 	 *            the input element (ignored)
 	 * @return the array of elements to display in the viewer
 	 */
+	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(invisibleRoot);
 	}
@@ -186,6 +190,7 @@ public abstract class NamedDefinitionContentProvider implements ITreeContentProv
 	 * process of being disposed.
 	 * </p>
 	 */
+	@Override
 	public void dispose() { /* do nothing */}
 
     /**
@@ -201,6 +206,7 @@ public abstract class NamedDefinitionContentProvider implements ITreeContentProv
 	 *            the new input element, or <code>null</code> if the viewer
 	 *            does not have an input
 	 */
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		setTreeViewer((TreeViewer) viewer);
 	}
@@ -249,6 +255,7 @@ public abstract class NamedDefinitionContentProvider implements ITreeContentProv
 		}
 		WidgetUtils.runInDisplayThread(treeViewer.getTree(),
 			new Runnable() {
+				@Override
 				public void run() {
 					treeViewer.refresh();
 				}

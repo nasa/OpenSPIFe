@@ -118,6 +118,7 @@ public class TestUtils {
 		final Date oldDate = expectedMember.getStartTime();
 		if (IS_USING_TEMPORAL_EXTENSION) {
 			TransactionUtils.writing(expectedMember, new Runnable() {
+				@Override
 				public void run() {
 					if (oldDate == null) {
 						expectedMember.setStartTime(targetDate);
@@ -135,6 +136,7 @@ public class TestUtils {
 		if (IS_USING_TEMPORAL_EXTENSION) {
 			final TemporalMember expectedMember = expectedElement.getMember(TemporalMember.class);
 			TransactionUtils.writing(expectedMember, new Runnable() {
+				@Override
 				public void run() {
 					expectedMember.setStartTime(oldDate);
 				}

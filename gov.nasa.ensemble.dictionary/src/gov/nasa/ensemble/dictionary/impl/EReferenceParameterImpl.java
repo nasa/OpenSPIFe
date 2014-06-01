@@ -146,6 +146,7 @@ public class EReferenceParameterImpl extends EReferenceImpl implements EReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getDefaultLength() {
 		return defaultLength;
 	}
@@ -155,6 +156,7 @@ public class EReferenceParameterImpl extends EReferenceImpl implements EReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefaultLength(int newDefaultLength) {
 		int oldDefaultLength = defaultLength;
 		defaultLength = newDefaultLength;
@@ -186,6 +188,7 @@ public class EReferenceParameterImpl extends EReferenceImpl implements EReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -195,6 +198,7 @@ public class EReferenceParameterImpl extends EReferenceImpl implements EReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -207,6 +211,7 @@ public class EReferenceParameterImpl extends EReferenceImpl implements EReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<Effect<?>> getEffects() {
 		if (effects == null) {
 			effects = new EObjectContainmentEList<Effect<?>>(Effect.class, this, DictionaryPackage.EREFERENCE_PARAMETER__EFFECTS);
@@ -219,6 +224,7 @@ public class EReferenceParameterImpl extends EReferenceImpl implements EReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<EActivityRequirement> getRequirements() {
 		if (requirements == null) {
 			requirements = new EObjectContainmentEList<EActivityRequirement>(EActivityRequirement.class, this, DictionaryPackage.EREFERENCE_PARAMETER__REQUIREMENTS);

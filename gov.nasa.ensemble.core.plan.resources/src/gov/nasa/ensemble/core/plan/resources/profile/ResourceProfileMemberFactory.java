@@ -17,7 +17,6 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.resources.profile;
 
-import gov.nasa.ensemble.emf.util.EMFUtils;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.plan.IMemberFactory;
 
@@ -31,6 +30,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 public class ResourceProfileMemberFactory implements IMemberFactory<ResourceProfileMember> {
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public ResourceProfileMember getMember(EPlan plan) {
 		EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor(plan);
@@ -51,6 +51,7 @@ public class ResourceProfileMemberFactory implements IMemberFactory<ResourceProf
 		}
 	}
 
+	@Override
 	public Class<ResourceProfileMember> getMemberClass() {
 		return ResourceProfileMember.class;
 	}

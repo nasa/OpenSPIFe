@@ -323,6 +323,7 @@ public class ProfileDataTypeWizardPage extends EnsembleWizardPage {
 	 * and reacts together, even though there are in separate Composites.
 	 */
 	private Listener radioGroupListener = new Listener() {
+		@Override
 		public void handleEvent(Event event) {
 			// clear previous selections
 			clearSelections();

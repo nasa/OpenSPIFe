@@ -26,19 +26,12 @@ package gov.nasa.ensemble.core.model.plan.temporal.edge.impl;
 import gov.nasa.ensemble.core.jscience.JSciencePackage;
 import gov.nasa.ensemble.core.model.plan.PlanPackage;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalPackage;
-import gov.nasa.ensemble.core.model.plan.temporal.edge.ETemporalEdge;
 import gov.nasa.ensemble.core.model.plan.temporal.edge.ETemporalEdgeManager;
 import gov.nasa.ensemble.core.model.plan.temporal.edge.EdgeFactory;
 import gov.nasa.ensemble.core.model.plan.temporal.edge.EdgePackage;
 import gov.nasa.ensemble.core.model.plan.temporal.impl.TemporalPackageImpl;
-import gov.nasa.ensemble.emf.model.common.CommonPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -130,6 +123,7 @@ public class EdgePackageImpl extends EPackageImpl implements EdgePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getETemporalEdgeManager() {
 		return eTemporalEdgeManagerEClass;
 	}
@@ -139,6 +133,7 @@ public class EdgePackageImpl extends EPackageImpl implements EdgePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EdgeFactory getEdgeFactory() {
 		return (EdgeFactory)getEFactoryInstance();
 	}

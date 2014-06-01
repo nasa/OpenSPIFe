@@ -77,10 +77,12 @@ public class SolPickerWidget extends Canvas implements RangeChangeListener {
 		
 		tw.addMouseListener(new MouseListener() {
 			
+			@Override
 			public void mouseDoubleClick(MouseEvent e) {
 				// do nothing
 			}
 			
+			@Override
 			public void mouseDown(MouseEvent e) {
 				Rectangle bounds = new Rectangle(0, 0, tw.getSize().x, tw
 						.getSize().y);
@@ -116,6 +118,7 @@ public class SolPickerWidget extends Canvas implements RangeChangeListener {
 				
 			}
 			
+			@Override
 			public void mouseUp(MouseEvent e) {
 				draggingOnTrack = false;
 			}
@@ -124,6 +127,7 @@ public class SolPickerWidget extends Canvas implements RangeChangeListener {
 		
 		tw.addMouseMoveListener(new MouseMoveListener() {
 			
+			@Override
 			public void mouseMove(MouseEvent e) {
 				if (draggingOnTrack) {
 					if (e.x >= leftmostPickerLocation
@@ -142,15 +146,18 @@ public class SolPickerWidget extends Canvas implements RangeChangeListener {
 		
 		pwmin.addMouseListener(new MouseListener() {
 			
+			@Override
 			public void mouseDoubleClick(MouseEvent e) {
 				// do nothing
 			}
 			
+			@Override
 			public void mouseDown(MouseEvent e) {
 				pwmin.setMoving(true);
 				pwmax.setMoving(false);
 			}
 			
+			@Override
 			public void mouseUp(MouseEvent e) {
 				pwmin.setMoving(false);
 			}
@@ -159,15 +166,18 @@ public class SolPickerWidget extends Canvas implements RangeChangeListener {
 		
 		pwmax.addMouseListener(new MouseListener() {
 			
+			@Override
 			public void mouseDoubleClick(MouseEvent e) {
 				// do nothing
 			}
 			
+			@Override
 			public void mouseDown(MouseEvent e) {
 				pwmax.setMoving(true);
 				pwmin.setMoving(false);
 			}
 			
+			@Override
 			public void mouseUp(MouseEvent e) {
 				pwmax.setMoving(false);
 			}
@@ -271,6 +281,7 @@ public class SolPickerWidget extends Canvas implements RangeChangeListener {
 	 * @param pickedMinSol min selected sol
 	 * @param pickedMaxSol max selected sol
 	 */
+	@Override
 	public void rangeChanged(int minAllowedSol, int maxAllowedSol,
 			int pickedMinSol, int pickedMaxSol) {
 		pwmin.setLocation((int) Math

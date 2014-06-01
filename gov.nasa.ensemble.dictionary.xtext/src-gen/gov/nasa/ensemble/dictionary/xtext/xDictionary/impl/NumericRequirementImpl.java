@@ -72,7 +72,8 @@ public class NumericRequirementImpl extends RequirementImpl implements NumericRe
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getExpression()
+  @Override
+public String getExpression()
   {
     return expression;
   }
@@ -82,7 +83,8 @@ public class NumericRequirementImpl extends RequirementImpl implements NumericRe
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(String newExpression)
+  @Override
+public void setExpression(String newExpression)
   {
     String oldExpression = expression;
     expression = newExpression;

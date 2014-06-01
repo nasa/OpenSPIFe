@@ -78,6 +78,7 @@ public class PlanProfileService extends PlanService {
 	
 	private class Listener implements ProfileSynchronizerListener {
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void profilesAdded(Collection<Profile> profiles) {
 			final Collection<? extends Profile<?>> adding = new LinkedHashSet<Profile<?>>((Collection<? extends Profile<?>>) profiles);
@@ -85,6 +86,7 @@ public class PlanProfileService extends PlanService {
 			adding.removeAll(memberProfiles);
 			if (!adding.isEmpty()) {
 				TransactionUtils.writing(getEditingDomain(), new Runnable() {
+					@Override
 					public void run() {
 						memberProfiles.addAll(adding);
 					}
@@ -92,9 +94,11 @@ public class PlanProfileService extends PlanService {
 			}
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void profilesRemoved(final Collection<Profile> profiles) {
 			TransactionUtils.writing(getEditingDomain(), new Runnable() {
+				@Override
 				public void run() {
 					getResourceProfileMember().getResourceProfiles().removeAll(profiles);
 				}

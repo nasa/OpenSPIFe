@@ -61,6 +61,7 @@ public class SPIFeTemplatePlanAddNewOperation extends TemplatePlanAddNewOperatio
 		if (templatePlan != null) {
 			final PlanTransferable planTransferable = createCopy(activityName, templatePlan);
 			TransactionUtils.writing(templatePlan, new Runnable() {
+				@Override
 				public void run() {
 					PlanStructureModifier modifier = PlanStructureModifier.INSTANCE;
 					IStructureLocation location = modifier.getInsertionLocation(planTransferable, new StructuredSelection(templatePlan), InsertionSemantics.ON);

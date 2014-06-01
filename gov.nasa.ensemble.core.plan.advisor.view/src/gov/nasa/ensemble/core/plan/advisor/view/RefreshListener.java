@@ -72,6 +72,7 @@ public class RefreshListener extends AdvisorListener {
 		if (!refreshQueued) {
 			refreshQueued = true;
 			TransactionUtils.runInDisplayThread(viewer.getControl(), plan, new Runnable() {
+				@Override
 				public void run() {
 					refreshQueued = false;
 					viewer.refresh();

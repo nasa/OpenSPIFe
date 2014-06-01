@@ -21,8 +21,6 @@ import gov.nasa.ensemble.core.jscience.DataPoint;
 import gov.nasa.ensemble.core.jscience.JSciencePackage;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.model.plan.EPlan;
-import gov.nasa.ensemble.core.model.plan.temporal.edge.ETemporalEdge;
-import gov.nasa.ensemble.core.model.plan.temporal.edge.EdgeFactory;
 import gov.nasa.ensemble.core.model.plan.temporal.edge.impl.TemporalEdgeContributor;
 import gov.nasa.ensemble.core.model.plan.temporal.edge.impl.TemporalEdgeManager;
 import gov.nasa.ensemble.core.model.plan.translator.WrapperUtils;

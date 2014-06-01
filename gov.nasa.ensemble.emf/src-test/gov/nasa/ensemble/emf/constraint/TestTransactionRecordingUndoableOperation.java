@@ -63,6 +63,7 @@ public class TestTransactionRecordingUndoableOperation extends Assert {
 		
 		Runnable runnable = new Runnable() {
 
+			@Override
 			public void run() {
 				object.setName(TEST_CLASS_NAME);
 				object2.setName(TEST_CLASS_NAME2);

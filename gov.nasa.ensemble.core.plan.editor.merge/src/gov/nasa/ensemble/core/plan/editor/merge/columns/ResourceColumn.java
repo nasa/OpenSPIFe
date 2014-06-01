@@ -144,6 +144,7 @@ public class ResourceColumn extends AbstractMergeColumn<ComputableAmount> {
 
 	public class ResourceComparator implements Comparator<ComputableAmount> {
 
+		@Override
 		public int compare(ComputableAmount value1, ComputableAmount value2) {
 			Integer null1 = compareNull(value1, value2);
 			if (null1 != null) return null1;

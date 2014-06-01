@@ -67,6 +67,7 @@ public class PlanSelectAllOperation extends SelectAllOperation {
 			}.visitAll(plan);
 			final ISelection selection = new StructuredSelection(elements);
 			WidgetUtils.runInDisplayThread(fSite.getShell(), new Runnable() {
+				@Override
 				public void run() {
 					ISelectionProvider provider = fSite.getSelectionProvider();
 					provider.setSelection(selection);

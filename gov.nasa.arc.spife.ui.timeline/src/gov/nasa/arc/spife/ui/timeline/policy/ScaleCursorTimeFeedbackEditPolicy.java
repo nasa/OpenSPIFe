@@ -86,6 +86,7 @@ public class ScaleCursorTimeFeedbackEditPolicy extends CursorTimeFeedbackEditPol
 		
 		Display display = WidgetUtils.getDisplay();
 		display.asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				// by the time this code runs, the widgets could be out of date so try/catch
 				try {
@@ -132,6 +133,7 @@ public class ScaleCursorTimeFeedbackEditPolicy extends CursorTimeFeedbackEditPol
 
 	private class Listener implements IPropertyChangeListener {
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			if (TimelinePreferencePage.P_SCALE_FONT_SIZE.equals(event.getProperty())) {
 				Font font = label.getFont();

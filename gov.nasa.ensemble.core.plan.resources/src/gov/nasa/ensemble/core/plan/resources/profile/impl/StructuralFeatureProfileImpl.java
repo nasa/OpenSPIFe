@@ -126,6 +126,7 @@ public class StructuralFeatureProfileImpl<T> extends ProfileImpl<T> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -135,6 +136,7 @@ public class StructuralFeatureProfileImpl<T> extends ProfileImpl<T> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -147,6 +149,7 @@ public class StructuralFeatureProfileImpl<T> extends ProfileImpl<T> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getObject() {
 		if (object != null && object.eIsProxy()) {
 			InternalEObject oldObject = (InternalEObject)object;
@@ -173,6 +176,7 @@ public class StructuralFeatureProfileImpl<T> extends ProfileImpl<T> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setObject(EObject newObject) {
 		EObject oldObject = object;
 		object = newObject;
@@ -185,6 +189,7 @@ public class StructuralFeatureProfileImpl<T> extends ProfileImpl<T> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EStructuralFeature getFeature() {
 		if (feature != null && feature.eIsProxy()) {
 			InternalEObject oldFeature = (InternalEObject)feature;
@@ -211,6 +216,7 @@ public class StructuralFeatureProfileImpl<T> extends ProfileImpl<T> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFeature(EStructuralFeature newFeature) {
 		EStructuralFeature oldFeature = feature;
 		feature = newFeature;

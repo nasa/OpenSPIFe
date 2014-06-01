@@ -115,7 +115,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  @Override
+public String getName()
   {
     return name;
   }
@@ -125,7 +126,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  @Override
+public void setName(String newName)
   {
     String oldName = name;
     name = newName;
@@ -138,7 +140,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getColor()
+  @Override
+public String getColor()
   {
     return color;
   }
@@ -148,7 +151,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setColor(String newColor)
+  @Override
+public void setColor(String newColor)
   {
     String oldColor = color;
     color = newColor;
@@ -161,7 +165,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLiteral()
+  @Override
+public String getLiteral()
   {
     return literal;
   }
@@ -171,7 +176,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLiteral(String newLiteral)
+  @Override
+public void setLiteral(String newLiteral)
   {
     String oldLiteral = literal;
     literal = newLiteral;

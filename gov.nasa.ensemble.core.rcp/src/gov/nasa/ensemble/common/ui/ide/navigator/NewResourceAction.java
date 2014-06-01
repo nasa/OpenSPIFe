@@ -34,18 +34,22 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.navigator.CommonViewer;
 
 public abstract class NewResourceAction implements IWorkbenchWindowActionDelegate{
+	@Override
 	public void init(IWorkbenchWindow window) {
 		// nothing to do
 	}
 	
+	@Override
 	public void dispose() {
 		// nothing to do
 	}
 	
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// don't care
 	}
 	
+	@Override
 	public void run(IAction action) {
 		IWorkbench workbench = PlatformUI.getWorkbench();
 		INewWizard newResourceWizard = getNewResourceWizard();

@@ -151,6 +151,7 @@ public class NameMergeColumn extends AbstractMergeColumn<EObject> {
 	
 	private static final Comparator<EObject> comparator =
 		new Comparator<EObject>() {
+			@Override
 			public int compare(EObject o1, EObject o2) {
 				String name1 = "";
 				String name2 = "";

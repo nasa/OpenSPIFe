@@ -141,6 +141,7 @@ public class FixedTransactionEditingDomain extends TransactionalEditingDomainImp
 		
 		private EditingDomain editingDomain;
 		
+		@Override
 		public EditingDomain getEditingDomain() {
 			return editingDomain;
 		}

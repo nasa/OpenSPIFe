@@ -70,6 +70,7 @@ public class CommandRefreshingActiveEditorPartListener implements IPartListener2
      * IPartListener2
      */
 
+	@Override
 	public void partActivated(IWorkbenchPartReference partReference) {
 	    if ((partReference instanceof IEditorReference) && (partReference != oldEditorPartReference)) {
 	    	if (oldEditorPartReference != null) {
@@ -88,12 +89,19 @@ public class CommandRefreshingActiveEditorPartListener implements IPartListener2
 	    }
 	}
 
+	@Override
 	public void partBroughtToTop(IWorkbenchPartReference partRef) 	{ /* do nothing */ }
+	@Override
 	public void partClosed(IWorkbenchPartReference partRef) 		{ /* do nothing */ }
+	@Override
 	public void partDeactivated(IWorkbenchPartReference partRef) 	{ /* do nothing */ }
+	@Override
 	public void partHidden(IWorkbenchPartReference partRef) 		{ /* do nothing */ }
+	@Override
 	public void partInputChanged(IWorkbenchPartReference partRef) 	{ /* do nothing */ }
+	@Override
 	public void partOpened(IWorkbenchPartReference partRef) 		{ /* do nothing */ }
+	@Override
 	public void partVisible(IWorkbenchPartReference partRef) 		{ /* do nothing */ }
 
 	/*

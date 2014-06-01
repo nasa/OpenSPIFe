@@ -100,6 +100,7 @@ public class TransferableExportWizard extends PlanExportWizardImpl {
 	protected void savePlan(final EPlan plan, final File file) throws Exception {
 		final boolean isExportSelected = isExportSelected();
 		IRunnableWithProgress op = new IRunnableWithProgress() {
+			@Override
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
 					exportPlan(plan, file, isExportSelected, monitor);

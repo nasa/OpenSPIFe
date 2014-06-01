@@ -32,7 +32,6 @@ import gov.nasa.ensemble.core.model.plan.advisor.PlanAdvisorMember;
 
 import gov.nasa.ensemble.core.model.plan.advisor.RuleAdvisorMember;
 import gov.nasa.ensemble.core.model.plan.advisor.WaiverPropertiesEntry;
-import java.util.Map;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -151,6 +150,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRuleAdvisorMember() {
 		return ruleAdvisorMemberEClass;
 	}
@@ -160,6 +160,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRuleAdvisorMember_Waivers() {
 		return (EReference)ruleAdvisorMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -169,6 +170,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPlanAdvisorMember() {
 		return planAdvisorMemberEClass;
 	}
@@ -178,6 +180,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getActivityAdvisorMember() {
 		return activityAdvisorMemberEClass;
 	}
@@ -187,6 +190,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getActivityAdvisorMember_WaivingAllFlightRules() {
 		return (EAttribute)activityAdvisorMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -196,6 +200,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getActivityAdvisorMember_Priority() {
 		return (EAttribute)activityAdvisorMemberEClass.getEStructuralFeatures().get(1);
 	}
@@ -205,6 +210,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getWaiverPropertiesEntry() {
 		return waiverPropertiesEntryEClass;
 	}
@@ -214,6 +220,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getWaiverPropertiesEntry_Id() {
 		return (EAttribute)waiverPropertiesEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -223,6 +230,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getWaiverPropertiesEntry_Key() {
 		return (EAttribute)waiverPropertiesEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -232,6 +240,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getWaiverPropertiesEntry_Value() {
 		return (EAttribute)waiverPropertiesEntryEClass.getEStructuralFeatures().get(2);
 	}
@@ -241,6 +250,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIWaivable() {
 		return iWaivableEClass;
 	}
@@ -250,6 +260,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIWaivable_WaiverRationale() {
 		return (EAttribute)iWaivableEClass.getEStructuralFeatures().get(0);
 	}
@@ -259,6 +270,7 @@ public class AdvisorPackageImpl extends EPackageImpl implements AdvisorPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdvisorFactory getAdvisorFactory() {
 		return (AdvisorFactory)getEFactoryInstance();
 	}

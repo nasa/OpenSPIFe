@@ -63,6 +63,7 @@ public class PlanTimelineEditPart extends AbstractTimelineEditPart<EPlan> {
 			return;
 		
 		TransactionUtils.reading(getModel(), new Runnable() {
+			@Override
 			public void run() {
 				PlanTimelineEditPart.super.activate();
 			}

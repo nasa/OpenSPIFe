@@ -79,6 +79,7 @@ public abstract class ApprovableAction extends GlobalAction implements IWorkbenc
 		currentAction = action;
 	}
 	
+	@Override
 	public void init(IWorkbenchWindow window) {
 		this.window = window;
 		if (window != null) {
@@ -89,6 +90,7 @@ public abstract class ApprovableAction extends GlobalAction implements IWorkbenc
 		}
 	}
 	
+	@Override
 	public void dispose() {
 		if (currentPlan != null) {
 			TransactionalEditingDomain domain = TransactionUtils.getDomain(currentPlan);
@@ -110,6 +112,7 @@ public abstract class ApprovableAction extends GlobalAction implements IWorkbenc
 		runWithEvent(action, null);
 	}
 	
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		currentAction = action;
 		currentSelection = selection;
@@ -228,15 +231,18 @@ public abstract class ApprovableAction extends GlobalAction implements IWorkbenc
     	return proxy;
     }
 
+	@Override
 	public void addHandlerListener(IHandlerListener handlerListener) {
     	getProxy().addHandlerListener(handlerListener);
     }
 
+	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
     	getProxy().execute(event);
     	return null;
     }
 
+	@Override
 	public void removeHandlerListener(IHandlerListener handlerListener) {
     	getProxy().removeHandlerListener(handlerListener);
     }
@@ -274,6 +280,7 @@ public abstract class ApprovableAction extends GlobalAction implements IWorkbenc
 	
 	private class PlanActivationListener implements IPartListener2 {
 		
+		@Override
 		public void partActivated(IWorkbenchPartReference partRef) {
 			IWorkbenchPage page = partRef.getPage();
 			IEditorPart editor = page.getActiveEditor();
@@ -290,16 +297,23 @@ public abstract class ApprovableAction extends GlobalAction implements IWorkbenc
 			setActiveEditor(currentAction, editor);
 		}
 
+		@Override
 		public void partClosed(IWorkbenchPartReference partRef) {
 			setCurrentPlan(null);
 			setActiveEditor(currentAction, null);
 		}
 		
+		@Override
 		public void partBroughtToTop(IWorkbenchPartReference partRef) 	{ /* no-operation */}
+		@Override
 		public void partDeactivated(IWorkbenchPartReference partRef) 	{ /* no-operation */}
+		@Override
 		public void partOpened(IWorkbenchPartReference partRef) 		{ /* no-operation */}
+		@Override
 		public void partHidden(IWorkbenchPartReference partRef) 		{ /* no-operation */}
+		@Override
 		public void partVisible(IWorkbenchPartReference partRef) 		{ /* no-operation */}
+		@Override
 		public void partInputChanged(IWorkbenchPartReference partRef) 	{ /* no-operation */}
 	}
 

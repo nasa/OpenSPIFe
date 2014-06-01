@@ -167,12 +167,14 @@ public class PlanElementRowEditPart extends PlanElementRowHeaderEditPart {
 			Object f = notification.getFeature();
 			if (TemporalPackage.Literals.TEMPORAL_MEMBER__SCHEDULED == f) {
 				GEFUtils.runInDisplayThread(PlanElementRowEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						updateScheduledVisual();
 					}
 				});
 			} else if (PlanPackage.Literals.COMMON_MEMBER__VISIBLE == f) {
 				GEFUtils.runInDisplayThread(PlanElementRowEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						updateVisibleVisual();
 					}

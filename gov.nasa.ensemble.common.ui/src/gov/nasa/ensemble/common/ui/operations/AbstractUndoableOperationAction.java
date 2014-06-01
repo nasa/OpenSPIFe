@@ -36,6 +36,7 @@ public abstract class AbstractUndoableOperationAction extends Action implements 
 	private IWorkbenchPartSite site;
 	private IUndoContext undoContext;
 	private IOperationHistoryListener historyListener = new IOperationHistoryListener() {
+		@Override
 		public void historyNotification(OperationHistoryEvent event) {
 			int type = event.getEventType();
 			if ((type == OperationHistoryEvent.DONE)
@@ -45,6 +46,7 @@ public abstract class AbstractUndoableOperationAction extends Action implements 
 				if ((undoContext == null) || operation.hasContext(undoContext) || operation.getContexts().length == 0) {
 					Display display = WidgetUtils.getDisplay();
 					display.asyncExec(new Runnable() {
+						@Override
 						public void run() {
 							updateEnablement();
 						}
@@ -64,6 +66,7 @@ public abstract class AbstractUndoableOperationAction extends Action implements 
 		history.addOperationHistoryListener(historyListener);
 	}
 
+	@Override
 	public void dispose() {
 		IOperationHistory history = OperationHistoryFactory.getOperationHistory();
 		history.removeOperationHistoryListener(historyListener);

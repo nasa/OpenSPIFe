@@ -157,6 +157,7 @@ public class ViolationWaiverImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -166,6 +167,7 @@ public class ViolationWaiverImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -178,6 +180,7 @@ public class ViolationWaiverImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getStart() {
 		return start;
 	}
@@ -187,6 +190,7 @@ public class ViolationWaiverImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStart(Date newStart) {
 		Date oldStart = start;
 		start = newStart;
@@ -199,6 +203,7 @@ public class ViolationWaiverImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getEnd() {
 		return end;
 	}
@@ -208,6 +213,7 @@ public class ViolationWaiverImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEnd(Date newEnd) {
 		Date oldEnd = end;
 		end = newEnd;
@@ -220,6 +226,7 @@ public class ViolationWaiverImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getWaiverRationale() {
 		return waiverRationale;
 	}
@@ -229,6 +236,7 @@ public class ViolationWaiverImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWaiverRationale(String newWaiverRationale) {
 		String oldWaiverRationale = waiverRationale;
 		waiverRationale = newWaiverRationale;

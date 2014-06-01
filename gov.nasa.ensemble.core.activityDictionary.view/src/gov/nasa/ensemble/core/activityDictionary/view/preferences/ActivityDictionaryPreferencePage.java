@@ -73,6 +73,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 		helper = ActivityDictionaryPreferencePageHelper.INSTANCE;
 	}
 
+	@Override
 	public void init(IWorkbench workbench) {
 		// nothing to do
 	}
@@ -212,6 +213,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 		formText.append("</form>");
 
 		WidgetUtils.runInDisplayThread(activityInformation, new Runnable() {
+			@Override
 			public void run() {
 				activityInformation.setText(formText.toString(), true, false);
 			}
@@ -263,9 +265,11 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 	}
 
 	private final class FileModifyListener implements ModifyListener {
+		@Override
 		public void modifyText(ModifyEvent e) {
 			if (e.widget instanceof Text) {
 				Display.getDefault().asyncExec(new Runnable() {
+					@Override
 					public void run() {
 						activityInformation.setText("", false, false);
 					}

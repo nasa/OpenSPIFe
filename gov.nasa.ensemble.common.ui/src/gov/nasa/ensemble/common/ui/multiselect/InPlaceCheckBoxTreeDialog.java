@@ -148,6 +148,7 @@ public class InPlaceCheckBoxTreeDialog extends AbstractInPlaceDialog {
 			
 			viewer.setContentProvider(new ITreeContentProvider() {
 				
+				@Override
 				public Object[] getChildren(Object parentElement) {
 					if (parentElement instanceof List<?>) {
 						return ((List<?>) parentElement).toArray();
@@ -155,22 +156,27 @@ public class InPlaceCheckBoxTreeDialog extends AbstractInPlaceDialog {
 					return null;
 				}
 				
+				@Override
 				public Object getParent(Object element) {
 					return null;
 				}
 
+				@Override
 				public boolean hasChildren(Object element) {
 					return false;
 				}
 
+				@Override
 				public Object[] getElements(Object inputElement) {
 					return getChildren(inputElement);
 				}
 
+				@Override
 				public void dispose() {
 					//do nothing
 				}
 
+				@Override
 				public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 					//do nothing
 				}
@@ -217,6 +223,7 @@ public class InPlaceCheckBoxTreeDialog extends AbstractInPlaceDialog {
 
 		this.addEventListener(new IInPlaceDialogListener() {
 
+			@Override
 			public void buttonPressed(InPlaceDialogEvent event) {
 				if (event.getReturnCode() == AbstractInPlaceDialog.ID_OK) {
 					dialogButtonPressOK();
@@ -229,6 +236,7 @@ public class InPlaceCheckBoxTreeDialog extends AbstractInPlaceDialog {
 		
 		viewer.addCheckStateListener(new ICheckStateListener() {
 			
+			@Override
 			public void checkStateChanged(CheckStateChangedEvent event) {
 								
 				if (event.getChecked()) {

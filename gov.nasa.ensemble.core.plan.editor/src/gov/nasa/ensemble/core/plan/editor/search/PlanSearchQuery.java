@@ -46,22 +46,27 @@ public class PlanSearchQuery implements ISearchQuery{
 		searchResult = new PlanSearchResult(this, searchLabel);
 	}
 	
+	@Override
 	public boolean canRerun() {
 		return true;
 	}
 
+	@Override
 	public boolean canRunInBackground() {
 		return true;
 	}
 
+	@Override
 	public String getLabel() {
 		return searchResult.getSearchLabel();
 	}
 
+	@Override
 	public ISearchResult getSearchResult() {
 		return searchResult;
 	}
 
+	@Override
 	public IStatus run(IProgressMonitor monitor) throws OperationCanceledException {
 		String label = getLabel();
 		

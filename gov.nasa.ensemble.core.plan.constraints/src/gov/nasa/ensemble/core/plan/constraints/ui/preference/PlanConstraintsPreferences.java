@@ -41,6 +41,7 @@ public class PlanConstraintsPreferences implements IPropertyChangeListener {
 		initializeUseMeetsChains();
 	}
 
+	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		String property = event.getProperty();
 		if (CommonUtils.equalsIgnoreCase(property, PlanConstraintsPreferencePage.P_USE_MEETS_CHAINING)) {

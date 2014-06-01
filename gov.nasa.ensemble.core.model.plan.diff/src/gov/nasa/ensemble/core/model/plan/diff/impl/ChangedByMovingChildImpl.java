@@ -35,18 +35,22 @@ public class ChangedByMovingChildImpl implements ChangedByMovingChild {
 		this.diffInfo = diffInfo;
 	}
 
+	@Override
 	public EPlanChild getMovedElement() {
 		return (EPlanChild) oldAndNew.getNewCopy();
 	}
 
+	@Override
 	public EPlanParent getNewParent() {
 		return (EPlanParent) getMovedElement().getParent();
 	}
 
+	@Override
 	public EPlanChild getOldCopyOfElement() {
 		return (EPlanChild) oldAndNew.getOldCopy();
 	}
 
+	@Override
 	public EPlanParent getOldParent() {
 		EPlanElement oldCopyOfParent = getOldCopyOfElement().getParent();
 		EPlanElement newCopyOfParent = diffInfo.findNewCopy(oldCopyOfParent);
@@ -57,6 +61,7 @@ public class ChangedByMovingChildImpl implements ChangedByMovingChild {
 		}
 	}
 
+	@Override
 	public DiffType getDiffType() {
 		return DiffType.MOVE;
 	}

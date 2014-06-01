@@ -28,6 +28,7 @@ public class TemporalMemberFactory implements IPlanElementMemberFactory {
 
 	public static final String KEY = "gov.nasa.ensemble.core.model.plan.temporal";
 
+	@Override
 	public EMember createMember(EClass eClass) {
 		if (eClass == PlanPackage.Literals.EPLAN) {
 			return TemporalFactory.eINSTANCE.createPlanTemporalMember();
@@ -35,10 +36,12 @@ public class TemporalMemberFactory implements IPlanElementMemberFactory {
 		return TemporalFactory.eINSTANCE.createTemporalMember();
 	}
 
+	@Override
 	public String getKey() {
 		return KEY;
 	}
 
+	@Override
 	public int getSortKey() {
 		return 0;
 	}

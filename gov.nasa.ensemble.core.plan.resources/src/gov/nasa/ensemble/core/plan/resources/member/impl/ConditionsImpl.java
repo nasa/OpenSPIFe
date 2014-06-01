@@ -400,6 +400,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Date getTime() {
 		if (!eIsSet(MemberPackage.Literals.CONDITIONS__TIME)) {
 			boolean delivering = eDeliver();
@@ -415,6 +416,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTime(Date newTime) {
 		Date oldTime = time;
 		time = newTime;
@@ -427,6 +429,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -436,6 +439,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -448,6 +452,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isEditable() {
 		return (eFlags & EDITABLE_EFLAG) != 0;
 	}
@@ -457,6 +462,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEditable(boolean newEditable) {
 		boolean oldEditable = (eFlags & EDITABLE_EFLAG) != 0;
 		if (newEditable) eFlags |= EDITABLE_EFLAG; else eFlags &= ~EDITABLE_EFLAG;
@@ -469,6 +475,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isActive() {
 		return (eFlags & ACTIVE_EFLAG) != 0;
 	}
@@ -478,6 +485,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setActive(boolean newActive) {
 		boolean oldActive = (eFlags & ACTIVE_EFLAG) != 0;
 		if (newActive) eFlags |= ACTIVE_EFLAG; else eFlags &= ~ACTIVE_EFLAG;
@@ -490,6 +498,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Claim> getClaims() {
 		if (claims == null) {
@@ -503,6 +512,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<PowerLoad> getPowerLoads() {
 		if (powerLoads == null) {
@@ -516,6 +526,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<NumericResource> getNumericResources() {
 		if (numericResources == null) {
@@ -529,6 +540,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<StateResource> getStateResources() {
 		if (stateResources == null) {
@@ -542,6 +554,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<SharableResource> getSharableResources() {
 		if (sharableResources == null) {
@@ -555,6 +568,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<UndefinedResource> getUndefinedResources() {
 		if (undefinedResources == null) {
 			undefinedResources = new EObjectContainmentWithInverseEList<UndefinedResource>(UndefinedResource.class, this, MemberPackage.CONDITIONS__UNDEFINED_RESOURCES, MemberPackage.UNDEFINED_RESOURCE__CONDITIONS);
@@ -567,6 +581,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ResourceConditionsMember getMember() {
 		if (eContainerFeatureID() != MemberPackage.CONDITIONS__MEMBER) return null;
 		return (ResourceConditionsMember)eContainer();
@@ -587,6 +602,7 @@ public class ConditionsImpl extends MinimalEObjectImpl.Container implements Cond
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMember(ResourceConditionsMember newMember) {
 		if (newMember != eInternalContainer() || (eContainerFeatureID() != MemberPackage.CONDITIONS__MEMBER && newMember != null)) {
 			if (EcoreUtil.isAncestor(this, newMember))

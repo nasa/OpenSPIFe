@@ -216,6 +216,7 @@ public class PlanAdvisorPage extends org.eclipse.ui.part.Page {
 		MenuManager menuManager = new MenuManager();
 		menuManager.setRemoveAllWhenShown(true);
 		menuManager.addMenuListener(new IMenuListener() {
+			@Override
 			public void menuAboutToShow(IMenuManager mgr) {
 				fillContextMenu(mgr);
 			}
@@ -472,12 +473,14 @@ public class PlanAdvisorPage extends org.eclipse.ui.part.Page {
 	}
 	
 	private final class FixSelectedSelectionListener implements ISelectionListener {
+		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 			updateFixSelectedEnablement(selection, getViewerSelection());
 		}
 	}
 	
 	public final class FixTreeSelectionChangedListener implements ISelectionChangedListener {
+		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
 			updateFixSelectedEnablement(selectionProvider.getSelection(), event.getSelection());
 		}
@@ -521,6 +524,7 @@ public class PlanAdvisorPage extends org.eclipse.ui.part.Page {
 		Display display = WidgetUtils.getDisplay();
 		final ISelection[] selection = new ISelection[1];
 		display.syncExec(new Runnable() {
+			@Override
 			public void run() {
 				selection[0] = viewer.getSelection();
 			}

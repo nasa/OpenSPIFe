@@ -59,7 +59,7 @@ public class TextModifyUndoableObservableValue extends AbstractObservableValue {
 	@Override
 	protected void doSetValue(final Object value) {
 		IUndoableOperation operation = new TextModifyObservableOperation("modify text for " + label);
-		IUndoContext context = TransactionUtils.getUndoContext(target);
+		IUndoContext context = gov.nasa.ensemble.emf.transaction.TransactionUtils.getUndoContext(target);
 		CommonUtils.execute(operation, context);
 	}
 	

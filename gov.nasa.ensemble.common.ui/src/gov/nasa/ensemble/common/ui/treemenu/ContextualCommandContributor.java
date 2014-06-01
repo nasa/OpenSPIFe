@@ -96,6 +96,7 @@ abstract public class ContextualCommandContributor<T> extends IntrospectiveConte
 		return getMenuItemName(treeItem) != null;
 	}
 	
+	@Override
 	public Collection<? extends ContextualCommandContributor<?>> getContributors(Object regardlessOfObjectSelected) {
 		return Collections.singletonList(this);
 	}

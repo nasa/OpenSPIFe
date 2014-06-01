@@ -120,6 +120,7 @@ public class RenamePlanProjectHandler extends AbstractResourcesHandler {
 		final boolean launch[] = new boolean[] { !PlatformUI.isWorkbenchRunning() };
 		if (!launch[0]) {
 			display.syncExec(new Runnable() {
+				@Override
 				public void run() {
 					StringBuilder builder = new StringBuilder("The following files being edited will be saved first:");
 					builder.append('\n');
@@ -134,6 +135,7 @@ public class RenamePlanProjectHandler extends AbstractResourcesHandler {
 		}
 		if (launch[0]) {
 			display.syncExec(new Runnable() {
+				@Override
 				public void run() {
 					IDE.saveAllEditors(dirty.toArray(new IResource[dirty.size()]), false);
 				}
@@ -254,6 +256,7 @@ public class RenamePlanProjectHandler extends AbstractResourcesHandler {
 				fRefactoringProcessor = processor;
 			}
 
+			@Override
 			public void createControl(Composite parent) {
 				Composite composite= new Composite(parent, SWT.NONE);
 				composite.setLayout(new GridLayout(2, false));
@@ -269,6 +272,7 @@ public class RenamePlanProjectHandler extends AbstractResourcesHandler {
 				fNameField.setFont(composite.getFont());
 				fNameField.setLayoutData(new GridData(GridData.FILL, GridData.BEGINNING, true, false));
 				fNameField.addModifyListener(new ModifyListener() {
+					@Override
 					public void modifyText(ModifyEvent e) {
 						validatePage();
 					}

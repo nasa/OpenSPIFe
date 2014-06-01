@@ -101,6 +101,7 @@ public class Tick implements Comparable<Tick> {
 		return position;
 	}
 	
+	@Override
 	public int compareTo(Tick that) {
 		if (this.position == that.getPosition()) {
 			if (major && !that.major) {

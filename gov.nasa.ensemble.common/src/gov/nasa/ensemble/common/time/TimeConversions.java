@@ -64,6 +64,7 @@ public class TimeConversions implements ITimeConversionService {
 	
 	public boolean supports(final String... formats) {
 		return list(formats).forall(new F<String, Boolean>() {
+			@Override
 			public Boolean f(final String format) {
 				return service.getSupportedFormats().exists(stringEqual.eq(format));
 			}

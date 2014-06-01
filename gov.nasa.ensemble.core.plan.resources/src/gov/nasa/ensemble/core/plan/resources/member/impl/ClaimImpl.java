@@ -105,6 +105,7 @@ public class ClaimImpl extends NamedConditionImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUsed() {
 		return (eFlags & USED_EFLAG) != 0;
 	}
@@ -114,6 +115,7 @@ public class ClaimImpl extends NamedConditionImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUsed(boolean newUsed) {
 		boolean oldUsed = (eFlags & USED_EFLAG) != 0;
 		if (newUsed) eFlags |= USED_EFLAG; else eFlags &= ~USED_EFLAG;
@@ -128,6 +130,7 @@ public class ClaimImpl extends NamedConditionImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetUsed() {
 		boolean oldUsed = (eFlags & USED_EFLAG) != 0;
 		boolean oldUsedESet = (eFlags & USED_ESETFLAG) != 0;
@@ -142,6 +145,7 @@ public class ClaimImpl extends NamedConditionImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetUsed() {
 		return (eFlags & USED_ESETFLAG) != 0;
 	}
@@ -172,6 +176,7 @@ public class ClaimImpl extends NamedConditionImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConditions(Conditions newConditions) {
 		if (newConditions != eInternalContainer() || (eContainerFeatureID() != MemberPackage.CLAIM__CONDITIONS && newConditions != null)) {
 			if (EcoreUtil.isAncestor(this, newConditions))

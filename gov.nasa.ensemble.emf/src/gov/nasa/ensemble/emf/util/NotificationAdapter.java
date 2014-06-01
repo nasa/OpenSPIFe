@@ -66,14 +66,17 @@ public class NotificationAdapter implements Adapter {
 		notificationsLeft.addAll(Arrays.asList(notifications));
 	}
 
+	@Override
 	public Notifier getTarget() {
 		return null;
 	}
 
+	@Override
 	public boolean isAdapterForType(Object type) {
 		return false;
 	}
 
+	@Override
 	public void notifyChanged(Notification notification) {
 		if (notificationsLeft != null) {
 			if (notificationsLeft.isEmpty()) {
@@ -106,6 +109,7 @@ public class NotificationAdapter implements Adapter {
 		}
 	}
 
+	@Override
 	public void setTarget(Notifier newTarget) {
 		// nothing to do
 	}

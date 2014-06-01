@@ -71,12 +71,15 @@ public abstract class DefaultPageBookView extends PageBookView {
 		// switched between, the DefaultPageBookView would not regain focus when
 		// the user mouse pressed within the control
 		page.getControl().addMouseListener(new MouseListener() {
+			@Override
 			public void mouseDoubleClick(MouseEvent e) {
 				// do nothing
 			}
+			@Override
 			public void mouseDown(MouseEvent e) {
 				getSite().getPage().activate(DefaultPageBookView.this);
 			}
+			@Override
 			public void mouseUp(MouseEvent e) {
 				// do nothing
 			}

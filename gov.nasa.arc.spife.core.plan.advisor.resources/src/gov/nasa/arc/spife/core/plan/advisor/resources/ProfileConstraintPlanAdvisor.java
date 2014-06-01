@@ -170,6 +170,7 @@ public class ProfileConstraintPlanAdvisor extends AbstractResourcePlanAdvisor {
 		}
 		updatePreferencesCache();
 		return TransactionUtils.reading(plan, new RunnableWithResult.Impl<List<? extends Violation>>() {
+			@Override
 			public void run() {
 				if (isQuit()) {
 					return;
@@ -421,6 +422,7 @@ public class ProfileConstraintPlanAdvisor extends AbstractResourcePlanAdvisor {
 		final List<ProfileReference> list = getReferencesByProfileIdList(profile.getId());
 		if (list != null && !list.isEmpty()) {
 			TransactionUtils.reading(profile, new Runnable() {
+				@Override
 				public void run() {
 					if (!isQuit()) {
 						validate(profile, list);

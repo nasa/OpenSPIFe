@@ -40,6 +40,7 @@ public class WaiverUtils {
 		entry.setKey(key);
 		if (useTransaction) {
 			TransactionUtils.writeIfNecessary(member, new Runnable() {
+				@Override
 				public void run() {
 					waivers.add(entry);
 				}
@@ -75,6 +76,7 @@ public class WaiverUtils {
 
 	public static void setRationale(final IWaivable waivable, final String rationale) {
 		TransactionUtils.writing(waivable, new Runnable() {
+			@Override
 			public void run() {
 				waivable.setWaiverRationale(rationale);
 			}
@@ -88,12 +90,14 @@ public class WaiverUtils {
 			if (iterator.next().startsWith(prefix)) {
 				if (rationale != null) {
 					TransactionUtils.writing(waivers, new Runnable() {
+						@Override
 						public void run() {
 							iterator.set(prefix + rationale);
 						}
 					});
 				} else {
 					TransactionUtils.writing(waivers, new Runnable() {
+						@Override
 						public void run() {
 							iterator.remove();
 						}
@@ -105,6 +109,7 @@ public class WaiverUtils {
 		}
 		if (!found && (rationale != null)) {
 			TransactionUtils.writing(waivers, new Runnable() {
+				@Override
 				public void run() {
 					iterator.add(prefix + rationale);
 				}

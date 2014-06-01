@@ -49,6 +49,7 @@ public class FontUtils {
 		}
 		final Display display = WidgetUtils.getDisplay();
 		display.syncExec(new Runnable() {
+			@Override
 			public void run() {
 				SYSTEM = display.getSystemFont();
 			}

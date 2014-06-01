@@ -36,6 +36,7 @@ public class EEnumStringifier extends AbstractTrimmingStringifier<Object> {
 	
 	
 	
+	@Override
 	public String getDisplayString(Object javaObject) {
 		return formatString(eFactoryInstance.convertToString(eDataType, javaObject));
 	}

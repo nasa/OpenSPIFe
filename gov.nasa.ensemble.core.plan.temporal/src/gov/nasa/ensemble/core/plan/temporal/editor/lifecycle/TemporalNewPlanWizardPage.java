@@ -259,8 +259,10 @@ public class TemporalNewPlanWizardPage extends NewPlanWizardPage implements Miss
 		GridDataFactory.fillDefaults().grab(true, false).applyTo(planStartTimeText);
 		planStartTimeText.setText(getDefaultPlanStartDateString());
 		planStartTimeText.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				WidgetUtils.runInDisplayThread(planStartTimeText, new Runnable() {
+					@Override
 					public void run() {
 						if (validateTimeFields()) {
 							planIdentification.setPlanStart(getPlanStart());
@@ -279,8 +281,10 @@ public class TemporalNewPlanWizardPage extends NewPlanWizardPage implements Miss
 		GridDataFactory.fillDefaults().grab(true, false).applyTo(planEndTimeText);
 		planEndTimeText.setText(getDefaultPlanEndDateString());
 		planEndTimeText.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				WidgetUtils.runInDisplayThread(planEndTimeText, new Runnable() {
+					@Override
 					public void run() {
 						// Unlike start, it's not used to identify the plan.
 						// But we do need to validate it.
@@ -303,6 +307,7 @@ public class TemporalNewPlanWizardPage extends NewPlanWizardPage implements Miss
 			if (planNameText != null) {
 				planNameText.addModifyListener(new EnsembleWizardPage.DefaultModifyListener());
 				planIdentification.getPlanNameText().addModifyListener(new ModifyListener() {
+					@Override
 					public void modifyText(ModifyEvent e) {
 						if (validateName(planIdentification.getPlanName())) {
 							clearError(TemporalNewPlanWizardPage.class);

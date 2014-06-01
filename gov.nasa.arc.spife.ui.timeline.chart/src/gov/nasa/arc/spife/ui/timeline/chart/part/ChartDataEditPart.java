@@ -165,6 +165,7 @@ public class ChartDataEditPart extends AbstractTimelineDataEditPart<Chart> {
 			protected void updateCursorTimeFeedback(Date date) {
 				super.updateCursorTimeFeedback(date);
 				GEFUtils.runInDisplayThread(ChartDataEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						getFigure().repaint();
 					}
@@ -190,6 +191,7 @@ public class ChartDataEditPart extends AbstractTimelineDataEditPart<Chart> {
 			legendLayer.setMinText(extent.getMin() == null ? null : EnsembleAmountFormat.INSTANCE.formatAmount(extent.getMin()));
 		}
 		GEFUtils.runInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				legendLayer.repaint();
 			}
@@ -228,6 +230,7 @@ public class ChartDataEditPart extends AbstractTimelineDataEditPart<Chart> {
 				updateLegends();
 			} else if (ChartPackage.Literals.CHART__MINIMUM_HEIGHT == f) {
 				GEFUtils.runInDisplayThread(ChartDataEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						int newHeight = notification.getNewIntValue();
 						getFigure().setMinimumSize(new Dimension(0, newHeight));
@@ -243,6 +246,7 @@ public class ChartDataEditPart extends AbstractTimelineDataEditPart<Chart> {
 					|| ChartPackage.Literals.PLOT__PROFILE == f) {
 				updateLegends();
 				GEFUtils.runInDisplayThread(ChartDataEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						for (Object ep : getChildren()) {
 							if (ep instanceof GraphicalEditPart) {

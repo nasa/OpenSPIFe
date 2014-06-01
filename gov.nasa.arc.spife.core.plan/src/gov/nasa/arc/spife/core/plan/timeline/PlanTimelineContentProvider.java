@@ -70,6 +70,7 @@ public class PlanTimelineContentProvider extends TreeTimelineContentProvider {
 		}
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public Collection<?> getChildren(Object object) {
 		ITreeItemContentProvider cp = (ITreeItemContentProvider) this.adapterFactory.adapt(object, ITreeItemContentProvider.class);
@@ -85,6 +86,7 @@ public class PlanTimelineContentProvider extends TreeTimelineContentProvider {
 		return planElements;
 	}
 	
+	@Override
 	public Object getParent(Object object) {
 		if (object instanceof EPlan) {
 			return null;

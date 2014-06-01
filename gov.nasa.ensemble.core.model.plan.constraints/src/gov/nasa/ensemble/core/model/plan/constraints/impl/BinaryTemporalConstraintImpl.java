@@ -29,7 +29,6 @@ import gov.nasa.ensemble.core.model.plan.constraints.BinaryTemporalConstraint;
 import gov.nasa.ensemble.core.model.plan.constraints.ConstraintPoint;
 import gov.nasa.ensemble.core.model.plan.constraints.ConstraintsFactory;
 import gov.nasa.ensemble.core.model.plan.constraints.ConstraintsPackage;
-import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
 import gov.nasa.ensemble.emf.model.common.Timepoint;
 
 import java.io.IOException;
@@ -42,9 +41,6 @@ import javax.measure.quantity.Duration;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.jscience.physics.amount.Amount;
@@ -127,6 +123,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintPoint getPointA() {
 		return pointA;
 	}
@@ -159,6 +156,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPointA(ConstraintPoint newPointA) {
 		if (newPointA != pointA) {
 			NotificationChain msgs = null;
@@ -178,6 +176,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintPoint getPointB() {
 		return pointB;
 	}
@@ -210,6 +209,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPointB(ConstraintPoint newPointB) {
 		if (newPointB != pointB) {
 			NotificationChain msgs = null;
@@ -229,6 +229,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<Duration> getMinimumBminusA() {
 		return minimumBminusA;
 	}
@@ -238,6 +239,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimumBminusA(Amount<Duration> newMinimumBminusA) {
 		Amount<Duration> oldMinimumBminusA = minimumBminusA;
 		minimumBminusA = newMinimumBminusA;
@@ -250,6 +252,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<Duration> getMaximumBminusA() {
 		return maximumBminusA;
 	}
@@ -259,6 +262,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximumBminusA(Amount<Duration> newMaximumBminusA) {
 		Amount<Duration> oldMaximumBminusA = maximumBminusA;
 		maximumBminusA = newMaximumBminusA;
@@ -389,6 +393,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 		return result.toString();
 	}
 
+	@Override
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 		setMinimumBminusA((Amount<Duration>)in.readObject());
 		setMaximumBminusA((Amount<Duration>)in.readObject());
@@ -401,6 +406,7 @@ public class BinaryTemporalConstraintImpl extends TemporalConstraintImpl impleme
 		setRationale((String)in.readObject());
 	}
 
+	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		out.writeObject(getMinimumBminusA());
 		out.writeObject(getMaximumBminusA());

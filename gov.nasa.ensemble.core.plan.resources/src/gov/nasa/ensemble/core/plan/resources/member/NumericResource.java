@@ -112,6 +112,7 @@ public interface NumericResource extends NamedCondition {
 	 * @model opposite="numericResources" transient="false"
 	 * @generated
 	 */
+	@Override
 	Conditions getConditions();
 
 	/**

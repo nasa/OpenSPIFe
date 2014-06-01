@@ -375,6 +375,7 @@ public class ParameterColumn<T> extends AbstractMergeColumn<ParameterFacet<T>> {
 	 * @author Andrew
 	 */
 	private class ParameterComparator implements Comparator<ParameterFacet<T>> {
+		@Override
 		@SuppressWarnings("unchecked")
 		public int compare(ParameterFacet<T> facet1, ParameterFacet<T> facet2) {
 			if (facet1 == facet2) {

@@ -76,6 +76,7 @@ public final class MemberAttributeOfListObservable extends AbstractObservableLis
 		return getObservables().get(index);
 	}
 
+	@Override
 	public Object getElementType() {
 		return EMember.class;
 	}
@@ -91,9 +92,11 @@ public final class MemberAttributeOfListObservable extends AbstractObservableLis
 	}
 
 	private final class Listener implements IChangeListener {
+		@Override
 		public void handleChange(ChangeEvent event) {
 			getRealm().asyncExec(new Runnable() {
 
+				@Override
 				public void run() {
 					fireChange();
 				}

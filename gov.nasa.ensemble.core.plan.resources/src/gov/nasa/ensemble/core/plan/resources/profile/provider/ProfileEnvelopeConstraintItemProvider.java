@@ -24,7 +24,6 @@
 package gov.nasa.ensemble.core.plan.resources.profile.provider;
 
 
-import gov.nasa.ensemble.core.jscience.TemporalOffset;
 import gov.nasa.ensemble.core.model.plan.advisor.AdvisorPackage;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileEnvelopeConstraint;
 import gov.nasa.ensemble.core.plan.resources.profile.ProfileFactory;

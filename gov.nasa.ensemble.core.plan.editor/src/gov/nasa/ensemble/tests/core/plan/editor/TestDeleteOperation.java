@@ -51,6 +51,7 @@ public class TestDeleteOperation extends UndoableOperationTestCase {
 		ITransferable transferable = modifier.getTransferable(selection);
 		IUndoableOperation operation = new DeleteOperation(transferable, modifier);
 		testUndoableOperation(plan.plan, operation, new Runnable() {
+			@Override
 			public void run() {
 				assertFalse(plan.group1.getChildren().contains(plan.activity1_2));
 				assertFalse(plan.group2.getChildren().contains(plan.activity2_1));
@@ -69,6 +70,7 @@ public class TestDeleteOperation extends UndoableOperationTestCase {
 		ITransferable transferable = modifier.getTransferable(selection);
 		IUndoableOperation operation = new DeleteOperation(transferable, modifier);
 		testUndoableOperation(plan.plan, operation, new Runnable() {
+			@Override
 			public void run() {
 				assertFalse(plan.plan.getChildren().contains(plan.group1));
 				assertTrue(plan.plan.getChildren().contains(plan.group2));

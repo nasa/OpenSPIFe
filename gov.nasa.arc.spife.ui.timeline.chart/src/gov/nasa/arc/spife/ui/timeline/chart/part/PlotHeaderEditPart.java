@@ -46,6 +46,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
+import org.eclipse.draw2d.OrderedLayout;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.ToolbarLayout;
@@ -181,7 +182,7 @@ public class PlotHeaderEditPart extends TimelineViewerEditPart<Plot> {
 		
 		Figure majorLabel = new Figure();
 		ToolbarLayout layout = new ToolbarLayout(true);
-		layout.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+		layout.setMinorAlignment(OrderedLayout.ALIGN_CENTER);
 		layout.setSpacing(5);
 		majorLabel.setLayoutManager(layout);
 		if (showCloseLabel && closeLabel != null)
@@ -261,6 +262,7 @@ public class PlotHeaderEditPart extends TimelineViewerEditPart<Plot> {
 	
 	private class Listener extends AdapterImpl implements IPropertyChangeListener {
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			String property = event.getProperty();
 			if (TimelinePreferencePage.P_CONTENT_FONT_SIZE.equals(property)) {

@@ -167,6 +167,7 @@ public class WrapperUtils {
 
 	public static void writeExternal(final ObjectOutput out, final EPlanElement eObject) throws IOException {
 		IOException result = TransactionUtils.reading(eObject, new RunnableWithResult.Impl<IOException>() {
+			@Override
 			public void run() {
 				try {
 					out.writeObject(eObject);

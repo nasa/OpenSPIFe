@@ -102,6 +102,7 @@ public class PlanAdvisorView extends PlanPageBookView {
 	private void computeAndDisplayStatusSummary(PlanAdvisorMember planAdvisorMember) {
 		if (planAdvisorMember == null) {
 			WidgetUtils.runInDisplayThread(getPageBook(), new Runnable() {
+				@Override
 				public void run() {
 					updateImageDescription(PlanAdvisorViewImage.unknown, " ");
 				}
@@ -131,6 +132,7 @@ public class PlanAdvisorView extends PlanPageBookView {
 
 	private void displayStatusSummary(final int unwaived, final int waived, final int fixed, final List<PlanAdvisor> updatingAdvisors) {
 		WidgetUtils.runInDisplayThread(getPageBook(), new Runnable() {
+			@Override
 			public void run() {
 				displayStatusSummaryW(unwaived, waived, fixed, updatingAdvisors);
 			}

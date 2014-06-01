@@ -80,6 +80,7 @@ public class PlanReferencedObjectSectionImpl extends AbstractPlanSectionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ObjectDef getType() {
 		if (type != null && type.eIsProxy()) {
 			InternalEObject oldType = (InternalEObject)type;
@@ -106,6 +107,7 @@ public class PlanReferencedObjectSectionImpl extends AbstractPlanSectionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(ObjectDef newType) {
 		ObjectDef oldType = type;
 		type = newType;

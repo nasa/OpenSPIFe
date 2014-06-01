@@ -43,6 +43,7 @@ public class TimelineViewerSelectionListener implements ISelectionChangedListene
 		this.timeline = timeline;
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public void selectionChanged(SelectionChangedEvent event) {
 		if (timeline.isProcessingSelection()) {
@@ -94,6 +95,7 @@ public class TimelineViewerSelectionListener implements ISelectionChangedListene
 				final GraphicalEditPart ep = (GraphicalEditPart)e;
 				if (EditPart.SELECTED_PRIMARY == ep.getSelected()) {
 					WidgetUtils.runInDisplayThread(timeline.getControl(), new Runnable() {
+						@Override
 						public void run() {
 							timeline.doVerticalScroll(v, ep);
 						}

@@ -140,6 +140,7 @@ public class ClipboardServer {
 			if (!display.isDisposed()) {
 				final Clipboard clipboard = entry.getValue();
 				display.syncExec(new Runnable() {
+					@Override
 					public void run() {
 						clipboard.dispose();
 					}

@@ -230,6 +230,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getCategory() {
 		return category;
 	}
@@ -239,6 +240,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCategory(String newCategory) {
 		String oldCategory = category;
 		category = newCategory;
@@ -251,6 +253,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -260,6 +263,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -272,6 +276,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDuration() {
 		return duration;
 	}
@@ -281,6 +286,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDuration(String newDuration) {
 		String oldDuration = duration;
 		duration = newDuration;
@@ -293,6 +299,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<ENumericResourceEffect> getNumericEffects() {
 		if (numericEffects == null) {
 			numericEffects = new EObjectContainmentEList<ENumericResourceEffect>(ENumericResourceEffect.class, this, DictionaryPackage.EACTIVITY_DEF__NUMERIC_EFFECTS);
@@ -305,6 +312,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<ENumericRequirement> getNumericRequirements() {
 		if (numericRequirements == null) {
 			numericRequirements = new EObjectContainmentEList<ENumericRequirement>(ENumericRequirement.class, this, DictionaryPackage.EACTIVITY_DEF__NUMERIC_REQUIREMENTS);
@@ -317,6 +325,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<ESharableResourceEffect> getSharedEffects() {
 		if (sharedEffects == null) {
 			sharedEffects = new EObjectContainmentEList<ESharableResourceEffect>(ESharableResourceEffect.class, this, DictionaryPackage.EACTIVITY_DEF__SHARED_EFFECTS);
@@ -329,6 +338,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<EStateResourceEffect<?>> getStateEffects() {
 		if (stateEffects == null) {
 			stateEffects = new EObjectContainmentEList<EStateResourceEffect<?>>(EStateResourceEffect.class, this, DictionaryPackage.EACTIVITY_DEF__STATE_EFFECTS);
@@ -341,6 +351,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<EStateRequirement> getStateRequirements() {
 		if (stateRequirements == null) {
 			stateRequirements = new EObjectContainmentEList<EStateRequirement>(EStateRequirement.class, this, DictionaryPackage.EACTIVITY_DEF__STATE_REQUIREMENTS);
@@ -353,6 +364,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<ESubActivity> getChildren() {
 		if (children == null) {
 			children = new EObjectContainmentWithInverseEList<ESubActivity>(ESubActivity.class, this, DictionaryPackage.EACTIVITY_DEF__CHILDREN, DictionaryPackage.ESUB_ACTIVITY__DEFINITION);
@@ -365,6 +377,7 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<EClaimableEffect> getClaimableEffects() {
 		if (claimableEffects == null) {
 			claimableEffects = new EObjectContainmentEList<EClaimableEffect>(EClaimableEffect.class, this, DictionaryPackage.EACTIVITY_DEF__CLAIMABLE_EFFECTS);
@@ -589,14 +602,17 @@ public class EActivityDefImpl extends EClassImpl implements EActivityDef {
 		return result.toString();
 	}
 
+	@Override
 	public void clearCache() {
 		definitionContextDelegate.clearCache();
 	}
 
+	@Override
 	public <T extends INamedDefinition> T getDefinition(Class<T> klass, String name) {
 		return definitionContextDelegate.getDefinition(klass, name);
 	}
 
+	@Override
 	public <T> List<T> getDefinitions(Class<T> klass) {
 		return definitionContextDelegate.getDefinitions(klass);
 	}

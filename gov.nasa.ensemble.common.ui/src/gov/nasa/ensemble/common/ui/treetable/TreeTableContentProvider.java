@@ -38,6 +38,7 @@ public abstract class TreeTableContentProvider implements ITreeContentProvider {
 	    return viewer;
 	}
 
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewer = (TreeTableViewer) viewer;
 	}
@@ -55,10 +56,12 @@ public abstract class TreeTableContentProvider implements ITreeContentProvider {
 		return null;
 	}
 
+	@Override
 	public boolean hasChildren(Object parent) {
 		return getChildren(parent).length != 0;
 	}
 
+	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(inputElement);
 	}

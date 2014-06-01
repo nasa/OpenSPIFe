@@ -97,6 +97,7 @@ public class TestConstraintUtils extends TestCase {
 	
 	private void createRelations(EPlan plan, final EActivity a, final EActivity b) {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				for (Timepoint aTimepoint : Timepoint.values()) {
 					for (Timepoint bTimepoint : Timepoint.values()) {

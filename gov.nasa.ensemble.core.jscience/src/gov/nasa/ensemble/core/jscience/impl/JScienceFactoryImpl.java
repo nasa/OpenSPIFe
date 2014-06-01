@@ -248,6 +248,7 @@ public class JScienceFactoryImpl extends EFactoryImpl implements JScienceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComputableAmount createComputableAmount() {
 		ComputableAmountImpl computableAmount = new ComputableAmountImpl();
 		return computableAmount;
@@ -258,11 +259,13 @@ public class JScienceFactoryImpl extends EFactoryImpl implements JScienceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AmountConstraint createAmountConstraint() {
 		AmountConstraintImpl amountConstraint = new AmountConstraintImpl();
 		return amountConstraint;
 	}
 
+	@Override
 	public <T> DataPoint<T> createEDataPoint(Date date, T value) {
 		DataPoint<T> eDataPoint = new DataPointImpl<T>(date, value);
 		return eDataPoint;
@@ -273,6 +276,7 @@ public class JScienceFactoryImpl extends EFactoryImpl implements JScienceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public <T> Profile<T> createProfile() {
 		ProfileImpl<T> profile = new ProfileImpl<T>();
 		return profile;
@@ -283,11 +287,13 @@ public class JScienceFactoryImpl extends EFactoryImpl implements JScienceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PowerValue createPowerValue() {
 		PowerValueImpl powerValue = new PowerValueImpl();
 		return powerValue;
 	}
 
+	@Override
 	public ComputableAmount createComputableAmount(Amount amount, ComputingState state) {
 		ComputableAmount cAmount = createComputableAmount();
 		cAmount.setAmount(amount);
@@ -689,6 +695,7 @@ public class JScienceFactoryImpl extends EFactoryImpl implements JScienceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JSciencePackage getJSciencePackage() {
 		return (JSciencePackage)getEPackage();
 	}

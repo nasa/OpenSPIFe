@@ -54,6 +54,7 @@ public class PlanGroupRegistry {
         l.addAll(ClassRegistry.createInstances(PlanGroup.class));
         
         Collections.sort(l, new Comparator<PlanGroup>() {
+			@Override
 			public int compare(PlanGroup o1, PlanGroup o2) {
 				return o1.sortKey - o2.sortKey;
 			}

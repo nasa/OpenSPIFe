@@ -47,6 +47,7 @@ public class PlanModifierMember implements IMember {
 		this.modifier = modifier;
 	}
 	
+	@Override
 	public void dispose() {
 		modifier = null;
 	}

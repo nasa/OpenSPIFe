@@ -53,6 +53,7 @@ public class EuropaLogExportWizard extends Wizard implements IExportWizard {
 		filePage.setMessage("Select a file to export the log to");
 	}
 
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		PlanEditorModel model = PlanEditorModelRegistry.getCurrent(workbench);
 		if (model != null) {
@@ -79,6 +80,7 @@ public class EuropaLogExportWizard extends Wizard implements IExportWizard {
 			return false;
 		}
 		IRunnableWithProgress op = new IRunnableWithProgress() {
+			@Override
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
 					monitor.beginTask("Exporting log from europa to file...", IProgressMonitor.UNKNOWN);
@@ -136,6 +138,7 @@ public class EuropaLogExportWizard extends Wizard implements IExportWizard {
 			super("error");
 		}
 		
+		@Override
 		public void createControl(Composite parent) {
 			setControl(new Composite(parent, SWT.NONE));
 		}

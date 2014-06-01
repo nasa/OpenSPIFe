@@ -27,7 +27,6 @@ package gov.nasa.ensemble.dictionary.provider;
 import gov.nasa.ensemble.dictionary.DictionaryPackage;
 import gov.nasa.ensemble.dictionary.EStateRequirement;
 
-import gov.nasa.ensemble.dictionary.Period;
 import java.util.Collection;
 import java.util.List;
 

@@ -60,10 +60,12 @@ public class PlanSearchResult extends AbstractTextSearchResult implements IEdito
 		elementsToShow.clear();
 	}
 	
+	@Override
 	public ImageDescriptor getImageDescriptor() {
 		return null;
 	}
 
+	@Override
 	public String getLabel() {
 		return label + " - " + getMatchCount() + " references.";
 	}
@@ -72,10 +74,12 @@ public class PlanSearchResult extends AbstractTextSearchResult implements IEdito
 		return label;
 	}
 
+	@Override
 	public ISearchQuery getQuery() {
 		return searchQuery;
 	}
 
+	@Override
 	public String getTooltip() {
 		return null;
 	}
@@ -100,10 +104,12 @@ public class PlanSearchResult extends AbstractTextSearchResult implements IEdito
 		return null;
 	}
 
+	@Override
 	public Match[] computeContainedMatches(AbstractTextSearchResult result, IEditorPart editor) {
 		return null;
 	}
 
+	@Override
 	public boolean isShownInEditor(Match match, IEditorPart editor) {
 		return false;
 	}
@@ -167,6 +173,7 @@ public class PlanSearchResult extends AbstractTextSearchResult implements IEdito
 	
 	private static void sortByStartTime(List<Object> ePlanElements, final boolean sortDescendingOrder) {
 		Collections.sort(ePlanElements, new Comparator<Object>() {
+			@Override
 			public int compare(Object e1, Object e2) {
 				TemporalMember m1 = ((EPlanElement)e1).getMember(TemporalMember.class);
 				TemporalMember m2 = ((EPlanElement)e2).getMember(TemporalMember.class);

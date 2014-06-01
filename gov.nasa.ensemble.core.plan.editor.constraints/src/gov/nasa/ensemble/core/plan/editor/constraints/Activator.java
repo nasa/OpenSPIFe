@@ -69,6 +69,7 @@ public class Activator extends AbstractUIPlugin implements IStartup {
 		return plugin;
 	}
 
+	@Override
 	public void earlyStartup() {
 		// the early startup causes the actions to be instantiated so they can evaluate their own enableness
 	}

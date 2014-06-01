@@ -52,6 +52,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
@@ -68,7 +69,7 @@ public class TemporalNodeMoveEditPolicy extends TimelineNodeMoveEditPolicy imple
 		Object type = request.getType();
 		if(type.equals(TimelineConstants.REQ_MOVE_INITIATED)
 				|| type.equals(TimelineConstants.REQ_MOVE_COMPLETED)
-				|| type.equals(TimelineConstants.REQ_MOVE)) {
+				|| type.equals(RequestConstants.REQ_MOVE)) {
 			lastRequestType = type;
 		}
 		
@@ -134,7 +135,7 @@ public class TemporalNodeMoveEditPolicy extends TimelineNodeMoveEditPolicy imple
 			return;
 		}
 		
-		if(lastRequestType != null && lastRequestType.equals(TimelineConstants.REQ_MOVE)) {
+		if(lastRequestType != null && lastRequestType.equals(RequestConstants.REQ_MOVE)) {
 			return;
 		}
 		// code below will determine if we can use our start time
@@ -285,10 +286,15 @@ public class TemporalNodeMoveEditPolicy extends TimelineNodeMoveEditPolicy imple
 			addMouseMotionListener(this);
 		}
 
+		@Override
 		public void mouseDragged(MouseEvent me) {/* no implementation */}
+		@Override
 		public void mouseEntered(MouseEvent me) {/* no implementation */}
+		@Override
 		public void mouseExited(MouseEvent me) 	{/* no implementation */}
+		@Override
 		public void mouseHover(MouseEvent me) 	{/* no implementation */}
+		@Override
 		public void mouseMoved(MouseEvent me) 	{
 			updateHighlightFollowAlong();
 		}

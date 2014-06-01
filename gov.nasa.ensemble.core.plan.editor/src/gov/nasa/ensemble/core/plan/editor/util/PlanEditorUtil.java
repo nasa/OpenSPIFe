@@ -111,6 +111,7 @@ public class PlanEditorUtil {
 		if (activateExistingPlanEditor(plan, workbenchWindow))
 			return true;
 		Display.getDefault().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				if (switchToPlanningPerspective) 
 					PlanningPerspectiveFactory.switchToPlanningPerspective();
@@ -176,6 +177,7 @@ public class PlanEditorUtil {
 					if (plan2 == plan) {
 						final IWorkbenchPage thePage = page;
 						Display.getDefault().asyncExec(new Runnable() {
+							@Override
 							public void run() {
 								thePage.activate(editorPart);
 							}

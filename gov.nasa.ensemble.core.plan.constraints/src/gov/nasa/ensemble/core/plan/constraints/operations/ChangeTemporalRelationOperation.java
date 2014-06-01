@@ -41,6 +41,7 @@ public class ChangeTemporalRelationOperation extends AbstractTransactionUndoable
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(oldRelation.getPointA().getElement(), new Runnable() {
+			@Override
 			public void run() {
 				ConstraintUtils.detachConstraint(oldRelation);
 				ConstraintUtils.attachConstraint(newRelation);
@@ -51,6 +52,7 @@ public class ChangeTemporalRelationOperation extends AbstractTransactionUndoable
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(newRelation.getPointA().getElement(), new Runnable() {
+			@Override
 			public void run() {
 				ConstraintUtils.detachConstraint(newRelation);
 				ConstraintUtils.attachConstraint(oldRelation);

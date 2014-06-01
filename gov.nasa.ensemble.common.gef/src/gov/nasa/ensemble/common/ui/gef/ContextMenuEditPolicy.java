@@ -46,22 +46,27 @@ public abstract class ContextMenuEditPolicy implements EditPolicy {
 		// default constructor
 	}
 	
+	@Override
 	public void activate() {
 		// no special setup required
 	}
 
+	@Override
 	public void deactivate() {
 		// no special shutdown required
 	}
 
+	@Override
 	public EditPart getHost() {
 		return editPart;
 	}
 
+	@Override
 	public void setHost(EditPart editPart) {
 		this.editPart = editPart;
 	}
 
+	@Override
 	public EditPart getTargetEditPart(Request request) {
 		if (EnsembleRequestConstants.REQ_CONTEXT_MENU.equals(request.getType())) {
 			trace.debug("ContextMenuEditPolicy: getTargetEditPart");
@@ -70,6 +75,7 @@ public abstract class ContextMenuEditPolicy implements EditPolicy {
 		return null;
 	}
 	
+	@Override
 	public Command getCommand(Request request) {
 		if (EnsembleRequestConstants.REQ_CONTEXT_MENU.equals(request.getType())) {
 			trace.debug("ContextMenuEditPolicy: getCommand");
@@ -86,6 +92,7 @@ public abstract class ContextMenuEditPolicy implements EditPolicy {
 	 */
 	public abstract void buildContextMenu(Point point, IMenuManager menu);
 	
+	@Override
 	public boolean understandsRequest(Request request) {
 		if (EnsembleRequestConstants.REQ_CONTEXT_MENU.equals(request.getType())) {
 			trace.debug("ContextMenuEditPolicy: understandsRequest");
@@ -94,24 +101,28 @@ public abstract class ContextMenuEditPolicy implements EditPolicy {
 		return false;
 	}
 	
+	@Override
 	public void showSourceFeedback(Request request) {
 		if (EnsembleRequestConstants.REQ_CONTEXT_MENU.equals(request.getType())) {
 			trace.debug("ContextMenuEditPolicy: showSourceFeedback");
 		}
 	}
 
+	@Override
 	public void eraseSourceFeedback(Request request) {
 		if (EnsembleRequestConstants.REQ_CONTEXT_MENU.equals(request.getType())) {
 			trace.debug("ContextMenuEditPolicy: eraseSourceFeedback");
 		}
 	}
 
+	@Override
 	public void showTargetFeedback(Request request) {
 		if (EnsembleRequestConstants.REQ_CONTEXT_MENU.equals(request.getType())) {
 			trace.debug("ContextMenuEditPolicy: showTargetFeedback");
 		}
 	}
 
+	@Override
 	public void eraseTargetFeedback(Request request) {
 		if (EnsembleRequestConstants.REQ_CONTEXT_MENU.equals(request.getType())) {
 			trace.debug("ContextMenuEditPolicy: eraseTargetFeedback");

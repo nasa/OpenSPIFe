@@ -148,6 +148,7 @@ public class ProfileConstraintViolation extends ProfileReferenceViolation<Profil
 				@Override
 				protected void setRationale(final String rationale) {
 					TransactionUtils.writing(profile, new Runnable() {
+						@Override
 						public void run() {
 							profile.setValid(false);
 							setWaiverRationale(rationale);
@@ -164,6 +165,7 @@ public class ProfileConstraintViolation extends ProfileReferenceViolation<Profil
 				protected void setRationale(String rationale) {
 					final String userRationale = getUserRationale(rationale);
 					TransactionUtils.writing(profile, new Runnable() {
+						@Override
 						public void run() {
 							profile.setValid(false);
 							setWaiverRationale(userRationale);

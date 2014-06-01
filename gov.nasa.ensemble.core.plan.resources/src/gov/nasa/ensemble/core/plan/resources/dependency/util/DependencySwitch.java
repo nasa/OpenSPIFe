@@ -25,9 +25,6 @@ package gov.nasa.ensemble.core.plan.resources.dependency.util;
 
 import gov.nasa.ensemble.core.plan.resources.dependency.*;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;

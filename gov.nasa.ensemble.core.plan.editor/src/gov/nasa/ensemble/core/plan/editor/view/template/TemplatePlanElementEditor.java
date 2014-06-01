@@ -382,9 +382,11 @@ public class TemplatePlanElementEditor extends AbstractEnsembleEditorPart {
 		 * When the "dirty" bit it toggled, run in its own thread a method that fires the
 		 * property-change event for the "dirty" property.
 		 */
+		@Override
 		public void dirtyStateChanged() {
 			Widget widget = getSite().getShell();
 			WidgetUtils.runInDisplayThread(widget, new Runnable() {
+				@Override
 				public void run() {
 					firePropertyChange(PROP_DIRTY);
 				}
@@ -435,6 +437,7 @@ public class TemplatePlanElementEditor extends AbstractEnsembleEditorPart {
 			Widget widget = getSite().getShell();
 			if(feature == PlanPackage.Literals.EPLAN_ELEMENT__NAME) {
 				WidgetUtils.runInDisplayThread(widget, new Runnable() {
+					@Override
 					public void run() {
 						Object newValue = msg.getNewValue();
 						if(newValue == null) {

@@ -89,7 +89,7 @@ public class ConditionDependency extends DependencyImpl {
 				conditionValue = Amount.valueOf(0L, Unit.ONE);
 			}
 		} else if (condition instanceof SharableResource) {
-			conditionValue = Amount.valueOf((long) ((SharableResource)condition).getUsed(), Unit.ONE);
+			conditionValue = Amount.valueOf(((SharableResource)condition).getUsed(), Unit.ONE);
 		} else if (condition instanceof StateResource) {
 			conditionValue = ResourceUtils.evaluateStateValue((EStateResourceDef) resourceDef, ((StateResource)condition).getState());
 //		} else if (condition instanceof PowerLoad) {
@@ -106,7 +106,7 @@ public class ConditionDependency extends DependencyImpl {
 				conditionValue = Amount.valueOf(0L, Unit.ONE);
 			}
 		} else if (condition instanceof SharableResource) {
-			conditionValue = Amount.valueOf((long) ((SharableResource)condition).getUsed(), Unit.ONE);
+			conditionValue = Amount.valueOf(((SharableResource)condition).getUsed(), Unit.ONE);
 		} else if (condition instanceof UndefinedResource) {
 			String valueLiteral = ((UndefinedResource) condition).getValueLiteral();
 			conditionValue = evaluate(valueLiteral);

@@ -33,6 +33,7 @@ public class TimepointConnectionAnchor extends AbstractConnectionAnchor {
 		this.timepoint = timepoint;
 	}
 
+	@Override
 	public Point getLocation(Point reference) {
 		int x = 0;
 		Rectangle b = getOwner().getBounds();

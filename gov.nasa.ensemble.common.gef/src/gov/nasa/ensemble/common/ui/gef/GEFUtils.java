@@ -43,6 +43,7 @@ public class GEFUtils {
 		EditPartViewer viewer = getViewerSafely(editPart);
 		if (viewer != null) {
 			WidgetUtils.runInDisplayThread(viewer.getControl(), new Runnable() {
+				@Override
 				public void run() {
 					if (getViewerSafely(editPart) != null && editPart.isActive())
 						runnable.run();
@@ -57,6 +58,7 @@ public class GEFUtils {
 		EditPartViewer viewer = getViewerSafely(editPart);
 		if (viewer != null) {
 			WidgetUtils.runLaterInDisplayThread(viewer.getControl(), new Runnable() {
+				@Override
 				public void run() {
 					if (getViewerSafely(editPart) != null) {
 						runnable.run();
@@ -71,6 +73,7 @@ public class GEFUtils {
 			return;
 		}
 		runLaterInDisplayThread(ep, new Runnable() {
+			@Override
 			public void run() {
 				ep.refresh();
 			}

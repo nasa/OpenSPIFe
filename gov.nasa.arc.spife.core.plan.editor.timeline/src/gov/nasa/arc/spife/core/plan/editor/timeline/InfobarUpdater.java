@@ -84,6 +84,7 @@ public class InfobarUpdater {
 		this.temporalExtentListener = new TemporalExtentListener();
 		this.labelProviderListener = new InfobarLabelProviderListener();
 		this.infobar.addDisposeListener(new DisposeListener() {
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 			    detachListeners();
 			}
@@ -392,7 +393,8 @@ public class InfobarUpdater {
 	        		if ((element == data.getLeftNode()) || (element == data.getRightNode())
 	        			|| data.getNodes().contains(element)) {
 	        			WidgetUtils.runInDisplayThread(infobar, new Runnable() {
-	        				public void run() {
+	        				@Override
+							public void run() {
 	        					displayContents(data.getNodes(), data.getLeftNode(), data.getLeftTimepoint(), 
 	        							data.getRightNode(), data.getRightTimepoint(), data.getSelectionStartTime());
 	        				}
@@ -405,8 +407,10 @@ public class InfobarUpdater {
 	
     private final class InfobarLabelProviderListener implements ILabelProviderListener {
 
-	    public void labelProviderChanged(LabelProviderChangedEvent event) {
+	    @Override
+		public void labelProviderChanged(LabelProviderChangedEvent event) {
 			WidgetUtils.runInDisplayThread(infobar, new Runnable() {
+				@Override
 				public void run() {
 					displayContents(data.getNodes(), data.getLeftNode(), data.getLeftTimepoint(), 
 							data.getRightNode(), data.getRightTimepoint(), data.getSelectionStartTime());

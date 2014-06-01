@@ -43,10 +43,12 @@ public class TemporalNodeBrowserListener implements LocationListener {
 		this.identifiableRegistry = identifiableRegistry;
 	}
 
+	@Override
 	public void changed(LocationEvent event) {
 		// don't care
 	}
 	
+	@Override
 	public void changing(LocationEvent event) {
 		EPlanElement node = getTargetNode(event);
 		if (node != null) {

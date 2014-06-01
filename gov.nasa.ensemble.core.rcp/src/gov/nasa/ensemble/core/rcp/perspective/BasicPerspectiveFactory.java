@@ -75,7 +75,8 @@ public class BasicPerspectiveFactory implements IPerspectiveFactory {
      *  Implements IPerspectiveFactory.  Automatically adds all registered perspectives to the shortcut bar.  This ensures
      *  that all perspectives will be easily accessible regardless of the perspective that is currently selected. 
      */
-    public void createInitialLayout(IPageLayout layout) {
+    @Override
+	public void createInitialLayout(IPageLayout layout) {
     	for (IPerspectiveDescriptor per : PlatformUI.getWorkbench().getPerspectiveRegistry().getPerspectives()) {
     		layout.addPerspectiveShortcut(per.getId());
     	}

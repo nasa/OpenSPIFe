@@ -20,10 +20,12 @@ package gov.nasa.ensemble.core.plan.parameters;
 
 public class StringParameterSerializer implements IParameterSerializer<String> {
 
+	@Override
 	public String getHibernateString(String javaObject) {
 		return javaObject;
 	}
 
+	@Override
 	public String getJavaObject(String hibernateString) {
 		return hibernateString;
 	}

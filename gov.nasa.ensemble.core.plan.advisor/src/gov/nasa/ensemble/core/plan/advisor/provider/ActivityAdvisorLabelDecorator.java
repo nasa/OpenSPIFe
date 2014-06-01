@@ -90,6 +90,7 @@ public class ActivityAdvisorLabelDecorator implements ILabelDecorator {
 		}
 	}
 
+	@Override
 	public Image decorateImage(Image image, Object element) {
 		if (element instanceof EPlanElement) {
 			int severity = EPlanUtils.getSeverity(element);
@@ -115,22 +116,27 @@ public class ActivityAdvisorLabelDecorator implements ILabelDecorator {
 		return image;
 	}
 
+	@Override
 	public String decorateText(String text, Object element) {
 		return text;
 	}
 
+	@Override
 	public void addListener(ILabelProviderListener listener) {
 		// no impl
 	}
 
+	@Override
 	public void dispose() {
 		// no impl
 	}
 
+	@Override
 	public boolean isLabelProperty(Object element, String property) {
 		return false;
 	}
 
+	@Override
 	public void removeListener(ILabelProviderListener listener) {
 		// no impl
 	}

@@ -22,10 +22,12 @@ import gov.nasa.ensemble.core.plan.IMemberFactory;
 
 public class TemporalNetworkMemberFactory implements IMemberFactory<TemporalNetworkMember> {
 
+	@Override
 	public Class<TemporalNetworkMember> getMemberClass() {
 		return TemporalNetworkMember.class;
 	}
 
+	@Override
 	public TemporalNetworkMember getMember(EPlan plan) {
 		return new TemporalNetworkMember(plan);
 	}

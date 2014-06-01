@@ -76,6 +76,7 @@ public class TreeTableComposite<C extends ITreeTableColumn> extends EnsembleComp
 		configuration.addConfigurationListener(configurationListener);
 		updateSortColumn(configuration.getSortColumn(), configuration.getSortDirection());
 		addDisposeListener(new DisposeListener() {
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				configuration.removeConfigurationListener(configurationListener);
 			}
@@ -129,9 +130,11 @@ public class TreeTableComposite<C extends ITreeTableColumn> extends EnsembleComp
 		treeColumn.addControlListener(new ColumnControlListener(mergeColumn, treeColumn));
 		if (sortable) {
 			treeColumn.addSelectionListener(new SelectionListener() {
+				@Override
 				public void widgetSelected(SelectionEvent e) {
 					handleColumnSelected(tree, treeColumn);
 				}
+				@Override
 				public void widgetDefaultSelected(SelectionEvent e) {
 					handleColumnSelected(tree, treeColumn);
 				}
@@ -198,6 +201,7 @@ public class TreeTableComposite<C extends ITreeTableColumn> extends EnsembleComp
 			this.treeColumn = treeColumn;
 		}
 
+		@Override
 		public void controlMoved(ControlEvent e) {
 			if (inLayout()) {
 				return;
@@ -208,6 +212,7 @@ public class TreeTableComposite<C extends ITreeTableColumn> extends EnsembleComp
 			}
 		}
 
+		@Override
 		public void controlResized(ControlEvent e) {
 			if (inLayout()) {
 				return;
@@ -239,6 +244,7 @@ public class TreeTableComposite<C extends ITreeTableColumn> extends EnsembleComp
 
 	private class ColumnConfigurationListener implements ITreeTableColumnConfigurationListener<C> {
 
+		@Override
 		public void columnsChanged(List<? extends C> oldColumns, List<? extends C> newColumns) {
 			Boolean oldIsChangingColumns = configuration.getIsChangingColumns().get();
 			try {
@@ -261,6 +267,7 @@ public class TreeTableComposite<C extends ITreeTableColumn> extends EnsembleComp
 			}
 		}
 
+		@Override
 		public void columnResized(C mergeColumn, int width) {
 			TreeColumn treeColumn = treeTableColumnToTreeColumn.get(mergeColumn);
 			if (treeColumn != null) {

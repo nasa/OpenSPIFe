@@ -63,6 +63,7 @@ public class ScheduledOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void execute() {
 		TransactionUtils.writing(planElement, new Runnable() {
+			@Override
 			public void run() {
 				command.execute();
 			}
@@ -77,6 +78,7 @@ public class ScheduledOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void undo() {
 		TransactionUtils.writing(planElement, new Runnable() {
+			@Override
 			public void run() {
 				command.undo();
 			}
@@ -91,6 +93,7 @@ public class ScheduledOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void redo() {
 		TransactionUtils.writing(planElement, new Runnable() {
+			@Override
 			public void run() {
 				command.redo();
 			}

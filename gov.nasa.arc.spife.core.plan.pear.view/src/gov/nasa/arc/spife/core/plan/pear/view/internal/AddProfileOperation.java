@@ -42,6 +42,7 @@ public class AddProfileOperation extends AbstractProfileUndoableOperation {
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				// Set the constraint to the Plan.
 				if(constraint != null) {
@@ -55,6 +56,7 @@ public class AddProfileOperation extends AbstractProfileUndoableOperation {
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				removeProfile(profile);
 				if(constraint != null) {

@@ -70,6 +70,7 @@ public class ProjectResourceSetSynchronizer {
 	
 	private class Listener implements IResourceChangeListener {
 		
+		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
 			processDelta(event.getDelta(), 0);
 		}

@@ -134,6 +134,7 @@ public class TemporalTransferableExtension extends AbstractPlanTransferableExten
 				while (dataIterator.hasPrevious()) {
 					final ShiftData data = dataIterator.previous();
 					TransactionUtils.writing(data.parent, new Runnable() {
+						@Override
 						public void run() {
 						    for (Map.Entry<EPlanElement, TemporalExtent> entry : data.originalExtents.entrySet()) {
 						    	EPlanElement element = entry.getKey();
@@ -224,6 +225,7 @@ public class TemporalTransferableExtension extends AbstractPlanTransferableExten
 	private ShiftData shiftElement(final EPlanElement element, final Map<EPlanElement, TemporalExtent> effects) {
 		final ShiftData shiftData = new ShiftData();
 		TransactionUtils.writing(element, new Runnable() {
+			@Override
 			public void run() {
 				shiftData.parent = element;
 				for (Map.Entry<EPlanElement, TemporalExtent> changedTime : effects.entrySet()) {

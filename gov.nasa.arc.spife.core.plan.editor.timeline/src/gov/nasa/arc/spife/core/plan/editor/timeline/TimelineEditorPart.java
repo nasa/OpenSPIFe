@@ -306,6 +306,7 @@ public class TimelineEditorPart extends AbstractPlanEditorPart implements IEdito
 	 * 
 	 * @param marker the marker that contains the position information.
 	 */
+	@Override
 	public void gotoMarker(IMarker marker) {
 		Date markerStartTime = MarkerUtils.getDate(marker, MarkerConstants.START_TIME); 
 		if (markerStartTime != null) {

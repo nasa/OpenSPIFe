@@ -36,6 +36,7 @@ public class UserGuideHandler extends AbstractHandler {
 
 	private static final String user_guide_location = "user.guide.location";
 	
+	@Override
 	public Object execute(ExecutionEvent event) {
 		Shell shell = HandlerUtil.getActiveWorkbenchWindow(event).getShell();
 		String location = EnsembleProperties.getProperty(user_guide_location);

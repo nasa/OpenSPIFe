@@ -35,6 +35,7 @@ public class ResourceModificationWatcher {
 	
 	public void watch(final IWorkspaceRunnable runnable, final IProgressMonitor monitor) throws CoreException {
 		runAndListen(runnable, new IResourceDeltaVisitor() {
+			@Override
 			public boolean visit(IResourceDelta delta) {
 				final IResource resource = delta.getResource();
 				final long modificationStamp = resource.getLocalTimeStamp();

@@ -21,8 +21,6 @@ import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.jscience.util.ProfileContributor;
 import gov.nasa.ensemble.core.model.plan.EPlan;
-import gov.nasa.ensemble.core.model.plan.translator.WrapperUtils;
-import gov.nasa.ensemble.core.plan.resources.profile.ResourceProfileMember;
 import gov.nasa.ensemble.core.plan.resources.util.ResourceUtils;
 import gov.nasa.ensemble.dictionary.ENumericResourceDef;
 

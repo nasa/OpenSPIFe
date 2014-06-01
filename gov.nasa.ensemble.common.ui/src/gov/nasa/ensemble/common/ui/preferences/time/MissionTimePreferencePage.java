@@ -38,6 +38,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.FieldEditor;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.IntegerFieldEditor;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -141,7 +142,7 @@ public class MissionTimePreferencePage extends AbstractPreferencePage {
 		integerFieldEditor.setPreferenceStore(PREFERENCE_STORE);
 		integerFieldEditor.load();
 		integerFieldEditor.setValidRange(0, 23);
-		integerFieldEditor.setValidateStrategy(IntegerFieldEditor.VALIDATE_ON_KEY_STROKE);
+		integerFieldEditor.setValidateStrategy(StringFieldEditor.VALIDATE_ON_KEY_STROKE);
 		return integerFieldEditor;
 	}
 	
@@ -225,6 +226,7 @@ public class MissionTimePreferencePage extends AbstractPreferencePage {
 
 	private final class DescriptionChangingModListener implements ModifyListener {
 
+		@Override
 		public void modifyText(ModifyEvent e) {
 			concreteSimDescriptionLabel.setText(getConcreteSimDescription());
 			updateRestartRecommendation();
@@ -240,10 +242,12 @@ public class MissionTimePreferencePage extends AbstractPreferencePage {
 			this.editor = text;
 		}
 
+		@Override
 		public void widgetDefaultSelected(SelectionEvent e) {
 			widgetSelected(e);
 		}
 
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			final Button checkbox = (Button) e.getSource();
 			enableDisable(editor, checkbox);
@@ -255,6 +259,7 @@ public class MissionTimePreferencePage extends AbstractPreferencePage {
 		final boolean isChecked = checkbox.getSelection();
 		final Composite parent = checkbox.getParent();
 		WidgetUtils.runInDisplayThread(checkbox, new Runnable() {
+			@Override
 			public void run() {
 				editor.setEnabled(isChecked, parent);
 			}

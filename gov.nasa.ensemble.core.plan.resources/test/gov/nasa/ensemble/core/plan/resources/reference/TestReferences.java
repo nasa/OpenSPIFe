@@ -150,6 +150,7 @@ public class TestReferences extends AbstractResourceTest {
 		EPlanUtils.contributeProductResources(plan);
 		ExtensionPointResourceSetListener.addListener(domain);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
 
@@ -283,6 +284,7 @@ public class TestReferences extends AbstractResourceTest {
 
 	private void removeCrewMember(final EObject crewMember, final EActivity a, final EStructuralFeature feature) {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				((Collection)a.getData().eGet(feature)).remove(crewMember);
 			}
@@ -292,6 +294,7 @@ public class TestReferences extends AbstractResourceTest {
 	@SuppressWarnings("unchecked")
 	private void addCrewMember(final EActivity a, final EObject crewMember, final EStructuralFeature feature) {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				((Collection)a.getData().eGet(feature)).add(crewMember);
 			}
@@ -324,6 +327,7 @@ public class TestReferences extends AbstractResourceTest {
 		plan.setData(ADParameterMemberFactory.FACTORY.createData(PlanPackage.Literals.EPLAN));
 		final ResourceSet resourceSet = domain.getResourceSet();
 		TransactionUtils.writing(resourceSet, new Runnable() {
+			@Override
 			public void run() {
 				Resource resource = resourceSet.createResource(uri);
 				resource.getContents().add(plan);

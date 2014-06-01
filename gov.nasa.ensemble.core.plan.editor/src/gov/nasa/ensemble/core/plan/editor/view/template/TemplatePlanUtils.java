@@ -191,6 +191,7 @@ public  class TemplatePlanUtils {
 	 */
 	public static void saveTemplateResource(final Resource resource) {
 		Runnable runnable = new Runnable() {
+			@Override
 			public void run() {
 				WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 					@Override

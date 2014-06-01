@@ -21,10 +21,12 @@ public abstract class Detail implements IDetail {
 
 	private boolean visibility = true;
 
+	@Override
 	public boolean isVisible() {
 		return visibility;
 	}
 
+	@Override
 	public void setVisible(boolean visibility) {
 		this.visibility = visibility;
 	}

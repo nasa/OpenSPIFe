@@ -123,6 +123,7 @@ public class Combinations implements Enumeration {
 	/**
 	 * @return true if we haven't finished iterating through all combinations
 	 */
+	@Override
 	public boolean hasMoreElements() {
 		return counter < Math.pow(2, elements.length);
 	}
@@ -130,6 +131,7 @@ public class Combinations implements Enumeration {
 	/**
 	 * @return the next unique combination
 	 */
+	@Override
 	public EPlanElement[] nextElement() {
 		if (!hasMoreElements()) {
 			throw new NoSuchElementException();

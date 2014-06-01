@@ -206,6 +206,7 @@ public class JSFormulaEngine extends FormulaEngine implements ActivityDictionary
 		return activityDictionaryScope;
 	}
 
+	@Override
 	public void definitionContextChanged(ActivityDictionaryEvent evt) {
 		switch(evt.getType())
 		{

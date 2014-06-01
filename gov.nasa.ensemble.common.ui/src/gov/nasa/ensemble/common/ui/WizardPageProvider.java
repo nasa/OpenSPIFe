@@ -106,6 +106,7 @@ public class WizardPageProvider implements Comparable<WizardPageProvider> {
 	 * Compares the sort key of the page providers so that
 	 * windowPages can be sorted properly by a wizard.
 	 */
+	@Override
 	public int compareTo(WizardPageProvider o) {
 		if (o == this) {
 			return 0;

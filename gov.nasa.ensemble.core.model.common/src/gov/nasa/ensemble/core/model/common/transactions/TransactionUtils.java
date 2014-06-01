@@ -55,7 +55,7 @@ public class TransactionUtils extends gov.nasa.ensemble.emf.transaction.Transact
 					runnable.run();
 				}
 			} else if (domain != null) {
-				TransactionUtils.reading(object, runnable);
+				gov.nasa.ensemble.emf.transaction.TransactionUtils.reading(object, runnable);
 			} else {
 				LogUtil.warn("failed to get the transaction domain for runnable: " + runnable);
 			}

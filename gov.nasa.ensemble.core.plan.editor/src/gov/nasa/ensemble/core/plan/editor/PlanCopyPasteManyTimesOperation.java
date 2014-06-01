@@ -110,6 +110,7 @@ public class PlanCopyPasteManyTimesOperation extends AbstractTransactionUndoable
 		insertionLocation = modifier.getInsertionLocation(mergedTransferable, targetSelection, InsertionSemantics.ON);
 		plan = EPlanUtils.getPlan(sourcePlanTransferable.getPlanElements().get(0));
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				modifier.add(mergedTransferable, insertionLocation);
 			}
@@ -139,6 +140,7 @@ public class PlanCopyPasteManyTimesOperation extends AbstractTransactionUndoable
 	@Override
 	protected void redo() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				modifier.add(mergedTransferable, insertionLocation);
 			}
@@ -148,6 +150,7 @@ public class PlanCopyPasteManyTimesOperation extends AbstractTransactionUndoable
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {		
 				modifier.remove(mergedTransferable, insertionLocation);
 			}

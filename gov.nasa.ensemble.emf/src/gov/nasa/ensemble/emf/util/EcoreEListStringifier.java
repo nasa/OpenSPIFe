@@ -34,6 +34,7 @@ public class EcoreEListStringifier extends AbstractTrimmingStringifier<Object> {
 		this.eFactoryInstance = eDataType.getEPackage().getEFactoryInstance();
 	}
 	
+	@Override
 	public String getDisplayString(Object javaObject) {
 		return formatString(eFactoryInstance.convertToString(eDataType, javaObject));
 	}

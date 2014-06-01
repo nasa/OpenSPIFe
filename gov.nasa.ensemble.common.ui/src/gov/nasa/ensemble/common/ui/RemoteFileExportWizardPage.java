@@ -88,23 +88,32 @@ public class RemoteFileExportWizardPage extends FileSystemExportWizardPage
 		listViewer.getTable().setFont(parent.getFont());
 		listViewer.setContentProvider(new IStructuredContentProvider()
 		{
+			@Override
 			public Object[] getElements(Object inputElement)
 			{
 				return getFilenamesFromRemoteDirectory(RemoteFileExportWizardPage.this.dirName);
 			}
+			@Override
 			public void dispose() { /* empty */ }
+			@Override
 			public void inputChanged(Viewer viewer, Object oldInput, Object newInput) { /* empty */ }
 
 		});
 		listViewer.setLabelProvider(new ILabelProvider()
 		{
+			@Override
 			public String getText(Object element) {
 				return element.toString();
 			}
+			@Override
 			public boolean isLabelProperty(Object element, String property) { return true; }
+			@Override
 			public Image getImage(Object element) { return null; }
+			@Override
 			public void addListener(ILabelProviderListener listener) { /* empty */ }
+			@Override
 			public void removeListener(ILabelProviderListener listener) { /* empty */ }
+			@Override
 			public void dispose() { /* empty */ }
 		});
 		listViewer.setInput(this.dir);
@@ -205,6 +214,7 @@ public class RemoteFileExportWizardPage extends FileSystemExportWizardPage
 					
 					Display.getDefault().asyncExec(new Runnable()
 					{
+						@Override
 						public void run() {
 							MessageDialog.openError(
 									Display.getCurrent().getActiveShell(),

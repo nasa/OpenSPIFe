@@ -45,6 +45,7 @@ public class TestMoveOperation extends UndoableOperationTestCase {
 				};
 		final EPlanElement targetElement = plan.activity3_1;
 		Runnable assertPostconditions = new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = ((EActivity)targetElement);
 				int pos = activity.getListPosition() + 1;
@@ -66,6 +67,7 @@ public class TestMoveOperation extends UndoableOperationTestCase {
 		final EPlanElement[] selectedElements = new EActivity[] { plan.activity2_3 };
 		final EPlanElement targetElement = plan.activity2_1;
 		Runnable assertPostconditions = new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = ((EActivity)targetElement);
 				int pos = activity.getListPosition() + 1;
@@ -87,6 +89,7 @@ public class TestMoveOperation extends UndoableOperationTestCase {
 		final EPlanElement[] selectedElements = new EActivity[] { plan.activity3_1 };
 		final EPlanElement targetElement = plan.activity3_2;
 		Runnable assertPostconditions = new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = ((EActivity)targetElement);
 				int pos = activity.getListPosition() + 1;
@@ -108,6 +111,7 @@ public class TestMoveOperation extends UndoableOperationTestCase {
 		final EPlanElement[] selectedElements = new EActivity[] { plan.activity3_1 };
 		final EPlanElement targetElement = plan.activity3_3;
 		Runnable assertPostconditions = new Runnable() {
+			@Override
 			public void run() {
 				EActivity activity = ((EActivity)targetElement);
 				int pos = activity.getListPosition() + 1;

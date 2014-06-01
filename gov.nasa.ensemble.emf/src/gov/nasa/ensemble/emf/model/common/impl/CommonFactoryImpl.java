@@ -137,6 +137,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ObjectFeature createObjectFeature() {
 		ObjectFeatureImpl objectFeature = new ObjectFeatureImpl();
 		return objectFeature;
@@ -227,6 +228,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommonPackage getCommonPackage() {
 		return (CommonPackage)getEPackage();
 	}

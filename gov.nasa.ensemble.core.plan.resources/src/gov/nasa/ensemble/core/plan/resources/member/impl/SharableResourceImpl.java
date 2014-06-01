@@ -105,6 +105,7 @@ public class SharableResourceImpl extends NamedConditionImpl implements Sharable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getUsed() {
 		return used;
 	}
@@ -114,6 +115,7 @@ public class SharableResourceImpl extends NamedConditionImpl implements Sharable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUsed(int newUsed) {
 		int oldUsed = used;
 		used = newUsed;
@@ -128,6 +130,7 @@ public class SharableResourceImpl extends NamedConditionImpl implements Sharable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetUsed() {
 		int oldUsed = used;
 		boolean oldUsedESet = (eFlags & USED_ESETFLAG) != 0;
@@ -142,6 +145,7 @@ public class SharableResourceImpl extends NamedConditionImpl implements Sharable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetUsed() {
 		return (eFlags & USED_ESETFLAG) != 0;
 	}
@@ -172,6 +176,7 @@ public class SharableResourceImpl extends NamedConditionImpl implements Sharable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConditions(Conditions newConditions) {
 		if (newConditions != eInternalContainer() || (eContainerFeatureID() != MemberPackage.SHARABLE_RESOURCE__CONDITIONS && newConditions != null)) {
 			if (EcoreUtil.isAncestor(this, newConditions))

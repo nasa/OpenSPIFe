@@ -68,6 +68,7 @@ public class EnsembleTextBasedDateEditor extends AbstractTypeEditor<Date> {
 		addListeners();
 	}
 	
+	@Override
 	public Control getEditorControl() {
 		return textField;
 	}
@@ -116,14 +117,17 @@ public class EnsembleTextBasedDateEditor extends AbstractTypeEditor<Date> {
 			}
 		}
 		
+		@Override
 		public void modifyText(ModifyEvent e) {
 			update();
 		}
 
+		@Override
 		public void widgetDefaultSelected(SelectionEvent e) {
 			update();
 		}
 
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			update();
 		}

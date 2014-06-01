@@ -113,6 +113,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public ProfileEffect createProfileEffect() {
 		ProfileEffect profileEffect;
 		try {
@@ -128,6 +129,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProfileMember createProfileMember() {
 		ProfileMemberImpl profileMember = new ProfileMemberImpl();
 		return profileMember;
@@ -138,6 +140,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ResourceProfileMember createResourceProfileMember() {
 		ResourceProfileMemberImpl resourceProfileMember = new ResourceProfileMemberImpl();
 		return resourceProfileMember;
@@ -148,6 +151,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProfileReference createProfileReference() {
 		ProfileReferenceImpl profileReference = new ProfileReferenceImpl();
 		return profileReference;
@@ -158,6 +162,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public <T> StructuralFeatureProfile<T> createStructuralFeatureProfile() {
 		StructuralFeatureProfileImpl<T> structuralFeatureProfile = new StructuralFeatureProfileImpl<T>();
 		return structuralFeatureProfile;
@@ -168,6 +173,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ViolationWaiver createViolationWaiver() {
 		ViolationWaiverImpl violationWaiver = new ViolationWaiverImpl();
 		return violationWaiver;
@@ -178,6 +184,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProfileEnvelopeConstraint createProfileEnvelopeConstraint() {
 		ProfileEnvelopeConstraintImpl profileEnvelopeConstraint = new ProfileEnvelopeConstraintImpl();
 		return profileEnvelopeConstraint;
@@ -188,6 +195,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProfileEqualityConstraint createProfileEqualityConstraint() {
 		ProfileEqualityConstraintImpl profileEqualityConstraint = new ProfileEqualityConstraintImpl();
 		return profileEqualityConstraint;
@@ -198,6 +206,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public StructuralFeatureProfile createStructuralFeatureProfile(EObject object, EStructuralFeature feature) {
 		StructuralFeatureProfile profile = createStructuralFeatureProfile();
@@ -236,6 +245,7 @@ public class ProfileFactoryImpl extends EFactoryImpl implements ProfileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProfilePackage getProfilePackage() {
 		return (ProfilePackage)getEPackage();
 	}

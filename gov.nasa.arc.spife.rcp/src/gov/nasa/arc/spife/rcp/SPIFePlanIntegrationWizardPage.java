@@ -143,6 +143,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 			return ((ProjectRecord) element).getProjectLabel();
 		}
 
+		@Override
 		public Font getFont(Object element) {
 			ProjectRecord projectRecord = (ProjectRecord) element;
 			
@@ -412,6 +413,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 	 * org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets
 	 * .Composite)
 	 */
+	@Override
 	public void createControl(Composite parent) {
 
 		initializeDialogUnits(parent);
@@ -514,6 +516,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 		 * compare the folders containing the .project files, not the .project files themselves
 		 */
 		final Comparator comparator = new Comparator() {
+			@Override
 			public int compare(Object arg0, Object arg1) {
 				ProjectRecord pr0 = (ProjectRecord)arg0;
 				ProjectRecord pr1 = (ProjectRecord)arg1;
@@ -545,6 +548,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 			 * org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java
 			 * .lang.Object)
 			 */
+			@Override
 			public Object[] getChildren(Object parentElement) {
 				return null;
 			}
@@ -556,6 +560,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 			 * org.eclipse.jface.viewers.IStructuredContentProvider#getElements
 			 * (java.lang.Object)
 			 */
+			@Override
 			public Object[] getElements(Object inputElement) {
 				ProjectRecord[] projectRecords = getProjectRecords();
 				Arrays.sort(projectRecords, comparator);
@@ -569,6 +574,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 			 * org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java
 			 * .lang.Object)
 			 */
+			@Override
 			public boolean hasChildren(Object element) {
 				return false;
 			}
@@ -580,6 +586,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 			 * org.eclipse.jface.viewers.ITreeContentProvider#getParent(java
 			 * .lang.Object)
 			 */
+			@Override
 			public Object getParent(Object element) {
 				return null;
 			}
@@ -589,6 +596,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 			 * 
 			 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 			 */
+			@Override
 			public void dispose() {
 				// do nothing
 			}
@@ -600,6 +608,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 			 * org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse
 			 * .jface.viewers.Viewer, java.lang.Object, java.lang.Object)
 			 */
+			@Override
 			public void inputChanged(Viewer viewer, Object oldInput,
 					Object newInput) {
 				// do nothing
@@ -617,6 +626,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 			 * org.eclipse.jface.viewers.ICheckStateListener#checkStateChanged
 			 * (org.eclipse.jface.viewers.CheckStateChangedEvent)
 			 */
+			@Override
 			public void checkStateChanged(CheckStateChangedEvent event) {
 				
 				//ProjectRecord element = (ProjectRecord) event.getElement();		
@@ -996,6 +1006,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 				 * org.eclipse.jface.operation.IRunnableWithProgress#run(org
 				 * .eclipse.core.runtime.IProgressMonitor)
 				 */
+				@Override
 				public void run(IProgressMonitor monitor) {
 
 					monitor
@@ -1478,6 +1489,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 	 * @return the user's reply: one of <code>"YES"</code>, <code>"NO"</code>,
 	 * 	<code>"ALL"</code>, or <code>"CANCEL"</code>
 	 */
+	@Override
 	public String queryOverwrite(String pathString) {
 
 		Path path = new Path(pathString);
@@ -1514,6 +1526,7 @@ public class SPIFePlanIntegrationWizardPage extends EnsembleWizardPage implement
 		// run in syncExec because callback is from an operation,
 		// which is probably not running in the UI thread.
 		getControl().getDisplay().syncExec(new Runnable() {
+			@Override
 			public void run() {
 				dialog.open();
 			}

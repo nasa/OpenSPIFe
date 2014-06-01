@@ -105,6 +105,7 @@ public class TooltipShellBuilder {
 
 	private static final class PropertyChangeListener implements IPropertyChangeListener {
 		
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			String newTooltipAttributes = TimelineConstants.TIMELINE_PREFERENCES.getString(TooltipAttributesPreferencePage.P_TOOLTIP_ATTRIBUTES);
 			// only react to the change if something happened.

@@ -35,6 +35,7 @@ public final class RunnableRecordingCommand extends AbstractCommand {
 		return runnable != null;
 	}
 	
+	@Override
 	public void execute() {
 		runnable.run();
 		
@@ -52,6 +53,7 @@ public final class RunnableRecordingCommand extends AbstractCommand {
 		return false;
 	}
 	
+	@Override
 	public void redo() {
 		throw new IllegalStateException("shouldn't be able to reach here");
 	}

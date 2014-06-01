@@ -84,6 +84,7 @@ public class SortedPlanVisitor extends PlanVisitor {
 	public List<EPlanElement> getList() {
 		// Sort by Start Date
 		Collections.sort(elementList, new Comparator<EPlanElement>() {
+			@Override
 			public int compare(EPlanElement o1, EPlanElement o2) {
 				return o1.getMember(TemporalMember.class).getStartTime().compareTo(
 								o2.getMember(TemporalMember.class).getStartTime());

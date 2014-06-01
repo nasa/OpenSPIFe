@@ -39,14 +39,17 @@ public class ActivityDefTransferProvider implements ITransferProvider<Serializab
 	
 	private final Logger trace = Logger.getLogger(getClass());
 	
+	@Override
 	public Transfer getTransfer() {
 		return transfer;
 	}
 	
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		return (transferable instanceof ActivityDefTransferable);
 	}
 
+	@Override
 	public Serializable[] packTransferObject(ITransferable transferable) {
 		if (!(transferable instanceof ActivityDefTransferable)) {
 			return null;
@@ -69,6 +72,7 @@ public class ActivityDefTransferProvider implements ITransferProvider<Serializab
 		}
 	}
 
+	@Override
 	public ITransferable unpackTransferObject(Serializable[] transferObject) {
 		List<EActivityDef> definitions = new ArrayList<EActivityDef>();
 		for (Serializable serializable : transferObject) {

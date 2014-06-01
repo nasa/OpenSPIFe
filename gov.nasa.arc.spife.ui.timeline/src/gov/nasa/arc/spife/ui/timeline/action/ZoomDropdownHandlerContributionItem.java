@@ -49,6 +49,7 @@ public class ZoomDropdownHandlerContributionItem extends ContributionItem {
 				item.setSelection(text.equals(zoomAsText));
 
 				Listener listener = new Listener() {
+					@Override
 					public void handleEvent(Event event) {
 						switch (event.type) {
 						case SWT.Selection:

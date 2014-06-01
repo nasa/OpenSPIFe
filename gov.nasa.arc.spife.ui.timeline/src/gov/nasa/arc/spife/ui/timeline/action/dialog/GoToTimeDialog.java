@@ -203,6 +203,7 @@ public class GoToTimeDialog extends Dialog{
 	private void installTooltipFunctionality(final Text text) {
 		final Color defaultTextForegroundColor = text.getForeground();
 		text.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				try {
 					Date startTime = getMinStartTime();
@@ -240,8 +241,10 @@ public class GoToTimeDialog extends Dialog{
 	 */
 	private Runnable createTooltipRunnable(final Text text, final Color defaultTextForegroundColor) {
 		Runnable runnable = new Runnable() {
+			@Override
 			public void run() {
 				WidgetUtils.runInDisplayThread(text, new Runnable() {
+					@Override
 					public void run() {
 						if (tipAvailable() && helpMessage != null) {
 							Point textLocation = text.getLocation();
@@ -286,6 +289,7 @@ public class GoToTimeDialog extends Dialog{
 		installTooltipFunctionality(text);
 		
 		text.addDisposeListener(new DisposeListener() {			
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				if (tipAvailable())
 					toolTip.dispose();

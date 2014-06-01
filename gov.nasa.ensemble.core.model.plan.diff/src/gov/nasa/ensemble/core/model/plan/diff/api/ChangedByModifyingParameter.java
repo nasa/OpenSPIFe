@@ -35,12 +35,14 @@ public interface ChangedByModifyingParameter extends ChangedByModifyingParameter
 	 * Returns the attribute changed.
 	 * For EMF Diff fans, this is the equivalent of getAttribute.
 	 */
+	@Override
 	EStructuralFeature getParameter();
 	
 	/**
 	 * Gets the original pre-modification copy of the plan element, a descendant of the old plan.
 	 * For EMF Diff fans, this is the equivalent of getLeftElement.
 	 */
+	@Override
 	EPlanElement getOldCopyOfOwner();
 	
 	
@@ -48,14 +50,18 @@ public interface ChangedByModifyingParameter extends ChangedByModifyingParameter
 	 * Gets the modified copy of the plan element, a descendant of the new plan.
 	 * For EMF Diff fans, this is the equivalent of getRightElement.
 	 */
+	@Override
 	EPlanElement getNewCopyOfOwner();
 	
 	/** Gets the original value of the attribute, before it was changed. */
+	@Override
 	Object getOldValue();
 
 	/** Gets the new value of the attribute, after it was changed. */
+	@Override
 	Object getNewValue();
 	
+	@Override
 	EObject getRelevantPartOf(EPlanElement copyOfOwner);
 	
 	boolean isOnlyChangeToStringCaseAndWhitespace();

@@ -101,6 +101,7 @@ public class ADEffectKeyImpl extends EObjectImpl implements ADEffectKey {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getObject() {
 		if (object != null && object.eIsProxy()) {
 			InternalEObject oldObject = (InternalEObject)object;
@@ -152,6 +153,7 @@ public class ADEffectKeyImpl extends EObjectImpl implements ADEffectKey {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EResourceDef getResourceDef() {
 		if (resourceDef != null && resourceDef.eIsProxy()) {
 			InternalEObject oldResourceDef = (InternalEObject)resourceDef;
@@ -221,6 +223,7 @@ public class ADEffectKeyImpl extends EObjectImpl implements ADEffectKey {
 	 * EMF loading causes the cache to be populated before the
 	 * fields are set.
 	 */
+	@Override
 	public void setResourceDef(EResourceDef newResourceDef) {
 		hashCode = null; // it is allowed to recompute the hash code if something used in the equals method changed
 		setResourceDefGen(newResourceDef);

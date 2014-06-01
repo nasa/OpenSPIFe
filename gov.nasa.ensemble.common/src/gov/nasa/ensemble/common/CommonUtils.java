@@ -80,12 +80,14 @@ public class CommonUtils {
 	};
 
 	public static final F<IProduct, String> productName = new F<IProduct, String>() {
+		@Override
 		public String f(final IProduct product) {
 			return product.getName();
 		}
 	};
 	
 	public static final F<IProduct, String> productId = new F<IProduct, String>() {
+		@Override
 		public String f(final IProduct product) {
 			return product.getId();
 		}

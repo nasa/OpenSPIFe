@@ -40,6 +40,7 @@ public class PlanTransferable extends PlanElementTransferable {
 	private static final String PLAN_UNIQUE_ID_KEY = "planUniqueId";
 	private static final String PLAN_ELEMENTS_KEY = "planElements";
 	
+	@Override
 	public void dispose() {
 		for (EPlanElement element : getPlanElements()) {
 			if (element instanceof EPlan) {
@@ -54,6 +55,7 @@ public class PlanTransferable extends PlanElementTransferable {
 		map.put(PLAN_ELEMENTS_KEY, elements);
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<? extends EPlanElement> getPlanElements() {
 		return (List<? extends EPlanElement>)map.get(PLAN_ELEMENTS_KEY);

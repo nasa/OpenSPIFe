@@ -84,6 +84,7 @@ public class PlanAddOperation extends AddOperation implements IDisplayOperation 
 	@Override
 	protected void execute() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanAddOperation.super.execute();
 			}
@@ -93,6 +94,7 @@ public class PlanAddOperation extends AddOperation implements IDisplayOperation 
 	@Override
 	protected void undo() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanAddOperation.super.undo();
 			}

@@ -83,6 +83,7 @@ public class ReferencedObjectRowImpl extends PlanSectionRowImpl implements Refer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getReference() {
 		if (reference != null && reference.eIsProxy()) {
 			InternalEObject oldReference = (InternalEObject)reference;
@@ -121,6 +122,7 @@ public class ReferencedObjectRowImpl extends PlanSectionRowImpl implements Refer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReference(EObject newReference) {
 		EObject oldReference = reference;
 		reference = newReference;

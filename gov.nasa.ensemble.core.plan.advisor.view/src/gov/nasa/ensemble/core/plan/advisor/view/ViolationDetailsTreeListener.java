@@ -52,6 +52,7 @@ public class ViolationDetailsTreeListener implements ISelectionChangedListener {
 		viewer.addPostSelectionChangedListener(this);
 	}
 
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		selected(viewer.getSelection());
 	}

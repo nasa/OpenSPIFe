@@ -279,6 +279,7 @@ implements INewWizard, IExecutableExtension {
 	private IRunnableWithProgress getCreateNewProjectOperation(
 			final IProjectDescription description) {
 		IRunnableWithProgress op = new IRunnableWithProgress() {
+			@Override
 			public void run(IProgressMonitor monitor)
 					throws InvocationTargetException {
 				CreateProjectOperation op = new CreateProjectOperation(
@@ -406,6 +407,7 @@ implements INewWizard, IExecutableExtension {
 	 * Stores the configuration element for the wizard. The config element will
 	 * be used in <code>performFinish</code> to set the result perspective.
 	 */
+	@Override
 	public void setInitializationData(IConfigurationElement cfig,
 			String propertyName, Object data) {
 		configElement = cfig;

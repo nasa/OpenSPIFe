@@ -40,10 +40,12 @@ public class PlanContainerTransferProvider extends SimpleByteArrayTransferProvid
 
 	public static final Transfer transfer = createSimpleByteArrayTransfer(PlanContainerTransferProvider.class.getCanonicalName()); 
 	
+	@Override
 	public Transfer getTransfer() {
 		return transfer;
 	}
 
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		if (!(transferable instanceof PlanTransferable)) {
 			return false;

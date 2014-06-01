@@ -49,6 +49,7 @@ public class ProfileTransferable implements ITransferable, Externalizable {
 		}
 	}
 
+	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		if (profiles == null) {
 			out.writeInt(0);
@@ -65,6 +66,7 @@ public class ProfileTransferable implements ITransferable, Externalizable {
 		return uriFragments;
 	}
 
+	@Override
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 		uriFragments.clear();
 		int numOfProfiles = in.readInt();
@@ -75,6 +77,7 @@ public class ProfileTransferable implements ITransferable, Externalizable {
 		this.profiles = nameDefs;
 	}
 
+	@Override
 	public void dispose() {
 		if (profiles != null) {
 			profiles.clear();

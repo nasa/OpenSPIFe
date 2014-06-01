@@ -122,6 +122,7 @@ public class TemporalFactoryImpl extends EFactoryImpl implements TemporalFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalMember createTemporalMember() {
 		TemporalMemberImpl temporalMember = new TemporalMemberImpl();
 		return temporalMember;
@@ -132,6 +133,7 @@ public class TemporalFactoryImpl extends EFactoryImpl implements TemporalFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PlanTemporalMember createPlanTemporalMember() {
 		PlanTemporalMemberImpl planTemporalMember = new PlanTemporalMemberImpl();
 		return planTemporalMember;
@@ -162,6 +164,7 @@ public class TemporalFactoryImpl extends EFactoryImpl implements TemporalFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalPackage getTemporalPackage() {
 		return (TemporalPackage)getEPackage();
 	}

@@ -66,6 +66,7 @@ public class EuropaMember implements IMember {
 			l.initializationFinished(europa);
 	}
 	
+	@Override
 	public void dispose() {
 		disconnect();
 	}

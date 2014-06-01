@@ -18,7 +18,6 @@
 package gov.nasa.ensemble.core.model.plan.temporal.provider;
 
 import gov.nasa.ensemble.common.EnsembleProperties;
-import gov.nasa.ensemble.common.extension.ClassRegistry;
 import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.core.detail.emf.DetailProvider;
 import gov.nasa.ensemble.core.detail.emf.DetailProviderParameter;
@@ -34,7 +33,6 @@ import gov.nasa.ensemble.core.model.plan.temporal.TemporalPackage;
 import gov.nasa.ensemble.core.model.plan.temporal.util.TemporalMemberUtils;
 import gov.nasa.ensemble.core.model.plan.translator.transactions.FeatureTransactionChangeOperation;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
-import gov.nasa.ensemble.core.model.plan.util.PlanElementApprover;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.util.ArrayList;
@@ -70,8 +68,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
 public class TemporalDetailProvider extends DetailProvider {

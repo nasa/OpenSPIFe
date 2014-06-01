@@ -44,6 +44,7 @@ public class PinHandler extends AbstractPlanEditorHandler {
 		return 1;
 	}
 	
+	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		Command command = event.getCommand();
 		ISelection selection = HandlerUtil.getCurrentSelection(event);

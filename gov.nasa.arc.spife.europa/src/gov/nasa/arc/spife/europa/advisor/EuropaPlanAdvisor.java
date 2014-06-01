@@ -113,6 +113,7 @@ public class EuropaPlanAdvisor
 		// nothing to cleanup
 	}
 
+	@Override
 	public PlanAdvisorMember getPlanAdvisorMember() {
 		return planAdvisorMember;
 	}
@@ -368,6 +369,7 @@ public class EuropaPlanAdvisor
 		return advices;
 	}
 
+	@Override
 	public boolean areViolationsFixable() {
 		return violationsFixable;
 	}
@@ -477,6 +479,7 @@ public class EuropaPlanAdvisor
 			}
 			final EActivity activity = PlanFactory.getInstance().createActivity(def);
 			TransactionUtils.writing(activity, new Runnable() {
+				@Override
 				public void run() {
 					TemporalMember temporalMember = activity.getMember(TemporalMember.class);
 					temporalMember.setStartTime(start);
@@ -502,6 +505,7 @@ public class EuropaPlanAdvisor
 		return flightRuleViolations.contains(violation);
 	}
 	
+	@Override
 	public boolean isCurrentlyViolated(INogoodPart nogoodPart) {
 		return nogoodParts.contains(nogoodPart);
 	}

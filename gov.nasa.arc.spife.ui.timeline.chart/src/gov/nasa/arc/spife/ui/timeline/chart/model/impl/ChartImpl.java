@@ -126,6 +126,7 @@ public class ChartImpl extends TimelineContentImpl implements Chart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Plot> getPlots() {
 		if (plots == null) {
 			plots = new EObjectContainmentWithInverseEList<Plot>(Plot.class, this, ChartPackage.CHART__PLOTS, ChartPackage.PLOT__CHART);
@@ -138,6 +139,7 @@ public class ChartImpl extends TimelineContentImpl implements Chart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ChartStyle getStyle() {
 		return style;
 	}
@@ -147,6 +149,7 @@ public class ChartImpl extends TimelineContentImpl implements Chart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStyle(ChartStyle newStyle) {
 		ChartStyle oldStyle = style;
 		style = newStyle == null ? STYLE_EDEFAULT : newStyle;
@@ -159,6 +162,7 @@ public class ChartImpl extends TimelineContentImpl implements Chart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMinimumHeight() {
 		return minimumHeight;
 	}
@@ -168,6 +172,7 @@ public class ChartImpl extends TimelineContentImpl implements Chart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimumHeight(int newMinimumHeight) {
 		int oldMinimumHeight = minimumHeight;
 		minimumHeight = newMinimumHeight;

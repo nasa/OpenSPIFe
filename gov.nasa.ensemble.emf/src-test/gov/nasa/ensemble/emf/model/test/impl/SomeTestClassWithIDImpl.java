@@ -89,6 +89,7 @@ public class SomeTestClassWithIDImpl extends SomeTestClassImpl implements SomeTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -98,6 +99,7 @@ public class SomeTestClassWithIDImpl extends SomeTestClassImpl implements SomeTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;

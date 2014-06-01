@@ -28,6 +28,7 @@ public class ResourceExistsPropertyTester extends PropertyTester {
 	 */
 	public static final String EXISTS = "exists"; //$NON-NLS-1$
 	
+	@Override
 	public boolean test(Object receiver, String property, Object[] args,
 			Object expectedValue) {
 		IResource resource = (IResource)receiver;

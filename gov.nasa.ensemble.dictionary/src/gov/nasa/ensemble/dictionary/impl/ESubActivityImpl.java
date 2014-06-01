@@ -94,6 +94,7 @@ public class ESubActivityImpl extends MinimalEObjectImpl.Container implements ES
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EActivityDef getDefinition() {
 		if (eContainerFeatureID() != DictionaryPackage.ESUB_ACTIVITY__DEFINITION) return null;
 		return (EActivityDef)eInternalContainer();
@@ -114,6 +115,7 @@ public class ESubActivityImpl extends MinimalEObjectImpl.Container implements ES
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefinition(EActivityDef newDefinition) {
 		if (newDefinition != eInternalContainer() || (eContainerFeatureID() != DictionaryPackage.ESUB_ACTIVITY__DEFINITION && newDefinition != null)) {
 			if (EcoreUtil.isAncestor(this, newDefinition))
@@ -135,6 +137,7 @@ public class ESubActivityImpl extends MinimalEObjectImpl.Container implements ES
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -144,6 +147,7 @@ public class ESubActivityImpl extends MinimalEObjectImpl.Container implements ES
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;

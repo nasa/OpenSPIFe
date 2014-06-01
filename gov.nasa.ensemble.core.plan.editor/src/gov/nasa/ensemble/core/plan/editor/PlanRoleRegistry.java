@@ -122,6 +122,7 @@ public class PlanRoleRegistry {
 		l.addAll(roleInstances);
 		
 		Collections.sort(l, new Comparator<PlanRole>() {
+			@Override
 			public int compare(final PlanRole o1, final PlanRole o2) {
 				return o1.getName().compareTo(o2.getName());
 			}

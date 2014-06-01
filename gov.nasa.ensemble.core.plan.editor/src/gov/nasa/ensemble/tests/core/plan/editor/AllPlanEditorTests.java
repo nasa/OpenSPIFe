@@ -29,6 +29,7 @@ public class AllPlanEditorTests implements IEnsemblePluginTest {
 		return suite;
 	}
 
+	@Override
 	public void addTests(TestSuite suite) {
 		//$JUnit-BEGIN$
         suite.addTestSuite(TestActivityDefAdd.class);

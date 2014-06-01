@@ -195,6 +195,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isReversed() {
 		return reversed;
 	}
@@ -204,6 +205,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReversed(boolean newReversed) {
 		boolean oldReversed = reversed;
 		reversed = newReversed;
@@ -216,6 +218,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ChangeType getType() {
 		return type;
 	}
@@ -225,6 +228,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setType(ChangeType newType) {
 		type = newType == null ? TYPE_EDEFAULT : newType;
 	}
@@ -234,6 +238,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public int getIndex() {
 		return index;
 	}
@@ -243,6 +248,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setIndex(int newIndex) {
 		index = newIndex;
 	}
@@ -252,6 +258,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getContainedObject() {
 		return containedObject;
 	}
@@ -276,6 +283,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setContainedObject(EObject newContainedObject) {
 		if (newContainedObject != containedObject) {
 			if (newContainedObject.eIsProxy()) {
@@ -296,6 +304,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EObject getNonContainedObject() {
 		if (nonContainedObject != null && nonContainedObject.eIsProxy()) {
 			InternalEObject oldNonContainedObject = (InternalEObject)nonContainedObject;
@@ -318,6 +327,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setNonContainedObject(EObject newNonContainedObject) {
 		nonContainedObject = newNonContainedObject;
 	}
@@ -327,6 +337,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValueString() {
 		return valueString;
 	}
@@ -336,6 +347,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setValueString(String newValueString) {
 		valueString = newValueString;
 	}
@@ -345,6 +357,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void apply(EObject target, EStructuralFeature feature) {
 		Object currentValue = target.eGet(feature);
 		if (currentValue instanceof List) {
@@ -475,6 +488,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public PatchListChange applyAndReverse(EObject target, EStructuralFeature feature) {
 		PatchListChange reversed = PatchFactory.eINSTANCE.createPatchListChange();
 		Object object = getObject(target, feature);
@@ -523,6 +537,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setObject(EStructuralFeature feature, Object object) {
 		if (feature instanceof EAttribute) {
 			EDataType type = ((EAttribute) feature).getEAttributeType();
@@ -550,6 +565,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	/* (non-Javadoc)
 	 * @see gov.nasa.ensemble.emf.model.patch.PatchListChange#getObject(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EStructuralFeature)
 	 */
+	@Override
 	public Object getObject(EObject target, EStructuralFeature feature) {
 		if (feature instanceof EAttribute) {
 			EAttribute attribute = (EAttribute) feature;
@@ -579,6 +595,7 @@ public class PatchListChangeImpl extends EObjectImpl implements PatchListChange 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void apply(Resource resource) {
 		int index = getIndex();
 		switch (getType()) {

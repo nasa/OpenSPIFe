@@ -79,22 +79,27 @@ public class ExtensionPointResourceSetListener implements ResourceSetListener {
 	/**
 	 * Our transactions don't notify on touch, so just use ANY. (fast and cheap!)
 	 */
+	@Override
 	public NotificationFilter getFilter() {
 		return NotificationFilter.ANY;
 	}
 
+	@Override
 	public boolean isAggregatePrecommitListener() {
 		return true;
 	}
 
+	@Override
 	public boolean isPostcommitOnly() {
 		return false;
 	}
 
+	@Override
 	public boolean isPrecommitOnly() {
 		return modelChangedListeners.isEmpty();
 	}
 
+	@Override
 	public Command transactionAboutToCommit(ResourceSetChangeEvent event) {
 		detectDuplicateNotifications(event);
 		CompoundCommand compound = new SafeCompoundCommand("ConsistencyMaintenance");
@@ -117,6 +122,7 @@ public class ExtensionPointResourceSetListener implements ResourceSetListener {
 
 	private int counter = 0;
 	
+	@Override
 	public void resourceSetChanged(ResourceSetChangeEvent event) {
 		Logger.getLogger(ExtensionPointResourceSetListener.class).debug("event: " + counter++);
 		if (event.getNotifications().isEmpty()) {

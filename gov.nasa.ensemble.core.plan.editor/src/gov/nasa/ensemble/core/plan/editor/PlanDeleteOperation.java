@@ -61,6 +61,7 @@ public class PlanDeleteOperation extends DeleteOperation implements IJobOperatio
 	@Override
 	protected void doit() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanDeleteOperation.super.doit();
 			}
@@ -70,6 +71,7 @@ public class PlanDeleteOperation extends DeleteOperation implements IJobOperatio
 	@Override
 	protected void undo() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanDeleteOperation.super.undo();
 			}

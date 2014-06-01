@@ -110,6 +110,7 @@ public class EResourceDefImpl extends EAttributeImpl implements EResourceDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getCategory() {
 		return category;
 	}
@@ -119,6 +120,7 @@ public class EResourceDefImpl extends EAttributeImpl implements EResourceDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCategory(String newCategory) {
 		String oldCategory = category;
 		category = newCategory;
@@ -131,6 +133,7 @@ public class EResourceDefImpl extends EAttributeImpl implements EResourceDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -140,6 +143,7 @@ public class EResourceDefImpl extends EAttributeImpl implements EResourceDef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;

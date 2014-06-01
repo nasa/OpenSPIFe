@@ -130,6 +130,7 @@ public class TemporalChainImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getWaiverRationale() {
 		return waiverRationale;
 	}
@@ -139,6 +140,7 @@ public class TemporalChainImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWaiverRationale(String newWaiverRationale) {
 		String oldWaiverRationale = waiverRationale;
 		waiverRationale = newWaiverRationale;
@@ -151,6 +153,7 @@ public class TemporalChainImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -160,6 +163,7 @@ public class TemporalChainImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -172,6 +176,7 @@ public class TemporalChainImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<EPlanElement> getElements() {
 		if (elements == null) {
@@ -310,6 +315,7 @@ public class TemporalChainImpl extends MinimalEObjectImpl.Container implements T
 		return result.toString();
 	}
 
+	@Override
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 		int size = in.readInt();
 		List<EPlanElement> elements = new ArrayList<EPlanElement>(size);
@@ -320,6 +326,7 @@ public class TemporalChainImpl extends MinimalEObjectImpl.Container implements T
 		getElements().addAll(elements);
 	}
 
+	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		List<EPlanElement> elements = getElements();
 		out.writeInt(elements.size());

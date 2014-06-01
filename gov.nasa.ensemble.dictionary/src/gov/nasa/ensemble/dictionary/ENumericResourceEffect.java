@@ -57,6 +57,7 @@ public interface ENumericResourceEffect extends ETemporalEffect<ENumericResource
 	 * @model
 	 * @generated
 	 */
+	@Override
 	ENumericResourceDef getDefinition();
 
 	/**

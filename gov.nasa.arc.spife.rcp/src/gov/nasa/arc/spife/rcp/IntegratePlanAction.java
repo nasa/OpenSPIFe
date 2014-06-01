@@ -29,6 +29,7 @@ import gov.nasa.arc.spife.rcp.SPIFePlanIntegrationWizard;
 public class IntegratePlanAction extends Action implements IWorkbenchWindowActionDelegate{
 	private IWorkbenchWindow window;
 
+	@Override
 	public void run(IAction action) {
 		SPIFePlanIntegrationWizard wizard = new SPIFePlanIntegrationWizard();
 		WizardDialog dialog = new WizardDialog(window.getShell(), wizard);
@@ -36,15 +37,18 @@ public class IntegratePlanAction extends Action implements IWorkbenchWindowActio
 		dialog.open();
 	}
 
+	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
 	public void init(IWorkbenchWindow window) {
 		this.window = window;		
 	}
 
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// TODO Auto-generated method stub
 		

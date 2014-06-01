@@ -34,6 +34,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 public class ValidatePlanHandler extends AbstractHandler {
 
+	@Override
 	public Object execute(ExecutionEvent event) {
 		IWorkbenchPart part = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart();
 		if (part != null && part instanceof MultiPagePlanEditor) {

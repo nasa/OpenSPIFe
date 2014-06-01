@@ -48,6 +48,7 @@ public class EnsembleContextMenuProvider extends ContextMenuProvider {
 				point, 
 				Collections.emptyList(),
 				new EditPartViewer.Conditional() {
+					@Override
 					public boolean evaluate(EditPart editpart) {
 						return editpart.understandsRequest(request);
 					}

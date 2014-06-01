@@ -339,6 +339,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String getName() {
 		if (name == null) {
 			return getId();
@@ -351,6 +352,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -363,6 +365,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getCategory() {
 		return category;
 	}
@@ -372,6 +375,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCategory(String newCategory) {
 		String oldCategory = category;
 		category = newCategory;
@@ -384,6 +388,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isExternalCondition() {
 		return (eFlags & EXTERNAL_CONDITION_EFLAG) != 0;
 	}
@@ -393,6 +398,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExternalCondition(boolean newExternalCondition) {
 		boolean oldExternalCondition = (eFlags & EXTERNAL_CONDITION_EFLAG) != 0;
 		if (newExternalCondition) eFlags |= EXTERNAL_CONDITION_EFLAG; else eFlags &= ~EXTERNAL_CONDITION_EFLAG;
@@ -405,6 +411,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return (eFlags & VALID_EFLAG) != 0;
 	}
@@ -414,6 +421,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = (eFlags & VALID_EFLAG) != 0;
 		if (newValid) eFlags |= VALID_EFLAG; else eFlags &= ~VALID_EFLAG;
@@ -652,6 +660,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public EList<DataPoint<T>> getDataPoints() {
 		if (dataPoints == null) {
@@ -682,6 +691,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMinLiteral() {
 		return minLiteral;
 	}
@@ -691,6 +701,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinLiteral(String newMinLiteral) {
 		String oldMinLiteral = minLiteral;
 		minLiteral = newMinLiteral;
@@ -703,6 +714,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMaxLiteral() {
 		return maxLiteral;
 	}
@@ -712,6 +724,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxLiteral(String newMaxLiteral) {
 		String oldMaxLiteral = maxLiteral;
 		maxLiteral = newMaxLiteral;
@@ -724,6 +737,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getAttributes() {
 		if (attributes == null) {
 			attributes = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, JSciencePackage.PROFILE__ATTRIBUTES);
@@ -736,6 +750,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getDataType() {
 		if (dataType != null && dataType.eIsProxy()) {
 			InternalEObject oldDataType = (InternalEObject)dataType;
@@ -762,6 +777,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDataType(EDataType newDataType) {
 		EDataType oldDataType = dataType;
 		dataType = newDataType;
@@ -774,6 +790,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AmountExtent<?> getExtent() {
 		return extent;
 	}
@@ -783,6 +800,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExtent(AmountExtent<?> newExtent) {
 		AmountExtent<?> oldExtent = extent;
 		extent = newExtent;
@@ -795,6 +813,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public INTERPOLATION getInterpolation() {
 		return interpolation;
 	}
@@ -804,6 +823,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInterpolation(INTERPOLATION newInterpolation) {
 		INTERPOLATION oldInterpolation = interpolation;
 		interpolation = newInterpolation == null ? INTERPOLATION_EDEFAULT : newInterpolation;
@@ -816,6 +836,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -825,6 +846,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -838,6 +860,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public Unit<?> getUnits() {
 		if (units == null) {
 			return Unit.ONE;
@@ -850,6 +873,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUnits(Unit<?> newUnits) {
 		Unit<?> oldUnits = units;
 		units = newUnits;
@@ -862,6 +886,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getDefaultValue() {
 		return defaultValue;
 	}
@@ -871,6 +896,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefaultValue(Object newDefaultValue) {
 		Object oldDefaultValue = defaultValue;
 		defaultValue = newDefaultValue;
@@ -878,11 +904,13 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 			eNotify(new ENotificationImpl(this, Notification.SET, JSciencePackage.PROFILE__DEFAULT_VALUE, oldDefaultValue, defaultValue));
 	}
 
+	@Override
 	public T getValue(Date time) {
 		DataPoint<T> point = (DataPoint<T>) ProfileUtil.getDataPoint(time, getDataPoints(), getInterpolation(), getDefaultValue());
 		return point == null ? null : point.getValue();
 	}
 	
+	@Override
 	public DataPoint<T> getDataPoint(Date time) {
 		return (DataPoint<T>) ProfileUtil.getDataPoint(time, getDataPoints(), getInterpolation(), getDefaultValue());
 	}
@@ -891,6 +919,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * Utility methods
 	 */
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public void updateExtremes() {
 		Amount minValue = null;
@@ -945,6 +974,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 	 * Property methods
 	 */
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public void setDataPointsArray(DataPoint<T>[] dataPoints) {
 		getDataPoints().clear();
@@ -952,6 +982,7 @@ public class ProfileImpl<T> extends MinimalEObjectImpl.Container implements Prof
 		updateExtremes();
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public void setDataPoints(Collection<DataPoint<T>> dataPoints) {
 		getDataPoints().clear();

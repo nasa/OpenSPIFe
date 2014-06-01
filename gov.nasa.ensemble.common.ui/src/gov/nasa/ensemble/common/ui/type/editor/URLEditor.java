@@ -67,6 +67,7 @@ public class URLEditor extends AbstractTypeEditor<String> {
 		this.urlComposite = createURLComposite();
 	}
 	
+	@Override
 	public Control getEditorControl() {
 		return urlComposite;
 	}
@@ -79,6 +80,7 @@ public class URLEditor extends AbstractTypeEditor<String> {
 			url = (String) object;
 		}
 		WidgetUtils.runInDisplayThread(parent, new Runnable() {
+			@Override
 			public void run() {
 				if (textURL != null) {
 					textURL.setText(url);
@@ -154,6 +156,7 @@ public class URLEditor extends AbstractTypeEditor<String> {
 			@Override
 			public void focusLost(FocusEvent e) {
 				WidgetUtils.runInDisplayThread(parent, new Runnable() {
+					@Override
 					public void run() {
 						if (! editButton.isDisposed()) {
 							toggleURLFields(false);
@@ -167,6 +170,7 @@ public class URLEditor extends AbstractTypeEditor<String> {
 			public void keyReleased(KeyEvent event) {
 				if (event.keyCode == SWT.ESC) {
 					WidgetUtils.runInDisplayThread(parent, new Runnable() {
+						@Override
 						public void run() {
 							if (! editButton.isDisposed()) {
 								t.setText(url);
@@ -175,6 +179,7 @@ public class URLEditor extends AbstractTypeEditor<String> {
 					});
 				} else if (event.keyCode == SWT.CR || event.keyCode == SWT.KEYPAD_CR) {
 					WidgetUtils.runInDisplayThread(parent, new Runnable() {
+						@Override
 						public void run() {
 							if (! editButton.isDisposed()) {
 								toggleURLFields(false);
@@ -223,6 +228,7 @@ public class URLEditor extends AbstractTypeEditor<String> {
 
 	protected void toggleURLFields(final boolean edit) {
 		Display.getDefault().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				
 				if (edit) {

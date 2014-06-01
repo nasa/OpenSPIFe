@@ -34,10 +34,12 @@ public class ResourceUpdaterFactory implements IMemberFactory<ResourceUpdater> {
 		disabled = b;
 	}
 
+	@Override
 	public Class<ResourceUpdater> getMemberClass() {
 		return ResourceUpdater.class;
 	}
 	
+	@Override
 	public ResourceUpdater getMember(EPlan plan) {
 		if (!disabled && (!CommonPlugin.isJunitRunning() || testing)) {
 			ResourceUpdater resourceUpdater = new ResourceUpdater(plan);

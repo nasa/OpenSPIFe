@@ -56,6 +56,7 @@ public abstract class AbstractZoomViewAction extends Action implements ZoomListe
 		}
 	}
 	
+	@Override
 	public void zoomChanged(double zoom) {
 		this.updateEnablement();
 	}

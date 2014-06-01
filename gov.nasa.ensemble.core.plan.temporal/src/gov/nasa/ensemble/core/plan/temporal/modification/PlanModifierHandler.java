@@ -129,6 +129,7 @@ public class PlanModifierHandler extends AbstractHandler implements IElementUpda
 	/**
 	 * @throws ExecutionException  
 	 */
+	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IEditorPart editor = HandlerUtil.getActiveEditor(event);
 		IEditorInput editorInput = editor.getEditorInput();
@@ -147,6 +148,7 @@ public class PlanModifierHandler extends AbstractHandler implements IElementUpda
 		return null;
 	}
 
+	@Override
 	public void updateElement(UIElement element, Map parameters) {
 		IServiceLocator serviceLocator = element.getServiceLocator();
 		IPartService partService = (IPartService)serviceLocator.getService(IPartService.class);

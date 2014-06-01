@@ -30,10 +30,12 @@ public class OldAndNewCopyOfSameThingImpl implements OldAndNewCopyOfSameThing {
 		this.newCopy = newCopy;
 	}
 
+	@Override
 	public EPlanElement getOldCopy() {
 		return oldCopy;
 	}
 
+	@Override
 	public EPlanElement getNewCopy() {
 		return newCopy;
 	}

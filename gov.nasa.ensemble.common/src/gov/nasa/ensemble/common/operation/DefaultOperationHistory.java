@@ -181,6 +181,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#add(org.eclipse.core.commands.operations.IUndoableOperation)
 	 */
+	@Override
 	public void add(IUndoableOperation operation) {
 		Assert.isNotNull(operation);
 
@@ -235,6 +236,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 */
 
+	@Override
 	public void addOperationApprover(IOperationApprover approver) {
 		approvers.add(approver);
 	}
@@ -259,6 +261,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * @see org.eclipse.core.commands.operations.IOperationHistoryListener
 	 * @see org.eclipse.core.commands.operations.OperationHistoryEvent
 	 */
+	@Override
 	public void addOperationHistoryListener(IOperationHistoryListener listener) {
 		listeners.add(listener);
 	}
@@ -268,6 +271,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#canRedo(org.eclipse.core.commands.operations.IUndoContext)
 	 */
+	@Override
 	public boolean canRedo(IUndoContext context) {
 		// null context is allowed and passed through
 		IUndoableOperation operation = getRedoOperation(context);
@@ -279,6 +283,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#canUndo(org.eclipse.core.commands.operations.IUndoContext)
 	 */
+	@Override
 	public boolean canUndo(IUndoContext context) {
 		// null context is allowed and passed through
 		IUndoableOperation operation = getUndoOperation(context);
@@ -332,6 +337,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#dispose(org.eclipse.core.commands.operations.IUndoContext,
 	 *      boolean, boolean, boolean)
 	 */
+	@Override
 	public void dispose(IUndoContext context, boolean flushUndo,
 			boolean flushRedo, boolean flushContext) {
 		// dispose of any limit that was set for the context if it is not to be
@@ -481,6 +487,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 *      org.eclipse.core.runtime.IProgressMonitor,
 	 *      org.eclipse.core.runtime.IAdaptable)
 	 */
+	@Override
 	public IStatus execute(IUndoableOperation operation,
 			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
@@ -769,6 +776,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#getLimit()
 	 */
+	@Override
 	public int getLimit(IUndoContext context) {
 		if (!limits.containsKey(context)) {
 			return DEFAULT_LIMIT;
@@ -806,6 +814,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#getRedoHistory(org.eclipse.core.commands.operations.IUndoContext)
 	 */
+	@Override
 	public IUndoableOperation[] getRedoHistory(IUndoContext context) {
 		Assert.isNotNull(context);
 		return filter(redoList, context);
@@ -816,6 +825,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#getOperation(org.eclipse.core.commands.operations.IUndoContext)
 	 */
+	@Override
 	public IUndoableOperation getRedoOperation(IUndoContext context) {
 		Assert.isNotNull(context);
 		synchronized (undoRedoHistoryLock) {
@@ -860,6 +870,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#getUndoHistory(org.eclipse.core.commands.operations.IUndoContext)
 	 */
+	@Override
 	public IUndoableOperation[] getUndoHistory(IUndoContext context) {
 		Assert.isNotNull(context);
 		return filter(undoList, context);
@@ -870,6 +881,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#getUndoOperation(org.eclipse.core.commands.operations.IUndoContext)
 	 */
+	@Override
 	public IUndoableOperation getUndoOperation(IUndoContext context) {
 		Assert.isNotNull(context);
 		synchronized (undoRedoHistoryLock) {
@@ -930,6 +942,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 			final IAdvancedUndoableOperation advancedOp = (IAdvancedUndoableOperation) event
 					.getOperation();
 			SafeRunner.run(new ISafeRunnable() {
+				@Override
 				public void handleException(Throwable exception) {
 					if (DEBUG_OPERATION_HISTORY_UNEXPECTED) {
 						Tracing
@@ -939,6 +952,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 					}
 				}
 
+				@Override
 				public void run() throws Exception {
 					advancedOp.aboutToNotify(event);
 				}
@@ -948,6 +962,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 		for (int i = 0; i < listenerArray.length; i++) {
 			final IOperationHistoryListener listener = (IOperationHistoryListener) listenerArray[i];
 			SafeRunner.run(new ISafeRunnable() {
+				@Override
 				public void handleException(Throwable exception) {
 					if (DEBUG_OPERATION_HISTORY_UNEXPECTED) {
 						Tracing
@@ -957,6 +972,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 					}
 				}
 
+				@Override
 				public void run() throws Exception {
 					listener.historyNotification(event);
 				}
@@ -1107,6 +1123,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 *      org.eclipse.core.runtime.IProgressMonitor,
 	 *      org.eclipse.core.runtime.IAdaptable)
 	 */
+	@Override
 	public IStatus redo(IUndoContext context, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		Assert.isNotNull(context);
@@ -1138,6 +1155,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 *      org.eclipse.core.runtime.IAdaptable)
 	 */
 
+	@Override
 	public IStatus redoOperation(IUndoableOperation operation,
 			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
@@ -1160,6 +1178,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#removeOperationApprover(org.eclipse.core.commands.operations.IOperationApprover)
 	 */
+	@Override
 	public void removeOperationApprover(IOperationApprover approver) {
 		approvers.remove(approver);
 	}
@@ -1169,6 +1188,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#removeOperationHistoryListener(org.eclipse.core.commands.operations.IOperationHistoryListener)
 	 */
+	@Override
 	public void removeOperationHistoryListener(
 			IOperationHistoryListener listener) {
 		listeners.remove(listener);
@@ -1180,6 +1200,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#replaceOperation(org.eclipse.core.commands.operations.IUndoableOperation,
 	 *      org.eclipse.core.commands.operations.IUndoableOperation [])
 	 */
+	@Override
 	public void replaceOperation(IUndoableOperation operation,
 			IUndoableOperation[] replacements) {
 		// check the undo history first.
@@ -1255,6 +1276,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#setLimit(org.eclipse.core.commands.operations.IUndoContext,
 	 *      int)
 	 */
+	@Override
 	public void setLimit(IUndoContext context, int limit) {
 		Assert.isTrue(limit >= 0);
 		/*
@@ -1280,6 +1302,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 *      org.eclipse.core.runtime.IProgressMonitor,
 	 *      org.eclipse.core.runtime.IAdaptable)
 	 */
+	@Override
 	public IStatus undo(IUndoContext context, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		Assert.isNotNull(context);
@@ -1309,6 +1332,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 *      org.eclipse.core.runtime.IProgressMonitor,
 	 *      org.eclipse.core.runtime.IAdaptable)
 	 */
+	@Override
 	public IStatus undoOperation(IUndoableOperation operation,
 			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
@@ -1331,6 +1355,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#openOperation(org.eclipse.core.commands.operations.ICompositeOperation)
 	 */
+	@Override
 	public void openOperation(ICompositeOperation operation, int mode) {
 		synchronized (openCompositeLock) {
 			if (openComposite != null && openComposite != operation) {
@@ -1362,6 +1387,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#closeOperation(boolean,
 	 *      boolean)
 	 */
+	@Override
 	public void closeOperation(boolean operationOK, boolean addToHistory,
 			int mode) {
 		ICompositeOperation endedComposite = null;
@@ -1408,6 +1434,7 @@ public /* not-so-final */ class DefaultOperationHistory implements IOperationHis
 	 * 
 	 * @see org.eclipse.core.commands.operations.IOperationHistory#operationChanged(org.eclipse.core.commands.operations.IUndoableOperation)
 	 */
+	@Override
 	public void operationChanged(IUndoableOperation operation) {
 		if (undoList.contains(operation) || redoList.contains(operation)) {
 			notifyChanged(operation);

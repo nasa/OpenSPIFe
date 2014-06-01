@@ -80,6 +80,7 @@ public class TransactionUtils {
 	
 	public static void reading(Object object, final Runnable runnable) {
 		reading(object, new RunnableWithResult.Impl<Object>() {
+			@Override
 			public void run() {
 				runnable.run();
 			}
@@ -126,6 +127,7 @@ public class TransactionUtils {
 			final Object object, final Class<T> throwableClass, final RunnableWithThrowable runnable) throws T {
 		final Option<T> exception = TransactionUtils.writing(object, 
 				new RunnableWithResult.Impl<Option<T>>() {
+					@Override
 					public void run() {
 						try {
 							runnable.run();
@@ -540,6 +542,7 @@ public class TransactionUtils {
 			this.runnable = runnable;
 		}
 
+		@Override
 		public void run() {
 			runnable.run();
 		}

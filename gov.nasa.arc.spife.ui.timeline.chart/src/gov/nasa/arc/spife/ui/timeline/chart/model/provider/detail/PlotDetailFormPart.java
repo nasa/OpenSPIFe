@@ -85,10 +85,12 @@ final class PlotDetailFormPart extends DetailFormPart {
 		List<IDetail> details = new ArrayList<IDetail>();
 		details.add(new SimpleDetail(form.getToolkit()) {
 
+			@Override
 			public String getName() {
 				return "Color";
 			}
 
+			@Override
 			public String getToolTipText() {
 				return null;
 			}
@@ -98,6 +100,7 @@ final class PlotDetailFormPart extends DetailFormPart {
 				if (colorEditor == null) {
 					colorEditor = new ColorEditor(parent);
 					colorEditor.addPropertyChangeListener(new PropertyChangeListener() {
+						@Override
 						public void propertyChange(PropertyChangeEvent evt) {
 							RGB rgb = null;
 							try {
@@ -125,10 +128,12 @@ final class PlotDetailFormPart extends DetailFormPart {
 		
 		details.add(new SimpleDetail(form.getToolkit()) {
 
+			@Override
 			public String getName() {
 				return "Show Text";
 			}
 
+			@Override
 			public String getToolTipText() {
 				return "Display text in chart for selected plot";
 			}
@@ -138,6 +143,7 @@ final class PlotDetailFormPart extends DetailFormPart {
 				if (showTextEditor == null) {
 					showTextEditor = new BooleanEditor(parent);
 					showTextEditor.addPropertyChangeListener(new PropertyChangeListener() {
+						@Override
 						public void propertyChange(PropertyChangeEvent evt) {
 							Boolean value = (Boolean) evt.getNewValue();
 							if (value != null && !CommonUtils.equals(value, plot.isShowText())) {
@@ -155,10 +161,12 @@ final class PlotDetailFormPart extends DetailFormPart {
 		
 		details.add(new SimpleDetail(form.getToolkit()) {
 
+			@Override
 			public String getName() {
 				return "Auto Assign RGB";
 			}
 
+			@Override
 			public String getToolTipText() {
 				return "Auto assign RGB for selected plot";
 			}
@@ -168,6 +176,7 @@ final class PlotDetailFormPart extends DetailFormPart {
 				if (autoAssignRGBEditor == null) {
 					autoAssignRGBEditor = new BooleanEditor(parent);
 					autoAssignRGBEditor.addPropertyChangeListener(new PropertyChangeListener() {
+						@Override
 						public void propertyChange(PropertyChangeEvent evt) {
 							Boolean value = (Boolean) evt.getNewValue();
 							if (value != null && !CommonUtils.equals(value, plot.isAutoAssignRGB())) {

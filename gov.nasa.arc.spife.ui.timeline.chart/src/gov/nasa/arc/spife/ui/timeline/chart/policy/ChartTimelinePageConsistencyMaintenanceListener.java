@@ -56,6 +56,7 @@ public class ChartTimelinePageConsistencyMaintenanceListener implements IConsist
 	private static final long DAY_DURATION = 24 * HOUR_DURATION;
 	private static final long WEEK_DURATION = 7 * DAY_DURATION;	
 	
+	@Override
 	public Command createConsistencyMaintenanceCommand(ResourceSetChangeEvent event) {
 		// SPF-5020 don't do anything unless we're in a chart editor
 		if (!PlatformUI.isWorkbenchRunning()) {

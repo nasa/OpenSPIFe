@@ -213,7 +213,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  @Override
+public String getDescription()
   {
     return description;
   }
@@ -223,7 +224,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  @Override
+public void setDescription(String newDescription)
   {
     String oldDescription = description;
     description = newDescription;
@@ -236,7 +238,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCategory()
+  @Override
+public String getCategory()
   {
     return category;
   }
@@ -246,7 +249,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCategory(String newCategory)
+  @Override
+public void setCategory(String newCategory)
   {
     String oldCategory = category;
     category = newCategory;
@@ -259,7 +263,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDuration()
+  @Override
+public String getDuration()
   {
     return duration;
   }
@@ -269,7 +274,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDuration(String newDuration)
+  @Override
+public void setDuration(String newDuration)
   {
     String oldDuration = duration;
     duration = newDuration;
@@ -282,7 +288,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDisplayName()
+  @Override
+public String getDisplayName()
   {
     return displayName;
   }
@@ -292,7 +299,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDisplayName(String newDisplayName)
+  @Override
+public void setDisplayName(String newDisplayName)
   {
     String oldDisplayName = displayName;
     displayName = newDisplayName;
@@ -305,7 +313,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getHiddenParams()
+  @Override
+public String getHiddenParams()
   {
     return hiddenParams;
   }
@@ -315,7 +324,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHiddenParams(String newHiddenParams)
+  @Override
+public void setHiddenParams(String newHiddenParams)
   {
     String oldHiddenParams = hiddenParams;
     hiddenParams = newHiddenParams;
@@ -328,7 +338,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Annotation> getAnnotations()
+  @Override
+public EList<Annotation> getAnnotations()
   {
     if (annotations == null)
     {
@@ -342,7 +353,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ParameterDef> getParameters()
+  @Override
+public EList<ParameterDef> getParameters()
   {
     if (parameters == null)
     {
@@ -356,7 +368,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Requirement> getRequirements()
+  @Override
+public EList<Requirement> getRequirements()
   {
     if (requirements == null)
     {
@@ -370,7 +383,8 @@ public class ActivityDefImpl extends DefinitionImpl implements ActivityDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getEffects()
+  @Override
+public EList<String> getEffects()
   {
     if (effects == null)
     {

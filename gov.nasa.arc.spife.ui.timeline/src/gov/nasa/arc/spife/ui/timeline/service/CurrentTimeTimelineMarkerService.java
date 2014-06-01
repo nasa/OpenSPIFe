@@ -162,6 +162,7 @@ public class CurrentTimeTimelineMarkerService extends TimelineService implements
 		final Date roundedTime = new Date(Math.round(currentTime.getTime() / (double) roundTo) * roundTo);
 		// scroll to the selection as needed
 		WidgetUtils.runInDisplayThread(control, new Runnable() {
+			@Override
 			public void run() {
 				timeline.scrollToTime(roundedTime, ScrollAlignment.CENTER);
 			}

@@ -106,6 +106,7 @@ public class CompositeOperation extends AbstractOperation implements ICompositeO
 		return this.getLabel();
 	}
 
+	@Override
 	public void add(IUndoableOperation operation) {
 		if (!executed) {
 			operationList.add(operation);
@@ -114,6 +115,7 @@ public class CompositeOperation extends AbstractOperation implements ICompositeO
 		}
 	}
 
+	@Override
 	public void remove(IUndoableOperation operation) {
 		if (!executed) {
 			operationList.remove(operation);

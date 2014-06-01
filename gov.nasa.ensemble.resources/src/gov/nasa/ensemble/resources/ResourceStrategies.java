@@ -47,6 +47,7 @@ public class ResourceStrategies {
 	public static <A> Strategy<A> workspace(
 			final ISchedulingRule rule, final int flags, final IProgressMonitor monitor) {
 		return strategy(new F<P1<A>, P1<A>>() {
+			@Override
 			public P1<A> f(final P1<A> input) {
 				return new P1<A>() {
 					@Override
@@ -54,6 +55,7 @@ public class ResourceStrategies {
 						final A[] result = (A[])new Object[1];
 						try {
 							getWorkspace().run(new IWorkspaceRunnable() {
+								@Override
 								public void run(IProgressMonitor monitor) {
 									result[0] = input._1();
 								}
@@ -74,6 +76,7 @@ public class ResourceStrategies {
 	
 	public static <A> Strategy<A> workspaceJob(final String jobName, final long delay) {
 		return strategy(new F<P1<A>, P1<A>>() {
+			@Override
 			public P1<A> f(final P1<A> input) {
 				final A[] result = (A[])new Object[1];
 				final WorkspaceJob job = new WorkspaceJob(jobName) {

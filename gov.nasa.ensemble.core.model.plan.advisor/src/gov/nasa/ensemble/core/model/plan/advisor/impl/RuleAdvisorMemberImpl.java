@@ -30,16 +30,11 @@ import gov.nasa.ensemble.core.model.plan.impl.EMemberImpl;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -90,6 +85,7 @@ public abstract class RuleAdvisorMemberImpl extends EMemberImpl implements RuleA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<WaiverPropertiesEntry> getWaivers() {
 		if (waivers == null) {
 			waivers = new EObjectContainmentEList<WaiverPropertiesEntry>(WaiverPropertiesEntry.class, this, AdvisorPackage.RULE_ADVISOR_MEMBER__WAIVERS);

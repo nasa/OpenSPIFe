@@ -203,6 +203,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Chart getChart() {
 		if (eContainerFeatureID() != ChartPackage.PLOT__CHART) return null;
 		return (Chart)eContainer();
@@ -223,6 +224,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setChart(Chart newChart) {
 		if (newChart != eInternalContainer() || (eContainerFeatureID() != ChartPackage.PLOT__CHART && newChart != null)) {
 			if (EcoreUtil.isAncestor(this, newChart))
@@ -244,6 +246,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public AmountExtent<?> getExtent() {
 		FitPolicy policy = getFit();
 		switch (policy) {
@@ -264,6 +267,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExtent(AmountExtent<?> newExtent) {
 		AmountExtent<?> oldExtent = extent;
 		extent = newExtent;
@@ -276,6 +280,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String getName() {
 		if (name == null && getProfile() != null) {
 			return getProfile().getId();
@@ -288,6 +293,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -307,6 +313,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public RGB getRgb() {
 		if (rgb == null) {			
 			RGB newRgb = PlotRgbRegistry.INSTANCE.getColorForEntirePlot(this);
@@ -323,6 +330,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRgb(RGB newRgb) {
 		RGB oldRgb = rgb;
 		rgb = newRgb;
@@ -335,6 +343,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FitPolicy getFit() {
 		return fit;
 	}
@@ -344,6 +353,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFit(FitPolicy newFit) {
 		FitPolicy oldFit = fit;
 		fit = newFit == null ? FIT_EDEFAULT : newFit;
@@ -356,6 +366,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Profile<?> getProfile() {
 		if (profile != null && profile.eIsProxy()) {
 			InternalEObject oldProfile = (InternalEObject)profile;
@@ -382,6 +393,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProfile(Profile<?> newProfile) {
 		Profile<?> oldProfile = profile;
 		profile = newProfile;
@@ -394,6 +406,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isShowText() {
 		return (eFlags & SHOW_TEXT_EFLAG) != 0;
 	}
@@ -403,6 +416,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setShowText(boolean newShowText) {
 		boolean oldShowText = (eFlags & SHOW_TEXT_EFLAG) != 0;
 		if (newShowText) eFlags |= SHOW_TEXT_EFLAG; else eFlags &= ~SHOW_TEXT_EFLAG;
@@ -415,6 +429,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isAutoAssignRGB() {
 		return (eFlags & AUTO_ASSIGN_RGB_EFLAG) != 0;
 	}
@@ -424,6 +439,7 @@ public class PlotImpl extends MinimalEObjectImpl.Container implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAutoAssignRGB(boolean newAutoAssignRGB) {
 		boolean oldAutoAssignRGB = (eFlags & AUTO_ASSIGN_RGB_EFLAG) != 0;
 		if (newAutoAssignRGB) eFlags |= AUTO_ASSIGN_RGB_EFLAG; else eFlags &= ~AUTO_ASSIGN_RGB_EFLAG;

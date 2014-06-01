@@ -33,6 +33,7 @@ public class TimestampedNoteParameterSerializer implements IParameterSerializer<
 	}
 
 	
+	@Override
 	public String getHibernateString(TimestampedNote javaObject) {
 		if (javaObject == null) {
 			return null;
@@ -44,6 +45,7 @@ public class TimestampedNoteParameterSerializer implements IParameterSerializer<
 		}
 	}
 
+	@Override
 	public TimestampedNote getJavaObject(String hibernateString) {
 		if (hibernateString == null) {
 			return null;

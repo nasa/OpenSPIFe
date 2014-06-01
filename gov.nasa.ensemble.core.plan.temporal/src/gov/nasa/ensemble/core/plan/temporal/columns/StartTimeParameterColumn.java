@@ -114,6 +114,7 @@ public class StartTimeParameterColumn extends ParameterColumn<Date> {
 	public Comparator<ParameterFacet<Date>> getComparator() {
 		final Comparator<ParameterFacet<Date>> superComparator = super.getComparator();
 		return new Comparator<ParameterFacet<Date>>() {
+			@Override
 			public int compare(ParameterFacet<Date> o1, ParameterFacet<Date> o2) {
 				if ((o1 == null) || (o2 == null)) {
 					// handle null

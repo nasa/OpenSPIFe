@@ -88,6 +88,7 @@ public abstract class TreeTimelineNodeEditPart<T> extends TimelineViewerEditPart
 			final ExpansionModel model = (ExpansionModel) getViewer().getProperty(ExpansionModel.ID);
 			if (model != null) {
 				GEFUtils.runLaterInDisplayThread(this, new Runnable() {
+					@Override
 					public void run() {
 						T model2 = getModel();
 						Set<Object> objects = Collections.<Object>singleton(model2);
@@ -176,6 +177,7 @@ public abstract class TreeTimelineNodeEditPart<T> extends TimelineViewerEditPart
 	public void updateFigureBounds() {
 		final TemporalExtent extent = getTemporalExtent();
 		GEFUtils.runInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				IFigure parent = figure.getParent();
 				RowDataFigureLayoutData data = (RowDataFigureLayoutData) parent.getLayoutManager().getConstraint(figure);
@@ -204,10 +206,12 @@ public abstract class TreeTimelineNodeEditPart<T> extends TimelineViewerEditPart
 	
 	public class Listener extends AdapterImpl implements IPropertyChangeListener {
 
+		@Override
 		public void propertyChange(org.eclipse.jface.util.PropertyChangeEvent event) {
 			final String property = event.getProperty();
 			if (TimelinePreferencePage.P_ROW_ELEMENT_ROUNDED.equals(property)) {
 				GEFUtils.runInDisplayThread(TreeTimelineNodeEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						getCastedFigure().setRound(TIMELINE_PREFERENCES.getBoolean(property));
 						updateChildBounds();
@@ -216,6 +220,7 @@ public abstract class TreeTimelineNodeEditPart<T> extends TimelineViewerEditPart
 			} 
 			else if (TimelinePreferencePage.P_ROW_ELEMENT_ACTIVITY_GROUP_NOGAPS.equals(property)) {
 				GEFUtils.runInDisplayThread(TreeTimelineNodeEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						updateChildBounds();
 					}
@@ -224,6 +229,7 @@ public abstract class TreeTimelineNodeEditPart<T> extends TimelineViewerEditPart
 				updateFigureBounds();
 			} else if (TimelinePreferencePage.P_ROW_ELEMENT_BORDER.equals(property)) {
 				GEFUtils.runInDisplayThread(TreeTimelineNodeEditPart.this, new Runnable() {
+					@Override
 					public void run() {
 						getCastedFigure().setPaintBorder(TIMELINE_PREFERENCES.getBoolean(TimelinePreferencePage.P_ROW_ELEMENT_BORDER));
 					}

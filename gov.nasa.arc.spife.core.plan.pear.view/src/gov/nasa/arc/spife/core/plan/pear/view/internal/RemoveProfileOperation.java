@@ -82,6 +82,7 @@ public class RemoveProfileOperation extends AbstractProfileUndoableOperation {
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				for (Profile profile : profiles) {
 					removeProfile(profile);
@@ -100,6 +101,7 @@ public class RemoveProfileOperation extends AbstractProfileUndoableOperation {
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				for (Profile profile : profiles) {
 					addProfile(profile);

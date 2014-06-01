@@ -124,6 +124,7 @@ public class FeatureValueRowImpl extends PlanSectionRowImpl implements FeatureVa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFeatureName() {
 		return featureName;
 	}
@@ -133,6 +134,7 @@ public class FeatureValueRowImpl extends PlanSectionRowImpl implements FeatureVa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFeatureName(String newFeatureName) {
 		String oldFeatureName = featureName;
 		featureName = newFeatureName;
@@ -145,6 +147,7 @@ public class FeatureValueRowImpl extends PlanSectionRowImpl implements FeatureVa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValueLiteral() {
 		return valueLiteral;
 	}
@@ -154,6 +157,7 @@ public class FeatureValueRowImpl extends PlanSectionRowImpl implements FeatureVa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValueLiteral(String newValueLiteral) {
 		String oldValueLiteral = valueLiteral;
 		valueLiteral = newValueLiteral;

@@ -128,6 +128,7 @@ public class ProfileEqualityConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getWaiverRationale() {
 		return waiverRationale;
 	}
@@ -137,6 +138,7 @@ public class ProfileEqualityConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWaiverRationale(String newWaiverRationale) {
 		String oldWaiverRationale = waiverRationale;
 		waiverRationale = newWaiverRationale;
@@ -149,6 +151,7 @@ public class ProfileEqualityConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValueLiteral() {
 		return valueLiteral;
 	}
@@ -158,6 +161,7 @@ public class ProfileEqualityConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValueLiteral(String newValueLiteral) {
 		String oldValueLiteral = valueLiteral;
 		valueLiteral = newValueLiteral;
@@ -170,6 +174,7 @@ public class ProfileEqualityConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<Duration> getMaximumGap() {
 		return maximumGap;
 	}
@@ -179,6 +184,7 @@ public class ProfileEqualityConstraintImpl extends ProfileReferenceImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximumGap(Amount<Duration> newMaximumGap) {
 		Amount<Duration> oldMaximumGap = maximumGap;
 		maximumGap = newMaximumGap;

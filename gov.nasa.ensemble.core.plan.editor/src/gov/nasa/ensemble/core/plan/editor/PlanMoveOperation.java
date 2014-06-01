@@ -53,6 +53,7 @@ public class PlanMoveOperation extends MoveOperation implements IDisplayOperatio
 	@Override
 	protected void execute() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanMoveOperation.super.execute();
 			}
@@ -70,6 +71,7 @@ public class PlanMoveOperation extends MoveOperation implements IDisplayOperatio
 	@Override
 	protected void undo() {
 		TransactionUtils.writing(context, new Runnable() {
+			@Override
 			public void run() {
 				PlanMoveOperation.super.undo();
 			}

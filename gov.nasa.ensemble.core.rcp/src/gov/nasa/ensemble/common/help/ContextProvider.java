@@ -36,14 +36,17 @@ public class ContextProvider implements IContextProvider {
 		this.contextChangeMask  = contextChangeMask;
 	}
 	
+	@Override
 	public IContext getContext(Object target) {
 		return HelpSystem.getContext(id);
 	}
 
+	@Override
 	public int getContextChangeMask() {
 		return this.contextChangeMask;
 	}
 
+	@Override
 	public String getSearchExpression(Object target) {
 		return null;
 	}

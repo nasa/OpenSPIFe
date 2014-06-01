@@ -74,6 +74,7 @@ public class EnsembleEditingDomain extends AdapterFactoryEditingDomain {
 
 		private EditingDomain editingDomain;
 		
+		@Override
 		public EditingDomain getEditingDomain() {
 			return editingDomain;
 		}

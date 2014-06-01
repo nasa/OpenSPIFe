@@ -77,6 +77,7 @@ public class TestTimepointConstraintTransferExtension extends TestCase {
 		
 		group = PLAN_FACTORY.createActivityGroup(plan);
 		TransactionUtils.writing(plan, new Runnable() {
+			@Override
 			public void run() {
 				constructPlan();
 			}
@@ -91,6 +92,7 @@ public class TestTimepointConstraintTransferExtension extends TestCase {
 		activity.getMember(TemporalMember.class).setStartTime(DATE);
 		
 		TransactionUtils.writing(activity, new Runnable() {
+			@Override
 			public void run() {
 				Amount<Duration> offset = ConstraintUtils.getPeriodicConstraintOffset(DATE);
 				pinBound = PinUtils.createPinConstraint(activity, offset);

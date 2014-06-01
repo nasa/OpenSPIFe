@@ -101,6 +101,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IWorkbenchPartSite;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class TimelineViewer extends GraphicalViewerImpl implements IAdaptable {
 
@@ -323,6 +324,7 @@ public class TimelineViewer extends GraphicalViewerImpl implements IAdaptable {
 		return getTimeline().getTickManager();
 	}
 
+	@Override
 	public Object getAdapter(Class adapter) {
 		Object o = getProperty(adapter.getName());
 		if (o == null) {
@@ -346,7 +348,7 @@ public class TimelineViewer extends GraphicalViewerImpl implements IAdaptable {
 
 		if (imageDescriptor != null && image == null) {
 			if(isTimelineSectionFrozen()) {
-				image = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/frozen.png").createImage();
+				image = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/frozen.png").createImage();
 			}
 			else {
 				image = (Image) imageDescriptor.createResource(toolbarComposite.getDisplay());
@@ -461,8 +463,11 @@ public class TimelineViewer extends GraphicalViewerImpl implements IAdaptable {
 		Label upLabel = new Label(buttons,SWT.SHADOW_IN);
 		upLabel.setImage(WidgetPlugin.getImageFromRegistry(WidgetPlugin.KEY_IMAGE_NAV_UP));
 		upLabel.addMouseListener(new MouseListener() {
+			@Override
 			public void mouseDoubleClick(MouseEvent e) {/* no action */}
+			@Override
 			public void mouseDown(MouseEvent e) {/* no action */}
+			@Override
 			public void mouseUp(MouseEvent e) {
 				moveTimelineUp();
 			}
@@ -470,8 +475,11 @@ public class TimelineViewer extends GraphicalViewerImpl implements IAdaptable {
 		Label downLabel = new Label(buttons,SWT.SHADOW_IN);
 		downLabel.setImage(WidgetPlugin.getImageFromRegistry(WidgetPlugin.KEY_IMAGE_NAV_DOWN));
 		downLabel.addMouseListener(new MouseListener() {
+			@Override
 			public void mouseDoubleClick(MouseEvent e) {/* no action */}
+			@Override
 			public void mouseDown(MouseEvent e) {/* no action */}
+			@Override
 			public void mouseUp(MouseEvent e) {
 				moveTimelineDown();
 			}
@@ -481,8 +489,11 @@ public class TimelineViewer extends GraphicalViewerImpl implements IAdaptable {
 			Label closeLabel = new Label(buttons,SWT.SHADOW_IN);
 			closeLabel.setImage(WidgetPlugin.getImageFromRegistry(WidgetPlugin.KEY_IMAGE_CLOSE_NICE));
 			closeLabel.addMouseListener(new MouseListener() {
+				@Override
 				public void mouseDoubleClick(MouseEvent e) {/* no action */}
+				@Override
 				public void mouseDown(MouseEvent e) {/* no action */}
+				@Override
 				public void mouseUp(MouseEvent e) {
 					closeTimelineViewer();
 				}
@@ -622,6 +633,7 @@ public class TimelineViewer extends GraphicalViewerImpl implements IAdaptable {
 	public void selectModels(Set<Object> models) {
 		final Set<EditPart> layedOutEditParts = getSelectableEditParts(models);
 		GEFUtils.runInDisplayThread(getRootEditPart(), new Runnable() {
+			@Override
 			public void run() {
 				setSelection(new StructuredSelection(layedOutEditParts.toArray()));
 			}

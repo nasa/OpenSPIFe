@@ -69,12 +69,14 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 		// For some reason, applying a color at creation, does not get it to update correctly
 		// so simply do it next in the queue.
 		parent.getDisplay().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				updateValidityColor(false); // make sure the color is set right in the case where you ALLOW errors.
 			}
 		});
     }
 
+	@Override
 	public Text getEditorControl() {
 		return text;
 	}
@@ -83,6 +85,7 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 	public void setObject(final Object object) {
 		super.setObject(object);
 		WidgetUtils.runInDisplayThread(text, new Runnable() {
+			@Override
 			@SuppressWarnings("unchecked")
 			public void run() {
 				String string = stringifier.getDisplayString(object);
@@ -238,15 +241,18 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 
 	private class TextListener implements FocusListener, KeyListener, ModifyListener {
 
+		@Override
 		public void modifyText(ModifyEvent event) {
 			edited = true;
 			updateValidityColor();
 		}
 
+		@Override
 		public void keyPressed(KeyEvent event) {
 			// special keys handled in release
 		}
 		
+		@Override
 		public void keyReleased(KeyEvent event) {
 			if (event.keyCode == SWT.ESC) {
 				resetText();
@@ -265,10 +271,12 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 			}
 		}
 
+		@Override
 		public void focusGained(FocusEvent event) {
 			edited = false;
 		}
 		
+		@Override
 		public void focusLost(FocusEvent event) {
 			if (edited && !text.isDisposed()) {
 				String string = text.getText();

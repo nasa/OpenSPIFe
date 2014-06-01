@@ -46,6 +46,7 @@ public class NewChartModelActionDelegate extends Action implements IWorkbenchWin
 		run(this);
 	}
 
+	@Override
 	public void run(IAction action) {
 		ChartModelWizard wizard = new ChartModelWizard();
 		wizard.init(window.getWorkbench(), currentSelection);
@@ -58,14 +59,17 @@ public class NewChartModelActionDelegate extends Action implements IWorkbenchWin
 
 	}
 
+	@Override
 	public void init(IWorkbenchWindow window) {
 		this.window = window;
 	}
 
+	@Override
 	public void selectionChanged(IAction action, ISelection selection) { 
 		currentSelection = (selection != null && selection instanceof IStructuredSelection) ? (IStructuredSelection)selection : new StructuredSelection(selection);
 	}
 
+	@Override
 	public void dispose() {
 		window = null;
 	}

@@ -60,6 +60,7 @@ public class CommandUndoableOperation extends AbstractTransactionUndoableOperati
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(domain, new Runnable() {
+			@Override
 			public void run() {
 				command.undo();
 			}

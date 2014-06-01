@@ -288,14 +288,17 @@ public class EPlanElementLabelProvider extends AdapterFactoryLabelProvider imple
 		return decoratedImage;
 	}
 
+	@Override
 	public Notifier getTarget() {
 		return null;
 	}
 
+	@Override
 	public boolean isAdapterForType(Object type) {
 		return false;
 	}
 
+	@Override
 	public void setTarget(Notifier newTarget) {
 		// no implementation
 	}
@@ -378,6 +381,7 @@ public class EPlanElementLabelProvider extends AdapterFactoryLabelProvider imple
 			}
 		}
 
+		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
 			final List<EPlanElementLabelProvider> markedProviders = new ArrayList<EPlanElementLabelProvider>();
 			synchronized (providers) {
@@ -392,6 +396,7 @@ public class EPlanElementLabelProvider extends AdapterFactoryLabelProvider imple
 				}
 			}
 			WidgetUtils.getDisplay().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					for (EPlanElementLabelProvider provider : markedProviders) {
 						provider.fireLabelProviderChanged();

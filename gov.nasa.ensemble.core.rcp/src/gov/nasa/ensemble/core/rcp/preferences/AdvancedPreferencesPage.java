@@ -26,6 +26,7 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 
 public class AdvancedPreferencesPage extends PreferencePage implements IWorkbenchPreferencePage {
 
+	@Override
 	public void init(IWorkbench workbench) {
 		// no impl
 	}

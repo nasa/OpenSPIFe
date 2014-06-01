@@ -156,7 +156,7 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 		IUndoableOperation operation = new ChangeObservableOperation("Edit " + name, value);
 		EObject observed = (EObject)getObserved();
 		operation = EMFUtils.addContributorOperations(operation, observed, feature, oldValue, value);
-		IUndoContext context = TransactionUtils.getUndoContext(observed);
+		IUndoContext context = gov.nasa.ensemble.emf.transaction.TransactionUtils.getUndoContext(observed);
 		IOperationHistory history = OperationHistoryFactory.getOperationHistory();
 		IUndoableOperation previous = history.getUndoOperation(context);
 		if (previous instanceof TextModifyUndoableObservableValue.TextModifyObservableOperation) {

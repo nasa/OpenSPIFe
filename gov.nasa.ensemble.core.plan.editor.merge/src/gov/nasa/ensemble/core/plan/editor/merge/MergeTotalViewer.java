@@ -111,6 +111,7 @@ public class MergeTotalViewer extends Viewer {
 		final ResourceSetListener listener = new UpdateModelChangeListener();
 		domain.addResourceSetListener(listener);
 		totalComposite.addDisposeListener(new DisposeListener() {
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				domain.removeResourceSetListener(listener);
 			}

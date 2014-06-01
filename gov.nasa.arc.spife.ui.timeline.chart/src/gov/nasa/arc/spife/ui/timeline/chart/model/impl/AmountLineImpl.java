@@ -107,6 +107,7 @@ public class AmountLineImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Amount<?> getAmount() {
 		return amount;
 	}
@@ -116,6 +117,7 @@ public class AmountLineImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAmount(Amount<?> newAmount) {
 		Amount<?> oldAmount = amount;
 		amount = newAmount;
@@ -128,6 +130,7 @@ public class AmountLineImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RGB getRgb() {
 		return rgb;
 	}
@@ -137,6 +140,7 @@ public class AmountLineImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRgb(RGB newRgb) {
 		RGB oldRgb = rgb;
 		rgb = newRgb;

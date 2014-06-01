@@ -61,6 +61,7 @@ public class PlanSectionContentProvider extends GroupingTimelineContentProvider 
 	protected Comparator getGroupingValuesComparator() {
 		return new Comparator<PlanSectionRow>() {
 			
+			@Override
 			public int compare(PlanSectionRow o1, PlanSectionRow o2) {
 				if (o1 == lostRow) {
 					return 1;

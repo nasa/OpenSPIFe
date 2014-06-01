@@ -81,7 +81,8 @@ public class ActivityGroupDefImpl extends DefinitionImpl implements ActivityGrou
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Annotation> getAnnotations()
+  @Override
+public EList<Annotation> getAnnotations()
   {
     if (annotations == null)
     {
@@ -95,7 +96,8 @@ public class ActivityGroupDefImpl extends DefinitionImpl implements ActivityGrou
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ParameterDef> getParameters()
+  @Override
+public EList<ParameterDef> getParameters()
   {
     if (parameters == null)
     {

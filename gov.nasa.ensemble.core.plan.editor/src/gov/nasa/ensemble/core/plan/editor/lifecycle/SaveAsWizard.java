@@ -167,6 +167,7 @@ public class SaveAsWizard extends Wizard implements MissionExtendable {
 				//
 				// Update plan details
 				TransactionUtils.writing(plan, new Runnable() {
+					@Override
 					public void run() {
 						planIdentification.updatePlan(plan, false);
 					}
@@ -224,6 +225,7 @@ public class SaveAsWizard extends Wizard implements MissionExtendable {
 			setDescription("This wizard will check the plan name against open plans and plans on the database to assure uniqueness.");
 		}
 
+		@Override
 		public void createControl(Composite parent) {
 			Composite planSaveDialogContainer = new Composite(parent, SWT.NONE);
 			planSaveDialogContainer.setLayout(new GridLayout());
@@ -355,6 +357,7 @@ public class SaveAsWizard extends Wizard implements MissionExtendable {
 			setPageComplete(severity != ERROR);
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent evt) {
 			if (evt.getPropertyName().equals(WrapperUtils.ATTRIBUTE_NAME)) {
 				page.dialogChanged();

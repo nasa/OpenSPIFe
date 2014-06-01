@@ -80,6 +80,7 @@ public class BasicTestPlan {
 	public BasicTestPlan(final String name) {
 		final ResourceSet set = TransactionUtils.createTransactionResourceSet(false);
 		TransactionUtils.writing(set, new Runnable() {
+			@Override
 			public void run() {
 				set.getResources().add(plan.eResource());
 				constructPlan(name);

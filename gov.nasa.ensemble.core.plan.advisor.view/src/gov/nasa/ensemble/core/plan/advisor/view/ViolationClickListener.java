@@ -60,6 +60,7 @@ public class ViolationClickListener implements IDoubleClickListener, ISelectionC
 		select(event.getSelection());
 		
 	}
+	@Override
 	public void doubleClick(DoubleClickEvent event) {
 		select(event.getSelection());
 	}

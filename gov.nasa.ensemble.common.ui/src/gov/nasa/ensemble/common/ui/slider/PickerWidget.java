@@ -61,10 +61,12 @@ public class PickerWidget extends Canvas implements PaintListener, DisposeListen
 
 		addMouseListener(new MouseListener() {
 
+			@Override
 			public void mouseDoubleClick(MouseEvent e) {
 				// do nothing
 			}
 
+			@Override
 			public void mouseDown(MouseEvent e) {
 				Rectangle bounds = new Rectangle(0, 0, getSize().x, getSize().y);
 				if (bounds.contains(e.x, e.y)) {
@@ -73,12 +75,14 @@ public class PickerWidget extends Canvas implements PaintListener, DisposeListen
 				mouseDownLocation = e.x;
 			}
 
+			@Override
 			public void mouseUp(MouseEvent e) {
 				dragging = false;
 			}
 		});
 
 		addMouseMoveListener(new MouseMoveListener() {
+			@Override
 			public void mouseMove(MouseEvent e) {
 				if (dragging) {
 					int xLocationInParentCoordinates = e.x + getLocation().x
@@ -107,6 +111,7 @@ public class PickerWidget extends Canvas implements PaintListener, DisposeListen
 	 * 
 	 * @e the PaintEvent.
 	 */
+	@Override
 	public void paintControl(PaintEvent e) {
 
 		// Region region = new Region();
@@ -145,6 +150,7 @@ public class PickerWidget extends Canvas implements PaintListener, DisposeListen
 	 * @param e
 	 *            the DisposeEvent.
 	 */
+	@Override
 	public void widgetDisposed(DisposeEvent e) {
 		// dispose?
 	}

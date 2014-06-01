@@ -146,6 +146,7 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Charts createCharts() {
 		ChartsImpl charts = new ChartsImpl();
 		return charts;
@@ -156,6 +157,7 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LineChart createLineChart() {
 		LineChartImpl lineChart = new LineChartImpl();
 		return lineChart;
@@ -166,6 +168,7 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Chart createChart() {
 		ChartImpl chart = new ChartImpl();
 		return chart;
@@ -176,6 +179,7 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Plot createPlot() {
 		PlotImpl plot = new PlotImpl();
 		return plot;
@@ -186,6 +190,7 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AmountLine createAmountLine() {
 		AmountLineImpl amountLine = new AmountLineImpl();
 		return amountLine;
@@ -254,6 +259,7 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ChartPackage getChartPackage() {
 		return (ChartPackage)getEPackage();
 	}
@@ -269,6 +275,7 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory {
 		return ChartPackage.eINSTANCE;
 	}
 
+	@Override
 	public Charts createDefaultResourceGraphs(EditingDomain editingDomain) {
 		//
 		// Get the workspace data file. If it does not exist, copy it over from the product

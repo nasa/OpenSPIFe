@@ -23,8 +23,6 @@ import gov.nasa.ensemble.core.model.plan.EPlanElement;
 import gov.nasa.ensemble.core.model.plan.PlanPackage;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalPackage;
-import gov.nasa.ensemble.core.model.plan.temporal.edge.ETemporalEdge;
-import gov.nasa.ensemble.core.model.plan.temporal.edge.EdgeFactory;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
 import gov.nasa.ensemble.core.model.plan.util.PlanVisitor;
 import gov.nasa.ensemble.emf.util.EMFUtils;

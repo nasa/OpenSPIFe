@@ -87,6 +87,7 @@ public class ResourceConditionsMemberImpl extends EMemberImpl implements Resourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Conditions> getConditions() {
 		if (conditions == null) {

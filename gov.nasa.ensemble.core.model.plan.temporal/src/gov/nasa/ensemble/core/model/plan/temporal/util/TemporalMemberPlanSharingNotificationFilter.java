@@ -17,10 +17,7 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.model.plan.temporal.util;
 
-import gov.nasa.ensemble.common.CommonUtils;
-import gov.nasa.ensemble.core.model.plan.temporal.CalculatedVariable;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
-import gov.nasa.ensemble.core.model.plan.temporal.TemporalPackage;
 import gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter;
 
 import org.eclipse.emf.common.notify.Notification;

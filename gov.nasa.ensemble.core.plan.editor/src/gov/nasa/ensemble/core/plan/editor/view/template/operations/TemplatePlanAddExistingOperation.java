@@ -55,6 +55,7 @@ TemplatePlanOperation {
 	public void execute() throws Throwable {
 		final PlanTransferable planTransferable = createCopy(structuredSelection);
 		TransactionUtils.writing(getTemplatePlan(), new Runnable() {
+			@Override
 			public void run() {
 				PlanStructureModifier modifier = PlanStructureModifier.INSTANCE;
 				IStructureLocation location = modifier.getInsertionLocation(planTransferable, new StructuredSelection(getTemplatePlan()), InsertionSemantics.ON);

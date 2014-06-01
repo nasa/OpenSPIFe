@@ -145,6 +145,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getADEffectMember() {
 		return adEffectMemberEClass;
 	}
@@ -154,6 +155,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getADEffectMember_Effects() {
 		return (EReference)adEffectMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -163,6 +165,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getADPlanMember() {
 		return adPlanMemberEClass;
 	}
@@ -172,6 +175,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getADPlanMember_ActivityDictionaryVersion() {
 		return (EAttribute)adPlanMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -181,6 +185,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getADEffectEntry() {
 		return adEffectEntryEClass;
 	}
@@ -190,6 +195,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getADEffectEntry_Key() {
 		return (EReference)adEffectEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -199,6 +205,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getADEffectEntry_Value() {
 		return (EAttribute)adEffectEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -208,6 +215,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getADEffectKey() {
 		return adEffectKeyEClass;
 	}
@@ -217,6 +225,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getADEffectKey_Object() {
 		return (EReference)adEffectKeyEClass.getEStructuralFeatures().get(0);
 	}
@@ -226,6 +235,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getADEffectKey_ResourceDef() {
 		return (EReference)adEffectKeyEClass.getEStructuralFeatures().get(1);
 	}
@@ -235,6 +245,7 @@ public class ActivityDictionaryPackageImpl extends EPackageImpl implements Activ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ActivityDictionaryFactory getActivityDictionaryFactory() {
 		return (ActivityDictionaryFactory)getEFactoryInstance();
 	}

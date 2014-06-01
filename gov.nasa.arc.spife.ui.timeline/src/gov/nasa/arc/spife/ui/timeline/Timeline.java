@@ -103,6 +103,7 @@ public class Timeline<T> implements IAdaptable {
 	static {
 		OperationHistoryFactory.getOperationHistory().addOperationHistoryListener(
 				new IOperationHistoryListener() {
+					@Override
 					public void historyNotification(OperationHistoryEvent event) {
 						switch (event.getEventType()) {
 						case OperationHistoryEvent.ABOUT_TO_EXECUTE:
@@ -354,6 +355,7 @@ public class Timeline<T> implements IAdaptable {
 		Display.getDefault().addFilter(SWT.KeyUp, listener);
 		
 		WidgetUtils.runInDisplayThreadAfterTime(250, composite, new Runnable() {
+			@Override
 			public void run() {		
 				// restore vertical scroll
 				final String verticalBarPositionString = getPersistentProperty(PROPERTY_VSCROLL_POSITION);
@@ -446,21 +448,25 @@ public class Timeline<T> implements IAdaptable {
 		verticalBar.setIncrement(verticalBar.getIncrement() * 5);
 		verticalBar.setPageIncrement(verticalBar.getPageIncrement() * 5);
 		verticalBar.addSelectionListener(new SelectionListener() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				verticalPosition = verticalBar.getSelection();
 			}
+			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				widgetSelected(e);
 			}
 		});
 		// end SPF-5720
 		timelineVScroller.addListener(SWT.Resize, new Listener() {
+			@Override
 			public void handleEvent(Event event) {
 				layoutTimelineContentInDisplayThread();
 				timelineVScroller.getContent().redraw();
 			}
 		});
 		timelineVScroller.addListener(SWT.MouseWheel, new Listener() {
+			@Override
 			public void handleEvent(Event event) {
 				EditDomain editDomain = getEditDomain();
 				if (editDomain.getActiveTool() != null && editDomain.getActiveTool() instanceof ZoomTool) {
@@ -499,7 +505,8 @@ public class Timeline<T> implements IAdaptable {
 				LogUtil.error("creating timeline viewer for model object "+content, e);
 			}
 		}
-		TransactionUtils.writing(timelineModel, new Runnable() {
+		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(timelineModel, new Runnable() {
+			@Override
 			public void run() {
 				timelineModel.getContents().removeAll(badContent);
 			}
@@ -719,6 +726,7 @@ public class Timeline<T> implements IAdaptable {
 		}
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public Object getAdapter(Class adapter) {
 		if (EditDomain.class == adapter) {
@@ -801,6 +809,7 @@ public class Timeline<T> implements IAdaptable {
 		bounds.y += timelineViewer.getControl().getBounds().y;
 
 		WidgetUtils.runInDisplayThread(timelineVScroller, new Runnable() {
+			@Override
 			public void run()
 			{
 				int viewportTopY = timelineVScroller.getOrigin().y;
@@ -943,7 +952,8 @@ public class Timeline<T> implements IAdaptable {
 				} else { // align == ScrollAlignment.RIGHT
 					newStart = centeredTime-(pageDurationMillis);
 				}
-				TransactionUtils.writing(page, new Runnable() {
+				gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(page, new Runnable() {
+					@Override
 					public void run() {
 						page.setStartTime(new Date(newStart));
 					}
@@ -986,6 +996,7 @@ public class Timeline<T> implements IAdaptable {
 			return;
 		}
 		WidgetUtils.runInDisplayThread(composite, new Runnable() {
+			@Override
 			public void run() {
 				if(timelineTopContent != null) {
 					// Resize/adjust the top frozen content
@@ -1031,6 +1042,7 @@ public class Timeline<T> implements IAdaptable {
 	private class HorizontalRangeModelListener implements PropertyChangeListener {
 		private static final int SCROLL_REFRESH_DELAY = 250;
 		private int x = -1;
+		@Override
 		public void propertyChange(PropertyChangeEvent evt) {
 			final int newPosition = ((Integer)evt.getNewValue()).intValue();
 			if (RangeModel.PROPERTY_VALUE.equals(evt.getPropertyName())) {
@@ -1158,6 +1170,7 @@ public class Timeline<T> implements IAdaptable {
 			final TimelineViewer viewer = getTimelineViewer(section);
 			if (viewer != null) {
 				WidgetUtils.runInDisplayThread(composite, new Runnable() {
+					@Override
 					public void run() {
 						List<TimelineControlGroup> groups = getTimelineControlGroups(viewer);
 						for (TimelineControlGroup group: groups) {
@@ -1407,6 +1420,7 @@ public class Timeline<T> implements IAdaptable {
 	private Listener listener = new ListenerImpl();
 	private int modifierKey;
 	private class ListenerImpl implements Listener {
+		@Override
 		public void handleEvent(Event e) {
 			if (e.type == SWT.KeyDown) {
 				modifierKey = e.keyCode;

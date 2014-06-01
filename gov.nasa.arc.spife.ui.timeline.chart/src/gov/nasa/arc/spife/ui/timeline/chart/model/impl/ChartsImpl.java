@@ -84,6 +84,7 @@ public class ChartsImpl extends MinimalEObjectImpl.Container implements Charts {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Chart> getCharts() {
 		if (charts == null) {
 			charts = new EObjectContainmentEList<Chart>(Chart.class, this, ChartPackage.CHARTS__CHARTS);

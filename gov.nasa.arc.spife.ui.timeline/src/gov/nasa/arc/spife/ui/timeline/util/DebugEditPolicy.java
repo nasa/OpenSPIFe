@@ -32,48 +32,59 @@ public class DebugEditPolicy implements EditPolicy {
 		this.role = role;
 	}
 
+	@Override
 	public void activate() {
 		System.out.println(role+".activate()\n\t"+getHost());
 	}
 
+	@Override
 	public void deactivate() {
 		System.out.println(role+".deactivate()\n\t"+getHost());
 	}
 
+	@Override
 	public void eraseSourceFeedback(Request request) {
 		System.out.println(role+".eraseSourceFeedback("+getRequestString(request)+")\n\t"+getHost());
 	}
 
+	@Override
 	public void eraseTargetFeedback(Request request) {
 		System.out.println(role+".eraseTargetFeedback("+getRequestString(request)+")\n\t"+getHost());
 	}
 
+	@Override
 	public Command getCommand(Request request) {
 		System.out.println(role+".getCommand("+getRequestString(request)+")\n\t"+getHost());
 		return null;
 	}
 
+	@Override
 	public EditPart getHost() {
 		return host;
 	}
 
+	@Override
 	public EditPart getTargetEditPart(Request request) {
 		System.out.println(role+".getTargetEditPart("+getRequestString(request)+")\n\t"+getHost());
 		return getHost();
 	}
 
+	@Override
 	public void setHost(EditPart editpart) {
 		host = editpart;
 	}
 
+	@Override
 	public void showSourceFeedback(Request request) {
 		System.out.println(role+".showSourceFeedback("+getRequestString(request)+")\n\t"+getHost());
 	}
 
+	@Override
 	public void showTargetFeedback(Request request) {
 		System.out.println(role+".showTargetFeedback("+getRequestString(request)+")\n\t"+getHost());
 	}
 
+	@Override
 	public boolean understandsRequest(Request request) {
 		System.out.println(role+".understandsRequest("+getRequestString(request)+")\n\t"+getHost());
 		return false;

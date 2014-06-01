@@ -70,7 +70,8 @@ public class ContainedElementObservable extends AbstractObservableValue {
 	            getRealm().exec
 	              (new Runnable()
 	               {
-	                 public void run()
+	                 @Override
+					public void run()
 	                 {
 	                   fireValueChange(diff);
 	                 }
@@ -94,6 +95,7 @@ public class ContainedElementObservable extends AbstractObservableValue {
 		return list.contains(value);
 	}
 
+	@Override
 	public Object getValueType() {
 		return Boolean.class;
 	}

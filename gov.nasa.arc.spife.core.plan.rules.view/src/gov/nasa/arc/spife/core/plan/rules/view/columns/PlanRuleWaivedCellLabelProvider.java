@@ -54,6 +54,7 @@ public class PlanRuleWaivedCellLabelProvider extends CellLabelProvider implement
 		cell.setImage(image);
 	}
 
+	@Override
 	public int compare(ERule o1, ERule o2) {
 		String value1 = String.valueOf(isEnabled(o1));
 		String value2 = String.valueOf(isEnabled(o2));

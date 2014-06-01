@@ -417,6 +417,7 @@ public class EnsembleFilteredTree extends Composite {
 			 * 
 			 * @see org.eclipse.swt.events.DisposeListener#widgetDisposed(org.eclipse.swt.events.DisposeEvent)
 			 */
+			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				refreshJob.cancel();
 			}
@@ -698,6 +699,7 @@ public class EnsembleFilteredTree extends Composite {
 					 */
 					Display display= filterText.getDisplay();
 					display.asyncExec(new Runnable() {
+						@Override
 						public void run() {
 							if (!filterText.isDisposed()) {
 								if (getInitialText().equals(
@@ -766,6 +768,7 @@ public class EnsembleFilteredTree extends Composite {
 
 		// enter key set focus to tree
 		filterText.addTraverseListener(new TraverseListener() {
+			@Override
 			public void keyTraversed(TraverseEvent e) {
 				if (e.detail == SWT.TRAVERSE_RETURN) {
 					e.doit = false;
@@ -802,6 +805,7 @@ public class EnsembleFilteredTree extends Composite {
 			 * 
 			 * @see org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
 			 */
+			@Override
 			public void modifyText(ModifyEvent e) {
 				textChanged();
 			}
@@ -961,6 +965,7 @@ public class EnsembleFilteredTree extends Composite {
 					fMoveListener= new MouseMoveListener() {
 						private boolean fMouseInButton= true;
 
+						@Override
 						public void mouseMove(MouseEvent e) {
 							boolean mouseInButton= isMouseInButton(e);
 							if (mouseInButton != fMouseInButton) {
@@ -992,19 +997,23 @@ public class EnsembleFilteredTree extends Composite {
 				}
 			});
 			clearButton.addMouseTrackListener(new MouseTrackListener() {
+				@Override
 				public void mouseEnter(MouseEvent e) {
 					clearButton.setImage(activeImage);
 				}
 
+				@Override
 				public void mouseExit(MouseEvent e) {
 					clearButton.setImage(inactiveImage);
 				}
 
+				@Override
 				public void mouseHover(MouseEvent e) {
 					// do nothing
 				}
 			});
 			clearButton.addDisposeListener(new DisposeListener() {
+				@Override
 				public void widgetDisposed(DisposeEvent e) {
 					inactiveImage.dispose();
 					activeImage.dispose();
@@ -1104,6 +1113,7 @@ public class EnsembleFilteredTree extends Composite {
 				textChanged();
 			} else {
 				getDisplay().asyncExec(new Runnable() {
+					@Override
 					public void run() {
 						if (!filterText.isDisposed() && filterText.isFocusControl()) {
 							setFilterText(initialText);

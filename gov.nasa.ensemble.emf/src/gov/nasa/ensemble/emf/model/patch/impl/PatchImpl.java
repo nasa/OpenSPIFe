@@ -128,6 +128,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isReversed() {
 		return reversed;
 	}
@@ -137,6 +138,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public void setReversed(boolean newReversed) {
 		reversed = newReversed;
 	}
@@ -146,6 +148,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ObjectChanges> getObjectChanges() {
 		if (objectChanges == null) {
 			objectChanges = new EObjectContainmentEList<ObjectChanges>(ObjectChanges.class, this, PatchPackage.PATCH__OBJECT_CHANGES);
@@ -158,6 +161,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PatchResourceChange> getResourceChanges() {
 		if (resourceChanges == null) {
 			resourceChanges = new EObjectContainmentEList<PatchResourceChange>(PatchResourceChange.class, this, PatchPackage.PATCH__RESOURCE_CHANGES);
@@ -171,6 +175,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	 * @throws PatchRollbackException 
 	 * @generated NOT
 	 */
+	@Override
 	public void apply() throws PatchRollbackException {
 		if (eResource() != null) {
 			ResourceSet resourceSet = eResource().getResourceSet();
@@ -204,6 +209,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	 * @throws PatchRollbackException 
 	 * @generated NOT
 	 */
+	@Override
 	public void applyAndReverse() throws PatchRollbackException {
 		try {
 			for (ObjectChanges entry : getObjectChanges()) {
@@ -235,6 +241,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public PatchFeatureChange getFeatureChange(EObject target, EStructuralFeature feature) {
 		ObjectChanges changes = PatchFactory.eINSTANCE.createObjectChanges();
 		getObjectChanges().add(changes);
@@ -251,6 +258,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public PatchResourceChange getResourceChange(Resource resource) {
 		for (PatchResourceChange  change : getResourceChanges()) {
 			Resource r = change.getResource();

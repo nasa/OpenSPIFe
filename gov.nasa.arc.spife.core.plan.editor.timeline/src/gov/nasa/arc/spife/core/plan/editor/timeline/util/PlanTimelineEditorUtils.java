@@ -49,6 +49,7 @@ public class PlanTimelineEditorUtils {
 	private static ETimeline checkTimelineModel(final ETimeline timelineModel) {
 		if (timelineModel.getContents().isEmpty()) {
 			TransactionUtils.writing(timelineModel, new Runnable() {
+				@Override
 				public void run() {
 					for (TimelineBuilder builder : PlanTimelineEditorUtils.getTimelineBuilders()) {
 						timelineModel.getContents().add(builder.createTimelineSection());	

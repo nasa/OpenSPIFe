@@ -69,7 +69,8 @@ public class EnumDefImpl extends DefinitionImpl implements EnumDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EnumValue> getValues()
+  @Override
+public EList<EnumValue> getValues()
   {
     if (values == null)
     {

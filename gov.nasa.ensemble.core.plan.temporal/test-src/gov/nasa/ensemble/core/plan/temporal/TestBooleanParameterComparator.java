@@ -42,6 +42,7 @@ public class TestBooleanParameterComparator extends Assert {
 		final TemporalMember tm1 = activity1.getMember(TemporalMember.class);
 		TransactionUtils.writing(plan, new Runnable() {
 
+			@Override
 			public void run() {
 				tm0.setScheduled(Boolean.TRUE);
 				plan.getChildren().add(activity0);

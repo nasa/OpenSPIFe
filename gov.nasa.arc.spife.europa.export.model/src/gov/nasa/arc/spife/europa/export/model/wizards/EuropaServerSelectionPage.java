@@ -44,6 +44,7 @@ public class EuropaServerSelectionPage extends WizardPage {
 	private Button overwriteModelButton;
 
 	protected ModifyListener validator = new ModifyListener() {
+		@Override
 		public void modifyText(ModifyEvent e) {
 			setPageComplete(validatePage());
 		}
@@ -73,6 +74,7 @@ public class EuropaServerSelectionPage extends WizardPage {
 		super.dispose();
 	}
 
+	@Override
 	public void createControl(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		{
@@ -152,6 +154,7 @@ public class EuropaServerSelectionPage extends WizardPage {
 		}
 
 		Display.getDefault().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				adInfoText.setText(formText.toString());
 			}

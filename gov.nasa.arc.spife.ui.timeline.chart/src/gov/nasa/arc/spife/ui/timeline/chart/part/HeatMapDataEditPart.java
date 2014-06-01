@@ -93,6 +93,7 @@ public class HeatMapDataEditPart extends PlotDataEditPart {
 		figure.setForegroundColor(PlotUtil.getColor(plot));
 		figure.setBackgroundColor(PlotUtil.getColor(plot));
 		figure.addFigureListener(new FigureListener() {
+			@Override
 			public void figureMoved(IFigure source) {
 				try {
 					updatePointList();
@@ -201,6 +202,7 @@ public class HeatMapDataEditPart extends PlotDataEditPart {
 		}
 		
 		GEFUtils.runInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				figure.setData(dataList);
 				updateFigureBounds();
@@ -268,6 +270,7 @@ public class HeatMapDataEditPart extends PlotDataEditPart {
 			}
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent event) {
 			String property = event.getProperty();
 			if (TimelinePreferencePage.P_ROW_ELEMENT_HEIGHT.equals(property)) {

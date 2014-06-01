@@ -69,7 +69,7 @@ public class DetailFormToolkit {
 	}
 	
 	public static Section createSection(FormToolkit toolkit, Composite parent, String text, Image icon, boolean hasTwistie) {
-		return createSection(toolkit, parent, text, icon, (hasTwistie) ? Section.TWISTIE | Section.EXPANDED : 0);
+		return createSection(toolkit, parent, text, icon, (hasTwistie) ? ExpandableComposite.TWISTIE | ExpandableComposite.EXPANDED : 0);
 	}
 	
 	public static Composite createSubSection(FormToolkit toolkit, Composite parent, EObject eObject, boolean hasLabel) {

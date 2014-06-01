@@ -171,6 +171,7 @@ public class TransactionRecordingUndoableOperation extends AbstractTransactionUn
 		};
 		recorder.beginRecording();
 		TransactionUtils.writing(domain, new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				//SPF-10946 -- End the recording and dispose of the recorder within the scope of the write transaction
@@ -185,6 +186,7 @@ public class TransactionRecordingUndoableOperation extends AbstractTransactionUn
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(domain, new Runnable() {
+			@Override
 			public void run() {
 				changeDescription.applyAndReverse();
 			}
@@ -194,6 +196,7 @@ public class TransactionRecordingUndoableOperation extends AbstractTransactionUn
 	@Override
 	protected void redo() throws Throwable {
 		TransactionUtils.writing(domain, new Runnable() {
+			@Override
 			public void run() {
 				changeDescription.applyAndReverse();
 			}

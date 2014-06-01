@@ -28,6 +28,7 @@ public class ResourceConditionsMemberFactory implements IPlanElementMemberFactor
 
 	public static final String KEY = "gov.nasa.ensemble.core.plan.resources.member";
 
+	@Override
 	public EMember createMember(EClass eClass) {
 		if (eClass == PlanPackage.Literals.EPLAN) {
 			ResourceConditionsMember member = MemberFactory.eINSTANCE.createResourceConditionsMember();
@@ -37,10 +38,12 @@ public class ResourceConditionsMemberFactory implements IPlanElementMemberFactor
 		return null;
 	}
 
+	@Override
 	public String getKey() {
 		return KEY;
 	}
 	
+	@Override
 	public int getSortKey() {
 		return UNSORTED;
 	}

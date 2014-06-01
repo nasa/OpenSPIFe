@@ -163,6 +163,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EStateResourceDef getDefinition() {
 		if (definition != null && definition.eIsProxy()) {
 			InternalEObject oldDefinition = (InternalEObject)definition;
@@ -175,6 +176,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 		return definition;
 	}
 
+	@Override
 	public String getName() {
 		return getDefinition().getName();
 	}
@@ -193,6 +195,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefinition(EStateResourceDef newDefinition) {
 		EStateResourceDef oldDefinition = definition;
 		definition = newDefinition;
@@ -205,6 +208,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public List<String> getAllowedStates() {
 		if (allowedStates == null) {
 			allowedStates = new EDataTypeUniqueEList<String>(String.class, this, DictionaryPackage.ESTATE_REQUIREMENT__ALLOWED_STATES);
@@ -217,6 +221,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDisallowedState() {
 		return disallowedState;
 	}
@@ -226,6 +231,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDisallowedState(String newDisallowedState) {
 		String oldDisallowedState = disallowedState;
 		disallowedState = newDisallowedState;
@@ -238,6 +244,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRequiredState() {
 		return requiredState;
 	}
@@ -247,6 +254,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRequiredState(String newRequiredState) {
 		String oldRequiredState = requiredState;
 		requiredState = newRequiredState;
@@ -259,6 +267,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public float getThreshold() {
 		return threshold;
 	}
@@ -268,6 +277,7 @@ public class EStateRequirementImpl extends EActivityRequirementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThreshold(float newThreshold) {
 		float oldThreshold = threshold;
 		threshold = newThreshold;

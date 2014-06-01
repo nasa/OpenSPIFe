@@ -78,6 +78,7 @@ public class PinOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(elements, new Runnable() {
+			@Override
 			public void run() {
          				doExecute();
 			}});
@@ -109,6 +110,7 @@ public class PinOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void redo() throws Throwable {
 		TransactionUtils.writing(elements, new Runnable() {
+			@Override
 			public void run() {
 				for (PeriodicTemporalConstraint bound : bounds) {
 					ConstraintUtils.attachConstraint(bound);
@@ -120,6 +122,7 @@ public class PinOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(elements, new Runnable() {
+			@Override
 			public void run() {
 				doUndo();
 			}

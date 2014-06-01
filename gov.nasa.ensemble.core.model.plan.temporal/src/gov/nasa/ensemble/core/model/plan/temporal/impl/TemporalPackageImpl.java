@@ -149,6 +149,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTemporalMember() {
 		return temporalMemberEClass;
 	}
@@ -158,6 +159,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_StartTime() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -167,6 +169,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_Duration() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(1);
 	}
@@ -176,6 +179,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_EndTime() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(2);
 	}
@@ -185,6 +189,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_Scheduled() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(3);
 	}
@@ -194,6 +199,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_UseChildTimes() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(4);
 	}
@@ -203,6 +209,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_UseParentTimes() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(5);
 	}
@@ -212,6 +219,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_CalculatedVariable() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(6);
 	}
@@ -221,6 +229,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_Extent() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(7);
 	}
@@ -230,6 +239,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_StartOffsetTimepoint() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(8);
 	}
@@ -239,6 +249,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_StartOffsetAmount() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(9);
 	}
@@ -248,6 +259,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_EndOffsetTimepoint() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(10);
 	}
@@ -257,6 +269,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTemporalMember_EndOffsetAmount() {
 		return (EAttribute)temporalMemberEClass.getEStructuralFeatures().get(11);
 	}
@@ -266,6 +279,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPlanTemporalMember() {
 		return planTemporalMemberEClass;
 	}
@@ -275,6 +289,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlanTemporalMember_StartBoundary() {
 		return (EAttribute)planTemporalMemberEClass.getEStructuralFeatures().get(0);
 	}
@@ -284,6 +299,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPlanTemporalMember_EndBoundary() {
 		return (EAttribute)planTemporalMemberEClass.getEStructuralFeatures().get(1);
 	}
@@ -293,6 +309,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getCalculatedVariable() {
 		return calculatedVariableEEnum;
 	}
@@ -302,6 +319,7 @@ public class TemporalPackageImpl extends EPackageImpl implements TemporalPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TemporalFactory getTemporalFactory() {
 		return (TemporalFactory)getEFactoryInstance();
 	}

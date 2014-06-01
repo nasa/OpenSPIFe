@@ -41,10 +41,12 @@ public class ActivityTransferProvider extends SimpleByteArrayTransferProvider {
 
 	public static final Transfer transfer = createSimpleByteArrayTransfer(ActivityTransferProvider.class.getCanonicalName()); 
 	
+	@Override
 	public Transfer getTransfer() {
 		return transfer;
 	}
 	
+	@Override
 	public boolean canPack(ITransferable transferable) {
 		if (!(transferable instanceof PlanTransferable)) {
 			return false;

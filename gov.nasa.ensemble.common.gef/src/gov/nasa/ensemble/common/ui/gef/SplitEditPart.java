@@ -148,6 +148,7 @@ public class SplitEditPart extends AbstractGraphicalEditPart
 		super.refreshVisuals();
 	}
 	
+	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if( evt.getSource() == getModel() && SplitModel.DIVIDER_LOCATION.equals(evt.getPropertyName()) ) {
 			refreshVisuals();
@@ -159,6 +160,7 @@ public class SplitEditPart extends AbstractGraphicalEditPart
 		public SplitHandle(GraphicalEditPart owner, IFigure figure) {
 			super(owner, new MoveHandleLocator(figure));
 			figure.addFigureListener(new FigureListener() {
+				@Override
 				public void figureMoved(IFigure source) {
 					revalidate();
 				}

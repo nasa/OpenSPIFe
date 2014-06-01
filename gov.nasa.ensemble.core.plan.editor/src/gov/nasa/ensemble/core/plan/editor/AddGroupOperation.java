@@ -114,6 +114,7 @@ public class AddGroupOperation extends AbstractTransactionUndoableOperation impl
 	@Override
 	protected void undo() {
 		TransactionUtils.writeIfNecessary(state.getParent(), new Runnable() {
+			@Override
 			public void run() {
 				modifier.remove(transferable, location);
 			}
@@ -127,6 +128,7 @@ public class AddGroupOperation extends AbstractTransactionUndoableOperation impl
 	
 	private void doit() {
 		TransactionUtils.writeIfNecessary(state.getParent(), new Runnable() {
+			@Override
 			public void run() {
 				modifier.add(transferable, location);
 			}

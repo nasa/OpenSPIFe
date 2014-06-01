@@ -48,6 +48,7 @@ public class TestTransactionUtils extends TestCase {
 		
 		TransactionUtils.writing(object, new Runnable() {
 
+			@Override
 			public void run() {
 				// trivial operation
 			}

@@ -143,6 +143,7 @@ public class Read<A> {
 		final Parser<Stream<Character>, Stream<Character>, String> scientific =
 			charParser('E').or(charParser('e')).bind(sign.bind(digits, append), cons).optional().map(
 				new F<Option<Stream<Character>>, Stream<Character>>() {
+					@Override
 					public Stream<Character> f(final Option<Stream<Character>> option) {
 						return option.orSome(Stream.<Character>nil());
 					}

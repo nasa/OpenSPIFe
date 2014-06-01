@@ -22,10 +22,12 @@ import gov.nasa.ensemble.core.plan.IMemberFactory;
 
 public class PlanAdvisorMemberFactory implements IMemberFactory<PlanAdvisorMember> {
 
+	@Override
 	public Class<PlanAdvisorMember> getMemberClass() {
 		return PlanAdvisorMember.class;
 	}
 
+	@Override
 	public PlanAdvisorMember getMember(EPlan plan) {
 		return new PlanAdvisorMember(plan);
 	}

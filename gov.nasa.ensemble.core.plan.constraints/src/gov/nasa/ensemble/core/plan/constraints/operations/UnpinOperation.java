@@ -59,6 +59,7 @@ public class UnpinOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void execute() throws Throwable {
 		TransactionUtils.writing(selectedElements, new Runnable() {
+			@Override
 			public void run() {
 				doExecute();
 			}
@@ -74,6 +75,7 @@ public class UnpinOperation extends AbstractTransactionUndoableOperation {
 	@Override
 	protected void undo() throws Throwable {
 		TransactionUtils.writing(selectedElements, new Runnable() {
+			@Override
 			public void run() {
 				doUndo();
 			}

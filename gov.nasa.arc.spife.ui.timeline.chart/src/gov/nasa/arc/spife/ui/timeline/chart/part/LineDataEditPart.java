@@ -96,6 +96,7 @@ public class LineDataEditPart extends PlotDataEditPart {
 			list = stripRedundantMidpoints(pointList);
 		}
 		GEFUtils.runInDisplayThread(this, new Runnable() {
+			@Override
 			public void run() {
 				figure.setNormalizedPointList(list);
 			}

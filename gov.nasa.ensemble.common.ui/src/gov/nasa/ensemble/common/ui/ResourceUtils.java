@@ -109,7 +109,8 @@ public abstract class ResourceUtils {
                 // select and reveal resource
                 final ISetSelectionTarget finalTarget = target;
                 window.getShell().getDisplay().asyncExec(new Runnable() {
-                    public void run() {
+                    @Override
+					public void run() {
                         finalTarget.selectReveal(selection);
                     }
                 });
@@ -201,6 +202,7 @@ public abstract class ResourceUtils {
 			final List<IResource> resourcesWhoseMarkersAllMatch = new ArrayList<IResource>();
 			final List<IResource> resourcesThatHaveSomeMatchingMarkers = new ArrayList<IResource>();
 			resource.accept(new IResourceProxyVisitor() {
+				@Override
 				public boolean visit(IResourceProxy proxy) throws CoreException {
 					if (proxy.getType() == IResource.FILE) {
 						IResource resource = proxy.requestResource();
@@ -234,6 +236,7 @@ public abstract class ResourceUtils {
 			if (work > 0) {
 				final org.eclipse.core.internal.resources.Workspace workspace = (org.eclipse.core.internal.resources.Workspace) ResourcesPlugin.getWorkspace();
 				workspace.run(new IWorkspaceRunnable() {
+					@Override
 					@SuppressWarnings("unused")
 					public void run(IProgressMonitor monitor) throws CoreException {
 						monitor.beginTask("Removing markers", work);

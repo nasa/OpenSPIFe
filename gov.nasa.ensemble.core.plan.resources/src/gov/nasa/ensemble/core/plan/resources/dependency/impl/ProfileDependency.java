@@ -23,7 +23,6 @@ import gov.nasa.ensemble.common.time.DateUtils;
 import gov.nasa.ensemble.core.jscience.DataPoint;
 import gov.nasa.ensemble.core.jscience.INTERPOLATION;
 import gov.nasa.ensemble.core.jscience.Profile;
-import gov.nasa.ensemble.core.model.plan.EActivity;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
 import gov.nasa.ensemble.core.plan.resources.dependency.Dependency;
@@ -36,10 +35,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import javax.measure.quantity.Duration;
-
 import org.eclipse.emf.common.util.EList;
-import org.jscience.physics.amount.Amount;
 
 public abstract class ProfileDependency extends DependencyImpl {
 

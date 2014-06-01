@@ -113,6 +113,7 @@ public class SplitFigureLayout extends AbstractLayout {
 		}
 	}
 
+	@Override
 	public void layout(IFigure container) {
 		Rectangle area = container.getClientArea();
 //		Dimension minSize = getMinimumSize(container, -1, -1);

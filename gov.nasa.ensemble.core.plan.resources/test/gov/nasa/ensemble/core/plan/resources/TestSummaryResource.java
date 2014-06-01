@@ -25,14 +25,11 @@ import gov.nasa.ensemble.core.model.plan.EActivityGroup;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
-import gov.nasa.ensemble.dictionary.EActivityDef;
 import gov.nasa.ensemble.dictionary.ESummaryResourceDef;
 import gov.nasa.ensemble.emf.transaction.ExtensionPointResourceSetListener;
 import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 
 import java.util.Date;
-
-import javax.measure.unit.Unit;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -72,6 +69,7 @@ public class TestSummaryResource extends AbstractResourceTest {
 		
 		TransactionUtils.writing(plan, new Runnable() {
 
+			@Override
 			public void run() {
 				plan.getChildren().add(activityGroup);
 				activityGroup.getChildren().add(dataSource);
@@ -85,6 +83,7 @@ public class TestSummaryResource extends AbstractResourceTest {
 	
 	public void testBasicSetup() {
 		TransactionUtils.reading(plan, new Runnable() {
+			@Override
 			public void run() {
 				assertNotNull(dataSourceTemporalMember.getDuration());
 				assertAmountProximity(ONE_HOUR, dataSourceTemporalMember.getDuration());

@@ -78,14 +78,17 @@ public class PlanReadOnlyOperationApprover implements IOperationApprover2, Missi
 		// construct from getInstance() only
 	}
 
+	@Override
 	public IStatus proceedExecuting(IUndoableOperation operation, IOperationHistory history, IAdaptable info) {
 		return checkReadOnly(operation); 
 	}
 
+	@Override
 	public IStatus proceedRedoing(IUndoableOperation operation, IOperationHistory history, IAdaptable info) {
 		return checkReadOnly(operation); 
 	}
 
+	@Override
 	public IStatus proceedUndoing(IUndoableOperation operation, IOperationHistory history, IAdaptable info) {
 		return checkReadOnly(operation); 
 	}

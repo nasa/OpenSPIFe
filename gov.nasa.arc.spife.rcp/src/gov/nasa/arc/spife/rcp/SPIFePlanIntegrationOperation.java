@@ -223,6 +223,7 @@ public class SPIFePlanIntegrationOperation extends AbstractTransactionUndoableOp
 	public void mergePlansWithoutConstraintMerging() {
 		if(Platform.isRunning()) {
 			TransactionUtils.writing(existingPlan, new Runnable() {
+				@Override
 				public void run() {
 					mergePlansStep1();
 				}
@@ -237,6 +238,7 @@ public class SPIFePlanIntegrationOperation extends AbstractTransactionUndoableOp
 	public void setOrbitEventDiffIds(final EPlan plan) {
 		if(Platform.isRunning()) {
 			TransactionUtils.writing(plan, new Runnable() {
+				@Override
 				public void run() {
 					OrbitEventUtil.setSpecialDiffIds(plan);
 				}
@@ -695,6 +697,7 @@ public class SPIFePlanIntegrationOperation extends AbstractTransactionUndoableOp
 	private void reverseMergeOrbitalTimesAndSnapToOrbit() {
 		if(Platform.isRunning()) {
 			TransactionUtils.writing(planToBeIntegrated, new Runnable() {
+				@Override
 				public void run() {
 					_reverseMergeOrbitalTimesAndSnapToOrbit();
 				}
@@ -733,6 +736,7 @@ public class SPIFePlanIntegrationOperation extends AbstractTransactionUndoableOp
 	public void mergePlans() {
 		if(Platform.isRunning()) {
 			TransactionUtils.writing(existingPlan, new Runnable() {
+				@Override
 				public void run() {
 					mergePlans0();
 				}
@@ -804,6 +808,7 @@ public class SPIFePlanIntegrationOperation extends AbstractTransactionUndoableOp
 	private void applyAndReverseChangeDescription(ChangeDescription changeDescription){
 		final ChangeDescription inputChangeDescription = changeDescription;
 		TransactionUtils.writeIfNecessary(existingPlan, new Runnable() {
+			@Override
 			public void run() {
 				if(inputChangeDescription != null) {
 					inputChangeDescription.applyAndReverse();
