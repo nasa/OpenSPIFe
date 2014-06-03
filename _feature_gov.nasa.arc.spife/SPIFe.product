@@ -4,6 +4,7 @@
 <product name="SPIFe" uid="gov.nasa.arc.spife.rcp.SPIFe" id="gov.nasa.arc.spife.rcp.SPIFe" application="gov.nasa.ensemble.core.rcp.EnsembleApplication" version="1.0.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
+      <image path="/gov.nasa.arc.spife.rcp/icons/spife_128.png"/>
       <text>
          %aboutText
       </text>
@@ -25,7 +26,7 @@
 -Dorg.eclipse.swt.internal.carbon.noFocusRing</vmArgsMac>
    </launcherArgs>
 
-   <windowImages/>
+   <windowImages i16="/gov.nasa.arc.spife.rcp/icons/spife_16.png" i32="/gov.nasa.arc.spife.rcp/icons/spife_32.png" i48="/gov.nasa.arc.spife.rcp/icons/spife_48.png" i64="/gov.nasa.arc.spife.rcp/icons/spife_64.png" i128="/gov.nasa.arc.spife.rcp/icons/spife_128.png"/>
 
    <splash
       location="gov.nasa.arc.spife.rcp"
@@ -33,11 +34,14 @@
       startupMessageRect="12,12,258,14"
       startupForegroundColor="000000" />
    <launcher name="SPIFe">
+      <macosx icon="/gov.nasa.arc.spife.rcp/icons/spife.icns"/>
       <solaris/>
-      <win useIco="false">
+      <win useIco="true">
+         <ico path="/gov.nasa.arc.spife.rcp/icons/spife.ico"/>
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
    </vm>

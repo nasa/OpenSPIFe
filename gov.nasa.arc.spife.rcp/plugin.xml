@@ -84,6 +84,14 @@
      	<property
            name="preferenceCustomization"
            value="plugin_customization.ini"/>
+      <property
+            name="aboutImage"
+            value="icons/spife_128.png">
+      </property>
+      <property
+            name="windowImages"
+            value="icons/spife_16.png,icons/spife_32.png,icons/spife_48.png,icons/spife_64.png,icons/spife_128.png">
+      </property>
        </product>
    </extension>
    <extension
