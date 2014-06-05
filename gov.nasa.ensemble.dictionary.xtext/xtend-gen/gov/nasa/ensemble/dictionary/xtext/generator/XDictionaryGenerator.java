@@ -25,8 +25,7 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
  */
 @SuppressWarnings("all")
 public class XDictionaryGenerator implements IGenerator {
-  @Override
-public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+  public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     Registry reg = Registry.INSTANCE;
     Map<String,Object> map = reg.getExtensionToFactoryMap();
     XMIResourceFactoryImpl _xMIResourceFactoryImpl = new XMIResourceFactoryImpl();
