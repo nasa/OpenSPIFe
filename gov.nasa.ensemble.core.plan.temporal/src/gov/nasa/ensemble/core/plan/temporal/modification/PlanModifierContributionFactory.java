@@ -48,7 +48,7 @@ class PlanModifierContributionFactory extends AbstractContributionFactory {
 			ImageDescriptor imageDescriptor = factory.getImageDescriptor();
 			String id = null;
 			String commandId = TEMPORAL_MODIFICATION_COMMAND_ID;
-			Map parameters = Collections.singletonMap("name", name);
+			Map<?, ?> parameters = Collections.singletonMap("name", name);
 			ImageDescriptor icon = imageDescriptor;
 			String label = name;
 			String tooltip = name;
