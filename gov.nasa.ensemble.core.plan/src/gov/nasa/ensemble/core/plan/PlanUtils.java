@@ -39,6 +39,7 @@ import gov.nasa.ensemble.core.model.plan.temporal.TemporalMember;
 import gov.nasa.ensemble.core.model.plan.translator.transactions.FeatureTransactionChangeOperation;
 import gov.nasa.ensemble.core.model.plan.util.PlanElementCopier;
 import gov.nasa.ensemble.core.model.plan.util.PlanResourceImpl;
+import gov.nasa.ensemble.emf.transaction.FixedTransactionEditingDomain;
 import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
@@ -75,6 +76,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.impl.InternalTransaction;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.graphics.Image;
 
@@ -445,6 +447,16 @@ public class PlanUtils {
 		String action = (expanded ? "expanded" : "collapsed");
 		IUndoableOperation operation = new FeatureTransactionChangeOperation(action + " " + getElementNameForDisplay(element), member, PlanPackage.Literals.COMMON_MEMBER__EXPANDED, expanded);
 		try {
+			InternalTransaction existingTransaction = null;
+			TransactionalEditingDomain te = TransactionUtils.getDomain(element);
+			if (te instanceof FixedTransactionEditingDomain) {
+				FixedTransactionEditingDomain domain = (FixedTransactionEditingDomain) te;
+				existingTransaction = domain.getThreadTransaction();
+			};
+			if (existingTransaction != null && !existingTransaction.isReadOnly()) {
+				LogUtil.warn("There is an existing transaction executing so the expansion operation cannot be executed at this point");
+				return;
+			}				
 			operation.execute(new NullProgressMonitor(), null);
 		} catch (ExecutionException e) {
 			LogUtil.error(e);
