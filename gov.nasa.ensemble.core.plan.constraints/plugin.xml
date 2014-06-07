@@ -15,7 +15,7 @@
    <extension point="gov.nasa.ensemble.core.plan.temporal.PlanModifier">
          <modifier class="gov.nasa.ensemble.core.plan.constraints.network.SpifePlanModifier"
 				   icon="icons/constrained_move_icon.gif"
-				   name="Constrained Move (Spife)"/>
+				   name="Constrained Move"/>
    </extension>
 
    <extension
