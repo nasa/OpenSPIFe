@@ -35,7 +35,7 @@ public class GoToTimeHandler extends AbstractTimelineCommandHandler {
 	@Override
 	public Object execute(ExecutionEvent event) {
 		Shell parentShell = WidgetUtils.getShell();
-		final Timeline timeline = getTimeline(event);
+		final Timeline<?> timeline = getTimeline(event);
 		GoToTimeDialog goToTimeDialog = new GoToTimeDialog(parentShell, timeline);
 		int result = goToTimeDialog.open();
 		if(result == Window.OK) {

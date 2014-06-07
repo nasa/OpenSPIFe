@@ -42,7 +42,7 @@ public abstract class AddChartActionDelegate implements IWorkbenchWindowActionDe
 	
 	@Override
 	public void run(IAction action) {
-		Timeline timeline = EditorPartUtils.getAdapter(window, Timeline.class);
+		Timeline<?> timeline = EditorPartUtils.getAdapter(window, Timeline.class);
 		if (timeline != null) {
 			ETimeline timelineModel = timeline.getTimelineModel();
 			if (timelineModel != null) {
