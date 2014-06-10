@@ -12,7 +12,6 @@
 <unit id="org.apache.xerces" version="2.9.0.v201101211617"/>
 <unit id="org.apache.xml.serializer" version="2.7.1.v201005080400"/>
 <unit id="org.apache.lucene.queries" version="2.9.1.v20100421-0704"/>
-<unit id="org.apache.lucene.spellchecker" version="2.9.1.v20100421-0704"/>
 <unit id="org.apache.lucene.misc" version="2.9.1.v20100421-0704"/>
 <unit id="org.apache.xml.resolver" version="1.2.0.v201005080400"/>
 <unit id="org.apache.lucene.analysis" version="2.9.1.v201101211721"/>
