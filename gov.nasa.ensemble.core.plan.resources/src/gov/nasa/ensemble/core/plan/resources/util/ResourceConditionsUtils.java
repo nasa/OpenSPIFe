@@ -19,6 +19,7 @@ package gov.nasa.ensemble.core.plan.resources.util;
 
 import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
 import gov.nasa.ensemble.core.activityDictionary.resources.NumericResourceDef;
+import gov.nasa.ensemble.core.jscience.util.AmountUtils;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.plan.resources.member.Claim;
 import gov.nasa.ensemble.core.plan.resources.member.Conditions;
@@ -33,6 +34,8 @@ import gov.nasa.ensemble.core.plan.resources.member.StateResource;
 import gov.nasa.ensemble.core.plan.resources.member.UndefinedResource;
 import gov.nasa.ensemble.core.plan.resources.member.util.MemberResourceFactoryImpl;
 import gov.nasa.ensemble.dictionary.EClaimableResourceDef;
+import gov.nasa.ensemble.dictionary.EExtendedNumericResourceDef;
+import gov.nasa.ensemble.dictionary.ENumericResourceDef;
 import gov.nasa.ensemble.dictionary.ESharableResourceDef;
 import gov.nasa.ensemble.dictionary.EStateResourceDef;
 import gov.nasa.ensemble.emf.util.EMFUtils;
@@ -47,6 +50,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+
+import javax.measure.unit.Unit;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -333,15 +338,40 @@ public class ResourceConditionsUtils {
 	}
 
 	private static void populateNumericResources(ActivityDictionary AD, Conditions conditions) {
+		// PHM Modified this from LASS because text eAD uses more general
+		// ENumericResourceDefImpl in place of ImmediateResourceDef.
 		List<NumericResource> numericResources = conditions.getNumericResources();
-		List<NumericResourceDef> numericResourceDefs = AD.getDefinitions(NumericResourceDef.class);
-		for (NumericResourceDef numericDef : numericResourceDefs) {
-			String name = numericDef.getName();
-			NumericResource numericResource = MemberFactory.eINSTANCE.createNumericResource();
-			numericResource.setName(name);
-			numericResource.setFloat((float)numericDef.getDefault());
-			numericResources.add(numericResource);
+		List<ENumericResourceDef> numericResourceDefs = AD.getDefinitions(ENumericResourceDef.class);
+		for (ENumericResourceDef numericDef : numericResourceDefs) {
+			// Filter out claimables, etc., leaving pure numeric resources
+			if (!(numericDef instanceof EExtendedNumericResourceDef)) {
+				String name = numericDef.getName();
+				NumericResource numericResource = MemberFactory.eINSTANCE.createNumericResource();
+				numericResource.setName(name);
+				double defaultValue = getNumericResourceDefaultValue(numericDef);
+				numericResource.setFloat((float) defaultValue);
+				numericResources.add(numericResource);
+			}
 		}
+	}
+
+	private static double getNumericResourceDefaultValue(ENumericResourceDef numericDef) {
+		// PHM Preserve compatibility with ImmediateResourceDef, just in case
+		if (numericDef instanceof NumericResourceDef) {
+			double defaultValue = ((NumericResourceDef) numericDef).getDefault();
+			if (defaultValue != 0.0)
+				return defaultValue;
+		}
+		// PHM ENumericResource uses defaultValueLiteral not defaultValue.
+		String defaultValueLiteral = numericDef.getDefaultValueLiteral();
+		if (defaultValueLiteral == null)
+			defaultValueLiteral = "0.0";
+		else {
+			// Remove internal quotes (like "\"1.0\"") if present.
+			defaultValueLiteral = defaultValueLiteral.replace('"', ' ').trim();
+		}
+		Unit<?> unit = numericDef.getUnits();
+		return AmountUtils.valueOf(defaultValueLiteral, unit).getEstimatedValue();
 	}
 
 }
