@@ -105,6 +105,16 @@
    </extension>
 	<extension point="org.eclipse.ui.perspectiveExtensions">
 		<perspectiveExtension targetID="gov.nasa.ensemble.core.rcp.perspective.planning">
+	<viewShortcut id="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanView"/>
+	<viewShortcut id="gov.nasa.arc.spife.core.constraints.view.ConstraintsView"/>
+	<viewShortcut id="gov.nasa.arc.spife.core.plan.pear.view.ui.ProfileEffectsAndRequirementsView"/>
+	<viewShortcut id="gov.nasa.arc.spife.core.plan.rules.view.PlanRulesView"/>
+	<viewShortcut id="gov.nasa.arc.spife.ui.navigator"/>
+	<viewShortcut id="gov.nasa.ensemble.core.activityDictionary.view.ActivityDictionaryView"/>
+	<viewShortcut id="gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorView"/>
+	<viewShortcut id="gov.nasa.ensemble.core.plan.editor.view.template.TemplatePlanView"/>
+	<viewShortcut id="gov.nasa.ensemble.core.jscience.ui.profile.tree.ProfileTreeView"/>
+	<viewShortcut id="gov.nasa.ensemble.core.plan.resources.ui.view.InconsView"/>
    <view
          closeable="false"
          id="gov.nasa.arc.spife.ui.navigator"
