@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<project name="Generate Xtend Classes" default="all">
+	<property name="eclipse-home" value="${env.ECLIPSE_HOME}" />
+	<path id="classpath">
+		<fileset dir="${eclipse.home}/plugins">
+			<include name="org.eclipse.xtext_2.6.1.*.jar" />
+			<include name="org.eclipse.xtext.*.jar" />
+			<include name="org.eclipse.xtext.xbase.lib_*.jar" />
+			<include name="org.eclipse.emf.codegen*.jar" />
+			<include name="org.eclipse.emf.common_*.jar" />
+			<include name="org.eclipse.emf.ecore_*.jar" />
+			<include name="org.eclipse.emf.ecore.xmi_*.jar" />
+			<include name="org.eclipse.emf.ecore.change_*.jar" />
+			<include name="org.eclipse.emf.edit_*.jar" />
+			<include name="org.eclipse.emf.edit.ui_*.jar" />
+			<include name="org.eclipse.emf.mwe.core_*.jar" />
+			<include name="org.eclipse.emf.mwe2.runtime_*.jar" />
+			<include name="org.eclipse.emf.mwe.utils_*.jar" />
+			<include name="org.eclipse.emf.codegen.ecore_*.jar" />
+			<include name="org.eclipse.emf.codegen_*.jar" />
+			<include name="org.eclipse.emf.mwe2.lib_*.jar" />
+			<include name="org.eclipse.emf.mwe2.launch_*.jar" />
+			<include name="org.eclipse.emf.mwe2.language_*.jar" />
+			<include name="org.antlr.runtime_*.jar" />
+			<include name="com.google.inject_*.jar" />
+			<include name="com.google.guava_*.jar" />
+			<include name="org.apache.commons.cli_*.jar" />
+			<include name="javax.inject_*.jar" />
+			<include name="org.eclipse.jdt.annotation_*.jar" />
+			<include name="org.eclipse.xtend.lib_*.jar" />
+			<include name="org.eclipse.xtend_*.jar" />
+			<include name="com.ibm.icu_*.jar" />
+			<include name="org.eclipse.xpand_*.jar" />
+			<include name="org.eclipse.xtend.typesystem.emf_*.jar" />
+			<include name="org.apache.commons.logging_*.jar" />
+			<include name="org.eclipse.m2e.logback.configuration_*.jar" />
+			<include name="org.eclipse.core.resources_*.jar" />
+			<include name="org.eclipse.core.commands_*.jar" />
+			<include name="org.eclipse.core.runtime*.jar" />
+			<include name="org.eclipse.core*.jar" />
+			<include name="org.eclipse.ui*.jar" />
+			<include name="org.objectweb.asm_*.jar" />
+			<include name="org.eclipse.xtend.core_*jar" />
+			<include name="org.eclipse.jdt.core_*.jar" />
+			<include name="org.eclipse.equinox*.jar" />
+			<include name="org.eclipse.osgi_*.jar" />
+			<include name="org.eclipse.ui.workbench_*.jar" />
+			<include name="javax.xml_*.jar" />
+			<include name="org.w3c.css.sac_*.jar" />
+			<include name="org.w3c.dom*.jar" />
+			<include name="org.eclipse.help_*.jar" />
+			<include name="org.eclipse.jdt*.jar" />
+			<include name="org.eclipse.jface_*.jar" />
+			<include name="org.eclipse.jface.databinding_*.jar" />
+			<include name="org.eclipse.jface.text_*.jar" />
+			<include name="org.eclipse.text_*.jar" />
+			<include name="org.eclipse.ltk*.jar" />
+			<include name="org.eclipse.search*.jar" />
+			<include name="org.eclipse.swt*.jar" />
+			<include name="org.eclipse.team*.jar" />
+			<include name="org.apache.ant_*.jar" />
+			<include name="org.apache.batik*.jar" />
+			<include name="org.apache.commons*.jar" />
+			<include name="org.apache.log4j_*.jar" />
+			<include name="org.eclipse.ant.core_*.jar" />
+			<include name="org.eclipse.compare*.jar" />
+			<include name="org.eclipse.debug*.jar" />
+			<include name="org.eclipse.e4.core*.jar" />
+			<include name="org.eclipse.e4.ui*.jar" />
+			<include name="javax.annotation_*.jar" />
+			<include name="javax.inject_*.jar" />
+			<include name="javax.servlet_*.jar" />
+			<include name="org.eclipse.osgi.services_*.jar" />
+			<include name="org.eclipse.core.jobs_*.jar" />
+		</fileset>
+		<fileset dir="." includes=".antlr-generator-3.2.0.jar" />
+		<pathelement location="src" />
+		<pathelement location="${buildDirectory}/gov.nasa.arc.advocate.queries.xtext.AQL/src"/>
+		<pathelement location="${buildDirectory}/gov.nasa.arc.advocate.queries.xtext.AQL/src-gen"/>
+	</path>
+
+	<target name="compile-xtend">
+		<pathconvert pathsep="${path.separator}" property="classpath-string" refid="classpath">
+		</pathconvert>
+		<java classpathref="classpath" classname="org.eclipse.xtend.core.compiler.batch.Main" fork="true" failonerror="yes">
+			<arg value="-cp" />
+			<arg value="${classpath-string}" />
+			<arg value="-d" />
+			<arg value="${xtext_plugin}/xtend-gen" />
+			<arg value="${xtext_plugin}/src${path.separator}${xtext_plugin}/src-gen" />
+		</java>
+	</target>
+
+	<target name="compile-java">
+		<javac classpathref="classpath" source="1.7" target="1.7" includeantruntime="true">
+			<src path="${xtext_plugin}/src" />
+			<src path="${xtext_plugin}/src-gen" />
+			<src path="${xtext_plugin}/xtend-gen" />
+		</javac>
+	</target>
+
+	<target name="all" depends="compile-xtend,compile-java" description="build all" />
+</project>

@@ -1,0 +1,202 @@
+<!--
+    Variables:
+    BUILD_KEY = @BUILD_KEY@ (e.g., TRUNK-NGPSWARZ-GNPA)
+    PROJECT_KEY = @PROJECT_KEY@ (e.g., TRUNK)
+    PLAN_KEY = @PLAN_KEY@ (e.g., NGPSWARZ)
+    BUILD_NUM = @BUILD_NUM@ (e.g., 20) 
+    PRODUCT_NAME = @PRODUCT_NAME@ (e.g., NgpsPlanRepositoryWithCollaboration)
+    REVISION_NUM = @REVISION_NUM@ (e.g., 143890)
+    CONFIGS = @CONFIGS@ (e.g., "linux,gtk,x86&macosx,carbon,ppc&macosx,carbon,x86&macosx,cocoa,x86&win32,win32,x86")
+  -->
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/bamboo/s/en_US/2810/1/fd69fd3a344a2859d1f2f6a6da525f94/_/download/contextbatch/css/atl.general/batch.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/bamboo/styles/bamboo-status.css" />
+    <script language="JavaScript">
+      //
+      // Add to this structure for additional platforms or builds. Builds should be ordered by priority for each platform.
+      //
+      // Example:
+      //
+      //   appropriate_builds[platform regular expression] = [best build for platform, 2nd best build, ...];
+      //
+      // You will still need to add the appropriate item to the build products section of the HTML to accommodate browsers without JavaScript enabled.
+      //
+      var appropriate_builds = [];
+      
+      appropriate_builds["Linux i686"] = ["linux,gtk,x86"];
+      appropriate_builds[".*Linux.*x86_64.*"] = ["linux,gtk,x86_64", "linux,gtk,x86"];
+      appropriate_builds["MacIntel"] = ["macosx,cocoa,x86_64", "macosx,cocoa,x86", "macosx,carbon,x86_64", "macosx,carbon,x86", "macosx,carbon,ppc"];
+      appropriate_builds["MacPPC"] = ["macosx,carbon,ppc"];
+      appropriate_builds["Win64"] = ["win32,win32,x86_64", "win32,win32,x86"];
+      appropriate_builds["Win32"] = ["win32,win32,x86"];
+      appropriate_builds["SunOS"] = ["solaris,gtk,sparc"];
+    </script>
+  </head>
+  <body class="aui-layout aui-theme-default dec_result">
+    <ul id="assistive-skip-links" class="assistive">
+      <li><a href="#main-nav">Skip to navigation</a></li>
+      <li><a href="#content">Skip to content</a></li>
+    </ul>
+    <div id="page">
+      <header id="header" role="banner">
+	<section class="notifications">
+          <div id="system-state-banner" class="aui-message warning" style="display: none;">
+            <span id="system-state-banner-info"></span>
+            <div class="aui-toolbar inline">
+              <ul class="toolbar-group">
+                <li class="toolbar-item">
+                  <span class="toolbar-trigger"></span>
+                </li>
+              </ul>
+            </div>
+            <span class="aui-icon icon-warning"></span>
+	  </div>
+	  <script type="text/javascript">
+            if (BAMBOO.ADMIN && BAMBOO.ADMIN.SERVERSTATE) {
+              BAMBOO.ADMIN.SERVERSTATE.serverState.init({
+                control: "#system-state-banner",
+                statusInfo: "#system-state-banner-info",
+                button: ".toolbar-trigger",
+                serverRunningCallback: function() {
+                  var $pause = AJS.$("#pause-server-button");
+                  if ($pause && $pause.length) {
+                    $pause.removeClass("disabled");
+                  }
+                }
+              });
+            }
+	  </script>
+	</section>
+	<nav class="global" role="navigation">
+	  <div class="primary">
+            <h1 id="logo"><a href="/bamboo/start.action" rel="nofollow">Atlassian Bamboo</a></h1>
+	  </div>
+	</nav>
+	
+        <nav class="local" role="navigation">
+          <div class="primary">
+            <ul id="main-nav">
+              <li><a id="home" href="/bamboo/start.action" accesskey="H">Dashboard</a></li>
+              <li><a id="authors" href="/bamboo/authors/gotoAuthorReport.action" accesskey="U">Authors</a></li>
+              <li><a id="reports" href="/bamboo/reports/viewReport.action" accesskey="R">Reports</a></li>
+              <li><a id="admin" accesskey="A" href="/bamboo/admin/administer.action">Administration</a></li>
+            </ul>
+          </div>
+          <div class="secondary">
+            <ul>
+              <li>
+                <a id="createPlanLink" accesskey="C" href="/bamboo/build/admin/create/addPlan.action"><span class="icon icon-plan-create"></span>Create Plan</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>    
+      
+      <section id="content">
+
+	<header id="build-details">
+	  <div id="breadcrumb">
+            <span><a href="/bamboo/browse/@PROJECT_KEY@" id="breadcrumb:@PROJECT_KEY@">@PROJECT_KEY@</a></span>
+            <span><a href="/bamboo/browse/@PROJECT_KEY@-@PLAN_KEY@/" id="breadcrumb:@PROJECT_KEY@-@PLAN_KEY@">@PLAN_KEY@</a></span>
+            <span class="curent"><a href="/bamboo/browse/@PROJECT_KEY@-@PLAN_KEY@-@BUILD_NUM@/" id="breadcrumb:@PROJECT_KEY@-@PLAN_KEY@-@BUILD_NUM@">#@BUILD_NUM@</a></span>
+	  </div>
+	  <!--[if lt IE 8]>
+	      <script type="text/javascript">
+		AJS.$(function($){
+		  $("#breadcrumb > span:not(.disabled, :first-child)").prepend('<span class="breadcrumb-separator">&rsaquo;</span>');
+		});
+	      </script>
+	      <![endif]-->
+        </header>
+	
+	<!-- Build Products -->
+	<div class="section">
+	  <h2>Build Products</h2>
+	  <div class="artifactSection">
+	    <p id="warning" style="color:#FF0000"><em>Some of these links may be to products that were not actually built, depending on the product <a href="/bamboo/build/admin/buildConfiguration!default.action?buildKey=@PROJECT_KEY@-@PLAN_KEY@">Build Configuration</a>.</em></p>
+	    <noscript>
+	      <p id="configs"><em>Products were actually built for the following configuration: <strong>@CONFIGS@</strong></em></p>
+	    </noscript>
+	    <h3>For Your Platform:</h3>
+	    <ul class="artifacts">
+	      <li id='your_build'>Enable JavaScript to identify your platform.</li>
+	    </ul>
+	    <h3>For All Supported Platforms:</h3>
+	    <ul class="artifacts" id="artifacts">
+	      <noscript>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-linux.gtk.x86.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-linux.gtk.x86.zip</a></li>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-linux.gtk.x86_64.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-linux.gtk.x86_64.zip</a></li>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-macosx.cocoa.x86.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-macosx.cocoa.x86.zip</a></li>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-macosx.cocoa.x86_64.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-macosx.cocoa.x86_64.zip</a></li>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-macosx.carbon.x86.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-macosx.carbon.x86.zip</a></li>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-macosx.carbon.ppc.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-macosx.carbon.ppc.zip</a></li>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-win32.win32.x86.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-win32.win32.x86.zip</a></li>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-win32.win32.x86_64.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-win32.win32.x86_64.zip</a></li>
+		<li><a href="@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-solaris.gtk.sparc.zip">@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-solaris.gtk.sparc.zip</a></li>
+	      </noscript>
+	    </ul>
+	  </div>
+	</div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer id="footer" role="contentinfo">
+      <div class="footer-body">
+        <p><a href="http://www.atlassian.com/software/bamboo/">Continuous integration</a> powered by <a href="http://www.atlassian.com/software/bamboo/">Atlassian Bamboo</a> version 3.4.2 build 2810 - <time datetime="2011-12-27T09:13:12">27 Dec 11</time></p>
+        <ul>
+          <li><a href="/bamboo/viewAdministrators.action">Contact Administrators</a></li>
+        </ul>
+      </div> <!-- END .footer-body -->
+    </footer>
+    <!-- END #footer -->
+    <!-- END #page -->
+    <script language="javascript">
+      var buildsStr = "@CONFIGS@".replace(/\s+/g, "");
+      var builds = buildsStr.split("&");
+      
+      if (buildsStr == "" || builds.length == 0 || (builds.length == 1 && builds[0].search("^.+,.+,.+$"))) {
+        // Builds aren't specified, just go with the default
+        builds = [
+          "linux,gtk,x86_64",
+          "linux,gtk,x86",
+          "macosx,cocoa,x86_64",
+          "macosx,cocoa,x86",
+          "macosx,carbon,x86_64",
+          "macosx,carbon,x86",
+          "macosx,carbon,ppc",
+          "win32,win32,x86_64",
+          "win32,win32,x86",
+          "solaris,gtk,sparc"
+          ];
+        } else {
+          document.getElementById("warning").style.display = "none";
+      }
+      
+      var builds_html = "";
+      for(var i in builds) {
+        var build = builds[i];
+        var build_zip = "@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-" + build.replace(/,/g, ".") + ".zip";
+        builds_html += "<li id='" + build.replace(/,/g, "_") + "'><a href='" + build_zip + "'>" + build_zip + "</a></li>"
+      }
+      document.getElementById("artifacts").innerHTML = builds_html;
+
+      var myPlatform = navigator.platform;
+      var myPlatformMsg = "Your platform doesn't seem to be supported.";
+      var build;
+      for (var platform in appropriate_builds) {
+        if (myPlatform.search(platform) > -1) {
+          for (var i in appropriate_builds[platform]) {
+            build = appropriate_builds[platform][i];
+            if (builds.indexOf(build) > -1) {
+              myPlatformMsg = document.getElementById(build.replace(/,/g,"_")).innerHTML
+              break;
+            }
+          }
+          break;
+        }
+      }
+      document.getElementById('your_build').innerHTML = myPlatformMsg;
+    </script>
+  </body>
+</html>
