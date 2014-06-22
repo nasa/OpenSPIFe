@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<project name="build" default="build-and-test">
+
+	<property environment="env" />
+
+	<property name="bamboo.buildKey" value="${env.BAMBOO_BUILD_KEY}" description="Bamboo's plan key for the build, e.g. BAM-MAIN" />
+	<property name="bamboo.buildNumber" value="${env.BAMBOO_BUILD_NUMBER}" description="Bamboo's build number, e.g. 123" />
+	<property name="bamboo.custom.svn.revision.number" value="${env.BAMBOO_SUBVERSION_REVISION}" description="(For Subversion only) The revision number" />
+
+	<xmlproperty file="features/${product}" prefix="productxml" collapseattributes="true" />
+	<property name="productName" value="${productxml.product.launcher.name}" />
+	<property name="archived-product-name" value="${productName}.${bamboo.buildKey}-${bamboo.buildNumber}.r${bamboo.custom.svn.revision.number}" />
+
+	<!-- ================================= 
+          Build-Related Directories
+          
+          Note: To remove uncertainty, build directory values should be absolute.              
+         ================================= -->
+
+	<property name="build-working-directory" location="${basedir}" />
+
+	<property name="artifacts-directory" location="${build-working-directory}/artifacts" />
+
+	<property name="deploy-directory" location="${build-working-directory}/deploy" />
+
+	<property name="test-report-directory" location="${build-working-directory}/test-reports" />
+
+	<property name="test-product-directory" location="${deploy-directory}/${archived-product-name}" />
+
+	<!-- ant-contrib library must be in build server's $ANT_HOME/lib directory -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml" />
+
+	<!-- svn libraries must be in ant's lib directory -->
+	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" />
+
+	<!-- ================================= 
+          Public Targets              
+         ================================= -->
+
+	<target name="build-product" description="Build an Eclipse product with Bamboo.">
+		<antcall target="build-product-internal" />
+	</target>
+
+	<target name="build-and-test" description="Build and test an Eclipse product with Bamboo.">
+		<antcall target="build-product-internal" />
+		<antcall target="run-tests" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          Private Targets                      
+         - - - - - - - - - - - - - - - - - -->
+
+	<target name="init">
+
+		<echo message="The PATH is: ${env.PATH}" />
+		<echo message="The DISPLAY is: ${env.DISPLAY}" />
+		<echo message="The build-working-directory is: ${build-working-directory}" />
+		<echo message="The basedir is: ${basedir}" />
+		<echo message="The buildKey is: ${bamboo.buildKey}" />
+		<echo message="The buildNumber is: ${bamboo.buildNumber}" />
+		<echo message="The SVN revision is: ${bamboo.custom.svn.revision.number}" />
+		<echo message="The name in the .product is ${productxml.product.name}" />
+		<echo message="The launcher name in the .product is ${productxml.product.launcher.name}" />
+
+	</target>
+
+	<path id="artifacts" description="The build artifacts">
+		<fileset dir="${artifacts-directory}">
+			<patternset>
+				<include name="*.zip" />
+				<include name="*.tar.gz" />
+			</patternset>
+		</fileset>
+	</path>
+
+	<target name="build-product-internal" depends="init, clean-all, copy-build-scripts">
+
+		<!-- We'll only catch abnormal conditions with the java compiler here, not simple compilation errors. -->
+		<trycatch property="exception.message" reference="exception.reference">
+			<try>
+				<ant dir="${build-working-directory}" antfile="headlessbuild.xml" target="headless-build" description="Performs the actual Java PDE product build." />
+			</try>
+			<catch>
+				<property name="exception" refid="exception.reference" />
+				<echo message="${exception}" />
+				<fail message="The build has failed because of an abnormal Java compiler exit condition." />
+			</catch>
+		</trycatch>
+
+		<!-- Compilation errors will only show up as a lack of build artifacts. -->
+		<trycatch property="exception.message" reference="exception.reference">
+			<try>
+				<pathconvert property="artifacts.exist" refid="artifacts" setonempty="false" />
+				<fail unless="artifacts.exist" />
+
+				<for param="y">
+					<path>
+						<fileset dir="${artifacts-directory}">
+							<include name="*.zip" />
+							<include name="*.tar.gz" />
+						</fileset>
+					</path>
+					<sequential>
+						<property name="artifacts-exist" value="true" />
+					</sequential>
+				</for>
+				<if>
+					<isset property="artifacts-exist" />
+					<then>
+						<antcall target="install-index-html" />
+					</then>
+				</if>
+			</try>
+			<catch>
+				<property name="exception" refid="exception.reference" />
+				<echo message="${exception}" />
+				<fail message="Because no build artifacts were detected, a build failure has been assumed. Check for compilation errors." />
+			</catch>
+		</trycatch>
+	</target>
+
+	<target name="install-index-html">
+		<copy file="bamboo/scripts/artifacts_index_template.html" tofile="${artifacts-directory}/index.html" failonerror="false" />
+		<propertyregex property="bamboo.projectKey" input="${bamboo.buildKey}" regexp="([A-Za-z0-9]*)-([A-Za-z0-9]*)" select="\1" />
+		<propertyregex property="bamboo.planKey" input="${bamboo.buildKey}" regexp="([A-Za-z0-9]*)-([A-Za-z0-9]*)" select="\2" />
+		<property file="${build-working-directory}/build.properties" prefix="install_build_defaults" />
+		<property name="configs" value="${install_build_defaults.configs}" />
+		<replace file="${artifacts-directory}/index.html">
+			<replacefilter token="@BUILD_KEY@" value="${bamboo.buildKey}" />
+			<replacefilter token="@PROJECT_KEY@" value="${bamboo.projectKey}" />
+			<replacefilter token="@PLAN_KEY@" value="${bamboo.planKey}" />
+			<replacefilter token="@BUILD_NUM@" value="${bamboo.buildNumber}" />
+			<replacefilter token="@PRODUCT_NAME@" value="${productName}" />
+			<replacefilter token="@REVISION_NUM@" value="${bamboo.custom.svn.revision.number}" />
+			<replacefilter token="@CONFIGS@" value="${configs}" />
+		</replace>
+	</target>
+
+	<target name="run-tests" depends="clean-test, deploy-test-product">
+		<trycatch>
+			<try>
+				<ant dir="${build-working-directory}" antfile="headlessbuild.xml" target="test" />
+			</try>
+		</trycatch>
+	</target>
+
+	<target name="clean-all" description="prepare various build directories">
+		
+		<delete dir="${artifacts-directory}" />
+		<mkdir dir="${artifacts-directory}" />
+
+		<delete dir="${deploy-directory}" />
+		<mkdir dir="${deploy-directory}" />
+
+	</target>
+
+	<target name="copy-build-scripts">
+		<!-- Copy build scripts and customize for the current build. -->
+
+		<condition property="score.enabled" value="${score.enabled}" else="false">
+			<isset property="score.enabled" />
+		</condition>
+		<condition property="p2.gathering" value="${p2.gathering}" else="false">
+			<isset property="p2.gathering" />
+		</condition>
+		<condition property="p2.compress" value="${p2.compress}" else="false">
+			<isset property="p2.compress" />
+		</condition>
+
+		<!-- copy the common build.properties.base file and modify it for the current build task -->
+		<copy file="bamboo/scripts/build.properties.base" tofile="${build-working-directory}/build.properties" />
+		<propertyfile file="${build-working-directory}/build.properties">
+			<entry key="ensemble.home" value="${env.ENSEMBLE_HOME}" />
+			<entry key="baseLocation" value="${env.ECLIPSE_HOME}" />
+			<entry key="score.enabled" value="${score.enabled}" />
+			<entry key="p2.gathering" value="${p2.gathering}" />
+			<entry key="p2.compress" value="${p2.compress}" />
+		</propertyfile>
+
+		<copy todir="${build-working-directory}">
+			<fileset dir="bamboo/scripts">
+				<include name="build-xtend-gen.xml" />
+				<include name="customTargets.xml" />
+				<include name="doxygen.xml" />
+				<include name="headlessbuild.xml" />
+			</fileset>
+		</copy>
+
+	</target>
+
+	<target name="clean-test">
+		<!-- prepare directories for test results -->
+		<delete dir="${test-report-directory}" />
+		<mkdir dir="${test-report-directory}" />
+	</target>
+
+	<target name="copy-test-scripts">
+		<copy todir="${deploy-directory}">
+			<fileset dir="${build-working-directory}">
+				<include name="headlessbuild.xml" />
+				<include name="build.properties" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="deploy-test-product" depends="copy-test-scripts">
+
+		<echo message="The archived-product-name is: ${archived-product-name}" />
+		<property file="${deploy-directory}/build.properties" />
+		<property name="test-os" value="${baseos}" />
+		<property name="test-ws" value="${basews}" />
+		<property name="test-arch" value="${basearch}" />
+		<condition property="archive-suffix" value="zip" else="tar.gz">
+			<not>
+				<equals arg1="${test-os}" arg2="macosx" />
+			</not>
+		</condition>
+		<property name="test-product-archive" value="${archived-product-name}-${test-os}.${test-ws}.${test-arch}.${archive-suffix}" />
+
+		<!-- can't deploy if we haven't built for the test platform -->
+		<available file="${artifacts-directory}/${test-product-archive}" property="test-product-archive-present" />
+		<fail unless="test-product-archive-present" message="Cannot deploy for test because the test product archive is not present, possibly because the product for platform (${baseos},${basews},${basearch}) was not specified in the build configs: ${configs}" />
+
+		<echo message="The test-product-archive is: ${test-product-archive}" />
+		<unzip src="${artifacts-directory}/${test-product-archive}" dest="${deploy-directory}" />
+
+	</target>
+
+</project>

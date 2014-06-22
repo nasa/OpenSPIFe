@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<project name="Headless Build" default="headless-build" basedir=".">
+
+	<!-- ant-contrib library must be in build server's $ANT_HOME/lib directory -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml" />
+
+	<!--
+     the environment must have ECLIPSE_HOME defined
+     or it must have already set the eclipse-home property
+	-->
+	<property environment="env" />
+	<property name="eclipse-home" value="/usr/local/eclipse/" />
+
+	<target name="headless-build">
+
+		<echo message="ECLIPSE_HOME = ${eclipse-home}" />
+		<echo message="java.home = ${java.home}" />
+		
+		<condition property="outputUpdateJarsArg" value="-DoutputUpdateJars=${outputUpdateJars}" else="">
+			<isset property="outputUpdateJars" />
+		</condition>
+		<condition property="groupConfigurationsArg" value="-DgroupConfigurations=${groupConfigurations}" else="">
+			<isset property="groupConfigurations" />
+		</condition>
+		<condition property="configsArg" value="-Dconfigs=${configs}" else="">
+			<isset property="configs" />
+		</condition>
+
+		<property name="baseLocation" value="${eclipse-home}" />
+		<property name="jreLib" value="${java.home}/lib" />
+		<property file="build.properties" />
+
+		<!-- find the productBuild.xml file -->
+		<for param="x">
+			<path>
+				<fileset dir="${eclipse-home}/plugins" includes="org.eclipse.pde.build_*/scripts/productBuild/productBuild.xml" />
+			</path>
+			<sequential>
+				<property name="buildfile" value="@{x}" />
+			</sequential>
+		</for>
+
+		<echo message="baseLocation is: ${baseLocation}" />
+		<echo message="bootclasspath is: ${bootclasspath}" />
+		<echo message="The productBuild.xml is: ${buildfile}" />
+		<echo message="The product is: ${product}" />
+		<echo message="The archived-product-name is: ${archived-product-name}" />
+		<echo message="" />
+		<echo message="Output update jars: ${outputUpdateJarsArg}" />
+		<echo message="Group configurations: ${groupConfigurationsArg}" />
+		<echo message="Configurations: ${configsArg}" />
+
+		<replace file="features/${product}" token="-consoleLog" summary="true" />
+
+		<!-- Compilation errors do not result in an abnormal or exceptional return status from the java task. -->
+		<java fork="true" classname="org.eclipse.core.launcher.Main" logError="true" description="Invokes the antRunner within eclipse to do the build.">
+			<env key="ECLIPSE_HOME" value="${eclipse-home}" />
+			<classpath>
+				<fileset dir="${eclipse-home}/plugins">
+					<include name="org.eclipse.equinox.launcher_*.jar" />
+				</fileset>
+			</classpath>
+			<jvmarg value="-XX:+UseParNewGC" />
+			<arg line="-application org.eclipse.ant.core.antRunner" />
+			<arg line="-buildfile ${buildfile}" />
+			<arg line="-DbaseLocation=${baseLocation}" />
+			<arg line="-Dbuilder=${basedir}" />
+			<arg line="-Dproduct=${product}" />
+			<arg line="-DproductName=${productName}" />
+			<arg line="-DarchivePrefix=${archived-product-name}" />
+			<arg line="${outputUpdateJarsArg}" />
+			<arg line="${groupConfigurationsArg}" />
+			<arg line="${configsArg}" />
+			<arg line="-Dorg.eclipse.update.reconcile=false" />
+			<!--
+			Only use the -clean option if there are no parallel build queues in Bamboo.
+			If parallel builds use the -clean option, then they can each clobber the files
+			needed by a concurrent build.
+			<arg line="-clean" />
+			-->
+		</java>
+
+	</target>
+
+	<target name="test">
+
+		<property name="builder" value="${basedir}" />
+		<property file="build.properties" />
+
+		<echo message="basedir = ${basedir}" />
+		<echo message="builder = ${builder}" />
+		<echo message="test-product-directory = ${test-product-directory}" />
+		<echo message="The archived-product-name is: ${archived-product-name}" />
+		<echo message="test-report-directory = ${test-report-directory}" />
+
+		<property name="archivePrefix" value="${archived-product-name}" />
+
+		<property name="configuration-dir" value="${deploy-directory}/osgi.configuration.area" />
+		<property name="data-dir" value="${deploy-directory}/automated-junit-workspace" />
+		<property name="classname" value="gov.nasa.ensemble.common.EnsemblePluginTestExtensionRegistry" />
+		<property name="test-application" value="gov.nasa.ensemble.common.EnsembleTestRunner" />
+
+		<property name="xml-test-results" location="${test-report-directory}/${classname}.xml" />
+		<property name="txt-test-results" location="${test-report-directory}/${classname}.txt" />
+
+		<property name="product-exec-timeout" value="1800000" description="executing the product for testing can take no longer than 30 minutes or 1,800,000 milliseconds" />
+		<property name="test-runner-timeout" value="1500" description="allow up to 25 minutes for the running of the tests" />
+
+		<antcall target="product-test" />
+
+	</target>
+
+	<target name="test-init">
+		<!--
+            Parameters:
+                    (Mandatory)
+                    data-dir                - the directory for Eclipse to write its data
+                    plugin-name             - the name of the plugin to test
+                    classname               - the name of the test class
+        -->
+		<tstamp>
+			<format property="TIMENOW" pattern="HHmmssSSSS" />
+		</tstamp>
+		<!--default launch target for launching tests-->
+		<property name="formatter" value="org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter" />
+
+		<mkdir dir="${test-report-directory}" />
+	</target>
+
+	<target name="product-test" description="Runs the specified classname as a plug-in test." depends="test-init">
+		<!--  vm selection priority:
+              1.  user-specified java executable via outer Ant property setting of "jvm".
+              2.  java executable on path.
+            -->
+		<condition property="test-vm" value="${jvm}">
+			<isset property="jvm" />
+		</condition>
+		<property name="test-vm" value="" />
+
+		<condition property="filterTestSuitesByPattern" value="${ensemble.test.filter}" else=".*">
+			<isset property="ensemble.test.filter" />
+		</condition>
+
+		<math result="timeout-minutes" operation="/" operand1="${product-exec-timeout}" operand2="60000" datatype="int" />
+		<echo message="The product test will timeout after ${timeout-minutes} minutes." />
+		<echo message="Running ${classname} with xml-test-results ${xml-test-results}" />
+		<chmod file="${test-product-directory}/${productName}" perm="ugo+rx" description="ensure executable has execute permission" />
+
+		<exec executable="${test-product-directory}/${productName}" dir="${test-product-directory}" timeout="${product-exec-timeout}" logError="true">
+
+			<!-- eclipse runtime options -->
+			<arg line="-configuration ${configuration-dir}" />
+			<arg line="-data ${data-dir}" />
+			<arg line="-vm ${test-vm}" />
+			<arg line="-nosplash" />
+			<arg line="-consoleLog" />
+			<arg line="-application ${test-application}" />
+
+			<!-- application arguments -->
+			<arg line="-text -" />
+			<arg line="-text ${txt-test-results}" />
+			<arg line="-xml ${xml-test-results}" />
+			<arg line="-timeout ${test-runner-timeout}" />
+			<arg line="-filterTestSuitesByPattern ${filterTestSuitesByPattern}" />
+
+			<!-- Because of Eclipse bug 149994, we can't add a -vmargs argument to the launcher -->
+			<!-- <arg line="-vmargs" /> -->
+			<!-- <arg line="-Dosgi.noShutdown=false" /> -->
+
+		</exec>
+
+		<!-- <antcall target="collect-results" /> -->
+
+	</target>
+
+	<target name="collect-results">
+
+		<dirname property="output-dir" file="${xml-test-results}" />
+		<basename property="output-file-name" file="${xml-test-results}" />
+		<junitreport todir="${test-report-directory}" tofile="${classname}.xml">
+			<fileset dir="${output-dir}">
+				<include name="${output-file-name}" />
+			</fileset>
+		</junitreport>
+
+	</target>
+
+</project>

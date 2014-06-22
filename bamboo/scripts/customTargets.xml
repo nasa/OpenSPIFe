@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<project name="customTargets" default="noDefault">
+
+	<!-- the environment must have ANT_HOME defined or it must have already set the ant-home property -->
+	<property environment="env" />
+	<property name="ant-home" value="${env.ANT_HOME}" />
+
+	<!-- ant-contrib library must be in build server's $ANT_HOME/lib directory -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<fileset dir="${ant-home}/lib">
+				<include name="ant-contrib-*.jar" />
+			</fileset>
+		</classpath>
+	</taskdef>
+
+	<!-- ===================================================================== -->
+	<!-- Run a given ${target} on all elements being built -->
+	<!-- Add on <ant> task for each top level element being built. -->
+	<!-- ===================================================================== -->
+	<available property="allElementsFile" file="${builder}/allElements.xml" value="${builder}/allElements.xml" />
+	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml" />
+
+	<import file="${allElementsFile}" />
+	<target name="allElements">
+		<antcall target="allElementsDelegator" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- ===================================================================== -->
+	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
+		<get src="${eclipseBaseURL}" dest="${buildDirectory}/../temp-base.zip" />
+		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../temp-base.zip" />
+	</target>
+
+	<target name="checkLocalBase">
+		<available file="${base}" property="skipBase" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Check out map files from correct repository -->
+	<!-- Replace values for mapsCheckoutTag as desired. -->
+	<!-- ===================================================================== -->
+	<target name="getMapFiles" depends="checkLocalMaps" unless="skipMaps">
+		<property name="mapsCheckoutTag" value="HEAD" />
+		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
+	</target>
+
+	<target name="checkLocalMaps">
+		<available property="skipMaps" file="${buildDirectory}/maps" />
+	</target>
+
+	<target name="tagMapFiles" if="tagMaps">
+		<cvs dest="${buildDirectory}/maps/${mapsRoot}" command="tag ${mapsTagTag}" />
+	</target>
+
+	<!-- ===================================================================== -->
+
+	<target name="clean" unless="noclean">
+		<antcall target="allElements">
+			<param name="target" value="cleanElement" />
+		</antcall>
+	</target>
+
+	<target name="gatherLogs">
+		<mkdir dir="${buildDirectory}/${buildLabel}/compilelogs" />
+		<antcall target="allElements">
+			<param name="target" value="gatherLogs" />
+		</antcall>
+		<unzip dest="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true">
+			<fileset dir="${buildDirectory}/features">
+				<include name="**/*.log.zip" />
+			</fileset>
+		</unzip>
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before setup -->
+	<!-- ===================================================================== -->
+	<target name="preSetup">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after setup but before starting the build proper -->
+	<!-- ===================================================================== -->
+	<target name="postSetup">
+		<antcall target="getBaseComponents" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before fetching the build elements -->
+	<!-- ===================================================================== -->
+	<target name="preFetch">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after fetching the build elements -->
+	<!-- ===================================================================== -->
+	<target name="postFetch">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before the repositories are being processed -->
+	<!-- ===================================================================== -->
+	<target name="preProcessRepos">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after the repositories have been processed -->
+	<!-- ===================================================================== -->
+	<target name="postProcessRepos">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before generating the build scripts. -->
+	<!-- ===================================================================== -->
+	<target name="preGenerate">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after generating the build scripts. -->
+	<!-- ===================================================================== -->
+	<target name="postGenerate">
+		<antcall target="clean" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running the build.xmls for the elements being built. -->
+	<!-- ===================================================================== -->
+	<target name="preProcess">
+		<echo>... in preProcess ...</echo>
+		<tstamp>
+			<format property="buildtime" pattern="MM/dd/yyyy-hh:mm" />
+		</tstamp>
+		<!-- <ant antfile="build-gen-src.xml" dir="${buildDirectory}">
+			<property name="gen-jaxb" value="true" />
+			<property name="gen-castor" value="true" />
+		</ant>
+		-->
+		<ant antfile="build-xtend-gen.xml" dir="${buildDirectory}">
+			<property name="xtext_plugin" location="${buildDirectory}/gov.nasa.arc.advocate.queries.xtext.AQL" />
+		</ant>
+		<ant antfile="build-xtend-gen.xml" dir="${buildDirectory}">
+					<property name="xtext_plugin" location="${buildDirectory}/gov.nasa.arc.advocate.queries.xtext.AQL.ui" />
+				</ant>
+		<for param="aboutfile">
+			<path>
+				<fileset dir="${buildDirectory}" includes="plugins/*/about.mappings" />
+			</path>
+			<sequential>
+				<echo message="stamping @{aboutfile} with build information" />
+				<echo file="@{aboutfile}"># Mappings file
+0=${buildtime}
+1=${env.BAMBOO_SUBVERSION_REVISION}
+2=${env.BAMBOO_BUILD_KEY}
+3=${env.BAMBOO_BUILD_NUMBER}
+</echo>
+			</sequential>
+		</for>
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after running the build.xmls for the elements being built. -->
+	<!-- ===================================================================== -->
+	<target name="postProcess">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running assemble. -->
+	<!-- ===================================================================== -->
+	<target name="preAssemble">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after  running assemble. -->
+	<!-- ===================================================================== -->
+	<target name="postAssemble">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running package. -->
+	<!-- ===================================================================== -->
+	<target name="prePackage">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after  running package. -->
+	<!-- ===================================================================== -->
+	<target name="postPackage">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after the build is done. -->
+	<!-- ===================================================================== -->
+	<target name="postBuild">
+		<property name="mac-ppc-product.zip" value="${buildDirectory}/artifacts/${archivePrefix}-macosx.carbon.ppc.zip" />
+		<property name="mac-x86-product.zip" value="${buildDirectory}/artifacts/${archivePrefix}-macosx.carbon.x86.zip" />
+		<property name="mac-cocoa-32-product.zip" value="${buildDirectory}/artifacts/${archivePrefix}-macosx.cocoa.x86.zip" />
+		<property name="mac-cocoa-64-product.zip" value="${buildDirectory}/artifacts/${archivePrefix}-macosx.cocoa.x86_64.zip" />
+		<available property="ppcProductExists" file="${mac-ppc-product.zip}" />
+		<available property="x86ProductExists" file="${mac-x86-product.zip}" />
+		<available property="cocoa32ProductExists" file="${mac-cocoa-32-product.zip}" />
+		<available property="cocoa64ProductExists" file="${mac-cocoa-64-product.zip}" />
+		<antcall target="postBuildFixMacPPC" />
+		<antcall target="postBuildFixMacX86" />
+		<antcall target="postBuildFixMacCocoa32" />
+		<antcall target="postBuildFixMacCocoa64" />
+		<antcall target="gatherLogs" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do to test the build results -->
+	<!-- ===================================================================== -->
+	<target name="test">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do to publish the build results -->
+	<!-- ===================================================================== -->
+	<target name="publish">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Default target                                                        -->
+	<!-- ===================================================================== -->
+	<target name="noDefault">
+		<echo message="You must specify a target when invoking this file" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Ensemble targets                                                      -->
+	<!-- ===================================================================== -->
+
+	<target name="postBuildFixMacPPC" if="ppcProductExists">
+		<property name="zipBaseDirectory" value="${buildDirectory}/features/org.eclipse.pde.build.container.feature/productRootFiles/macosx.carbon.ppc" />
+		<property name="configurationIni" value="${productName}.app/Contents/MacOS/${productName}.ini" />
+		<echo>installing ${configurationIni} 
+		from base ${zipBaseDirectory}
+		into ${mac-ppc-product.zip}
+		under prefix ${archivePrefix}</echo>
+		<trycatch>
+			<try>
+				<touch file="${zipBaseDirectory}/${configurationIni}" />
+				<zip destfile="${mac-ppc-product.zip}" filesonly="true" whenempty="skip" update="true">
+					<zipfileset prefix="${archivePrefix}" dir="${zipBaseDirectory}">
+						<include name="${configurationIni}" />
+					</zipfileset>
+				</zip>
+			</try>
+			<catch>
+				<echo>FAILED to install ${productName}.ini into ${mac-ppc-product.zip}</echo>
+			</catch>
+		</trycatch>
+	</target>
+
+	<target name="postBuildFixMacX86" if="x86ProductExists">
+		<property name="zipBaseDirectory" value="${buildDirectory}/features/org.eclipse.pde.build.container.feature/productRootFiles/macosx.carbon.x86" />
+		<property name="configurationIni" value="${productName}.app/Contents/MacOS/${productName}.ini" />
+		<echo>installing ${configurationIni} 
+		from base ${zipBaseDirectory}
+		into ${mac-x86-product.zip}
+		under prefix ${archivePrefix}</echo>
+		<trycatch>
+			<try>
+				<touch file="${zipBaseDirectory}/${configurationIni}" />
+				<zip destfile="${mac-x86-product.zip}" filesonly="true" whenempty="skip" update="true">
+					<zipfileset prefix="${archivePrefix}" dir="${zipBaseDirectory}">
+						<include name="${configurationIni}" />
+					</zipfileset>
+				</zip>
+			</try>
+			<catch>
+				<echo>FAILED to install ${productName}.ini into the ${mac-x86-product.zip}</echo>
+			</catch>
+		</trycatch>
+	</target>
+
+	<target name="postBuildFixMacCocoa32" if="cocoa32ProductExists">
+		<property name="zipBaseDirectory" value="${buildDirectory}/features/org.eclipse.pde.build.container.feature/productRootFiles/macosx.cocoa.x86" />
+		<property name="configurationIni" value="${productName}.app/Contents/MacOS/${productName}.ini" />
+		<echo>installing ${configurationIni} 
+		from base ${zipBaseDirectory}
+		into ${mac-cocoa-32-product.zip}
+		under prefix ${archivePrefix}</echo>
+		<trycatch>
+			<try>
+				<touch file="${zipBaseDirectory}/${configurationIni}" />
+				<zip destfile="${mac-cocoa-32-product.zip}" filesonly="true" whenempty="skip" update="true">
+					<zipfileset prefix="${archivePrefix}" dir="${zipBaseDirectory}">
+						<include name="${configurationIni}" />
+					</zipfileset>
+				</zip>
+			</try>
+			<catch>
+				<echo>FAILED to install ${productName}.ini into the ${mac-cocoa-32-product.zip}</echo>
+			</catch>
+		</trycatch>
+	</target>
+
+	<target name="postBuildFixMacCocoa64" if="cocoa64ProductExists">
+		<property name="zipBaseDirectory" value="${buildDirectory}/features/org.eclipse.pde.build.container.feature/productRootFiles/macosx.cocoa.x86_64" />
+		<property name="configurationIni" value="${productName}.app/Contents/MacOS/${productName}.ini" />
+		<echo>installing ${configurationIni} 
+		from base ${zipBaseDirectory}
+		into ${mac-cocoa-64-product.zip}
+		under prefix ${archivePrefix}</echo>
+		<trycatch>
+			<try>
+				<touch file="${zipBaseDirectory}/${configurationIni}" />
+				<zip destfile="${mac-cocoa-64-product.zip}" filesonly="true" whenempty="skip" update="true">
+					<zipfileset prefix="${archivePrefix}" dir="${zipBaseDirectory}">
+						<include name="${configurationIni}" />
+					</zipfileset>
+				</zip>
+			</try>
+			<catch>
+				<echo>FAILED to install ${productName}.ini into the ${mac-cocoa-64-product.zip}</echo>
+			</catch>
+		</trycatch>
+	</target>
+
+</project>
