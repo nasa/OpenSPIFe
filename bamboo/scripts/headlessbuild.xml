@@ -50,7 +50,7 @@
 		<echo message="Group configurations: ${groupConfigurationsArg}" />
 		<echo message="Configurations: ${configsArg}" />
 
-		<replace file="features/${product}" token="-consoleLog" summary="true" />
+		<replace file="${product}" token="-consoleLog" summary="true" />
 
 		<!-- Compilation errors do not result in an abnormal or exceptional return status from the java task. -->
 		<java fork="true" classname="org.eclipse.core.launcher.Main" logError="true" description="Invokes the antRunner within eclipse to do the build.">

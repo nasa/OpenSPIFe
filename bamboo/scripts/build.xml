@@ -179,7 +179,6 @@
 
 		<copy todir="${build-working-directory}">
 			<fileset dir="bamboo/scripts">
-				<include name="build-xtend-gen.xml" />
 				<include name="customTargets.xml" />
 				<include name="doxygen.xml" />
 				<include name="headlessbuild.xml" />
