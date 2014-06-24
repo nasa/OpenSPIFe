@@ -17,10 +17,6 @@
    </license>
 
    <includes
-         id="_feature_gov.nasa.arc.spife.europa"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.rcp"
          version="0.0.0"/>
 
