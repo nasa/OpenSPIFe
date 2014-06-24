@@ -9,7 +9,7 @@
 
 	<xmlproperty file="features/${product}" prefix="productxml" collapseattributes="true" />
 	<property name="productName" value="${productxml.product.launcher.name}" />
-	<property name="archived-product-name" value="${productName}.${bamboo.buildKey}-${bamboo.buildNumber}.r${bamboo.custom.svn.revision.number}" />
+	<property name="archived-product-name" value="${productName}.${bamboo.buildKey}-${bamboo.buildNumber}" />
 
 	<!-- ================================= 
           Build-Related Directories
@@ -58,7 +58,6 @@
 		<echo message="The basedir is: ${basedir}" />
 		<echo message="The buildKey is: ${bamboo.buildKey}" />
 		<echo message="The buildNumber is: ${bamboo.buildNumber}" />
-		<echo message="The SVN revision is: ${bamboo.custom.svn.revision.number}" />
 		<echo message="The name in the .product is ${productxml.product.name}" />
 		<echo message="The launcher name in the .product is ${productxml.product.launcher.name}" />
 
@@ -131,7 +130,6 @@
 			<replacefilter token="@PLAN_KEY@" value="${bamboo.planKey}" />
 			<replacefilter token="@BUILD_NUM@" value="${bamboo.buildNumber}" />
 			<replacefilter token="@PRODUCT_NAME@" value="${productName}" />
-			<replacefilter token="@REVISION_NUM@" value="${bamboo.custom.svn.revision.number}" />
 			<replacefilter token="@CONFIGS@" value="${configs}" />
 		</replace>
 	</target>
