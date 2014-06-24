@@ -176,7 +176,7 @@
       var builds_html = "";
       for(var i in builds) {
         var build = builds[i];
-        var build_zip = "@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@.r@REVISION_NUM@-" + build.replace(/,/g, ".") + ".zip";
+        var build_zip = "@PRODUCT_NAME@.@BUILD_KEY@-@BUILD_NUM@-" + build.replace(/,/g, ".") + ".zip";
         builds_html += "<li id='" + build.replace(/,/g, "_") + "'><a href='" + build_zip + "'>" + build_zip + "</a></li>"
       }
       document.getElementById("artifacts").innerHTML = builds_html;

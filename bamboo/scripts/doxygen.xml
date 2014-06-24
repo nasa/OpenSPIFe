@@ -91,7 +91,7 @@
 						<filter token="INPUT" value="${input.dir}" />
 						<filter token="BUILD_KEY" value="${env.BAMBOO_BUILD_KEY}" />
 						<filter token="BUILD_NUM" value="${env.BAMBOO_BUILD_NUMBER}" />
-						<filter token="REVISION_NUM" value="${env.BAMBOO_SUBVERSION_REVISION}" />
+						<!-- <filter token="REVISION_NUM" value="${env.BAMBOO_SUBVERSION_REVISION}" /> -->
 					</filterset>
 				</copy>
 				<echo>Running Doxygen on ${doxygen.cfg.file}</echo>
