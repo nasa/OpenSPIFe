@@ -4,8 +4,8 @@ Bundle-Name: Europa Clientside
 Bundle-SymbolicName: gov.nasa.arc.spife.europa.clientside;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: gov.nasa.arc.spife.europa.clientside.EuropaClientSidePlugin
-Require-Bundle: org.eclipse.emf.ecore.xmi;visibility:=reexport,
- gov.nasa.ensemble.common.ui;bundle-version="1.0.14",
+Require-Bundle: gov.nasa.ensemble.common.ui;bundle-version="1.0.14",
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
  redstone.xmlrpc;bundle-version="1.0.0",
  org.eclipse.emf.edit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
