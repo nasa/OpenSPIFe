@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.emf.transaction.IConsistencyMaintenanceListener">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.temporal.OffsetsConsistencyMaintenanceListener">
+         </implementation>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+         <implementation
+               class="gov.nasa.ensemble.core.plan.temporal.TemporalEdgeManagerPlanSharingNotificationFilter">
+         </implementation>
+      </lookup>
+   </extension>
+
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.ensemble.core.plan.temporal.AllTests"/>
+   </extension>
+   
+   <extension point="gov.nasa.ensemble.core.plan.editor.PlanTransferableExtension">
+       <planTransferableExtension class="gov.nasa.ensemble.core.plan.temporal.TemporalTransferableExtension"/>
+   </extension>
+   <extension-point id="PlanModifier" name="Plan Modifier" schema="schema/plan_modifier.exsd"/>
+   <extension-point id="PlanModificationTweaker" name="gov.nasa.ensemble.core.plan.temporal.PlanModificationTweaker" schema="schema/PlanModificationTweaker.exsd"/>
+
+   <extension point="gov.nasa.ensemble.core.plan.temporal.PlanModifier">
+         <modifier
+               class="gov.nasa.ensemble.core.plan.temporal.modification.DirectPlanModifier"
+               icon="icons/direct_move_icon.gif"
+               name="Direct Move"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="gov.nasa.ensemble.core.plan.temporal.modification.PlanModifierPreferences">
+      </initializer>
+   </extension>
+
+    <extension point="gov.nasa.ensemble.core.plan.PlanElementMember">
+      <PlanElementMemberExtension
+            class="gov.nasa.ensemble.core.plan.temporal.modification.PlanModifierMemberFactory"
+            id="gov.nasa.ensemble.core.plan.temporal.PlanModifierMemberFactory"
+            name="PlanModifierMemberFactory"/>
+      <PlanElementMemberExtension
+            class="gov.nasa.ensemble.core.plan.temporal.TemporalEdgeManagerMemberFactory"
+            id="TemporalEdgeManager"
+            name="TemporalEdgeManagerFactory">
+      </PlanElementMemberExtension>
+   </extension>
+
+   <extension
+         point="gov.nasa.ensemble.core.plan.editor.merge.IMergeColumnProvider">
+      <IMergeColumnContentProvider class="gov.nasa.ensemble.core.plan.temporal.columns.TemporalColumnProvider"/>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.MissionExtension">
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.model.plan.temporal.impl.TemporalModifier"
+            MissionSpecificClass="gov.nasa.ensemble.core.plan.temporal.TemporalModifierImpl"
+            id="gov.nasa.ensemble.core.plan.temporal.TemporalModifierImpl">
+      </MissionExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="gov.nasa.ensemble.core.plan.editor.category"
+            defaultHandler="gov.nasa.ensemble.core.plan.temporal.modification.PlanModifierHandler"
+            description="Choose a strategy for maintaining consistency during plan modifications"
+            id="gov.nasa.ensemble.core.plan.temporal.modification"
+            name="Select Plan Modifier">
+         <commandParameter
+               id="name"
+               name="Factory Name"
+               optional="true">
+         </commandParameter>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="gov.nasa.ensemble.core.plan.temporal.modification"
+            icon="icons/direct_move_icon.gif">
+      </image>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="menu:plan?after=moveGuideActions">
+            <separator
+                  name="gov.nasa.ensemble.core.plan.temporal.separator"
+                  visible="true">
+            </separator>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:plan?before=gov.nasa.ensemble.core.plan.temporal.separator">
+         <command
+               commandId="gov.nasa.ensemble.core.plan.temporal.modification"
+               label="Use Constrained Move"
+               style="toggle">
+         </command>
+         <menu id="gov.nasa.ensemble.core.plan.temporal.modification.menu"
+               commandId="gov.nasa.ensemble.core.plan.temporal.modification"
+               label="Plan Modifier Menu">
+         </menu>
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?before=gov.nasa.arc.spife.ui.timeline.toolbar">
+         <toolbar id="gov.nasa.ensemble.core.plan.editor.toolbar">
+			 <!--<dynamic
+                id="gov.nasa.ensemble.core.plan.temporal.modification.dynamic"
+                class="gov.nasa.ensemble.core.plan.editor.merge.contributions.TableEditorCommandContributor">
+                 <visibleWhen>
+	             	<reference
+	                   definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+	             	</reference>
+	          	</visibleWhen>
+	         </dynamic>
+	         <command
+	               commandId="gov.nasa.ensemble.core.plan.temporal.modification"
+	               label="Plan Mod Push"
+	               style="push">
+	          <visibleWhen>
+	             <reference
+	                   definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+	             </reference>
+	          </visibleWhen>
+	         </command>
+	         <command
+	               commandId="gov.nasa.ensemble.core.plan.temporal.modification"
+	               label="Plan Mod Toggle"
+	               style="toggle">
+	          <visibleWhen>
+	             <reference
+	                   definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+	             </reference>
+	          </visibleWhen>
+	         </command>-->
+	         <command
+	         		id="gov.nasa.ensemble.core.plan.temporal.modification.pulldown"
+	               	commandId="gov.nasa.ensemble.core.plan.temporal.modification"
+	               	label="Plan Modifier"
+	               	style="pulldown">
+	               	<visibleWhen>
+	             		<reference
+	                  	 definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+	             		</reference>
+	          		</visibleWhen>
+	         </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+ 
+   <extension
+         point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest
+            class="gov.nasa.ensemble.core.plan.temporal.AllJUnit4Tests">
+      </IEnsemblePluginTest>
+   </extension>
+	
+</plugin>

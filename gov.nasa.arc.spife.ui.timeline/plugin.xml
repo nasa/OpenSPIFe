@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.arc.spife.ui.timeline.TimelineService">
+         <implementation
+               class="gov.nasa.arc.spife.ui.timeline.service.WorkspaceResourceService">
+         </implementation>
+         <implementation
+               class="gov.nasa.arc.spife.ui.timeline.service.FileResourceMarkerService">
+         </implementation>
+         <implementation
+               class="gov.nasa.arc.spife.ui.timeline.InspectedTimelineService">
+         </implementation>
+         <implementation
+               class="gov.nasa.arc.spife.ui.timeline.service.CurrentTimeTimelineMarkerService">
+         </implementation>
+      </lookup>
+   </extension>
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="gov.nasa.arc.spife.ui.timeline.preference.TimelineDateFormatPreferenceInitializer"/>
+      <initializer class="gov.nasa.arc.spife.ui.timeline.preference.TimelinePreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="gov.nasa.arc.spife.ui.timeline.tool.actionSet"
+            label="Timeline Tool Action Set">
+      </actionSet>
+      <actionSet
+            id="gov.nasa.arc.spife.ui.timeline.weekday.actionSet"
+            label="Timeline Weekday Tool Action Set">
+      </actionSet>
+      <actionSet
+            id="gov.nasa.arc.spife.ui.timeline.tool.extent.actionSet"
+            label="Timeline Extent Action Set">
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="gov.nasa.arc.spife.ui.timeline.zoom.in.command"
+            contextId="timeline"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+-">
+      </key>
+      <key
+            commandId="gov.nasa.arc.spife.ui.timeline.zoom.out.command"
+            contextId="timeline"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="-">
+      </key>
+      <key
+            commandId="gov.nasa.arc.spife.ui.timeline.go.to.time.command"
+            contextId="timeline"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+T">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.ZoomSweepToolHandler"
+            id="gov.nasa.arc.spife.ui.timeline.zoom.sweep"
+            name="Timeline Sweep Zoom Tool">
+            <state class="org.eclipse.jface.commands.ToggleState:false"
+				id="org.eclipse.ui.commands.toggleState">
+			</state>
+         <commandParameter
+               id="gov.nasa.arc.spife.ui.timeline.tool"
+               name="Timeline Tool"
+               optional="false">
+         </commandParameter>
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.ZoomDropdownHandler"
+            id="gov.nasa.arc.spife.ui.timeline.zoom.dropdown"
+            name="Timeline Zoom Dropdown">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.ZoomInHandler"
+            id="gov.nasa.arc.spife.ui.timeline.zoom.in.command"
+            name="Timeline Zoom In">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.ZoomOutHandler"
+            id="gov.nasa.arc.spife.ui.timeline.zoom.out.command"
+            name="Timeline Zoom Out">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.GoToTimeHandler"
+            description="Timeline  Go To Time"
+            id="gov.nasa.arc.spife.ui.timeline.go.to.time.command"
+            name="Timeline Go To Time">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.TimelineExtentHandler"
+            description="Timeline Set Page Extent"
+            id="gov.nasa.arc.spife.ui.timeline.set.extent.command"
+            name="Timeline Set Page Extent">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.week.ShowMondayHandler"
+            description="Show Monday"
+            id="gov.nasa.arc.spife.ui.timeline.show.monday.command"
+            name="M">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.week.ShowTuesdayHandler"
+            description="Show Tuesday"
+            id="gov.nasa.arc.spife.ui.timeline.show.tuesday.command"
+            name="T">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.week.ShowWednesdayHandler"
+            description="Show Wednesday"
+            id="gov.nasa.arc.spife.ui.timeline.show.wednesday.command"
+            name="W">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.week.ShowThursdayHandler"
+            description="Show Thursday"
+            id="gov.nasa.arc.spife.ui.timeline.show.thursday.command"
+            name="T">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.week.ShowFridayHandler"
+            description="Show Friday"
+            id="gov.nasa.arc.spife.ui.timeline.show.friday.command"
+            name="F">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.week.ShowSaturdayHandler"
+            description="Show Saturday"
+            id="gov.nasa.arc.spife.ui.timeline.show.saturday.command"
+            name="S">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.week.ShowSundayHandler"
+            description="Show Sunday"
+            id="gov.nasa.arc.spife.ui.timeline.show.sunday.command"
+            name="S">
+      </command>
+      <command
+            defaultHandler="gov.nasa.arc.spife.ui.timeline.action.ResetTimelineHandler"
+            id="gov.nasa.arc.spife.ui.timeline.content.reset"
+            name="Reset Timeline">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="gov.nasa.arc.spife.ui.timeline.zoom.in.command"
+           	icon="icons/zoomplus_on.gif">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.ui.timeline.zoom.out.command"
+            icon="icons/zoomminus_on.gif">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.ui.timeline.zoom.sweep"
+            icon="icons/zoom_sweep.gif">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.ui.timeline.zoom.dropdown"
+            icon="icons/zoom-tool.png">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.ui.timeline.go.to.time.command"
+            icon="icons/icon_clock.gif">
+      </image>
+      <image
+            commandId="gov.nasa.arc.spife.ui.timeline.set.extent.command"
+            icon="icons/icon_extent.gif">
+      </image>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            category="timeline"
+            class="gov.nasa.arc.spife.ui.timeline.preference.TimelineDateFormatPreferencePage"
+            id="gov.nasa.arc.spife.ui.timeline.preference.dateformats"
+            name="Date Formats"/>
+       <page
+            class="gov.nasa.arc.spife.ui.timeline.preference.TimelinePreferencePage"
+            id="timeline"
+            name="Timeline"/>
+   </extension>
+</plugin>

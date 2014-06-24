@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: gov.nasa.ensemble.core.model.plan.advisor;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: gov.nasa.ensemble.core.model.plan.advisor,
+ gov.nasa.ensemble.core.model.plan.advisor.impl,
+ gov.nasa.ensemble.core.model.plan.advisor.util
+Require-Bundle: gov.nasa.ensemble.core.activityDictionary;visibility:=reexport,
+ gov.nasa.ensemble.core.model.plan;bundle-version="1.0.0",
+ org.apache.log4j;bundle-version="[1.2.12,1.2.16)"
+Bundle-ActivationPolicy: lazy

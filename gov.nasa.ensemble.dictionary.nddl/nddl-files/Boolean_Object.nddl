@@ -1,0 +1,224 @@
+class Passive_State_Condition extends Reservoir {
+  string profileType;
+  string detectorType;
+  Passive_State_Condition(float initCap) {
+    super(initCap, 0.0, +inff);
+    profileType = "AddGroundedProfile";
+    detectorType = "PassiveFVDetector";
+  }
+}
+
+class Active_State_Condition extends Reservoir {
+  string profileType;
+  string detectorType;
+  Active_State_Condition(float initCap) {
+    super(initCap, 0.0, +inff);
+    profileType = "SatGroundedProfile";
+    detectorType = "GroundedFlawDetector";
+  }
+}
+
+class Boolean_true extends Passive_State_Condition {
+  Boolean_true() {
+    super(1000.0);
+  }
+}
+
+class Boolean_false extends Passive_State_Condition {
+  Boolean_false() {
+    super(0.0);
+  }
+}
+
+class Active_Boolean_true extends Active_State_Condition {
+  Active_Boolean_true() {
+    super(1000.0);
+  }
+}
+
+class Active_Boolean_false extends Active_State_Condition {
+  Active_Boolean_false() {
+    super(0.0);
+  }
+}
+
+class Boolean_Object extends Object {
+  Boolean_true boolean_true;
+  Boolean_false boolean_false;
+  Active_Boolean_true active_boolean_true;
+  Active_Boolean_false active_boolean_false;
+  Boolean_Object() {
+    boolean_true = new Boolean_true();
+    boolean_false = new Boolean_false();
+    active_boolean_true = new Active_Boolean_true();
+    active_boolean_false = new Active_Boolean_false();
+  }
+
+  predicate Make_Boolean_true {
+    int 	 priority;
+    int 	 reftime;
+    bool 	 enforced;
+    bool 	 scheduled;
+    bool 	 subSolved;
+    float 	 container_id;
+    int 	 offset;
+
+    eq(state, ACTIVE);
+  }
+
+  predicate Make_Boolean_false {
+    int 	 priority;
+    int 	 reftime;
+    bool 	 enforced;
+    bool 	 scheduled;
+    bool 	 subSolved;
+    float 	 container_id;
+    int 	 offset;
+
+    eq(state, ACTIVE);
+  }
+
+  predicate Require_Boolean_true {
+    int 	 priority;
+    int 	 reftime;
+    bool 	 enforced;
+    bool 	 scheduled;
+    bool 	 subSolved;
+    int 	 offset;
+    float 	 container_id;
+
+    eq(state, ACTIVE);
+  }
+
+  predicate Require_Boolean_false {
+    int 	 priority;
+    int 	 reftime;
+    bool 	 enforced;
+    bool 	 scheduled;
+    bool 	 subSolved;
+    int 	 offset;
+    float 	 container_id;
+
+    eq(state, ACTIVE);
+  }
+
+}
+
+//------------------------------
+// Compats
+//------------------------------
+
+Boolean_Object::Make_Boolean_true {
+  if (scheduled == true) {
+    if (Enable_Passive_Checking == true) {
+
+      starts(object.boolean_true.produce stok);
+      eq(stok.quantity, STATE_COND_TRUE);
+
+      starts(object.boolean_false.consume etok);
+      eq(etok.quantity, STATE_COND_FALSE);
+
+    }
+  }
+}
+
+Boolean_Object::Make_Boolean_false {
+  if (scheduled == true) {
+    if (Enable_Passive_Checking == true) {
+
+      starts(object.boolean_false.produce stok);
+      eq(stok.quantity, STATE_COND_TRUE);
+
+      starts(object.boolean_true.consume etok);
+      eq(etok.quantity, STATE_COND_FALSE);
+
+    }
+  }
+}
+
+Boolean_Object::Require_Boolean_true {
+  if (scheduled == true) {
+    if (Enable_Passive_Checking == true) {
+
+      starts(object.boolean_true.consume stok);
+      eq(stok.quantity, 1.0);
+
+      ends(object.boolean_true.produce etok);
+      eq(etok.quantity, 1.0);
+
+    }
+  }
+}
+
+Boolean_Object::Require_Boolean_false {
+  if (scheduled == true) {
+    if (Enable_Passive_Checking == true) {
+
+      starts(object.boolean_false.consume stok);
+      eq(stok.quantity, 1.0);
+
+      ends(object.boolean_false.produce etok);
+      eq(etok.quantity, 1.0);
+
+    }
+  }
+}
+
+
+//---active---
+
+Boolean_Object::Make_Boolean_true {
+  if (scheduled == true) {
+    if (enforced == true) {
+
+      starts(object.active_boolean_true.produce stok);
+      eq(stok.quantity, STATE_COND_TRUE);
+
+      starts(object.active_boolean_false.consume etok);
+      eq(etok.quantity, STATE_COND_FALSE);
+
+    }
+  }
+}
+
+Boolean_Object::Make_Boolean_false {
+  if (scheduled == true) {
+    if (enforced == true) {
+
+      starts(object.active_boolean_false.produce stok);
+      eq(stok.quantity, STATE_COND_TRUE);
+
+      starts(object.active_boolean_true.consume etok);
+      eq(etok.quantity, STATE_COND_FALSE);
+
+    }
+  }
+}
+
+Boolean_Object::Require_Boolean_true {
+  if (enforced == true) {
+    if (subSolved == true) {
+
+      starts(object.active_boolean_true.consume stok);
+      eq(stok.quantity, 1.0);
+
+      ends(object.active_boolean_true.produce etok);
+      eq(etok.quantity, 1.0);
+
+    }
+  }
+}
+
+Boolean_Object::Require_Boolean_false {
+  if (enforced == true) {
+    if (subSolved == true) {
+
+      starts(object.active_boolean_false.consume stok);
+      eq(stok.quantity, 1.0);
+
+      ends(object.active_boolean_false.produce etok);
+      eq(etok.quantity, 1.0);
+
+    }
+  }
+}

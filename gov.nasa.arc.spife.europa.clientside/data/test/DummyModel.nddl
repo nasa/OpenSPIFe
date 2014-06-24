@@ -1,0 +1,8 @@
+#include "PlannerConfig.nddl"
+
+// Create a planner configuration instance in PLASMA.
+// Horizon Start, Horizon End, MaxPlannerSteps
+PlannerConfig plannerConfiguration = new PlannerConfig(-100, +10000000, 10000, 10000);
+
+// Close the the PLASMA Database - no more objects can be created.
+close();

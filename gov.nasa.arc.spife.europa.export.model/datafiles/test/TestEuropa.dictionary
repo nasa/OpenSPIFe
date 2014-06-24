@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="TestEuropaAD" nsURI="platform:/plugin/gov.nasa.arc.spife.europa/datafiles/test/TestEuropa.dictionary" nsPrefix="europa" author="junit" description="Test AD" version="TestEuropa-0.1.0">
+  <eClassifiers xsi:type="dict:ObjectDef" name="TestObjectDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="ActivityThatClaims">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="singletonClaim" eType="//TestObjectDef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multipleClaims" upperBound="-1" eType="//TestObjectDef"/>
+  </eClassifiers>
+</dict:EActivityDictionary>

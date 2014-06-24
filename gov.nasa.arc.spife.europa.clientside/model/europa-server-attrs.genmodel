@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.arc.spife.europa.clientside/src"
+    modelPluginID="gov.nasa.arc.spife.europa.clientside" modelName="Europa-server-attrs"
+    editPluginClass="gov.nasa.arc.spife.europa.clientside.provider.EuropaServerAttrsEditPlugin"
+    editorPluginClass="gov.nasa.arc.spife.europa.clientside.presentation.EuropaServerAttrsEditorPlugin"
+    testSuiteClass="gov.nasa.arc.spife.europa.clientside.tests.EuropaServerAttrsAllTests"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false"
+    classNamePattern="">
+  <foreignModel>europa-server-attrs.xsd</foreignModel>
+  <genPackages prefix="" basePackage="gov.nasa.arc.spife.europa.clientside" resource="XML"
+      disposableProviderFactory="true" ecorePackage="EuropaServerAttrs.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EuropaServerAttrs.ecore#//LogTypeMember1Item">
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerAttrs.ecore#//LogTypeMember1Item/ERROR"/>
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerAttrs.ecore#//LogTypeMember1Item/TRACE"/>
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerAttrs.ecore#//LogTypeMember1Item/TRACEALL"/>
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerAttrs.ecore#//LogTypeMember1Item/RETURN"/>
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerAttrs.ecore#//LogTypeMember1Item/TIMER"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="EuropaServerAttrs.ecore#//LogType"/>
+    <genDataTypes ecoreDataType="EuropaServerAttrs.ecore#//LogTypeMember0"/>
+    <genDataTypes ecoreDataType="EuropaServerAttrs.ecore#//LogTypeMember0Object"/>
+    <genDataTypes ecoreDataType="EuropaServerAttrs.ecore#//LogTypeMember1"/>
+    <genDataTypes ecoreDataType="EuropaServerAttrs.ecore#//LogTypeMember1ItemObject"/>
+  </genPackages>
+</genmodel:GenModel>

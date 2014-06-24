@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Europa Plug-in
+Bundle-SymbolicName: gov.nasa.arc.spife.europa; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.arc.spife.europa.EuropaPlugin
+Export-Package: gov.nasa.arc.spife.europa,
+ gov.nasa.arc.spife.europa.advisor,
+ gov.nasa.arc.spife.europa.model,
+ gov.nasa.arc.spife.europa.preferences,
+ gov.nasa.arc.spife.tests.europa
+Require-Bundle: gov.nasa.arc.spife.europa.clientside;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.model.plan.activityDictionary;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.model.plan.advisor;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.plan.advisor;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.plan.constraints,
+ gov.nasa.ensemble.core.plan.editor;bundle-version="1.0.8",
+ gov.nasa.ensemble.core.plan.resources,
+ gov.nasa.ensemble.dictionary.nddl;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName
+Bundle-ClassPath: .

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.emf/src"
+    editDirectory="/gov.nasa.ensemble.emf/src" editorDirectory="/gov.nasa.ensemble.emf.model.common.editor/src"
+    modelPluginID="gov.nasa.ensemble.emf" modelName="Common" editPluginClass="gov.nasa.ensemble.emf.model.common.provider.CommonEditPlugin"
+    editorPluginClass="gov.nasa.ensemble.emf.model.common.presentation.CommonEditorPlugin"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    editPluginID="gov.nasa.ensemble.emf" editorPluginID="gov.nasa.ensemble.emf.model.common.editor"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore.change/model/Change.genmodel#//change platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <foreignModel>Common.ecore</foreignModel>
+  <genPackages prefix="Common" basePackage="gov.nasa.ensemble.emf.model" disposableProviderFactory="true"
+      ecorePackage="Common.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Common.ecore#//Timepoint">
+      <genEnumLiterals ecoreEnumLiteral="Common.ecore#//Timepoint/START"/>
+      <genEnumLiterals ecoreEnumLiteral="Common.ecore#//Timepoint/END"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="Common.ecore#//EURL"/>
+    <genDataTypes ecoreDataType="Common.ecore#//IPath"/>
+    <genClasses image="false" ecoreClass="Common.ecore#//IAdaptable"/>
+    <genClasses provider="None" ecoreClass="Common.ecore#//EnsemblePatch"/>
+    <genClasses provider="None" ecoreClass="Common.ecore#//ObjectFeature">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Common.ecore#//ObjectFeature/object"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Common.ecore#//ObjectFeature/feature"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

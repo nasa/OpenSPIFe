@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            id="gov.nasa.ensemble.jscience.profile"
+            name="Profile"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest
+            class="gov.nasa.ensemble.core.jscience.AllTests">
+      </IEnsemblePluginTest>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.IStringifier">
+      <IStringifier
+            class="gov.nasa.ensemble.core.jscience.AmountStringifier"
+            name="AmountStringifier">
+         <stringifierByTypeString typeAsString="AMOUNT"/>
+         <stringifierByTypeString typeAsString="EAMOUNT"/>
+         <stringifierByClass typeAsClass="org.jscience.physics.amount.Amount"/>
+      </IStringifier>
+      <IStringifier
+            class="gov.nasa.ensemble.core.jscience.util.EDurationStringifier"
+            name="EDurationStringifier">
+         <stringifierByTypeString typeAsString="EDURATION"/>
+      </IStringifier>
+      <IStringifier
+            class="gov.nasa.ensemble.core.jscience.util.ComputableAmountStringifier"
+            name="ComputingAmountStringifier">
+         <stringifierByTypeString typeAsString="COMPUTABLE_AMOUNT"/>
+         <stringifierByClass typeAsClass="gov.nasa.ensemble.core.jscience.ComputableAmount"/>
+      </IStringifier>
+	  <IStringifier
+        	class="gov.nasa.ensemble.core.jscience.util.DurationStringifier"
+        	name="DurationStringifier">
+     	 <stringifierByTypeString typeAsString="duration"/>
+  	   </IStringifier>
+	</extension>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="gov.nasa.ensemble.core.jscience.provider.JScienceItemProviderAdapterFactory"
+            uri="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="gov.nasa.ensemble.core.jscience.impl.JSciencePackageImpl"
+            genModel="model/JScience.genmodel"
+            uri="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore">
+      </package>
+   </extension>
+   
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="gov.nasa.ensemble.jscience.profile"
+            file-extensions="profiles, profile, csvxml">
+      </file-association>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="gov.nasa.ensemble.core.jscience.csvxml.XMLCSVProfilesResourceFactory"
+            type="profile">
+      </parser>
+      <parser
+            class="gov.nasa.ensemble.core.jscience.xml.XMLProfilesResourceFactory"
+            type="profiles">
+      </parser>
+      <parser
+            class="gov.nasa.ensemble.core.jscience.csvxml.XMLCSVProfilesResourceFactory"
+            type="csvxml">
+      </parser>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+     <lookup class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+		<implementation
+			class="gov.nasa.ensemble.core.jscience.ProfileSharingNotificationFilter">
+         </implementation>
+      </lookup>
+     <lookup
+           class="gov.nasa.ensemble.emf.patch.DeserializerContributor">
+        <implementation
+              class="gov.nasa.ensemble.core.jscience.ProfileDataPointDeserializerContributor">
+        </implementation>
+     </lookup>
+    </extension>
+</plugin>

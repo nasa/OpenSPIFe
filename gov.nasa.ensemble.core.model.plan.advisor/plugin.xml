@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="RulesSelector" name="gov.nasa.ensemble.core.model.plan.advisor.RulesSelector" schema="schema/RulesSelector.exsd"/>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="platform:/resource/gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.ecore"
+            class="gov.nasa.ensemble.core.model.plan.advisor.AdvisorPackage"
+            genModel="model/AdvisorPlanning.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="advisor"
+            class="gov.nasa.ensemble.core.model.plan.advisor.util.AdvisorResourceFactoryImpl"/>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.model.plan.PlanElementMemberFactory">
+      <planElementMemberFactory
+            class="gov.nasa.ensemble.core.model.plan.advisor.impl.AdvisorMemberFactory">
+      </planElementMemberFactory>
+   </extension>
+</plugin>

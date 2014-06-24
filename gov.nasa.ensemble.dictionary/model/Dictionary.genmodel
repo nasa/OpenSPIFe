@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.dictionary/src"
+    editDirectory="/gov.nasa.ensemble.dictionary/src" modelPluginID="gov.nasa.ensemble.dictionary"
+    modelName="Dictionary" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    suppressEMFTypes="true" featureMapWrapperClass="" booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../gov.nasa.ensemble.core.jscience/model/JScience.genmodel#//jscience ../../gov.nasa.ensemble.emf/model/Common.genmodel#//common platform:/plugin/org.eclipse.emf.ecore.change/model/Change.genmodel#//change"
+    runtimePlatform="RCP">
+  <foreignModel>Dictionary.ecore</foreignModel>
+  <genPackages prefix="Dictionary" basePackage="gov.nasa.ensemble" disposableProviderFactory="true"
+      multipleEditorPages="false" ecorePackage="Dictionary.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Dictionary.ecore#//ENumericResourceEffectMode">
+      <genEnumLiterals ecoreEnumLiteral="Dictionary.ecore#//ENumericResourceEffectMode/DELTA"/>
+      <genEnumLiterals ecoreEnumLiteral="Dictionary.ecore#//ENumericResourceEffectMode/SET"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Dictionary.ecore#//Period">
+      <genEnumLiterals ecoreEnumLiteral="Dictionary.ecore#//Period/RequiresThroughout"/>
+      <genEnumLiterals ecoreEnumLiteral="Dictionary.ecore#//Period/RequiresBeforeStart"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="Dictionary.ecore#//DefinitionContext"/>
+    <genClasses ecoreClass="Dictionary.ecore#//EActivityDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityDef/category"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/children"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/claimableEffects"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityDef/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityDef/duration"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/numericEffects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/numericRequirements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/sharedEffects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/stateEffects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDef/stateRequirements"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EActivityDictionary">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityDictionary/author"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDictionary/attributeDefs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityDictionary/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityDictionary/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EActivityDictionary/extendedDefinitions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityDictionary/version"/>
+      <genOperations ecoreOperation="Dictionary.ecore#//EActivityDictionary/getActivityDefs"/>
+      <genOperations ecoreOperation="Dictionary.ecore#//EActivityDictionary/getActivityDef">
+        <genParameters ecoreParameter="Dictionary.ecore#//EActivityDictionary/getActivityDef/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EActivityRequirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityRequirement/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityRequirement/startOffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EActivityRequirement/endOffset"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EActivityGroupDef"/>
+    <genClasses ecoreClass="Dictionary.ecore#//EAttributeParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EAttributeParameter/units"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EAttributeParameter/unitsDisplayName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EAttributeParameter/choices"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EChoice">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Dictionary.ecore#//EChoice/parameterAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EChoice/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EChoice/multipleOf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EChoice/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EChoice/maximum"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EClaimableResourceDef"/>
+    <genClasses ecoreClass="Dictionary.ecore#//EClaimableEffect">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EClaimableEffect/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EExtendedNumericResourceDef"/>
+    <genClasses image="false" ecoreClass="Dictionary.ecore#//Effect">
+      <genTypeParameters ecoreTypeParameter="Dictionary.ecore#//Effect/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//Effect/description"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//Effect/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//Effect/startOffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//Effect/endOffset"/>
+      <genOperations ecoreOperation="Dictionary.ecore#//Effect/getDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//ENumericRequirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ENumericRequirement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//ENumericResourceDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ENumericResourceDef/units"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ENumericResourceDef/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ENumericResourceDef/maximum"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//ENumericResourceEffect">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dictionary.ecore#//ENumericResourceEffect/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ENumericResourceEffect/mode"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Dictionary.ecore#//EParameterDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EParameterDef/defaultLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EParameterDef/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EReferenceParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EReferenceParameter/effects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EReferenceParameter/requirements"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EResourceDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EResourceDef/category"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EResourceDef/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//ERule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ERule/hypertextDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ERule/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ERule/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ERule/printName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ERule/shortDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//ESharableResourceDef">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ESharableResourceDef/capacity"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//ESharableResourceEffect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ESharableResourceEffect/reservations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dictionary.ecore#//ESharableResourceEffect/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EStateRequirement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EStateRequirement/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EStateRequirement/allowedStates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EStateRequirement/disallowedState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EStateRequirement/requiredState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EStateRequirement/threshold"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EStateResourceDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//EStateResourceDef/allowedStates"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EStateResourceDef/enumeration"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//EStateResourceEffect">
+      <genTypeParameters ecoreTypeParameter="Dictionary.ecore#//EStateResourceEffect/T"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dictionary.ecore#//EStateResourceEffect/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//ESubActivity">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Dictionary.ecore#//ESubActivity/definition"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ESubActivity/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Dictionary.ecore#//ESummaryResourceDef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dictionary.ecore#//ESummaryResourceDef/numericResourceDefs"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Dictionary.ecore#//ETemporalEffect">
+      <genTypeParameters ecoreTypeParameter="Dictionary.ecore#//ETemporalEffect/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ETemporalEffect/startEffect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dictionary.ecore#//ETemporalEffect/endEffect"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Dictionary.ecore#//INamedDefinition"/>
+    <genClasses ecoreClass="Dictionary.ecore#//ObjectDef"/>
+    <genClasses image="false" ecoreClass="Dictionary.ecore#//RuleResourceDef"/>
+  </genPackages>
+</genmodel:GenModel>

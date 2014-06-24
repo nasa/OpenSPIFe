@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/resource/gov.nasa.ensemble.core.model.plan/model/Planning.ecore"
+            class="gov.nasa.ensemble.core.model.plan.provider.PlanItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.ITableItemColorProvider
+               org.eclipse.emf.edit.provider.ITableItemFontProvider
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider"/>
+       <factory
+           class="gov.nasa.ensemble.core.model.plan.provider.EPlanElementLabelProviderAdapterFactory"
+           supportedTypes="org.eclipse.jface.viewers.ILabelProvider"
+           uri="platform:/resource/gov.nasa.ensemble.core.model.plan/model/Planning.ecore">
+       </factory>
+       <factory
+           class="gov.nasa.ensemble.core.model.plan.provider.detail.PlanDetailProviderAdapterFactory"
+           uri="platform:/resource/gov.nasa.ensemble.core.model.plan/model/Planning.ecore"
+           supportedTypes="gov.nasa.ensemble.core.detail.emf.IDetailProvider"/>
+   </extension>
+</plugin>

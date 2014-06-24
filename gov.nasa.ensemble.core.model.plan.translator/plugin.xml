@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "platform:/resource/gov.nasa.ensemble.core.model.plan.translator/model/HibernatePlanning.ecore"
+       class = "gov.nasa.ensemble.core.model.plan.hibernate.HibernatePackage"
+       genModel = "model/HibernatePlanning.genmodel" /> 
+  </extension>
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.ensemble.core.model.plan.translator.AllTests"/>
+   </extension>
+   <extension point="gov.nasa.ensemble.core.model.plan.PlanElementMemberFactory">
+      <planElementMemberFactory class="gov.nasa.ensemble.core.model.plan.hibernate.impl.HibernateMemberFactory"/>
+   </extension>
+   <extension point="gov.nasa.ensemble.common.ClassRegistry">
+     <lookup class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+		<implementation class="gov.nasa.ensemble.core.model.plan.hibernate.impl.HibernateMemberNotificationFilter"/>
+      </lookup>
+    </extension>
+
+</plugin>

@@ -1,0 +1,2348 @@
+#include "PlannerConfig.nddl"
+#include "Resources.nddl"
+
+
+
+// Global variables
+
+int CPU_BOOT_DUR =360;
+
+int CPU_SHUTDOWN_DUR = 540;
+
+int MIN_CPU_GAP = 420;
+
+// shutdown + min cpu_on p
+int POST_CPU_WINDOW = 960;
+
+int HGA_PRE_XMIT = 420;
+
+int UHF_PRE_XMIT = 480;
+
+int COMM_POST_XMIT = 240;
+
+float STATE_COND_TRUE = 1000.00;
+
+float STATE_COND_FALSE = 1000.0;
+
+float NUMOF_IMAGING = 3.0;
+
+bool      Enable_Passive_Checking;
+Enable_Passive_Checking.specify(true);
+
+bool      Enable_Active_Enforcement;
+Enable_Active_Enforcement.specify(true);
+
+bool      Enforce_IDD_Claim;
+Enforce_IDD_Claim.specify(true);
+
+bool      Enforce_PMA_Claim;
+Enforce_PMA_Claim.specify(true);
+
+bool      Enforce_Mobility_Claim;
+Enforce_Mobility_Claim.specify(true);
+
+bool      Enforce_Comm_Claim;
+Enforce_Comm_Claim.specify(true);
+
+bool      Enforce_Mobility_PMA_MUTEX;
+Enforce_Mobility_PMA_MUTEX.specify(true);
+
+bool      Enforce_Mobility_HZ_MUTEX;
+Enforce_Mobility_HZ_MUTEX.specify(true);
+
+bool      Enforce_Mobility_Comm_MUTEX;
+Enforce_Mobility_Comm_MUTEX.specify(true);
+
+bool      Enforce_Mobility_IDD_MUTEX;
+Enforce_Mobility_IDD_MUTEX.specify(true);
+
+bool      Enforce_UHF_PMA_MUTEX;
+Enforce_UHF_PMA_MUTEX.specify(true);
+
+bool      Enforce_UHF_IDD_MUTEX;
+Enforce_UHF_IDD_MUTEX.specify(true);
+
+bool      Enforce_IPS_MT_MUTEX;
+Enforce_IPS_MT_MUTEX.specify(true);
+
+bool      Enforce_GFA_IDD_MUTEX;
+Enforce_GFA_IDD_MUTEX.specify(true);
+
+bool      Enforce_GFA_HGA_MUTEX;
+Enforce_GFA_HGA_MUTEX.specify(true);
+
+bool      Enforce_RAT_PMA_MUTEX;
+Enforce_RAT_PMA_MUTEX.specify(true);
+
+
+
+
+/**
+ * @brief Claims and Mutual Exclusions
+ */
+
+
+class Active_PMA_Claim extends Timeline {
+  Active_PMA_Claim() {}
+
+  predicate PMA_Claimed {}
+}
+
+class Active_IDD_Claim extends Timeline {
+  Active_IDD_Claim() {}
+
+  predicate IDD_Claimed {}
+}
+
+class Active_Mobility_Claim extends Timeline {
+  Active_Mobility_Claim() {}
+
+  predicate Mobility_Claimed {}
+}
+
+class Active_Comm_Claim extends Timeline {
+  Active_Comm_Claim() {}
+
+  predicate Comm_Claimed {}
+
+}
+
+
+class Active_Mobility_PMA extends Timeline {
+  Active_Mobility_PMA() {}
+
+  predicate Mobility_PMA_MUTEX {}
+}
+
+class Active_Mobility_HZ extends Timeline {
+  Active_Mobility_HZ() {}
+
+  predicate Mobility_HZ_MUTEX {}
+}
+
+class Active_Mobility_Comm extends Timeline {
+  Active_Mobility_Comm() {}
+
+  predicate Mobility_Comm_MUTEX {}
+}
+
+class Active_Mobility_IDD extends Timeline {
+  Active_Mobility_IDD() {}
+
+  predicate Mobility_IDD_MUTEX {}
+}
+
+
+class Active_UHF_PMA extends Timeline {
+  Active_UHF_PMA() {}
+
+  predicate UHF_PMA_MUTEX {}
+}
+
+class Active_UHF_IDD extends Timeline {
+  Active_UHF_IDD() {}
+
+  predicate UHF_IDD_MUTEX {}
+}
+
+class Active_RAT_PMA extends Timeline {
+  Active_RAT_PMA() {}
+
+  predicate RAT_PMA_MUTEX {}
+}
+
+class Active_IPS_MT extends Timeline {
+  Active_IPS_MT() {}
+
+  predicate IPS_MT_MUTEX {}
+}
+
+class Active_GFA_IDD extends Timeline {
+  Active_GFA_IDD() {}
+
+  predicate GFA_IDD_MUTEX {}
+}
+
+class Active_GFA_HGA extends Timeline {
+  Active_GFA_HGA() {}
+
+  predicate GFA_HGA_MUTEX {}
+}
+
+
+
+/**
+ * @brief Unit Capacity Resources
+ */
+
+
+class Unit_Capacity_Resource extends Unary {
+  Unit_Capacity_Resource() {
+    super();
+  }
+}
+
+class PMA_Claim extends Unary {
+  PMA_Claim() {
+    super();
+  }
+}
+
+class IDD_Claim extends Unit_Capacity_Resource {
+  IDD_Claim() {
+    super();
+  }
+}
+
+class Mobility_Claim extends Unit_Capacity_Resource {
+  Mobility_Claim() {
+    super();
+  }
+}
+
+// there can be no overlap between comm sessions
+class Comm_Claim extends Unit_Capacity_Resource {
+  Comm_Claim() {
+    super();
+  }
+}
+
+
+/**
+ * @brief State Condition resources
+ */
+
+
+class State_Condition extends Reservoir {
+  State_Condition(float initCap) {
+    super(initCap, 0.0, +inff, +inff, +inff, -inff, -inff);
+  }
+}
+
+
+// CPU needed flight rule
+class CPU_Avail extends State_Condition {
+  CPU_Avail(float initCap) {
+    super(initCap);
+  }
+}
+
+
+// IDD stowed and unstowed flight rules
+class IDD_Stowed extends State_Condition {
+  IDD_Stowed(float initCap) {
+    super(initCap);
+  }
+}
+
+class IDD_Unstowed extends State_Condition {
+  IDD_Unstowed(float initCap) {
+    super(initCap);
+  }
+}
+
+
+class IDD_Idle extends State_Condition {
+  IDD_Idle(float initCap) {
+    super(initCap);
+  }
+}
+
+// mutual exclusions with driving
+class Mobility_Stationary extends State_Condition {
+  Mobility_Stationary(float initCap) {
+    super(initCap);
+  }
+}
+
+
+class UHF_Idle extends State_Condition {
+  UHF_Idle(float initCap) {
+    super(initCap);
+  }
+}
+
+class HGA_Idle extends State_Condition {
+  HGA_Idle(float initCap) {
+    super(initCap);
+  }
+}
+
+class RAT_Idle extends State_Condition {
+  RAT_Idle(float initCap) {
+    super(initCap);
+  }
+}
+
+
+
+/**
+ * @brief numeric resources
+ */
+
+
+// maximum overlap in imaging is up to the TUL
+class Numof_Imaging extends Reservoir {
+  Numof_Imaging(float maxCap) {
+    super(maxCap, 0.0, maxCap, +inff, +inff, -inff, -inff);
+  }
+}
+
+
+// Resource used for computed CPU windows (CPU_ON activities)
+// Includes boot, avail, shutdown, and minimum cpu gap (at end)
+// To determine the CPU_ON for each window, trim off the min cpu gap
+//
+// Note, that this is NOT used in passive checking
+
+class CPU_Windows extends Reservoir {
+  CPU_Windows() {
+    super(0.0, -inff, +inff, +inff, +inff, -inff, -inff);
+  }
+}
+
+
+
+  /**
+   * @brief initial conditions - need to add energy and data later
+   * Note, the server code depends on incon's parameters matching the
+   * associated resource class
+   */
+class InitialConds extends Timeline {
+
+  InitialConds() {}
+
+  predicate incon {
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+    bool         _IDD_Stowed;
+    bool         _IDD_Unstowed;
+
+    eq(duration, 1);
+  }
+
+}
+
+InitialConds::incon {
+  if (_IDD_Stowed == true) {
+    starts(IDD_Stowed.produce c5);
+    eq(c5.quantity, STATE_COND_TRUE);
+  }
+  if (_IDD_Unstowed == true) {
+    starts(IDD_Unstowed.produce c6);
+    eq(c6.quantity, STATE_COND_TRUE);
+  }
+}
+
+
+
+/**
+ * @brief model for container objects (e.g., Observation)
+ */
+
+class ContainerObj extends Object {
+
+  ContainerObj() {}
+
+  predicate CONTAINER {
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+    float       name;
+  }
+
+}
+
+
+/**
+ * @brief model for Instrument Positioning System
+ */
+
+class IPS extends Object {
+
+  IPS() {}
+
+  predicate APXS_START {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate APXS_ACQ {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate APXS_OFF {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate MB_START {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate MB_ACQ {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate MB_OFF {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate MI {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate RAT {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate IDD_MOVE {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate IDD_STOW {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate IDD_UNSTOW {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+}
+
+IPS::APXS_START {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr4);
+      eq(fr4.quantity, 1.0);
+      ends(CPU_Avail.produce fr5);
+      eq(fr5.quantity, 1.0);
+
+      // flight rule: cannot start APXS while UHF is in use
+      starts(UHF_Idle.consume fr6);
+      eq(fr6.quantity, 1.0);
+      ends(UHF_Idle.produce fr7);
+      eq(fr7.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  // Flight Rule: connot use miniTES while starting or stopping APXS or MB
+	  if (Enforce_IPS_MT_MUTEX == true) {
+	    equals(Active_IPS_MT.IPS_MT_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Flight Rule: cannot start or stop APXS/MB during UHF 
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+IPS::APXS_ACQ {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+    }
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+IPS::APXS_OFF {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr4);
+      eq(fr4.quantity, 1.0);
+      ends(CPU_Avail.produce fr5);
+      eq(fr5.quantity, 1.0);
+
+      // flight rule: cannot stop and readout APXS while UHF is in use
+      starts(UHF_Idle.consume fr6);
+      eq(fr6.quantity, 1.0);
+      ends(UHF_Idle.produce fr7);
+      eq(fr7.quantity, 1.0);
+
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  // Flight Rule: connot use miniTES while starting or stopping APXS or MB
+	  if (Enforce_IPS_MT_MUTEX == true) {
+	    equals(Active_IPS_MT.IPS_MT_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Flight Rule: cannot start or stop APXS/MB during UHF 
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+IPS::MB_ACQ {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+IPS::MB_START {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr4);
+      eq(fr4.quantity, 1.0);
+      ends(CPU_Avail.produce fr5);
+      eq(fr5.quantity, 1.0);
+
+      // flight rule: cannot start MB while UHF is in use
+      starts(UHF_Idle.consume fr6);
+      eq(fr6.quantity, 1.0);
+      ends(UHF_Idle.produce fr7);
+      eq(fr7.quantity, 1.0);
+
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  // Flight Rule: connot use miniTES while starting or stopping APXS or MB
+	  if (Enforce_IPS_MT_MUTEX == true) {
+	    equals(Active_IPS_MT.IPS_MT_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Flight Rule: cannot start or stop APXS/MB during UHF 
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+IPS::MB_OFF {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr4);
+      eq(fr4.quantity, 1.0);
+      ends(CPU_Avail.produce fr5);
+      eq(fr5.quantity, 1.0);
+
+      // flight rule: cannot stop and readout MB while UHF is in use
+      starts(UHF_Idle.consume fr6);
+      eq(fr6.quantity, 1.0);
+      ends(UHF_Idle.produce fr7);
+      eq(fr7.quantity, 1.0);
+
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  // Flight Rule: connot use miniTES while starting or stopping APXS or MB
+	  if (Enforce_IPS_MT_MUTEX == true) {
+	    equals(Active_IPS_MT.IPS_MT_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Flight Rule: cannot start or stop APXS/MB during UHF 
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+IPS::MI {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+      // MI changes state of IDD_Idle
+      starts(IDD_Idle.consume c2);
+      eq(STATE_COND_FALSE, c2.quantity);
+      ends(IDD_Idle.produce c3);
+      eq(c3.quantity, STATE_COND_TRUE);
+
+      // MI uses the IDD throughout its execution
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+    
+      // flight rule: cannot use MI while UHF is in use
+      starts(UHF_Idle.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(UHF_Idle.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(CPU_Avail.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  // Flight Rule: do not move IDD during MTES
+	  if (Enforce_IPS_MT_MUTEX == true) {
+	    equals(Active_IPS_MT.IPS_MT_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Flight Rule: should not be using any actuators during GET_FINE_ATTITUDE 
+	  if (Enforce_GFA_IDD_MUTEX == true) {
+	    equals(Active_GFA_IDD.GFA_IDD_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	  // Disallow IDD actuation while moving rover
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  // Disallow IDD actuation during UHF
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+IPS::RAT {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+      // RAT claims the IDD subsystem
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+
+      // RAT changes state of RAT_Idle
+      starts(RAT_Idle.consume c4);
+      eq(STATE_COND_FALSE, c4.quantity);
+      ends(RAT_Idle.produce c5);
+      eq(c5.quantity, STATE_COND_TRUE);
+
+      // flight rule: cannot use RAT while UHF is in use
+      starts(UHF_Idle.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(UHF_Idle.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(CPU_Avail.produce fr6);
+      eq(fr6.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  // Flight Rule: cannot use Pancams while RAT is in use
+	  if (Enforce_RAT_PMA_MUTEX == true) {
+	    equals(Active_RAT_PMA.RAT_PMA_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  // Flight Rule: cannot perform UHF Comm while RAT is in use
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+IPS::IDD_MOVE {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+
+      // IDD_MOVE changes state of IDD_Idle
+      starts(IDD_Idle.consume c2);
+      eq(c2.quantity, STATE_COND_FALSE);
+      ends(IDD_Idle.produce c3);
+      eq(c3.quantity, STATE_COND_TRUE);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: cannot move IDD while UHF is in use
+      starts(UHF_Idle.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(UHF_Idle.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: IDD must be unstowed to move it
+      starts(IDD_Unstowed.consume f7);
+      eq(f7.quantity, 1.0);
+      ends(IDD_Unstowed.produce f8);
+      eq(f8.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr9);
+      eq(fr9.quantity, 1.0);
+      ends(CPU_Avail.produce fr10);
+      eq(fr10.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  // Flight Rule: do not move IDD during MTES
+	  if (Enforce_IPS_MT_MUTEX == true) {
+	    equals(Active_IPS_MT.IPS_MT_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Flight Rule: should not be using any actuators during GET_FINE_ATTITUDE 
+	  if (Enforce_GFA_IDD_MUTEX == true) {
+	    equals(Active_GFA_IDD.GFA_IDD_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	  // Disallow IDD actuation while moving rover
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  // Disallow IDD actuation during UHF
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+IPS::IDD_STOW {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking  
+
+    if (Enable_Passive_Checking == true) {
+      // IDD_STOW requires the IDD_Unstowed state 
+      // to be true before the start of its execution
+      // During its excution both IDD_Stowed and IDD_Unstowed are false
+      starts(IDD_Unstowed.consume c5);
+      eq(c5.quantity, STATE_COND_FALSE);
+      // IDD_STOW makes the IDD_Stowed state true 
+      // at the end of its execution 
+      ends(IDD_Stowed.produce c6);
+      eq(c6.quantity, STATE_COND_TRUE);
+
+      // IDD_STOW claims the IDD during its execution
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+      // IDD_STOW makes the IDD_Idle state false 
+      // for its duration of its execution 
+      starts(IDD_Idle.consume c2);
+      eq(STATE_COND_FALSE, c2.quantity);
+      ends(IDD_Idle.produce c3);
+      eq(c3.quantity, STATE_COND_TRUE);
+
+      // flight rule: cannot move IDD while UHF is in use
+      starts(UHF_Idle.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(UHF_Idle.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(CPU_Avail.produce fr6);
+      eq(fr6.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  // Flight Rule: do not move IDD during MTES
+	  if (Enforce_IPS_MT_MUTEX == true) {
+	    equals(Active_IPS_MT.IPS_MT_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Flight Rule: should not be using any actuators during GET_FINE_ATTITUDE 
+	  if (Enforce_GFA_IDD_MUTEX == true) {
+	    equals(Active_GFA_IDD.GFA_IDD_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	  // Disallow IDD actuation during UHF
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+IPS::IDD_UNSTOW {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+      // IDD_UNSTOW requires the IDD_Stowed state 
+      // to be true before the start of its execution
+      // During its excution both IDD_Stowed and IDD_Unstowed are false
+      starts(IDD_Stowed.consume c6);
+      eq(c6.quantity, STATE_COND_FALSE);
+      // IDD_UNSTOW makes the IDD_Unstowed state true 
+      // at the end of its execution 
+      ends(IDD_Unstowed.produce c5);
+      eq(c5.quantity, STATE_COND_TRUE);
+
+      // IDD_UNSTOW claims the IDD during its execution
+//       starts(IDD_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(IDD_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(IDD_Claim.use tx);
+
+      // IDD_UNSTOW makes the IDD_Idle state false 
+      // for its duration of its execution 
+      starts(IDD_Idle.consume c2);
+      eq(STATE_COND_FALSE, c2.quantity);
+      ends(IDD_Idle.produce c3);
+      eq(c3.quantity, STATE_COND_TRUE);
+
+      // flight rule: cannot move IDD while UHF is in use
+      starts(UHF_Idle.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(UHF_Idle.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(CPU_Avail.produce fr6);
+      eq(fr6.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_IDD_Claim == true) {
+	    equals(Active_IDD_Claim.IDD_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  // Flight Rule: do not move IDD during MTES
+	  if (Enforce_IPS_MT_MUTEX == true) {
+	    equals(Active_IPS_MT.IPS_MT_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Flight Rule: should not be using any actuators during GET_FINE_ATTITUDE 
+	  if (Enforce_GFA_IDD_MUTEX == true) {
+	    equals(Active_GFA_IDD.GFA_IDD_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	  // Disallow IDD actuation while moving rover
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	  // Disallow IDD actuation during UHF
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx6);
+	    neq(mx6.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+/**
+ * @brief model for PanCam Mast Assembly
+ */
+
+class PMA extends Object {
+
+  PMA() {}
+
+  predicate PANCAM_MOSAIC {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate PANCAM_SINGLE_POSITION {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate NAVCAM_MOSAIC {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate NAVCAM_SINGLE_POSITION {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate MTES_8_MRAD {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate MTES_20_MRAD {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate GET_FINE_ATTITUDE {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+}
+
+
+PMA::PANCAM_MOSAIC {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(PMA_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(PMA_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(PMA_Claim.use tx);
+
+      starts(Numof_Imaging.consume ic1);
+      eq(ic1.quantity, 1.0);
+      ends(Numof_Imaging.produce ic2);
+      eq(ic2.quantity, 1.0);
+
+      // flight rule: cannot use Pancams while UHF is in use
+      starts(UHF_Idle.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(UHF_Idle.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr7);
+      eq(fr7.quantity, 1.0);
+      ends(CPU_Avail.produce fr8);
+      eq(fr8.quantity, 1.0);
+
+      // flight rule: cannot use Pancams while RAT is in use
+      starts(RAT_Idle.consume fr9);
+      eq(fr9.quantity, 1.0);
+      ends(RAT_Idle.produce fr10);
+      eq(fr10.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_PMA_Claim == true) {
+	    equals(Active_PMA_Claim.PMA_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_PMA_MUTEX == true) {
+	    equals(Active_Mobility_PMA.Mobility_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	  // Flight Rule: cannot use Pancams while RAT is in use
+	  if (Enforce_RAT_PMA_MUTEX == true) {
+	    equals(Active_RAT_PMA.RAT_PMA_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+PMA::PANCAM_SINGLE_POSITION {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(PMA_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(PMA_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(PMA_Claim.use tx);
+
+      starts(Numof_Imaging.consume ic1);
+      eq(ic1.quantity, 1.0);
+      ends(Numof_Imaging.produce ic2);
+      eq(ic2.quantity, 1.0);
+
+      // flight rule: cannot use Pancams while UHF is in use
+      starts(UHF_Idle.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(UHF_Idle.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr7);
+      eq(fr7.quantity, 1.0);
+      ends(CPU_Avail.produce fr8);
+      eq(fr8.quantity, 1.0);
+
+      // flight rule: cannot use Pancams while RAT is in use
+      starts(RAT_Idle.consume fr9);
+      eq(fr9.quantity, 1.0);
+      ends(RAT_Idle.produce fr10);
+      eq(fr10.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_PMA_Claim == true) {
+	    equals(Active_PMA_Claim.PMA_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_PMA_MUTEX == true) {
+	    equals(Active_Mobility_PMA.Mobility_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	  // Flight Rule: cannot use Pancams while RAT is in use
+	  if (Enforce_RAT_PMA_MUTEX == true) {
+	    equals(Active_RAT_PMA.RAT_PMA_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+PMA::NAVCAM_MOSAIC {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(PMA_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(PMA_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+    equals(PMA_Claim.use tx);    
+
+      starts(Numof_Imaging.consume ic1);
+      eq(ic1.quantity, 1.0);
+      ends(Numof_Imaging.produce ic2);
+      eq(ic2.quantity, 1.0);
+
+      // flight rule: cannot use Navcams while UHF is in use
+      starts(UHF_Idle.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(UHF_Idle.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr7);
+      eq(fr7.quantity, 1.0);
+      ends(CPU_Avail.produce fr8);
+      eq(fr8.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_PMA_Claim == true) {
+	    equals(Active_PMA_Claim.PMA_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_PMA_MUTEX == true) {
+	    equals(Active_Mobility_PMA.Mobility_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+PMA::NAVCAM_SINGLE_POSITION {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+  
+//       starts(PMA_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(PMA_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(PMA_Claim.use tx);
+
+      starts(Numof_Imaging.consume ic1);
+      eq(ic1.quantity, 1.0);
+      ends(Numof_Imaging.produce ic2);
+      eq(ic2.quantity, 1.0);
+
+      // flight rule: cannot use Navcams while UHF is in use
+      starts(UHF_Idle.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(UHF_Idle.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr7);
+      eq(fr7.quantity, 1.0);
+      ends(CPU_Avail.produce fr8);
+      eq(fr8.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_PMA_Claim == true) {
+	    equals(Active_PMA_Claim.PMA_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_PMA_MUTEX == true) {
+	    equals(Active_Mobility_PMA.Mobility_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+PMA::MTES_8_MRAD {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+  
+//       starts(PMA_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(PMA_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(PMA_Claim.use tx);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(CPU_Avail.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: cannot use MTES while IDD is active
+      starts(IDD_Idle.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(IDD_Idle.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+      // flight rule: cannot use MTES while RAT is in use
+      starts(RAT_Idle.consume fr9);
+      eq(fr9.quantity, 1.0);
+      ends(RAT_Idle.produce fr10);
+      eq(fr10.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_PMA_Claim == true) {
+	    equals(Active_PMA_Claim.PMA_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_PMA_MUTEX == true) {
+	    equals(Active_Mobility_PMA.Mobility_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	  // Flight Rule: cannot use MiniTES while RAT is in use
+	  if (Enforce_RAT_PMA_MUTEX == true) {
+	    equals(Active_RAT_PMA.RAT_PMA_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+PMA::MTES_20_MRAD {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(PMA_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(PMA_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(PMA_Claim.use tx);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(CPU_Avail.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: cannot use MTES while IDD is active
+      starts(IDD_Idle.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(IDD_Idle.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+      // flight rule: cannot use MTES while RAT is in use
+      starts(RAT_Idle.consume fr9);
+      eq(fr9.quantity, 1.0);
+      ends(RAT_Idle.produce fr10);
+      eq(fr10.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_PMA_Claim == true) {
+	    equals(Active_PMA_Claim.PMA_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_PMA_MUTEX == true) {
+	    equals(Active_Mobility_PMA.Mobility_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	  // Flight Rule: cannot use MiniTES while RAT is in use
+	  if (Enforce_RAT_PMA_MUTEX == true) {
+	    equals(Active_RAT_PMA.RAT_PMA_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+PMA::GET_FINE_ATTITUDE {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+//       starts(PMA_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(PMA_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(PMA_Claim.use tx);
+
+      starts(Numof_Imaging.consume ic1);
+      eq(ic1.quantity, 1.0);
+      ends(Numof_Imaging.produce ic2);
+      eq(ic2.quantity, 1.0);
+
+      // IDD and IPS instruments cannot be used during get fine attitude
+      starts(IDD_Idle.consume c1);
+      eq(c1.quantity, 1.0);
+      ends(IDD_Idle.produce c2);
+      eq(c2.quantity, 1.0);
+
+      // flight rule: cannot use RAT during this operation
+      starts(RAT_Idle.consume fr9);
+      eq(fr9.quantity, 1.0);
+      ends(RAT_Idle.produce fr10);
+      eq(fr10.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(CPU_Avail.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: cannot use HGA during this operation
+      starts(HGA_Idle.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(HGA_Idle.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+      // flight rule: cannot use Pancams while UHF is in use
+      starts(UHF_Idle.consume fr7);
+      eq(fr7.quantity, 1.0);
+      ends(UHF_Idle.produce fr8);
+      eq(fr8.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_PMA_Claim == true) {
+	    equals(Active_PMA_Claim.PMA_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  // Flight Rule: cannot use Pancams or Navcams while UHF is in use
+	  if (Enforce_UHF_PMA_MUTEX == true) {
+	    equals(Active_UHF_PMA.UHF_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	  // Flight Rule: cannot use Pancams while RAT is in use
+	  if (Enforce_RAT_PMA_MUTEX == true) {
+	    equals(Active_RAT_PMA.RAT_PMA_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  // Prevents moving HGA while acquiring fine attitude knowledge
+	  if (Enforce_GFA_HGA_MUTEX == true) {
+	    equals(Active_GFA_HGA.GFA_HGA_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	  // Flight Rule: should not be using any actuators during GET_FINE_ATTITUDE 
+	  if (Enforce_GFA_IDD_MUTEX == true) {
+	    equals(Active_GFA_IDD.GFA_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+/**
+ * @brief model for Mobility system
+ */
+
+class Mobility extends Object {
+
+  Mobility() {}
+
+  predicate ROVER_ROLL {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate HAZCAM_FRONT {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+  predicate HAZCAM_REAR {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+
+}
+
+Mobility::ROVER_ROLL {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+      // Claim the Mobility subsystem
+//       starts(Mobility_Claim.consume tx);
+//       eq(tx.quantity, 1.0);
+//       ends(Mobility_Claim.produce ty);
+//       eq(ty.quantity, 1.0);
+      equals(Mobility_Claim.use tx);
+
+      // ROVER_ROLL changes state of Mobility_Stationary
+      starts(Mobility_Stationary.consume c2);
+      eq(STATE_COND_FALSE, c2.quantity);
+      ends(Mobility_Stationary.produce c3);
+      eq(c3.quantity, STATE_COND_TRUE);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(CPU_Avail.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule: IDD must be stowed to drive
+      starts(IDD_Stowed.consume f7);
+      eq(f7.quantity, 1.0);
+      ends(IDD_Stowed.produce f8);
+      eq(f8.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_Mobility_Claim == true) {
+	    equals(Active_Mobility_Claim.Mobility_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_PMA_MUTEX == true) {
+	    equals(Active_Mobility_PMA.Mobility_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	  if (Enforce_Mobility_HZ_MUTEX == true) {
+	    equals(Active_Mobility_HZ.Mobility_HZ_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  if (Enforce_Mobility_Comm_MUTEX == true) {
+	    equals(Active_Mobility_Comm.Mobility_Comm_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	  if (Enforce_Mobility_IDD_MUTEX == true) {
+	    equals(Active_Mobility_IDD.Mobility_IDD_MUTEX mx5);
+	    neq(mx5.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+    
+Mobility::HAZCAM_FRONT {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+      starts(Numof_Imaging.consume ic1);
+      eq(ic1.quantity, 1.0);
+      ends(Numof_Imaging.produce ic2);
+      eq(ic2.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(CPU_Avail.produce fr4);
+      eq(fr4.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_Mobility_HZ_MUTEX == true) {
+	    equals(Active_Mobility_HZ.Mobility_HZ_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+Mobility::HAZCAM_REAR {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+      starts(Numof_Imaging.consume ic1);
+      eq(ic1.quantity, 1.0);
+      ends(Numof_Imaging.produce ic2);
+      eq(ic2.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(CPU_Avail.produce fr4);
+      eq(fr4.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_Mobility_HZ_MUTEX == true) {
+	    equals(Active_Mobility_HZ.Mobility_HZ_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+/**
+ * @brief model for Communications System
+ *
+ * Note that the comm activities have start_time as a parameter
+ * because the planner is not allowed to determine (or change) start
+ * hence, there can be no flexibility in the start of comm activities
+ **/
+
+class Comm extends Object {
+
+  Comm() {}
+  
+  predicate X_COMM_HGA {
+    int        dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+  predicate UHF_COMM {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         enforced;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+}
+
+
+Comm::X_COMM_HGA {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+      // flight rule on non-overlapping comms only appies to setup
+      // and transmit phases, it does not apply to the cleanup phase
+      starts(Comm_Claim.use c1);
+      temporalDistance(c1.end, COMM_POST_XMIT, end);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr1);
+      eq(fr1.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr2);
+      eq(fr2.quantity, 1.0);
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr3);
+      eq(fr3.quantity, 1.0);
+      ends(CPU_Avail.produce fr4);
+      eq(fr4.quantity, 1.0);
+
+      // flight rule on mutual exclusion with HGA only appies to setup and
+      // transmit phases, it does not apply to the cleanup phase
+      starts(HGA_Idle.consume fr5);
+      eq(fr5.quantity, STATE_COND_FALSE);  
+      any(HGA_Idle.produce fr6);
+      temporalDistance(fr6.time, COMM_POST_XMIT, end);  
+      eq(fr6.quantity, STATE_COND_TRUE); 
+    }
+
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_Comm_Claim == true) {
+	    equals(Active_Comm_Claim.Comm_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_Mobility_Comm_MUTEX == true) {
+	    equals(Active_Mobility_Comm.Mobility_Comm_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	  // Prevents moving HGA while acquiring fine attitude knowledge
+	  if (Enforce_GFA_HGA_MUTEX == true) {
+	    equals(Active_GFA_HGA.GFA_HGA_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+
+Comm::UHF_COMM {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    any(CPU_Windows.produce w1);
+    eq(w1.quantity, 1.0);
+    temporalDistance(w1.time, CPU_BOOT_DUR, start);
+    any(CPU_Windows.consume w2);
+    eq(w2.quantity, 1.0);
+    temporalDistance(end, POST_CPU_WINDOW, w2.time);
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+      // flight rule on non-overlapping comms only appies to setup
+      // and transmit phases, it does not apply to the cleanup phase
+      starts(Comm_Claim.use c1);
+      temporalDistance(c1.end, COMM_POST_XMIT, end);
+
+      // flight rule on mutual exclusion with UHF only appies to setup and
+      // transmit phases, it does not apply to the cleanup phase
+      starts(UHF_Idle.consume fr2);
+      eq(fr2.quantity, STATE_COND_FALSE);  
+      any(UHF_Idle.produce fr4);
+      temporalDistance(fr4.time, COMM_POST_XMIT, end);  
+      eq(fr4.quantity, STATE_COND_TRUE); 
+
+      // flight rule: need CPU in avail state
+      starts(CPU_Avail.consume fr5);
+      eq(fr5.quantity, 1.0);
+      ends(CPU_Avail.produce fr6);
+      eq(fr6.quantity, 1.0);
+
+      // flight rule: rover must be stationary
+      starts(Mobility_Stationary.consume fr7);
+      eq(fr7.quantity, 1.0);
+      ends(Mobility_Stationary.produce fr8);
+      eq(fr8.quantity, 1.0);
+    }
+
+    // Flight Rule Active Enforcement
+    if (Enable_Active_Enforcement == true) {
+      if (solved == true) {
+	if (enforced == true) {
+
+	  if (Enforce_Comm_Claim == true) {
+	    equals(Active_Comm_Claim.Comm_Claimed mx1);
+	    neq(mx1.state, MERGED);
+	  }
+	  if (Enforce_UHF_PMA_MUTEX == true) {
+	    equals(Active_UHF_PMA.UHF_PMA_MUTEX mx2);
+	    neq(mx2.state, MERGED);
+	  }
+	  if (Enforce_UHF_IDD_MUTEX == true) {
+	    equals(Active_UHF_IDD.UHF_IDD_MUTEX mx3);
+	    neq(mx3.state, MERGED);
+	  }
+	  if (Enforce_Mobility_Comm_MUTEX == true) {
+	    equals(Active_Mobility_Comm.Mobility_Comm_MUTEX mx4);
+	    neq(mx4.state, MERGED);
+	  }
+	}
+      }
+    }
+  }
+}
+
+/**
+ * @brief model for CPU
+ * for now, not including the DEEP_SLEEP
+ **/
+
+
+class CPU extends Timeline {
+  CPU() {}
+
+  predicate CPU_ON {
+    int          dur;
+    int          priority;
+    int          reftime;
+    bool         scheduled;
+    bool         solved;
+    float       container_id;
+
+    eq(duration, dur);
+  }
+}
+
+
+CPU::CPU_ON {
+  // no active or passive checking if activity is not scheduled
+  if (scheduled == true) {
+
+    // Flight Rule Passive Checking
+
+    if (Enable_Passive_Checking == true) {
+
+      // CPU_ON changes state of CPU_Avail
+      any(CPU_Avail.produce tx);
+      temporalDistance(start, CPU_BOOT_DUR, tx.time);
+      eq(tx.quantity, STATE_COND_TRUE); 
+
+      any(CPU_Avail.consume fr4);
+      temporalDistance(fr4.time, CPU_SHUTDOWN_DUR, end);
+      eq(fr4.quantity, STATE_COND_FALSE); 
+    }
+  }
+}
+

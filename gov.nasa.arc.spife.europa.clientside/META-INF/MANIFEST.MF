@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Europa Clientside
+Bundle-SymbolicName: gov.nasa.arc.spife.europa.clientside;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.arc.spife.europa.clientside.EuropaClientSidePlugin
+Require-Bundle: gov.nasa.ensemble.common.ui;bundle-version="1.0.14",
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ redstone.xmlrpc;bundle-version="1.0.0",
+ org.eclipse.emf.edit
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: gov.nasa.arc.spife.europa.clientside,
+ gov.nasa.arc.spife.europa.clientside.esmconfig,
+ gov.nasa.arc.spife.europa.clientside.esmconfig.provider,
+ gov.nasa.arc.spife.europa.clientside.provider,
+ gov.nasa.arc.spife.europa.clientside.tests,
+ gov.nasa.arc.spife.europa.clientside.tests.clientside
+Bundle-ClassPath: DynamicEuropa.jar,
+ .

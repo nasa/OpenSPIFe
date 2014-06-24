@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.3"?>
+<plugin>
+   <extension point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup class="gov.nasa.ensemble.emf.transaction.IConsistencyMaintenanceListener">
+         <implementation class="gov.nasa.ensemble.core.plan.constraints.network.TemporalNetworkConsistencyMaintenanceListener">
+         </implementation>
+      </lookup>
+   </extension>
+
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.ensemble.core.plan.constraints.AllConstraintTests"/>
+   </extension>
+
+   <extension point="gov.nasa.ensemble.core.plan.temporal.PlanModifier">
+         <modifier class="gov.nasa.ensemble.core.plan.constraints.network.SpifePlanModifier"
+				   icon="icons/constrained_move_icon.gif"
+				   name="Constrained Move"/>
+   </extension>
+
+   <extension
+         point="gov.nasa.ensemble.core.plan.PlanElementMember">
+      <PlanElementMemberExtension
+            class="gov.nasa.ensemble.core.plan.constraints.network.TemporalNetworkMemberFactory"
+            id="TemporalNetworkMemberFactory"
+            name="TemporalNetworkMemberFactory"/>
+   </extension>
+
+   <extension point="gov.nasa.ensemble.core.plan.editor.PlanTransferableExtension">
+      <planTransferableExtension class="gov.nasa.ensemble.core.plan.constraints.ui.DistanceConstraintTransferExtension"/>
+      <planTransferableExtension class="gov.nasa.ensemble.core.plan.constraints.ui.TemporalChainTransferExtension"/>
+   </extension>
+   
+      <extension point="org.eclipse.ui.preferencePages">
+      <page
+            class="gov.nasa.ensemble.core.plan.constraints.ui.preference.PlanConstraintsPreferencePage"
+            id="PlanConstraintsPreferencePage"
+            name="Constraints"
+            category="PlanEditorPreferencePage"/>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="gov.nasa.ensemble.core.plan.constraints.ui.preference.PlanConstraintsPreferenceInitializer"/>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.plan.advisor.IPlanAdvisorFactory">
+      <planAdvisorFactory
+            class="gov.nasa.ensemble.core.plan.constraints.ui.advisor.ConstraintsPlanAdvisorFactory">
+      </planAdvisorFactory>
+   </extension>
+
+   <extension
+         id="temporalchainlinkviolation"
+         name="Chain Link Violation"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+   </extension>
+      <extension
+         id="temporaldistanceviolation"
+         name="Temporal Distance Constraint Violation"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+   </extension>
+   <extension
+         id="temporalendpointviolation"
+         name="Temporal Endpoint Constraint Violation"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            class="gov.nasa.ensemble.core.plan.constraints.ui.preference.ConstraintsPreferencePage"
+            id="gov.nasa.ensemble.core.plan.constraints.preferences.ConstraintsPreferencePage"
+            name="Constraints"
+            category="PlanAdvisorPreferencePage"/>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="gov.nasa.ensemble.core.plan.constraints.ui.preference.ConstraintsPreferenceInitializer"/>
+   </extension>
+   
+</plugin>

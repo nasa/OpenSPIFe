@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.arc.spife/src"
+    editDirectory="/gov.nasa.arc.spife/src" modelPluginID="gov.nasa.arc.spife" modelName="Timeline"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../gov.nasa.ensemble.core.jscience/model/JScience.genmodel#//jscience">
+  <foreignModel>Timeline.ecore</foreignModel>
+  <genPackages prefix="Timeline" basePackage="gov.nasa.arc.spife" resource="XMI" disposableProviderFactory="true"
+      interfacePackageSuffix="model" classPackageSuffix="model.impl" utilityPackageSuffix="model.util"
+      extensibleProviderFactory="true" ecorePackage="Timeline.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Timeline.ecore#//Alignment">
+      <genEnumLiterals ecoreEnumLiteral="Timeline.ecore#//Alignment/LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="Timeline.ecore#//Alignment/CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="Timeline.ecore#//Alignment/RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="Timeline.ecore#//Alignment/TRAILING"/>
+      <genEnumLiterals ecoreEnumLiteral="Timeline.ecore#//Alignment/TRUNCATE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Timeline.ecore#//FigureStyle">
+      <genEnumLiterals ecoreEnumLiteral="Timeline.ecore#//FigureStyle/SOLID"/>
+      <genEnumLiterals ecoreEnumLiteral="Timeline.ecore#//FigureStyle/PATTERN"/>
+      <genEnumLiterals ecoreEnumLiteral="Timeline.ecore#//FigureStyle/I_BAR"/>
+    </genEnums>
+    <genClasses ecoreClass="Timeline.ecore#//ETimeline">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Timeline.ecore#//ETimeline/contents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Timeline.ecore#//ETimeline/page"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//ETimeline/rowHeight"/>
+    </genClasses>
+    <genClasses ecoreClass="Timeline.ecore#//GanttSection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//GanttSection/alignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//GanttSection/rowHeight"/>
+    </genClasses>
+    <genClasses ecoreClass="Timeline.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//Page/currentPageExtent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//Page/duration"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//Page/milliSecondsPerPixel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//Page/startTime"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//Page/width"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Timeline.ecore#//Page/zoomOption"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Timeline.ecore#//Page/zoomOptions"/>
+      <genOperations ecoreOperation="Timeline.ecore#//Page/convertToMilliseconds">
+        <genParameters ecoreParameter="Timeline.ecore#//Page/convertToMilliseconds/screenWidth"/>
+      </genOperations>
+      <genOperations ecoreOperation="Timeline.ecore#//Page/convertToPixels">
+        <genParameters ecoreParameter="Timeline.ecore#//Page/convertToPixels/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="Timeline.ecore#//Page/getExtent"/>
+      <genOperations ecoreOperation="Timeline.ecore#//Page/getTime">
+        <genParameters ecoreParameter="Timeline.ecore#//Page/getTime/screenPosition"/>
+      </genOperations>
+      <genOperations ecoreOperation="Timeline.ecore#//Page/getScreenPosition">
+        <genParameters ecoreParameter="Timeline.ecore#//Page/getScreenPosition/time"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Timeline.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//Section/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Timeline.ecore#//TimelineBuilderContent">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//TimelineBuilderContent/identifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Timeline.ecore#//TimelineContent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//TimelineContent/rowHeight"/>
+    </genClasses>
+    <genClasses ecoreClass="Timeline.ecore#//ZoomOption">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//ZoomOption/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//ZoomOption/majorTickInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//ZoomOption/minorTickInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//ZoomOption/msInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//ZoomOption/msMoveThreshold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//ZoomOption/msNudgeThreshold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timeline.ecore#//ZoomOption/scrollInterval"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

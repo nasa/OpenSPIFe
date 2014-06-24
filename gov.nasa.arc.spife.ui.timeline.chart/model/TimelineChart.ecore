@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
+    nsURI="platform:/resource/gov.nasa.arc.spife.ui.timeline.chart/model/TimelineChart.ecore"
+    nsPrefix="chart">
+  <eClassifiers xsi:type="ecore:EClass" name="AmountLine" eSuperTypes="#//ChartElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rgb" eType="#//ERGB"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chart" eSuperTypes="../../gov.nasa.arc.spife/model/Timeline.ecore#//TimelineContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumHeight" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plots" upperBound="-1"
+        eType="#//Plot" containment="true" eOpposite="#//Plot/chart"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="#//ChartStyle"
+        defaultValueLiteral="LINE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChartElement" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Charts">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="charts" upperBound="-1"
+        eType="#//Chart" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ChartStyle">
+    <eLiterals name="LINE"/>
+    <eLiterals name="HEAT_MAP" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ERGB" instanceClassName="org.eclipse.swt.graphics.RGB"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="FitPolicy">
+    <eLiterals name="AUTO"/>
+    <eLiterals name="CUSTOM" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LineChart" eSuperTypes="#//Chart">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lines" upperBound="-1"
+        eType="#//AmountLine" volatile="true" transient="true" derived="true" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maximumLine" eType="#//AmountLine"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minimumLine" eType="#//AmountLine"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plot" eSuperTypes="#//ChartElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chart" eType="#//Chart"
+        eOpposite="#//Chart/plots"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extent" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmountExtent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rgb" eType="#//ERGB"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fit" eType="#//FitPolicy"
+        defaultValueLiteral="AUTO"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profile">
+      <eGenericType eClassifier="ecore:EClass ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//Profile">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showText" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoAssignRGB" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+</ecore:EPackage>

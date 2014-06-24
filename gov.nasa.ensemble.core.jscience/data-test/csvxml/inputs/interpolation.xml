@@ -1,0 +1,37 @@
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+    <!-- In this one, the first, second, and third data values at each date
+    	 whether specified explicitly or interpolated, are equal to the
+    	 fourth, fifth, and sixth value respectively on the same date row.
+    	 
+    	 Thus, this tests all interpolation types.   -->
+    <columns timeFormat="ISO8601">
+         <column id="step" type="Double" interpolation="step">
+         	<property key="interpolate_at_date" value="2011-04-01T09:00:00Z"/>
+         	<property key="expected_interpolated_value" value="500"/>
+         </column>
+         <column id="instantaneous" type="Double" interpolation="instantaneous" defaultValue="777">
+         	<property key="interpolate_at_date" value="2011-04-01T09:00:00Z"/>
+          	<property key="expected_interpolated_value" value="777"/>
+         </column>
+         <column id="linear" type="Double" interpolation="linear">
+         	<property key="interpolate_at_date" value="2011-04-01T09:00:00Z"/>
+          	<property key="expected_interpolated_value" value="590"/>
+         </column>
+         <column id="Cf1" type="Double" interpolation="instantaneous"/>
+         <column id="Cf2" type="Double" interpolation="instantaneous"/>
+         <column id="Cf3" type="Double" interpolation="instantaneous"/>
+    </columns>
+    <data>
+        <![CDATA[
+StartTime,    step,instantaneous,linear,    Cf1, Cf2, Cf3
+    2011-04-01T00:00:00Z, 500, 500, 500,    500, 500, 500
+    2011-04-01T20:00:00Z, 700, 700, 700,    700, 700, 700
+    2011-04-06T00:00:11Z, 123,    , 789,    123, 777, 789
+    2011-04-06T00:00:12Z,    , 150, 111,    123, 150, 111
+    2011-04-06T00:00:13Z, 500, 400, 300,    500, 400, 300
+    2011-04-06T00:00:14Z,    ,    ,    ,    500, 777, 250 
+    2011-04-06T00:00:15Z, 555, 222, 200,    555, 222, 200
+     ]]>
+    </data>
+</resources>

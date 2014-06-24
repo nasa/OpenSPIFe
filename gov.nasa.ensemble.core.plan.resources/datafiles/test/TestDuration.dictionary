@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="DerivedDurationActivity" duration="explicit_duration">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="explicit_duration" defaultValueLiteral="01:00:00" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <stateEffects endEffect="true" definition="//BooleanResource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="OverrideDurationActivity" duration="derived_duration">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="override_duration" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="derived_duration" derived="true" units="s">
+      <eAnnotations source="resource">
+        <details key="formula" value="override_duration ? override_duration : default_duration"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="default_duration" defaultValueLiteral="01:00:00" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <stateEffects endEffect="true" definition="//BooleanResource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="ComputedOverrideDurationActivity" duration="derived_duration">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="override_duration" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="derived_duration" derived="true" units="s">
+      <eAnnotations source="resource">
+        <details key="formula" value="override_duration ? override_duration : computed_duration"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="computed_duration" defaultValueLiteral="01:00:00" derived="true" units="s">
+      <eAnnotations source="resource">
+        <details key="formula" value="do_something ? 3600 : 0"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="do_something" defaultValueLiteral="true">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+    <stateEffects endEffect="true" definition="//BooleanResource"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:EStateResourceDef" name="BooleanResource">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </extendedDefinitions>
+</dict:EActivityDictionary>

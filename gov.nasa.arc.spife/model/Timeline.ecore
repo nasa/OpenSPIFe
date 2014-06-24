@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="timeline"
+    nsURI="platform:/plugin/gov.nasa.arc.spife/model/Timeline.ecore" nsPrefix="tl">
+  <eClassifiers xsi:type="ecore:EEnum" name="Alignment">
+    <eLiterals name="LEFT"/>
+    <eLiterals name="CENTER" value="1"/>
+    <eLiterals name="RIGHT" value="2"/>
+    <eLiterals name="TRAILING" value="3"/>
+    <eLiterals name="TRUNCATE" value="4" literal="TRUNCATE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ETimeline">
+    <eOperations name="getAllContents" unique="false" upperBound="-1" eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topContents" upperBound="-1"
+        eType="#//Section" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//Section" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="page" eType="#//Page" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FigureStyle">
+    <eLiterals name="SOLID" literal="SOLID"/>
+    <eLiterals name="PATTERN" value="1" literal="PATTERN"/>
+    <eLiterals name="I_BAR" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GanttSection" eSuperTypes="#//Section">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Page">
+    <eOperations name="convertToMilliseconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eParameters name="screenWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="convertToPixels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eOperations>
+    <eOperations name="getExtent" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalExtent"/>
+    <eOperations name="getTime" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDate">
+      <eParameters name="screenPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eOperations>
+    <eOperations name="getScreenPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="time" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDate"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentPageExtent" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//TemporalExtent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="milliSecondsPerPixel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zoomOption" eType="#//ZoomOption"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zoomOptions" upperBound="-1"
+        eType="#//ZoomOption" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Section">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//Alignment"
+        defaultValueLiteral="TRUNCATE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimelineBuilderContent" eSuperTypes="#//TimelineContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimelineContent" eSuperTypes="#//Section">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ZoomOption">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="majorTickInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="86400000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minorTickInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="3600000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="msInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="msMoveThreshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="msNudgeThreshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollInterval" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"
+        defaultValueLiteral="1 d"/>
+  </eClassifiers>
+</ecore:EPackage>

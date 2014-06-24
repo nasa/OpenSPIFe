@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="ConsistencyMaintenanceListener" name="ConsistencyMaintenanceListener" schema="schema/ConsistencyMaintenanceListener.exsd"/>
+   <extension-point id="ModelChangedListener" name="ModelChangedListener" schema="schema/ModelChangedListener.exsd"/>
+   <extension
+         point="gov.nasa.ensemble.common.MissionExtension">
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.emf.transaction.TransactionEditingDomainFactory"
+            MissionSpecificClass="gov.nasa.ensemble.core.model.common.transactions.UITransactionEditingDomainFactory"
+            id="UITransactionEditingDomainFactory">
+      </MissionExtension>
+   </extension>
+   <!--
+   <extension
+         point="org.eclipse.emf.compare.diff.engine">
+      <diffengine
+      		label="DiffEngine"
+            engineClass="gov.nasa.ensemble.core.model.common.compare.BetterDiffEngine"
+            fileExtension="*,ecore"
+            priority="highest">
+      </diffengine>
+   </extension>
+   -->
+</plugin>

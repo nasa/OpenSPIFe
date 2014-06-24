@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.arc.spife.europa.clientside/src"
+    modelPluginID="gov.nasa.arc.spife.europa.clientside" modelName="Europa-server-config"
+    editPluginClass="gov.nasa.arc.spife.europa.clientside.provider.EuropaServerConfigEditPlugin"
+    editorPluginClass="gov.nasa.arc.spife.europa.clientside.presentation.EuropaServerConfigEditorPlugin"
+    testSuiteClass="gov.nasa.arc.spife.europa.clientside.tests.EuropaServerConfigAllTests"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>europa-server-config.xsd</foreignModel>
+  <genPackages prefix="EuropaServerConfig" resource="XML" disposableProviderFactory="true"
+      ecorePackage="EuropaServerConfig.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EuropaServerConfig.ecore#//LogTypeMember1Item">
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerConfig.ecore#//LogTypeMember1Item/ERROR"/>
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerConfig.ecore#//LogTypeMember1Item/TRACE"/>
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerConfig.ecore#//LogTypeMember1Item/TRACEALL"/>
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerConfig.ecore#//LogTypeMember1Item/RETURN"/>
+      <genEnumLiterals ecoreEnumLiteral="EuropaServerConfig.ecore#//LogTypeMember1Item/TIMER"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//LogType"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//LogTypeMember0"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//LogTypeMember0Object"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//LogTypeMember1"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//LogTypeMember1ItemObject"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//PortType"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//PortTypeObject"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//TimeoutType"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//TimeoutTypeObject"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//VerbosityType"/>
+    <genDataTypes ecoreDataType="EuropaServerConfig.ecore#//VerbosityTypeObject"/>
+    <genClasses ecoreClass="EuropaServerConfig.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EuropaServerConfig.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EuropaServerConfig.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EuropaServerConfig.ecore#//DocumentRoot/europaServer"/>
+    </genClasses>
+    <genClasses ecoreClass="EuropaServerConfig.ecore#//EuropaServerType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/debug"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/initialState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/logFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/plannerConfig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/plannerConfigElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/serverVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/timeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EuropaServerConfig.ecore#//EuropaServerType/verbosity"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

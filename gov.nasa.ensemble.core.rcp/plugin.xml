@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension-point id="perspectiveCategory" name="Perspective Category" schema="schema/perspectiveCategory.exsd"/>
+
+	<extension id="EnsembleApplication" point="org.eclipse.core.runtime.applications">
+		<application
+        cardinality="singleton-scoped">
+			<run class="gov.nasa.ensemble.core.rcp.EnsembleApplication"/>
+		</application>
+	</extension>
+
+
+	<extension id="Ensemble" point="org.eclipse.core.runtime.products">
+		<product application="gov.nasa.ensemble.core.rcp.EnsembleApplication" name="MSEQ Server">
+			<property name="appName" value="MSEQ Server" />
+		</product>
+	</extension>
+	
+	   <extension
+       point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester
+          class="gov.nasa.ensemble.common.ui.ide.navigator.ResourceExistsPropertyTester"
+          id="gov.nasa.ensemble.common.ui.resourceExists"
+          namespace="gov.nasa.ensemble.common.ui"
+          properties="exists"
+          type="org.eclipse.core.resources.IResource">
+    </propertyTester>
+ </extension>
+ <extension
+       point="org.eclipse.ui.navigator.linkHelper">
+    <linkHelper
+          class="gov.nasa.ensemble.common.ui.ide.navigator.EnsembleLinkHelper"
+          id="gov.nasa.ensemble.common.ui.ide.navigator.EnsembleLinkHelper">
+       <editorInputEnablement>
+          <instanceof
+                value="org.eclipse.ui.IEditorInput">
+          </instanceof></editorInputEnablement>
+       <selectionEnablement>
+          <instanceof
+                value="org.eclipse.core.resources.IResource">
+          </instanceof>
+       </selectionEnablement>
+    </linkHelper>
+ </extension>
+ <extension
+       point="org.eclipse.ui.navigator.navigatorContent">
+    <navigatorContent
+          id="gov.nasa.ensemble.common.ui.navigatorContent2"
+          name="Ensemble Navigator Content">
+       <triggerPoints>
+          <instanceof
+                value="org.eclipse.core.resources.IResource">
+          </instanceof>
+       </triggerPoints>
+    </navigatorContent>
+ </extension>
+
+</plugin>

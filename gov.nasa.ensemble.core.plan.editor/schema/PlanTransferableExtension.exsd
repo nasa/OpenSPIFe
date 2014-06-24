@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="gov.nasa.ensemble.core.plan.editor">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="gov.nasa.ensemble.core.plan.editor" id="PlanTransferableExtension" name="Plan Transferable Extension"/>
+      </appInfo>
+      <documentation>
+         Implementers of this extension point provide one or more classes that implement the IPlanTransferableExtension interface.
+      </documentation>
+   </annotation>
+
+   <element name="planTransferableExtension">
+      <complexType>
+         <sequence>
+         </sequence>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The name of a class that implements the IPlanTransferableExtension interface.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="gov.nasa.ensemble.core.plan.editor.IPlanTransferableExtension"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         August 2006
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="adco" nsURI="http://msl.nasa.gov/MOD-AD-1.1.2" nsPrefix="adco" author="Mel Ludowise" date="2009-04-21" description="Activity Dictionary for ADCOs" version="ADCO-AD-0.1">
+  <eClassifiers xsi:type="ecore:EEnum" name="ISS_CONTROL_MODE">
+    <eLiterals name="CMG" literal="CMG">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MMM" value="1" literal="MMM">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MMT" value="2" literal="MMT">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MMC" value="3" literal="MMC">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="UST" value="4" literal="UST">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ORB" value="5" literal="ORB">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="THR" value="6" literal="THR">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="THC" value="7" literal="THC">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="FDO" value="8" literal="FDO">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="FDC" value="9" literal="FDC">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ATV" value="10" literal="ATV">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ATC" value="11" literal="ATC">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="USA" value="12" literal="USA">
+      <eAnnotations source="descriptor">
+        <details key="rgb" value="0,0,0"/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="Handover" category="ADCO" description="Represents a change in attitude" duration="00:00:00">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="toControl" eType="//ISS_CONTROL_MODE"/>
+    <stateEffects endEffect="toControl" definition="//Control"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:EStateResourceDef" name="Control" eType="//ISS_CONTROL_MODE"/>
+</dict:EActivityDictionary>

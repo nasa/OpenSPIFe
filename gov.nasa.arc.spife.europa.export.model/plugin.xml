@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            category="europa"
+            class="gov.nasa.arc.spife.europa.export.model.wizards.EuropaModelExportWizard"
+            icon="platform:/plugin/gov.nasa.ensemble.common.ui/icons/generic_file_type.gif"
+            id="EuropaModelExportWizard"
+            name="Model">
+      </wizard>
+      <category
+            id="europa"
+            name="Europa">
+      </category>
+   </extension>
+
+</plugin>
