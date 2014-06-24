@@ -136,13 +136,14 @@
 			<property name="gen-jaxb" value="true" />
 			<property name="gen-castor" value="true" />
 		</ant>
-		-->
+		
 		<ant antfile="build-xtend-gen.xml" dir="${buildDirectory}">
 			<property name="xtext_plugin" location="${buildDirectory}/gov.nasa.arc.advocate.queries.xtext.AQL" />
 		</ant>
 		<ant antfile="build-xtend-gen.xml" dir="${buildDirectory}">
 					<property name="xtext_plugin" location="${buildDirectory}/gov.nasa.arc.advocate.queries.xtext.AQL.ui" />
-				</ant>
+		</ant>
+		-->
 		<for param="aboutfile">
 			<path>
 				<fileset dir="${buildDirectory}" includes="plugins/*/about.mappings" />
