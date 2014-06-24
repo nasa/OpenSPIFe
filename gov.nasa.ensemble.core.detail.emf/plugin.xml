@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="gov.nasa.ensemble.core.detail.emf.multi.MultiEObjectDetailAdapterFactory"
+            uri="http://www.eclipse.org/emf/2002/Ecore"
+            supportedTypes=
+            	"org.eclipse.emf.edit.provider.IItemPropertySource
+            	gov.nasa.ensemble.core.detail.emf.IDetailProvider">
+      </factory>
+   </extension>
+</plugin>

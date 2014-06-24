@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.ensemble.core.activityDictionary.AllTests"/>
+   </extension>
+   <extension point="org.eclipse.core.runtime.preferences">
+       <initializer class="gov.nasa.ensemble.core.activityDictionary.ui.preference.ActivityDictionaryPreferenceInitalizer"/>
+   </extension>
+</plugin>

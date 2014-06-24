@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+ <extension
+       point="gov.nasa.ensemble.common.ClassRegistry">
+    <lookup
+          class="gov.nasa.ensemble.core.model.plan.util.EPlanUtils$PlanResourceSetContributor">
+       <implementation
+             class="gov.nasa.arc.spife.rcp.SPIFePlanResourceSetContributor">
+       </implementation>
+    </lookup>
+    <lookup
+          class="gov.nasa.ensemble.core.plan.editor.view.template.TemplatePlanPageProvider">
+       <implementation
+             class="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanPageProvider">
+       </implementation>
+    </lookup>
+    <lookup
+          class="gov.nasa.arc.spife.ui.timeline.TimelineBuilder">
+       <implementation
+             class="gov.nasa.arc.spife.timeline.ActivityGroupTimelineBuilder">
+       </implementation>
+    </lookup>
+    <lookup class="org.eclipse.ui.part.MultiPageEditorActionBarContributor">
+         <implementation class="gov.nasa.arc.spife.rcp.events.SPIFeMultiPagePlanEditorActionBarContributor"/>
+    </lookup>
+    <lookup
+          class="gov.nasa.ensemble.core.plan.editor.IResourceModelingController">
+       <implementation
+             class="gov.nasa.arc.spife.rcp.events.ResourceModelingController">
+       </implementation>
+    </lookup>
+ </extension>
+
+	<extension point="gov.nasa.ensemble.common.MissionExtension">
+		<MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.rcp.EnsembleWorkbenchAdvisor"
+            MissionSpecificClass="gov.nasa.arc.spife.rcp.SPIFeWorkbenchAdvisor"
+            id="WorkbenchAdvisor"/>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.editor.PlanNameHelper"
+            MissionSpecificClass="gov.nasa.ensemble.core.plan.temporal.TemporalPlanNameHelper"
+            id="TemporalPlanNameHelper"/>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.editor.context.PlanEditorContextMenuIconProvider"
+            MissionSpecificClass="gov.nasa.arc.spife.rcp.SPIFePlanElementContextMenuIconProvider"
+            id="PlanElementContextMenuIconProvider">
+      </MissionExtension>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.resources.ResourceUpdaterQueuePredicate"
+            MissionSpecificClass="gov.nasa.arc.spife.rcp.events.SPIFeResourceUpdaterQueuePredicate"
+            id="ResourceUpdaterQueuePredicate">
+      </MissionExtension>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.activityDictionary.ActivityDictionary"
+            MissionSpecificClass="gov.nasa.arc.spife.rcp.dictionary.XActivityDictionary"
+            id="ActivityDictionaryImpl">
+      </MissionExtension>
+	</extension>
+	
+   <extension
+         id="SPIFe"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="gov.nasa.ensemble.core.rcp.EnsembleApplication"
+            name="SPIFe">
+         <property
+               name="appName"
+               value="SPIFe">
+         </property>
+     	<property
+           name="aboutText"
+           value="%aboutText"/>
+     	<property
+           name="startupForegroundColor"
+           value="000000"/>
+     	<property
+           name="startupMessageRect"
+           value="12,12,258,14"/>
+     	<property
+           name="startupProgressRect"
+           value="12,33,258,11"/>
+     	<property
+           name="preferenceCustomization"
+           value="plugin_customization.ini"/>
+      <property
+            name="aboutImage"
+            value="icons/spife_128.png">
+      </property>
+      <property
+            name="windowImages"
+            value="icons/spife_16.png,icons/spife_32.png,icons/spife_48.png,icons/spife_64.png,icons/spife_128.png">
+      </property>
+       </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="gov.nasa.ensemble.core.rcp.perspective.BasicPerspectiveFactory"
+            icon="icons/PlanningPerspective.gif"
+            id="gov.nasa.ensemble.core.rcp.perspective.planning"
+            name="Planning">
+      </perspective>
+   </extension>
+	<extension point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension targetID="gov.nasa.ensemble.core.rcp.perspective.planning">
+	<viewShortcut id="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanView"/>
+	<viewShortcut id="gov.nasa.arc.spife.core.constraints.view.ConstraintsView"/>
+	<viewShortcut id="gov.nasa.arc.spife.core.plan.pear.view.ui.ProfileEffectsAndRequirementsView"/>
+	<viewShortcut id="gov.nasa.arc.spife.core.plan.rules.view.PlanRulesView"/>
+	<viewShortcut id="gov.nasa.arc.spife.ui.navigator"/>
+	<viewShortcut id="gov.nasa.ensemble.core.activityDictionary.view.ActivityDictionaryView"/>
+	<viewShortcut id="gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorView"/>
+	<viewShortcut id="gov.nasa.ensemble.core.plan.editor.view.template.TemplatePlanView"/>
+	<viewShortcut id="gov.nasa.ensemble.core.jscience.ui.profile.tree.ProfileTreeView"/>
+	<viewShortcut id="gov.nasa.ensemble.core.plan.resources.ui.view.InconsView"/>
+   <view
+         closeable="false"
+         id="gov.nasa.arc.spife.ui.navigator"
+         minimized="false"
+         ratio=".25"
+         relationship="left"
+         relative="org.eclipse.ui.editorss"
+         visible="true">
+   </view>
+   <view
+         closeable="true"
+         id="gov.nasa.ensemble.core.activityDictionary.view.ActivityDictionaryView"
+         minimized="false"
+         ratio=".5"
+         relationship="bottom"
+         relative="gov.nasa.arc.spife.ui.navigator"
+         visible="true">
+   </view>
+   <view
+         closeable="false"
+         id="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanView"
+         minimized="false"
+         relationship="stack"
+         relative="gov.nasa.ensemble.core.activityDictionary.view.ActivityDictionaryView">
+   </view>
+    <view
+         closeable="false"
+         id="gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorView"
+         minimized="false"
+         ratio=".65"
+         relationship="bottom"
+         relative="org.eclipse.ui.editorss"
+         visible="true">
+   </view>
+   <view
+         closeable="false"
+         id="gov.nasa.arc.spife.core.constraints.view.ConstraintsView"
+         minimized="false"
+         relationship="stack"
+         relative="gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorView">
+   </view>
+   <view
+         closeable="false"
+         id="gov.nasa.ensemble.core.jscience.ui.profile.tree.ProfileTreeView"
+         minimized="false"
+         relationship="stack"
+         relative="gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorView">
+   </view>
+   <view
+   		 closeable="false"
+         id="gov.nasa.arc.spife.core.plan.pear.view.ui.ProfileEffectsAndRequirementsView"
+         minimized="false"
+         relationship="stack"
+         relative="gov.nasa.ensemble.core.jscience.ui.profile.tree.ProfileTreeView">
+   </view>
+   <view
+         closeable="false"
+         id="gov.nasa.ensemble.common.ui.detail.view.DetailView"
+         minimized="false"
+         ratio=".65"
+         relationship="right"
+         relative="org.eclipse.ui.editorss"
+         standalone="true"
+         visible="true">
+   </view>
+   <!--
+   <hiddenMenuItem
+          id="developer">
+   </hiddenMenuItem>
+   -->
+   <actionSet
+         id="gov.nasa.arc.spife.ui.actionSet">
+   </actionSet>
+   <actionSet
+         id="gov.nasa.arc.spife.core.plan.editor.timeline.actionSet">
+   </actionSet>
+		</perspectiveExtension>
+	</extension>
+	
+  <extension point="gov.nasa.ensemble.core.model.plan.PlanFactory">
+     <action
+           action="gov.nasa.ensemble.core.plan.temporal.temporalPlanFactory"
+           class="gov.nasa.ensemble.core.plan.temporal.NewTemporalPlanAction"
+           label="Plan">
+     </action>
+  </extension>
+
+	<extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="gov.nasa.arc.spife.actionSet"
+            label="SPIFe Action Set"
+            visible="true">
+         <action
+               class="gov.nasa.arc.spife.rcp.IntegratePlanAction"
+               icon="platform:/plugin/gov.nasa.arc.spife.ui/icons/PlanIntegrationToolbarIcon.png"
+               id="gov.nasa.arc.spife.rcp.SPIFePlanIntegrationWizard"
+               label="Integrate Plans"
+               menubarPath="file/open.ext"
+               style="push"
+               toolbarPath="file/new.ext"
+               tooltip="Integrate Plans">
+         </action>
+         <action
+               class="gov.nasa.arc.spife.ui.lifecycle.NewSpifeProjectResourceAction"
+               icon="platform:/plugin/gov.nasa.arc.spife.ui/icons/new_spife_project.png"
+               id="gov.nasa.arc.spife.ui.lifecycle.NewSpifeProjectResourceWizard"
+               label="Planning Project"
+               style="push"
+               toolbarPath="file/new.ext"
+               tooltip="Create A New Planning Project Resource">
+         </action>
+         <action
+               class="gov.nasa.arc.spife.rcp.events.RemodelResourcesAction"
+               enablesFor="*"
+               icon="icons/remodel_resources_button.png"
+               id="gov.nasa.arc.spife.rcp.RemodelResourcesAction"
+               label="Remodel Resources"
+               menubarPath="plan/moveGuideActions"
+               tooltip="Recalculate activity requirements and effect">
+         </action>
+         <action
+               class="gov.nasa.arc.spife.rcp.events.ToggleResourceModelingAction"
+               enablesFor="*"
+               icon="icons/toggle_resource_modeling_button.png"
+               id="gov.nasa.arc.spife.rcp.ToggleResourceModelingAction"
+               label="Use Resource Modeling"
+               menubarPath="plan/moveGuideActions"
+               state="true"
+               style="toggle"
+               tooltip="Toggle Automatic Resource Modeling">
+         </action>
+           <action
+                 allowLabelUpdate="true"
+                 enablesFor="*"
+                 icon="icons/Snap-to-orbit.png"
+                 id="gov.nasa.arc.spife.rcp.events.ToggleSnapToOrbitAction"
+                 label="Snap to Orbit mode"
+                 menubarPath="plan/moveGuideActions"
+                 retarget="true"
+                 style="toggle"
+                 toolbarPath="plan/moveGuideActions"
+                 tooltip="Toggle Snap to Orbit mode">
+         </action>
+         <action
+               allowLabelUpdate="true"
+               enablesFor="+"
+               icon="icons/Move-to-orbit.png"
+               id="gov.nasa.arc.spife.rcp.events.MoveToOrbitAction"
+               label="Move to Orbit"
+               menubarPath="plan/moveGuideActions"
+               retarget="true"
+               toolbarPath="plan/moveGuideActions"
+               tooltip="Move activities to a different orbit"/>
+      </actionSet>
+    </extension>
+    
+ <extension
+       id="SPIFeNature"
+       point="org.eclipse.core.resources.natures">
+    <runtime>
+       <run class="gov.nasa.arc.spife.ui.navigator.SpifeProjectNature"/>
+    </runtime>
+    <builder id="gov.nasa.ensemble.core.plan.resources.PlanResourceIncrementalProjectBuilder"/>
+ </extension>
+
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="gov.nasa.arc.spife.rcp"
+            name="Profiles">
+      </category>
+      <wizard
+            category="gov.nasa.arc.spife.rcp"
+            class="gov.nasa.arc.spife.rcp.profiles.ProfileImportWizard"
+            icon="icons/profile.gif"
+            id="gov.nasa.arc.spife.rcp.profiles.ProfileImportWizard"
+            name="XML CSV Profiles">
+      </wizard>
+      <wizard
+            category="gov.nasa.arc.spife.rcp"
+            class="gov.nasa.arc.spife.rcp.events.ImportEventTimesWizard"
+            icon="icons/Snap-to-orbit.png"
+            id="ImportEventTimesWizard"
+            name="Orbital Event Times">
+      </wizard>
+      <wizard
+            category="plan"
+            class="gov.nasa.arc.spife.rcp.importer.ImportCsvActivitiesWizard"
+            icon="icons/csv.png"
+            id="gov.nasa.arc.spife.rcp.importer.ImportCsvActivitiesWizard"
+            name="Activity Instances from CSV">
+      </wizard>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.MissionExtension">
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.activityDictionary.ActivityDictionary"
+            MissionSpecificClass="gov.nasa.ensemble.core.activityDictionary.ActivityDictionaryImpl"
+            id="ActivityDictionaryImpl">
+      </MissionExtension>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.MissionExtension">
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.common.ui.mission.MissionUIConstants"
+            MissionSpecificClass="gov.nasa.arc.spife.rcp.internal.SPIFeUIConstants"
+            id="SPIFeUIConstants">
+      </MissionExtension>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.editor.lifecycle.SaveAsWizard"
+            MissionSpecificClass="gov.nasa.arc.spife.rcp.SPIFeSaveAsWizard"
+            id="SPIFeSaveAsWizard">
+      </MissionExtension>
+      <MissionExtension
+            MissionIndependentClass="gov.nasa.ensemble.core.plan.editor.merge.contributions.MergeTreePlanContributor"
+            MissionSpecificClass="gov.nasa.arc.spife.rcp.table.SPIFeTablePlanContributor"
+            id="MergeTreePlanElementContributor">
+      </MissionExtension>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.plan.temporal.PlanModificationTweaker">
+      <tweaker
+            class="gov.nasa.arc.spife.rcp.events.SnapToAssessment">
+      </tweaker>
+   </extension>
+  <extension point="gov.nasa.ensemble.core.plan.editor.PlanTransferableExtension">
+       <planTransferableExtension class="gov.nasa.arc.spife.rcp.events.SnapToAssessment"/>
+   </extension>
+   <extension
+         id="SPIFe"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="gov.nasa.ensemble.core.rcp.EnsembleApplication"
+            name="SPIFe">
+         <property
+               name="appName"
+               value="SPIFe">
+         </property>
+     	<property
+           name="aboutText"
+           value="%aboutText"/>
+     	<property
+           name="startupForegroundColor"
+           value="000000"/>
+     	<property
+           name="startupMessageRect"
+           value="12,12,258,14"/>
+     	<property
+           name="startupProgressRect"
+           value="12,33,258,11"/>
+     	<property
+           name="preferenceCustomization"
+           value="plugin_customization.ini"/>
+       </product>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.plan.editor.merge.IMergeColumnProvider">
+      <IMergeColumnContentProvider
+            class="gov.nasa.arc.spife.rcp.columns.SPIFeColumnProvider">
+      </IMergeColumnContentProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+         <view
+            category="gov.nasa.ensemble.core.plan"
+            class="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanView"
+            icon="platform:/plugin/gov.nasa.ensemble.core.plan.editor/icons/template_plan_view.gif"
+            id="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanView"
+            name="Templates"
+            restorable="true">
+      </view>
+   </extension>
+   <extension point="org.eclipse.ui.viewActions">
+       <viewContribution
+          id="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanView.viewContribution"
+          targetID="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanView">
+       <action
+             class="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanViewDeleteItemAction"
+             enablesFor="+"
+             icon="platform:/plugin/gov.nasa.ensemble.core.plan.editor/icons/trash.png"
+             id="gov.nasa.ensemble.core.plan.editor.view.template.actions.TemplatePlanViewDeleteItemAction"
+             label="Delete"
+             style="push"
+             toolbarPath="toolbar">
+          <enablement>
+             <not>
+                <or>
+                   <objectClass
+                         name="org.eclipse.ui.IEditorPart">
+                   </objectClass>
+                   <objectClass
+                         name="gov.nasa.ensemble.core.model.plan.EPlan">
+                   </objectClass>
+                   <objectClass
+                         name="gov.nasa.ensemble.core.plan.editor.view.template.TemplatePlanViewIgnorable">
+                   </objectClass>
+                </or>
+             </not>
+          </enablement>
+       </action>
+       <action
+             class="gov.nasa.arc.spife.rcp.SPIFeTemplatePlanViewDuplicateAction"
+             enablesFor="+"
+             icon="platform:/plugin/gov.nasa.ensemble.core.plan.editor/icons/duplicate.png"
+             id="gov.nasa.ensemble.core.plan.editor.view.template.actions.TemplatePlanViewDuplicateAction"
+             label="Duplicate"
+             style="push"
+             toolbarPath="toolbar">
+          <enablement>
+             <objectClass
+                   name="gov.nasa.ensemble.core.model.plan.EPlanChild">
+             </objectClass>
+          </enablement>
+       </action>
+    </viewContribution>
+  </extension>
+
+ <extension
+         point="org.eclipse.ui.activities">
+      <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern="org.eclipse.team.ui.*"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern="org.eclipse.team.svn.*"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/gov.nasa.ensemble.core.plan.editor.view.template.TemplatePlanView"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.ui.views.TaskList"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.search.ui.views.SearchView"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.ui.views.ContentOutline"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.ui.navigator.ProjectExplorer"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.ui.views.BookmarkView"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.ui.views.ResourceNavigator"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.gef.ui.palette_view"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.gef.ui.palette_view"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.search.SearchResultView"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.ui.views.PropertySheet"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.ui.views.ProblemView"/>
+   </extension>
+</plugin>

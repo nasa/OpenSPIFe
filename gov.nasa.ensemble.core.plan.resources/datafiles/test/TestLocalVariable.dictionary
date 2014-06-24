@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="LocalVariableTest" category="TEST.LocalVariable" description="">
+    <eAnnotations source="descriptor">
+      <details key="displayName" value="LocalVariableTest"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="baseParameter" defaultValueLiteral="0">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="baseParameter"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="variableParameter" derived="true">
+      <eAnnotations source="detail">
+        <details key="shortDescription"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="variableParameter"/>
+      </eAnnotations>
+      <eAnnotations source="resource">
+        <details key="formula" value="baseParameter + 10"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+</dict:EActivityDictionary>

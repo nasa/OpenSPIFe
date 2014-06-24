@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.emf.transaction.IConsistencyMaintenanceListener">
+         <implementation
+               class="gov.nasa.ensemble.core.model.plan.temporal.edge.impl.TemporalEdgeManagerConsistencyListener">
+         </implementation>
+      </lookup>
+      <lookup class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+         <implementation
+               class="gov.nasa.ensemble.core.model.plan.temporal.util.TemporalMemberPlanSharingNotificationFilter">
+         </implementation>
+      </lookup>
+      <lookup
+            class="gov.nasa.ensemble.common.ui.date.defaulting.IDefaultDateProvider">
+         <implementation
+               class="gov.nasa.ensemble.core.model.plan.temporal.DefaultDateProvider">
+         </implementation>
+      </lookup>
+   </extension>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "platform:/resource/gov.nasa.ensemble.core.model.plan.temporal/model/TemporalPlanning.ecore" 
+       class = "gov.nasa.ensemble.core.model.plan.temporal.provider.TemporalItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource
+          gov.nasa.ensemble.core.detail.emf.IDetailProvider" />
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "platform:/resource/gov.nasa.ensemble.core.model.plan.temporal/model/TemporalPlanning.ecore"
+       class = "gov.nasa.ensemble.core.model.plan.temporal.TemporalPackage"
+       genModel = "model/TemporalPlanning.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+    <parser
+       type="temporal"
+       class="gov.nasa.ensemble.core.model.plan.temporal.util.TemporalResourceFactoryImpl" />
+  </extension>
+  <extension
+        point="gov.nasa.ensemble.core.model.plan.PlanElementMemberFactory">
+     <planElementMemberFactory
+           class="gov.nasa.ensemble.core.model.plan.temporal.impl.TemporalMemberFactory">
+     </planElementMemberFactory>
+  </extension>
+  <extension
+        point="gov.nasa.ensemble.common.ClassRegistry">
+     <lookup
+           class="gov.nasa.ensemble.emf.PropertyDescriptorContributor">
+        <implementation
+              class="gov.nasa.ensemble.core.model.plan.temporal.provider.TemporalPropertyDescriptorContributor">
+        </implementation>
+     </lookup>
+     <lookup
+           class="gov.nasa.ensemble.core.model.plan.temporal.edge.impl.TemporalEdgeContributor">
+        <implementation
+              class="gov.nasa.ensemble.core.model.plan.temporal.edge.impl.ActivityTemporalEdgeContributor">
+        </implementation>
+     </lookup>
+     <lookup
+           class="gov.nasa.ensemble.core.model.plan.temporal.consistency.IConsistencyPropertyTester">
+        <implementation
+              class="gov.nasa.ensemble.core.model.plan.temporal.consistency.BasicConsistencyPropertyTester">
+        </implementation>
+        <implementation
+              class="gov.nasa.ensemble.core.model.plan.temporal.consistency.ScheduledConsistencyPropertyTester">
+        </implementation>
+        <implementation
+              class="gov.nasa.ensemble.core.model.plan.temporal.consistency.UseChildTimesConsistencyPropertyTester">
+        </implementation>
+     </lookup>
+  </extension>
+  <extension
+        point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+     <IEnsemblePluginTest
+           class="gov.nasa.ensemble.core.model.plan.temporal.AllModelPlanTemporalTests">
+     </IEnsemblePluginTest>
+  </extension>
+
+</plugin>

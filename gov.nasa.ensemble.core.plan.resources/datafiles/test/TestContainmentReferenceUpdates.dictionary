@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="Activity">
+    <eStructuralFeatures xsi:type="dict:EReferenceParameter" name="reference" lowerBound="5" upperBound="10" eType="//ObjectDef" containment="true">
+      <effects xsi:type="dict:ENumericResourceEffect" startEffect="var active = 0;&#xA;for (var i=0; i&lt;reference.length; i++) {&#xA;  active += reference[i].active ? 1 : 0;&#xA;}&#xA;active" endEffect="var active = 0;&#xA;for (var i=0; i&lt;reference.length; i++) {&#xA;  active += reference[i].active ? 1 : 0;&#xA;}&#xA;-1*active" definition="//activeReferencesCount"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:ObjectDef" name="ObjectDef">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="active">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="activeReferencesCount" units="">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </extendedDefinitions>
+</dict:EActivityDictionary>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+        <IEnsemblePluginTest class="gov.nasa.arc.spife.europa.clientside.tests.AllTests"/>
+   </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+          uri="platform:/resource/gov.nasa.arc.spife.europa.clientside/model/esm-config.xsd"
+          class="gov.nasa.arc.spife.europa.clientside.esmconfig.impl.EsmConfigPackageImpl"
+          genModel="model/esm-config.genmodel"/>
+  </extension>
+  
+    <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+                <factory
+          class="gov.nasa.arc.spife.europa.clientside.esmconfig.provider.EsmConfigItemProviderAdapterFactory"
+          uri="platform:/resource/gov.nasa.arc.spife.europa.clientside/model/esm-config.xsd"
+          supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.ITableItemColorProvider
+               org.eclipse.emf.edit.provider.ITableItemFontProvider
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider"/>
+     </extension>
+     
+   <extension point="gov.nasa.ensemble.common.ServerMonitor">
+      <monitor class="gov.nasa.arc.spife.europa.clientside.EuropaServerMonitor"/>
+   </extension>
+
+</plugin>

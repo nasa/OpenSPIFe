@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Model Export Plug-in
+Bundle-SymbolicName: gov.nasa.arc.spife.europa.export.model;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.arc.spife.europa.export.model.EuropaExportModelPlugin
+Require-Bundle: gov.nasa.arc.spife.europa;bundle-version="1.0.0",
+ gov.nasa.ensemble.common.ui;bundle-version="1.0.14",
+ gov.nasa.ensemble.core.activityDictionary,
+ gov.nasa.ensemble.core.model.plan.temporal;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.plan;bundle-version="1.0.9"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: gov.nasa.arc.spife.europa.export.model,
+ gov.nasa.arc.spife.europa.export.model.wizards
+Bundle-Vendor: %providerName

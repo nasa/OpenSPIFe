@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- this xml file is used in TestResourceConditions.  changes must be matched in both places. -->
+<tns:Conditions xmlns:tns="platform:/resource/gov.nasa.ensemble.core.plan.resources/model/ResourceMembers.ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <tns:Claim name="Motor_Controller_A_Control" used="true" />
+  <tns:NumericResource name="APXS_data" float="3.3" />
+  <tns:PowerLoad name="APXS_Main_Electronics" state="Integration_Cooler_off" />
+  <tns:SharableResource name="gurneys" used="1" />
+  <tns:StateResource name="Arm_Sample_Delivery" state="Arm_Ready" />
+</tns:Conditions>

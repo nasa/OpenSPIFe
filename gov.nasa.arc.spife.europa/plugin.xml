@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension-point id="EuropaUpdateListener" name="EuropaUpdateListener" schema="schema/EuropaUpdateListener.exsd"/>
+
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+      <IEnsemblePluginTest class="gov.nasa.arc.spife.tests.europa.AllTests"/>
+   </extension>
+   
+   <extension point="gov.nasa.ensemble.common.IEnsemblePluginTest">
+        <IEnsemblePluginTest class="gov.nasa.arc.spife.tests.europa.AllJUnit4Tests"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            class="gov.nasa.arc.spife.europa.preferences.EuropaPreferencePage"
+            id="gov.nasa.arc.spife.europa.preferences.EuropaPreferencePage"
+            name="Europa"
+            category="PlanAdvisorPreferencePage"/>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="gov.nasa.arc.spife.europa.preferences.EuropaPreferenceInitializer"/>
+   </extension>
+
+   <extension point="gov.nasa.ensemble.core.plan.PlanElementMember">
+      <PlanElementMemberExtension
+            class="gov.nasa.arc.spife.europa.EuropaMemberFactory"
+            id="gov.nasa.arc.spife.europa.EuropaMemberFactory"
+            name="EuropaMemberFactory"/>
+    </extension>
+
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <category name="Europa" id="europa"/>
+      <wizard
+            category="europa"
+            class="gov.nasa.arc.spife.europa.EuropaLogExportWizard"
+            id="EuropaLogExportWizard"
+            name="Log"
+            icon="platform:/plugin/gov.nasa.ensemble.common.ui/icons/generic_file_type.gif"/>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.core.plan.advisor.IPlanAdvisorFactory">
+      <planAdvisorFactory
+            class="gov.nasa.arc.spife.europa.advisor.EuropaPlanAdvisorFactory">
+      </planAdvisorFactory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Europa Server"
+            id="gov.nasa.arc.spife.europa.category"
+            name="Europa">
+      </category>
+      <command
+            categoryId="gov.nasa.arc.spife.europa.category"
+            defaultHandler="gov.nasa.arc.spife.europa.model.ModelManagementAction"
+            description="Remove model(s) from the server."
+            id="gov.nasa.arc.spife.europa.command"
+            name="Delete Model(s)">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:developer">
+         <command
+               commandId="gov.nasa.arc.spife.europa.command"
+               label="Europa Models..."
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.core.plan.resources.ConditionsProvider">
+         <implementation
+               class="gov.nasa.arc.spife.europa.resources.EuropaConditionsProvider">
+         </implementation>
+      </lookup>
+   </extension>
+   <extension
+         id="planruleviolation"
+         name="Plan Rule Violation"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+   </extension>
+   <extension
+         id="nogoodviolation"
+         name="Plan Inconsistency"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+   </extension>
+
+</plugin>

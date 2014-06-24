@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/lass_import_format.xsd">
+  <columns timeFormat="ISO8601">
+    <column displayName="Profile Name 1" id="P1" interpolation="linear" type="Double" units="W">
+      <property key="flavor" value="cherry"/>
+      <property key="color" value="red"/>
+    </column>
+    <column defaultValue="true" id="P2" interpolation="instantaneous" type="Boolean">
+      <property key="flavor" value="spearmint"/>
+      <property key="color" value="green"/>
+    </column>
+    <column displayName="Profile Name 3" id="P3" interpolation="step" type="String"/>
+  </columns>
+  <data><![CDATA[
+Time,P1,P2,P3
+]]></data>
+</resources>

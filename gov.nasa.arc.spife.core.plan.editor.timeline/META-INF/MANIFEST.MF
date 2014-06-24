@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Timeline Plug-in
+Bundle-SymbolicName: gov.nasa.arc.spife.core.plan.editor.timeline; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: timeline.jar
+Bundle-Activator: gov.nasa.arc.spife.core.plan.editor.timeline.TimelinePlugin
+Export-Package: gov.nasa.arc.spife.core.plan.editor.timeline,
+ gov.nasa.arc.spife.core.plan.editor.timeline.builder,
+ gov.nasa.arc.spife.core.plan.editor.timeline.commands,
+ gov.nasa.arc.spife.core.plan.editor.timeline.models,
+ gov.nasa.arc.spife.core.plan.editor.timeline.parts,
+ gov.nasa.arc.spife.core.plan.editor.timeline.policies,
+ gov.nasa.arc.spife.core.plan.editor.timeline.preferences,
+ gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors,
+ gov.nasa.arc.spife.core.plan.editor.timeline.util
+Require-Bundle: gov.nasa.arc.spife.core.plan;bundle-version="1.0.0";visibility:=reexport,
+ gov.nasa.arc.spife.ui.timeline;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.model.plan.provider;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.model.plan.activityDictionary;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.plan.advisor;bundle-version="1.0.0",
+ gov.nasa.ensemble.core.plan.constraints,
+ gov.nasa.ensemble.core.plan.editor.constraints,
+ org.eclipse.emf.edit.ui;bundle-version="2.4.0",
+ org.eclipse.help,
+ org.eclipse.ui.ide;bundle-version="3.4.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName

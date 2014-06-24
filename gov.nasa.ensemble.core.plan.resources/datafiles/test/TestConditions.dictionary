@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="NumericResource00" units="">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="NumericResource01" units="">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:EStateResourceDef" name="StateResource">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:ESummaryResourceDef" name="SummaryResource" numericResourceDefs="//NumericResource00 //NumericResource01"/>
+  <eClassifiers xsi:type="dict:EActivityDef" name="Activity">
+    <numericEffects startEffect="-10" definition="//NumericResource00"/>
+    <stateEffects endEffect="ABC" definition="//StateResource"/>
+  </eClassifiers>
+</dict:EActivityDictionary>

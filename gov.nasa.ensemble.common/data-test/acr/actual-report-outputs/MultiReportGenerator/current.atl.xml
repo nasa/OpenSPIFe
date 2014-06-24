@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="xatl_style.xsl"?>
+
+<atl adco="JUnit test" modified="GMT 002/12:34" stage="AC3_Stage">
+  <sequence name="Current" remarks="">
+    <event approval="RECEIVED" attitude="+XVV +ZLV TEA" end="-" frame="INRT" fromcfg="THR" index="1" name="-" pitch="+314.599" remarks="This is the final handover (last ACR) in the last as-flown event in this test case." roll="+297.733" sba="+0" sband="Y" start="021/10:20" start-iso="2010-01-21T10:20:00" tocfg="THR" yaw="+317.858"/>
+  </sequence>
+  <sequence name="Thruster Disable for 35P hatch opening  (H10_020_A_03.UAF)" remarks="01/20/2010">
+    <event approval="APPROVED" attitude="+XVV +ZLV TEA" end="020/10:30" end-iso="2010-01-20T10:30:00" frame="LVLH" fromcfg="MMT" index="2" name="-" pitch="+356.700" remarks="" roll="+0.400" sba="+0" sband="Y" start="020/08:35" start-iso="2010-01-20T08:35:00" tocfg="MMC" yaw="+0.000"/>
+    <event approval="APPROVED" attitude="+XVV +ZLV TEA" end="-" frame="LVLH" fromcfg="MMC" index="3" name="-" pitch="+356.700" remarks="" roll="+0.400" sba="+0" sband="Y" start="020/10:30" start-iso="2010-01-20T10:30:00" tocfg="MMT" yaw="+0.000"/>
+  </sequence>
+</atl>
+<!-- This page maintained by: ADCO.
+     Email: junit@ensemble.gov
+-->

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="advisor"
+    nsURI="platform:/resource/gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.ecore"
+    nsPrefix="gov.nasa.ensemble.model.plan.advisor">
+  <eClassifiers xsi:type="ecore:EClass" name="RuleAdvisorMember" abstract="true" eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EMember">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="waivers" upperBound="-1"
+        eType="#//WaiverPropertiesEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlanAdvisorMember" eSuperTypes="#//RuleAdvisorMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityAdvisorMember" eSuperTypes="#//RuleAdvisorMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="waivingAllFlightRules"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="ensemble_advisor_waiving_flight_rules"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0" unsettable="true" derived="true">
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="ensemble_uplink_priority"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WaiverPropertiesEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" upperBound="-1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IWaivable" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="waiverRationale" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

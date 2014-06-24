@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/resource/gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.ecore"
+            class="gov.nasa.ensemble.core.model.plan.advisor.provider.AdvisorItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+      <factory
+            class="gov.nasa.ensemble.core.model.plan.advisor.provider.detail.RuleSetDetailBindingAdapterFactory"
+            supportedTypes="gov.nasa.ensemble.core.detail.emf.IBindingFactory"
+            uri="platform:/resource/gov.nasa.ensemble.core.model.plan.advisor/model/AdvisorPlanning.ecore">
+      </factory>
+   </extension>
+
+</plugin>

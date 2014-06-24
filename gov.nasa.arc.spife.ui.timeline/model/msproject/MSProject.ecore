@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="MSProject" nsURI="http://www.microsoft.com/project" nsPrefix="MSProject">
+    <eClassifiers xsi:type="ecore:EClass" name="MSProject">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#/0/Task" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="#/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#/0/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="UID" ordered="false"
+          lowerBound="1" eType="#/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predecessors" ordered="false"
+          upperBound="-1" eType="#/0/Task"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="PrimitiveTypes" nsURI="http://www.microsoft.com/project" nsPrefix="MSProjectTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+  </ecore:EPackage>
+</xmi:XMI>

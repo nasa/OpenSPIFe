@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <eClassifiers xsi:type="dict:EActivityDef" name="Work" category="TEST.DataModel" description="Increases time" duration="01:00:00">
+    <numericEffects startEffect="ensemble_duration/3600" definition="//Time"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="Sleep" category="TEST.DataModel" description="Resets time" duration="01:00:00">
+    <numericEffects endEffect="0" definition="//Time" mode="SET"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Time" units="h">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </extendedDefinitions>
+</dict:EActivityDictionary>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict:EActivityDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="msl"
+    nsURI="http://msl.nasa.gov/" nsPrefix="msl" date="12/05/2011" description="ORT-7 Engineering AD"
+    version="MSL PROJECT">
+  <eClassifiers xsi:type="dict:EActivityDef" name="Hazcam_Front" category="ECAM" description="This activity models Hazcam imaging.   Thumbnails will be put in Critical bin by default." duration="1:00:00">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="Downlink_Priority" defaultValueLiteral="Data_High_58" description="Downlink priority for full images (see Expert Parameters for Thumbnail priority)">
+      <choices value="Eng_Critical_17"/>
+      <choices value="Eng_Critical_18"/>
+      <choices value="Eng_Critical_19"/>
+      <choices value="Eng_Critical_24"/>
+      <choices value="Eng_Critical_25"/>
+      <choices value="Data_Critical_36"/>
+      <choices value="Data_High_58"/>
+      <choices value="Data_Medium_79"/>
+      <choices value="Data_Low_97"/>
+      <choices value="Science_Other_26"/>
+      <choices value="Science_Other_27"/>
+      <choices value="Science_Other_48"/>
+      <choices value="Science_Other_49"/>
+      <choices value="Science_Other_66"/>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Eng_Critical_17&quot;?10:0)" definition="//Data_Critical_17"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Eng_Critical_18&quot;?10:0)" definition="//Data_Critical_18"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Eng_Critical_19&quot;?10:0)" definition="//Data_Critical_19"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Eng_Critical_24&quot;?10:0)" definition="//Data_Critical_24"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Eng_Critical_25&quot;?10:0)" definition="//Data_Critical_25"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Science_Other_26&quot;?10:0)" definition="//Data_Critical_26"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Science_Other_27&quot;?10:0)" definition="//Data_Critical_27"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Data_Critical_35&quot;?10:0)" definition="//Data_Critical_35"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Data_Critical_36&quot;?10:0)" definition="//Data_Critical_36"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Science_Other_48&quot;?10:0)" definition="//Data_High_48"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Science_Other_49&quot;?10:0)" definition="//Data_High_49"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Data_High_57&quot;?10:0)" definition="//Data_High_57"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Data_High_58&quot;?10:0)" definition="//Data_High_58"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Science_Other_66&quot;?10:0)" definition="//Data_High_66"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Data_Medium_78&quot;?10:0)" definition="//Data_Medium_78"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Data_Medium_79&quot;?10:0)" definition="//Data_Medium_79"/>
+    <numericEffects startEffect="" endEffect="(Downlink_Priority==&quot;Data_Low_97&quot;?10:0)" definition="//Data_Low_97"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_01" description="Number of Mbits of data in data priority bin 1 (which is considered critical&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_02" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_03" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_04" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_05" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_06" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_07" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_08" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_09" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_10" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_11" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_12" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_13" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_14" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_15" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_16" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_17" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_18" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_19" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_20" units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_21" description="Number of Mbits of data in data priority bin 21 (which is considered critical&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_22" description="Number of Mbits of data in data priority bin 22 (which is considered critical&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_23" description="Number of Mbits of data in data priority bin 23 (which is considered critical&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_24" description="Number of Mbits of data in data priority bin 24 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_25" description="Number of Mbits of data in data priority bin 25 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_26" description="Number of Mbits of data in data priority bin 26 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_27" description="Number of Mbits of data in data priority bin 27 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_28" description="Number of Mbits of data in data priority bin 28 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_29" description="Number of Mbits of data in data priority bin 29 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_30" description="Number of Mbits of data in data priority bin 30 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_31" description="Number of Mbits of data in data priority bin 31 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_32" description="Number of Mbits of data in data priority bin 32 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_33" description="Number of Mbits of data in data priority bin 33 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_34" description="Number of Mbits of data in data priority bin 34 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_35" description="Number of Mbits of data in data priority bin 35 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_36" description="Number of Mbits of data in data priority bin 36 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_37" description="Number of Mbits of data in data priority bin 37 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_38" description="Number of Mbits of data in data priority bin 38 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_39" description="Number of Mbits of data in data priority bin 39 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_40" description="Number of Mbits of data in data priority bin 40 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_41" description="Number of Mbits of data in data priority bin 41 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_42" description="Number of Mbits of data in data priority bin 42 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Critical_43" description="Number of Mbits of data in data priority bin 43 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_44" description="Number of Mbits of data in data priority bin 44 (which is considered decisional&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_45" description="Number of Mbits of data in data priority bin 45 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_46" description="Number of Mbits of data in data priority bin 46 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_47" description="Number of Mbits of data in data priority bin 47 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_48" description="Number of Mbits of data in data priority bin 48 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_49" description="Number of Mbits of data in data priority bin 49 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_50" description="Number of Mbits of data in data priority bin 50 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_51" description="Number of Mbits of data in data priority bin 51 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_52" description="Number of Mbits of data in data priority bin 52 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_53" description="Number of Mbits of data in data priority bin 53 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_54" description="Number of Mbits of data in data priority bin 54 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_55" description="Number of Mbits of data in data priority bin 55 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_56" description="Number of Mbits of data in data priority bin 56 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_57" description="Number of Mbits of data in data priority bin 57 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_58" description="Number of Mbits of data in data priority bin 58 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_59" description="Number of Mbits of data in data priority bin 59 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_60" description="Number of Mbits of data in data priority bin 60 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_61" description="Number of Mbits of data in data priority bin 61 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_62" description="Number of Mbits of data in data priority bin 62 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_63" description="Number of Mbits of data in data priority bin 63 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_64" description="Number of Mbits of data in data priority bin 64 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_65" description="Number of Mbits of data in data priority bin 65 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_High_66" description="Number of Mbits of data in data priority bin 66 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_87" description="Number of Mbits of data in data priority bin 87 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_88" description="Number of Mbits of data in data priority bin 88 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_89" description="Number of Mbits of data in data priority bin 89 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_90" description="Number of Mbits of data in data priority bin 90 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_91" description="Number of Mbits of data in data priority bin 91 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_92" description="Number of Mbits of data in data priority bin 92 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_93" description="Number of Mbits of data in data priority bin 93 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_94" description="Number of Mbits of data in data priority bin 94 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_95" description="Number of Mbits of data in data priority bin 95 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_96" description="Number of Mbits of data in data priority bin 96 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_97" description="Number of Mbits of data in data priority bin 97 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_98" description="Number of Mbits of data in data priority bin 98 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Low_99" description="Number of Mbits of data in data priority bin 99 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_67" description="Number of Mbits of data in data priority bin 67 (which is considered high&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_68" description="Number of Mbits of data in data priority bin 68 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_69" description="Number of Mbits of data in data priority bin 69 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_70" description="Number of Mbits of data in data priority bin 70 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_71" description="Number of Mbits of data in data priority bin 71 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_72" description="Number of Mbits of data in data priority bin 72 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_73" description="Number of Mbits of data in data priority bin 73 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_74" description="Number of Mbits of data in data priority bin 74 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_75" description="Number of Mbits of data in data priority bin 75 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_76" description="Number of Mbits of data in data priority bin 76 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_77" description="Number of Mbits of data in data priority bin 77 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_78" description="Number of Mbits of data in data priority bin 78 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_79" description="Number of Mbits of data in data priority bin 79 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_80" description="Number of Mbits of data in data priority bin 80 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_81" description="Number of Mbits of data in data priority bin 81 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_82" description="Number of Mbits of data in data priority bin 82 (which is considered medium&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_83" description="Number of Mbits of data in data priority bin 83 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_84" description="Number of Mbits of data in data priority bin 84 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_85" description="Number of Mbits of data in data priority bin 85 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Medium_86" description="Number of Mbits of data in data priority bin 86 (which is considered low&#xA;          priority)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Data_Unprioritized" description="Number of Mbits of data that do not have a data priority (because they have&#xA;          been transmitted but not deleted)." units="Mbit"/>
+  <extendedDefinitions xsi:type="dict:ESummaryResourceDef" name="Total_Onboard_Data_Volume" numericResourceDefs="//Data_Unprioritized //Data_Critical_01 //Data_Critical_02 //Data_Critical_03 //Data_Critical_04 //Data_Critical_05 //Data_Critical_06 //Data_Critical_07 //Data_Critical_08 //Data_Critical_09 //Data_Critical_10 //Data_Critical_11 //Data_Critical_12 //Data_Critical_13 //Data_Critical_14 //Data_Critical_15 //Data_Critical_16 //Data_Critical_17 //Data_Critical_18 //Data_Critical_19 //Data_Critical_20 //Data_Critical_21 //Data_Critical_22 //Data_Critical_23 //Data_Critical_24 //Data_Critical_25 //Data_Critical_26 //Data_Critical_27 //Data_Critical_28 //Data_Critical_29 //Data_Critical_30 //Data_Critical_31 //Data_Critical_32 //Data_Critical_33 //Data_Critical_34 //Data_Critical_35 //Data_Critical_36 //Data_Critical_37 //Data_Critical_38 //Data_Critical_39 //Data_Critical_40 //Data_Critical_41 //Data_Critical_42 //Data_Critical_43 //Data_High_44 //Data_High_45 //Data_High_46 //Data_High_47 //Data_High_48 //Data_High_49 //Data_High_50 //Data_High_51 //Data_High_52 //Data_High_53 //Data_High_54 //Data_High_55 //Data_High_56 //Data_High_57 //Data_High_58 //Data_High_59 //Data_High_60 //Data_High_61 //Data_High_62 //Data_High_63 //Data_High_64 //Data_High_65 //Data_High_66 //Data_Medium_67 //Data_Medium_68 //Data_Medium_69 //Data_Medium_70 //Data_Medium_71 //Data_Medium_72 //Data_Medium_73 //Data_Medium_74 //Data_Medium_75 //Data_Medium_76 //Data_Medium_77 //Data_Medium_78 //Data_Medium_79 //Data_Medium_80 //Data_Medium_81 //Data_Medium_82 //Data_Medium_83 //Data_Medium_84 //Data_Medium_85 //Data_Medium_86 //Data_Low_87 //Data_Low_88 //Data_Low_89 //Data_Low_90 //Data_Low_91 //Data_Low_92 //Data_Low_93 //Data_Low_94 //Data_Low_95 //Data_Low_96 //Data_Low_97 //Data_Low_98 //Data_Low_99"/>
+  <extendedDefinitions xsi:type="dict:ESummaryResourceDef" name="Data_Critical" numericResourceDefs="//Data_Critical_01 //Data_Critical_02 //Data_Critical_03 //Data_Critical_04 //Data_Critical_05 //Data_Critical_06 //Data_Critical_07 //Data_Critical_08 //Data_Critical_09 //Data_Critical_10 //Data_Critical_11 //Data_Critical_12 //Data_Critical_13 //Data_Critical_14 //Data_Critical_15 //Data_Critical_16 //Data_Critical_17 //Data_Critical_18 //Data_Critical_19 //Data_Critical_20 //Data_Critical_21 //Data_Critical_22 //Data_Critical_23 //Data_Critical_24 //Data_Critical_25 //Data_Critical_26 //Data_Critical_27 //Data_Critical_28 //Data_Critical_29 //Data_Critical_30 //Data_Critical_31 //Data_Critical_32 //Data_Critical_33 //Data_Critical_34 //Data_Critical_35 //Data_Critical_36 //Data_Critical_37 //Data_Critical_38 //Data_Critical_39 //Data_Critical_40 //Data_Critical_41 //Data_Critical_42 //Data_Critical_43 //Data_High_44"/>
+  <extendedDefinitions xsi:type="dict:ESummaryResourceDef" name="Data_High" numericResourceDefs="//Data_High_45 //Data_High_46 //Data_High_47 //Data_High_48 //Data_High_49 //Data_High_50 //Data_High_51 //Data_High_52 //Data_High_53 //Data_High_54 //Data_High_55 //Data_High_56 //Data_High_57 //Data_High_58 //Data_High_59 //Data_High_60 //Data_High_61 //Data_High_62 //Data_High_63 //Data_High_64 //Data_High_65 //Data_High_66 //Data_Medium_67"/>
+  <extendedDefinitions xsi:type="dict:ESummaryResourceDef" name="Data_Medium" numericResourceDefs="//Data_Medium_68 //Data_Medium_69 //Data_Medium_70 //Data_Medium_71 //Data_Medium_72 //Data_Medium_73 //Data_Medium_74 //Data_Medium_75 //Data_Medium_76 //Data_Medium_77 //Data_Medium_78 //Data_Medium_79 //Data_Medium_80 //Data_Medium_81 //Data_Medium_82 //Data_Medium_83"/>
+  <extendedDefinitions xsi:type="dict:ESummaryResourceDef" name="Data_Low" numericResourceDefs="//Data_Medium_84 //Data_Medium_85 //Data_Medium_86 //Data_Low_87 //Data_Low_88 //Data_Low_89 //Data_Low_90 //Data_Low_91 //Data_Low_92 //Data_Low_93 //Data_Low_94 //Data_Low_95 //Data_Low_96 //Data_Low_97 //Data_Low_98 //Data_Low_99"/>
+</dict:EActivityDictionary>

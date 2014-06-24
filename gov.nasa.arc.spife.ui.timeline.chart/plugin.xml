@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.emf.transaction.IConsistencyMaintenanceListener">
+         <implementation
+               class="gov.nasa.arc.spife.ui.timeline.chart.policy.ChartTimelinePageConsistencyMaintenanceListener">
+         </implementation>
+      </lookup>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="gov.nasa.arc.spife.timeline.model.util.TimelineResourceFactoryImpl"
+            type="chart">
+      </parser>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="platform:/resource/gov.nasa.arc.spife.ui.timeline.chart/model/TimelineChart.ecore"
+            class="gov.nasa.arc.spife.ui.timeline.chart.model.ChartPackage"
+            genModel="model/TimelineChart.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            class="gov.nasa.arc.spife.ui.timeline.chart.model.provider.ChartItemProviderAdapterFactory"
+            uri="platform:/resource/gov.nasa.arc.spife.ui.timeline.chart/model/TimelineChart.ecore"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+      <factory
+            class="gov.nasa.arc.spife.ui.timeline.chart.model.provider.detail.ChartDetailAdapterFactory"
+            uri="platform:/resource/gov.nasa.arc.spife.ui.timeline.chart/model/TimelineChart.ecore"
+            supportedTypes=
+            	"gov.nasa.ensemble.common.ui.detail.IDetailFactory
+            	 gov.nasa.ensemble.core.detail.emf.IDetailProvider"/>
+      <factory
+            class="gov.nasa.arc.spife.ui.timeline.chart.ChartTimelineBuilderAdapterFactory"
+            supportedTypes="gov.nasa.arc.spife.ui.timeline.TimelineBuilder"
+            uri="platform:/resource/gov.nasa.arc.spife.ui.timeline.chart/model/TimelineChart.ecore"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSetPartAssociations">
+      <actionSetPartAssociation
+            targetID="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+         <part
+               id="gov.nasa.arc.spife.ui.timeline.chart.editor">
+         </part>
+      </actionSetPartAssociation>
+      <actionSetPartAssociation
+            targetID="gov.nasa.arc.spife.ui.timeline.chart.actionSet">
+         <part
+               id="gov.nasa.arc.spife.ui.timeline.chart.editor">
+         </part>
+      </actionSetPartAssociation>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="gov.nasa.arc.spife.ui.timeline.chart.actionSet"
+            label="Chart Actions">
+         <action
+               class="gov.nasa.arc.spife.ui.timeline.chart.AddChartActionDelegate$AddLineChartActionDelegate"
+               icon="icons/new_chart_line.gif"
+               id="gov.nasa.arc.spife.ui.timeline.chart.action.add.line"
+               label="Add Line Chart"
+               style="push"
+               toolbarPath="plan/timeline">
+         </action>
+         <action
+               class="gov.nasa.arc.spife.ui.timeline.chart.AddChartActionDelegate$AddHeatMapChartActionDelegate"
+               icon="icons/new_chart_heat_map.png"
+               id="gov.nasa.arc.spife.ui.timeline.chart.action.add.heat_map"
+               label="Add Heat Map Chart"
+               style="push"
+               toolbarPath="plan/timeline">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="gov.nasa.arc.spife.ui.timeline.chart.ChartEditor"
+            default="false"
+            extensions="chart"
+            icon="icons/full/obj16/Chart.gif"
+            id="gov.nasa.arc.spife.ui.timeline.chart.editor"
+            name="Chart Editor">
+         <contentTypeBinding contentTypeId="gov.nasa.ensemble.jscience.profile"/>
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            class="gov.nasa.arc.spife.ui.timeline.chart.ChartModelWizard"
+            icon="icons/full/obj16/Chart.gif"
+            id="gov.nasa.arc.spife.ui.timeline.chart.wizard.new"
+            name="Chart">
+      </wizard>
+   </extension>
+   <extension
+         point="gov.nasa.ensemble.common.ClassRegistry">
+      <lookup
+            class="gov.nasa.ensemble.emf.patch.DisabledPlanSharingNotificationFilter">
+         <implementation
+               class="gov.nasa.arc.spife.ui.timeline.chart.TimelineChartDisabledNotificationFilter">
+         </implementation>
+      </lookup>
+   </extension>
+
+</plugin>

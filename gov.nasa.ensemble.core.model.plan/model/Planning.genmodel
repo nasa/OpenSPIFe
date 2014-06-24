@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gov.nasa.ensemble.core.model.plan/src"
+    editDirectory="/gov.nasa.ensemble.core.model.plan.provider/src" modelPluginID="gov.nasa.ensemble.core.model.plan"
+    modelName="Planning" editorPluginClass="gov.nasa.ensemble.core.model.plan.editor.PlanningEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container&#xA;"
+    testsDirectory="/gov.nasa.ensemble.core.model.plan/src-test" booleanFlagsField="eFlags"
+    booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="gov.nasa.ensemble.core.model.plan.provider"
+    tableProviders="true" colorProviders="true" fontProviders="true" usedGenPackages="../../gov.nasa.ensemble.emf/model/Common.genmodel#//common platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    runtimePlatform="RCP">
+  <foreignModel>Planning.ecore</foreignModel>
+  <genPackages prefix="Plan" basePackage="gov.nasa.ensemble.core.model" resource="XMI"
+      disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="plan"
+      ecorePackage="Planning.ecore#/">
+    <genDataTypes ecoreDataType="Planning.ecore#//EColor"/>
+    <genDataTypes ecoreDataType="Planning.ecore#//ListQExtendsEChild"/>
+    <genClasses ecoreClass="Planning.ecore#//EPlanElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlanElement/name"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference Planning.ecore#//EPlanElement/members"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlanElement/depth"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="Data"
+          ecoreFeature="ecore:EReference Planning.ecore#//EPlanElement/data"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlanElement/persistentID"/>
+      <genOperations ecoreOperation="Planning.ecore#//EPlanElement/getMember">
+        <genParameters ecoreParameter="Planning.ecore#//EPlanElement/getMember/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="Planning.ecore#//EPlanElement/getMember.1">
+        <genParameters ecoreParameter="Planning.ecore#//EPlanElement/getMember.1/baseClass"/>
+        <genTypeParameters ecoreTypeParameter="Planning.ecore#//EPlanElement/getMember.1/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="Planning.ecore#//EPlanElement/getMember.2">
+        <genParameters ecoreParameter="Planning.ecore#//EPlanElement/getMember.2/baseClass"/>
+        <genParameters ecoreParameter="Planning.ecore#//EPlanElement/getMember.2/mustExist"/>
+        <genTypeParameters ecoreTypeParameter="Planning.ecore#//EPlanElement/getMember.2/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="Planning.ecore#//EPlanElement/getMember.3">
+        <genParameters ecoreParameter="Planning.ecore#//EPlanElement/getMember.3/baseClass"/>
+        <genParameters ecoreParameter="Planning.ecore#//EPlanElement/getMember.3/mustExist"/>
+        <genParameters ecoreParameter="Planning.ecore#//EPlanElement/getMember.3/mustBeUnique"/>
+        <genTypeParameters ecoreTypeParameter="Planning.ecore#//EPlanElement/getMember.3/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="Planning.ecore#//EPlanElement/getChildren"/>
+    </genClasses>
+    <genClasses ecoreClass="Planning.ecore#//EPlan">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlan/runtimeId"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Planning.ecore#//EPlan/references"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlan/template"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlan/eNamespaceURI"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlan/readOnly"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlan/modelVersion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Planning.ecore#//EPlan/days"/>
+      <genOperations ecoreOperation="Planning.ecore#//EPlan/getEDay">
+        <genParameters ecoreParameter="Planning.ecore#//EPlan/getEDay/dayID"/>
+      </genOperations>
+      <genOperations ecoreOperation="Planning.ecore#//EPlan/setEDayNotes">
+        <genParameters ecoreParameter="Planning.ecore#//EPlan/setEDayNotes/day"/>
+        <genParameters ecoreParameter="Planning.ecore#//EPlan/setEDayNotes/note"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Planning.ecore#//EPlanChild">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlanChild/listPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EPlanChild/hierarchyPosition"/>
+      <genOperations ecoreOperation="Planning.ecore#//EPlanChild/getParent"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Planning.ecore#//EPlanParent">
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference Planning.ecore#//EPlanParent/children"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="Planning.ecore#//EActivityGroup">
+      <genOperations ecoreOperation="Planning.ecore#//EActivityGroup/getParent"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="Planning.ecore#//EActivity">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EActivity/isSubActivity"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference Planning.ecore#//EActivity/children"/>
+      <genOperations ecoreOperation="Planning.ecore#//EActivity/getSubActivity">
+        <genParameters ecoreParameter="Planning.ecore#//EActivity/getSubActivity/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses provider="Stateful" image="false" ecoreClass="Planning.ecore#//EMember">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Planning.ecore#//EMember/planElement"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EMember/key"/>
+    </genClasses>
+    <genClasses ecoreClass="Planning.ecore#//CommonMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//CommonMember/color"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//CommonMember/expanded"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//CommonMember/diffID"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Planning.ecore#//CommonMember/notes"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//CommonMember/marked"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//CommonMember/visible"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="Planning.ecore#//IComparable">
+      <genTypeParameters ecoreTypeParameter="Planning.ecore#//IComparable/T"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="Planning.ecore#//IExternalizable"/>
+    <genClasses provider="None" image="false" ecoreClass="Planning.ecore#//EMFObject"/>
+    <genClasses ecoreClass="Planning.ecore#//EDay">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EDay/bubbleFormattedDate"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Planning.ecore#//EDay/date"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Planning.ecore#//EDay/notes"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

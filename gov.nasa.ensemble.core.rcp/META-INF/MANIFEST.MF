@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RCP Plug-in
+Bundle-SymbolicName: gov.nasa.ensemble.core.rcp; singleton:=true
+Bundle-Version: 1.0.15.qualifier
+Bundle-Activator: gov.nasa.ensemble.core.rcp.RcpPlugin
+Bundle-Localization: plugin
+Export-Package: 
+ gov.nasa.ensemble.common.help,
+ gov.nasa.ensemble.common.ui.ide.navigator,
+ gov.nasa.ensemble.common.ui.wizard,
+ gov.nasa.ensemble.core.rcp,
+ gov.nasa.ensemble.core.rcp.perspective,
+ gov.nasa.ensemble.core.rcp.preferences,
+ gov.nasa.ensemble.core.rcp.update
+Require-Bundle: org.eclipse.ui;visibility:=reexport,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.navigator;visibility:=reexport,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ gov.nasa.ensemble.common;visibility:=reexport,
+ gov.nasa.ensemble.common.ui,
+ org.eclipse.help;visibility:=reexport
+Eclipse-BuddyPolicy: registered
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName

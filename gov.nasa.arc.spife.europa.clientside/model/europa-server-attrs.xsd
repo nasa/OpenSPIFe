@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:attributeGroup name="europa-server-attrs">
+    <xs:attribute name="port" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:int">
+          <xs:minExclusive value="1024"/>
+          <xs:maxExclusive value="65536"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="debug" type="log-type"/>
+    <xs:attribute name="verbosity">
+      <xs:simpleType>
+        <xs:restriction base="xs:int">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="5"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="initialState" use="required"/>
+    <xs:attribute name="serverVersion"/>
+    <xs:attribute name="timeout">
+      <xs:simpleType>
+      	<xs:restriction base="xs:int">
+      		<xs:minInclusive value="-1" />
+      	</xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="logFile"/>
+    <xs:attribute name="plannerConfig" use="required"/>
+    <xs:attribute name="plannerConfigElement" use="required"/>
+  </xs:attributeGroup>
+  <xs:simpleType name="log-type">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:int">
+          <xs:minInclusive value="0"/>
+          <xs:maxExclusive value="65"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:list>
+          <xs:simpleType>
+            <xs:restriction base="xs:token">
+              <xs:enumeration value="ERROR"/>
+              <xs:enumeration value="TRACE"/>
+              <xs:enumeration value="TRACE_ALL"/>
+              <xs:enumeration value="RETURN"/>
+              <xs:enumeration value="TIMER"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:list>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+</xs:schema>

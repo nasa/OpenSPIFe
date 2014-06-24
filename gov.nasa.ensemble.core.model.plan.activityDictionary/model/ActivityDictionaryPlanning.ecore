@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="activityDictionary"
+    nsURI="platform:/resource/gov.nasa.ensemble.core.model.plan.activityDictionary/model/ActivityDictionaryPlanning.ecore"
+    nsPrefix="ad">
+  <eClassifiers xsi:type="ecore:EClass" name="ADEffectMember" eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EMember">
+    <eAnnotations source="member">
+      <details key="sortKey" value="300"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effects" upperBound="-1"
+        eType="#//ADEffectEntry" transient="true" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ADPlanMember" eSuperTypes="../../gov.nasa.ensemble.core.model.plan/model/Planning.ecore#//EMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activityDictionaryVersion"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="dictionary.activity.version.number"/>
+      </eAnnotations>
+      <eAnnotations source="detail">
+        <details key="hidden" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ADEffectEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//ADEffectKey"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EComputableAmount"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ADEffectKey">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDef" eType="ecore:EClass ../../gov.nasa.ensemble.dictionary/model/Dictionary.ecore#//EResourceDef"/>
+  </eClassifiers>
+</ecore:EPackage>

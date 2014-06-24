@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Plan Diff Plug-in
+Bundle-SymbolicName: gov.nasa.ensemble.core.model.plan.diff;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gov.nasa.ensemble.core.model.plan.diff.Activator
+Require-Bundle: org.eclipse.core.commands;bundle-version="3.6.0",
+ org.eclipse.core.runtime,
+ gov.nasa.ensemble.core.model.plan;bundle-version="1.0.0",
+ gov.nasa.ensemble.common,
+ gov.nasa.ensemble.dictionary,
+ gov.nasa.ensemble.core.model.plan.temporal,
+ gov.nasa.ensemble.core.plan,
+ gov.nasa.ensemble.core.plan.resources,
+ gov.nasa.ensemble.core.activityDictionary,
+ gov.nasa.ensemble.core.model.plan.constraints;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: gov.nasa.ensemble.core.model.plan.diff.api,
+ gov.nasa.ensemble.core.model.plan.diff.impl,
+ gov.nasa.ensemble.core.model.plan.diff.test,
+ gov.nasa.ensemble.core.model.plan.diff.top,
+ gov.nasa.ensemble.core.model.plan.diff.trees
+Bundle-Vendor: %providerName
