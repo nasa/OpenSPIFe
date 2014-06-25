@@ -47,5 +47,5 @@ Require-Bundle: functionaljava;bundle-version="[2.2.0,3.0)";visibility:=reexport
  org.eclipse.core.runtime;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName
