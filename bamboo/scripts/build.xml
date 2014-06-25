@@ -7,7 +7,7 @@
 	<property name="bamboo.buildNumber" value="${env.BAMBOO_BUILD_NUMBER}" description="Bamboo's build number, e.g. 123" />
 	<property name="bamboo.custom.svn.revision.number" value="${env.BAMBOO_SUBVERSION_REVISION}" description="(For Subversion only) The revision number" />
 
-	<xmlproperty file="features/${product}" prefix="productxml" collapseattributes="true" />
+	<xmlproperty file="${product}" prefix="productxml" collapseattributes="true" />
 	<property name="productName" value="${productxml.product.launcher.name}" />
 	<property name="archived-product-name" value="${productName}.${bamboo.buildKey}-${bamboo.buildNumber}" />
 
