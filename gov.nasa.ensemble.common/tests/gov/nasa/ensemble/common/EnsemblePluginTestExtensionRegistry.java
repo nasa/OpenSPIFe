@@ -45,12 +45,9 @@ import junit.framework.TestResult;
 import junit.framework.TestSuite;
 
 /**
- * Run this class as a junit plugin test to run all of the
- * junit plugin tests that have been registered using this
- * extension point.
+ * Run this class as a junit plugin test to run all of the junit plugin tests that have been registered using this extension point.
  * 
- * For an example of implementing this extension point, see
- * the plugin.xml for this plugin.
+ * For an example of implementing this extension point, see the plugin.xml for this plugin.
  * 
  * @author Andrew
  * @see IEnsemblePluginTest
@@ -59,11 +56,11 @@ public class EnsemblePluginTestExtensionRegistry extends BasicExtensionRegistry<
 
 	private static final String ID = "gov.nasa.ensemble.common.IEnsemblePluginTest";
 	private static EnsemblePluginTestExtensionRegistry instance = new EnsemblePluginTestExtensionRegistry();
-	
+
 	private EnsemblePluginTestExtensionRegistry() {
 		super(IEnsemblePluginTest.class, ID);
 	}
-	
+
 	public static EnsemblePluginTestExtensionRegistry getInstance() {
 		return instance;
 	}
@@ -72,12 +69,12 @@ public class EnsemblePluginTestExtensionRegistry extends BasicExtensionRegistry<
 		TestSuite testSuite = testSuite();
 		return testSuite;
 	}
-	
+
 	public static TestSuite testSuite() {
 		List<ITestSuiteFilter> noFilters = Collections.emptyList();
 		return testSuite(noFilters);
 	}
-	
+
 	public static TestSuite testSuite(List<ITestSuiteFilter> filters) {
 		EPTERTestSuite suite = new EPTERTestSuite("EnsemblePluginTestExtensionRegistry");
 		List<IEnsemblePluginTest> tests = getInstance().getInstances();
@@ -92,7 +89,7 @@ public class EnsemblePluginTestExtensionRegistry extends BasicExtensionRegistry<
 				}
 			} catch (final Throwable t) {
 				if (t instanceof ThreadDeath) {
-					throw (ThreadDeath)t;
+					throw (ThreadDeath) t;
 				}
 				LogUtil.error("couldn't load test: " + test, t);
 				suite.addTest(new Test() {
@@ -100,10 +97,12 @@ public class EnsemblePluginTestExtensionRegistry extends BasicExtensionRegistry<
 					public int countTestCases() {
 						return 1;
 					}
+
 					@Override
 					public void run(TestResult result) {
 						result.addError(this, t);
 					}
+
 					@Override
 					public String toString() {
 						return t.getMessage();
@@ -114,12 +113,12 @@ public class EnsemblePluginTestExtensionRegistry extends BasicExtensionRegistry<
 		suite.sort();
 		return suite;
 	}
-	
+
 	private static String getLabel(Test test) {
 		String string = test.toString();
-//		int start = string.indexOf('(');
-//		int end = string.indexOf(')', start);
-//		String label = string.substring(start + 1, end);
+		// int start = string.indexOf('(');
+		// int end = string.indexOf(')', start);
+		// String label = string.substring(start + 1, end);
 		return string;
 	}
 
@@ -184,7 +183,8 @@ public class EnsemblePluginTestExtensionRegistry extends BasicExtensionRegistry<
 					}
 					classNames.add(line);
 				}
-				Vector<Test> fTests = (Vector<Test>)ReflectionUtils.get(this, "fTests");
+				reader.close();
+				Vector<Test> fTests = (Vector<Test>) ReflectionUtils.get(this, "fTests");
 				FailingPriorityComparator comparator = new FailingPriorityComparator(classNames);
 				Collections.sort(fTests, comparator);
 			} catch (IOException e) {
@@ -193,7 +193,7 @@ public class EnsemblePluginTestExtensionRegistry extends BasicExtensionRegistry<
 				}
 			}
 		}
-		
+
 	}
 
 	public static class FailingPriorityComparator implements Comparator<Test> {
@@ -243,7 +243,7 @@ public class EnsemblePluginTestExtensionRegistry extends BasicExtensionRegistry<
 			}
 			return -1;
 		}
-		
+
 	}
 
 }
