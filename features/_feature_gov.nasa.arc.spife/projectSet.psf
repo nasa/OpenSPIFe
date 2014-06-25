@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
-<project reference="1.0,git@github.com:nasa/OpenSPIFe.git,master,_feature_gov.nasa.arc.spife.europa"/>
-<project reference="1.0,git@github.com:nasa/OpenSPIFe.git,master,bamboo"/>
+<project reference="1.0,git@github.com:nasa/OpenSPIFe.git,master,features/_feature_gov.nasa.arc.spife.europa"/>
 <project reference="1.0,git@github.com:nasa/OpenSPIFe.git,master,functionaljava"/>
 <project reference="1.0,git@github.com:nasa/OpenSPIFe.git,master,gov.nasa.arc.spife"/>
 <project reference="1.0,git@github.com:nasa/OpenSPIFe.git,master,gov.nasa.arc.spife.core.constraints.view"/>
