@@ -21,8 +21,7 @@ configs=linux, gtk, x86 & \
 	macosx, cocoa, x86 & \
 	win32, win32, x86
 
-archivesFormat=linux, gtk, x86 - zip & \
-	linux, gtk, x86_64 - zip & \
+archivesFormat=linux, gtk, x86_64 - zip & \
 	macosx, carbon, x86 - zip & \
 	macosx, cocoa, x86 - zip & \
 	macosx, cocoa, x86_64 - zip & \
