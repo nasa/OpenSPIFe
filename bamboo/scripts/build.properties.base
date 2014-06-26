@@ -21,7 +21,8 @@ configs=linux, gtk, x86 & \
 	macosx, cocoa, x86 & \
 	win32, win32, x86
 
-archivesFormat=linux, gtk, x86_64 - zip & \
+archivesFormat=linux, gtk, x86 - zip & \
+	linux, gtk, x86_64 - zip & \
 	macosx, carbon, x86 - zip & \
 	macosx, cocoa, x86 - zip & \
 	macosx, cocoa, x86_64 - zip & \
@@ -77,7 +78,7 @@ baseLocation=${base}/eclipse
 #Os/Ws/Arch/nl of the eclipse specified by baseLocation
 baseos=linux
 basews=gtk
-basearch=x86
+basearch=x86_64
 
 #this property indicates whether you want the set of plug-ins and features to be considered during the build to be limited to the ones reachable from the features / plugins being built
 filteredDependencyCheck=false
