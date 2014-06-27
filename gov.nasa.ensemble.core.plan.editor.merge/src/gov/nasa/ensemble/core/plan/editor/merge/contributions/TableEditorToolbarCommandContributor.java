@@ -26,8 +26,6 @@ public class TableEditorToolbarCommandContributor extends AbstractCommandItemCon
 	@Override
 	protected void contributeCommandItems() {
 		contribute(FLATTEN_HIERARCHY_COMMAND_ID, SWT.CHECK);
-		contribute(PICK_TEMPORAL_PLAN_MODIFIER_COMMAND_ID, SWT.CHECK);
-		contribute(SHOW_ROW_HIGHLIGHT_COMMAND_ID, SWT.CHECK);
 	}
 
 }
