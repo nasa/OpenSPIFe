@@ -214,6 +214,96 @@
                    class="gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors.TimelineMenuCommandContributor">
              </dynamic>
 	      </menuContribution>
+	      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="gov.nasa.arc.spife.ui.timelinecommands.toolbar">
+               <separator
+               name="gov.nasa.arc.spife.ui.timeline.separator"
+               visible="true"/>
+            <command
+            	commandId="gov.nasa.arc.spife.core.plan.editor.timeline.show.violations"
+            	label="Show Violations"
+            	style="toggle"
+            	tooltip="Show Violations">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+            	commandId="gov.nasa.arc.spife.core.plan.editor.timeline.show.constraints"
+            	label="Show Constraints"
+            	style="toggle"
+            	tooltip="Show Constraints">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+            	commandId="gov.nasa.arc.spife.core.plan.editor.timeline.snap"
+            	label="Snap"
+            	style="push"
+            	tooltip="Snap">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+            	commandId="gov.nasa.arc.spife.core.plan.editor.timeline.commands.overlay"
+            	label="Lock overlay on selection"
+            	style="push"
+            	tooltip="Lock overlay on selection">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeContexts">
+                     <iterate
+                           operator="or">
+                        <equals
+                              value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        </equals>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+			<dynamic
+                   id="gov.nasa.arc.spife.ui.timelinecommands.toolbar.dynamic"
+                   class="gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors.TimelineMenuCommandContributor">
+                   <visibleWhen>
+						<reference
+							definitionId="gov.nasa.ensemble.core.plan.editor.inPlanContext">
+						</reference>
+               		</visibleWhen>
+             </dynamic>
+         </toolbar>
+      </menuContribution>
 	</extension>
 	<extension
 	      point="org.eclipse.core.expressions.definitions">
