@@ -144,6 +144,24 @@
                locationURI="toolbar:org.eclipse.ui.main.toolbar?after=gov.nasa.arc.spife.core.plan.editor.timeline.toolbar">
                <toolbar
                      id="gov.nasa.ensemble.core.plan.editor.merge.toolbar">
+                     <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.merge.toggle_flatten"
+            			label="Flatten Hierarchy"
+            			style="toggle"
+            			tooltip="Flatten Hierarchy">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  			<with
+                        		variable="activeContexts">
+                     		<iterate
+                           		operator="or">
+                        		<equals
+                             		value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        		</equals>
+                     		</iterate>
+                  			</with>
+               			</visibleWhen>
+            		</command>
                		<dynamic	
                     	 id="gov.nasa.ensemble.core.plan.editor.merge.toolbar.dynamic"
                      	class="gov.nasa.ensemble.core.plan.editor.merge.contributions.TableEditorToolbarCommandContributor">
