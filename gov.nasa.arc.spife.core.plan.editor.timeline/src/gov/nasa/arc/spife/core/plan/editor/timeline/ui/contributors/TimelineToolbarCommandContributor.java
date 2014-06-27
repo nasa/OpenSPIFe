@@ -22,11 +22,12 @@ import gov.nasa.ensemble.core.plan.editor.actions.AbstractCommandItemContributor
 import org.eclipse.swt.SWT;
 
 public class TimelineToolbarCommandContributor extends AbstractCommandItemContributor {
-			
+
 	@Override
 	protected void contributeCommandItems() {
 		contribute(SHOW_VIOLATIONS_COMMAND_ID, SWT.CHECK);
 		contribute(SHOW_CONSTRAINTS_COMMAND_ID, SWT.CHECK);
+		contribute(SNAP_COMMAND_ID, SWT.CHECK);
 		contribute(OVERLAY_COMMAND_ID, SWT.CHECK);
 	}
 
