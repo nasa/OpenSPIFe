@@ -195,7 +195,7 @@ public class MergeTreeContentProvider extends TreeTableContentProvider {
 	private boolean hasFlatChildren(Object parent) {
 		if (parent instanceof EPlan) {
 			EPlan plan = (EPlan)parent;
-			class ChildFound extends RuntimeException { /* */ }
+			class ChildFound extends RuntimeException { private static final long serialVersionUID = 1L; }
 			try {
 				new PlanVisitor() {
 					@Override
