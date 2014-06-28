@@ -385,6 +385,150 @@
              <toolbar
                    id="gov.nasa.ensemble.core.plan.editor.drudgery.toolbar"
                    label="Drudgery Saving Actions">
+                   <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.drudgery.move"
+            			label="Move Selected"
+            			style="push"
+            			tooltip="Move Selected">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	   </command>
+            	   <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.drudgery.align.start"
+            			label="Align to Start"
+            			style="push"
+            			tooltip="Align to Start">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	   </command>
+            	   <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.drudgery.align.end"
+            			label="Align to End"
+            			style="push"
+            			tooltip="Align to End">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	   </command>
+            	   <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.drudgery.distribute.x"
+            			label="Distribute By"
+            			style="push"
+            			tooltip="Distribute By">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	   </command>
+            	   <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.drudgery.swap"
+            			label="Swap"
+            			style="push"
+            			tooltip="Swap">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	   </command>
+            	   <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.drudgery.compressLeftCommand"
+            			label="Compress Left"
+            			style="push"
+            			tooltip="Compress Left">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	   </command>
+            	   <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.drudgery.compressRightCommand"
+            			label="Compress Right"
+            			style="push"
+            			tooltip="Compress Right">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	   </command>
+            	   <command
+            			commandId="gov.nasa.ensemble.core.plan.editor.drudgery.copy.multiple"
+            			label="Copy Many Times"
+            			style="push"
+            			tooltip="Copy Many Times">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	   </command>
                    <dynamic
                          id="gov.nasa.ensemble.core.plan.editor.drudgery.toolbar.items"
                          class="gov.nasa.ensemble.core.plan.editor.drudgery.contributor.DrudgeryToolbarCommandContributor">
