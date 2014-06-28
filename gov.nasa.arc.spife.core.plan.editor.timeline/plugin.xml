@@ -167,6 +167,24 @@
              <toolbar
                    id="gov.nasa.arc.spife.core.plan.editor.realtime.toolbar"
                    label="Realtime Timeline Actions">
+                   <command
+            			commandId="gov.nasa.arc.spife.core.plan.editor.timeline.follow.current.time"
+            			label="Toggle follow current time"
+            			style="toggle"
+            			tooltip="Toggle follow current time">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	</command>
                    <dynamic
                       id="gov.nasa.arc.spife.core.plan.editor.realtime.toolbar.items"
                       class="gov.nasa.arc.spife.core.plan.editor.timeline.ui.contributors.RealtimeTimelineToolbarCommandContributor">

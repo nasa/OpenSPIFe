@@ -103,6 +103,114 @@
           	<toolbar 
           		id="gov.nasa.ensemble.core.plan.editor.constraints.toolbar"
           		label="Constraints">
+          		<command
+            			commandId="gov.nasa.ensemble.core.plan.editor.constraints.pin"
+            			label="Pin"
+            			style="push"
+            			tooltip="Pin">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	</command>
+            	<command
+            			commandId="gov.nasa.ensemble.core.plan.editor.constraints.earliest"
+            			label="Earliest"
+            			style="toggle"
+            			tooltip="Earliest">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	</command>
+            	<command
+            			commandId="gov.nasa.ensemble.core.plan.editor.constraints.latest"
+            			label="Latest"
+            			style="toggle"
+            			tooltip="Latest">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	</command>
+            	<command
+            			commandId="gov.nasa.ensemble.core.plan.editor.constraints.chain"
+            			label="Chain/Unchain Items"
+            			style="toggle"
+            			tooltip="Chain/Unchain Items">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	</command>
+            	<command
+            			commandId="gov.nasa.ensemble.core.plan.editor.constraints.binary"
+            			label="Constrain"
+            			style="push"
+            			tooltip="Constrain">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	</command>
+            	<command
+            			commandId="gov.nasa.ensemble.core.plan.editor.constraints.exactly"
+            			label="Constrain Exactly"
+            			style="toggle"
+            			tooltip="Constrain Exactly">
+               			<visibleWhen
+                     		checkEnabled="false">
+                  				<with
+                        			variable="activeContexts">
+                     				<iterate
+                           				operator="or">
+                        			<equals
+                              			value="gov.nasa.arc.spife.ui.timeline.tool.actionSet">
+                        			</equals>
+                     				</iterate>
+                  				</with>
+               			</visibleWhen>
+            	</command>
 				<dynamic
 					id="gov.nasa.ensemble.core.plan.editor.constraints.toolbar.items"
 					class="gov.nasa.ensemble.core.plan.editor.constraints.contributor.ConstraintsToolbarCommandContributor">
