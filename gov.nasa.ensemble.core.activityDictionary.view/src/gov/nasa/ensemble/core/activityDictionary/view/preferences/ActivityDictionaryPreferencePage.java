@@ -77,7 +77,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 	public void init(IWorkbench workbench) {
 		// nothing to do
 	}
-	
+
 	@Override
 	protected Control createContents(Composite parent) {
 		toolkit = new FormToolkit(parent.getDisplay());
@@ -99,8 +99,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 
 	private void createActivityDictionaryFile(Composite parent) {
 		Composite fileComp = new Composite(parent, SWT.None);
-		activityDictionaryFile = new FileFieldEditor(ActivityDictionaryPreferences.ACTIVITY_DICTIONARY_LOCATION, "URL:", true,
-				fileComp) {
+		activityDictionaryFile = new FileFieldEditor(ActivityDictionaryPreferences.ACTIVITY_DICTIONARY_LOCATION, "URL:", true, fileComp) {
 			@Override
 			protected String changePressed() {
 				String file = super.changePressed();
@@ -141,8 +140,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 
 	private String[] getDictionaryExtensions() {
 		List<String> list = new ArrayList<String>();
-		String pattern = EnsembleProperties.getProperty(ActivityDictionaryPlugin.ACTIVITY_DICTIONARY_FILE_PATTERN_PROPERTY,
-				"*.xad, *.ad, *.dictionary,*.xml");
+		String pattern = EnsembleProperties.getProperty(ActivityDictionaryPlugin.ACTIVITY_DICTIONARY_FILE_PATTERN_PROPERTY, "*.xad, *.dictionary,*.xml");
 		StringTokenizer tokenizer = new StringTokenizer(pattern, ",");
 		while (tokenizer.hasMoreTokens()) {
 			list.add(tokenizer.nextToken().trim());
@@ -153,8 +151,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 
 	private void createStrictADChecking(Composite parent) {
 		Composite checkComp = new Composite(parent, SWT.NONE);
-		strictADChecking = new BooleanFieldEditor(ActivityDictionaryPlugin.ACTIVITY_DICTIONARY_STRICT_CHECKING_PROPERTY,
-				"Strict AD input checking", checkComp);
+		strictADChecking = new BooleanFieldEditor(ActivityDictionaryPlugin.ACTIVITY_DICTIONARY_STRICT_CHECKING_PROPERTY, "Strict AD input checking", checkComp);
 		strictADChecking.setPage(this);
 		strictADChecking.setPreferenceStore(getPreferenceStore());
 		strictADChecking.load();
@@ -204,8 +201,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 		// TODO: add file based meta data here... file modification date...etc? less useul then the dates in the file.
 
 		if (ActivityDictionary.getInstance() != ad) {
-			formText.insert(0, "<p><span color=\"red\" font=\"header\">").append("Info from AD to take effect at next launch")
-					.append("</span></p>");
+			formText.insert(0, "<p><span color=\"red\" font=\"header\">").append("Info from AD to take effect at next launch").append("</span></p>");
 		}
 
 		// add form code.
@@ -220,7 +216,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 		});
 
 	}
-	
+
 	@Override
 	protected void performDefaults() {
 		activityDictionaryFile.loadDefault();
@@ -239,9 +235,7 @@ public class ActivityDictionaryPreferencePage extends PreferencePage implements 
 		String currentPref = getPreferenceStore().getString(ActivityDictionaryPreferences.ACTIVITY_DICTIONARY_LOCATION);
 		String newPref = activityDictionaryFile.getStringValue();
 		if (!currentPref.equals(newPref)) {
-			boolean okRestart = MessageDialog.openConfirm(top.getShell(), "Restart?",
-					"An application restart is required for the change to take effect.\n\n"
-							+ "You will be prompted to save current work.");
+			boolean okRestart = MessageDialog.openConfirm(top.getShell(), "Restart?", "An application restart is required for the change to take effect.\n\n" + "You will be prompted to save current work.");
 
 			if (!okRestart) {
 				return false;
