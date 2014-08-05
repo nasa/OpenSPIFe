@@ -31,15 +31,15 @@ import org.eclipse.emf.ecore.resource.URIConverter;
 public class URIStrigifier extends AbstractTrimmingStringifier<URI> {
 
 	private URIConverter uriConverter;
-	
+
 	public URIStrigifier() {
 		this(null);
 	}
-	
+
 	public URIStrigifier(URIConverter uriConverter) {
 		this.uriConverter = uriConverter;
 	}
-	
+
 	@Override
 	public String getDisplayString(URI javaObject) {
 		if (javaObject == null || uriConverter == null) {
@@ -47,12 +47,11 @@ public class URIStrigifier extends AbstractTrimmingStringifier<URI> {
 		}
 		URI normalize = uriConverter.normalize(javaObject);
 		String normalizedPath = normalize.toString();
-		if(isWorkspaceRelativePath(normalizedPath)) {
+		if (isWorkspaceRelativePath(normalizedPath)) {
 			IPath path = new Path(normalizedPath);
-			if(path.segmentCount() > 3) {
+			if (path.segmentCount() > 3) {
 				path = path.removeFirstSegments(3);
-			}
-			else {
+			} else {
 				// platform uri is invalid format
 				return "";
 			}
@@ -63,19 +62,20 @@ public class URIStrigifier extends AbstractTrimmingStringifier<URI> {
 	}
 
 	@Override
-	protected URI getJavaObjectFromTrimmed(String string, URI defaultObject)
-			throws ParseException {
+	protected URI getJavaObjectFromTrimmed(String string, URI defaultObject) throws ParseException {
 		if (CommonUtils.isNullOrEmpty(string)) {
 			return null;
 		}
 		try {
 			URI uri = null;
-			if(!isProjectRelativePath(string)) {
+			if (!isProjectRelativePath(string)) {
 				URL url = new URL(string);
 				uri = URI.createURI(url.toString());
-			}
-			else {
+			} else {
 				uri = URI.createURI(string);
+			}
+			if (uriConverter == null) {
+				return uri;
 			}
 			URI normalize = uriConverter.normalize(uri);
 			return normalize;
@@ -84,11 +84,11 @@ public class URIStrigifier extends AbstractTrimmingStringifier<URI> {
 		}
 
 	}
-	
+
 	public void setUriConverter(URIConverter uriConverter) {
 		this.uriConverter = uriConverter;
 	}
-	
+
 	private boolean isProjectRelativePath(String path) {
 		return path.trim().startsWith("project:/");
 	}

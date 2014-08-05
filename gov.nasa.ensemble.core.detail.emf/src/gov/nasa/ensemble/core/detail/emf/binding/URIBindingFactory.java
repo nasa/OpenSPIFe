@@ -30,18 +30,25 @@ import gov.nasa.ensemble.emf.stringifier.URIStrigifier;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.UpdateValueStrategy;
+import org.eclipse.core.databinding.conversion.Converter;
+import org.eclipse.core.databinding.conversion.IConverter;
+import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.URIConverter;
@@ -77,7 +84,6 @@ import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-
 
 public class URIBindingFactory extends BindingFactory {
 
@@ -174,7 +180,7 @@ public class URIBindingFactory extends BindingFactory {
 					URI normalize = uriConverter.normalize(uri);
 					String platformString = normalize.toPlatformString(true);
 					IWorkbenchPage workbenchPage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-					if(isProjectRelativePath(destination) || !uri.isFile()) {
+					if (isProjectRelativePath(destination) || !uri.isFile()) {
 						// i.e. destinations starting with "platform:/"
 						IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformString));
 						try {
@@ -188,8 +194,7 @@ public class URIBindingFactory extends BindingFactory {
 								logger.error(partInitException2);
 							}
 						}
-					}
-					else {
+					} else {
 						// i.e. system destinations starting with "file:/"
 						IFileStore fileStore = new LocalFileStore(new File(destination));
 						FileStoreEditorInput input = new FileStoreEditorInput(fileStore);
@@ -223,11 +228,11 @@ public class URIBindingFactory extends BindingFactory {
 					try {
 						String text = "";
 						// Check for project relative paths
-						if(isProjectRelativePath(originalText)) {
+						if (isProjectRelativePath(originalText)) {
 							// Project relative converted into Workspace relative path.
 							text = convertToPlatformPath(originalText);
 						}
-						url  = new URL(text);
+						url = new URL(text);
 					} catch (MalformedURLException e1) {
 						// do nothing
 					}
@@ -238,8 +243,7 @@ public class URIBindingFactory extends BindingFactory {
 					hyperlinkTextField.setText(displayString);
 					if (openButton.isEnabled()) {
 						openButton.setFocus();
-					}
-					else {
+					} else {
 						browseButton.setFocus();
 					}
 				}
@@ -267,7 +271,7 @@ public class URIBindingFactory extends BindingFactory {
 				try {
 					String text = originalText;
 					// Check for project relative paths
-					if(isProjectRelativePath(originalText)) {
+					if (isProjectRelativePath(originalText)) {
 						// Project relative converted into Workspace relative path.
 						text = convertToPlatformPath(originalText);
 					}
@@ -323,7 +327,7 @@ public class URIBindingFactory extends BindingFactory {
 				try {
 					String text = originalText;
 					// Check for project relative paths
-					if(isProjectRelativePath(originalText)) {
+					if (isProjectRelativePath(originalText)) {
 						// Project relative converted into Workspace relative path.
 						text = convertToPlatformPath(originalText);
 					}
@@ -368,14 +372,13 @@ public class URIBindingFactory extends BindingFactory {
 					File file = new File(selectedFile);
 					IPath location = Path.fromOSString(file.getAbsolutePath());
 					IFile iFile = root.getFileForLocation(location);
-					if (selectedFile.startsWith(workspaceLocation) && iFile!=null && iFile.getProject()!=null && iFile.getProject().exists()) {
+					if (selectedFile.startsWith(workspaceLocation) && iFile != null && iFile.getProject() != null && iFile.getProject().exists()) {
 						// Project Relative
 						String trimmed = selectedFile.substring(workspaceLocation.length());
 						IPath path = new Path(trimmed).removeFirstSegments(1);
 						String projectRelativePath = path.toOSString();
 						text = ProjectURIConverter.createProjectURI(projectRelativePath).toString();
-					} 
-					else {
+					} else {
 						text = convertTextToHyperlinkTextField(selectedFile);
 					}
 					hyperlinkTextField.setText(text);
@@ -409,7 +412,7 @@ public class URIBindingFactory extends BindingFactory {
 		if (propertyValue == null) {
 			propertyValue = "";
 		}
-		
+
 		uriConverter = target.eResource().getResourceSet().getURIConverter();
 		projectUriStringfier = new URIStrigifier(uriConverter);
 		EMFDetailUtils.createLabel(parent, toolkit, target, pd);
@@ -464,30 +467,31 @@ public class URIBindingFactory extends BindingFactory {
 	}
 
 	private String convertToPlatformPath(String projectPath) {
-		IEditorPart editorPart = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		if (editorPart != null) {
 			IFileEditorInput editorInput = (IFileEditorInput) editorPart.getEditorInput();
 			IFile editorFile = editorInput.getFile();
 			IProject activeProject = editorFile.getProject();
-			if(activeProject!=null && activeProject.exists()) {
+			if (activeProject != null && activeProject.exists()) {
 				URI uri = URI.createURI(projectPath);
 				URI normalize = uriConverter.normalize(uri);
 				return normalize.toString();
-			}
-			else {
-				LogUtil.warn("Could not get active project. Failed to convert project relative path into workspace path: "+ projectPath);
+			} else {
+				LogUtil.warn("Could not get active project. Failed to convert project relative path into workspace path: " + projectPath);
 			}
 		}
 		return projectPath;
 	}
-	
+
 	private boolean isProjectRelativePath(String path) {
 		return path.trim().startsWith("project:/");
 	}
 
 	private URI toURI(URL url) {
-		return URI.createURI(url.toString());
+		String string = url.toString();
+		if (string.endsWith(":"))
+			string += "//"; // URI validation code won't tolerate scheme-only but URL will
+		return URI.createURI(string);
 	}
 
 	private final class ProjectUrlUpdateValueStrategy extends StringifierUpdateValueStrategy {
@@ -496,9 +500,60 @@ public class URIBindingFactory extends BindingFactory {
 		}
 
 		@Override
-		protected IStringifier getStringifier(EDataType eDataType) {
+		protected IConverter createConverter(Object fromType, Object toType) {
+			if (fromType == String.class && toType instanceof EAttribute) {
+				return new Converter(fromType, toType) {
+					@Override
+					public Object convert(Object fromObject) {
+						try {
+							return projectUriStringfier.getJavaObject((String) fromObject, null);
+						} catch (ParseException e) {
+							return null;
+						}
+					}
+				};
+			} else if (toType == String.class && fromType instanceof EAttribute) {
+				return new Converter(fromType, toType) {
+					@Override
+					public String convert(Object fromObject) {
+						return projectUriStringfier.getDisplayString((URI) fromObject);
+					}
+				};
+			} else {
+				return super.createConverter(fromType, toType);
+			}
+		}
+
+		@Override
+		protected IValidator createValidator(Object fromType, Object toType) {
+			if (fromType == String.class && toType instanceof EAttribute) {
+				return new IValidator() {
+					@Override
+					public IStatus validate(Object value) {
+						try {
+							projectUriStringfier.getJavaObject((String) value, null);
+							return Status.OK_STATUS;
+						} catch (ParseException e) {
+							return Status.CANCEL_STATUS;
+						}
+					}
+				};
+			} else if (toType == String.class && fromType instanceof EAttribute) {
+				return new IValidator() {
+					@Override
+					public IStatus validate(Object value) {
+						return Status.OK_STATUS;
+					}
+				};
+			} else {
+				return super.createValidator(fromType, toType);
+			}
+		}
+
+		@Override
+		protected IStringifier<?> getStringifier(EDataType eDataType) {
 			return projectUriStringfier;
 		}
 	}
-	
+
 }
