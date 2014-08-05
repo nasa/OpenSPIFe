@@ -37,19 +37,19 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolTip;
 
-public class StringTypeEditor extends AbstractTypeEditor<Object> {
-	
+public class StringTypeEditor<T> extends AbstractTypeEditor<Object> {
+
 	public static final Color INVALID_INPUT_COLOR = ColorConstants.red;
 	public static final Color VALID_COLOR = ColorConstants.black;
-	
+
 	private final Text text;
-	private final IStringifier stringifier;
-	
+	private final IStringifier<Object> stringifier;
+
 	private ToolTip tip = null;
 
 	private boolean edited;
-	
-	public StringTypeEditor(IStringifier stringifier, Text text) {
+
+	public StringTypeEditor(IStringifier<Object> stringifier, Text text) {
 		super(Object.class);
 		this.stringifier = stringifier;
 		this.text = text;
@@ -57,26 +57,24 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 
 		tip = new ToolTip(text.getShell(), SWT.BALLOON | SWT.ICON_INFORMATION);
 	}
-	
-    public StringTypeEditor(IStringifier stringifier, Composite parent, Object value, boolean editable) {
-    	super(Object.class);
+
+	public StringTypeEditor(IStringifier<Object> stringifier, Composite parent, Object value, boolean editable) {
+		super(Object.class);
 		this.stringifier = stringifier;
 		super.setObject(value);
-    	this.text = createText(parent, value, editable);
-    	addTextListeners();
+		this.text = createText(parent, value, editable);
+		addTextListeners();
 		tip = new ToolTip(text.getShell(), SWT.BALLOON | SWT.ICON_ERROR);
-		
+
 		// For some reason, applying a color at creation, does not get it to update correctly
 		// so simply do it next in the queue.
 		parent.getDisplay().asyncExec(new Runnable() {
-			@Override
 			public void run() {
 				updateValidityColor(false); // make sure the color is set right in the case where you ALLOW errors.
 			}
 		});
-    }
+	}
 
-	@Override
 	public Text getEditorControl() {
 		return text;
 	}
@@ -85,28 +83,28 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 	public void setObject(final Object object) {
 		super.setObject(object);
 		WidgetUtils.runInDisplayThread(text, new Runnable() {
-			@Override
-			@SuppressWarnings("unchecked")
 			public void run() {
 				String string = stringifier.getDisplayString(object);
 				if (string == null) {
 					string = "";
 				}
-				if (!string.equals(text.getText())) {
-					// the above check prevents the cursor from going 
-					// to the start of the line when pressing return.
-					text.setText(string);
-					updateValidityColor();
-				}
+				Point selection = text.getSelection();
+				text.setText(string);
+				// If canonicalized, assume extra characters were added to end,
+				// and select them in case user is typing without looking.
+				// E.g., "http:" may turn into "http://"
+				int oldInsertionPoint = selection.x;
+				int endOfNewText = string.length();
+				text.setSelection(Math.min(oldInsertionPoint, endOfNewText), endOfNewText);
+				updateValidityColor();
 			}
 		});
 	}
-	
+
 	/**
-	 * Inspect the object *without* validation. 
-	 * Purpose: This version does *not* call resetText() in the event of a validation error.
+	 * Inspect the object *without* validation. Purpose: This version does *not* call resetText() in the event of a validation error.
 	 */
-	public Object getObjectRaw() throws ParseException  {
+	public Object getObjectRaw() throws ParseException {
 		if (edited) {
 			String string = text.getText();
 			Object object = stringifier.getJavaObject(string, StringTypeEditor.super.getObject());
@@ -114,7 +112,7 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 		}
 		return super.getObject();
 	}
-	
+
 	/**
 	 * Force validation prior to return.
 	 */
@@ -123,7 +121,6 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 		if (edited) {
 			String string = text.getText();
 			try {
-				@SuppressWarnings("unchecked")
 				Object object = stringifier.getJavaObject(string, StringTypeEditor.super.getObject());
 				acceptValue(object);
 			} catch (SoftOutOfBoundsException e) {
@@ -143,8 +140,7 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 		}
 		return super.getObject();
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	protected Text createText(Composite parent, Object value, boolean editable) {
 		String string = stringifier.getDisplayString(value);
 		int multiLineFlags = ((string.length() > 50) ? (SWT.MULTI | SWT.WRAP) : 0);
@@ -157,29 +153,28 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 		final Text text = new Text(parent, flags);
 		text.setText(string);
 		return text;
-    }
-    
-    private void addTextListeners() {
-    	TextListener listener = new TextListener();
-    	text.addFocusListener(listener);
-    	text.addKeyListener(listener);
-    	text.addModifyListener(listener);
-    }
+	}
 
-    /**
-     * The user has input the supplied value.
-     *
-     * @param newObject
-     */
+	private void addTextListeners() {
+		TextListener listener = new TextListener();
+		text.addFocusListener(listener);
+		text.addKeyListener(listener);
+		text.addModifyListener(listener);
+	}
+
+	/**
+	 * The user has input the supplied value.
+	 * 
+	 * @param newObject
+	 */
 	protected void acceptValue(Object newObject) {
 		super.setObject(newObject);
 		edited = false;
 	}
 
 	/**
-     * Sets the text back to the original value
-     */
-	@SuppressWarnings("unchecked")
+	 * Sets the text back to the original value
+	 */
 	private void resetText() {
 		edited = false;
 		String str = stringifier.getDisplayString(super.getObject());
@@ -190,21 +185,19 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 	private void updateValidityColor() {
 		updateValidityColor(true);
 	}
-	
+
 	/**
 	 * Sets the validity color according to the current text.
 	 * 
 	 * ShowTip, determines if a "tip" about the error should be displayed
 	 */
 	private void updateValidityColor(boolean showTip) {
-		if (! text.isDisposed()) { //No point updating color, if widget is disposed
+		if (!text.isDisposed()) { // No point updating color, if widget is disposed
 			String string = text.getText();
 			try {
-				@SuppressWarnings({"unchecked", "unused"})
+				@SuppressWarnings({ "unused" })
 				Object object = stringifier.getJavaObject(string, getDefaultObject(null));
-				if (text.getForeground() == null 
-					|| !text.getForeground().equals(VALID_COLOR)
-				) {
+				if (text.getForeground() == null || !text.getForeground().equals(VALID_COLOR)) {
 					text.setForeground(VALID_COLOR);
 				}
 				if (tip.isVisible()) {
@@ -212,18 +205,18 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 				}
 			} catch (Exception e) {
 				text.setForeground(INVALID_INPUT_COLOR);
-				
+
 				Point textLocation = text.getLocation();
 				Point textSize = text.getSize();
-				textLocation = new Point(textLocation.x, textLocation.y+textSize.y);
-				
+				textLocation = new Point(textLocation.x, textLocation.y + textSize.y);
+
 				Point tipLocation = WidgetUtils.getDisplay().map(text.getParent(), null, textLocation);
-				
+
 				if (showTip) {
 					tip.setText("Invalid Input");
 					String msg = e.getMessage();
 					if (msg == null) {
-					    msg = "";
+						msg = "";
 					}
 					tip.setMessage(msg);
 					tip.setLocation(tipLocation);
@@ -232,27 +225,26 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 			}
 		}
 	}
-	
+
 	private Object getDefaultObject(Object target) {
 		Object normalDefault = super.getObject();
-		if (normalDefault != null) return normalDefault;
-		else return DefaultDateUtil.tryHarderToFindDefaultDateIfApplicable(target, stringifier);
+		if (normalDefault != null)
+			return normalDefault;
+		else
+			return DefaultDateUtil.tryHarderToFindDefaultDateIfApplicable(target, stringifier);
 	}
 
 	private class TextListener implements FocusListener, KeyListener, ModifyListener {
 
-		@Override
 		public void modifyText(ModifyEvent event) {
 			edited = true;
 			updateValidityColor();
 		}
 
-		@Override
 		public void keyPressed(KeyEvent event) {
 			// special keys handled in release
 		}
-		
-		@Override
+
 		public void keyReleased(KeyEvent event) {
 			if (event.keyCode == SWT.ESC) {
 				resetText();
@@ -261,7 +253,6 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 					event.doit = false;
 					String string = text.getText();
 					try {
-						@SuppressWarnings("unchecked")
 						Object object = stringifier.getJavaObject(string, StringTypeEditor.super.getObject());
 						acceptValue(object);
 					} catch (Exception e) {
@@ -271,17 +262,14 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 			}
 		}
 
-		@Override
 		public void focusGained(FocusEvent event) {
 			edited = false;
 		}
-		
-		@Override
+
 		public void focusLost(FocusEvent event) {
 			if (edited && !text.isDisposed()) {
 				String string = text.getText();
 				try {
-					@SuppressWarnings("unchecked")
 					Object object = stringifier.getJavaObject(string, StringTypeEditor.super.getObject());
 					acceptValue(object);
 				} catch (SoftOutOfBoundsException e) {
@@ -296,5 +284,5 @@ public class StringTypeEditor extends AbstractTypeEditor<Object> {
 			}
 		}
 	}
-    
+
 }

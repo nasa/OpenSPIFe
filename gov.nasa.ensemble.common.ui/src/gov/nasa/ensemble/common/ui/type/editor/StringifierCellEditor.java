@@ -29,7 +29,7 @@ import org.eclipse.swt.widgets.Composite;
 public class StringifierCellEditor<T> extends CocoaCompatibleTextCellEditor implements ISetContext {
 
 	private final IStringifier<T> stringifier;
-	private final StringTypeEditor editor;
+	private final StringTypeEditor<?> editor;
 	private T object = null;
 	private Object context;
 
