@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -41,11 +42,11 @@ public class MultiEObject extends EObjectImpl implements IAdaptable, IEditingDom
 	private final MultiItemPropertySource source;
 	private final Option<String> label;
 	private final Option<Image> icon;
-	
+
 	public MultiEObject(List<? extends EObject> eObjects, MultiItemPropertySource source) {
-		this(eObjects, source, Option.<String>none(), Option.<Image>none());
+		this(eObjects, source, Option.<String> none(), Option.<Image> none());
 	}
-	
+
 	public MultiEObject(List<? extends EObject> eObjects, MultiItemPropertySource source, Option<String> label, Option<Image> icon) {
 		this.eObjects = eObjects;
 		this.source = source;
@@ -78,7 +79,7 @@ public class MultiEObject extends EObjectImpl implements IAdaptable, IEditingDom
 
 	@Override
 	public void eSet(final EStructuralFeature feature, final Object newValue) {
-		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(eObjects.toArray()[0], new Runnable() {
+		TransactionUtils.writing(eObjects.toArray()[0], new Runnable() {
 			@Override
 			public void run() {
 				for (EObject eObject : eObjects) {
@@ -99,7 +100,7 @@ public class MultiEObject extends EObjectImpl implements IAdaptable, IEditingDom
 						return label.some();
 					return getEObjects().size() + " Items Selected";
 				}
-				
+
 				@Override
 				public Image getImage(Object element) {
 					if (icon.isSome())
@@ -124,5 +125,19 @@ public class MultiEObject extends EObjectImpl implements IAdaptable, IEditingDom
 		}
 		return domain;
 	}
-	
+
+	@Override
+	public Resource eResource() {
+		Resource resource = null;
+		for (EObject object : getEObjects()) {
+			Resource currentResource = object.eResource();
+			if (resource == null) {
+				resource = currentResource;
+			} else if (currentResource != null && resource != currentResource) {
+				return null;
+			}
+		}
+		return resource;
+	}
+
 }
