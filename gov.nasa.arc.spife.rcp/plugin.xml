@@ -58,7 +58,6 @@
             id="ActivityDictionaryImpl">
       </MissionExtension>
 	</extension>
-	
    <extension
          id="SPIFe"
          point="org.eclipse.core.runtime.products">
@@ -88,6 +87,10 @@
             name="aboutImage"
             value="icons/spife_128.png">
       </property>
+      <property
+              name="cssTheme"
+              value="org.eclipse.e4.ui.css.theme.e4_default">
+        </property>
       <property
             name="windowImages"
             value="icons/spife_16.png,icons/spife_32.png,icons/spife_48.png,icons/spife_64.png,icons/spife_128.png">
@@ -343,33 +346,6 @@
    </extension>
   <extension point="gov.nasa.ensemble.core.plan.editor.PlanTransferableExtension">
        <planTransferableExtension class="gov.nasa.arc.spife.rcp.events.SnapToAssessment"/>
-   </extension>
-   <extension
-         id="SPIFe"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="gov.nasa.ensemble.core.rcp.EnsembleApplication"
-            name="SPIFe">
-         <property
-               name="appName"
-               value="SPIFe">
-         </property>
-     	<property
-           name="aboutText"
-           value="%aboutText"/>
-     	<property
-           name="startupForegroundColor"
-           value="000000"/>
-     	<property
-           name="startupMessageRect"
-           value="12,12,258,14"/>
-     	<property
-           name="startupProgressRect"
-           value="12,33,258,11"/>
-     	<property
-           name="preferenceCustomization"
-           value="plugin_customization.ini"/>
-       </product>
    </extension>
    <extension
          point="gov.nasa.ensemble.core.plan.editor.merge.IMergeColumnProvider">
