@@ -17,8 +17,6 @@
  ******************************************************************************/
 package gov.nasa.arc.spife.ui.timeline.util;
 
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
-
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.domain.EditingDomain;
 

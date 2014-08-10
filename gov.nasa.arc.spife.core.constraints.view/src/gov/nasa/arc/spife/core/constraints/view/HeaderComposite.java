@@ -18,10 +18,10 @@
 package gov.nasa.arc.spife.core.constraints.view;
 
 import gov.nasa.ensemble.common.logging.LogUtil;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.core.model.plan.EPlanElement;
 import gov.nasa.ensemble.core.plan.PlanUtils;
 import gov.nasa.ensemble.core.plan.editor.PlanPrinter;
+import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -45,29 +45,29 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 /**
  * A header for forms that display info for PlanElements
  */
-/* package */ class HeaderComposite extends Composite {
-	
+/* package */class HeaderComposite extends Composite {
+
 	private final String nothingSelected = "Nothing selected";
-	
+
 	private final Label imageLabel;
 	private final Label textLabel;
-	
+
 	private final ILabelProviderListener listener = new NameChangeListener();
 
 	private EPlanElement planElement = null;
 	private ILabelProvider labelProvider = null;
 
-	/* package */ HeaderComposite(Composite parent, FormToolkit toolkit) {
+	/* package */HeaderComposite(Composite parent, FormToolkit toolkit) {
 		super(parent, SWT.NULL);
 		toolkit.adapt(this);
 		setLayout(new GridLayout(2, false));
 		imageLabel = toolkit.createLabel(this, "");
-        imageLabel.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
+		imageLabel.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 		textLabel = toolkit.createLabel(this, nothingSelected);
-        textLabel.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-        layout();
+		textLabel.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
+		layout();
 	}
-	
+
 	@Override
 	public void dispose() {
 		setPlanElement(null);
@@ -79,13 +79,13 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 		super.setFont(font);
 		textLabel.setFont(font);
 	}
-	
+
 	@Override
 	public void setForeground(Color color) {
 		super.setForeground(color);
 		textLabel.setForeground(color);
 	}
-	
+
 	public void setPlanElements(Set<EPlanElement> nodes) {
 		Image image = null;
 		String text = nothingSelected;
@@ -125,21 +125,21 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 		if (planElement != null) {
 			TransactionalEditingDomain domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(planElement);
 			if (domain != null) {
-				AdapterFactory factory = ((AdapterFactoryEditingDomain)domain).getAdapterFactory();
-			    if (factory != null) {
-			    	labelProvider = (ILabelProvider)factory.adapt(element, ILabelProvider.class);
-			    	if (labelProvider != null) {
-			    		labelProvider.addListener(listener);
-			    	} else {
+				AdapterFactory factory = ((AdapterFactoryEditingDomain) domain).getAdapterFactory();
+				if (factory != null) {
+					labelProvider = (ILabelProvider) factory.adapt(element, ILabelProvider.class);
+					if (labelProvider != null) {
+						labelProvider.addListener(listener);
+					} else {
 						LogUtil.warnOnce("null label provider for element: " + element.getName());
-			    	}
-			    }
+					}
+				}
 			}
 		}
 	}
 
 	private class NameChangeListener implements ILabelProviderListener {
-		
+
 		@Override
 		public void labelProviderChanged(LabelProviderChangedEvent event) {
 			Object[] elements = event.getElements();
@@ -155,7 +155,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 			}
 		}
 	}
-	
+
 	public String labelize(String label) {
 		return label.replaceAll("&", "&&");
 	}

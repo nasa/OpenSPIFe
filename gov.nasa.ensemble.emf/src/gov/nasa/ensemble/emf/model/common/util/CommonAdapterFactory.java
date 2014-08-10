@@ -24,6 +24,7 @@
 package gov.nasa.ensemble.emf.model.common.util;
 
 import gov.nasa.ensemble.common.mission.MissionExtendable;
+import gov.nasa.ensemble.emf.model.common.*;
 import gov.nasa.ensemble.emf.model.common.CommonPackage;
 import gov.nasa.ensemble.emf.model.common.ObjectFeature;
 

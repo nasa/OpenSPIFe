@@ -18,7 +18,7 @@
 /**
  * 
  */
-package gov.nasa.ensemble.core.model.common.transactions;
+package gov.nasa.ensemble.emf.transaction;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;

@@ -23,6 +23,7 @@
  */
 package gov.nasa.ensemble.emf.model.patch.util;
 
+import gov.nasa.ensemble.emf.model.patch.*;
 import gov.nasa.ensemble.emf.model.patch.ObjectChanges;
 import gov.nasa.ensemble.emf.model.patch.Patch;
 import gov.nasa.ensemble.emf.model.patch.PatchFeatureChange;

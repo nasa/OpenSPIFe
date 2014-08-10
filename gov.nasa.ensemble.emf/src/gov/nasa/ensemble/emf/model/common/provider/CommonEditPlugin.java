@@ -26,6 +26,8 @@ package gov.nasa.ensemble.emf.model.common.provider;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.change.provider.ChangeEditPlugin;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the Common edit plugin.
@@ -59,6 +61,8 @@ public final class CommonEditPlugin extends EMFPlugin {
 	public CommonEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     ChangeEditPlugin.INSTANCE,
+		     EcoreEditPlugin.INSTANCE,
 		   });
 	}
 

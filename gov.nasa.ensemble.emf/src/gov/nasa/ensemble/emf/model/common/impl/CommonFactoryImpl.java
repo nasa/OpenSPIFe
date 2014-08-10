@@ -55,7 +55,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 */
 	public static CommonFactory init() {
 		try {
-			CommonFactory theCommonFactory = (CommonFactory)EPackage.Registry.INSTANCE.getEFactory("platform:/resource/gov.nasa.ensemble.core.model.common/model/Common.ecore"); 
+			CommonFactory theCommonFactory = (CommonFactory)EPackage.Registry.INSTANCE.getEFactory(CommonPackage.eNS_URI);
 			if (theCommonFactory != null) {
 				return theCommonFactory;
 			}

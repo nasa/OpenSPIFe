@@ -17,10 +17,8 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.formula.js;
 
-
 import gov.nasa.ensemble.common.extension.DynamicExtensionUtils;
 import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.core.model.plan.EActivity;
 import gov.nasa.ensemble.core.model.plan.EActivityGroup;
 import gov.nasa.ensemble.core.model.plan.EPlan;
@@ -33,6 +31,7 @@ import java.io.InputStream;
 import java.util.Date;
 
 import junit.framework.Assert;
+
 import org.apache.log4j.Logger;
 import org.eclipse.core.internal.registry.ExtensionRegistry;
 import org.eclipse.core.runtime.ContributorFactoryOSGi;
@@ -62,19 +61,17 @@ public class TestJSConstraint extends Assert {
 	private static final URI AD_LOCATION = URI.createPlatformPluginURI("/gov.nasa.ensemble.core.plan.formula.js/datafiles/TestJSConstraint.dictionary", true);
 	private static final Date PLAN_START = new Date();
 	private static final PlanFactory PLAN_FACTORY = PlanFactory.getInstance();
-	private static final IBatchValidator batchValidator =
-		(IBatchValidator)ModelValidationService.getInstance()
-		.newValidator(EvaluationMode.BATCH);
-	
+	private static final IBatchValidator batchValidator = (IBatchValidator) ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH);
+
 	static {
 		batchValidator.setTraversalStrategy(new ITraversalStrategy.Flat());
 	}
-	
+
 	@SuppressWarnings("restriction")
 	@BeforeClass
 	public static void setupExtensions() throws Exception {
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
-		Object key = ((ExtensionRegistry) registry).getTemporaryUserToken( );
+		Object key = ((ExtensionRegistry) registry).getTemporaryUserToken();
 		Bundle bundle = Activator.getDefault().getBundle();
 		IContributor contributor = ContributorFactoryOSGi.createContributor(bundle);
 		InputStream inputStream = null;
@@ -89,11 +86,11 @@ public class TestJSConstraint extends Assert {
 		// wait until jobs kicked off by adding the contribution are complete
 		DynamicExtensionUtils.waitForJobs();
 	}
-	
+
 	private EPlan plan;
 	private EActivityDef parameterTestActivityDef;
 	private EActivity parameterTestActivity;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		ActivityDictionary ad = ActivityDictionary.getInstance();
@@ -102,25 +99,25 @@ public class TestJSConstraint extends Assert {
 		} catch (Exception e) {
 			fail("Failed to load AD from " + AD_LOCATION + ": " + e.getMessage());
 		}
-		
+
 		parameterTestActivityDef = ad.getActivityDef("ParameterTestActivity");
 		parameterTestActivity = PLAN_FACTORY.createActivity(parameterTestActivityDef);
 		plan = PLAN_FACTORY.createPlan("TEST_JSCONSTRAINT_PLAN");
-		
+
 		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(plan, new Runnable() {
 			@Override
 			public void run() {
 				plan.getMember(TemporalMember.class).setStartTime(PLAN_START);
-				
+
 				EActivityGroup group = PLAN_FACTORY.createActivityGroup(plan);
 				plan.getChildren().add(group);
-				
+
 				parameterTestActivity.getMember(TemporalMember.class).setStartTime(PLAN_START);
 				group.getChildren().add(parameterTestActivity);
 			}
 		});
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
 		try {
@@ -130,12 +127,12 @@ public class TestJSConstraint extends Assert {
 		}
 		ActivityDictionary.getInstance().restoreDefaultDictionary();
 	}
-	
+
 	@Test
 	public void testDefaultParameterCondition() {
 		assertTrue(validateConstraints());
 	}
-	
+
 	@Test
 	public void testFailingParameterCondition() {
 		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(parameterTestActivity, new Runnable() {
@@ -149,17 +146,13 @@ public class TestJSConstraint extends Assert {
 		});
 		assertFalse(validateConstraints());
 	}
-	
+
 	/*
-	public void testGenericConstraintSucceed() {
-		assertTrue(validateConstraints());
-	}
-	
-	public void testGenericConstraintFail() {
-		assertFalse(validateConstraints());
-	}
-	*/
-	
+	 * public void testGenericConstraintSucceed() { assertTrue(validateConstraints()); }
+	 * 
+	 * public void testGenericConstraintFail() { assertFalse(validateConstraints()); }
+	 */
+
 	private boolean validateConstraints() {
 		final IStatus status = batchValidator.validate(parameterTestActivity);
 		return status.isOK();

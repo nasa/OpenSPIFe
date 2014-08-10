@@ -33,7 +33,7 @@ import org.eclipse.swt.graphics.Image;
 
 import fj.data.Option;
 import gov.nasa.ensemble.common.CommonUtils;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
+import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 public class MultiEObject extends EObjectImpl implements IAdaptable, IEditingDomainProvider {

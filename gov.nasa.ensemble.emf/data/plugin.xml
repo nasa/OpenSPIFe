@@ -8,14 +8,14 @@
    <extension
          point="org.eclipse.emf.validation.constraintBindings">
       <clientContext
-            id="gov.nasa.ensemble.core.model.common.clientContext">
+            id="gov.nasa.ensemble.emf.clientContext">
          <selector
                class="gov.nasa.ensemble.emf.constraint.ModelCommonClientSelector">
          </selector>
       </clientContext>
       <binding
             category="attributeValueCategory"
-            context="gov.nasa.ensemble.core.model.common.clientContext">
+            context="gov.nasa.ensemble.emf.clientContext">
       </binding>
    </extension>
    <extension

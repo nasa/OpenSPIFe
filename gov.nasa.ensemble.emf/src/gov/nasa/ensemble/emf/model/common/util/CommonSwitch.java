@@ -24,6 +24,7 @@
 package gov.nasa.ensemble.emf.model.common.util;
 
 import gov.nasa.ensemble.common.mission.MissionExtendable;
+import gov.nasa.ensemble.emf.model.common.*;
 import gov.nasa.ensemble.emf.model.common.CommonPackage;
 import gov.nasa.ensemble.emf.model.common.ObjectFeature;
 
@@ -89,9 +90,21 @@ public class CommonSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case CommonPackage.IADAPTABLE: {
+				IAdaptable iAdaptable = (IAdaptable)theEObject;
+				T result = caseIAdaptable(iAdaptable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CommonPackage.OBJECT_FEATURE: {
 				ObjectFeature objectFeature = (ObjectFeature)theEObject;
 				T result = caseObjectFeature(objectFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.MISSION_EXTENDABLE: {
+				MissionExtendable missionExtendable = (MissionExtendable)theEObject;
+				T result = caseMissionExtendable(missionExtendable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -21,7 +21,6 @@ import gov.nasa.arc.spife.ui.timeline.policy.EditPolicyRegistry;
 import gov.nasa.arc.spife.ui.timeline.util.TimelineUtils;
 import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.common.ui.gef.GEFUtils;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 
 import java.util.List;
 
@@ -37,7 +36,7 @@ import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPart implements TimelineConstants {
 
 	private TransactionalEditingDomain domain;
-	
+
 	/**
 	 * Convenience method to cast the model
 	 */
@@ -53,24 +52,22 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 		}
 		return domain;
 	}
-	
+
 	@Override
 	public DragTracker getDragTracker(Request request) {
 		return new TimelineViewerEditPartsTracker(this);
 	}
-	
+
 	/**
-	 * Removes all references from the
-	 * <code>EditPartViewer</code> to this EditPart. This includes:
+	 * Removes all references from the <code>EditPartViewer</code> to this EditPart. This includes:
 	 * <UL>
-	 *   <LI>deselecting this EditPart if selected
-	 *   <LI>setting the Viewer's focus to <code>null</code> if this EditPart has <i>focus</i>
-	 *   <LI>{@link #unregister()} this EditPart
+	 * <LI>deselecting this EditPart if selected
+	 * <LI>setting the Viewer's focus to <code>null</code> if this EditPart has <i>focus</i>
+	 * <LI>{@link #unregister()} this EditPart
 	 * </UL>
 	 * <P>
-	 * In addition, <code>removeNotify()</code> is called recursively on all children
-	 * EditParts. Subclasses should <em>extend</em> this method to perform any additional
-	 * cleanup.
+	 * In addition, <code>removeNotify()</code> is called recursively on all children EditParts. Subclasses should <em>extend</em> this method to perform any additional cleanup.
+	 * 
 	 * @see EditPart#removeNotify()
 	 */
 	@Override
@@ -83,11 +80,10 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 
 		List children = getChildren();
 		for (int i = 0; i < children.size(); i++)
-			((EditPart)children.get(i))
-				.removeNotify();
+			((EditPart) children.get(i)).removeNotify();
 		unregister();
 	}
-	
+
 	/**
 	 * Method to restrict the model to the parameterized type
 	 */
@@ -97,7 +93,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 		T casted = (T) model;
 		super.setModel(casted);
 	}
-	
+
 	@Override
 	public RootEditPart getRoot() {
 		if (getParent() == null) {
@@ -110,7 +106,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 		TimelineViewer viewer = getViewer();
 		return viewer == null ? null : viewer.getTimeline();
 	}
-	
+
 	@Override
 	public void addNotify() {
 		register();
@@ -118,7 +114,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 		EditPolicyRegistry.installEditPolicies(this);
 		List children = getChildren();
 		for (int i = 0; i < children.size(); i++) {
-			EditPart editPart = (EditPart)children.get(i);
+			EditPart editPart = (EditPart) children.get(i);
 			try {
 				editPart.addNotify();
 			} catch (Exception e) {
@@ -127,7 +123,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 		}
 		refresh();
 	}
-	
+
 	/**
 	 * Convenience method to retrieve the casted viewer.
 	 */
@@ -151,7 +147,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 		}
 		return object;
 	}
-	
+
 	@Override
 	protected void activateEditPolicies() {
 		EditPolicyIterator i = getEditPolicyIterator();
@@ -165,7 +161,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 			}
 		}
 	}
-	
+
 	@Override
 	protected void deactivateEditPolicies() {
 		EditPolicyIterator i = getEditPolicyIterator();
@@ -179,7 +175,7 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 			}
 		}
 	}
-	
+
 	public boolean isScrollInhibited() {
 		return false;
 	}
@@ -225,6 +221,6 @@ public abstract class TimelineViewerEditPart<T> extends AbstractGraphicalEditPar
 				refreshChildren();
 			}
 		});
-	}	
-	
+	}
+
 }

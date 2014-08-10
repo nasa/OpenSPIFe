@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package gov.nasa.ensemble.core.model.common.transactions;
+package gov.nasa.ensemble.emf.transaction;
 
 import gov.nasa.ensemble.common.collections.Pair;
 import gov.nasa.ensemble.common.logging.LogUtil;

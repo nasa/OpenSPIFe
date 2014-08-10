@@ -76,7 +76,6 @@ public interface Patch extends EObject {
 	void setReversed(boolean value);
 
 	/**
-
 	 * Returns the value of the '<em><b>Object Changes</b></em>' containment reference list.
 	 * The list contents are of type {@link gov.nasa.ensemble.emf.model.patch.ObjectChanges}.
 	 * <!-- begin-user-doc -->

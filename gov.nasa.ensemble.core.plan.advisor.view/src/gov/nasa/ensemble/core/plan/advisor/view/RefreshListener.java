@@ -17,10 +17,10 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.advisor.view;
 
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.plan.advisor.AdvisorListener;
 import gov.nasa.ensemble.core.plan.advisor.ViolationTracker;
+import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 
 import java.util.Set;
 
@@ -28,7 +28,7 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.TreeViewer;
 
 public class RefreshListener extends AdvisorListener {
-	
+
 	/**
 	 * 
 	 */
@@ -38,7 +38,7 @@ public class RefreshListener extends AdvisorListener {
 
 	/**
 	 * @param viewer
-	 * @param listener 
+	 * @param listener
 	 */
 	public RefreshListener(TreeViewer viewer, EPlan plan, ISelectionChangedListener listener) {
 		this.viewer = viewer;
@@ -47,27 +47,27 @@ public class RefreshListener extends AdvisorListener {
 	}
 
 	private volatile boolean refreshQueued = false;
-	
+
 	@Override
 	public void advisorsUpdating() {
 		queueRefresh();
 	}
-	
+
 	@Override
 	public void advisorsUpdated() {
 		queueRefresh();
 	}
-	
+
 	@Override
 	public void violationsAdded(Set<ViolationTracker> violations) {
 		queueRefresh();
 	}
-	
+
 	@Override
 	public void violationsRemoved(Set<ViolationTracker> violations) {
 		queueRefresh();
 	}
-	
+
 	public synchronized void queueRefresh() {
 		if (!refreshQueued) {
 			refreshQueued = true;
@@ -81,5 +81,5 @@ public class RefreshListener extends AdvisorListener {
 			});
 		}
 	}
-	
+
 }

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common"
-    nsURI="platform:/resource/gov.nasa.ensemble.core.model.common/model/Common.ecore"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common" nsURI="platform:/resource/gov.nasa.ensemble.emf/model/Common.ecore"
     nsPrefix="common">
   <eClassifiers xsi:type="ecore:EDataType" name="EURI" instanceClassName="org.eclipse.emf.common.util.URI"/>
   <eClassifiers xsi:type="ecore:EDataType" name="EURL" instanceClassName="java.net.URL"/>

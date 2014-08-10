@@ -26,7 +26,6 @@ import gov.nasa.ensemble.common.ui.treetable.TreeTableColumnConfiguration;
 import gov.nasa.ensemble.common.ui.treetable.TreeTableComposite;
 import gov.nasa.ensemble.common.ui.treetable.TreeTableViewer;
 import gov.nasa.ensemble.core.activityDictionary.view.transfer.ActivityDefSerializableTransfer;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.core.model.plan.CommonMember;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.EPlanElement;
@@ -38,6 +37,7 @@ import gov.nasa.ensemble.core.plan.editor.merge.configuration.ColumnConfiguratio
 import gov.nasa.ensemble.core.plan.editor.merge.preferences.TableColumnsConfigurationDialog;
 import gov.nasa.ensemble.core.plan.editor.transfers.ActivityTransferProvider;
 import gov.nasa.ensemble.core.plan.editor.transfers.PlanContainerTransferProvider;
+import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 
 import java.io.IOException;
 import java.net.URI;
@@ -69,17 +69,13 @@ import org.eclipse.ui.IWorkbenchPartSite;
 public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFeature> {
 
 	private static final boolean DYNAMIC_COLUMN_CONFIGURATION_DISABLED_ON_LINUX = EnsembleProperties.getBooleanPropertyValue("merge.column.disable.configuration.linux", false);
-	protected static final Transfer[] TRANSFERS = new Transfer[] {
-		ActivityDefSerializableTransfer.getInstance(),
-		PlanContainerTransferProvider.transfer,
-		ActivityTransferProvider.transfer,
-	};
-	
+	protected static final Transfer[] TRANSFERS = new Transfer[] { ActivityDefSerializableTransfer.getInstance(), PlanContainerTransferProvider.transfer, ActivityTransferProvider.transfer, };
+
 	public MergeTreeViewer(TreeTableComposite treeComposite, final TreeTableColumnConfiguration configuration, IWorkbenchPartSite site) {
 		super(treeComposite, configuration, site);
 		addFilter(new VisabilityFilter());
 		treeComposite.getTree().addTreeListener(new PlanElementTreeListener()); // will be disposed with the Tree
-		
+
 		final Tree tree = getTree();
 		tree.addMenuDetectListener(new MenuDetectListener() {
 			@Override
@@ -94,12 +90,12 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 			}
 		});
 	}
-	
+
 	@Override
 	protected void inputChanged(Object input, Object oldInput) {
 		super.inputChanged(input, oldInput);
 	}
-	
+
 	@Override
 	protected Transfer[] getSupportedTransfers() {
 		return TRANSFERS;
@@ -109,7 +105,7 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 	protected void update(Runnable runnable) {
 		TransactionUtils.runInDisplayThread(getControl(), getPlan(), runnable);
 	}
-	
+
 	@Override
 	public void updateElementFeatures(Map<? extends EPlanElement, Set<EStructuralFeature>> map) {
 		for (ITreeTableColumn column : configuration.getColumns()) {
@@ -127,13 +123,13 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 	}
 
 	private EPlan getPlan() {
-		PlanEditorModel model = (PlanEditorModel)getModel();
+		PlanEditorModel model = (PlanEditorModel) getModel();
 		if (model != null) {
 			return model.getEPlan();
 		}
 		return null;
 	}
-	
+
 	/** From the mouse's x location get which column header you right clicked on! */
 	public int getColumnIndex(int click_x) {
 		int columnIndex = 0;
@@ -158,7 +154,7 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 		super.setSort(treeTableColumn, sortDirection);
 		saveColumnConfigurationResource();
 	}
-	
+
 	private Map<String, List<AbstractMergeColumn>> getAllColumnsByProvider() {
 		List<AbstractMergeColumn> allColumns = TableEditorUtils.getAllColumns(getColumnConfigurationResource());
 		Map<String, List<AbstractMergeColumn>> allColumnsByProviderMap = new AutoListMap(String.class);
@@ -166,11 +162,11 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 			allColumnsByProviderMap.get(column.getProviderName()).add(column);
 		}
 		return allColumnsByProviderMap;
-	} 
+	}
 
 	private void fillHeaderContextMenu(Display display, final int columnIndex, Point location, final List<? extends AbstractMergeColumn> oldColumns) {
 		final Shell shell = new Shell(display);
-		final Menu menu = new Menu (shell, SWT.POP_UP);
+		final Menu menu = new Menu(shell, SWT.POP_UP);
 		final Map<String, List<AbstractMergeColumn>> allColumnsByProvider = getAllColumnsByProvider();
 		if (!needToReopenEditorOnColumnConfigurationChange()) {
 			for (Entry<String, List<AbstractMergeColumn>> entry : allColumnsByProvider.entrySet()) {
@@ -183,7 +179,7 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 				providerItem.setText(entry.getKey());
 				providerItem.setMenu(subMenu);
 				for (final AbstractMergeColumn column : value) {
-					final MenuItem item = new MenuItem (subMenu, SWT.CHECK);
+					final MenuItem item = new MenuItem(subMenu, SWT.CHECK);
 					item.setText(column.getHeaderName());
 					item.setSelection(oldColumns.contains(column));
 					item.addSelectionListener(new SelectionAdapter() {
@@ -191,10 +187,10 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 						public void widgetSelected(SelectionEvent e) {
 							List<ITreeTableColumn> newColumns = new ArrayList<ITreeTableColumn>(oldColumns);
 							if (item.getSelection()) {
-								if (columnIndex >= newColumns.size()) { 
+								if (columnIndex >= newColumns.size()) {
 									newColumns.add(column);
 								} else {
-									newColumns.add(columnIndex+1, column);
+									newColumns.add(columnIndex + 1, column);
 								}
 							} else {
 								newColumns.remove(column);
@@ -220,12 +216,11 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 					allColumns.addAll(columns);
 				}
 				Shell dialogShell = getControl().getShell();
-				TableColumnsConfigurationDialog dialog = new TableColumnsConfigurationDialog(dialogShell, allColumns, 
-						columnConfigurationResource, planURI, needToReopenEditorOnColumnConfigurationChange());
+				TableColumnsConfigurationDialog dialog = new TableColumnsConfigurationDialog(dialogShell, allColumns, columnConfigurationResource, planURI, needToReopenEditorOnColumnConfigurationChange());
 				dialog.open();
 			}
 		});
-		
+
 		menu.setVisible(true);
 		shell.setMenu(menu);
 	}
@@ -249,11 +244,11 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 			setExpandedElements(objects.toArray());
 		}
 	}
-	
+
 	public boolean needToReopenEditorOnColumnConfigurationChange() {
 		return (CommonUtils.isOSLinux() && DYNAMIC_COLUMN_CONFIGURATION_DISABLED_ON_LINUX);
 	}
-	
+
 	private ColumnConfigurationResource getColumnConfigurationResource() {
 		EPlan plan = getPlan();
 		if (plan != null) {
@@ -268,7 +263,7 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 		}
 		return null;
 	}
-	
+
 	public void saveColumnConfigurationResource() {
 		ColumnConfigurationResource columnConfigurationResource = getColumnConfigurationResource();
 		if (columnConfigurationResource != null) {
@@ -279,5 +274,5 @@ public class MergeTreeViewer extends TreeTableViewer<EPlanElement, EStructuralFe
 			}
 		}
 	}
-	
+
 }

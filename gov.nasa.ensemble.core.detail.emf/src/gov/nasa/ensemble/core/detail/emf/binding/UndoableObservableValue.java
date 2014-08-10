@@ -22,7 +22,6 @@ import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.common.operation.OperationCanceledException;
 import gov.nasa.ensemble.core.detail.emf.multi.MultiItemPropertyDescriptor;
 import gov.nasa.ensemble.core.detail.emf.util.EMFDetailUtils;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.emf.transaction.AbstractTransactionUndoableOperation;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
@@ -66,7 +65,7 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 		this.target = object;
 		this.pd = pd;
 	}
-	
+
 	@Override
 	public synchronized void dispose() {
 		disposeListener();
@@ -78,18 +77,18 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 	public Object getObserved() {
 		return target;
 	}
-	
+
 	@Override
 	public Object getValueType() {
 		return pd.getFeature(target);
 	}
-	
+
 	@Override
 	protected void firstListenerAdded() {
 		final Object eStructuralFeature = pd.getFeature(target);
 		attachListener(new AdapterImpl() {
 			@Override
-		    public void notifyChanged(Notification notification) {
+			public void notifyChanged(Notification notification) {
 				if (eStructuralFeature == notification.getFeature() && !notification.isTouch()) {
 					final ValueDiff diff = Diffs.createValueDiff(notification.getOldValue(), notification.getNewValue());
 					getRealm().exec(new Runnable() {
@@ -102,7 +101,7 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 			}
 		});
 	}
-	
+
 	private void attachListener(AdapterImpl adapter) {
 		listener = adapter;
 		if (pd instanceof MultiItemPropertyDescriptor) {
@@ -143,8 +142,7 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 			target.eAdapters().remove(listener);
 		}
 	}
-	
-	
+
 	@Override
 	protected void doSetValue(final Object value) {
 		Object oldValue = doGetValue();
@@ -154,14 +152,14 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 		EStructuralFeature feature = (EStructuralFeature) pd.getFeature(target);
 		String name = EMFUtils.getDisplayName(target, feature);
 		IUndoableOperation operation = new ChangeObservableOperation("Edit " + name, value);
-		EObject observed = (EObject)getObserved();
+		EObject observed = (EObject) getObserved();
 		operation = EMFUtils.addContributorOperations(operation, observed, feature, oldValue, value);
 		IUndoContext context = gov.nasa.ensemble.emf.transaction.TransactionUtils.getUndoContext(observed);
 		IOperationHistory history = OperationHistoryFactory.getOperationHistory();
 		IUndoableOperation previous = history.getUndoOperation(context);
 		if (previous instanceof TextModifyUndoableObservableValue.TextModifyObservableOperation) {
 			// Reset the TextModifyObservableOperation to clear the dirty flag on its TextModifyUndoableObservableValue
-			((TextModifyUndoableObservableValue.TextModifyObservableOperation)previous).reset();
+			((TextModifyUndoableObservableValue.TextModifyObservableOperation) previous).reset();
 			// Remove the TextModifyObservableOperation operation from the operation history as it should be replaced by the new operation
 			history.replaceOperation(previous, new IUndoableOperation[0]);
 		}
@@ -172,7 +170,7 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 	protected Object doGetValue() {
 		return EMFUtils.getPropertyValue(pd, target);
 	}
-	
+
 	public final class ChangeObservableOperation extends AbstractTransactionUndoableOperation {
 		private Object oldValue;
 		private final Object newValue;
@@ -192,11 +190,11 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 		protected void execute() throws Throwable {
 			execute(new NullProgressMonitor());
 		}
-		
+
 		@Override
 		protected void execute(IProgressMonitor monitor) throws Throwable {
 			if (pd instanceof MultiItemPropertyDescriptor) {
-				this.oldValue = ((MultiItemPropertyDescriptor)pd).getValues();
+				this.oldValue = ((MultiItemPropertyDescriptor) pd).getValues();
 			} else {
 				this.oldValue = doGetValue();
 			}
@@ -204,7 +202,7 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 				// We get multiple operations per change sometimes
 				// due to the way data binding works?
 				// Just ignore this one so we don't get multiple
-				// 
+				//
 				throw new OperationCanceledException();
 			}
 			doit(monitor);
@@ -221,21 +219,24 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 					protected boolean prepare() {
 						return true;
 					}
+
 					@Override
 					public void execute() {
 						command.undo();
 					}
+
 					@Override
 					public void undo() {
 						command.redo();
 					}
+
 					@Override
 					public void redo() {
 						command.undo();
 					}
 				});
 			} else if (pd instanceof MultiItemPropertyDescriptor) {
-				((MultiItemPropertyDescriptor)pd).setValues((Collection<Object>)oldValue);
+				((MultiItemPropertyDescriptor) pd).setValues((Collection<Object>) oldValue);
 			} else {
 				pd.setPropertyValue(getObserved(), oldValue);
 			}
@@ -251,14 +252,17 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 					protected boolean prepare() {
 						return true;
 					}
+
 					@Override
 					public void execute() {
 						command.redo();
 					}
+
 					@Override
 					public void undo() {
 						command.undo();
 					}
+
 					@Override
 					public void redo() {
 						command.redo();
@@ -302,7 +306,7 @@ public class UndoableObservableValue extends AbstractObservableValue implements 
 
 		private boolean isUnparented(final Object observed) {
 			if (observed instanceof EObject) {
-				final EObject eObserved = (EObject)observed;
+				final EObject eObserved = (EObject) observed;
 				if (eObserved.eResource() == null) {
 					EList<Adapter> eAdapters = eObserved.eAdapters();
 					for (final Adapter adapter : eAdapters) {

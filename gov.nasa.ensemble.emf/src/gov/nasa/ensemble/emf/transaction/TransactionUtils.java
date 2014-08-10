@@ -17,7 +17,7 @@
  ******************************************************************************/
 package gov.nasa.ensemble.emf.transaction;
 
-import static fj.data.Option.*;
+import static fj.data.Option.some;
 
 import java.lang.Thread.State;
 import java.lang.management.ManagementFactory;
@@ -57,6 +57,8 @@ import org.eclipse.emf.transaction.internal.EMFTransactionPlugin;
 import org.eclipse.emf.transaction.internal.EMFTransactionStatusCodes;
 import org.eclipse.emf.transaction.internal.Tracing;
 import org.eclipse.emf.transaction.internal.l10n.Messages;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 
 import fj.data.Option;
 import gov.nasa.ensemble.common.logging.LogUtil;
@@ -73,24 +75,25 @@ public class TransactionUtils {
 		WRITING_OPTIONS.put(Transaction.OPTION_NO_UNDO, Boolean.TRUE);
 		WRITING_OPTIONS.put(Transaction.OPTION_NO_VALIDATION, Boolean.TRUE);
 	}
-	private static final JobManager JOB_MANAGER = (JobManager)Job.getJobManager();
+	private static final JobManager JOB_MANAGER = (JobManager) Job.getJobManager();
 	private static final ThreadMXBean THREAD_MX_BEAN = ManagementFactory.getThreadMXBean();
 
 	private static final TransactionEditingDomainFactory EDITING_DOMAIN_FACTORY = createTransactionEditingDomainFactory();
-	
+
 	public static void reading(Object object, final Runnable runnable) {
 		reading(object, new RunnableWithResult.Impl<Object>() {
 			@Override
 			public void run() {
 				runnable.run();
 			}
+
 			@Override
 			public String toString() {
 				return runnable.toString();
 			}
 		});
 	}
-	
+
 	public static <T> T reading(Object object, final RunnableWithResult<T> runnable) {
 		TransactionalEditingDomain domain = getDomain(object);
 		if (domain == null) { // not connected yet
@@ -104,16 +107,15 @@ public class TransactionUtils {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public static void writing(Object object, final Runnable runnable) {
 		writing(object, new WritingWithVoidResult(runnable));
 	}
-	
-	public static void checkedWriting(Object object, final Runnable runnable) 
-	throws InterruptedException, RollbackException {
+
+	public static void checkedWriting(Object object, final Runnable runnable) throws InterruptedException, RollbackException {
 		checkedWriting(object, new WritingWithVoidResult(runnable));
 	}
-	
+
 	public static void writeIfNecessary(Object object, final Runnable runnable) {
 		TransactionalEditingDomain domain = TransactionUtils.getDomain(object);
 		if (domain != null) {
@@ -122,33 +124,31 @@ public class TransactionUtils {
 			runnable.run();
 		}
 	}
-	
-	public static <T extends Throwable> void writing(
-			final Object object, final Class<T> throwableClass, final RunnableWithThrowable runnable) throws T {
-		final Option<T> exception = TransactionUtils.writing(object, 
-				new RunnableWithResult.Impl<Option<T>>() {
-					@Override
-					public void run() {
-						try {
-							runnable.run();
-							setResult(Option.<T>none());
-						} catch (Throwable throwable) {
-							if (throwableClass.isAssignableFrom(throwable.getClass())) {
-								setResult(some((T)throwable));
-								return;
-							}
-							if (throwable instanceof RuntimeException)
-								throw (RuntimeException)throwable;
-							if (throwable instanceof Error)
-								throw (Error)throwable;
-							throw new RuntimeException(throwable);
-						}
+
+	public static <T extends Throwable> void writing(final Object object, final Class<T> throwableClass, final RunnableWithThrowable runnable) throws T {
+		final Option<T> exception = TransactionUtils.writing(object, new RunnableWithResult.Impl<Option<T>>() {
+			@Override
+			public void run() {
+				try {
+					runnable.run();
+					setResult(Option.<T> none());
+				} catch (Throwable throwable) {
+					if (throwableClass.isAssignableFrom(throwable.getClass())) {
+						setResult(some((T) throwable));
+						return;
 					}
-				});
-			if (exception.isSome())
-				throw exception.some();
+					if (throwable instanceof RuntimeException)
+						throw (RuntimeException) throwable;
+					if (throwable instanceof Error)
+						throw (Error) throwable;
+					throw new RuntimeException(throwable);
+				}
+			}
+		});
+		if (exception.isSome())
+			throw exception.some();
 	}
-	
+
 	public static <T> T writing(Object object, final RunnableWithResult<T> runnable) {
 		try {
 			return checkedWriting(object, runnable);
@@ -159,27 +159,23 @@ public class TransactionUtils {
 		}
 	}
 
-	public static <T> T checkedWriting(Object object,
-			final RunnableWithResult<T> runnable) 
-	throws InterruptedException, RollbackException {
+	public static <T> T checkedWriting(Object object, final RunnableWithResult<T> runnable) throws InterruptedException, RollbackException {
 		return checkedWriting(object, runnable, null);
 	}
 
-	public static <T> T checkedWriting(Object object,
-			final RunnableWithResult<T> runnable, Map<Object, Object> options) 
-	throws InterruptedException, RollbackException {
-		
+	public static <T> T checkedWriting(Object object, final RunnableWithResult<T> runnable, Map<Object, Object> options) throws InterruptedException, RollbackException {
+
 		final EditingDomain domain = EMFUtils.getAnyDomain(object);
 		if (domain instanceof TransactionalEditingDomain) {
-			TransactionalEditingDomain transactionDomain = (TransactionalEditingDomain)domain;
+			TransactionalEditingDomain transactionDomain = (TransactionalEditingDomain) domain;
 			checkForDeadlock(transactionDomain);
-			InternalTransaction transaction = ((TransactionalEditingDomainImpl)transactionDomain).getActiveTransaction();
+			InternalTransaction transaction = ((TransactionalEditingDomainImpl) transactionDomain).getActiveTransaction();
 			if ((transaction != null) && (transaction.getOwner() == Thread.currentThread()) && !transaction.isReadOnly()) {
 				// nested writing
 				runnable.run();
 				return runnable.getResult();
 			}
-			TransactionalCommandStack stack = (TransactionalCommandStack)domain.getCommandStack();
+			TransactionalCommandStack stack = (TransactionalCommandStack) domain.getCommandStack();
 			if (stack != null) {
 				Map writingOptions = getWritingOptions(domain);
 				Map newOptions = new HashMap();
@@ -209,7 +205,7 @@ public class TransactionUtils {
 	public static TransactionalEditingDomain getDomain(Object object) {
 		EditingDomain domain = EMFUtils.getAnyDomain(object);
 		if (domain instanceof TransactionalEditingDomain) {
-			return (TransactionalEditingDomain)domain;
+			return (TransactionalEditingDomain) domain;
 		}
 		return null;
 	}
@@ -221,23 +217,23 @@ public class TransactionUtils {
 			return domain.getUndoContext();
 		}
 		if (object instanceof EObject) {
-			return EMFUtils.getUndoContext((EObject)object, d);
+			return EMFUtils.getUndoContext((EObject) object, d);
 		}
 		return null;
 	}
-	
+
 	public static TransactionalEditingDomain createTransactionEditingDomain() {
 		return createTransactionEditingDomain(true);
 	}
-	
+
 	public static TransactionalEditingDomain createTransactionEditingDomain(Map<?, ?> txOptions) {
 		return createTransactionEditingDomain(true, txOptions);
 	}
-	
+
 	public static TransactionalEditingDomain createTransactionEditingDomain(boolean addListener) {
 		return createTransactionEditingDomain(addListener, WRITING_OPTIONS);
 	}
-	
+
 	public static TransactionalEditingDomain createTransactionEditingDomain(boolean addListener, Map<?, ?> txOptions) {
 		ComposedAdapterFactory composedAdapterFactory = new ComposedAdapterFactoryImpl(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 		FixedTransactionEditingDomain domain = EDITING_DOMAIN_FACTORY.createEditingDomain(composedAdapterFactory);
@@ -249,7 +245,7 @@ public class TransactionUtils {
 		resourceSet.getAdapterFactories().add(composedAdapterFactory);
 		return domain;
 	}
-	
+
 	public static ResourceSet createTransactionResourceSet() {
 		return createTransactionResourceSet(true);
 	}
@@ -257,12 +253,12 @@ public class TransactionUtils {
 	public static ResourceSet createTransactionResourceSet(boolean addListener, Map<?, ?> txOptions) {
 		return createTransactionEditingDomain(addListener, txOptions).getResourceSet();
 	}
-	
+
 	public static ResourceSet createTransactionResourceSet(boolean addListener) {
 		TransactionalEditingDomain domain = createTransactionEditingDomain(addListener);
 		return domain.getResourceSet();
 	}
-	
+
 	/**
 	 * This constructor will create a consistency only resource set.
 	 * 
@@ -271,33 +267,28 @@ public class TransactionUtils {
 	 * @return ResourceSet
 	 */
 	public static ResourceSet createTransactionResourceSet(EPackage ePackage, Resource.Factory defaultResourceFactory) {
-		ComposedAdapterFactory composedAdapterFactory = new ComposedAdapterFactory(
-				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		ComposedAdapterFactory composedAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 		TransactionalEditingDomain domain = EDITING_DOMAIN_FACTORY.createEditingDomain(composedAdapterFactory);
 		ExtensionPointResourceSetListener.addListener(domain, true);
 		ResourceSet resourceSet = domain.getResourceSet();
 		resourceSet.getAdapterFactories().add(composedAdapterFactory);
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put(Resource.Factory.Registry.DEFAULT_EXTENSION, defaultResourceFactory);
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, defaultResourceFactory);
 		resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
 		return resourceSet;
 	}
 
 	public static <T> T runExclusive(TransactionalEditingDomain d, Runnable read) throws InterruptedException {
-		InternalTransactionalEditingDomain domain = (InternalTransactionalEditingDomain)d;
+		InternalTransactionalEditingDomain domain = (InternalTransactionalEditingDomain) d;
 		Transaction active = domain.getActiveTransaction();
 		Transaction tx = null;
 		long start = -1;
-		if ((active == null)
-			|| !(active.isActive() && active.isReadOnly()
-				&& (active.getOwner() == Thread.currentThread()))) {
+		if ((active == null) || !(active.isActive() && active.isReadOnly() && (active.getOwner() == Thread.currentThread()))) {
 			start = System.currentTimeMillis();
 			// only need to start a new transaction if we don't already have
-			//   exclusive read-only access
+			// exclusive read-only access
 			tx = domain.startTransaction(true, getWritingOptions(domain));
 		}
-		final RunnableWithResult<?> rwr = (read instanceof RunnableWithResult)?
-			(RunnableWithResult<?>) read : null;
+		final RunnableWithResult<?> rwr = (read instanceof RunnableWithResult) ? (RunnableWithResult<?>) read : null;
 		try {
 			read.run();
 		} finally {
@@ -310,12 +301,7 @@ public class TransactionUtils {
 					}
 				} catch (RollbackException e) {
 					Tracing.catching(TransactionalEditingDomainImpl.class, "runExclusive", e); //$NON-NLS-1$
-					EMFTransactionPlugin.INSTANCE.log(new MultiStatus(
-						EMFTransactionPlugin.getPluginId(),
-						EMFTransactionStatusCodes.READ_ROLLED_BACK,
-						new IStatus[] {e.getStatus()},
-						Messages.readTxRollback,
-						null));
+					EMFTransactionPlugin.INSTANCE.log(new MultiStatus(EMFTransactionPlugin.getPluginId(), EMFTransactionStatusCodes.READ_ROLLED_BACK, new IStatus[] { e.getStatus() }, Messages.readTxRollback, null));
 					if (rwr != null) {
 						rwr.setStatus(e.getStatus());
 					}
@@ -324,41 +310,41 @@ public class TransactionUtils {
 		}
 		if (start != -1) {
 			long duration = System.currentTimeMillis() - start;
-			if (duration > 2*1000) {
+			if (duration > 2 * 1000) {
 				LogUtil.warn("runnable " + read + " held transaction for " + (duration / 1000.0) + " seconds");
 			}
 		}
 		if (rwr != null) {
 			@SuppressWarnings("unchecked")
-			T result = (T)rwr.getResult();
+			T result = (T) rwr.getResult();
 			return result;
 		}
 		return null;
 	}
-	
+
 	/*
 	 * Utility methods
 	 */
-	
+
 	private static RuntimeException handleRollback(RollbackException e) {
 		Logger logger = Logger.getLogger(TransactionUtils.class);
 		IStatus status = e.getStatus();
 		switch (status.getCode()) {
-		case IStatus.ERROR: 
-			logger.error(status.getMessage(), status.getException()); 
+		case IStatus.ERROR:
+			logger.error(status.getMessage(), status.getException());
 			break;
-		case IStatus.WARNING: 
-			logger.warn(status.getMessage(), status.getException()); 
+		case IStatus.WARNING:
+			logger.warn(status.getMessage(), status.getException());
 			break;
-		case IStatus.INFO: 
-			logger.info(status.getMessage(), status.getException()); 
+		case IStatus.INFO:
+			logger.info(status.getMessage(), status.getException());
 			break;
 		}
-		
+
 		final Throwable exception = Option.fromNull(status.getException()).orSome(e);
 		if (exception instanceof RuntimeException)
-			return (RuntimeException)exception;
-		
+			return (RuntimeException) exception;
+
 		return new RuntimeException(exception);
 	}
 
@@ -366,7 +352,7 @@ public class TransactionUtils {
 		try {
 			// I am the display thread
 			if (domain instanceof InternalTransactionalEditingDomain) {
-				InternalTransactionalEditingDomain internalDomain = (InternalTransactionalEditingDomain)domain;
+				InternalTransactionalEditingDomain internalDomain = (InternalTransactionalEditingDomain) domain;
 				InternalTransaction activeTransaction = internalDomain.getActiveTransaction();
 				if (activeTransaction != null) {
 					// There is already an active transaction
@@ -415,8 +401,7 @@ public class TransactionUtils {
 			if (stack.length == 2) {
 				String className = stack[1].getClassName();
 				String methodName = stack[1].getMethodName();
-				if (className.equals("org.eclipse.core.internal.jobs.ThreadJob") 
-					&& methodName.equals("joinRun")) {
+				if (className.equals("org.eclipse.core.internal.jobs.ThreadJob") && methodName.equals("joinRun")) {
 					String message = "the transaction is held by a deadlock 3";
 					Logger.getLogger(TransactionUtils.class).error(message);
 				}
@@ -425,14 +410,10 @@ public class TransactionUtils {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void transferDomainListeners(TransactionalEditingDomain from, 
-			TransactionalEditingDomain to) {
-		List<ResourceSetListener> precommitListeners = 
-			(List<ResourceSetListener>)ReflectionUtils.get(from, "precommitListeners");
-		List<ResourceSetListener> aggregatePrecommitListeners = 
-			(List<ResourceSetListener>)ReflectionUtils.get(from, "aggregatePrecommitListeners");
-		List<ResourceSetListener> postcommitListeners = 
-			(List<ResourceSetListener>)ReflectionUtils.get(from, "postcommitListeners");
+	public static void transferDomainListeners(TransactionalEditingDomain from, TransactionalEditingDomain to) {
+		List<ResourceSetListener> precommitListeners = (List<ResourceSetListener>) ReflectionUtils.get(from, "precommitListeners");
+		List<ResourceSetListener> aggregatePrecommitListeners = (List<ResourceSetListener>) ReflectionUtils.get(from, "aggregatePrecommitListeners");
+		List<ResourceSetListener> postcommitListeners = (List<ResourceSetListener>) ReflectionUtils.get(from, "postcommitListeners");
 		synchronized (precommitListeners) {
 			for (ResourceSetListener listener : precommitListeners) {
 				to.addResourceSetListener(listener);
@@ -455,10 +436,7 @@ public class TransactionUtils {
 	}
 
 	/**
-	 * If this domain is a FixedTransactionEditingDomain,
-	 * return the current transaction.  If writing is true,
-	 * then throw an illegal state exception if there is
-	 * already a current transaction.
+	 * If this domain is a FixedTransactionEditingDomain, return the current transaction. If writing is true, then throw an illegal state exception if there is already a current transaction.
 	 * 
 	 * @param d
 	 * @param writing
@@ -477,7 +455,7 @@ public class TransactionUtils {
 	}
 
 	private static final class ComposedAdapterFactoryImpl extends ComposedAdapterFactory {
-		
+
 		private ComposedAdapterFactoryImpl(Registry adapterFactoryDescriptorRegistry) {
 			super(adapterFactoryDescriptorRegistry);
 			changeNotifier = new ChangeNotifier() {
@@ -485,22 +463,20 @@ public class TransactionUtils {
 				@Override
 				public void fireNotifyChanged(Notification notification) {
 					int size = size();
-				    INotifyChangedListener [] listeners = new INotifyChangedListener[size];
-				    toArray(listeners);
-				    int expectedModCount = modCount;
-				    for (int i = 0; i < size; ++i)
-				    {
-				      INotifyChangedListener notifyChangedListener = listeners[i];
-				      if (notifyChangedListener == null) {
-				    	  continue;
-				      }
-				      if (expectedModCount == modCount || this.contains(notifyChangedListener))
-				      {
-				        notifyChangedListener.notifyChanged(notification);
-				      }
-				    }
+					INotifyChangedListener[] listeners = new INotifyChangedListener[size];
+					toArray(listeners);
+					int expectedModCount = modCount;
+					for (int i = 0; i < size; ++i) {
+						INotifyChangedListener notifyChangedListener = listeners[i];
+						if (notifyChangedListener == null) {
+							continue;
+						}
+						if (expectedModCount == modCount || this.contains(notifyChangedListener)) {
+							notifyChangedListener.notifyChanged(notification);
+						}
+					}
 				}
-				
+
 			};
 		}
 
@@ -532,8 +508,8 @@ public class TransactionUtils {
 				super.fireNotifyChanged(notification);
 			}
 		}
-		
-	}		
+
+	}
 
 	private static final class WritingWithVoidResult extends RunnableWithResult.Impl<Object> {
 		private final Runnable runnable;
@@ -556,5 +532,34 @@ public class TransactionUtils {
 		}
 		return new TransactionEditingDomainFactory();
 	}
-	
+
+	/**
+	 * Run the runnable in the display thread while holding the read lock for the object. The runnable will be queued to run asynchronously when the lock becomes available, or the runnable will run
+	 * synchronously if this thread is the display thread and the lock is already held.
+	 * 
+	 * @param control
+	 * @param object
+	 * @param runnable
+	 */
+	public static void runInDisplayThread(Control control, Object object, Runnable runnable) {
+		if (control.isDisposed())
+			return;
+		Display display = control.getDisplay();
+		if ((display != null) && (object != null) && !display.isDisposed()) {
+			TransactionalEditingDomain domain = getDomain(object);
+			if (domain instanceof FixedUITransactionEditingDomain) {
+				FixedUITransactionEditingDomain fixed = (FixedUITransactionEditingDomain) domain;
+				InternalTransaction active = fixed.getActiveTransaction();
+				if (((display.getThread() != Thread.currentThread()) || (active == null) || !(active.isActive() && active.isReadOnly() && (active.getOwner() == Thread.currentThread())))) {
+					fixed.queueReading(control, runnable);
+				} else {
+					runnable.run();
+				}
+			} else if (domain != null) {
+				gov.nasa.ensemble.emf.transaction.TransactionUtils.reading(object, runnable);
+			} else {
+				LogUtil.warn("failed to get the transaction domain for runnable: " + runnable);
+			}
+		}
+	}
 }

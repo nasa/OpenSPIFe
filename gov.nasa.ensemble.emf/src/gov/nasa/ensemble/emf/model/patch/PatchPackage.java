@@ -59,7 +59,7 @@ public interface PatchPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/resource/gov.nasa.ensemble.core.model.common/model/Patch.ecore";
+	String eNS_URI = "platform:/resource/gov.nasa.ensemble.emf/model/Patch.ecore";
 
 	/**
 	 * The package namespace name.

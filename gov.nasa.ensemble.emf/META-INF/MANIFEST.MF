@@ -1,45 +1,40 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Emf
+Bundle-Name: %pluginName
 Bundle-SymbolicName: gov.nasa.ensemble.emf;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
 Bundle-Activator: gov.nasa.ensemble.emf.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Require-Bundle: gov.nasa.ensemble.common;bundle-version="1.0.15",
  org.eclipse.core.commands;bundle-version="3.6.0",
  org.eclipse.core.resources;bundle-version="3.6.1",
  org.eclipse.core.runtime,
  org.eclipse.emf;bundle-version="2.6.0",
  org.eclipse.emf.common;bundle-version="2.6.0",
- org.eclipse.emf.ecore;bundle-version="2.6.1";visibility:=reexport,
- org.eclipse.emf.ecore.change;bundle-version="2.5.1";visibility:=reexport,
- org.eclipse.emf.ecore.xmi;bundle-version="2.5.0";visibility:=reexport,
- org.eclipse.emf.transaction;bundle-version="1.4.0";visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport;bundle-version="2.6.1",
+ org.eclipse.emf.ecore.change;visibility:=reexport;bundle-version="2.5.1",
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.change.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport;bundle-version="2.5.0",
+ org.eclipse.emf.transaction;visibility:=reexport;bundle-version="1.4.0",
+ org.eclipse.swt,
+ org.eclipse.jface,
+ org.eclipse.ui.ide
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: gov.nasa.ensemble.emf;
-  uses:="org.eclipse.emf.ecore.resource,
-   junit.framework,
-   gov.nasa.ensemble.common,
-   org.junit",
+Export-Package: gov.nasa.ensemble.emf;uses:="org.eclipse.emf.ecore.resource,  junit.framework,  gov.nasa.ensemble.common,  org.junit",
  gov.nasa.ensemble.emf.constraint;uses:="junit.framework,org.junit",
  gov.nasa.ensemble.emf.model.common;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
- gov.nasa.ensemble.emf.model.common.provider;
-  uses:="org.eclipse.emf.common.util,
-   gov.nasa.ensemble.emf.model.common.util,
-   org.eclipse.emf.common,
-   org.eclipse.emf.edit.provider,
-   org.eclipse.emf.common.notify",
+ gov.nasa.ensemble.emf.model.common.impl,
+ gov.nasa.ensemble.emf.model.common.provider;uses:="org.eclipse.emf.common.util,  gov.nasa.ensemble.emf.model.common.util,  org.eclipse.emf.common,  org.eclipse.emf.edit.provider,  org.eclipse.emf.common.notify",
+ gov.nasa.ensemble.emf.model.common.util,
  gov.nasa.ensemble.emf.model.patch,
- gov.nasa.ensemble.emf.patch;uses:="junit.framework",
+ gov.nasa.ensemble.emf.patch;uses:=junit.framework,
  gov.nasa.ensemble.emf.provider;uses:="org.eclipse.emf.ecore,org.eclipse.emf.edit.provider,org.eclipse.emf.common.notify",
- gov.nasa.ensemble.emf.resource;
-  uses:="org.eclipse.emf.ecore.xmi.impl,
-   org.eclipse.emf.ecore.resource,
-   org.eclipse.core.runtime,
-   org.eclipse.emf.ecore.xmi,
-   org.eclipse.emf.common.util,
-   org.eclipse.core.resources,
-   org.eclipse.emf.ecore.resource.impl",
+ gov.nasa.ensemble.emf.resource;uses:="org.eclipse.emf.ecore.xmi.impl,  org.eclipse.emf.ecore.resource,  org.eclipse.core.runtime,  org.eclipse.emf.ecore.xmi,  org.eclipse.emf.common.util,  org.eclipse.core.resources,  org.eclipse.emf.ecore.resource.impl",
  gov.nasa.ensemble.emf.stringifier,
- gov.nasa.ensemble.emf.transaction;uses:="junit.framework",
- gov.nasa.ensemble.emf.util;uses:="org.junit"
+ gov.nasa.ensemble.emf.transaction;uses:=junit.framework,
+ gov.nasa.ensemble.emf.util;uses:=org.junit

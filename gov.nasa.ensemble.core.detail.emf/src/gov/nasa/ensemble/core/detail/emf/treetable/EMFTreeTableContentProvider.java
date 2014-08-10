@@ -21,9 +21,8 @@ import gov.nasa.ensemble.common.collections.AutoSetMap;
 import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.common.ui.WidgetUtils;
 import gov.nasa.ensemble.common.ui.treetable.TreeTableViewer;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
-import gov.nasa.ensemble.emf.util.EMFUtils;
 import gov.nasa.ensemble.emf.transaction.PostCommitListener;
+import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -50,10 +49,10 @@ public class EMFTreeTableContentProvider extends AdapterFactoryContentProvider {
 	private final EStructuralFeature structuralFeature;
 	private final EClassifier eClassifier;
 	private final ModelChangeListenerImpl listener = new ModelChangeListenerImpl();
-	
+
 	private EObject input = null;
 	private TransactionalEditingDomain domain = null;
-	
+
 	public EMFTreeTableContentProvider(AdapterFactory adapterFactory, EStructuralFeature structuralFeature, EClassifier eClassifier) {
 		super(adapterFactory);
 		this.structuralFeature = structuralFeature;
@@ -72,27 +71,24 @@ public class EMFTreeTableContentProvider extends AdapterFactoryContentProvider {
 	}
 
 	/**
-	 * Override so that the only things returned are the children
-	 * accessed via the eReference parameter. Otherwise, all of the
-	 * children of the object would be returned... which could
-	 * result in a heterogeneous list of types. Filter on the eClass
-	 * type if different than the canonical EReference type.
+	 * Override so that the only things returned are the children accessed via the eReference parameter. Otherwise, all of the children of the object would be returned... which could result in a
+	 * heterogeneous list of types. Filter on the eClass type if different than the canonical EReference type.
 	 */
 	@Override
 	public Object[] getElements(Object object) {
 		List<Object> filtered = new ArrayList<Object>();
-		if(structuralFeature instanceof EReference) {
+		if (structuralFeature instanceof EReference) {
 			EReference reference = (EReference) structuralFeature;
 			if (object instanceof EcoreEMap) {
 				Collection values = ((EcoreEMap) object).values();
 				filtered.addAll(values);
 			} else if (object instanceof EObject) {
-				List<EObject> list = EMFUtils.eGetAsList((EObject)object, reference);
+				List<EObject> list = EMFUtils.eGetAsList((EObject) object, reference);
 				if (eClassifier == reference.getEReferenceType()) {
 					filtered.addAll(list);
 				} else {
 					for (EObject o : list) {
-						if (((EClass)eClassifier).isSuperTypeOf(o.eClass())) {
+						if (((EClass) eClassifier).isSuperTypeOf(o.eClass())) {
 							filtered.add(o);
 						}
 					}
@@ -101,10 +97,10 @@ public class EMFTreeTableContentProvider extends AdapterFactoryContentProvider {
 		} else {
 			EObject eObject = (EObject) object;
 			Object eGet = eObject.eGet(structuralFeature);
-			if(eGet instanceof List) {
-				int size = ((List)eGet).size();
+			if (eGet instanceof List) {
+				int size = ((List) eGet).size();
 				EObjectIndexPair[] items = new EObjectIndexPair[size];
-				for(int i = 0; i < size; i++) {
+				for (int i = 0; i < size; i++) {
 					items[i] = new EObjectIndexPair(eObject, i);
 				}
 				return items;
@@ -115,9 +111,7 @@ public class EMFTreeTableContentProvider extends AdapterFactoryContentProvider {
 	}
 
 	/**
-	 * This is really more of a table implementation for now, 
-	 * cannot guarantee that the children will be of the same
-	 * type, therefore we will only show top level elements
+	 * This is really more of a table implementation for now, cannot guarantee that the children will be of the same type, therefore we will only show top level elements
 	 */
 	@Override
 	public Object[] getChildren(Object object) {
@@ -125,15 +119,13 @@ public class EMFTreeTableContentProvider extends AdapterFactoryContentProvider {
 	}
 
 	/**
-	 * This is really more of a table implementation for now, 
-	 * cannot guarantee that the children will be of the same
-	 * type, therefore we will only show top level elements
+	 * This is really more of a table implementation for now, cannot guarantee that the children will be of the same type, therefore we will only show top level elements
 	 */
 	@Override
 	public boolean hasChildren(Object object) {
 		return false;
 	}
-	
+
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		if (domain != null) {
@@ -155,73 +147,73 @@ public class EMFTreeTableContentProvider extends AdapterFactoryContentProvider {
 			domain = null;
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	protected void processNotifications(final Collection<Notification> notifications) {
-        final Map<EObject, Set<EStructuralFeature>> map = new AutoSetMap<EObject, EStructuralFeature>(EObject.class);
-        final TreeTableViewer treeTableViewer = (TreeTableViewer)viewer;
+		final Map<EObject, Set<EStructuralFeature>> map = new AutoSetMap<EObject, EStructuralFeature>(EObject.class);
+		final TreeTableViewer treeTableViewer = (TreeTableViewer) viewer;
 		treeTableViewer.preservingSelection(new Runnable() {
-        	@Override
+			@Override
 			public void run() {
-        		for (Notification notification : notifications) {
-            		if (notification == null) {
-            			continue;
-            		}
-            		
-            		Object notifier = notification.getNotifier();
-            		if (!(notifier instanceof EObject)) {
-            			continue;
-            		}
-            		
-            		EStructuralFeature feature = (EStructuralFeature) notification.getFeature();
-            		
-        			EObject element = (EObject) notifier;
-        			switch (notification.getEventType()) {
-        			case Notification.ADD:
-        			case Notification.ADD_MANY:
-        				if (notifier == input && feature == structuralFeature) {
-        					List childrenAdded = EMFUtils.getAddedObjects(notification, (EClass)eClassifier);
-        					if (!childrenAdded.isEmpty()) {
-        						treeTableViewer.add(element, childrenAdded.toArray());
-        					}
-        				}
-        				break;
-        			case Notification.REMOVE:
-        			case Notification.REMOVE_MANY:
-        				if (notifier == input && feature == structuralFeature) {
-		        			List childrenRemoved = EMFUtils.getRemovedObjects(notification, (EClass)eClassifier);
-		        			if (!childrenRemoved.isEmpty()) {
-		        				treeTableViewer.remove(element, childrenRemoved.toArray());
-		        			}
-        				}
-	        			break;
-        			case Notification.MOVE:
-        				LogUtil.warn("move!");
-        				break;
-        			case Notification.SET:
-        				if (notifier == input && feature == structuralFeature) {
-        					Object oldValue = notification.getOldValue();
-        					if (oldValue != null) {
-        						treeTableViewer.remove(element, new Object[] { oldValue });
-        					}
-        					Object newValue = notification.getNewValue();
-        					if (newValue != null) {
-        						treeTableViewer.add(element, newValue);
-        					}
-        				}
-        				if (structuralFeature == element.eContainingFeature()) {
-	        				map.get(element).add(feature);
-        				}
-        				break;
-        			}
-            	}
-        	}
-        });
-       	if (!map.isEmpty()) {
-       		treeTableViewer.updateElementFeatures(map);
-    	}
-    }
-	
+				for (Notification notification : notifications) {
+					if (notification == null) {
+						continue;
+					}
+
+					Object notifier = notification.getNotifier();
+					if (!(notifier instanceof EObject)) {
+						continue;
+					}
+
+					EStructuralFeature feature = (EStructuralFeature) notification.getFeature();
+
+					EObject element = (EObject) notifier;
+					switch (notification.getEventType()) {
+					case Notification.ADD:
+					case Notification.ADD_MANY:
+						if (notifier == input && feature == structuralFeature) {
+							List childrenAdded = EMFUtils.getAddedObjects(notification, (EClass) eClassifier);
+							if (!childrenAdded.isEmpty()) {
+								treeTableViewer.add(element, childrenAdded.toArray());
+							}
+						}
+						break;
+					case Notification.REMOVE:
+					case Notification.REMOVE_MANY:
+						if (notifier == input && feature == structuralFeature) {
+							List childrenRemoved = EMFUtils.getRemovedObjects(notification, (EClass) eClassifier);
+							if (!childrenRemoved.isEmpty()) {
+								treeTableViewer.remove(element, childrenRemoved.toArray());
+							}
+						}
+						break;
+					case Notification.MOVE:
+						LogUtil.warn("move!");
+						break;
+					case Notification.SET:
+						if (notifier == input && feature == structuralFeature) {
+							Object oldValue = notification.getOldValue();
+							if (oldValue != null) {
+								treeTableViewer.remove(element, new Object[] { oldValue });
+							}
+							Object newValue = notification.getNewValue();
+							if (newValue != null) {
+								treeTableViewer.add(element, newValue);
+							}
+						}
+						if (structuralFeature == element.eContainingFeature()) {
+							map.get(element).add(feature);
+						}
+						break;
+					}
+				}
+			}
+		});
+		if (!map.isEmpty()) {
+			treeTableViewer.updateElementFeatures(map);
+		}
+	}
+
 	private class ModelChangeListenerImpl extends PostCommitListener {
 
 		@Override
@@ -238,5 +230,5 @@ public class EMFTreeTableContentProvider extends AdapterFactoryContentProvider {
 		}
 
 	}
-	
+
 }
