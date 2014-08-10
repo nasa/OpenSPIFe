@@ -24,7 +24,6 @@ import gov.nasa.arc.spife.ui.timeline.TimelineBuilder;
 import gov.nasa.arc.spife.ui.timeline.TimelineBuilderRegistry;
 import gov.nasa.arc.spife.ui.timeline.util.TimelineUtils;
 import gov.nasa.ensemble.common.ui.editor.EditorPartUtils;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.util.Collections;

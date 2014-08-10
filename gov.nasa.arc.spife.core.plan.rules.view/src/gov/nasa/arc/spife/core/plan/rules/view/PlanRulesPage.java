@@ -24,7 +24,6 @@ package gov.nasa.arc.spife.core.plan.rules.view;
 import gov.nasa.ensemble.common.ui.EnsembleComposite;
 import gov.nasa.ensemble.common.ui.color.ColorConstants;
 import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.advisor.AdvisorPackage;
 import gov.nasa.ensemble.core.model.plan.advisor.PlanAdvisorMember;
@@ -32,6 +31,7 @@ import gov.nasa.ensemble.core.plan.advisor.RuleUtils;
 import gov.nasa.ensemble.core.plan.editor.PlanEditorModel;
 import gov.nasa.ensemble.dictionary.ERule;
 import gov.nasa.ensemble.emf.transaction.PostCommitListener;
+import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -54,12 +54,12 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.part.Page;
 
 /**
- *	A pagebook page that listens to the model and updates itself with a description of
- *	plan rule information.
- *	@author bachmann
+ * A pagebook page that listens to the model and updates itself with a description of plan rule information.
+ * 
+ * @author bachmann
  */
 class PlanRulesPage extends Page {
-	
+
 	private final ISelectionProvider selectionProvider;
 	private final PlanEditorModel model;
 	private final PostCommitListener modelChangeListener = new PlanRuleModelChangeListener();
@@ -67,27 +67,27 @@ class PlanRulesPage extends Page {
 	private Control control;
 	private PlanRulesTreeViewer treeViewer;
 
-    public PlanRulesPage(IEditorPart editor, PlanEditorModel model) {
-    	this.selectionProvider = editor.getSite().getSelectionProvider();
+	public PlanRulesPage(IEditorPart editor, PlanEditorModel model) {
+		this.selectionProvider = editor.getSite().getSelectionProvider();
 		this.model = model;
-    }
-    
+	}
+
 	public EPlan getPlan() {
 		return model.getEPlan();
 	}
 
-    @Override
+	@Override
 	public void createControl(Composite parent) {
-        Composite composite = new EnsembleComposite(parent, SWT.NONE);
-        composite.setBackground(ColorConstants.brown);
-        control = composite;
-        
-        GridLayout gridLayout = new GridLayout(1, true);
-        gridLayout.marginHeight = 0;
-        gridLayout.marginWidth = 0;
-        gridLayout.verticalSpacing = 0;
+		Composite composite = new EnsembleComposite(parent, SWT.NONE);
+		composite.setBackground(ColorConstants.brown);
+		control = composite;
+
+		GridLayout gridLayout = new GridLayout(1, true);
+		gridLayout.marginHeight = 0;
+		gridLayout.marginWidth = 0;
+		gridLayout.verticalSpacing = 0;
 		composite.setLayout(gridLayout);
-        
+
 		treeViewer = new PlanRulesTreeViewer(composite);
 		treeViewer.getTree().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		if (model.getEPlan().getMember(PlanAdvisorMember.class, false) == null) {
@@ -111,48 +111,48 @@ class PlanRulesPage extends Page {
 				}
 			}
 		});
-//        Composite findFilterComposite = buildFindFilterComposite(composite);
-//        findFilterComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		// Composite findFilterComposite = buildFindFilterComposite(composite);
+		// findFilterComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		setup();
-    }
+	}
 
 	private void setup() {
-	    domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(model.getEPlan());
+		domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(model.getEPlan());
 		domain.addResourceSetListener(modelChangeListener);
-        updateRules();
-        getSite().setSelectionProvider(selectionProvider);
-    }
+		updateRules();
+		getSite().setSelectionProvider(selectionProvider);
+	}
 
 	@Override
 	public void dispose() {
 		domain.removeResourceSetListener(modelChangeListener);
 		getSite().setSelectionProvider(null);
-        super.dispose();
-    }
-    
-	/**
-     * @return Returns the control.
-     */
-    @Override
-	public Control getControl() {
-        return control;
-    }
-    
-    /**
-     * Gives focus to the control
-     */
-    @Override
-	public void setFocus() {
-    	Control control = getControl();
-    	if ((control != null) && !control.isDisposed()) {
-            control.setFocus();
-        }
-    }
+		super.dispose();
+	}
 
-    /*
-     * Utility
-     */
-    
+	/**
+	 * @return Returns the control.
+	 */
+	@Override
+	public Control getControl() {
+		return control;
+	}
+
+	/**
+	 * Gives focus to the control
+	 */
+	@Override
+	public void setFocus() {
+		Control control = getControl();
+		if ((control != null) && !control.isDisposed()) {
+			control.setFocus();
+		}
+	}
+
+	/*
+	 * Utility
+	 */
+
 	private void updateRules() {
 		List<ERule> allRules = ActivityDictionary.getInstance().getDefinitions(ERule.class);
 		Set<ERule> waivedRules = RuleUtils.getWaivedRules(model.getEPlan());
@@ -174,7 +174,7 @@ class PlanRulesPage extends Page {
 		}
 	};
 	private TransactionalEditingDomain domain;
-	
+
 	private void setRuleActive(ERule rule, boolean active) {
 		modifyFromCheckbox.set(Boolean.TRUE);
 		RuleUtils.setWaived(model.getEPlan(), rule, !active);
@@ -200,28 +200,27 @@ class PlanRulesPage extends Page {
 		treeViewer.update(rules.toArray(), null);
 	}
 
-    private class PlanRuleModelChangeListener extends PostCommitListener {
-    	@Override
-    	public void resourceSetChanged(ResourceSetChangeEvent event) {
-    		boolean update = false;
-    		for (Notification notification : event.getNotifications()) {
-    			Object feature = notification.getFeature();
-    			if ((feature == AdvisorPackage.Literals.RULE_ADVISOR_MEMBER__WAIVERS)
-    				|| (feature == AdvisorPackage.Literals.WAIVER_PROPERTIES_ENTRY__VALUE)) {
-    				update = true;
-    				break;
-    			}
-    		}
-    		if (update) {
-    			TransactionUtils.runInDisplayThread(control, model.getEPlan(), new Runnable() {
-    				@Override
+	private class PlanRuleModelChangeListener extends PostCommitListener {
+		@Override
+		public void resourceSetChanged(ResourceSetChangeEvent event) {
+			boolean update = false;
+			for (Notification notification : event.getNotifications()) {
+				Object feature = notification.getFeature();
+				if ((feature == AdvisorPackage.Literals.RULE_ADVISOR_MEMBER__WAIVERS) || (feature == AdvisorPackage.Literals.WAIVER_PROPERTIES_ENTRY__VALUE)) {
+					update = true;
+					break;
+				}
+			}
+			if (update) {
+				TransactionUtils.runInDisplayThread(control, model.getEPlan(), new Runnable() {
+					@Override
 					public void run() {
-    					updateRules();
-    				}
-    			});
-    		}
-    		
-    	}
+						updateRules();
+					}
+				});
+			}
+
+		}
 	}
 
 }

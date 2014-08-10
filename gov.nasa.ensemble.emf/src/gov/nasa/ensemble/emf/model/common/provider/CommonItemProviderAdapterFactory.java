@@ -196,7 +196,6 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	 */
 	@Override
 	public void dispose() {
-		// nothing to dispose
 	}
 
 }

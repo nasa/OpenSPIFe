@@ -23,7 +23,6 @@ import gov.nasa.ensemble.core.detail.emf.DetailProviderParameter;
 import gov.nasa.ensemble.core.detail.emf.multi.MultiEObject;
 import gov.nasa.ensemble.core.detail.emf.multi.MultiItemPropertyDescriptor;
 import gov.nasa.ensemble.core.detail.emf.util.EMFDetailUtils;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.emf.transaction.AbstractTransactionUndoableOperation;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
@@ -47,19 +46,18 @@ public class UniqueMultiSelectSetOperation extends AbstractTransactionUndoableOp
 	private final DetailProviderParameter parameter;
 	private final Map<Object, TriState> map;
 	private final Map<Object, TriState> originalMap;
-	
 
 	private CompoundCommand compoundCommand = null;
 	private EditingDomain domain;
-	
+
 	public UniqueMultiSelectSetOperation(DetailProviderParameter parameter, Map<Object, TriState> originalMap, Map<Object, TriState> map) {
-		super("Edit "+ getFeatureDisplayName(parameter));
+		super("Edit " + getFeatureDisplayName(parameter));
 		this.parameter = parameter;
 		this.originalMap = originalMap;
 		this.map = map;
-	
+
 	}
-	
+
 	private static String getFeatureDisplayName(DetailProviderParameter parameter) {
 		EObject target = parameter.getTarget();
 		Object feature = parameter.getPropertyDescriptor().getFeature(target);
@@ -68,7 +66,7 @@ public class UniqueMultiSelectSetOperation extends AbstractTransactionUndoableOp
 		}
 		return "";
 	}
-	
+
 	@Override
 	protected void dispose(UndoableState state) {
 		// no disposal
@@ -80,25 +78,25 @@ public class UniqueMultiSelectSetOperation extends AbstractTransactionUndoableOp
 		List<IItemPropertyDescriptor> pds = new ArrayList<IItemPropertyDescriptor>();
 		EObject target = parameter.getTarget();
 		if (target instanceof MultiEObject) {
-			targets.addAll(((MultiEObject)target).getEObjects());
-			pds.addAll(((MultiItemPropertyDescriptor)parameter.getPropertyDescriptor()).getPropertyDescriptors());
+			targets.addAll(((MultiEObject) target).getEObjects());
+			pds.addAll(((MultiItemPropertyDescriptor) parameter.getPropertyDescriptor()).getPropertyDescriptors());
 		} else {
 			targets.add(target);
 			pds.add(parameter.getPropertyDescriptor());
 		}
-		
+
 		if (targets.isEmpty()) {
 			return;
 		}
-		
+
 		domain = AdapterFactoryEditingDomain.getEditingDomainFor(targets.get(0));
 		ObjectUndoContext domainUndoContext = new ObjectUndoContext(domain);
 		if (!hasContext(domainUndoContext)) {
 			addContext(domainUndoContext);
 		}
-		
+
 		compoundCommand = new CompoundCommand();
-		for (int i=0; i<pds.size(); i++) {
+		for (int i = 0; i < pds.size(); i++) {
 			IItemPropertyDescriptor pd = pds.get(i);
 			EObject model = target = targets.get(i);
 			EStructuralFeature feature = (EStructuralFeature) pd.getFeature(model);
@@ -111,7 +109,7 @@ public class UniqueMultiSelectSetOperation extends AbstractTransactionUndoableOp
 				if (TriState.QUASI == triState) {
 					continue;
 				}
-				boolean contained = ((Collection)model.eGet(feature)).contains(referencedObject);
+				boolean contained = ((Collection) model.eGet(feature)).contains(referencedObject);
 				TriState originalTriState = originalMap.get(referencedObject);
 				if (!CommonUtils.equals(triState, originalTriState)) {
 					if (TriState.TRUE == triState && !contained) {

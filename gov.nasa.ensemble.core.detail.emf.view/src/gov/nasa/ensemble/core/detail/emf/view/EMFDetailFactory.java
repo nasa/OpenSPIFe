@@ -28,7 +28,7 @@ import gov.nasa.ensemble.core.detail.emf.multi.MultiItemPropertySource;
 import gov.nasa.ensemble.core.detail.emf.multi.MultiItemUnionPropertySource;
 import gov.nasa.ensemble.core.detail.emf.multi.MultiObject;
 import gov.nasa.ensemble.core.detail.emf.multi.MultiObject.Type;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
+import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.util.ArrayList;
@@ -71,33 +71,32 @@ public class EMFDetailFactory extends DetailFactory {
 			if (domain == null) {
 				setSheetInput(form, eObject, sheet);
 			} else {
-				TransactionUtils.runInDisplayThread(form, domain, 
-					new Runnable() {
-						@Override
-						public void run() {
-							setSheetInput(form, eObject, sheet);
-						}
-					});
+				TransactionUtils.runInDisplayThread(form, domain, new Runnable() {
+					@Override
+					public void run() {
+						setSheetInput(form, eObject, sheet);
+					}
+				});
 			}
 			return sheet;
 		}
 		return null;
 	}
-	
+
 	private void setSheetInput(final ScrolledForm form, final EObject eObject, final IDetailSheet sheet) {
 		try {
-			if (!((EMFDetailSheet)sheet).isDisposed()) {
+			if (!((EMFDetailSheet) sheet).isDisposed()) {
 				sheet.setInput(eObject);
 			}
 		} catch (Exception e) {
-			LogUtil.error("setting "+eObject, e);
+			LogUtil.error("setting " + eObject, e);
 		}
 	}
 
 	private EObject getEObject(Object object) {
 		if (object instanceof Collection) {
 			List<EObject> eObjects = new ArrayList<EObject>();
-			Collection<?> collection = (Collection<?>)object;
+			Collection<?> collection = (Collection<?>) object;
 			for (Object o : collection) {
 				EObject eObject = getEObject(o);
 				if (eObject != null) {
@@ -109,15 +108,13 @@ public class EMFDetailFactory extends DetailFactory {
 			}
 			if (eObjects.size() == 1) {
 				object = eObjects.get(0);
-			} else  {
+			} else {
 				final MultiItemPropertySource source;
 				final Option<String> label;
 				final Option<Image> icon;
 				if (collection instanceof MultiObject) {
-					final MultiObject multiObject = (MultiObject)collection;
-					source = (multiObject.getType() == Type.UNION)
-						? new MultiItemUnionPropertySource(eObjects)
-						: new MultiItemIntersectionPropertySource(eObjects);
+					final MultiObject multiObject = (MultiObject) collection;
+					source = (multiObject.getType() == Type.UNION) ? new MultiItemUnionPropertySource(eObjects) : new MultiItemIntersectionPropertySource(eObjects);
 					label = multiObject.getLabel();
 					icon = multiObject.getIcon();
 				} else {
@@ -131,20 +128,20 @@ public class EMFDetailFactory extends DetailFactory {
 		if (object instanceof EObject) {
 			return (EObject) object;
 		} else if (object instanceof IAdaptable) {
-			IAdaptable adaptable = (IAdaptable)object;
+			IAdaptable adaptable = (IAdaptable) object;
 			Object result = adaptable.getAdapter(EObject.class);
 			if (result instanceof EObject) {
 				return (EObject) result;
 			} else {
 				if (adaptable instanceof Resource) {
-					//TODO: maybe something more elaborate here?
+					// TODO: maybe something more elaborate here?
 					Resource resource = (Resource) adaptable;
 					EList<EObject> contents = resource.getContents();
 					return contents.iterator().next();
 				}
 				result = EMFUtils.adapt(object, EObject.class);
 				if (result instanceof EObject) {
-					return (EObject)result;
+					return (EObject) result;
 				}
 			}
 		} else if (object instanceof IWrapperItemProvider) {
@@ -152,5 +149,5 @@ public class EMFDetailFactory extends DetailFactory {
 		}
 		return null;
 	}
-	
+
 }

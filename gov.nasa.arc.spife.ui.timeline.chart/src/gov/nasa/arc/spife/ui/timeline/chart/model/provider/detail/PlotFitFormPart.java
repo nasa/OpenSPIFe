@@ -31,7 +31,6 @@ import gov.nasa.ensemble.core.jscience.EnsembleUnitFormat;
 import gov.nasa.ensemble.core.jscience.JScienceFactory;
 import gov.nasa.ensemble.core.jscience.JSciencePackage;
 import gov.nasa.ensemble.core.jscience.Profile;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.beans.PropertyChangeEvent;
@@ -66,57 +65,57 @@ import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.jscience.physics.amount.Amount;
 
 final class PlotFitFormPart extends SectionPart {
-	
+
 	private Plot plot = null;
-	
+
 	private Text minText = null;
 	private Text maxText = null;
-	
+
 	private Button autoButton = null;
 	private Button customButton = null;
-	
+
 	private DataBindingContext dataBindingContext = new DataBindingContext();
-	
+
 	private Listener listener = new Listener();
 
 	private Profile<?> profile;
 
 	private Section section;
-	
+
 	public PlotFitFormPart(Composite parent, FormToolkit toolkit, int style) {
 		super(parent, toolkit, style);
 	}
-	
+
 	@Override
 	public void dispose() {
 		super.dispose();
 		teardown();
 	}
-	
+
 	@Override
 	public void initialize(IManagedForm form) {
 		super.initialize(form);
-		
+
 		section = getSection();
 		section.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		section.setText("Fit and Range Settings");
-		
+
 		FormToolkit toolkit = form.getToolkit();
 		Composite composite = toolkit.createComposite(section);
 		composite.setLayout(new GridLayout(1, true));
 		autoButton = toolkit.createButton(composite, "Auto Fit (scale to fit current range)", SWT.RADIO);
 		customButton = toolkit.createButton(composite, "Custom", SWT.RADIO);
-		
+
 		Composite minMaxComposite = toolkit.createComposite(composite);
 		minMaxComposite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		GridLayout layout = new GridLayout(2, false);
 		layout.marginLeft = 15;
 		minMaxComposite.setLayout(layout);
-		
+
 		AmountStringifier stringifier = new AmountStringifier() {
 
 			/**
-			 * @throws ParseException  
+			 * @throws ParseException
 			 */
 			@Override
 			public Amount getJavaObjectFromTrimmed(String string, Amount defaultObject) throws ParseException {
@@ -127,9 +126,9 @@ final class PlotFitFormPart extends SectionPart {
 			public String getDisplayString(Amount amount) {
 				return formatLimitText(amount);
 			}
-			
+
 		};
-		
+
 		toolkit.createLabel(minMaxComposite, "Max: ");
 		maxText = toolkit.createText(minMaxComposite, null, SWT.BORDER);
 		maxText.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
@@ -143,7 +142,7 @@ final class PlotFitFormPart extends SectionPart {
 				executeSetOperation(ChartPackage.Literals.PLOT__EXTENT, new AmountExtent(min, max));
 			}
 		});
-		
+
 		toolkit.createLabel(minMaxComposite, "Min: ");
 		minText = toolkit.createText(minMaxComposite, null, SWT.BORDER);
 		minText.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
@@ -157,23 +156,25 @@ final class PlotFitFormPart extends SectionPart {
 				executeSetOperation(ChartPackage.Literals.PLOT__EXTENT, new AmountExtent(min, max));
 			}
 		});
-		
+
 		SelectionListener listener = new SelectionListener() {
 			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {/* do nothing */}
+			public void widgetDefaultSelected(SelectionEvent e) {/* do nothing */
+			}
+
 			@Override
 			@SuppressWarnings("unchecked")
-			public void widgetSelected(SelectionEvent e) 		{
+			public void widgetSelected(SelectionEvent e) {
 				Button source = (Button) e.getSource();
 				boolean customEnabled = customButton == source && source.getSelection();
 
 				minText.setEnabled(customEnabled);
 				maxText.setEnabled(customEnabled);
-				
+
 				if (customEnabled) {
 					Amount min = parseLimitTextSafely(minText.getText());
 					Amount max = parseLimitTextSafely(maxText.getText());
-					
+
 					final Plot plot = (Plot) getManagedForm().getInput();
 					final TransactionalEditingDomain domain = gov.nasa.ensemble.emf.transaction.TransactionUtils.getDomain(plot);
 					CompoundCommand command = new CompoundCommand("Plot extents change");
@@ -190,7 +191,7 @@ final class PlotFitFormPart extends SectionPart {
 		customButton.addSelectionListener(listener);
 		section.setClient(composite);
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public boolean setFormInput(Object input) {
@@ -232,7 +233,7 @@ final class PlotFitFormPart extends SectionPart {
 			dataBindingContext = null;
 		}
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public void refresh() {
@@ -242,11 +243,11 @@ final class PlotFitFormPart extends SectionPart {
 				return;
 			}
 			FitPolicy policy = plot.getFit();
-			if(policy.equals(FitPolicy.AUTO) && !autoButton.isDisposed()) {
+			if (policy.equals(FitPolicy.AUTO) && !autoButton.isDisposed()) {
 				autoButton.setSelection(true);
 			} else if (policy.equals(FitPolicy.CUSTOM) && !customButton.isDisposed()) {
 				customButton.setSelection(true);
-			}			
+			}
 			AmountExtent<?> extent = plot.getExtent();
 			if (extent != null) {
 				Amount min = extent.getMin();
@@ -267,7 +268,7 @@ final class PlotFitFormPart extends SectionPart {
 		}
 		return EnsembleAmountFormat.INSTANCE.formatAmount(amount);
 	}
-	
+
 	private Amount parseLimitTextSafely(String text) {
 		Plot plot = (Plot) getManagedForm().getInput();
 		try {
@@ -280,14 +281,14 @@ final class PlotFitFormPart extends SectionPart {
 					return Amount.valueOf(d, u);
 				} catch (Exception x) {
 					return (Amount) JScienceFactory.eINSTANCE.createFromString(JSciencePackage.Literals.EDURATION, text);
-				}				
+				}
 			}
 		} catch (NumberFormatException e) {
 			Logger.getLogger(PlotFitFormPart.class).warn("couldn't parse limit: " + text, e);
 		}
 		return null;
 	}
-	
+
 	private Amount parseLimitText(String text) throws ParseException {
 		Plot plot = (Plot) getManagedForm().getInput();
 		try {
@@ -302,13 +303,13 @@ final class PlotFitFormPart extends SectionPart {
 				if (durationValue != null) {
 					return durationValue;
 				}
-			}				
+			}
 		}
 		Unit<?> units = plot.getProfile().getUnits();
 		if (units == null) {
 			units = Unit.ONE;
 		}
-		throw new ParseException("Cannot parse '"+text+"', try 1.0 "+EnsembleUnitFormat.INSTANCE.format(units), 0);
+		throw new ParseException("Cannot parse '" + text + "', try 1.0 " + EnsembleUnitFormat.INSTANCE.format(units), 0);
 	}
 
 	private void executeSetOperation(EStructuralFeature feature, Object value) {
@@ -319,22 +320,20 @@ final class PlotFitFormPart extends SectionPart {
 	}
 
 	public class Listener extends AdapterImpl {
-		
+
 		@Override
 		public void notifyChanged(Notification notification) {
 			Object feature = notification.getFeature();
-			if (JSciencePackage.Literals.PROFILE__EXTENT == feature
-					|| ChartPackage.Literals.PLOT__EXTENT == feature
-					|| ChartPackage.Literals.CHART__STYLE == feature) {
+			if (JSciencePackage.Literals.PROFILE__EXTENT == feature || ChartPackage.Literals.PLOT__EXTENT == feature || ChartPackage.Literals.CHART__STYLE == feature) {
 				WidgetUtils.runLaterInDisplayThread(getManagedForm().getForm(), new Runnable() {
 					@Override
 					public void run() {
 						refresh();
 					}
 				});
-			} 
+			}
 		}
 
 	}
-	
+
 }

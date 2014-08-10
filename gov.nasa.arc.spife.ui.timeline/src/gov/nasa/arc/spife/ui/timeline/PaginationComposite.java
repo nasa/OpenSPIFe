@@ -24,7 +24,6 @@ import gov.nasa.ensemble.common.mission.MissionCalendarUtils;
 import gov.nasa.ensemble.common.time.DurationFormat;
 import gov.nasa.ensemble.core.jscience.TemporalExtent;
 import gov.nasa.ensemble.core.jscience.util.DateUtils;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 
 import java.util.Date;
 
@@ -50,7 +49,7 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 	private Button pageLeftButton;
 	private Button pageRightButton;
 	private Listener listener = new Listener();
-	
+
 	public PaginationComposite(Composite parent, Page page) {
 		super(parent, SWT.NONE);
 		this.page = page;
@@ -65,10 +64,10 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 		pageLeftButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
 		pageLeftButton.setText("<--");
 		pageLeftButton.addSelectionListener(listener);
-		
+
 		currentPageLabel = new Label(this, SWT.NONE);
 		currentPageLabel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-		
+
 		pageRightButton = new Button(this, SWT.BORDER);
 		pageRightButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
 		pageRightButton.setText("-->");
@@ -90,7 +89,7 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 			pageRightButton.setToolTipText(DurationFormat.getFormattedDuration(s));
 		}
 	}
-	
+
 	@Override
 	public void dispose() {
 		super.dispose();
@@ -102,29 +101,25 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 		String startString = DATE_STRINGIFIER.getDisplayString(extent.getStart());
 		final int widthPixels = page.getWidth();
 		final long mpp = page.getMilliSecondsPerPixel();
-		final long pageEnd = widthPixels*mpp + extent.getStart().getTime();
+		final long pageEnd = widthPixels * mpp + extent.getStart().getTime();
 		final Date end = min(new Date(pageEnd), extent.getEnd());
 		String endString = DATE_STRINGIFIER.getDisplayString(end);
 		currentPageLabel.setText(startString + " - " + endString);
 	}
-	
+
 	private static Date min(Date d1, Date d2) {
 		if (d1.getTime() < d2.getTime())
 			return d1;
 		return d2;
 	}
-	
+
 	private class Listener extends AdapterImpl implements SelectionListener {
 
 		@Override
 		public void notifyChanged(Notification msg) {
 			Object f = msg.getFeature();
-			
-			if (TimelinePackage.Literals.PAGE__CURRENT_PAGE_EXTENT == f ||
-				TimelinePackage.Literals.PAGE__ZOOM_OPTION == f ||
-				TimelinePackage.Literals.PAGE__START_TIME == f ||
-				TimelinePackage.Literals.PAGE__DURATION == f
-			) {
+
+			if (TimelinePackage.Literals.PAGE__CURRENT_PAGE_EXTENT == f || TimelinePackage.Literals.PAGE__ZOOM_OPTION == f || TimelinePackage.Literals.PAGE__START_TIME == f || TimelinePackage.Literals.PAGE__DURATION == f) {
 				updatePageButtons();
 				updateCurrentPageLabel();
 			}
@@ -146,7 +141,7 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 			} else if (pageRightButton == source) {
 				newStartTime = DateUtils.add(currentExtent.getStart(), scrollInterval);
 			}
-			
+
 			if (newStartTime != null) {
 				newStartTime = MissionCalendarUtils.round(newStartTime.getTime(), (int) scrollInterval.longValue(DateUtils.MILLISECONDS));
 				final Date fNewStartTime = newStartTime;
@@ -164,7 +159,7 @@ public class PaginationComposite extends Composite implements TimelineConstants 
 		public void widgetDefaultSelected(SelectionEvent e) {
 			widgetSelected(e);
 		}
-		
+
 	}
-	
+
 }

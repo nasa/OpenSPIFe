@@ -38,7 +38,6 @@ import gov.nasa.ensemble.core.jscience.TemporalExtent;
 import gov.nasa.ensemble.core.jscience.synchronizer.ProfileSynchronizer;
 import gov.nasa.ensemble.core.jscience.ui.profile.tree.ProfileTreePage;
 import gov.nasa.ensemble.core.jscience.util.ProfileUtil;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.emf.ProjectURIConverter;
 import gov.nasa.ensemble.emf.resource.ProjectResourceSetSynchronizer;
 import gov.nasa.ensemble.emf.transaction.PreCommitListener;
@@ -93,7 +92,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.progress.IProgressService;
 
 public class ChartEditor extends EditorPart {
-	
+
 	public static final String ID = "gov.nasa.arc.spife.ui.timeline.chart.editor";
 
 	private Timeline<?> timeline;
@@ -106,19 +105,19 @@ public class ChartEditor extends EditorPart {
 	private ProfileTreePage profileTreePage = null;
 	private ProfileSynchronizer profileSynchronizer;
 	private ResourceSetListener pageExtentListener = new Listener();
-	
+
 	private URI chartURI;
-	
+
 	public ETimeline getTimelineModel() {
 		return timelineModel;
 	}
-	
+
 	public Timeline getTimeline() {
 		return timeline;
 	}
-	
+
 	/**
-	 * @throws PartInitException  
+	 * @throws PartInitException
 	 */
 	@Override
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
@@ -139,7 +138,7 @@ public class ChartEditor extends EditorPart {
 		createModel(input);
 		editingDomain.addResourceSetListener(pageExtentListener);
 	}
-	
+
 	@Override
 	public void dispose() {
 		UndoRedoUtils.disposeUndoRedo(getEditorSite().getActionBars());
@@ -191,14 +190,14 @@ public class ChartEditor extends EditorPart {
 			undoContext = null;
 		}
 	}
-	
+
 	@Override
 	protected void setSite(IWorkbenchPartSite newSite) {
-	    super.setSite(newSite);
-		IContextService contextService = (IContextService)newSite.getService(IContextService.class);
+		super.setSite(newSite);
+		IContextService contextService = (IContextService) newSite.getService(IContextService.class);
 		contextService.activateContext("timeline");
 	}
-	
+
 	protected void createModel(IEditorInput input) {
 		URI uri = EditUIUtil.getURI(input);
 		Resource resource = null;
@@ -210,7 +209,7 @@ public class ChartEditor extends EditorPart {
 		timelineModel = getTimelineModel(resource);
 		if (timelineModel.getContents().isEmpty()) {
 			if (input instanceof URIEditorInput) {
-				populateTimelineFromFragment((URIEditorInput)input, resource);
+				populateTimelineFromFragment((URIEditorInput) input, resource);
 			} else {
 				final List<Section> sections = createDefaultSections(resource);
 				gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(timelineModel, new Runnable() {
@@ -223,7 +222,7 @@ public class ChartEditor extends EditorPart {
 		}
 		refreshPage();
 	}
-	
+
 	private void refreshPageInDisplayThread() {
 		WidgetUtils.runInDisplayThread(getTimeline().getControl(), new Runnable() {
 			@Override
@@ -238,7 +237,7 @@ public class ChartEditor extends EditorPart {
 		final List<Plot> plots = new ArrayList<Plot>();
 		for (EObject object : timelineModel.getContents()) {
 			if (object instanceof Profile) {
-				profiles.add((Profile)object);
+				profiles.add((Profile) object);
 			} else if (object instanceof Chart) {
 				Chart chart = (Chart) object;
 				plots.addAll(chart.getPlots());
@@ -247,7 +246,7 @@ public class ChartEditor extends EditorPart {
 		ComputingPageExtent runnable = new ComputingPageExtent(profiles, plots);
 		try {
 			IWorkbenchPartSite site = getSite();
-			IProgressService service = (IProgressService)site.getService(IProgressService.class);
+			IProgressService service = (IProgressService) site.getService(IProgressService.class);
 			service.busyCursorWhile(runnable);
 		} catch (InvocationTargetException e) {
 			LogUtil.error(e);
@@ -281,7 +280,7 @@ public class ChartEditor extends EditorPart {
 			Plot plot;
 			if (eObject instanceof Plot) {
 				plot = (Plot) eObject;
-			} else {					
+			} else {
 				plot = ChartFactory.eINSTANCE.createPlot();
 				Profile profile;
 				if (eObject instanceof Profile) {
@@ -300,7 +299,7 @@ public class ChartEditor extends EditorPart {
 			}
 		});
 	}
-	
+
 	protected ETimeline getTimelineModel(Resource resource) {
 		TransactionalEditingDomain domain = getEditingDomain();
 		if (domain != null) {
@@ -325,9 +324,7 @@ public class ChartEditor extends EditorPart {
 	}
 
 	/**
-	 * Tests the adaptability of the resource to a chart provider, and then
-	 * applies a simple heuristic that reads the resource and places the plot in
-	 * the chart if only one exists
+	 * Tests the adaptability of the resource to a chart provider, and then applies a simple heuristic that reads the resource and places the plot in the chart if only one exists
 	 * 
 	 * @param resource
 	 * @return not supplied
@@ -359,11 +356,11 @@ public class ChartEditor extends EditorPart {
 		}
 		return chartURI;
 	}
-	
+
 	public void setChartURI(URI uri) {
 		this.chartURI = uri;
 	}
-	
+
 	public TransactionalEditingDomain getEditingDomain() {
 		return editingDomain;
 	}
@@ -377,7 +374,7 @@ public class ChartEditor extends EditorPart {
 		}
 		return super.getPartName();
 	}
-	
+
 	@Override
 	public void createPartControl(Composite parent) {
 		timeline = new Timeline(timelineModel) {
@@ -386,17 +383,17 @@ public class ChartEditor extends EditorPart {
 			public Object getAdapter(Class adapter) {
 				if (IResource.class == adapter) {
 					return CommonUtils.getAdapter(getEditorInput(), IFile.class);
-				} else if(ChartEditor.class == adapter) {
+				} else if (ChartEditor.class == adapter) {
 					return true;
 				}
 				return super.getAdapter(adapter);
 			}
-			
+
 		};
 		timeline.init(getSite(), null);
 		timeline.createPartControl(parent);
 	}
-	
+
 	@Override
 	public void setFocus() {
 		timeline.getControl().setFocus();
@@ -455,11 +452,11 @@ public class ChartEditor extends EditorPart {
 			}
 		}
 	}
-	
+
 	@Override
 	public Object getAdapter(Class adapter) {
 		if (Timeline.class == adapter) {
-			return getTimeline(); 
+			return getTimeline();
 		} else if (IUndoContext.class.equals(adapter)) {
 			return getUndoContext();
 		} else if (ProfileTreePage.class == adapter) {
@@ -467,11 +464,11 @@ public class ChartEditor extends EditorPart {
 		}
 		return super.getAdapter(adapter);
 	}
-	
+
 	public IUndoContext getUndoContext() {
 		return dirtyMonitor.getUndoContext();
 	}
-	
+
 	private Object getProfileTreePage() {
 		if (profileTreePage == null) {
 			profileTreePage = new ProfileTreePage() {
@@ -486,7 +483,7 @@ public class ChartEditor extends EditorPart {
 		}
 		return profileTreePage;
 	}
-	
+
 	private static final class ComputingPageExtent implements IRunnableWithProgress {
 		private final List<Profile> profiles;
 		private final List<Plot> plots;
@@ -555,11 +552,11 @@ public class ChartEditor extends EditorPart {
 				});
 			}
 		};
-		
+
 		public DirtyMonitor() {
 			addDirtyListener(listener);
 		}
-		
+
 		@Override
 		public void dispose() {
 			super.dispose();
@@ -570,9 +567,9 @@ public class ChartEditor extends EditorPart {
 		public IUndoContext getUndoContext() {
 			return undoContext;
 		}
-		
+
 	}
-	
+
 	private class Listener extends PreCommitListener {
 
 		@Override
@@ -593,8 +590,7 @@ public class ChartEditor extends EditorPart {
 			}
 			return null;
 		}
-		
+
 	}
-	
-	
+
 }

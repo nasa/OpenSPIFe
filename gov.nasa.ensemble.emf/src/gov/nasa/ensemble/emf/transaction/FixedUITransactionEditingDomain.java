@@ -18,10 +18,9 @@
 /**
  * 
  */
-package gov.nasa.ensemble.core.model.common.transactions;
+package gov.nasa.ensemble.emf.transaction;
 
 import gov.nasa.ensemble.common.logging.LogUtil;
-import gov.nasa.ensemble.emf.transaction.FixedTransactionEditingDomain;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.jface.dialogs.Dialog;
@@ -30,8 +29,8 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
-/* package */ class FixedUITransactionEditingDomain extends FixedTransactionEditingDomain {
-	
+/* package */class FixedUITransactionEditingDomain extends FixedTransactionEditingDomain {
+
 	static {
 		if (PlatformUI.isWorkbenchRunning()) { // check for JUnit
 			Display display = Display.findDisplay(Thread.currentThread());
@@ -62,9 +61,9 @@ import org.eclipse.ui.PlatformUI;
 		// then clear it if it was up
 		oldHandler.clearBlocked();
 	}
-	
+
 	private TransactionDisplayThread thread = new TransactionDisplayThread(this);
-	
+
 	FixedUITransactionEditingDomain(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
@@ -72,15 +71,15 @@ import org.eclipse.ui.PlatformUI;
 	@Override
 	public void dispose() {
 		thread.quit();
-	    super.dispose();
+		super.dispose();
 	}
-	
+
 	public void queueWriting(Control control, Runnable runnable) {
 		thread.queueWriting(control, runnable);
 	}
-	
+
 	public void queueReading(Control control, Runnable runnable) {
 		thread.queueReading(control, runnable);
 	}
-	
+
 }

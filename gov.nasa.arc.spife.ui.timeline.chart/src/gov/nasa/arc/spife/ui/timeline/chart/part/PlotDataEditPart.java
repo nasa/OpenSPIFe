@@ -31,7 +31,6 @@ import gov.nasa.ensemble.common.ui.gef.GEFUtils;
 import gov.nasa.ensemble.core.jscience.AmountExtent;
 import gov.nasa.ensemble.core.jscience.JSciencePackage;
 import gov.nasa.ensemble.core.jscience.Profile;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.emf.SafeAdapter;
 import gov.nasa.ensemble.emf.transaction.PostCommitListener;
 
@@ -47,20 +46,20 @@ import org.eclipse.swt.graphics.Color;
 public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 
 	private Listener listener = new Listener();
-	
+
 	private Page page = null;
-	
+
 	private TransactionalEditingDomain domain = null;
 
 	private Adapter adapter = new SafeAdapterImpl();
-	
+
 	public Page getPage() {
 		if (page == null) {
-			page = getViewer() == null ? null : getViewer().getPage(); 
+			page = getViewer() == null ? null : getViewer().getPage();
 		}
 		return page;
 	}
-	
+
 	@Override
 	public void activate() {
 		super.activate();
@@ -95,7 +94,7 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 	protected void createEditPolicies() {
 		installEditPolicy(DropEditPolicy.DROP_ROLE, new ChartDropEditPolicy());
 	}
-	
+
 	@Override
 	protected void refreshVisuals() {
 		super.refreshVisuals();
@@ -131,7 +130,7 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 		}
 		return extent;
 	}
-	
+
 	private void refreshColorInDisplayThread() {
 		final Color color = PlotUtil.getColor(getModel());
 		if (color != null) {
@@ -143,20 +142,19 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 			});
 		}
 	}
-	
+
 	private class SafeAdapterImpl extends SafeAdapter {
 
 		@Override
 		protected void handleNotify(Notification notification) {
-			if (Notification.RESOLVE == notification.getEventType() 
-					&& ChartPackage.Literals.PLOT__PROFILE == notification.getFeature()) {
+			if (Notification.RESOLVE == notification.getEventType() && ChartPackage.Literals.PLOT__PROFILE == notification.getFeature()) {
 				refreshVisualsInDisplayThread();
 				refreshColorInDisplayThread();
 			}
 		}
-		
+
 	}
-	
+
 	private class Listener extends PostCommitListener {
 
 		@Override
@@ -170,55 +168,37 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 			for (Notification notification : event.getNotifications()) {
 				Object feature = notification.getFeature();
 				Object notifier = notification.getNotifier();
-				
-				if (TimelinePackage.Literals.PAGE__CURRENT_PAGE_EXTENT == feature
-						|| TimelinePackage.Literals.PAGE__START_TIME == feature
-						|| TimelinePackage.Literals.PAGE__DURATION == feature
-						|| TimelinePackage.Literals.PAGE__ZOOM_OPTION == feature) {
-					if (timeline != null 
-							&& timeline.getTimelineModel() != null 
-							&& timeline.getTimelineModel().getPage() == notifier) {
+
+				if (TimelinePackage.Literals.PAGE__CURRENT_PAGE_EXTENT == feature || TimelinePackage.Literals.PAGE__START_TIME == feature || TimelinePackage.Literals.PAGE__DURATION == feature || TimelinePackage.Literals.PAGE__ZOOM_OPTION == feature) {
+					if (timeline != null && timeline.getTimelineModel() != null && timeline.getTimelineModel().getPage() == notifier) {
 						updatePointList = true;
 					}
 				}
-				
+
 				// SPF-11662 -- Allow the point list to be updated if setting a plot's profile to a proxy
 				if (profile != null && notifier == plot && ChartPackage.Literals.PLOT__PROFILE == feature) {
 					updatePointList = true;
 				}
-				
+
 				if (profile == null || profile.eIsProxy()) {
 					continue;
 				}
-				
-				if (notifier != plot 
-						&& notifier != profile 
-						&& notifier != chart) {
+
+				if (notifier != plot && notifier != profile && notifier != chart) {
 					continue;
 				}
-				
-				if ((JSciencePackage.Literals.PROFILE__VALID == feature
-						|| ChartPackage.Literals.PLOT__RGB == feature)) {
+
+				if ((JSciencePackage.Literals.PROFILE__VALID == feature || ChartPackage.Literals.PLOT__RGB == feature)) {
 					refreshColorInDisplayThread = true;
 				}
-				
-				boolean proxyResolved = Notification.RESOLVE == notification.getEventType()
-											&& ChartPackage.Literals.PLOT__PROFILE == feature;
-				if (proxyResolved
-						|| JSciencePackage.Literals.PROFILE__DATA_POINTS == feature
-						|| JSciencePackage.Literals.PROFILE__EXTENT == feature
-						|| ChartPackage.Literals.LINE_CHART__MAXIMUM_LINE == feature
-						|| ChartPackage.Literals.LINE_CHART__MINIMUM_LINE == feature
-						|| ChartPackage.Literals.LINE_CHART__LINES == feature
-						|| ChartPackage.Literals.PLOT__FIT == feature
-						|| ChartPackage.Literals.PLOT__EXTENT == feature
-						|| ChartPackage.Literals.PLOT__SHOW_TEXT == feature
-						|| ChartPackage.Literals.PLOT__AUTO_ASSIGN_RGB == feature
-				) {
+
+				boolean proxyResolved = Notification.RESOLVE == notification.getEventType() && ChartPackage.Literals.PLOT__PROFILE == feature;
+				if (proxyResolved || JSciencePackage.Literals.PROFILE__DATA_POINTS == feature || JSciencePackage.Literals.PROFILE__EXTENT == feature || ChartPackage.Literals.LINE_CHART__MAXIMUM_LINE == feature || ChartPackage.Literals.LINE_CHART__MINIMUM_LINE == feature || ChartPackage.Literals.LINE_CHART__LINES == feature || ChartPackage.Literals.PLOT__FIT == feature || ChartPackage.Literals.PLOT__EXTENT == feature || ChartPackage.Literals.PLOT__SHOW_TEXT == feature
+						|| ChartPackage.Literals.PLOT__AUTO_ASSIGN_RGB == feature) {
 					updatePointList = true;
 				}
 			}
-			
+
 			if (updatePointList) {
 				try {
 					updatePointList();
@@ -226,7 +206,7 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 					LogUtil.error("profile was updated while in a post commit listener?!", e);
 				}
 			}
-			
+
 			if (refreshColorInDisplayThread) {
 				refreshColorInDisplayThread();
 			}
@@ -237,5 +217,5 @@ public abstract class PlotDataEditPart extends ChartElementDataEditPart<Plot> {
 	public static class ProfileUpdatedException extends Exception {
 		// marker exception
 	}
-	
+
 }

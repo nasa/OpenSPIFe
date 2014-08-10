@@ -9,8 +9,7 @@
 -->
 
 <plugin>
-   <extension-point id="ConsistencyMaintenanceListener" name="ConsistencyMaintenanceListener" schema="schema/ConsistencyMaintenanceListener.exsd"/>
-   <extension-point id="ModelChangedListener" name="ModelChangedListener" schema="schema/ModelChangedListener.exsd"/>
+   <!--
    <extension
          point="gov.nasa.ensemble.common.MissionExtension">
       <MissionExtension
@@ -19,6 +18,7 @@
             id="UITransactionEditingDomainFactory">
       </MissionExtension>
    </extension>
+   -->
    <!--
    <extension
          point="org.eclipse.emf.compare.diff.engine">

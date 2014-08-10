@@ -32,7 +32,6 @@ import gov.nasa.ensemble.common.ui.transfers.TransferRegistry;
 import gov.nasa.ensemble.core.jscience.Profile;
 import gov.nasa.ensemble.core.jscience.ui.dnd.ProfileTransferProvider;
 import gov.nasa.ensemble.core.jscience.ui.dnd.ProfileTransferable;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.util.ArrayList;
@@ -56,14 +55,14 @@ import org.eclipse.swt.dnd.TransferData;
 public class ChartDropEditPolicy extends DropEditPolicy {
 
 	private static final String P_AUTO_ASSIGN_RGB_DEFAULT = "timeline.heatmap.autoassignarb.default";
-	
+
 	private static final Transfer PROFILE_TRANSFER = ProfileTransferProvider.transfer;
-	
+
 	@Override
 	protected boolean isSupportedTransferData(TransferData d) {
 		return PROFILE_TRANSFER.isSupportedType(d);
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	protected org.eclipse.gef.commands.Command getDropCommand(final Request request) {
@@ -72,7 +71,7 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 		if (model instanceof Chart) {
 			chart = (Chart) model;
 		} else if (model instanceof Plot) {
-			chart = ((Plot)model).getChart();
+			chart = ((Plot) model).getChart();
 		} else {
 			return null;
 		}
@@ -80,16 +79,15 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 		if (uriFragments.isEmpty()) {
 			return null;
 		}
-		
+
 		return new AddResourceCommand(uriFragments, chart);
 	}
-	
+
 	private Plot createPlot(Profile profile) {
 		final Plot plot = ChartFactory.eINSTANCE.createPlot();
 		plot.setName(getPlotName(profile));
 		plot.setProfile(profile);
-		plot.setShowText(EcorePackage.Literals.EBOOLEAN != profile.getDataType()
-				&& EcorePackage.Literals.EBOOLEAN_OBJECT != profile.getDataType());
+		plot.setShowText(EcorePackage.Literals.EBOOLEAN != profile.getDataType() && EcorePackage.Literals.EBOOLEAN_OBJECT != profile.getDataType());
 		Object rgbString = profile.getAttributes().get(Profile.RGB_ATTRIBUTE);
 		if (rgbString != null && rgbString instanceof String) {
 			try {
@@ -101,7 +99,7 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 		plot.setAutoAssignRGB(Boolean.parseBoolean(System.getProperty(P_AUTO_ASSIGN_RGB_DEFAULT)));
 		return plot;
 	}
-	
+
 	private String getPlotName(Profile profile) {
 		ChartDropEditPolicyProfileProvider provider = ClassRegistry.createInstance(ChartDropEditPolicyProfileProvider.class);
 		if (provider != null) {
@@ -116,7 +114,7 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 	private List<String> getURIFragments(final Request request) {
 		List<String> uriFragments = Collections.emptyList();
 		Map<String, Object> data = request.getExtendedData();
-		DropTargetEvent event = (DropTargetEvent)data.get("dropTargetEvent"); 
+		DropTargetEvent event = (DropTargetEvent) data.get("dropTargetEvent");
 		if (event.data != null) {
 			ITransferable transferable = TransferRegistry.getInstance().getDroppedObjects(event.data, event.currentDataType);
 			if (transferable instanceof ProfileTransferable) {
@@ -129,7 +127,7 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 		}
 		return uriFragments;
 	}
-	
+
 	public void addResourceProfile(final Chart graph, Profile profile) {
 		final Plot plot = createPlot(profile);
 		gov.nasa.ensemble.emf.transaction.TransactionUtils.writing(graph, new Runnable() {
@@ -141,7 +139,7 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 	}
 
 	private final class AddResourceCommand extends org.eclipse.gef.commands.Command {
-		
+
 		private final List<String> uriFragments;
 		private final Chart chart;
 
@@ -163,13 +161,13 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 					if (profile != null)
 						break;
 				}
-				
+
 				if (profile == null) {
 					profile = (Profile) resourceSet.getEObject(uri, true);
 				}
-				
+
 				if (profile == null) {
-					LogUtil.error("could not resolve '"+uriStr+"' into a profile");
+					LogUtil.error("could not resolve '" + uriStr + "' into a profile");
 					continue;
 				}
 				Plot plot = createPlot(profile);
@@ -189,10 +187,17 @@ public class ChartDropEditPolicy extends DropEditPolicy {
 			}
 
 		}
-		
-		@Override public boolean canExecute() 	{ return true; 	}
-		@Override public boolean canUndo() 		{ return false; }
-		
+
+		@Override
+		public boolean canExecute() {
+			return true;
+		}
+
+		@Override
+		public boolean canUndo() {
+			return false;
+		}
+
 	}
-	
+
 }

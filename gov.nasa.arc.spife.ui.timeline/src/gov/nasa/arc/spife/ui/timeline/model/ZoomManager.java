@@ -21,7 +21,6 @@ import gov.nasa.arc.spife.timeline.TimelineFactory;
 import gov.nasa.arc.spife.timeline.TimelinePackage;
 import gov.nasa.arc.spife.timeline.model.Page;
 import gov.nasa.arc.spife.timeline.model.ZoomOption;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.awt.Point;
@@ -44,25 +43,19 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 
 	private static final int SECOND = 1000;
-	private static final int MINUTE = 60*SECOND;
+	private static final int MINUTE = 60 * SECOND;
 	private static final int HOUR = 60 * MINUTE;
 
-	
 	private static final Logger trace = Logger.getLogger(ZoomManager.class);
 
 	private enum ZoomResolution {
-		milliseconds,
-		seconds,
-		minutes,
-		hours,
-		days,
-		weeks,
+		milliseconds, seconds, minutes, hours, days, weeks,
 	}
 
 	private final Page page;
-    private int zoomLevel = 4;  // default value
-    private Point zoomLocation = new Point();
-    private Date zoomDate = null;
+	private int zoomLevel = 4; // default value
+	private Point zoomLocation = new Point();
+	private Date zoomDate = null;
 	private boolean zooming;
 
 	public Date getZoomDate() {
@@ -105,7 +98,7 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 
 		setZoomLevels(new double[] {});
 		List<String> list = new ArrayList<String>();
-		for (ZoomOption o: getZoomOptions()) {
+		for (ZoomOption o : getZoomOptions()) {
 			list.add(o.getName());
 		}
 
@@ -120,7 +113,7 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 	@Override
 	public void setZoomAsText(String zoomString) {
 		int i = 0;
-		for (ZoomOption o: getZoomOptions()) {
+		for (ZoomOption o : getZoomOptions()) {
 			if (o.getName().equals(zoomString)) {
 				setZoomLocation(-1, -1);
 				setZoomLevel(i);
@@ -131,8 +124,6 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 		}
 	}
 
-
-
 	public void setZoomOption(final ZoomOption zoomOption) {
 		final int oldZoomLevel = this.zoomLevel;
 		List<ZoomOption> zoomOptions = getZoomOptions();
@@ -141,21 +132,20 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 			final long msInterval = zoomOption.getMsInterval();
 			if (msInterval > zoomOptions.get(0).getMsInterval()) {
 				this.zoomLevel = 0;
-			} else if (msInterval < zoomOptions.get(count-1).getMsInterval())  {
-				this.zoomLevel = count-1;
+			} else if (msInterval < zoomOptions.get(count - 1).getMsInterval()) {
+				this.zoomLevel = count - 1;
 			} else {
-				for (int i = 0; i<count-1; i++) {
+				for (int i = 0; i < count - 1; i++) {
 					ZoomOption o = zoomOptions.get(i);
-					ZoomOption n = zoomOptions.get(i+1);
-					if (msInterval < o.getMsInterval()
-							&& msInterval > n.getMsInterval()) {
+					ZoomOption n = zoomOptions.get(i + 1);
+					if (msInterval < o.getMsInterval() && msInterval > n.getMsInterval()) {
 						this.zoomLevel = i;
 					}
 				}
 			}
 		}
 
-		if(this.zoomLevel != oldZoomLevel) {
+		if (this.zoomLevel != oldZoomLevel) {
 			executeZoomCommand(zoomLevel);
 		}
 	}
@@ -167,13 +157,13 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 	}
 
 	private void setZoomLevel(int level) {
-			List<ZoomOption> zoomOptions = getZoomOptions();
-			if (level > -1 && level < zoomOptions.size()) {
-				this.zoomLevel = level;
-				executeZoomCommand(zoomLevel);
-			}
+		List<ZoomOption> zoomOptions = getZoomOptions();
+		if (level > -1 && level < zoomOptions.size()) {
+			this.zoomLevel = level;
+			executeZoomCommand(zoomLevel);
+		}
 	}
-	
+
 	@Override
 	public void zoomOut() {
 		if (zoomLevel > 0) {
@@ -216,16 +206,8 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 	private List<ZoomOption> getDefaultZoomOptions() {
 		List<ZoomOption> list = getZoomOptionsFromExtensionPoint();
 		if (list.isEmpty()) {
-			list.addAll(Arrays.asList(new ZoomOption[] {
-				TimelineFactory.eINSTANCE.createZoomOption("24 hours", 24 * HOUR,   5 * MINUTE,   1 * HOUR, 24 * HOUR, 6* HOUR),
-				TimelineFactory.eINSTANCE.createZoomOption("12 hours", 12 * HOUR,   5 * MINUTE,   1 * HOUR, 24 * HOUR, 6* HOUR),
-				TimelineFactory.eINSTANCE.createZoomOption("6 hours",   6 * HOUR,   5 * MINUTE,   1 * HOUR),
-				TimelineFactory.eINSTANCE.createZoomOption("4 hours",   4 * HOUR,   5 * MINUTE,  30 * MINUTE),
-				TimelineFactory.eINSTANCE.createZoomOption("2 hours",   2 * HOUR,   5 * MINUTE,   5 * MINUTE),
-				TimelineFactory.eINSTANCE.createZoomOption("1 hours",   1 * HOUR,   5 * MINUTE,   5 * MINUTE),
-				TimelineFactory.eINSTANCE.createZoomOption("30 mins",  30 * MINUTE, 5 * MINUTE,   1 * MINUTE),
-				TimelineFactory.eINSTANCE.createZoomOption("15 mins",  15 * MINUTE, 5 * MINUTE,   1 * MINUTE),
-			}));
+			list.addAll(Arrays.asList(new ZoomOption[] { TimelineFactory.eINSTANCE.createZoomOption("24 hours", 24 * HOUR, 5 * MINUTE, 1 * HOUR, 24 * HOUR, 6 * HOUR), TimelineFactory.eINSTANCE.createZoomOption("12 hours", 12 * HOUR, 5 * MINUTE, 1 * HOUR, 24 * HOUR, 6 * HOUR), TimelineFactory.eINSTANCE.createZoomOption("6 hours", 6 * HOUR, 5 * MINUTE, 1 * HOUR), TimelineFactory.eINSTANCE.createZoomOption("4 hours", 4 * HOUR, 5 * MINUTE, 30 * MINUTE),
+					TimelineFactory.eINSTANCE.createZoomOption("2 hours", 2 * HOUR, 5 * MINUTE, 5 * MINUTE), TimelineFactory.eINSTANCE.createZoomOption("1 hours", 1 * HOUR, 5 * MINUTE, 5 * MINUTE), TimelineFactory.eINSTANCE.createZoomOption("30 mins", 30 * MINUTE, 5 * MINUTE, 1 * MINUTE), TimelineFactory.eINSTANCE.createZoomOption("15 mins", 15 * MINUTE, 5 * MINUTE, 1 * MINUTE), }));
 		}
 		return list;
 	}
@@ -267,7 +249,7 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 			value = Long.parseLong(valueString);
 			resolution = ZoomResolution.valueOf(resolutionString);
 		} catch (Exception e) {
-			trace.error("Could not parse '"+valueString+"' '"+resolutionString+"'");
+			trace.error("Could not parse '" + valueString + "' '" + resolutionString + "'");
 			return null;
 		}
 
@@ -313,19 +295,19 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 			name += "s";
 		}
 
-		long msInterval = value*multiplier;
-		ZoomOption zoomOption = TimelineFactory.eINSTANCE.createZoomOption(value+" "+name, msInterval);
+		long msInterval = value * multiplier;
+		ZoomOption zoomOption = TimelineFactory.eINSTANCE.createZoomOption(value + " " + name, msInterval);
 
 		if (parseMoveInterval) {
 			ZoomOption moveResolutionOption = null;
 			IConfigurationElement[] children = element.getChildren("moveResolution");
 			if (children == null || children.length == 0) {
-				trace.error("ZoomOption '"+zoomOption+"' has no zoom threshold, defaulting");
+				trace.error("ZoomOption '" + zoomOption + "' has no zoom threshold, defaulting");
 				moveResolutionOption = TimelineFactory.eINSTANCE.createZoomOption("", computeMoveThreshold(zoomOption.getMsInterval()));
 			} else if (children.length == 1) {
 				moveResolutionOption = parseZoomOption(children[0], false);
 			} else {
-				trace.error("ZoomOption '"+zoomOption+"' has multiple zoom thresholds, using the first one");
+				trace.error("ZoomOption '" + zoomOption + "' has multiple zoom thresholds, using the first one");
 				moveResolutionOption = parseZoomOption(children[0], false);
 			}
 			zoomOption.setMsMoveThreshold(moveResolutionOption.getMsInterval());
@@ -333,40 +315,37 @@ public class ZoomManager extends org.eclipse.gef.editparts.ZoomManager {
 			zoomOption.setMsMoveThreshold(msInterval);
 			zoomOption.setMsNudgeThreshold(msInterval);
 		}
-		
+
 		zoomOption.setMajorTickInterval(multiplier);
 		zoomOption.setMinorTickInterval(msInterval);
-		
+
 		return zoomOption;
 	}
 
 	public int computeMoveThreshold(double millisecondThreshold) {
-		int evenTimeIntervals[] = {
-			5, 10, 15, 30, 60, // sec
-			5*60, 10*60, 15*60, 30*60, // min
-			1*60*60, 2*60*60, 3*60*60, 6*60*60, 12*60*60, // hr
-			1*24*60*60, 2*24*60*60, 3*24*60*60, 5*24*60*60 // days
+		int evenTimeIntervals[] = { 5, 10, 15, 30, 60, // sec
+				5 * 60, 10 * 60, 15 * 60, 30 * 60, // min
+				1 * 60 * 60, 2 * 60 * 60, 3 * 60 * 60, 6 * 60 * 60, 12 * 60 * 60, // hr
+				1 * 24 * 60 * 60, 2 * 24 * 60 * 60, 3 * 24 * 60 * 60, 5 * 24 * 60 * 60 // days
 		};
 
 		// use a proportional tolerance the label width
 		int index = 0;
-		while (index < evenTimeIntervals.length
-			   && millisecondThreshold > evenTimeIntervals[index]*1000
-		) {
+		while (index < evenTimeIntervals.length && millisecondThreshold > evenTimeIntervals[index] * 1000) {
 			index++;
 		}
 
-		index = Math.min(index, evenTimeIntervals.length-1);
-		return evenTimeIntervals[index]*1000;
+		index = Math.min(index, evenTimeIntervals.length - 1);
+		return evenTimeIntervals[index] * 1000;
 	}
 
 	public boolean isZooming() {
 		return this.zooming;
 	}
-	
+
 	public void setZooming(boolean zooming) {
 		this.zooming = zooming;
-		
+
 	}
 
 }

@@ -20,7 +20,6 @@ package gov.nasa.ensemble.core.detail.emf.binding;
 import gov.nasa.ensemble.common.CommonUtils;
 import gov.nasa.ensemble.common.operation.AbstractEnsembleUndoableOperation;
 import gov.nasa.ensemble.common.ui.WidgetUtils;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 
 import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.commands.operations.IUndoableOperation;
@@ -36,21 +35,21 @@ public class TextModifyUndoableObservableValue extends AbstractObservableValue {
 	private Text text;
 	private String oldTextValue;
 	private boolean dirty = false;
-	
+
 	public TextModifyUndoableObservableValue(EObject object, String label, Text text) {
 		super(Realm.getDefault());
 		this.target = object;
 		this.label = label;
 		this.text = text;
 	}
-	
+
 	public void textModified() {
 		if (!dirty) {
 			oldTextValue = text.getText();
 			doSetValue("Dirty");
 		}
 	}
-	
+
 	@Override
 	public Object getValueType() {
 		return String.class;
@@ -62,27 +61,27 @@ public class TextModifyUndoableObservableValue extends AbstractObservableValue {
 		IUndoContext context = gov.nasa.ensemble.emf.transaction.TransactionUtils.getUndoContext(target);
 		CommonUtils.execute(operation, context);
 	}
-	
+
 	@Override
 	protected Object doGetValue() {
 		return oldTextValue;
 	}
-	
+
 	public class TextModifyObservableOperation extends AbstractEnsembleUndoableOperation {
-		
+
 		protected TextModifyObservableOperation(String label) {
 			super(label);
 		}
-		
+
 		@Override
 		protected void execute() throws Throwable {
 			dirty = true;
 		}
-		
+
 		public void reset() {
 			dirty = false;
 		}
-		
+
 		@Override
 		protected void undo() throws Throwable {
 			if (dirty) { // SPF-8284, MSLICE-977
@@ -97,23 +96,22 @@ public class TextModifyUndoableObservableValue extends AbstractObservableValue {
 				}, true);
 			}
 		}
-		
+
 		@Override
 		protected boolean isRedoable() {
 			return false;
 		}
 
-
 		@Override
 		protected void dispose(UndoableState state) {
-			// nothing to dispose			
+			// nothing to dispose
 		}
 
 		@Override
 		public String toString() {
 			return "Text field modified oldValue='" + oldTextValue;
 		}
-		
+
 	}
 
 }

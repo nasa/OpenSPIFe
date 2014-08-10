@@ -23,6 +23,7 @@
  */
 package gov.nasa.ensemble.emf.model.patch.impl;
 
+import gov.nasa.ensemble.emf.model.patch.*;
 import gov.nasa.ensemble.emf.model.patch.ChangeType;
 import gov.nasa.ensemble.emf.model.patch.ObjectChanges;
 import gov.nasa.ensemble.emf.model.patch.Patch;
@@ -54,7 +55,7 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	 */
 	public static PatchFactory init() {
 		try {
-			PatchFactory thePatchFactory = (PatchFactory)EPackage.Registry.INSTANCE.getEFactory("platform:/resource/gov.nasa.ensemble.core.model.common/model/Patch.ecore"); 
+			PatchFactory thePatchFactory = (PatchFactory)EPackage.Registry.INSTANCE.getEFactory(PatchPackage.eNS_URI);
 			if (thePatchFactory != null) {
 				return thePatchFactory;
 			}

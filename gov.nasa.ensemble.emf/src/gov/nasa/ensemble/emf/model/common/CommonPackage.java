@@ -59,7 +59,7 @@ public interface CommonPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/resource/gov.nasa.ensemble.core.model.common/model/Common.ecore";
+	String eNS_URI = "platform:/resource/gov.nasa.ensemble.emf/model/Common.ecore";
 
 	/**
 	 * The package namespace name.

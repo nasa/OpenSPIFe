@@ -25,7 +25,6 @@ import gov.nasa.ensemble.common.type.StringifierRegistry;
 import gov.nasa.ensemble.common.ui.WidgetUtils;
 import gov.nasa.ensemble.common.ui.type.editor.TextEditor;
 import gov.nasa.ensemble.core.jscience.util.DateUtils;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -50,7 +49,7 @@ import org.eclipse.swt.widgets.Text;
 public class TimelineExtentHandler extends AbstractTimelineCommandHandler {
 
 	public final static String ID = "gov.nasa.arc.spife.ui.timeline.set.extent.command";
-	
+
 	@Override
 	public Object execute(ExecutionEvent event) {
 		final Timeline<?> timeline = TimelineUtils.getTimeline(event);
@@ -70,7 +69,7 @@ public class TimelineExtentHandler extends AbstractTimelineCommandHandler {
 						page.setDuration(DateUtils.subtract(eTime, sTime));
 					}
 				});
-				
+
 			}
 		}
 		return null;
@@ -84,12 +83,12 @@ public class TimelineExtentHandler extends AbstractTimelineCommandHandler {
 	private static class SetExtentDialog extends Dialog {
 
 		private static final IStringifier<Date> dateStringifier = StringifierRegistry.getStringifier(Date.class);
-		
-		private Date startTime;	    
+
+		private Date startTime;
 		private Date endTime;
-		
-	    private TextEditor startEditor;
-	    private TextEditor endEditor;
+
+		private TextEditor startEditor;
+		private TextEditor endEditor;
 
 		protected SetExtentDialog(Shell parentShell, Timeline<?> timeline) {
 			super(parentShell);
@@ -100,16 +99,16 @@ public class TimelineExtentHandler extends AbstractTimelineCommandHandler {
 		@Override
 		protected Control createDialogArea(Composite parent) {
 			final Composite composite = new Composite((Composite) super.createDialogArea(parent), SWT.NONE);
-			
+
 			composite.setLayout(new GridLayout(2, false));
 			new Label(composite, SWT.NONE).setText("Start Time");
 			startEditor = createTextEditor(composite, startTime, dateStringifier);
 			new Label(composite, SWT.NONE).setText("End Time");
 			endEditor = createTextEditor(composite, endTime, dateStringifier);
-			
+
 			return composite;
 		}
-		
+
 		public Date getStartTime() {
 			return startTime;
 		}
@@ -120,45 +119,43 @@ public class TimelineExtentHandler extends AbstractTimelineCommandHandler {
 
 		private TextEditor createTextEditor(Composite composite, final Date date, final IStringifier<Date> stringifier) {
 			final TextEditor editor = new TextEditor(composite, stringifier, true);
-			final Text text = (Text)editor.getEditorControl();
+			final Text text = (Text) editor.getEditorControl();
 			text.setText(stringifier.getDisplayString(date));
 			text.setLayoutData(new GridData(GridData.GRAB_HORIZONTAL | GridData.HORIZONTAL_ALIGN_FILL));
 			return editor;
 		}
-		
+
 		@Override
 		protected void createButtonsForButtonBar(Composite parent) {
 			super.createButtonsForButtonBar(parent);
 			addModListener(startEditor, startTime, dateStringifier);
 			addModListener(endEditor, endTime, dateStringifier);
 		}
-		
+
 		private void addModListener(TextEditor editor, final Date date, final IStringifier<Date> stringifier) {
-			final Text text = (Text)editor.getEditorControl();
-			text.addModifyListener(
-					new ModifyListener() {
-						@Override
-						public void modifyText(ModifyEvent e) {
-							final Button button = getButton(IDialogConstants.OK_ID);
-							final String txt = text.getText();
-							try {
-								final Date obj = stringifier.getJavaObject(txt, date);
-								if (obj == null) {
-									if (button != null)
-										button.setEnabled(false);
-									return;
-								}
-								text.setForeground(ColorConstants.black);
-								date.setTime(obj.getTime());
-								if (button != null)
-									button.setEnabled(true);
-							} catch (ParseException e1) {
-								if (button != null)
-									button.setEnabled(false);
-							}
+			final Text text = (Text) editor.getEditorControl();
+			text.addModifyListener(new ModifyListener() {
+				@Override
+				public void modifyText(ModifyEvent e) {
+					final Button button = getButton(IDialogConstants.OK_ID);
+					final String txt = text.getText();
+					try {
+						final Date obj = stringifier.getJavaObject(txt, date);
+						if (obj == null) {
+							if (button != null)
+								button.setEnabled(false);
+							return;
 						}
+						text.setForeground(ColorConstants.black);
+						date.setTime(obj.getTime());
+						if (button != null)
+							button.setEnabled(true);
+					} catch (ParseException e1) {
+						if (button != null)
+							button.setEnabled(false);
 					}
-				);
+				}
+			});
 		}
 	}
 }

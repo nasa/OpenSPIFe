@@ -34,7 +34,6 @@ import gov.nasa.ensemble.core.jscience.ComputingState;
 import gov.nasa.ensemble.core.jscience.JScienceFactory;
 import gov.nasa.ensemble.core.jscience.util.AmountUtils;
 import gov.nasa.ensemble.core.jscience.util.ComputableAmountStringifier;
-import gov.nasa.ensemble.core.model.common.transactions.TransactionUtils;
 import gov.nasa.ensemble.core.model.plan.EPlanElement;
 import gov.nasa.ensemble.core.model.plan.activityDictionary.ADEffectKey;
 import gov.nasa.ensemble.core.model.plan.activityDictionary.ADEffectMember;
@@ -45,6 +44,7 @@ import gov.nasa.ensemble.core.model.plan.provider.AbstractMemberDuplexingObserva
 import gov.nasa.ensemble.core.model.plan.util.EPlanUtils;
 import gov.nasa.ensemble.dictionary.EClaimableResourceDef;
 import gov.nasa.ensemble.dictionary.EResourceDef;
+import gov.nasa.ensemble.emf.transaction.TransactionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.util.Collection;
@@ -82,18 +82,18 @@ import org.jscience.physics.amount.Amount;
 
 /**
  * Binding Factory for the ADEffectMember effects
- *
+ * 
  * @author ideliz
  */
 class ADEffectMemberDetailProvider extends DetailProvider {
-	
+
 	private static final String AD_RESOURCES_ALWAYS_VISIBLE_FLAG = "activitydictionary.resources.alwaysvisible";
 	private static final boolean SHOW_ZERO_VALUE_RESOURCES = EnsembleProperties.getBooleanPropertyValue("activitydictionary.resources.showzerovalues", false);
 	private static final List<String> AD_RESOURCES_ALWAYS_VISIBLE = EnsembleProperties.getStringListPropertyValue(AD_RESOURCES_ALWAYS_VISIBLE_FLAG);
 	private static final EStructuralFeature EFFECTS_FEATURE = ActivityDictionaryPackage.Literals.AD_EFFECT_MEMBER__EFFECTS;
 	private static final IStringifier<ComputableAmount> STRINGIFIER = new ComputableAmountStringifier();
 	private Composite effectsComposite;
-	
+
 	@Override
 	public boolean canCreateBindings(DetailProviderParameter parameter) {
 		return true;
@@ -103,7 +103,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 	@SuppressWarnings("unchecked")
 	public void createBinding(final DetailProviderParameter parameter) {
 
-		//actually populate the effects onto the effectsComposite
+		// actually populate the effects onto the effectsComposite
 		BindingFactory factory = new BindingFactory() {
 			@Override
 			public Binding createBinding(final DetailProviderParameter parameter) {
@@ -115,7 +115,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 		};
 		factory.createBinding(parameter);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private void observeADEffectMember(final DetailProviderParameter parameter) {
 		final EObject target = parameter.getTarget();
@@ -130,7 +130,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 				@Override
 				public void handleValueChange(ValueChangeEvent event) {
 					final EMap value = (EMap) observable.getValue();
-//					System.out.println("MULTI CHANGE! = " + value.size());
+					// System.out.println("MULTI CHANGE! = " + value.size());
 					TransactionUtils.runInDisplayThread(effectsComposite, target, new Runnable() {
 						@Override
 						public void run() {
@@ -146,7 +146,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 				@Override
 				public void handleValueChange(ValueChangeEvent event) {
 					final EMap value = ((ADEffectMember) target).getEffects();
-//					System.out.println("SINGLE CHANGE! = " + value.size());
+					// System.out.println("SINGLE CHANGE! = " + value.size());
 					TransactionUtils.runInDisplayThread(effectsComposite, target, new Runnable() {
 						@Override
 						public void run() {
@@ -171,7 +171,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 			}
 		});
 	}
-	
+
 	/**
 	 * Populate the Effects composite with the effects
 	 * 
@@ -218,7 +218,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 			Collection<EObject> objects;
 			final EObject target = parameter.getTarget();
 			if (target instanceof MultiEObject) {
-				final List eObjects = (List) ((MultiEObject)target).getEObjects();
+				final List eObjects = (List) ((MultiEObject) target).getEObjects();
 				EPlanElement representative = (EPlanElement) eObjects.get(0);
 				final ADEffectMember repMember = representative.getMember(ADEffectMember.class);
 				objects = EMFUtils.getReachableObjectsOfType(repMember, klass);
@@ -237,7 +237,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 			effectsComposite.layout();
 		}
 	}
-	
+
 	private void observeValueAndRunOnChange(final Widget widget, EObject object, EStructuralFeature feature, final Runnable runnable) {
 		final IObservableValue valueObservable = EMFObservables.observeValue(object, feature);
 		final IValueChangeListener valueChangeListener = new IValueChangeListener() {
@@ -255,10 +255,8 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 		});
 	}
 
-
 	/**
-	 * Each effect also has a listener to update the value 
-	 * if modified without having to redraw the whole effects composite
+	 * Each effect also has a listener to update the value if modified without having to redraw the whole effects composite
 	 * 
 	 * @param composite
 	 * @param toolkit
@@ -269,19 +267,19 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 		final ComputableAmount effectValue = entry.getValue();
 		EResourceDef resourceDef = key.getResourceDef();
 		boolean nonNull = resourceDef != null;
-		String resourceName = resourceDef==null? "(Undefined resource)" : resourceDef.getName();
-		if (!SHOW_ZERO_VALUE_RESOURCES		//show zero value resources flag (default is not show) 
-				&& !(nonNull && resourceDef instanceof EClaimableResourceDef) 	//not Claims (always zero value)
-				&& AmountUtils.approximatesZero(effectValue.getAmount()) 	//is zero value?
-				&& (AD_RESOURCES_ALWAYS_VISIBLE == null ||	//not on the always visible resources list
-					(AD_RESOURCES_ALWAYS_VISIBLE != null && !AD_RESOURCES_ALWAYS_VISIBLE.contains(resourceName)))) {
+		String resourceName = resourceDef == null ? "(Undefined resource)" : resourceDef.getName();
+		if (!SHOW_ZERO_VALUE_RESOURCES // show zero value resources flag (default is not show)
+				&& !(nonNull && resourceDef instanceof EClaimableResourceDef) // not Claims (always zero value)
+				&& AmountUtils.approximatesZero(effectValue.getAmount()) // is zero value?
+				&& (AD_RESOURCES_ALWAYS_VISIBLE == null || // not on the always visible resources list
+				(AD_RESOURCES_ALWAYS_VISIBLE != null && !AD_RESOURCES_ALWAYS_VISIBLE.contains(resourceName)))) {
 			return;
 		}
 		EMFDetailUtils.createLabel(composite, toolkit, key.toString());
 		final Text text = new Text(composite, SWT.READ_ONLY);
 		if (nonNull && resourceDef instanceof EClaimableResourceDef) {
 			text.setText("");
-			return; //dont attach listener because value won't change
+			return; // dont attach listener because value won't change
 		}
 		text.setText(STRINGIFIER.getDisplayString(effectValue));
 		EStructuralFeature valueFeature = ActivityDictionaryPackage.Literals.AD_EFFECT_ENTRY__VALUE;
@@ -292,14 +290,14 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 			}
 		});
 	}
-	
+
 	@SuppressWarnings("unused")
 	private void showError(Composite composite, String errorMessage) {
 		String qualMessage = errorMessage;
 		if (target instanceof EMemberImpl) {
 			EPlanElement planElement = ((EMemberImpl) target).getPlanElement();
 			if (planElement != null) {
-				qualMessage = planElement.getName() +  " - " + qualMessage;
+				qualMessage = planElement.getName() + " - " + qualMessage;
 			}
 		}
 		LogUtil.warn(qualMessage);
@@ -326,7 +324,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 		composite.setLayout(layout);
 		return composite;
 	}
-	
+
 	protected final static class ADEffectObservable extends AbstractMemberDuplexingObservableValue {
 		protected ADEffectObservable(List<EPlanElement> elements, EStructuralFeature feature) {
 			super(elements, ADEffectMember.class, EFFECTS_FEATURE, EcorePackage.Literals.EMAP);
@@ -341,7 +339,7 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 				final EMap elementEffects = (EMap) v.getValue();
 				Set entrySet = new HashSet(elementEffects.entrySet());
 				for (Object e : entrySet) {
-					Entry<ADEffectKey, ComputableAmount> entry = (Entry<ADEffectKey, ComputableAmount>) e;	
+					Entry<ADEffectKey, ComputableAmount> entry = (Entry<ADEffectKey, ComputableAmount>) e;
 					ADEffectKey key = entry.getKey();
 					if (effects.containsKey(key)) {
 						Amount<?> currentValue = EMFUtils.copy(entry.getValue()).getAmount();
@@ -352,15 +350,14 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 					} else {
 						effects.put(EMFUtils.copy(key), EMFUtils.copy(entry.getValue()));
 					}
-				}	
+				}
 			}
 			return effects;
 		}
 	}
-	
-	
-	//************************** COMPARATORS ****************************//
-	
+
+	// ************************** COMPARATORS ****************************//
+
 	private class ResourceDefComparator implements Comparator<Entry<ADEffectKey, ComputableAmount>> {
 		@Override
 		public int compare(Entry<ADEffectKey, ComputableAmount> o1, Entry<ADEffectKey, ComputableAmount> o2) {
@@ -371,8 +368,8 @@ class ADEffectMemberDetailProvider extends DetailProvider {
 			}
 			return 0;
 		}
-    }
-	
+	}
+
 	private class EClassNameComparator implements Comparator<EClass> {
 		@Override
 		public int compare(EClass o1, EClass o2) {
