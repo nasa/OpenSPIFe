@@ -17,8 +17,9 @@
  ******************************************************************************/
 package gov.nasa.ensemble.common;
 
-import static gov.nasa.ensemble.common.functional.Lists.*;
-import static java.util.Collections.*;
+import static gov.nasa.ensemble.common.functional.Lists.bind;
+import static java.util.Collections.emptyList;
+import static java.util.Collections.singletonList;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -85,22 +86,22 @@ public class CommonUtils {
 			return product.getName();
 		}
 	};
-	
+
 	public static final F<IProduct, String> productId = new F<IProduct, String>() {
 		@Override
 		public String f(final IProduct product) {
 			return product.getId();
 		}
 	};
-	
+
 	public static Option<String> getProductName() {
 		return getProduct().map(productName);
 	}
-	
+
 	public static Option<String> getProductId() {
 		return getProduct().map(productId);
 	}
-	
+
 	public static Option<IProduct> getProduct() {
 		return Option.fromNull(Platform.getProduct());
 	}
@@ -132,8 +133,8 @@ public class CommonUtils {
 	public static final Pattern COMMA_PATTERN = Pattern.compile(",");
 
 	/**
-	 * Creates a temporary directory - 
-	 * TODO: ensure all contents are erased 
+	 * Creates a temporary directory - TODO: ensure all contents are erased
+	 * 
 	 * @return
 	 */
 	public static File createTempDir() {
@@ -149,8 +150,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * Creates a temporary file and adds a shutdown hook for it to be deleted on VM exit. This file is *NOT* guaranteed to be
-	 * deleted, but this method is still better than calling File.createTempFile.
+	 * Creates a temporary file and adds a shutdown hook for it to be deleted on VM exit. This file is *NOT* guaranteed to be deleted, but this method is still better than calling File.createTempFile.
 	 * 
 	 * @param prefix
 	 * @param suffix
@@ -188,7 +188,7 @@ public class CommonUtils {
 
 	public static String formatNumber(int num, int places) {
 		StringBuilder b = new StringBuilder();
-		for (int i=0; i<places; ++i)
+		for (int i = 0; i < places; ++i)
 			b.append("0");
 		return new DecimalFormat(b.toString()).format(num);
 	}
@@ -196,8 +196,7 @@ public class CommonUtils {
 	public static String encodeUTF8(String str) {
 		try {
 			return URLEncoder.encode(str, "UTF-8");
-		}
-		catch (UnsupportedEncodingException e) {
+		} catch (UnsupportedEncodingException e) {
 			// nothing
 			return null;
 		}
@@ -206,8 +205,7 @@ public class CommonUtils {
 	public static String decodeUTF8(String str) {
 		try {
 			return URLDecoder.decode(str, "UTF-8");
-		}
-		catch (UnsupportedEncodingException e) {
+		} catch (UnsupportedEncodingException e) {
 			// nothing
 			return null;
 		}
@@ -231,8 +229,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * Check whether two floats are equal concerning a delta. If either value is infinity then the
-	 * delta value is ignored.
+	 * Check whether two floats are equal concerning a delta. If either value is infinity then the delta value is ignored.
 	 * 
 	 * @param f1
 	 * @param f2
@@ -247,8 +244,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * Check whether two doubles are equal concerning a delta. If either value is infinity then
-	 * the delta value is ignored.
+	 * Check whether two doubles are equal concerning a delta. If either value is infinity then the delta value is ignored.
 	 * 
 	 * @param d1
 	 * @param d2
@@ -265,29 +261,25 @@ public class CommonUtils {
 	/**
 	 * Compares two <code>int</code> primitives numerically.
 	 * 
-	 * @return the value <code>0</code> if the argument <code>int1</code> is equal to the argument
-	 *         <code>int2</code>; a value less than <code>0</code> if the argument
-	 *         <code>int1</code> is numerically less than the argument <code>int2</code>; and a
-	 *         value greater than <code>0</code> if the argument <code>int1</code> is numerically
-	 *         greater than the argument <code>int2</code> (signed comparison).
+	 * @return the value <code>0</code> if the argument <code>int1</code> is equal to the argument <code>int2</code>; a value less than <code>0</code> if the argument <code>int1</code> is numerically
+	 *         less than the argument <code>int2</code>; and a value greater than <code>0</code> if the argument <code>int1</code> is numerically greater than the argument <code>int2</code> (signed
+	 *         comparison).
 	 * @since 1.2
 	 */
 	public static final int compare(int int1, int int2) {
-		return (int1 < int2? -1 : (int1 == int2? 0 : 1));
+		return (int1 < int2 ? -1 : (int1 == int2 ? 0 : 1));
 	}
 
 	/**
 	 * Compares two <code>long</code> primitives numerically.
 	 * 
-	 * @return the value <code>0</code> if the argument <code>long1</code> is equal to the
-	 *         argument <code>long2</code>; a value less than <code>0</code> if the argument
-	 *         <code>long1</code> is numerically less than the argument <code>long2</code>; and a
-	 *         value greater than <code>0</code> if the argument <code>long1</code> is numerically
-	 *         greater than the argument <code>long2</code> (signed comparison).
+	 * @return the value <code>0</code> if the argument <code>long1</code> is equal to the argument <code>long2</code>; a value less than <code>0</code> if the argument <code>long1</code> is
+	 *         numerically less than the argument <code>long2</code>; and a value greater than <code>0</code> if the argument <code>long1</code> is numerically greater than the argument
+	 *         <code>long2</code> (signed comparison).
 	 * @since 1.2
 	 */
 	public static final int compare(long long1, long long2) {
-		return (long1 < long2? -1 : (long1 == long2? 0 : 1));
+		return (long1 < long2 ? -1 : (long1 == long2 ? 0 : 1));
 	}
 
 	/**
@@ -295,9 +287,8 @@ public class CommonUtils {
 	 * 
 	 * @param start1
 	 * @param start2
-	 * @return the value <code>-1</code> if the argument <code>start1</code> is earlier than argument <code>start2</code>
-	 *         the value <code>1</code> if the argument <code>start1</code> is later than argument <code>start2</code>
-	 *         the value <code>0</code> if the argument <code>start1</code> is the same time as argument <code>start2</code>
+	 * @return the value <code>-1</code> if the argument <code>start1</code> is earlier than argument <code>start2</code> the value <code>1</code> if the argument <code>start1</code> is later than
+	 *         argument <code>start2</code> the value <code>0</code> if the argument <code>start1</code> is the same time as argument <code>start2</code>
 	 */
 	public static int compare(Date start1, Date start2) {
 		long difference = DateUtils.subtract(start1, start2);
@@ -305,29 +296,36 @@ public class CommonUtils {
 	}
 
 	/**
-	 * Copy an object via Externalizable. Copying a set of interconnected objects this way will
-	 * maintain all the connections. This method will also properly copy and connect loops.
+	 * Copy an object via Externalizable. Copying a set of interconnected objects this way will maintain all the connections. This method will also properly copy and connect loops.
 	 * 
 	 * @param object
 	 * @return not supplied
 	 */
 	public static <T extends Externalizable> T copy(T object) {
+		ClassLoaderObjectInputStream objectInputStream = null;
 		try {
 			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
 			objectOutputStream.writeObject(object);
 			byte[] byteArray = byteArrayOutputStream.toByteArray();
 			ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
-			ClassLoaderObjectInputStream objectInputStream = new ClassLoaderObjectInputStream(object.getClass().getClassLoader(), byteArrayInputStream);
+			objectInputStream = new ClassLoaderObjectInputStream(object.getClass().getClassLoader(), byteArrayInputStream);
 			// ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-			@SuppressWarnings("unchecked") T copy = (T) objectInputStream.readObject();
+			@SuppressWarnings("unchecked")
+			T copy = (T) objectInputStream.readObject();
 			return copy;
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			Logger.getLogger(CommonUtils.class).error("copy failed", e);
-		}
-		catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			Logger.getLogger(CommonUtils.class).error("copy failed", e);
+		} finally {
+			if (objectInputStream != null) {
+				try {
+					objectInputStream.close();
+				} catch (IOException e) {
+					LogUtil.error(e);
+				}
+			}
 		}
 		return null;
 	}
@@ -337,12 +335,11 @@ public class CommonUtils {
 	}
 
 	/**
-	 * Returns a new list of the items in list, casting all of them to the provided class. So, it
-	 * will throw a ClassCastException if any of the items can not be cast to the provided class.
+	 * Returns a new list of the items in list, casting all of them to the provided class. So, it will throw a ClassCastException if any of the items can not be cast to the provided class.
 	 * 
 	 * @param klass
 	 * @param list
-	 * @return  a new list of the items in list
+	 * @return a new list of the items in list
 	 */
 	public static final <T> List<T> castList(Class<T> klass, List list, boolean unmodifiable) {
 		if (list == null)
@@ -351,16 +348,18 @@ public class CommonUtils {
 		for (Object object : list) {
 			result.add(klass.cast(object));
 		}
-		return unmodifiable? Collections.unmodifiableList(result) : result;
+		return unmodifiable ? Collections.unmodifiableList(result) : result;
 	}
 
 	/**
-	 * Takes a list of objects and a filtering predicate and returns a new list containing only
-	 * the objects from the original list which passed the filter.
+	 * Takes a list of objects and a filtering predicate and returns a new list containing only the objects from the original list which passed the filter.
 	 * 
-	 * @param <T> the type of the inputs
-	 * @param list the list of inputs
-	 * @param filter the filter to apply to the list
+	 * @param <T>
+	 *            the type of the inputs
+	 * @param list
+	 *            the list of inputs
+	 * @param filter
+	 *            the filter to apply to the list
 	 * @return a new, filtered list
 	 * @deprecated use {@link Lists#filter(List, fj.F)}
 	 */
@@ -376,13 +375,16 @@ public class CommonUtils {
 	}
 
 	/**
-	 * Maps a unary function onto a list of inputs and returns a new list outputs, with null
-	 * values filtered out.
+	 * Maps a unary function onto a list of inputs and returns a new list outputs, with null values filtered out.
 	 * 
-	 * @param <Input> the type of the inputs
-	 * @param <Output> the type of the outputs
-	 * @param inputList the list of inputs
-	 * @param function the function to apply
+	 * @param <Input>
+	 *            the type of the inputs
+	 * @param <Output>
+	 *            the type of the outputs
+	 * @param inputList
+	 *            the list of inputs
+	 * @param function
+	 *            the function to apply
 	 * @return the output list
 	 * @deprecated use {@link Lists#map(List, fj.F)}
 	 */
@@ -393,16 +395,18 @@ public class CommonUtils {
 	}
 
 	/**
-	 * Maps a unary function onto a list of inputs and returns a new list outputs, optionally
-	 * filtering out null values.
+	 * Maps a unary function onto a list of inputs and returns a new list outputs, optionally filtering out null values.
 	 * 
-	 * @param <Input> the type of the inputs
-	 * @param <Output> the type of the outputs
-	 * @param inputList the list of inputs
-	 * @param function the function to apply
-	 * @param filterNulls flag indicating whether to filter out null values from the output list.
-	 *          If true, the size of the output list is guaranteed to be the same size as the
-	 *          input list.
+	 * @param <Input>
+	 *            the type of the inputs
+	 * @param <Output>
+	 *            the type of the outputs
+	 * @param inputList
+	 *            the list of inputs
+	 * @param function
+	 *            the function to apply
+	 * @param filterNulls
+	 *            flag indicating whether to filter out null values from the output list. If true, the size of the output list is guaranteed to be the same size as the input list.
 	 * @return the output list
 	 * @deprecated use {@link Lists#map(List, fj.F)}
 	 */
@@ -417,13 +421,16 @@ public class CommonUtils {
 	}
 
 	/**
-	 * A monadic bind function for lists. Maps a list-producing function over a List, and then
-	 * flattens the resulting List of Lists.
+	 * A monadic bind function for lists. Maps a list-producing function over a List, and then flattens the resulting List of Lists.
 	 * 
-	 * @param <Input> the type of the input list
-	 * @param <Output> the type of the output list
-	 * @param inputList the input list
-	 * @param function a transformation from Inputs to Lists of Outputs
+	 * @param <Input>
+	 *            the type of the input list
+	 * @param <Output>
+	 *            the type of the output list
+	 * @param inputList
+	 *            the input list
+	 * @param function
+	 *            a transformation from Inputs to Lists of Outputs
 	 * @deprecated use {@link Lists#bind(List, fj.F)}
 	 */
 	@Deprecated
@@ -466,8 +473,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * Construct a list of strings in the English convention. Examples: { } -> "" { "Wacko" } ->
-	 * "Wacko" { "Wacko", "Yacko" } -> "Wacko and Yacko" { "Wacko", "Yacko", "Dot" } ->
+	 * Construct a list of strings in the English convention. Examples: { } -> "" { "Wacko" } -> "Wacko" { "Wacko", "Yacko" } -> "Wacko and Yacko" { "Wacko", "Yacko", "Dot" } ->
 	 * "Wacko, Yacko, and Dot"
 	 * 
 	 * @param strings
@@ -524,7 +530,9 @@ public class CommonUtils {
 
 	/**
 	 * Tests string for null, or empty (post trim()) value
-	 * @param string to test
+	 * 
+	 * @param string
+	 *            to test
 	 * @return true if null OR empty after a trim() call
 	 */
 	public static final boolean isNullOrEmpty(String string) {
@@ -537,8 +545,7 @@ public class CommonUtils {
 	public static void wait(Object object, long milliseconds) {
 		try {
 			object.wait(milliseconds);
-		}
-		catch (InterruptedException e) {
+		} catch (InterruptedException e) {
 			// do nothing
 		}
 	}
@@ -583,8 +590,7 @@ public class CommonUtils {
 		try {
 			oos = new ObjectOutputStream(baos);
 			oos.writeObject(o);
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			trace.error(e, e);
 			return null;
 		}
@@ -618,7 +624,7 @@ public class CommonUtils {
 
 	public static String formatAsCsv(List<String> stringList) {
 		StringBuffer buffer = new StringBuffer();
-		for (Iterator<String> i=stringList.iterator(); i.hasNext(); ) {
+		for (Iterator<String> i = stringList.iterator(); i.hasNext();) {
 			String string = i.next();
 			buffer.append(string);
 			if (i.hasNext()) {
@@ -675,17 +681,15 @@ public class CommonUtils {
 		}
 		return n;
 	}
-	
+
 	public static boolean isJunitRunning() {
 		return CommonPlugin.isJunitRunning();
 	}
 
 	/**
-	 * Find a file stored in a bundle and copy the contents to a temporary file
-	 * using {@link CommonUtils#createTemporaryFile(String, String)}.
+	 * Find a file stored in a bundle and copy the contents to a temporary file using {@link CommonUtils#createTemporaryFile(String, String)}.
 	 * 
-	 * The temporary file is not guaranteed to have the same name as the file
-	 * stored in the bundle.
+	 * The temporary file is not guaranteed to have the same name as the file stored in the bundle.
 	 * 
 	 * @param bundle
 	 * @param path
@@ -719,5 +723,5 @@ public class CommonUtils {
 			LogUtil.error(e);
 		}
 	}
-	
+
 }

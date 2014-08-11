@@ -23,7 +23,6 @@
  */
 package gov.nasa.ensemble.emf.model.patch.impl;
 
-import gov.nasa.ensemble.emf.model.patch.*;
 import gov.nasa.ensemble.emf.model.patch.ChangeType;
 import gov.nasa.ensemble.emf.model.patch.ObjectChanges;
 import gov.nasa.ensemble.emf.model.patch.Patch;
@@ -41,35 +40,31 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static PatchFactory init() {
 		try {
-			PatchFactory thePatchFactory = (PatchFactory)EPackage.Registry.INSTANCE.getEFactory(PatchPackage.eNS_URI);
+			PatchFactory thePatchFactory = (PatchFactory) EPackage.Registry.INSTANCE.getEFactory(PatchPackage.eNS_URI);
 			if (thePatchFactory != null) {
 				return thePatchFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PatchFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PatchFactoryImpl() {
@@ -77,56 +72,61 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PatchPackage.PATCH: return createPatch();
-			case PatchPackage.OBJECT_CHANGES: return createObjectChanges();
-			case PatchPackage.PATCH_FEATURE_CHANGE: return createPatchFeatureChange();
-			case PatchPackage.PATCH_LIST_CHANGE: return createPatchListChange();
-			case PatchPackage.PATCH_RESOURCE_CHANGE: return createPatchResourceChange();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case PatchPackage.PATCH:
+			return createPatch();
+		case PatchPackage.OBJECT_CHANGES:
+			return createObjectChanges();
+		case PatchPackage.PATCH_FEATURE_CHANGE:
+			return createPatchFeatureChange();
+		case PatchPackage.PATCH_LIST_CHANGE:
+			return createPatchListChange();
+		case PatchPackage.PATCH_RESOURCE_CHANGE:
+			return createPatchResourceChange();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case PatchPackage.CHANGE_TYPE:
-				return createChangeTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		case PatchPackage.CHANGE_TYPE:
+			return createChangeTypeFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case PatchPackage.CHANGE_TYPE:
-				return convertChangeTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		case PatchPackage.CHANGE_TYPE:
+			return convertChangeTypeToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,8 +136,8 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -147,8 +147,8 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -158,8 +158,8 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -169,8 +169,8 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -180,19 +180,20 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ChangeType createChangeTypeFromString(EDataType eDataType, String initialValue) {
 		ChangeType result = ChangeType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertChangeTypeToString(EDataType eDataType, Object instanceValue) {
@@ -200,18 +201,18 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public PatchPackage getPatchPackage() {
-		return (PatchPackage)getEPackage();
+		return (PatchPackage) getEPackage();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -220,4 +221,4 @@ public class PatchFactoryImpl extends EFactoryImpl implements PatchFactory {
 		return PatchPackage.eINSTANCE;
 	}
 
-} //PatchFactoryImpl
+} // PatchFactoryImpl

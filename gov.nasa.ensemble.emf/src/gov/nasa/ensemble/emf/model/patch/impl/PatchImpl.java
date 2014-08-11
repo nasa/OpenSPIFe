@@ -36,14 +36,12 @@ import gov.nasa.ensemble.emf.util.EMFUtils;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -51,25 +49,22 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Patch</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Patch</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link gov.nasa.ensemble.emf.model.patch.impl.PatchImpl#isReversed <em>Reversed</em>}</li>
- *   <li>{@link gov.nasa.ensemble.emf.model.patch.impl.PatchImpl#getResourceChanges <em>Resource Changes</em>}</li>
- *   <li>{@link gov.nasa.ensemble.emf.model.patch.impl.PatchImpl#getObjectChanges <em>Object Changes</em>}</li>
+ * <li>{@link gov.nasa.ensemble.emf.model.patch.impl.PatchImpl#isReversed <em>Reversed</em>}</li>
+ * <li>{@link gov.nasa.ensemble.emf.model.patch.impl.PatchImpl#getResourceChanges <em>Resource Changes</em>}</li>
+ * <li>{@link gov.nasa.ensemble.emf.model.patch.impl.PatchImpl#getObjectChanges <em>Object Changes</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class PatchImpl extends EObjectImpl implements Patch {
 	/**
-	 * The default value of the '{@link #isReversed() <em>Reversed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #isReversed() <em>Reversed</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isReversed()
 	 * @generated
 	 * @ordered
@@ -77,9 +72,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	protected static final boolean REVERSED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isReversed() <em>Reversed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #isReversed() <em>Reversed</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isReversed()
 	 * @generated
 	 * @ordered
@@ -87,9 +81,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	protected boolean reversed = REVERSED_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getResourceChanges() <em>Resource Changes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getResourceChanges() <em>Resource Changes</em>}' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getResourceChanges()
 	 * @generated
 	 * @ordered
@@ -97,9 +90,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	protected EList<PatchResourceChange> resourceChanges;
 
 	/**
-	 * The cached value of the '{@link #getObjectChanges() <em>Object Changes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getObjectChanges() <em>Object Changes</em>}' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getObjectChanges()
 	 * @generated
 	 * @ordered
@@ -107,8 +99,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	protected EList<ObjectChanges> objectChanges;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PatchImpl() {
@@ -116,8 +108,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -126,8 +118,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,8 +128,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -146,8 +138,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -159,8 +151,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -172,9 +164,9 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws PatchRollbackException 
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @throws PatchRollbackException
 	 * @generated NOT
 	 */
 	@Override
@@ -197,7 +189,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 			}
 		}
 
-		//EObject feature changes
+		// EObject feature changes
 		for (ObjectChanges entry : getObjectChanges()) {
 			EObject target = entry.getObject();
 			entry.getChange().apply(target);
@@ -206,9 +198,9 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws PatchRollbackException 
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @throws PatchRollbackException
 	 * @generated NOT
 	 */
 	@Override
@@ -229,7 +221,7 @@ public class PatchImpl extends EObjectImpl implements Patch {
 		LogUtil.error("applying patch", e);
 		String xml = EMFUtils.convertToXML(this);
 		StringBuffer buffer = new StringBuffer("patch message ");
-		if (xml != null&& xml.length() > maxPatchString) {
+		if (xml != null && xml.length() > maxPatchString) {
 			buffer.append("(tuncated)");
 			xml = xml.substring(0, maxPatchString);
 		}
@@ -239,8 +231,8 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -256,13 +248,13 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
 	public PatchResourceChange getResourceChange(Resource resource) {
-		for (PatchResourceChange  change : getResourceChanges()) {
+		for (PatchResourceChange change : getResourceChanges()) {
 			Resource r = change.getResource();
 			if (CommonUtils.equals(resource.getURI(), r.getURI())) {
 				return change;
@@ -275,110 +267,111 @@ public class PatchImpl extends EObjectImpl implements Patch {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatchPackage.PATCH__RESOURCE_CHANGES:
-				return ((InternalEList<?>)getResourceChanges()).basicRemove(otherEnd, msgs);
-			case PatchPackage.PATCH__OBJECT_CHANGES:
-				return ((InternalEList<?>)getObjectChanges()).basicRemove(otherEnd, msgs);
+		case PatchPackage.PATCH__RESOURCE_CHANGES:
+			return ((InternalEList<?>) getResourceChanges()).basicRemove(otherEnd, msgs);
+		case PatchPackage.PATCH__OBJECT_CHANGES:
+			return ((InternalEList<?>) getObjectChanges()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatchPackage.PATCH__REVERSED:
-				return isReversed();
-			case PatchPackage.PATCH__RESOURCE_CHANGES:
-				return getResourceChanges();
-			case PatchPackage.PATCH__OBJECT_CHANGES:
-				return getObjectChanges();
+		case PatchPackage.PATCH__REVERSED:
+			return isReversed();
+		case PatchPackage.PATCH__RESOURCE_CHANGES:
+			return getResourceChanges();
+		case PatchPackage.PATCH__OBJECT_CHANGES:
+			return getObjectChanges();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatchPackage.PATCH__REVERSED:
-				setReversed((Boolean)newValue);
-				return;
-			case PatchPackage.PATCH__RESOURCE_CHANGES:
-				getResourceChanges().clear();
-				getResourceChanges().addAll((Collection<? extends PatchResourceChange>)newValue);
-				return;
-			case PatchPackage.PATCH__OBJECT_CHANGES:
-				getObjectChanges().clear();
-				getObjectChanges().addAll((Collection<? extends ObjectChanges>)newValue);
-				return;
+		case PatchPackage.PATCH__REVERSED:
+			setReversed((Boolean) newValue);
+			return;
+		case PatchPackage.PATCH__RESOURCE_CHANGES:
+			getResourceChanges().clear();
+			getResourceChanges().addAll((Collection<? extends PatchResourceChange>) newValue);
+			return;
+		case PatchPackage.PATCH__OBJECT_CHANGES:
+			getObjectChanges().clear();
+			getObjectChanges().addAll((Collection<? extends ObjectChanges>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatchPackage.PATCH__REVERSED:
-				setReversed(REVERSED_EDEFAULT);
-				return;
-			case PatchPackage.PATCH__RESOURCE_CHANGES:
-				getResourceChanges().clear();
-				return;
-			case PatchPackage.PATCH__OBJECT_CHANGES:
-				getObjectChanges().clear();
-				return;
+		case PatchPackage.PATCH__REVERSED:
+			setReversed(REVERSED_EDEFAULT);
+			return;
+		case PatchPackage.PATCH__RESOURCE_CHANGES:
+			getResourceChanges().clear();
+			return;
+		case PatchPackage.PATCH__OBJECT_CHANGES:
+			getObjectChanges().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatchPackage.PATCH__REVERSED:
-				return reversed != REVERSED_EDEFAULT;
-			case PatchPackage.PATCH__RESOURCE_CHANGES:
-				return resourceChanges != null && !resourceChanges.isEmpty();
-			case PatchPackage.PATCH__OBJECT_CHANGES:
-				return objectChanges != null && !objectChanges.isEmpty();
+		case PatchPackage.PATCH__REVERSED:
+			return reversed != REVERSED_EDEFAULT;
+		case PatchPackage.PATCH__RESOURCE_CHANGES:
+			return resourceChanges != null && !resourceChanges.isEmpty();
+		case PatchPackage.PATCH__OBJECT_CHANGES:
+			return objectChanges != null && !objectChanges.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (reversed: ");
@@ -387,4 +380,4 @@ public class PatchImpl extends EObjectImpl implements Patch {
 		return result.toString();
 	}
 
-} //PatchImpl
+} // PatchImpl
