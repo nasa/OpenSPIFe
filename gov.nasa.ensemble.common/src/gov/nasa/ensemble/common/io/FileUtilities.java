@@ -17,7 +17,6 @@
  ******************************************************************************/
 package gov.nasa.ensemble.common.io;
 
-
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -61,12 +60,9 @@ import org.w3c.dom.Document;
 public class FileUtilities {
 
 	/**
-	 * Strictly find the file in the plugin. If the file does not exist, an exception 
-	 * is thrown.
+	 * Strictly find the file in the plugin. If the file does not exist, an exception is thrown.
 	 * 
-	 * An alternative to this method is to use FileLocator.openStream, (preferred)
-	 * or to call FileUtilities.copyToMetadata and then use paths 
-	 * relative to the metadata.
+	 * An alternative to this method is to use FileLocator.openStream, (preferred) or to call FileUtilities.copyToMetadata and then use paths relative to the metadata.
 	 * 
 	 * @param plugin
 	 * @param filename
@@ -80,19 +76,15 @@ public class FileUtilities {
 	}
 
 	/**
-	 * Strictly find the file in the plugin. If the file does not exist, an
-	 * exception is thrown.
+	 * Strictly find the file in the plugin. If the file does not exist, an exception is thrown.
 	 * 
-	 * An alternative to this method is to use FileLocator.openStream,
-	 * (preferred) or to call FileUtilities.copyToMetadata and then use paths
-	 * relative to the metadata.
+	 * An alternative to this method is to use FileLocator.openStream, (preferred) or to call FileUtilities.copyToMetadata and then use paths relative to the metadata.
 	 * 
 	 * @param bundle
 	 * @param filename
 	 * @return File
 	 * @throws IOException
-	 * @deprecated use FileLocator.openStream(bundle, new Path(filename), null)
-	 *             instead
+	 * @deprecated use FileLocator.openStream(bundle, new Path(filename), null) instead
 	 */
 	@Deprecated
 	public static File findFileInPluginBundle(Bundle bundle, String filename) throws IOException {
@@ -110,9 +102,9 @@ public class FileUtilities {
 		if (inputStream == null) {
 			throw new FileNotFoundException("File not found: " + filename + " in bundle " + bundle.getSymbolicName());
 		}
+		file = createTempFile("bundleFile", "");
+		FileOutputStream outputStream = new FileOutputStream(file);
 		try {
-			file = createTempFile("bundleFile", "");
-			FileOutputStream outputStream = new FileOutputStream(file);
 			byte[] buffer = new byte[1024 * 1024];
 			while (true) {
 				int len = inputStream.read(buffer);
@@ -123,22 +115,24 @@ public class FileUtilities {
 			}
 		} finally {
 			inputStream.close();
+			outputStream.close();
 		}
 		return file;
 	}
 
 	/**
 	 * Return the directory where temporary files are created.
+	 * 
 	 * @return the directory where temporary files are created.
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static String getTempDirectory() throws IOException {
 		String tempDirectory = System.getProperty("java.io.tmpdir"); // works in JDK 1.4+
 		if (tempDirectory != null) {
-			
+
 			return tempDirectory;
 		}
-		File f = File.createTempFile("directory-finder",".tmp"); // fall back for politeness
+		File f = File.createTempFile("directory-finder", ".tmp"); // fall back for politeness
 		f.delete();
 		return f.getParent();
 	}
@@ -194,21 +188,20 @@ public class FileUtilities {
 
 	/**
 	 * @param relativeFilename
-	 * @return a File corresponding to the working directory + relativeFilename
-	 *         or null if the platform's working directory is not specified
+	 * @return a File corresponding to the working directory + relativeFilename or null if the platform's working directory is not specified
 	 */
 	public static File getFileInWorkingDirectory(String relativeFilename) {
 		File cacheFile = null;
 		Location instanceLocation = Platform.getInstanceLocation();
-		if (instanceLocation == null || ! instanceLocation.isSet()) {
+		if (instanceLocation == null || !instanceLocation.isSet()) {
 			Logger logger = Logger.getLogger(FileUtilities.class);
 			logger.warn("cannot retrieve file '" + relativeFilename + "' because platform does not have a working directory.");
 		} else {
-			cacheFile = new File(instanceLocation.getURL().getFile() + File.separator +  relativeFilename);
+			cacheFile = new File(instanceLocation.getURL().getFile() + File.separator + relativeFilename);
 		}
 		return cacheFile;
 	}
-	
+
 	/**
 	 * 
 	 * @param directory
@@ -218,7 +211,7 @@ public class FileUtilities {
 	public static String[] getAllFileNamesWithExtension(String directory, final String extension) {
 		return getAllFileNamesWithExtension(new File(directory), extension);
 	}
-	
+
 	/**
 	 * 
 	 * @param directory
@@ -234,15 +227,16 @@ public class FileUtilities {
 		});
 		return ret == null ? new String[0] : ret;
 	}
-	
+
 	/**
 	 * 
 	 * @param directory
-	 * @param extensions the list of acceptable extensions
+	 * @param extensions
+	 *            the list of acceptable extensions
 	 * @return A list of fileNames in the directory with the specified extension.
 	 */
-	public static String[] getAllFileNamesWithExtension(File directory, final String ... extensions) {
-		String[] ret =  directory.list(new FilenameFilter() {
+	public static String[] getAllFileNamesWithExtension(File directory, final String... extensions) {
+		String[] ret = directory.list(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
 				boolean ret = false;
@@ -253,25 +247,27 @@ public class FileUtilities {
 		});
 		return ret == null ? new String[0] : ret;
 	}
-	
+
 	/**
 	 * 
 	 * @param directory
-	 * @param extensions the list of acceptable extensions
+	 * @param extensions
+	 *            the list of acceptable extensions
 	 * @return A list of fileNames in the directory with the specified extension.
 	 */
-	public static File[] getAllFilesWithExtensions(String directory, final String ... extensions) {
+	public static File[] getAllFilesWithExtensions(String directory, final String... extensions) {
 		return getAllFilesWithExtensions(new File(directory), extensions);
 	}
-	
+
 	/**
 	 * 
 	 * @param directory
-	 * @param extensions the list of acceptable extensions
+	 * @param extensions
+	 *            the list of acceptable extensions
 	 * @return A list of fileNames in the directory with the specified extension.
 	 */
-	public static File[] getAllFilesWithExtensions(File directory, final String ... extensions) {
-		File[] ret =  directory.listFiles(new FilenameFilter() {
+	public static File[] getAllFilesWithExtensions(File directory, final String... extensions) {
+		File[] ret = directory.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
 				boolean ret = false;
@@ -282,8 +278,7 @@ public class FileUtilities {
 		});
 		return ret == null ? new File[0] : ret;
 	}
-	
-	
+
 	/**
 	 * 
 	 * @param directory
@@ -293,7 +288,7 @@ public class FileUtilities {
 	public static File[] getAllFilesWithExtension(String directory, final String extension) {
 		return getAllFilesWithExtension(new File(directory), extension);
 	}
-	
+
 	/**
 	 * 
 	 * @param directory
@@ -301,7 +296,7 @@ public class FileUtilities {
 	 * @return A list of files in the directory with the specified extension.
 	 */
 	public static File[] getAllFilesWithExtension(File directory, final String extension) {
-		File[] ret =  directory.listFiles(new FilenameFilter() {
+		File[] ret = directory.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
 				return name.endsWith(extension);
@@ -340,44 +335,45 @@ public class FileUtilities {
 	}
 
 	/**
-     * Make a copy of a file on the filesystem (platform independent).
-     * @param source the file to copy.
-     * @param dest the copy to make.
-     * @return whether the file copy exists on the filesystem upon completion.
-     * @throws IOException
-     */
-    public static boolean copyFile(File source, File dest) throws IOException { 
-    	FileInputStream sourceStream = new FileInputStream(source);
-    	FileChannel sourceChannel = sourceStream.getChannel();
-    	FileOutputStream destStream = new FileOutputStream(dest);
-    	FileChannel destChannel = destStream.getChannel();
-    	try {
-    		sourceChannel.transferTo(0, sourceChannel.size(), destChannel);    		
-    	}
-    	catch (IOException ex) {
-    		if (ex.getCause() instanceof OutOfMemoryError) {
-    			IOUtils.copy(sourceStream, destStream);
-    		}
-    	}
-    	finally {
-    		destChannel.close();
-    		IOUtils.closeQuietly(destStream);
-    		sourceChannel.close();
-    		IOUtils.closeQuietly(sourceStream);
-    	}
+	 * Make a copy of a file on the filesystem (platform independent).
+	 * 
+	 * @param source
+	 *            the file to copy.
+	 * @param dest
+	 *            the copy to make.
+	 * @return whether the file copy exists on the filesystem upon completion.
+	 * @throws IOException
+	 */
+	public static boolean copyFile(File source, File dest) throws IOException {
+		FileInputStream sourceStream = new FileInputStream(source);
+		FileChannel sourceChannel = sourceStream.getChannel();
+		FileOutputStream destStream = new FileOutputStream(dest);
+		FileChannel destChannel = destStream.getChannel();
+		try {
+			sourceChannel.transferTo(0, sourceChannel.size(), destChannel);
+		} catch (IOException ex) {
+			if (ex.getCause() instanceof OutOfMemoryError) {
+				IOUtils.copy(sourceStream, destStream);
+			}
+		} finally {
+			destChannel.close();
+			IOUtils.closeQuietly(destStream);
+			sourceChannel.close();
+			IOUtils.closeQuietly(sourceStream);
+		}
 
-    	return dest.exists();
-    }
+		return dest.exists();
+	}
 
-    public static String getExtension(File file) {
-      if (file == null)
-        return null;
-      String name = file.getName();
-      int lastDot = name.lastIndexOf('.');
-      if (lastDot == -1)
-        return "";
-      return name.substring(lastDot + 1);
-    }
+	public static String getExtension(File file) {
+		if (file == null)
+			return null;
+		String name = file.getName();
+		int lastDot = name.lastIndexOf('.');
+		if (lastDot == -1)
+			return "";
+		return name.substring(lastDot + 1);
+	}
 
 	public static String getNameWithoutExtension(File file) {
 		if (file == null)
@@ -386,88 +382,92 @@ public class FileUtilities {
 		int lastDot = name.lastIndexOf('.');
 		if (lastDot == -1)
 			return name;
-		return name.substring(0,lastDot);
+		return name.substring(0, lastDot);
 	}
 
-    /**
-     * This function will copy files or directories from one location to another.
-     * note that the source and the destination must be mutually exclusive. This 
-     * function can not be used to copy a directory to a sub directory of itself.
-     * The function will also have problems if the destination files already exist.
-     * @param src -- A File object that represents the source for the copy
-     * @param dest -- A File object that represnts the destination for the copy.
-     * @throws IOException if unable to copy.
-     */
-    public static void copyFiles(File src, File dest) throws IOException {
-    	//Check to ensure that the source is valid...
-    	if (!src.exists()) {
-    		throw new IOException("copyFiles: Can not find source: " + src.getAbsolutePath()+".");
-    	} else if (!src.canRead()) { //check to ensure we have rights to the source...
-    		throw new IOException("copyFiles: No right to source: " + src.getAbsolutePath()+".");
-    	}
-    	//is this a directory copy?
-    	if (src.isDirectory()) 	{
-    		if (!dest.exists()) { //does the destination already exist?
-    			//if not we need to make it exist if possible (note this is mkdirs not mkdir)
-    			if (!dest.mkdirs()) {
-    				throw new IOException("copyFiles: Could not create direcotry: " + dest.getAbsolutePath() + ".");
-    			}
-    		}
-    		//get a listing of files...
-    		String list[] = src.list();
-    		//copy all the files in the list.
-    		for (int i = 0; i < list.length; i++)
-    		{
-    			File dest1 = new File(dest, list[i]);
-    			File src1 = new File(src, list[i]);
-    			copyFiles(src1 , dest1);
-    		}
-    	} else { 
-    		//This was not a directory, so lets just copy the file
-    		FileInputStream fin = null;
-    		FileOutputStream fout = null;
-    		byte[] buffer = new byte[4096]; //Buffer 4K at a time (you can change this).
-    		int bytesRead;
-    		try {
-    			//open the files for input and output
-    			fin =  new FileInputStream(src);
-    			fout = new FileOutputStream (dest);
-    			//while bytesRead indicates a successful read, lets write...
-    			while ((bytesRead = fin.read(buffer)) >= 0) {
-    				fout.write(buffer,0,bytesRead);
-    			}
-    		} catch (IOException e) { //Error copying file... 
-    			IOException wrapper = new IOException("copyFiles: Unable to copy file: " + 
-    						src.getAbsolutePath() + "to" + dest.getAbsolutePath()+".");
-    			wrapper.initCause(e);
-    			wrapper.setStackTrace(e.getStackTrace());
-    			throw wrapper;
-    		} finally { //Ensure that the files are closed (if they were open).
-    			if (fin != null) { fin.close(); }
-    			if (fout != null) { fout.close(); }
-    		}
-    	}
-    }
-    
+	/**
+	 * This function will copy files or directories from one location to another. note that the source and the destination must be mutually exclusive. This function can not be used to copy a directory
+	 * to a sub directory of itself. The function will also have problems if the destination files already exist.
+	 * 
+	 * @param src
+	 *            -- A File object that represents the source for the copy
+	 * @param dest
+	 *            -- A File object that represnts the destination for the copy.
+	 * @throws IOException
+	 *             if unable to copy.
+	 */
+	public static void copyFiles(File src, File dest) throws IOException {
+		// Check to ensure that the source is valid...
+		if (!src.exists()) {
+			throw new IOException("copyFiles: Can not find source: " + src.getAbsolutePath() + ".");
+		} else if (!src.canRead()) { // check to ensure we have rights to the source...
+			throw new IOException("copyFiles: No right to source: " + src.getAbsolutePath() + ".");
+		}
+		// is this a directory copy?
+		if (src.isDirectory()) {
+			if (!dest.exists()) { // does the destination already exist?
+				// if not we need to make it exist if possible (note this is mkdirs not mkdir)
+				if (!dest.mkdirs()) {
+					throw new IOException("copyFiles: Could not create direcotry: " + dest.getAbsolutePath() + ".");
+				}
+			}
+			// get a listing of files...
+			String list[] = src.list();
+			// copy all the files in the list.
+			for (int i = 0; i < list.length; i++) {
+				File dest1 = new File(dest, list[i]);
+				File src1 = new File(src, list[i]);
+				copyFiles(src1, dest1);
+			}
+		} else {
+			// This was not a directory, so lets just copy the file
+			FileInputStream fin = null;
+			FileOutputStream fout = null;
+			byte[] buffer = new byte[4096]; // Buffer 4K at a time (you can change this).
+			int bytesRead;
+			try {
+				// open the files for input and output
+				fin = new FileInputStream(src);
+				fout = new FileOutputStream(dest);
+				// while bytesRead indicates a successful read, lets write...
+				while ((bytesRead = fin.read(buffer)) >= 0) {
+					fout.write(buffer, 0, bytesRead);
+				}
+			} catch (IOException e) { // Error copying file...
+				IOException wrapper = new IOException("copyFiles: Unable to copy file: " + src.getAbsolutePath() + "to" + dest.getAbsolutePath() + ".");
+				wrapper.initCause(e);
+				wrapper.setStackTrace(e.getStackTrace());
+				throw wrapper;
+			} finally { // Ensure that the files are closed (if they were open).
+				if (fin != null) {
+					fin.close();
+				}
+				if (fout != null) {
+					fout.close();
+				}
+			}
+		}
+	}
+
 	public static void saveDocument(Document doc, File file) throws TransformerFactoryConfigurationError, TransformerException {
 		saveDocument(doc, new StreamResult(file));
 	}
-	
+
 	public static void saveDocument(Document doc, Writer w) throws TransformerFactoryConfigurationError, TransformerException {
 		saveDocument(doc, new StreamResult(w));
 	}
-	
+
 	public static void saveDocument(Document doc, Result result) throws TransformerFactoryConfigurationError, TransformerException {
 		Source source = new DOMSource(doc);
 
-	    // Write the DOM document to the file
-	    Transformer transformer = TransformerFactory.newInstance().newTransformer();
-	    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-	    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-	    transformer.setOutputProperty(OutputKeys.ENCODING, "ASCII");
-	    transformer.transform(source, result);	    
+		// Write the DOM document to the file
+		Transformer transformer = TransformerFactory.newInstance().newTransformer();
+		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty(OutputKeys.ENCODING, "ASCII");
+		transformer.transform(source, result);
 	}
-	
+
 	/**
 	 * recursive last modified method
 	 * 
@@ -489,15 +489,16 @@ public class FileUtilities {
 		}
 		return date;
 	}
-	
+
 	/**
 	 * recursive method to set modified time to a file/directory
+	 * 
 	 * @param file
 	 * @param time
 	 */
 	public static void setLastModified(File file, long time) {
-		if(file.isDirectory()) {
-			for(File currentFile : file.listFiles()) {
+		if (file.isDirectory()) {
+			for (File currentFile : file.listFiles()) {
 				setLastModified(currentFile, time);
 			}
 		} else {
@@ -506,9 +507,7 @@ public class FileUtilities {
 	}
 
 	/**
-	 * Copy the entries specified from the bundle provided to the metadata area
-	 * for the bundle provided, and return the URL for the metadata area for
-	 * this bundle.
+	 * Copy the entries specified from the bundle provided to the metadata area for the bundle provided, and return the URL for the metadata area for this bundle.
 	 * 
 	 * @param bundle
 	 * @param path
@@ -547,6 +546,7 @@ public class FileUtilities {
 	 * 3.5 compatibility with 3.6
 	 */
 	private static String dataAreaPrefix = ".metadata/.plugins/";
+
 	public static URL getDataArea(Location location, String filename) throws IOException {
 		URL base = location.getURL();
 		if (base == null)
@@ -560,11 +560,11 @@ public class FileUtilities {
 			filename.substring(1);
 		return new URL(prefix + dataAreaPrefix + filename);
 	}
-	
-	
+
 	public static String getUsableSpaceString(File anyFileInSystem) {
 		long totalSpace = anyFileInSystem.getTotalSpace();
-		if (totalSpace==0) return "Disk space unknown.";
+		if (totalSpace == 0)
+			return "Disk space unknown.";
 		long usableSpace = anyFileInSystem.getUsableSpace();
 		return bytesString(usableSpace) + " out of " + bytesString(totalSpace) + " available.";
 	}
@@ -573,15 +573,18 @@ public class FileUtilities {
 		double number = totalSpace;
 		NumberFormat format = new DecimalFormat("0.00");
 		number /= 1024;
-		if (number < 1) return "< 1kB";
-		if (number < 1024) return format.format(number) + "kb";
+		if (number < 1)
+			return "< 1kB";
+		if (number < 1024)
+			return format.format(number) + "kb";
 		number /= 1024;
-		if (number < 1024) return format.format(number) + "MB";
+		if (number < 1024)
+			return format.format(number) + "MB";
 		number /= 1024;
-		if (number < 1024) return format.format(number) + "GB";
+		if (number < 1024)
+			return format.format(number) + "GB";
 		number /= 1024;
 		return format.format(number) + "TB";
 	}
 
-	
 }
