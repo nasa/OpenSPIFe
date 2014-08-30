@@ -35,10 +35,10 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 public class ReflectionUtils {
-	
+
 	private static Map<List, Field> fieldCache = new HashMap<List, Field>();
 	private static Map<List, Method> methodCache = new HashMap<List, Method>();
-	
+
 	private static Map<Class, Class> primitiveToComplexMap = new HashMap<Class, Class>();
 	static {
 		primitiveToComplexMap.put(int.class, Integer.class);
@@ -49,10 +49,9 @@ public class ReflectionUtils {
 		primitiveToComplexMap.put(double.class, Double.class);
 		primitiveToComplexMap.put(boolean.class, Boolean.class);
 	}
-	
+
 	/**
-	 * Returns the field with the specified name. This method will climb up the class hierarchy until it finds a field with the
-	 * given name.
+	 * Returns the field with the specified name. This method will climb up the class hierarchy until it finds a field with the given name.
 	 * 
 	 * @param clazz
 	 * @param fieldName
@@ -76,14 +75,13 @@ public class ReflectionUtils {
 		fieldCache.put(key, field);
 		return field;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static <T> T get(Object target, String fieldName) {
-		Class clazz = target instanceof Class ? (Class)target : target.getClass();
+		Class clazz = target instanceof Class ? (Class) target : target.getClass();
 		Field field = getField(clazz, fieldName);
 		if (field == null)
-			throw new IllegalArgumentException("Unable to find field " + fieldName
-					+ " in " + target + "'s class hierarchy.");
+			throw new IllegalArgumentException("Unable to find field " + fieldName + " in " + target + "'s class hierarchy.");
 		return get(target, field);
 	}
 
@@ -91,7 +89,7 @@ public class ReflectionUtils {
 		boolean oldAccessibility = field.isAccessible();
 		field.setAccessible(true);
 		try {
-			return (T)field.get(target);
+			return (T) field.get(target);
 		} catch (IllegalAccessException e) {
 			Logger.getLogger(ReflectionUtils.class).error("That's un-possible!", e);
 			return null;
@@ -99,13 +97,12 @@ public class ReflectionUtils {
 			field.setAccessible(oldAccessibility);
 		}
 	}
-	
+
 	public static void set(Object target, String fieldName, Object value) {
-		Class clazz = target instanceof Class ? (Class)target : target.getClass();
+		Class clazz = target instanceof Class ? (Class) target : target.getClass();
 		Field field = getField(clazz, fieldName);
 		if (field == null)
-			throw new IllegalArgumentException("Unable to find field " + fieldName
-					+ " in " + target + "'s class hierarchy.");
+			throw new IllegalArgumentException("Unable to find field " + fieldName + " in " + target + "'s class hierarchy.");
 		boolean oldAccessibility = field.isAccessible();
 		synchronized (field) {
 			try {
@@ -118,7 +115,7 @@ public class ReflectionUtils {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns a list of all the fields for a class and all of its relevant superclasses.
 	 * 
@@ -133,7 +130,7 @@ public class ReflectionUtils {
 		}
 		return fields;
 	}
-	
+
 	/**
 	 * Returns a list of all the fields for a class and all of its relevant superclasses.
 	 * 
@@ -150,18 +147,17 @@ public class ReflectionUtils {
 		}
 		return fields;
 	}
-	
+
 	public static boolean isCollection(Field f) {
 		return Collection.class.isAssignableFrom(f.getType());
 	}
-	
+
 	public static boolean isMap(Field f) {
 		return Map.class.isAssignableFrom(f.getType());
 	}
 
 	/**
-	 * Returns the method with the specified name and matching arguments. This method will climb up the class hierarchy until it
-	 * finds something.
+	 * Returns the method with the specified name and matching arguments. This method will climb up the class hierarchy until it finds something.
 	 * 
 	 * @param clazz
 	 * @param methodName
@@ -183,22 +179,21 @@ public class ReflectionUtils {
 		methodCache.put(key, method);
 		return null;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static <T> T invoke(Object target, String methodName, Object... arguments) {
-		return (T)invoke(target.getClass(), target, methodName, arguments);
+		return (T) invoke(target.getClass(), target, methodName, arguments);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static <T> T invokeStatic(Class clazz, String methodName, Object... arguments) {
-		return (T)invoke(clazz, null, methodName, arguments);
+		return (T) invoke(clazz, null, methodName, arguments);
 	}
-	
-	private static Object invoke(Class clazz, Object target, String methodName, Object... arguments) {	
+
+	private static Object invoke(Class clazz, Object target, String methodName, Object... arguments) {
 		Method method = getMethod(clazz, methodName, arguments);
 		if (method == null)
-			throw new IllegalArgumentException("Unable to find method " + methodName 
-					+ "(" + getClassNames(arguments) + ")" + " in class hierarchy of " + clazz);
+			throw new IllegalArgumentException("Unable to find method " + methodName + "(" + getClassNames(arguments) + ")" + " in class hierarchy of " + clazz);
 		boolean oldAccessibility = method.isAccessible();
 		method.setAccessible(true);
 		try {
@@ -212,7 +207,7 @@ public class ReflectionUtils {
 			method.setAccessible(oldAccessibility);
 		}
 	}
-	
+
 	public static Method getDeclaredMethod(Class clazz, String name, Object... args) {
 		for (Method method : clazz.getDeclaredMethods()) {
 			if (method.getName().equals(name)) {
@@ -227,7 +222,7 @@ public class ReflectionUtils {
 						continue;
 					if (isAutoboxable(argType, arg.getClass()))
 						continue;
-					
+
 					parametersMatch = false;
 					break;
 				}
@@ -237,12 +232,11 @@ public class ReflectionUtils {
 		}
 		return null;
 	}
-	
-	public static <T> T construct(Class<T> clazz, Object... arguments) throws InstantiationException {	
+
+	public static <T> T construct(Class<T> clazz, Object... arguments) throws InstantiationException {
 		Constructor<T> constructor = getDeclaredConstructor(clazz, arguments);
 		if (constructor == null)
-			throw new IllegalArgumentException("Unable to find constructor " + clazz.getSimpleName() 
-					+ "(" + getClassNames(arguments) + ")");
+			throw new IllegalArgumentException("Unable to find constructor " + clazz.getSimpleName() + "(" + getClassNames(arguments) + ")");
 		boolean oldAccessibility = constructor.isAccessible();
 		constructor.setAccessible(true);
 		try {
@@ -256,8 +250,8 @@ public class ReflectionUtils {
 			constructor.setAccessible(oldAccessibility);
 		}
 	}
-	
-	@SuppressWarnings({ "cast", "unchecked" })
+
+	@SuppressWarnings({ "unchecked" })
 	public static <T> Constructor<T> getDeclaredConstructor(Class<T> clazz, Object... args) {
 		for (Constructor constructor : clazz.getDeclaredConstructors()) {
 			Class<?>[] parameterTypes = constructor.getParameterTypes();
@@ -280,7 +274,7 @@ public class ReflectionUtils {
 		}
 		return null;
 	}
-	
+
 	private static boolean isAutoboxable(Class<? extends Object> class1, Class<?> class2) {
 		return primitiveToComplexMap.get(class1) == class2 || primitiveToComplexMap.get(class2) == class1;
 	}
