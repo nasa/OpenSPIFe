@@ -63,8 +63,8 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.jscience.physics.amount.Amount;
 
-/* package */ class TemporalNetworkCommandBuilder<Time extends Long> {
-	
+/* package */class TemporalNetworkCommandBuilder<Time extends Long> {
+
 	private final Map<EPlanElement, Set<EPlanElement>> elementsAdded = new AutoSetMap<EPlanElement, EPlanElement>(EPlanElement.class);
 	private final Map<EPlanElement, Set<EPlanElement>> elementsRemoved = new AutoSetMap<EPlanElement, EPlanElement>(EPlanElement.class);
 
@@ -90,11 +90,11 @@ import org.jscience.physics.amount.Amount;
 		this.network = member.getNetwork();
 		this.model = member.getModel();
 	}
-	
+
 	/**
 	 * Should be called only from the TemporalNetworkMember constructor
 	 */
-	/* package */ void initialize() {
+	/* package */void initialize() {
 		addElements(plan);
 		member.invalidateModel();
 	}
@@ -112,7 +112,7 @@ import org.jscience.physics.amount.Amount;
 			childrenToOldScheduledness.put(child, oldValue);
 		}
 	}
-	
+
 	public void startTimeChanged(EPlanChild child, Date oldValue) {
 		if (!childrenToOldStarts.containsKey(child)) {
 			childrenToOldStarts.put(child, oldValue);
@@ -131,25 +131,21 @@ import org.jscience.physics.amount.Amount;
 		}
 	}
 
-	public void periodicConstraintsChanged(EPlanElement element,
-			List<PeriodicTemporalConstraint> constraintsRemoved,
-			List<PeriodicTemporalConstraint> constraintsAdded) {
+	public void periodicConstraintsChanged(EPlanElement element, List<PeriodicTemporalConstraint> constraintsRemoved, List<PeriodicTemporalConstraint> constraintsAdded) {
 		periodicConstraintsAffected.addAll(constraintsRemoved);
 		periodicConstraintsAffected.addAll(constraintsAdded);
 	}
 
-	public void binaryConstraintsChanged(EPlanElement element,
-			List<BinaryTemporalConstraint> constraintsRemoved,
-			List<BinaryTemporalConstraint> constraintsAdded) {
+	public void binaryConstraintsChanged(EPlanElement element, List<BinaryTemporalConstraint> constraintsRemoved, List<BinaryTemporalConstraint> constraintsAdded) {
 		binaryConstraintsAffected.addAll(constraintsRemoved);
 		binaryConstraintsAffected.addAll(constraintsAdded);
 	}
-	
+
 	public void waiverUpdated(TemporalConstraint notifier) {
 		if (notifier instanceof PeriodicTemporalConstraint) {
-			periodicConstraintsAffected.add((PeriodicTemporalConstraint)notifier);
+			periodicConstraintsAffected.add((PeriodicTemporalConstraint) notifier);
 		} else if (notifier instanceof BinaryTemporalConstraint) {
-			binaryConstraintsAffected.add((BinaryTemporalConstraint)notifier);
+			binaryConstraintsAffected.add((BinaryTemporalConstraint) notifier);
 		}
 	}
 
@@ -168,8 +164,7 @@ import org.jscience.physics.amount.Amount;
 		for (BinaryTemporalConstraint constraint : binaryTemporalConstraints) {
 			ConstraintPoint pointA = constraint.getPointA();
 			ConstraintPoint pointB = constraint.getPointB();
-			if (ConstraintUtils.isAnchorPointForElement(pointA, planElement, feature)
-				|| ConstraintUtils.isAnchorPointForElement(pointB, planElement, feature)) {
+			if (ConstraintUtils.isAnchorPointForElement(pointA, planElement, feature) || ConstraintUtils.isAnchorPointForElement(pointB, planElement, feature)) {
 				anchorConstraintsChanged.add(constraint);
 			}
 		}
@@ -180,17 +175,9 @@ import org.jscience.physics.amount.Amount;
 			}
 		}
 	}
-	
+
 	public Command createCommand(TransactionalEditingDomain domain) {
-		if (elementsAdded.isEmpty() && elementsRemoved.isEmpty()
-			&& childrenToOldScheduledness.isEmpty()
-			&& childrenToOldStarts.isEmpty() 
-			&& childrenToOldDurations.isEmpty()
-			&& childrenToOldEnds.isEmpty() 
-			&& periodicConstraintsAffected.isEmpty()
-			&& binaryConstraintsAffected.isEmpty()
-			&& temporalChainsAffected.isEmpty()
-			&& anchorConstraintsChanged.isEmpty()) {
+		if (elementsAdded.isEmpty() && elementsRemoved.isEmpty() && childrenToOldScheduledness.isEmpty() && childrenToOldStarts.isEmpty() && childrenToOldDurations.isEmpty() && childrenToOldEnds.isEmpty() && periodicConstraintsAffected.isEmpty() && binaryConstraintsAffected.isEmpty() && temporalChainsAffected.isEmpty() && anchorConstraintsChanged.isEmpty()) {
 			return null;
 		}
 		return new RecordingCommand(domain, "Temporal Network") {
@@ -201,7 +188,6 @@ import org.jscience.physics.amount.Amount;
 		};
 	}
 
-	@SuppressWarnings("unchecked")
 	private void run() {
 		boolean invalidateModel = true; // TODO? optimize invalidation if necessary
 		List<PeriodicTemporalConstraint> addedPeriodicTemporalConstraints = new ArrayList<PeriodicTemporalConstraint>();
@@ -310,7 +296,7 @@ import org.jscience.physics.amount.Amount;
 		}
 		removeElement(element);
 	}
-	
+
 	/**
 	 * Add this element to the constraint network if it is not already in the network
 	 * 
@@ -319,7 +305,7 @@ import org.jscience.physics.amount.Amount;
 	private void addElement(EPlanElement element) {
 		PlanElementConstraintCache<Time> cache = model.elementToCache.get(element);
 		if (cache != null) {
-//			verifyUpdateCache(cache);
+			// verifyUpdateCache(cache);
 			return;
 		}
 		TemporalNetwork<Time>.Timepoint start = network.addTimepoint();
@@ -332,7 +318,7 @@ import org.jscience.physics.amount.Amount;
 			if (EPlanUtils.getChildren(element).isEmpty() && ((scheduled == null) || scheduled.booleanValue())) {
 				duration = temporalMember.getDuration();
 			}
-			EPlanElement parent = (EPlanElement)element.eContainer();
+			EPlanElement parent = (EPlanElement) element.eContainer();
 			if (parent instanceof EPlanChild) {
 				PlanElementConstraintCache<Time> parentCache = model.elementToCache.get(parent);
 				if (parentCache != null) {
@@ -352,7 +338,7 @@ import org.jscience.physics.amount.Amount;
 		TemporalExtent elementExtent = element.getMember(TemporalMember.class).getExtent();
 		if ((parent instanceof EActivity) && (elementExtent != null)) {
 			// see also updateSubActivityConstraints
-			TemporalExtent parentExtent = ((EActivity)parent).getMember(TemporalMember.class).getExtent();
+			TemporalExtent parentExtent = ((EActivity) parent).getMember(TemporalMember.class).getExtent();
 			Amount<Duration> startToStart = DateUtils.subtract(elementExtent.getStart(), parentExtent.getStart());
 			Amount<Duration> endToEnd = DateUtils.subtract(parentExtent.getEnd(), elementExtent.getEnd());
 			PlanElementConstraintCache<Time> parentCache = model.elementToCache.get(parent);
@@ -429,9 +415,7 @@ import org.jscience.physics.amount.Amount;
 	}
 
 	/**
-	 * Update this activities duration constraint
-	 * and periodic constraints to be consistent
-	 * with the new temporal properties.
+	 * Update this activities duration constraint and periodic constraints to be consistent with the new temporal properties.
 	 * 
 	 * @param child
 	 * @return
@@ -465,15 +449,13 @@ import org.jscience.physics.amount.Amount;
 		}
 		if (child.eContainer() instanceof EActivity) {
 			EActivity parent = (EActivity) child.eContainer();
-			if ((oldStart == null) || !oldStart.equals(newStart)
-				|| (oldEnd == null) || !oldEnd.equals(newEnd)) {
-				updateSubActivityConstraints(parent, (EActivity)child);
+			if ((oldStart == null) || !oldStart.equals(newStart) || (oldEnd == null) || !oldEnd.equals(newEnd)) {
+				updateSubActivityConstraints(parent, (EActivity) child);
 			}
 		}
 		boolean sameStartDay = false;
 		boolean sameEndDay = false;
-		if (oldScheduled && (oldStart != null) && (oldEnd != null) 
-			&& newScheduled && (newStart != null) && (newEnd != null)) {
+		if (oldScheduled && (oldStart != null) && (oldEnd != null) && newScheduled && (newStart != null) && (newEnd != null)) {
 			int oldStartDay = MissionCalendarUtils.getDayOfMission(oldStart);
 			int newStartDay = MissionCalendarUtils.getDayOfMission(newStart);
 			int oldEndDay = MissionCalendarUtils.getDayOfMission(oldEnd);
@@ -517,7 +499,7 @@ import org.jscience.physics.amount.Amount;
 			} else if (child instanceof EActivity) {
 				EActivity activity = (EActivity) child;
 				for (EPlanChild child2 : children) {
-					updateSubActivityConstraints(activity, (EActivity)child2);
+					updateSubActivityConstraints(activity, (EActivity) child2);
 				}
 			}
 		}
@@ -525,8 +507,7 @@ import org.jscience.physics.amount.Amount;
 	}
 
 	/**
-	 * Update the constraints from the parent activity to the subactivity,
-	 * to match new offsets if any. 
+	 * Update the constraints from the parent activity to the subactivity, to match new offsets if any.
 	 * 
 	 * @param parent
 	 * @param child
@@ -626,7 +607,7 @@ import org.jscience.physics.amount.Amount;
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Add a chain to the network
 	 * 
@@ -644,17 +625,17 @@ import org.jscience.physics.amount.Amount;
 		}
 		Iterator<EPlanElement> iterator = elements.iterator();
 		EPlanElement lastPlanElement = iterator.next();
-	    List<String> skippedElementNames = new ArrayList<String>();
+		List<String> skippedElementNames = new ArrayList<String>();
 		PlanElementConstraintCache<Time> cache;
 		while ((cache = model.elementToCache.get(lastPlanElement)) == null) {
 			skippedElementNames.add(lastPlanElement.getName());
-	    	if (!iterator.hasNext()) {
-	    		Logger logger = Logger.getLogger(TemporalNetworkCommandBuilder.class);
+			if (!iterator.hasNext()) {
+				Logger logger = Logger.getLogger(TemporalNetworkCommandBuilder.class);
 				logger.warn("skipped the whole chain: " + chain);
-	    		return;
-	    	}
-	    	lastPlanElement = iterator.next();
-	    }
+				return;
+			}
+			lastPlanElement = iterator.next();
+		}
 		if (!skippedElementNames.isEmpty()) {
 			String skippedString = "";
 			for (String name : skippedElementNames) {
@@ -664,24 +645,24 @@ import org.jscience.physics.amount.Amount;
 			logger.warn("skipped unknown nodes in chain: " + skippedString);
 		}
 		TemporalNetwork<Time>.Timepoint lastTimepoint = cache.end;
-	    Set<TemporalNetwork<Time>.TemporalConstraint> constraints = new LinkedHashSet<TemporalNetwork<Time>.TemporalConstraint>();
-	    while (iterator.hasNext()) {
-	    	EPlanElement thisPlanElement = iterator.next();
+		Set<TemporalNetwork<Time>.TemporalConstraint> constraints = new LinkedHashSet<TemporalNetwork<Time>.TemporalConstraint>();
+		while (iterator.hasNext()) {
+			EPlanElement thisPlanElement = iterator.next();
 			PlanElementConstraintCache<Time> thisCache = model.elementToCache.get(thisPlanElement);
 			if (thisCache == null) {
 				Logger logger = Logger.getLogger(TemporalNetworkCommandBuilder.class);
 				logger.warn("skipping unknown node in chain: " + thisPlanElement.getName());
-	    		continue;
-	    	}
+				continue;
+			}
 			Time maxDistance = network.getTime(DistanceGraph.POS_INFINITY);
 			if (PlanConstraintsPreferences.getUseMeetsChains()) {
 				maxDistance = network.getTime(0L);
 			}
 			constraints.add(network.addTemporalConstraint(lastTimepoint, thisCache.start, network.getTime(0L), maxDistance));
-    		lastPlanElement = thisPlanElement;
-    		lastTimepoint = thisCache.end;
-	    }
-	    model.chainToConstraints.put(chain, constraints);
+			lastPlanElement = thisPlanElement;
+			lastTimepoint = thisCache.end;
+		}
+		model.chainToConstraints.put(chain, constraints);
 	}
 
 	/**
@@ -705,13 +686,12 @@ import org.jscience.physics.amount.Amount;
 			}
 		}
 	}
-	
+
 	/*
 	 * Network convenience methods
 	 */
-	
-	private TemporalNetwork<Time>.TemporalConstraint addNetworkDurationConstraint(Amount<Duration> duration, TemporalNetwork<Time>.Timepoint start,
-			TemporalNetwork<Time>.Timepoint end) {
+
+	private TemporalNetwork<Time>.TemporalConstraint addNetworkDurationConstraint(Amount<Duration> duration, TemporalNetwork<Time>.Timepoint start, TemporalNetwork<Time>.Timepoint end) {
 		TemporalNetwork<Time>.TemporalConstraint durationConstraint = null;
 		if (duration != null) {
 			if (!duration.isGreaterThan(Amount.valueOf(0, SI.SECOND))) {
@@ -720,7 +700,8 @@ import org.jscience.physics.amount.Amount;
 			Time timeDuration = model.convertTimeDistanceToNetwork(duration);
 			durationConstraint = network.addTemporalConstraint(start, end, timeDuration, timeDuration);
 		} else {
-			durationConstraint = network.addTemporalConstraint(start, end, network.getTime(0L), network.getTime(DistanceGraph.POS_INFINITY)); // allow any nonnegative duration for activities with no extent
+			durationConstraint = network.addTemporalConstraint(start, end, network.getTime(0L), network.getTime(DistanceGraph.POS_INFINITY)); // allow any nonnegative duration for activities with no
+																																				// extent
 		}
 		return durationConstraint;
 	}
@@ -751,8 +732,7 @@ import org.jscience.physics.amount.Amount;
 	}
 
 	/**
-	 * Add the distance constraint to the network.
-	 * Returns true if the constraint was added, false if it wasn't
+	 * Add the distance constraint to the network. Returns true if the constraint was added, false if it wasn't
 	 * 
 	 * @param element
 	 * @param elementStart
@@ -761,8 +741,7 @@ import org.jscience.physics.amount.Amount;
 	 * @return
 	 */
 	private boolean addNetworkConstraint(BinaryTemporalConstraint distanceConstraint) {
-		if (model.distanceConstraintToTemporalConstraint.get(distanceConstraint) != null
-				|| model.distanceConstraintToPeriodicTemporalConstraint.get(distanceConstraint) != null) {
+		if (model.distanceConstraintToTemporalConstraint.get(distanceConstraint) != null || model.distanceConstraintToPeriodicTemporalConstraint.get(distanceConstraint) != null) {
 			return false;
 		}
 		ConstraintPoint pointA = distanceConstraint.getPointA();
@@ -810,7 +789,7 @@ import org.jscience.physics.amount.Amount;
 			return false;
 		}
 	}
-	
+
 	public PeriodicTemporalConstraint[] convertToPeriodicTemporalConstraint(BinaryTemporalConstraint distanceConstraint) throws Exception {
 		PeriodicTemporalConstraint[] newConstraints = new PeriodicTemporalConstraint[2];
 		ConstraintPoint pointA = distanceConstraint.getPointA();
@@ -819,40 +798,31 @@ import org.jscience.physics.amount.Amount;
 		EPlanElement elementB = pointB.getElement();
 		if (!pointB.hasEndpoint()) { // If A is anchored to B parameter
 			Date time = (Date) ADParameterUtils.getParameterObject(elementB, pointB.getAnchor());
-			if (time !=  null) {
+			if (time != null) {
 				Amount<Duration> minBminusA = distanceConstraint.getMinimumBminusA();
 				Amount<Duration> maxBminusA = distanceConstraint.getMaximumBminusA();
 				Date earliest = minBminusA == null ? null : DateUtils.add(time, minBminusA);
 				Date latest = maxBminusA == null ? null : DateUtils.add(time, maxBminusA);
-				
-				newConstraints[0] = ConstraintUtils.createConstraint(
-						elementA, pointA.getEndpoint(), 
-						ConstraintUtils.getPeriodicConstraintOffset(earliest), 
-						ConstraintUtils.getPeriodicConstraintOffset(latest), 
-						"internal constraint from anchor");
+
+				newConstraints[0] = ConstraintUtils.createConstraint(elementA, pointA.getEndpoint(), ConstraintUtils.getPeriodicConstraintOffset(earliest), ConstraintUtils.getPeriodicConstraintOffset(latest), "internal constraint from anchor");
 			}
 		}
 		if (!pointA.hasEndpoint()) { // If B is anchored to A parameter
 			Date time = (Date) ADParameterUtils.getParameterObject(elementA, pointA.getAnchor());
-			if (time !=  null) {
+			if (time != null) {
 				Amount<Duration> minBminusA = distanceConstraint.getMinimumBminusA();
 				Amount<Duration> maxBminusA = distanceConstraint.getMaximumBminusA();
 				Date earliest = minBminusA == null ? null : DateUtils.add(time, minBminusA);
 				Date latest = maxBminusA == null ? null : DateUtils.add(time, maxBminusA);
-				
-				newConstraints[1] = ConstraintUtils.createConstraint(
-						elementB, pointB.getEndpoint(),
-						ConstraintUtils.getPeriodicConstraintOffset(earliest), 
-						ConstraintUtils.getPeriodicConstraintOffset(latest), 
-						"internal constraint from anchor");
+
+				newConstraints[1] = ConstraintUtils.createConstraint(elementB, pointB.getEndpoint(), ConstraintUtils.getPeriodicConstraintOffset(earliest), ConstraintUtils.getPeriodicConstraintOffset(latest), "internal constraint from anchor");
 			}
 		}
 		return newConstraints;
 	}
-	
+
 	/**
-	 * Removes the network constraint
-	 * Returns true if the constraint was removed, false if it wasn't (not present)
+	 * Removes the network constraint Returns true if the constraint was removed, false if it wasn't (not present)
 	 * 
 	 * @param relation
 	 * @return
@@ -888,10 +858,7 @@ import org.jscience.physics.amount.Amount;
 	 * @param ub
 	 * @return
 	 */
-	private TemporalNetwork<Time>.TemporalConstraint createNetworkConstraint(
-			TemporalNetwork<Time>.Timepoint timepointA,
-			TemporalNetwork<Time>.Timepoint timepointB, 
-			Time lb, Time ub) {
+	private TemporalNetwork<Time>.TemporalConstraint createNetworkConstraint(TemporalNetwork<Time>.Timepoint timepointA, TemporalNetwork<Time>.Timepoint timepointB, Time lb, Time ub) {
 		return network.addTemporalConstraint(timepointA, timepointB, lb, ub);
 	}
 

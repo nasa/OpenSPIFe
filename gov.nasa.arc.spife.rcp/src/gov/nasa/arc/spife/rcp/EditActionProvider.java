@@ -158,7 +158,7 @@ public class EditActionProvider extends CommonActionProvider {
 		 * @return the actual target of the paste action
 		 */
 		private IResource getTarget() {
-			List selectedResources = getSelectedResources();
+			List<?> selectedResources = getSelectedResources();
 
 			for (int i = 0; i < selectedResources.size(); i++) {
 				IResource resource = (IResource) selectedResources.get(i);
@@ -238,7 +238,7 @@ public class EditActionProvider extends CommonActionProvider {
 		 * Returns the container to hold the pasted resources.
 		 */
 		private IContainer getContainer() {
-			List selection = getSelectedResources();
+			List<?> selection = getSelectedResources();
 			if (selection.get(0) instanceof IFile) {
 				return ((IFile) selection.get(0)).getParent();
 			} else {
@@ -295,7 +295,7 @@ public class EditActionProvider extends CommonActionProvider {
 
 			// can paste files and folders to a single selection (file, folder,
 			// open project) or multiple file selection with the same parent
-			List selectedResources = getSelectedResources();
+			List<?> selectedResources = getSelectedResources();
 			if (selectedResources.size() > 1) {
 				for (int i = 0; i < selectedResources.size(); i++) {
 					IResource resource = (IResource) selectedResources.get(i);
@@ -402,7 +402,7 @@ public class EditActionProvider extends CommonActionProvider {
 			/**
 			 * The <code>CopyAction</code> implementation of this method defined on <code>IAction</code> copies the selected resources to the clipboard.
 			 */
-			List selectedResources = getSelectedResources();
+			List<?> selectedResources = getSelectedResources();
 			IResource[] resources = (IResource[]) selectedResources.toArray(new IResource[selectedResources.size()]);
 
 			// Get the file names and a string representation
@@ -486,7 +486,7 @@ public class EditActionProvider extends CommonActionProvider {
 				return false;
 			}
 
-			List selectedResources = getSelectedResources();
+			List<?> selectedResources = getSelectedResources();
 			if (selectedResources.size() == 0) {
 				return false;
 			}
@@ -508,7 +508,7 @@ public class EditActionProvider extends CommonActionProvider {
 				return false;
 			}
 
-			Iterator resourcesEnum = selectedResources.iterator();
+			Iterator<?> resourcesEnum = selectedResources.iterator();
 			while (resourcesEnum.hasNext()) {
 				IResource currentResource = (IResource) resourcesEnum.next();
 				if (!currentResource.getParent().equals(firstParent)) {

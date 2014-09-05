@@ -17,7 +17,6 @@
  ******************************************************************************/
 package gov.nasa.ensemble.core.plan.advisor.view;
 
-
 import gov.nasa.ensemble.common.help.ContextProvider;
 import gov.nasa.ensemble.common.ui.WidgetUtils;
 import gov.nasa.ensemble.core.model.plan.EPlan;
@@ -40,7 +39,7 @@ import org.eclipse.ui.part.IPage;
 import org.eclipse.ui.part.Page;
 
 public class PlanAdvisorView extends PlanPageBookView {
-	
+
 	private static final String DEFAULT_MESSAGE = "Plan Advisors show possible problems with your plan.";
 	public static final String ID = "gov.nasa.ensemble.core.plan.advisor.view.PlanAdvisorView";
 
@@ -53,13 +52,13 @@ public class PlanAdvisorView extends PlanPageBookView {
 
 	@Override
 	protected Page createPage(IEditorPart editor, PlanEditorModel model) {
-	    return new PlanAdvisorPage(editor, model);
+		return new PlanAdvisorPage(editor, model);
 	}
 
 	@Override
 	protected void pageActivated(IPage page) {
 		if (page instanceof PlanAdvisorPage) {
-			PlanAdvisorPage planAdvisorPage = (PlanAdvisorPage)page;
+			PlanAdvisorPage planAdvisorPage = (PlanAdvisorPage) page;
 			EPlan plan = planAdvisorPage.getPlan();
 			PlanAdvisorMember planAdvisorMember = PlanAdvisorMember.get(plan);
 			viewIconListener.setPlanAdvisorMember(planAdvisorMember);
@@ -67,32 +66,31 @@ public class PlanAdvisorView extends PlanPageBookView {
 			viewIconListener.setPlanAdvisorMember(null);
 		}
 	}
-	
+
 	@Override
 	public void dispose() {
 		viewIconListener.setPlanAdvisorMember(null);
 		super.dispose();
 	}
-	
+
 	private void setTitleImage(PlanAdvisorViewImage image) {
 		setTitleImage(image.getImage());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object getAdapter(Class key) {
 		if (key.equals(IContextProvider.class)) {
 			return new ContextProvider(ID);
 		}
-		
-		if(key.equals(TreeViewer.class)){
+
+		if (key.equals(TreeViewer.class)) {
 			IPage page = this.getCurrentPage();
-			if(page instanceof PlanAdvisorPage){
-				PlanAdvisorPage planAdvisorPage = (PlanAdvisorPage)page;
+			if (page instanceof PlanAdvisorPage) {
+				PlanAdvisorPage planAdvisorPage = (PlanAdvisorPage) page;
 				return planAdvisorPage.getPlanAdvisorTreeViewer();
 			}
-			
-			else{
+
+			else {
 				return null;
 			}
 		}
@@ -141,6 +139,7 @@ public class PlanAdvisorView extends PlanPageBookView {
 
 	private String oldDescription = "";
 	private PlanAdvisorViewImage oldImage = null;
+
 	private void displayStatusSummaryW(final int unwaived, final int waived, final int fixed, final List<PlanAdvisor> updatingAdvisors) {
 		String contentDescription = "";
 		PlanAdvisorViewImage image;
@@ -172,7 +171,7 @@ public class PlanAdvisorView extends PlanPageBookView {
 				contentDescription += ", ";
 			}
 			contentDescription += "pending";
-//			contentDescription += ": " + CommonUtils.getListText(advisorNames);
+			// contentDescription += ": " + CommonUtils.getListText(advisorNames);
 		}
 		if (contentDescription == "") {
 			contentDescription = "no violations";
@@ -180,27 +179,26 @@ public class PlanAdvisorView extends PlanPageBookView {
 		updateImageDescription(image, contentDescription);
 	}
 
-	private void updateImageDescription(PlanAdvisorViewImage image,
-			String contentDescription) {
+	private void updateImageDescription(PlanAdvisorViewImage image, String contentDescription) {
 		synchronized (this) {
 			if (oldImage != image) {
 				setTitleImage(image);
 				oldImage = image;
 			}
-			if (!oldDescription.equals(contentDescription)) { 
+			if (!oldDescription.equals(contentDescription)) {
 				setContentDescription(contentDescription);
 				oldDescription = contentDescription;
 			}
 		}
 	}
-	
+
 	private class ViewIconListener extends AdvisorListener {
 		private PlanAdvisorMember planAdvisorMember;
 
-	    public void setPlanAdvisorMember(PlanAdvisorMember planAdvisorMember) {
-	    	if (this.planAdvisorMember != null) {
-	    		this.planAdvisorMember.removeViolationsListener(this);
-	    	}
+		public void setPlanAdvisorMember(PlanAdvisorMember planAdvisorMember) {
+			if (this.planAdvisorMember != null) {
+				this.planAdvisorMember.removeViolationsListener(this);
+			}
 			this.planAdvisorMember = planAdvisorMember;
 			computeAndDisplayStatusSummary(this.planAdvisorMember);
 			if (this.planAdvisorMember != null) {
@@ -208,25 +206,25 @@ public class PlanAdvisorView extends PlanPageBookView {
 			}
 		}
 
-	    @Override
-	    public void advisorsUpdating() {
-	    	computeAndDisplayStatusSummary(planAdvisorMember);
-	    }
-	    
-	    @Override
-	    public void advisorsUpdated() {
-	    	computeAndDisplayStatusSummary(planAdvisorMember);
-	    }
-	    
+		@Override
+		public void advisorsUpdating() {
+			computeAndDisplayStatusSummary(planAdvisorMember);
+		}
+
+		@Override
+		public void advisorsUpdated() {
+			computeAndDisplayStatusSummary(planAdvisorMember);
+		}
+
 		@Override
 		public void violationsAdded(Set<ViolationTracker> violations) {
 			computeAndDisplayStatusSummary(planAdvisorMember);
 		}
-		
+
 		@Override
 		public void violationsRemoved(Set<ViolationTracker> violations) {
 			computeAndDisplayStatusSummary(planAdvisorMember);
 		}
-		
+
 	}
 }

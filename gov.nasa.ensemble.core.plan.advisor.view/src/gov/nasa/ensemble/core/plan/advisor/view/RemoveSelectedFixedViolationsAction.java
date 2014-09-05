@@ -18,9 +18,9 @@
 package gov.nasa.ensemble.core.plan.advisor.view;
 
 import gov.nasa.ensemble.common.ui.WidgetUtils;
+import gov.nasa.ensemble.core.plan.advisor.AdvisorListener;
 import gov.nasa.ensemble.core.plan.advisor.PlanAdvisorMember;
 import gov.nasa.ensemble.core.plan.advisor.ViolationTracker;
-import gov.nasa.ensemble.core.plan.advisor.AdvisorListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +58,7 @@ public class RemoveSelectedFixedViolationsAction extends Action {
 	private List<ViolationTracker> getFixedViolationTrackers(ISelection selection) {
 		List<ViolationTracker> fixedViolationTrackers = new ArrayList<ViolationTracker>();
 		if (selection instanceof IStructuredSelection) {
-			List objects = ((IStructuredSelection)selection).toList();
+			List<?> objects = ((IStructuredSelection) selection).toList();
 			for (Object object : objects) {
 				if (object instanceof ViolationTracker) {
 					ViolationTracker violationTracker = (ViolationTracker) object;
@@ -70,12 +70,12 @@ public class RemoveSelectedFixedViolationsAction extends Action {
 		}
 		return fixedViolationTrackers;
 	}
-	
+
 	private void updateEnablement(ISelection selection) {
 		List<ViolationTracker> fixedViolations = getFixedViolationTrackers(selection);
 		setEnabled(!fixedViolations.isEmpty());
 	}
-	
+
 	private final class ViolationsUpdatedListener extends AdvisorListener {
 		@Override
 		public void advisorsUpdated() {

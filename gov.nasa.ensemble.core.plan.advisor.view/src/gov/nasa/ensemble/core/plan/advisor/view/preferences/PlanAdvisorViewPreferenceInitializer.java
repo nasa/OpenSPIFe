@@ -30,17 +30,14 @@ import java.util.List;
 public class PlanAdvisorViewPreferenceInitializer extends PropertyPreferenceInitializer {
 
 	private static final String GROUP_BY_COLUMNS_PROPERTY = "advisor.groupByColumns";
-	private static final List<String> DEFAULT_GROUP_BY_COLUMNS = Arrays.asList(new String[] {
-			PlanAdvisorColumnSpecification.TYPE.getHeaderText(),
-	});
+	private static final List<String> DEFAULT_GROUP_BY_COLUMNS = Arrays.asList(new String[] { PlanAdvisorColumnSpecification.TYPE.getHeaderText(), });
 	private static final String HIDDEN_COLUMNS_PROPERTY = "advisor.hideColumns";
-	private static final List<String> HIDDEN_COLUMNS = EnsembleProperties.getStringListPropertyValue(HIDDEN_COLUMNS_PROPERTY, Collections.EMPTY_LIST);
-
+	private static final List<String> HIDDEN_COLUMNS = EnsembleProperties.getStringListPropertyValue(HIDDEN_COLUMNS_PROPERTY, Collections.<String> emptyList());
 
 	public PlanAdvisorViewPreferenceInitializer() {
 		super(Activator.getDefault().getPreferenceStore());
 	}
-	
+
 	@Override
 	public void initializeDefaultPreferences() {
 		setStringList(PlanAdvisorViewPreferencePage.P_VISIBLE_COLUMNS, getAllColumnHeaderTexts());
@@ -63,5 +60,5 @@ public class PlanAdvisorViewPreferenceInitializer extends PropertyPreferenceInit
 		}
 		return texts;
 	}
-	
+
 }
