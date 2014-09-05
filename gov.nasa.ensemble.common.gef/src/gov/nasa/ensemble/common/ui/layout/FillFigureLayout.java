@@ -28,16 +28,12 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 /**
- * This layout will cause the parent composite to have a preferred
- * size equal to the first child IFigure, if any.  Also this layout
- * will set the first child IFigure, if any, to have the same bounds
- * as the parent composite.
+ * This layout will cause the parent composite to have a preferred size equal to the first child IFigure, if any. Also this layout will set the first child IFigure, if any, to have the same bounds as
+ * the parent composite.
  * 
- * The effect of this is that the parent composite will prefer to be at least
- * large enough to contain the child IFigure.  If the parent composite
- * is sized larger than the child IFigure's preferred size, the child
- * IFigure will be stretched to the size of the parent composite.
- *
+ * The effect of this is that the parent composite will prefer to be at least large enough to contain the child IFigure. If the parent composite is sized larger than the child IFigure's preferred
+ * size, the child IFigure will be stretched to the size of the parent composite.
+ * 
  */
 public class FillFigureLayout extends AbstractLayout {
 
@@ -60,7 +56,7 @@ public class FillFigureLayout extends AbstractLayout {
 	 */
 	@Override
 	protected Dimension calculatePreferredSize(IFigure container, int wHint, int hHint) {
-		List children = container.getChildren();
+		List<?> children = container.getChildren();
 		if (children.isEmpty()) {
 			return Dimension.SINGLETON;
 		}
@@ -92,7 +88,7 @@ public class FillFigureLayout extends AbstractLayout {
 	 */
 	@Override
 	public void layout(IFigure container) {
-		List children = container.getChildren();
+		List<?> children = container.getChildren();
 		if (children.isEmpty()) {
 			return;
 		}

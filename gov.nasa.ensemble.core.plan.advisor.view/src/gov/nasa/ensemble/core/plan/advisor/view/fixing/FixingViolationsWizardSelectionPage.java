@@ -57,7 +57,7 @@ public class FixingViolationsWizardSelectionPage extends WizardPage {
 		}
 		this.advisorMember = advisorMember;
 	}
-	
+
 	@Override
 	public void dispose() {
 		super.dispose();
@@ -66,7 +66,6 @@ public class FixingViolationsWizardSelectionPage extends WizardPage {
 	}
 
 	@Override
-	@SuppressWarnings("unused")
 	public void createControl(Composite parent) {
 		Composite composite = new EnsembleComposite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout(1, true);
@@ -82,7 +81,7 @@ public class FixingViolationsWizardSelectionPage extends WizardPage {
 			if (!violationElements.isEmpty()) {
 				if (Collections.disjoint(violationElements, selectedElements)) {
 					continue;
-				}				
+				}
 			}
 			String type = violation.getType();
 			Integer count = typeCounts.get(type);
@@ -105,10 +104,10 @@ public class FixingViolationsWizardSelectionPage extends WizardPage {
 	private static String count(int count, String type) {
 		return count + " " + type + " Violation" + (count > 1 ? "s" : "");
 	}
-	
+
 	@Override
-	   public void performHelp() {
-	       PlatformUI.getWorkbench().getHelpSystem().displayHelp("gov.nasa.arc.spife.core.plan.advisor.fixing.FixingViolationsWizardSelectionsPage");
-	       super.performHelp();
-	   }
+	public void performHelp() {
+		PlatformUI.getWorkbench().getHelpSystem().displayHelp("gov.nasa.arc.spife.core.plan.advisor.fixing.FixingViolationsWizardSelectionsPage");
+		super.performHelp();
+	}
 }
