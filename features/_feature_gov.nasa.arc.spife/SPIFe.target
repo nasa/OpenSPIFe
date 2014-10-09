@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="SPIFe" sequenceNumber="487">
+<?pde version="3.8"?><target name="SPIFe" sequenceNumber="492">
 <locations>
-<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.2.0.v20140521-0402"/>
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.6.2.v201407030533"/>
-<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-</location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.commons.io" version="2.0.1.v201105210651"/>
 <unit id="org.apache.lucene.core" version="2.9.1.v201101211721"/>
@@ -25,8 +20,8 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140114142710/repository/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.feature.feature.group" version="1.0.0.201409252052"/>
-<unit id="org.eclipse.nebula.widgets.cdatetime.feature.feature.group" version="0.14.0.201409252052"/>
+<unit id="org.eclipse.nebula.feature.feature.group" version="1.0.0.201410030023"/>
+<unit id="org.eclipse.nebula.widgets.cdatetime.feature.feature.group" version="0.14.0.201410030023"/>
 <repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -39,6 +34,11 @@
 <unit id="org.eclipse.gef.feature.group" version="3.9.1.201308190730"/>
 <unit id="org.eclipse.emf.transaction.sdk.feature.group" version="1.7.0.201306111400"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.2.0.v20140521-0402"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.7.2.v201409160908"/>
+<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
 </location>
 </locations>
 </target>
