@@ -31,17 +31,21 @@ import org.mozilla.javascript.ScriptableObject;
 
 public class ScriptablePlanElement extends ScriptableObject {
 
-	private static final EAttribute START_TIME_ATTRIBUTE 	= TemporalPackage.Literals.TEMPORAL_MEMBER__START_TIME;
-	private static final String START_TIME_NAME 			= WrapperUtils.mapStructuralFeatureToParameterName(START_TIME_ATTRIBUTE);
-	private static final EAttribute DURATION_ATTRIBUTE 		= TemporalPackage.Literals.TEMPORAL_MEMBER__DURATION;
-	private static final String DURATION_NAME 				= WrapperUtils.mapStructuralFeatureToParameterName(DURATION_ATTRIBUTE);
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static final EAttribute START_TIME_ATTRIBUTE = TemporalPackage.Literals.TEMPORAL_MEMBER__START_TIME;
+	private static final String START_TIME_NAME = WrapperUtils.mapStructuralFeatureToParameterName(START_TIME_ATTRIBUTE);
+	private static final EAttribute DURATION_ATTRIBUTE = TemporalPackage.Literals.TEMPORAL_MEMBER__DURATION;
+	private static final String DURATION_NAME = WrapperUtils.mapStructuralFeatureToParameterName(DURATION_ATTRIBUTE);
 
 	private EPlanElement planElement;
-	
+
 	public ScriptablePlanElement(EPlanElement planElement) {
 		this.planElement = planElement;
 	}
-	
+
 	public EPlanElement getPlanElement() {
 		return planElement;
 	}

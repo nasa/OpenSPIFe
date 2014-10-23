@@ -36,78 +36,93 @@ import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.services.IServiceScopes;
 
 /**
- * This class is to be used to refresh the state of any elements associated 
- * with a command, whenever the active editor part changes.
+ * This class is to be used to refresh the state of any elements associated with a command, whenever the active editor part changes.
  * <p>
- * To use this class, your IHandler implementation should also implement
- * IElementUpdater.  Your updateElement method should look like this:
+ * To use this class, your IHandler implementation should also implement IElementUpdater. Your updateElement method should look like this:
+ * 
  * <pre>
  * public void updateElement(UIElement element, Map parameters) {
  *     IServiceLocator serviceLocator = element.getServiceLocator();
  *     IPartService partService = (IPartService)serviceLocator.getService(IPartService.class);
  *     partService.addPartListener(ACTIVE_EDITOR_LISTENER);
  *     ... put the rest of your implementation here
- * }</pre>
+ * }
+ * </pre>
+ * 
  * You should define ACTIVE_EDITOR_LISTENER as a constant in your handler like this:
+ * 
  * <pre>
  * private static final IPartListener ACTIVE_EDITOR_LISTENER = new CommandRefreshingActiveEditorPartListener(PUT_YOUR_COMMAND_ID_HERE);
  * </pre>
  * 
  * @author abachman
- *
+ * 
  */
 
 public class CommandRefreshingActiveEditorPartListener implements IPartListener2, IPageChangedListener {
 
 	private final String commandId;
-    private IEditorReference oldEditorPartReference;
+	private IEditorReference oldEditorPartReference;
 
-    public CommandRefreshingActiveEditorPartListener(String commandId) {
+	public CommandRefreshingActiveEditorPartListener(String commandId) {
 		this.commandId = commandId;
-    }
+	}
 
-    /*
-     * IPartListener2
-     */
+	/*
+	 * IPartListener2
+	 */
 
 	@Override
 	public void partActivated(IWorkbenchPartReference partReference) {
-	    if ((partReference instanceof IEditorReference) && (partReference != oldEditorPartReference)) {
-	    	if (oldEditorPartReference != null) {
-		    	IEditorPart oldEditor = oldEditorPartReference.getEditor(false);
-		    	if (oldEditor instanceof MultiPageEditorPart) {
+		if ((partReference instanceof IEditorReference) && (partReference != oldEditorPartReference)) {
+			if (oldEditorPartReference != null) {
+				IEditorPart oldEditor = oldEditorPartReference.getEditor(false);
+				if (oldEditor instanceof MultiPageEditorPart) {
 					MultiPageEditorPart multiPageEditorPart = (MultiPageEditorPart) oldEditor;
 					multiPageEditorPart.removePageChangedListener(this);
-		    	}
-	    	}
-	    	oldEditorPartReference = (IEditorReference) partReference;
+				}
+			}
+			oldEditorPartReference = (IEditorReference) partReference;
 			IEditorPart newEditor = refreshEditorCommand(oldEditorPartReference);
 			if (newEditor instanceof MultiPageEditorPart) {
 				MultiPageEditorPart multiPageEditorPart = (MultiPageEditorPart) newEditor;
 				multiPageEditorPart.addPageChangedListener(this);
 			}
-	    }
+		}
 	}
 
 	@Override
-	public void partBroughtToTop(IWorkbenchPartReference partRef) 	{ /* do nothing */ }
+	public void partBroughtToTop(IWorkbenchPartReference partRef) { /* do nothing */
+	}
+
 	@Override
-	public void partClosed(IWorkbenchPartReference partRef) 		{ /* do nothing */ }
+	public void partClosed(IWorkbenchPartReference partRef) { /* do nothing */
+	}
+
 	@Override
-	public void partDeactivated(IWorkbenchPartReference partRef) 	{ /* do nothing */ }
+	public void partDeactivated(IWorkbenchPartReference partRef) { /* do nothing */
+	}
+
 	@Override
-	public void partHidden(IWorkbenchPartReference partRef) 		{ /* do nothing */ }
+	public void partHidden(IWorkbenchPartReference partRef) { /* do nothing */
+	}
+
 	@Override
-	public void partInputChanged(IWorkbenchPartReference partRef) 	{ /* do nothing */ }
+	public void partInputChanged(IWorkbenchPartReference partRef) { /* do nothing */
+	}
+
 	@Override
-	public void partOpened(IWorkbenchPartReference partRef) 		{ /* do nothing */ }
+	public void partOpened(IWorkbenchPartReference partRef) { /* do nothing */
+	}
+
 	@Override
-	public void partVisible(IWorkbenchPartReference partRef) 		{ /* do nothing */ }
+	public void partVisible(IWorkbenchPartReference partRef) { /* do nothing */
+	}
 
 	/*
 	 * IPageChangedListener
 	 */
-	
+
 	@Override
 	public void pageChanged(PageChangedEvent event) {
 		refreshEditorCommand(oldEditorPartReference);
@@ -126,9 +141,9 @@ public class CommandRefreshingActiveEditorPartListener implements IPartListener2
 		IEditorPart newEditor = editorPartReference.getEditor(false);
 		if (newEditor != null) {
 			IEditorSite editorSite = newEditor.getEditorSite();
-			ICommandService commandService = (ICommandService)editorSite.getService(ICommandService.class);
+			ICommandService commandService = (ICommandService) editorSite.getService(ICommandService.class);
 			IWorkbenchWindow activeWindow = editorSite.getPage().getWorkbenchWindow();
-			Map refreshFilter = Collections.singletonMap(IServiceScopes.WINDOW_SCOPE, activeWindow);
+			Map<String, IWorkbenchWindow> refreshFilter = Collections.singletonMap(IServiceScopes.WINDOW_SCOPE, activeWindow);
 			commandService.refreshElements(commandId, refreshFilter);
 		}
 		return newEditor;
