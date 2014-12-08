@@ -1,5 +1,5 @@
 ## Scheduling and Planning Interface for Exploration
-The SPIFe user interface is designed to be a highly adaptable and user-customizable framework for viewing and manipulating plan and schedule data. In order to achieve this, SPIFe employs a composable plug-in architecture based on the open source Eclipse Rich Client Platform (RCP).
+The OpenSPIFe user interface is designed to be a highly adaptable and user-customizable framework for viewing and manipulating plan and schedule data. In order to achieve this, SPIFe employs a composable plug-in architecture based on the open source Eclipse Rich Client Platform (RCP).
 
 ## Target Platform
 Open SPIFe requires the Eclipse Rich Client Platform in order for it to run and includes third party software codes that are subject to the licenses and notices set forth below.
