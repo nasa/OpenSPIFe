@@ -58,6 +58,7 @@ public class RuleSetSelectorObservableValue extends AbstractObservableValue {
 	@Override
 	protected void doSetValue(Object value) {
 		if ((value == null) || (value instanceof List)) {
+			@SuppressWarnings("unchecked")
 			List<String> names = (List<String>)value;
 			Set<ERule> set = new LinkedHashSet<ERule>();
 			if (names != null) {
