@@ -63,10 +63,10 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="gov.nasa.ensemble.core.rcp.EnsembleApplication"
-            name="SPIFe">
+            name="OpenSPIFe">
          <property
                name="appName"
-               value="SPIFe">
+               value="OpenSPIFe">
          </property>
      	<property
            name="aboutText"

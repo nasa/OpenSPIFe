@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="SPIFe" uid="gov.nasa.arc.spife.rcp.SPIFe" id="gov.nasa.arc.spife.rcp.SPIFe" application="gov.nasa.ensemble.core.rcp.EnsembleApplication" version="1.0.0" useFeatures="true" includeLaunchers="true">
+<product name="OpenSPIFe" uid="gov.nasa.arc.spife.rcp.SPIFe" id="gov.nasa.arc.spife.rcp.SPIFe" application="gov.nasa.ensemble.core.rcp.EnsembleApplication" version="1.0.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/gov.nasa.arc.spife.rcp/icons/spife_128.png"/>
