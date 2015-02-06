@@ -88,10 +88,6 @@
             value="icons/spife_128.png">
       </property>
       <property
-              name="cssTheme"
-              value="org.eclipse.e4.ui.css.theme.e4_default">
-        </property>
-      <property
             name="windowImages"
             value="icons/spife_16.png,icons/spife_32.png,icons/spife_48.png,icons/spife_64.png,icons/spife_128.png">
       </property>
@@ -118,6 +114,7 @@
 	<viewShortcut id="gov.nasa.ensemble.core.plan.editor.view.template.TemplatePlanView"/>
 	<viewShortcut id="gov.nasa.ensemble.core.jscience.ui.profile.tree.ProfileTreeView"/>
 	<viewShortcut id="gov.nasa.ensemble.core.plan.resources.ui.view.InconsView"/>
+	<viewShortcut id="gov.nasa.ensemble.common.ui.detail.view.DetailView"/>
    <view
          closeable="false"
          id="gov.nasa.arc.spife.ui.navigator"
@@ -180,7 +177,6 @@
          ratio=".65"
          relationship="right"
          relative="org.eclipse.ui.editorss"
-         standalone="true"
          visible="true">
    </view>
    <!--
