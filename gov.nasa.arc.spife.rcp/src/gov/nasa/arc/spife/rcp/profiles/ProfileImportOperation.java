@@ -222,11 +222,11 @@ public class ProfileImportOperation extends AbstractTransactionUndoableOperation
 			if(importedProfiles != null) {
 				loadProfiles(new SubProgressMonitor(monitor, 90));
 			}
-			profilesFolder.refreshLocal(IResource.DEPTH_INFINITE, new SubProgressMonitor(monitor, 10));
+//			profilesFolder.refreshLocal(IResource.DEPTH_INFINITE, new SubProgressMonitor(monitor, 10));
 		} catch (InterruptedException e) {
 			LogUtil.error(e);
-		} catch (CoreException e) {
-			LogUtil.error(e);
+//		} catch (CoreException e) {
+//			LogUtil.error(e);
 		} finally {
 			monitor.done();
 		}
