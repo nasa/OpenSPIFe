@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: gov.nasa.ensemble.dictionary.presentation.DictionaryEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: gov.nasa.ensemble.dictionary.presentation
 Require-Bundle: gov.nasa.ensemble.common.ui;bundle-version="1.0.14",
  gov.nasa.ensemble.dictionary;visibility:=reexport,
