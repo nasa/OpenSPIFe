@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Dictionary Editor" uid="gov.nasa.ensemble.dictionary.Editor" id="gov.nasa.ensemble.dictionary.editor.ADEditor" application="gov.nasa.ensemble.dictionary.editor.DictionaryEditorAdvisorApplication" version="0.1.0" useFeatures="true" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="_feature_gov.nasa.arc.spife.dictionary.editor" version="1.0.0.qualifier"/>
+      <feature id="org.eclipse.rcp" version="4.3.2.v20140221-1700"/>
+      <feature id="org.eclipse.emf.ecore" version="2.9.2.v20131212-0545"/>
+      <feature id="org.eclipse.emf.common" version="2.9.2.v20131212-0545"/>
+      <feature id="org.eclipse.platform" version="4.3.2.v20140221-1852"/>
+   </features>
+
+
+</product>
