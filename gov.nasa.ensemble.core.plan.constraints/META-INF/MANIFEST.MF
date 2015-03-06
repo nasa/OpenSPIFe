@@ -20,5 +20,5 @@ Export-Package: gov.nasa.ensemble.core.plan.constraints,
  gov.nasa.ensemble.core.plan.constraints.ui.preference
 Eclipse-RegisterBuddy: gov.nasa.ensemble.core.plan.editor
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

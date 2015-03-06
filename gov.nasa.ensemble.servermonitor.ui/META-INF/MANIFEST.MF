@@ -9,6 +9,6 @@ Require-Bundle: org.eclipse.ui,
  gov.nasa.ensemble.common;bundle-version="1.0.15",
  gov.nasa.ensemble.common.ui;bundle-version="1.0.14"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.servermonitor.ui
 Bundle-Vendor: %providerName

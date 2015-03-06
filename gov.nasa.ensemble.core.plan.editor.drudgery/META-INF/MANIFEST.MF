@@ -10,7 +10,7 @@ Require-Bundle: gov.nasa.arc.spife.core.plan.editor.timeline;bundle-version="1.0
  gov.nasa.ensemble.core.plan.editor.constraints,
  org.eclipse.ui.ide
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName
 Export-Package: gov.nasa.ensemble.core.plan.editor.drudgery,
  gov.nasa.ensemble.core.plan.editor.drudgery.contributor

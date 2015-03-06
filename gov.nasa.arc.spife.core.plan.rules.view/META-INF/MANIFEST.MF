@@ -15,6 +15,6 @@ Require-Bundle: gov.nasa.ensemble.common.ui;bundle-version="1.0.14",
  org.eclipse.emf.databinding.edit;bundle-version="1.0.0",
  org.eclipse.help
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: gov.nasa.ensemble.core.model.plan.advisor.provider.detail
 Bundle-Vendor: %providerName

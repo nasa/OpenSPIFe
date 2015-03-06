@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: gov.nasa.ensemble.core.model.plan.provider.PlanningEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.core.model.plan.provider,
  gov.nasa.ensemble.core.model.plan.provider.detail
 Require-Bundle: gov.nasa.ensemble.common.ui;bundle-version="1.0.14";visibility:=reexport,

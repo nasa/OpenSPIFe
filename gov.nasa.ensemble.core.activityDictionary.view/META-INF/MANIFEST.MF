@@ -12,6 +12,6 @@ Require-Bundle: gov.nasa.ensemble.core.activityDictionary,
  gov.nasa.ensemble.common.ui,
  gov.nasa.ensemble.core.rcp;bundle-version="1.0.15"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName
 Import-Package: gov.nasa.ensemble.core.activityDictionary.view.transfer

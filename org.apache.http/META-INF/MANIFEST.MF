@@ -4,7 +4,7 @@ Bundle-Name: Apache HTTP
 Bundle-SymbolicName: org.apache.http
 Bundle-Version: 4.1.1
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ClassPath: commons-codec-1.4.jar,
  commons-logging-1.1.1.jar,
  httpclient-4.1.1.jar,

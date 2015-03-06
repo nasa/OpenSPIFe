@@ -26,4 +26,4 @@ Export-Package: org.simpleframework.http,
  redstone.xmlrpc.serializers.json,
  redstone.xmlrpc.simple,
  redstone.xmlrpc.util
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

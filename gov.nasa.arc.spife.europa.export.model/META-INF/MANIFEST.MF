@@ -10,7 +10,7 @@ Require-Bundle: gov.nasa.arc.spife.europa;bundle-version="1.0.0",
  gov.nasa.ensemble.core.model.plan.temporal;bundle-version="1.0.0",
  gov.nasa.ensemble.core.plan;bundle-version="1.0.9"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.arc.spife.europa.export.model,
  gov.nasa.arc.spife.europa.export.model.wizards
 Bundle-Vendor: %providerName

@@ -11,7 +11,7 @@ Require-Bundle: gov.nasa.ensemble.common;bundle-version="1.0.15",
  org.apache.log4j;bundle-version="[1.2.12,1.2.16)",
  org.junit;bundle-version="4.3.1"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.dictionary.nddl
 Bundle-Vendor: %providerName
 Bundle-ClassPath: lib/ST-4.0.5.jar,

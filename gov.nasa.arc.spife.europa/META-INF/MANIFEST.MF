@@ -18,6 +18,5 @@ Require-Bundle: gov.nasa.arc.spife.europa.clientside;bundle-version="1.0.0",
  gov.nasa.ensemble.core.plan.resources,
  gov.nasa.ensemble.dictionary.nddl;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: %providerName
 Bundle-ClassPath: .

@@ -39,4 +39,4 @@ Export-Package: javax.measure,
  org.opengis.spatialschema.geometry,
  org.opengis.spatialschema.geometry.geometry,
  org.opengis.util
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

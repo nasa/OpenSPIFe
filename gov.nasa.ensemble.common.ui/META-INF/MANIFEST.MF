@@ -38,5 +38,5 @@ Export-Package: gov.nasa.ensemble.common.ui,
  gov.nasa.ensemble.common.ui.workspace
 Eclipse-BuddyPolicy: registered
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

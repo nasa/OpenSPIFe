@@ -4,7 +4,7 @@ Bundle-Name: User Interface Plugin
 Bundle-SymbolicName: gov.nasa.arc.spife.ui;singleton:=true
 Bundle-ClassPath: .
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName
 Require-Bundle: gov.nasa.ensemble.core.plan.temporal;bundle-version="1.0.7",
  org.eclipse.ui.ide;bundle-version="3.6.0",

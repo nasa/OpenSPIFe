@@ -15,7 +15,7 @@ Require-Bundle: gov.nasa.ensemble.common,
  org.eclipse.nebula.widgets.cdatetime;bundle-version="0.14.0",
  gov.nasa.ensemble.emf;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.core.detail.emf,
  gov.nasa.ensemble.core.detail.emf.binding,
  gov.nasa.ensemble.core.detail.emf.multi,

@@ -24,5 +24,5 @@ Export-Package: gov.nasa.ensemble.core.plan.resources,
  gov.nasa.ensemble.core.plan.resources.profile.util,
  gov.nasa.ensemble.core.plan.resources.util
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

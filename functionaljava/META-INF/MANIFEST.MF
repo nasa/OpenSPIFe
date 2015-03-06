@@ -4,7 +4,7 @@ Bundle-Name: Functionaljava
 Bundle-SymbolicName: functionaljava
 Bundle-Version: 2.20
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: fj,
  fj.control.db,
  fj.control.parallel,
