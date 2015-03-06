@@ -21,7 +21,7 @@
 -Dosgi.configuration.area=@user.home/SPIFe-configuration
 -Dorg.eclipse.update.reconcile=false
 -Djava.util.Arrays.useLegacyMergeSort=true</vmArgs>
-      <vmArgsMac>-Djava.awt.headless=false -XstartOnFirstThread -d64
+      <vmArgsMac>-Djava.awt.headless=true -XstartOnFirstThread -d64
 -Dorg.eclipse.swt.internal.carbon.smallFonts
 -Dorg.eclipse.swt.internal.carbon.noFocusRing</vmArgsMac>
    </launcherArgs>
