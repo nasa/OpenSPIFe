@@ -23,7 +23,7 @@ Require-Bundle: gov.nasa.ensemble.common;bundle-version="1.0.15",
  org.eclipse.jface,
  org.eclipse.ui.ide
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.emf;uses:="org.eclipse.emf.ecore.resource,  junit.framework,  gov.nasa.ensemble.common,  org.junit",
  gov.nasa.ensemble.emf.constraint;uses:="junit.framework,org.junit",
  gov.nasa.ensemble.emf.model.common;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",

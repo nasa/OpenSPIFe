@@ -35,5 +35,5 @@ Eclipse-RegisterBuddy: gov.nasa.ensemble.common.ui
 Eclipse-BuddyPolicy: registered
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

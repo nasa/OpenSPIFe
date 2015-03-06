@@ -26,5 +26,5 @@ Require-Bundle: org.eclipse.ui,
  gov.nasa.arc.spife.ui.timeline.chart,
  gov.nasa.ensemble.core.detail.emf
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Localization: plugin

@@ -22,5 +22,5 @@ Export-Package: gov.nasa.ensemble.core.plan.editor.merge,
  gov.nasa.ensemble.core.plan.editor.merge.operations,
  gov.nasa.ensemble.core.plan.editor.merge.preferences
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

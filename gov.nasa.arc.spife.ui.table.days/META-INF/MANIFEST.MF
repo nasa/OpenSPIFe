@@ -12,5 +12,5 @@ Require-Bundle: gov.nasa.ensemble.core.activityDictionary,
 Export-Package: gov.nasa.arc.spife.ui.table.days,
  gov.nasa.arc.spife.ui.table.days.filter
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

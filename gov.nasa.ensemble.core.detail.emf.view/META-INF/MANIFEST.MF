@@ -10,6 +10,6 @@ Require-Bundle: org.eclipse.emf.edit.ui;bundle-version="2.4.0",
  gov.nasa.ensemble.core.detail.emf;bundle-version="1.0.0",
  gov.nasa.ensemble.emf;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.core.detail.emf.view
 Bundle-Vendor: %providerName

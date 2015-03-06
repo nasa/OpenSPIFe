@@ -16,7 +16,7 @@ Require-Bundle: gov.nasa.ensemble.common;bundle-version="1.0.15",
  org.eclipse.ui,
  org.eclipse.ui.navigator;bundle-version="3.3.100"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.core.jscience.ui,
  gov.nasa.ensemble.core.jscience.ui.dnd,
  gov.nasa.ensemble.core.jscience.ui.profile.tree

@@ -5,7 +5,7 @@ Bundle-SymbolicName: gov.nasa.ensemble.core.model.common;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.core.model.common,
  gov.nasa.ensemble.core.model.common.transactions,
  gov.nasa.ensemble.core.model.common.util

@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.core.commands;bundle-version="3.6.0",
  gov.nasa.ensemble.core.activityDictionary,
  gov.nasa.ensemble.core.model.plan.constraints;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.core.model.plan.diff.api,
  gov.nasa.ensemble.core.model.plan.diff.impl,
  gov.nasa.ensemble.core.model.plan.diff.test,

@@ -13,5 +13,5 @@ Export-Package: gov.nasa.ensemble.core.plan.advisor,
  gov.nasa.ensemble.core.plan.advisor.markers,
  gov.nasa.ensemble.core.plan.advisor.preferences
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

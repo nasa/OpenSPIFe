@@ -8,7 +8,7 @@ Require-Bundle: gov.nasa.ensemble.common;bundle-version="1.0.15",
  org.eclipse.core.runtime,
  org.mozilla.rhino;bundle-version="1.7.1";visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.javascript.rhino
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName

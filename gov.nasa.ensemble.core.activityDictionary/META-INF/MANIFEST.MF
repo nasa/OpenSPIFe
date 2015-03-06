@@ -15,5 +15,5 @@ Require-Bundle: gov.nasa.ensemble.common;visibility:=reexport,
  gov.nasa.ensemble.emf,
  org.eclipse.ui;bundle-version="3.7.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: gov.nasa.arc.spife.core.plan.resources.editor.timeline.TimelinePlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.arc.spife.core.plan.resources.editor.timeline
 Require-Bundle: gov.nasa.arc.spife.core.plan.editor.timeline;bundle-version="1.0.0",
  gov.nasa.arc.spife.ui.timeline;bundle-version="1.0.0",

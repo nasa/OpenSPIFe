@@ -5,7 +5,7 @@ Bundle-SymbolicName: gov.nasa.arc.spife.ui.timeline.chart;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Localization: plugin
 Export-Package: gov.nasa.arc.spife.ui.timeline.chart,
  gov.nasa.arc.spife.ui.timeline.chart.figure,

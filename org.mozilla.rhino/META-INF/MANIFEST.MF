@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ClassPath: lib/js.jar
 Bundle-Vendor: Mozilla
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Name: Rhino 1.7R4
 Bundle-SymbolicName: org.mozilla.rhino
 Bundle-Version: 1.7.4

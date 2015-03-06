@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: gov.nasa.ensemble.core.model.plan.activityDictionary.provider.ActivityDictionaryPlanningEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.core.model.plan.activityDictionary,
  gov.nasa.ensemble.core.model.plan.activityDictionary.impl,
  gov.nasa.ensemble.core.model.plan.activityDictionary.provider,

@@ -13,5 +13,5 @@ Require-Bundle: org.eclipse.ui,
  gov.nasa.ensemble.core.plan.editor;visibility:=reexport
 Export-Package: gov.nasa.ensemble.core.plan.editor.constraints
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

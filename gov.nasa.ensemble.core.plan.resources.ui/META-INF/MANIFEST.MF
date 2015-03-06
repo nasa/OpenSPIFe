@@ -19,7 +19,7 @@ Require-Bundle: gov.nasa.ensemble.common.ui;bundle-version="1.0.14",
  gov.nasa.ensemble.core.plan.resources;bundle-version="1.0.8",
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.core.plan.resources.ui.constraint,
  gov.nasa.ensemble.core.plan.resources.ui.view,
  gov.nasa.ensemble.core.plan.resources.ui.wizard

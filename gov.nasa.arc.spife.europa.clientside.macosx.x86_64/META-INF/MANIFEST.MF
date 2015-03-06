@@ -4,5 +4,5 @@ Bundle-Name: X86_64
 Bundle-SymbolicName: gov.nasa.arc.spife.europa.clientside.macosx.x86_64
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: gov.nasa.arc.spife.europa.clientside;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Eclipse-PlatformFilter: (& (osgi.os=macosx) (osgi.arch=x86_64))

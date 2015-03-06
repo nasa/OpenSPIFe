@@ -16,5 +16,5 @@ Require-Bundle: gov.nasa.ensemble.core.activityDictionary,
  gov.nasa.ensemble.core.model.plan.translator;bundle-version="1.0.0";visibility:=reexport
 Eclipse-RegisterBuddy: gov.nasa.ensemble.common.ui
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

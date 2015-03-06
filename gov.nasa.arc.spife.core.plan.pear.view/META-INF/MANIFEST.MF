@@ -17,4 +17,4 @@ Require-Bundle: org.eclipse.ui,
  gov.nasa.arc.spife.ui.timeline;bundle-version="1.0.0",
  gov.nasa.arc.spife.ui.timeline.chart;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
