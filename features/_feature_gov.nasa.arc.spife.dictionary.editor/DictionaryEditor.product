@@ -3,19 +3,33 @@
 
 <product name="Dictionary Editor" uid="gov.nasa.ensemble.dictionary.Editor" id="gov.nasa.ensemble.dictionary.editor.ADEditor" application="gov.nasa.ensemble.dictionary.editor.DictionaryEditorAdvisorApplication" version="0.1.0" useFeatures="true" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+      <programArgs>-clean -consoleLog -nl en_US_Score</programArgs>
+      <vmArgs>-Xmx690m -Xms256m -XX:MaxPermSize=512M
+-Dcom.sun.media.imageio.disableCodecLib=true
+-Dosgi.instance.area.default=@user.home/SPIFe-workspace
+-Dosgi.configuration.area=@user.home/SPIFe-configuration
+-Dorg.eclipse.update.reconcile=false
+-Djava.util.Arrays.useLegacyMergeSort=true</vmArgs>
+      <vmArgsMac>-Djava.awt.headless=false -XstartOnFirstThread -d64
+-Dorg.eclipse.swt.internal.carbon.smallFonts
+-Dorg.eclipse.swt.internal.carbon.noFocusRing</vmArgsMac>
    </launcherArgs>
 
-   <launcher>
+   <windowImages/>
+
+
+   <launcher name="eADEditor">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
    </vm>
