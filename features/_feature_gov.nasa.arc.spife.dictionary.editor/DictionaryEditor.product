@@ -10,8 +10,8 @@
       <programArgs>-clean -consoleLog -nl en_US_Score</programArgs>
       <vmArgs>-Xmx690m -Xms256m -XX:MaxPermSize=512M
 -Dcom.sun.media.imageio.disableCodecLib=true
--Dosgi.instance.area.default=@user.home/SPIFe-workspace
--Dosgi.configuration.area=@user.home/SPIFe-configuration
+-Dosgi.instance.area.default=@user.home/eADEditor-workspace
+-Dosgi.configuration.area=@user.home/eADEditor-configuration
 -Dorg.eclipse.update.reconcile=false
 -Djava.util.Arrays.useLegacyMergeSort=true</vmArgs>
       <vmArgsMac>-Djava.awt.headless=false -XstartOnFirstThread -d64
