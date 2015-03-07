@@ -35,6 +35,7 @@
    </plugins>
 
    <features>
+      <feature id="_feature_gov.nasa.ensemble.core.detail.emf" version="1.0.0.qualifier"/>
       <feature id="_feature_gov.nasa.arc.spife.dictionary.editor" version="1.0.0.qualifier"/>
       <feature id="org.eclipse.rcp" version="4.3.2.v20140221-1700"/>
       <feature id="org.eclipse.platform" version="4.3.2.v20140221-1852"/>

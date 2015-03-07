@@ -16,10 +16,6 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="_feature_gov.nasa.ensemble.core.detail.emf"
-         version="0.0.0"/>
-
    <plugin
          id="gov.nasa.ensemble.core.jscience"
          download-size="0"
@@ -63,13 +59,6 @@
 
    <plugin
          id="org.apache.commons.codec"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.commons.httpclient"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -415,13 +404,6 @@
 
    <plugin
          id="org.eclipse.emf.databinding"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.w3c.dom.events"
          download-size="0"
          install-size="0"
          version="0.0.0"
