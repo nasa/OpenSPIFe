@@ -1733,13 +1733,13 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * @generated
 	 */
 	protected void createDescriptorAnnotations() {
-		String source = "descriptor";		
+		String source = "descriptor";	
 		addAnnotation
 		  (getEActivityDef_Category(), 
 		   source, 
 		   new String[] {
 			 "editable", "false"
-		   });			
+		   });
 	}
 
 	/**
@@ -1749,19 +1749,19 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 	 * @generated
 	 */
 	protected void createDetailAnnotations() {
-		String source = "detail";			
+		String source = "detail";	
 		addAnnotation
 		  (getEActivityDef_NumericEffects(), 
 		   source, 
 		   new String[] {
 			 "inspectReference", "true"
-		   });		
+		   });	
 		addAnnotation
 		  (getEActivityDef_StateEffects(), 
 		   source, 
 		   new String[] {
 			 "inspectReference", "true"
-		   });		
+		   });	
 		addAnnotation
 		  (getEClaimableEffect_Definition(), 
 		   source, 
