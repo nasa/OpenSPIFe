@@ -78,9 +78,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="EClaimableResourceDef" eSuperTypes="#//EExtendedNumericResourceDef #//RuleResourceDef"/>
   <eClassifiers xsi:type="ecore:EClass" name="EClaimableEffect">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//EClaimableResourceDef">
-      <eAnnotations source="detail">
-        <details key="hidden" value="true"/>
-      </eAnnotations>
+      <eAnnotations source="detail"/>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Effect">
       <eTypeArguments eClassifier="#//EClaimableResourceDef"/>
