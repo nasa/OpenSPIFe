@@ -1762,12 +1762,6 @@ public class DictionaryPackageImpl extends EPackageImpl implements DictionaryPac
 		   new String[] {
 			 "inspectReference", "true"
 		   });	
-		addAnnotation
-		  (getEClaimableEffect_Definition(), 
-		   source, 
-		   new String[] {
-			 "hidden", "true"
-		   });
 	}
 
 } //DictionaryPackageImpl

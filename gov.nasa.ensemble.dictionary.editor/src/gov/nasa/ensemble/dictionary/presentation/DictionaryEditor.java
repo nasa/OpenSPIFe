@@ -1,9 +1,20 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
+/*******************************************************************************
+ * Copyright 2014 United States Government as represented by the
+ * Administrator of the National Aeronautics and Space Administration.
+ * All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 package gov.nasa.ensemble.dictionary.presentation;
 
 
@@ -552,11 +563,13 @@ public class DictionaryEditor
 	 * This is here for the listener to be able to call it.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 			@Override
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
+		if (selectionViewer != null)
+			selectionViewer.refresh();
 	}
 
 	/**
@@ -815,7 +828,8 @@ public class DictionaryEditor
 
 			selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 			selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-			selectionViewer.setInput(editingDomain.getResourceSet());
+			selectionViewer.setInput(editingDomain.getResourceSet().getResources().get(0));
+			selectionViewer.expandToLevel(2);
 			selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 
 			new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);

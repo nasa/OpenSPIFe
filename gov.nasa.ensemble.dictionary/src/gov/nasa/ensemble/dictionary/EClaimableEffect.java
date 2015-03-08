@@ -53,7 +53,7 @@ public interface EClaimableEffect extends Effect<EClaimableResourceDef> {
 	 * @return the value of the '<em>Definition</em>' reference.
 	 * @see #setDefinition(EClaimableResourceDef)
 	 * @see gov.nasa.ensemble.dictionary.DictionaryPackage#getEClaimableEffect_Definition()
-	 * @model annotation="detail hidden='true'"
+	 * @model
 	 * @generated
 	 */
 	@Override
