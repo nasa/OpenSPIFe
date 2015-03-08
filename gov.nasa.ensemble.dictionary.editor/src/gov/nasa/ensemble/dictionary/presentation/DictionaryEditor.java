@@ -565,7 +565,7 @@ public class DictionaryEditor
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-			@Override
+	@Override
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
 		if (selectionViewer != null)
