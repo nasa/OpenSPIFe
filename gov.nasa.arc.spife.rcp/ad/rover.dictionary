@@ -36,7 +36,7 @@
       </eAnnotations>
       <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="50.0" units="watts">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="50.0" units="W">
       <eAnnotations source="detail">
         <details key="shortDescription" value="watts"/>
       </eAnnotations>
@@ -45,8 +45,8 @@
       </eAnnotations>
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eStructuralFeatures>
-    <stateRequirements definition="//arm_state" requiredState="stowed"/>
     <numericEffects startEffect="" endEffect="((this_pow * this_dur) / 3600)" definition="//Energy_Consumed"/>
+    <stateRequirements definition="//arm_state" requiredState="stowed"/>
   </eClassifiers>
   <eClassifiers xsi:type="dict:EActivityDef" name="image" eSuperTypes="//MSL__BaseClass" category="ROVER_PANCAM" duration="this_dur">
     <eAnnotations source="descriptor">
@@ -62,7 +62,7 @@
       </eAnnotations>
       <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="50.0" units="watts">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="50.0" units="W">
       <eAnnotations source="detail">
         <details key="shortDescription" value="watts"/>
       </eAnnotations>
@@ -71,54 +71,54 @@
       </eAnnotations>
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eStructuralFeatures>
-     <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="use_eyeL" defaultValueLiteral="true" units="">
-       <eAnnotations source="detail">
-         <details key="shortDescription" value=""/>
-       </eAnnotations>
-       <eAnnotations source="hibernate">
-         <details key="parameterName" value="use_eyeL"/>
-       </eAnnotations>
-       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-     </eStructuralFeatures>
-     <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="eyeL_usage" derived="true">
-       <eAnnotations source="detail">
-         <details key="shortDescription" value=""/>
-       </eAnnotations>
-       <eAnnotations source="descriptor">
-         <details key="visible" value="false"/>
-       </eAnnotations>
-       <eAnnotations source="hibernate">
-         <details key="parameterName" value="eyeL_usage"/>
-       </eAnnotations>
-       <eAnnotations source="resource">
-         <details key="formula" value="use_eyeL == true ? 1.0 : 0.0"/>
-       </eAnnotations>
-       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-     </eStructuralFeatures>
-     <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="use_eyeR" defaultValueLiteral="true" units="">
-       <eAnnotations source="detail">
-         <details key="shortDescription" value=""/>
-       </eAnnotations>
-       <eAnnotations source="hibernate">
-         <details key="parameterName" value="use_eyeR"/>
-       </eAnnotations>
-       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-     </eStructuralFeatures>
-     <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="eyeR_usage" derived="true">
-       <eAnnotations source="detail">
-         <details key="shortDescription" value=""/>
-       </eAnnotations>
-       <eAnnotations source="descriptor">
-         <details key="visible" value="false"/>
-       </eAnnotations>
-       <eAnnotations source="hibernate">
-         <details key="parameterName" value="eyeR_usage"/>
-       </eAnnotations>
-       <eAnnotations source="resource">
-         <details key="formula" value="use_eyeR == true ? 1.0 : 0.0"/>
-       </eAnnotations>
-       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="use_eyeL" defaultValueLiteral="true" units="">
+      <eAnnotations source="detail">
+        <details key="shortDescription" value=""/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="use_eyeL"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="eyeL_usage" derived="true">
+      <eAnnotations source="detail">
+        <details key="shortDescription" value=""/>
+      </eAnnotations>
+      <eAnnotations source="descriptor">
+        <details key="visible" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="eyeL_usage"/>
+      </eAnnotations>
+      <eAnnotations source="resource">
+        <details key="formula" value="use_eyeL == true ? 1.0 : 0.0"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="use_eyeR" defaultValueLiteral="true" units="">
+      <eAnnotations source="detail">
+        <details key="shortDescription" value=""/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="use_eyeR"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="eyeR_usage" derived="true">
+      <eAnnotations source="detail">
+        <details key="shortDescription" value=""/>
+      </eAnnotations>
+      <eAnnotations source="descriptor">
+        <details key="visible" value="false"/>
+      </eAnnotations>
+      <eAnnotations source="hibernate">
+        <details key="parameterName" value="eyeR_usage"/>
+      </eAnnotations>
+      <eAnnotations source="resource">
+        <details key="formula" value="use_eyeR == true ? 1.0 : 0.0"/>
+      </eAnnotations>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
     <numericEffects startEffect="" endEffect="((this_pow * this_dur) / 3600)" definition="//Energy_Consumed"/>
     <numericEffects startEffect="- eyeL_usage" endEffect="eyeL_usage" definition="//eyeL"/>
     <numericEffects startEffect="- eyeR_usage" endEffect="eyeR_usage" definition="//eyeR"/>
@@ -137,7 +137,7 @@
       </eAnnotations>
       <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="5.0" units="watts">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="5.0" units="W">
       <eAnnotations source="detail">
         <details key="shortDescription" value="watts"/>
       </eAnnotations>
@@ -147,8 +147,8 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eStructuralFeatures>
     <claimableEffects definition="//arm"/>
-    <stateRequirements definition="//arm_state" requiredState="unstowed"/>
     <numericEffects startEffect="" endEffect="((this_pow * this_dur) / 3600)" definition="//Energy_Consumed"/>
+    <stateRequirements definition="//arm_state" requiredState="unstowed"/>
   </eClassifiers>
   <eClassifiers xsi:type="dict:EActivityDef" name="micro_imager" eSuperTypes="//MSL__BaseClass" category="ROVER_ARM" duration="this_dur">
     <eAnnotations source="descriptor">
@@ -164,7 +164,7 @@
       </eAnnotations>
       <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="5.0" units="watts">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="5.0" units="W">
       <eAnnotations source="detail">
         <details key="shortDescription" value="watts"/>
       </eAnnotations>
@@ -174,13 +174,16 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eStructuralFeatures>
     <claimableEffects definition="//arm"/>
-    <stateRequirements definition="//arm_state" requiredState="unstowed"/>
     <numericEffects startEffect="" endEffect="((this_pow * this_dur) / 3600)" definition="//Energy_Consumed"/>
+    <stateRequirements definition="//arm_state" requiredState="unstowed"/>
   </eClassifiers>
   <eClassifiers xsi:type="dict:EActivityDef" name="stow" eSuperTypes="//MSL__BaseClass" category="ROVER_ARM" duration="this_dur">
     <eAnnotations source="descriptor">
       <details key="hidden" value="name,category,Computed_Duration"/>
       <details key="displayName" value="stow"/>
+    </eAnnotations>
+    <eAnnotations source="override">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="ff0000"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_dur" defaultValueLiteral="0:15:00" units="s">
       <eAnnotations source="detail">
@@ -191,7 +194,7 @@
       </eAnnotations>
       <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="10.0" units="watts">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="10.0" units="W">
       <eAnnotations source="detail">
         <details key="shortDescription" value="watts"/>
       </eAnnotations>
@@ -201,8 +204,8 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eStructuralFeatures>
     <claimableEffects definition="//arm"/>
-    <stateEffects startEffect="stowing" endEffect="stowed" definition="//arm_state"/>
     <numericEffects startEffect="" endEffect="((this_pow * this_dur) / 3600)" definition="//Energy_Consumed"/>
+    <stateEffects startEffect="stowing" endEffect="stowed" definition="//arm_state"/>
   </eClassifiers>
   <eClassifiers xsi:type="dict:EActivityDef" name="unstow" eSuperTypes="//MSL__BaseClass" category="ROVER_ARM" duration="this_dur">
     <eAnnotations source="descriptor">
@@ -218,7 +221,7 @@
       </eAnnotations>
       <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="10.0" units="watts">
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="this_pow" defaultValueLiteral="10.0" units="W">
       <eAnnotations source="detail">
         <details key="shortDescription" value="watts"/>
       </eAnnotations>
@@ -228,35 +231,30 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eStructuralFeatures>
     <claimableEffects definition="//arm"/>
-    <stateEffects startEffect="unstowing" endEffect="unstowed" definition="//arm_state"/>
     <numericEffects startEffect="" endEffect="((this_pow * this_dur) / 3600)" definition="//Energy_Consumed"/>
+    <stateEffects startEffect="unstowing" endEffect="unstowed" definition="//arm_state"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MSL__BaseClass"/>
-  <extendedDefinitions xsi:type="dict:ENumericResourceDef"
-    name="Energy_Consumed" defaultValueLiteral="0.0" units="J" minimum="0.0">
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Energy_Consumed" defaultValueLiteral="0.0" units="J" minimum="0.0">
     <eAnnotations source="detail">
       <details key="shortDescription" value="joules"/>
     </eAnnotations>
-    <eType xsi:type="ecore:EDataType"
-     href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
   </extendedDefinitions>
   <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="eyeL" defaultValueLiteral="1" category="CondClaims" units="" minimum="0.0">
-    <eType xsi:type="ecore:EDataType"
-      href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
     <eAnnotations source="detail">
       <details key="shortDescription" value=""/>
     </eAnnotations>
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
   </extendedDefinitions>
   <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="eyeR" defaultValueLiteral="1" category="CondClaims" units="" minimum="0.0">
-    <eType xsi:type="ecore:EDataType"
-      href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
     <eAnnotations source="detail">
       <details key="shortDescription" value=""/>
     </eAnnotations>
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
   </extendedDefinitions>
   <extendedDefinitions xsi:type="dict:EClaimableResourceDef" name="arm" category="Claimable" units="">
-    <eType xsi:type="ecore:EDataType"
-      href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
   </extendedDefinitions>
   <extendedDefinitions xsi:type="dict:EStateResourceDef" name="arm_state" enumeration="//arm_state_Type">
     <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -266,4 +264,3 @@
     <allowedStates>unstowed</allowedStates>
   </extendedDefinitions>
 </dict:EActivityDictionary>
-
