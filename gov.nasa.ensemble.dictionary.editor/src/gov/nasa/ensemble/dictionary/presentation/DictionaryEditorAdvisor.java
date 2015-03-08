@@ -207,7 +207,7 @@ public final class DictionaryEditorAdvisor extends WorkbenchAdvisor {
 		@Override
 		public void preWindowOpen() {
 			IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-			configurer.setInitialSize(new Point(600, 450));
+			configurer.setInitialSize(new Point(1024, 768));
 			configurer.setShowCoolBar(false);
 			configurer.setShowStatusLine(true);
 			configurer.setTitle(getString("_UI_Application_title"));

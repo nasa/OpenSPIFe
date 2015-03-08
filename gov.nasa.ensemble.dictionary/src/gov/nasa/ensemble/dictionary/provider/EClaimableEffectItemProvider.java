@@ -219,7 +219,7 @@ public class EClaimableEffectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return DictionaryUtil.getEffectString((Effect) object);
+		return DictionaryUtil.getEffectString((Effect<?>) object);
 	}
 
 	/**
