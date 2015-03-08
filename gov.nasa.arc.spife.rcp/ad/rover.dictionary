@@ -259,6 +259,7 @@
       href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
   </extendedDefinitions>
   <extendedDefinitions xsi:type="dict:EStateResourceDef" name="arm_state" enumeration="//arm_state_Type">
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <allowedStates>stowed</allowedStates>
     <allowedStates>unstowing</allowedStates>
     <allowedStates>stowing</allowedStates>
