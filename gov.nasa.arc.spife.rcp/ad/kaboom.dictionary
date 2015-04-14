@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dict:EActivityDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dict="platform:/resource/gov.nasa.ensemble.dictionary/model/Dictionary.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="KaBOOM_Demo" nsURI="http://KaBOOM_Demo.nasa.gov/" nsPrefix="KaBOOM" author="John Bresina" date="03/2015" version="KaBOOM_draft2">
+  <eClassifiers xsi:type="dict:EActivityDef" name="OBS_MONOSTATIC_ANT1" category="KSC_ANTENNA1" duration="repetition * (transmit_dur + switch_dur + receive_dur)">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="ffcc66"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_power" defaultValueLiteral="5.0" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_dur" defaultValueLiteral="0:0:10" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_dur" defaultValueLiteral="0:0:10" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="switch_dur" defaultValueLiteral="0:0:03" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="repetition" defaultValueLiteral="50">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="target" defaultValueLiteral="AZ43">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="AZ43"/>
+      <choices value="RQ25"/>
+      <choices value="EK24"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="band" defaultValueLiteral="Ka">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="Ka"/>
+      <choices value="X"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna1"/>
+    <numericEffects startEffect="" endEffect="(((transmit_power * transmit_dur)  + (receive_power * receive_dur)) * repetition) / 3600" definition="//Energy_Consumed"/>
+    <numericRequirements expression="if (target == &quot;AZ43&quot;) {if (plan[&quot;AZ43_window&quot;]) {true;} else &quot;AZ43 not in view&quot;;} else if (target == &quot;EK24&quot;) {if (plan[&quot;EK24_window&quot;]) {true;} else &quot;EK24 not in view&quot;;}  else if (target == &quot;RQ25&quot;) {if (plan[&quot;RQ25_window&quot;]) {true;} else &quot;RQ25 not in view&quot;;} else &quot;Target is invalid&quot;;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="OBS_MONOSTATIC_ANT2" category="KSC_ANTENNA2" duration="repetition * (transmit_dur + switch_dur + receive_dur)">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="ffcc66"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_power" defaultValueLiteral="5.0" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_dur" defaultValueLiteral="0:0:10" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_dur" defaultValueLiteral="0:0:10" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="switch_dur" defaultValueLiteral="0:0:03" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="repetition" defaultValueLiteral="50">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="target" defaultValueLiteral="AZ43">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="AZ43"/>
+      <choices value="RQ25"/>
+      <choices value="EK24"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="band" defaultValueLiteral="Ka">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="Ka"/>
+      <choices value="X"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna2"/>
+    <numericEffects startEffect="" endEffect="(((transmit_power * transmit_dur)  + (receive_power * receive_dur)) * repetition) / 3600" definition="//Energy_Consumed"/>
+    <numericRequirements expression="if (target == &quot;AZ43&quot;) {if (plan[&quot;AZ43_window&quot;]) {true;} else &quot;AZ43 not in view&quot;;} else if (target == &quot;EK24&quot;) {if (plan[&quot;EK24_window&quot;]) {true;} else &quot;EK24 not in view&quot;;}  else if (target == &quot;RQ25&quot;) {if (plan[&quot;RQ25_window&quot;]) {true;} else &quot;RQ25 not in view&quot;;} else &quot;Target is invalid&quot;;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="OBS_MONOSTATIC_ANT3" category="KSC_ANTENNA3" duration="repetition * (transmit_dur + switch_dur + receive_dur)">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="ffcc66"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_power" defaultValueLiteral="5.0" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_dur" defaultValueLiteral="0:0:10" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_dur" defaultValueLiteral="0:0:10" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="switch_dur" defaultValueLiteral="0:0:03" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="repetition" defaultValueLiteral="50">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="target" defaultValueLiteral="AZ43">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="AZ43"/>
+      <choices value="RQ25"/>
+      <choices value="EK24"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="band" defaultValueLiteral="Ka">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="Ka"/>
+      <choices value="X"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna3"/>
+    <numericEffects startEffect="" endEffect="(((transmit_power * transmit_dur)  + (receive_power * receive_dur)) * repetition) / 3600" definition="//Energy_Consumed"/>
+    <numericRequirements expression="if (target == &quot;AZ43&quot;) {if (plan[&quot;AZ43_window&quot;]) {true;} else {&quot;AZ43 not in view&quot;;}} else if (target == &quot;EK24&quot;) {if (plan[&quot;EK24_window&quot;]) {true;} else {&quot;EK24 not in view&quot;;}}  else if (target == &quot;RQ25&quot;) {if (plan[&quot;RQ25_window&quot;]) {true;} else {&quot;RQ25 not in view&quot;;}} else {&quot;Target is invalid&quot;;}"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="UNWRAP_ANT1" category="KSC_ANTENNA1" duration="unwrap_dur">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="4c4c4c"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="unwrap_dur" defaultValueLiteral="0:5:00" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="direction" defaultValueLiteral="clockwise">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="clockwise"/>
+      <choices value="counterclockwise"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna1"/>
+    <numericEffects startEffect="" endEffect="(unwrap_dur * power) /3600" definition="//Energy_Consumed"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="UNWRAP_ANT2" category="KSC_ANTENNA2" duration="unwrap_dur">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="4c4c4c"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="unwrap_dur" defaultValueLiteral="0:5:00" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="direction" defaultValueLiteral="clockwise">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="clockwise"/>
+      <choices value="counterclockwise"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna2"/>
+    <numericEffects startEffect="" endEffect="(unwrap_dur * power) /3600" definition="//Energy_Consumed"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="UNWRAP_ANT3" category="KSC_ANTENNA3" duration="unwrap_dur">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="4c4c4c"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="unwrap_dur" defaultValueLiteral="0:5:00" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="direction" defaultValueLiteral="clockwise">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="clockwise"/>
+      <choices value="counterclockwise"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna3"/>
+    <numericEffects startEffect="" endEffect="(unwrap_dur * power) /3600" definition="//Energy_Consumed"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="OBS_BISTATIC_ANT1" category="KSC_ANTENNA1" duration="obs_dur">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="66ccff"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="obs_dur" defaultValueLiteral="0:30:00" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_power" defaultValueLiteral="5.0" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="antenna_type" defaultValueLiteral="comm">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="comm"/>
+      <choices value="radar"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="band" defaultValueLiteral="Ka">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="Ka"/>
+      <choices value="X"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="mode" defaultValueLiteral="receive">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="receive"/>
+      <choices value="transmit"/>
+      <choices value="transmit_receive"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="target" defaultValueLiteral="AZ43">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="AZ43"/>
+      <choices value="RQ25"/>
+      <choices value="EK24"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna1"/>
+    <numericEffects startEffect="" endEffect="((mode != &quot;receive&quot;) ? ( (obs_dur * transmit_power) / 3600) : ((receive_power * obs_dur) / 3600))" definition="//Energy_Consumed"/>
+    <numericRequirements expression="if (target == &quot;AZ43&quot;) {if (plan[&quot;AZ43_window&quot;]) {true;} else &quot;AZ43 not in view&quot;;} else if (target == &quot;EK24&quot;) {if (plan[&quot;EK24_window&quot;]) {true;} else &quot;EK24 not in view&quot;;}  else if (target == &quot;RQ25&quot;) {if (plan[&quot;RQ25_window&quot;]) {true;} else &quot;RQ25 not in view&quot;;} else &quot;Target is invalid&quot;;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="OBS_BISTATIC_ANT2" category="KSC_ANTENNA2" duration="obs_dur">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="66ccff"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="obs_dur" defaultValueLiteral="0:30:00" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_power" defaultValueLiteral="5.0" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="antenna_type" defaultValueLiteral="comm">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="comm"/>
+      <choices value="transmit"/>
+      <choices value="receive"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="band" defaultValueLiteral="Ka">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="Ka"/>
+      <choices value="X"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="mode" defaultValueLiteral="receive">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="receive"/>
+      <choices value="transmit"/>
+      <choices value="transmit_receive"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="target" defaultValueLiteral="AZ43">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="AZ43"/>
+      <choices value="RQ25"/>
+      <choices value="EK24"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna2"/>
+    <numericEffects startEffect="" endEffect="((mode != &quot;receive&quot;) ? ( (obs_dur * transmit_power) / 3600) : ((receive_power * obs_dur) / 3600))" definition="//Energy_Consumed"/>
+    <numericRequirements expression="if (target == &quot;AZ43&quot;) {if (plan[&quot;AZ43_window&quot;]) {true;} else &quot;AZ43 not in view&quot;;} else if (target == &quot;EK24&quot;) {if (plan[&quot;EK24_window&quot;]) {true;} else &quot;EK24 not in view&quot;;}  else if (target == &quot;RQ25&quot;) {if (plan[&quot;RQ25_window&quot;]) {true;} else &quot;RQ25 not in view&quot;;} else &quot;Target is invalid&quot;;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="dict:EActivityDef" name="OBS_BISTATIC_ANT3" category="KSC_ANTENNA3" duration="obs_dur">
+    <eAnnotations source="override" references="//OBS_MONOSTATIC_ANT1">
+      <details key="gov.nasa.ensemble.core.model.plan.common:color" value="66ccff"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="obs_dur" defaultValueLiteral="0:30:00" units="s">
+      <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EDuration"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="transmit_power" defaultValueLiteral="5.0" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="receive_power" defaultValueLiteral="0.5" units="W">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="antenna_type" defaultValueLiteral="comm">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="comm"/>
+      <choices value="transmit"/>
+      <choices value="receive"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="band" defaultValueLiteral="Ka">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="Ka"/>
+      <choices value="X"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="mode" defaultValueLiteral="receive">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="receive"/>
+      <choices value="transmit"/>
+      <choices value="transmit_receive"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="dict:EAttributeParameter" name="target" defaultValueLiteral="AZ43">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <choices value="AZ43"/>
+      <choices value="RQ25"/>
+      <choices value="EK24"/>
+    </eStructuralFeatures>
+    <claimableEffects definition="//Antenna3"/>
+    <numericEffects startEffect="" endEffect="((mode != &quot;receive&quot;) ? ( (obs_dur * transmit_power) / 3600) : ((receive_power * obs_dur) / 3600))" definition="//Energy_Consumed"/>
+    <numericRequirements expression="if (target == &quot;AZ43&quot;) {if (plan[&quot;AZ43_window&quot;]) {true;} else &quot;AZ43 not in view&quot;;} else if (target == &quot;EK24&quot;) {if (plan[&quot;EK24_window&quot;]) {true;} else &quot;EK24 not in view&quot;;}  else if (target == &quot;RQ25&quot;) {if (plan[&quot;RQ25_window&quot;]) {true;} else &quot;RQ25 not in view&quot;;} else &quot;Target is invalid&quot;;"/>
+  </eClassifiers>
+  <extendedDefinitions xsi:type="dict:ENumericResourceDef" name="Energy_Consumed" defaultValueLiteral="0.0" category="Numeric Resources" units="W&#xb7;h" minimum="0.0">
+    <eAnnotations source="detail">
+      <details key="shortDescription" value="joules"/>
+    </eAnnotations>
+    <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:EClaimableResourceDef" name="Antenna1" category="Claimable" units="">
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:EClaimableResourceDef" name="Antenna2" category="Claimable" units="">
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
+  </extendedDefinitions>
+  <extendedDefinitions xsi:type="dict:EClaimableResourceDef" name="Antenna3" category="Claimable" units="">
+    <eType xsi:type="ecore:EDataType" href="platform:/resource/gov.nasa.ensemble.core.jscience/model/JScience.ecore#//EAmount"/>
+  </extendedDefinitions>
+</dict:EActivityDictionary>
