@@ -42,10 +42,10 @@ public class TimelinePreferenceInitializer extends PropertyPreferenceInitializer
 	private static final boolean 	DEFAULT_VIOLATIONS_VISIBLE = true;
 	private static final int		DEFAULT_TOOLTIP_WIDTH = Integer.valueOf(300);
 
-	private static final String 	DEFAULT_TOOLTIP_SPEED = Tooltip.NORMAL.toString();
+	private static final String 	DEFAULT_TOOLTIP_SPEED = Tooltip.FAST.toString();
 	private static final String 	DEFAULT_TOOLTIP_TIME = String.valueOf(3000L);
 	private static final boolean 	DEFAULT_CURSOR_TIME_ENABLED = true;
-	private static final boolean 	P_ROW_ELEMENT_ACTIVITY_GROUP_NOGAPS = false;
+	private static final boolean 	P_ROW_ELEMENT_ACTIVITY_GROUP_NOGAPS = true;
 	private static final boolean	DEFAULT_PIN_ICON_VISIBLE = false;
 	private static final boolean 	DEFAULT_MIN_MAX_CONSTRAINT_LINES_VISIBLE = false;
 
