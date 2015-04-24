@@ -204,12 +204,26 @@ public class EuropaServerManager
 		}
 		return new HashMap<String, Object>();
 	}
-	
-	//TODO: Implement this
+
+	// TODO: More efficient to return filename and then copy to exported log file.
 	public synchronized String GetLog(final String type, final String session) {
 		writeLog("[method=GetLog] [session=" + session + "] [type=" + type + "]");
-		//return the contents of the log file for the given session as a string.
-		return "";
+		// return the contents of the log file for the given session as a string.
+
+		File logfile = localStatePath().append(session + "EuropaServer.log").toFile();
+		System.out.println("Getting Europa Session Log from " + logfile.getAbsolutePath());
+		String content = "";
+		if (!logfile.exists())
+			System.out.println("File not found");
+		else if (logfile.length() == 0)
+			System.out.println("File empty");
+		else
+			try {
+				content = new String(FileUtils.readFileToString(logfile));
+			} catch (IOException e) {
+				System.out.println("File read error");
+			}
+		return content;
 	}
 	
 	//not called anywhere, as far as I can tell
