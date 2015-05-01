@@ -110,12 +110,12 @@ mapsCheckoutTag=HEAD
 mapsTagTag=v${buildId}
 skipFetch=true
 
-jreLib=/usr/lib/jvm/jdk1.7.0_60/jre/lib
+jreLib=/usr/lib/jvm/1.8.0_31/jre/lib
 ############# JAVA COMPILER OPTIONS ##############
 # The location of the Java jars to compile against.  Typically the rt.jar for your JDK/JRE
 bootclasspath=${jreLib}/rt.jar:${jreLib}/jsse.jar:${jreLib}/jce.jar
 
-JavaSE-1.7=${jreLib}/rt.jar:${jreLib}/jsse.jar:${jreLib}/jce.jar
+JavaSE-1.8=${jreLib}/rt.jar:${jreLib}/jsse.jar:${jreLib}/jce.jar
 
 # Specify the output format of the compiler log when eclipse jdt is used
 logExtension=.log
