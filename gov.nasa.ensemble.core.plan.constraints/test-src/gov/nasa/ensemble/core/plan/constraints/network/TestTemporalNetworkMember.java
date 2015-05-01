@@ -55,7 +55,7 @@ public class TestTemporalNetworkMember {
 	public void setUp() {
 		ActivityDictionary.getInstance().restoreDefaultDictionary();
 		final PlanFactory planFactory = PlanFactory.getInstance();
-		plan = planFactory.createPlan(getClass().getCanonicalName());
+		plan = planFactory.createPlan(getClass().getName());
 		TransactionalEditingDomain domain = TransactionUtils.getDomain(plan);
 		ExtensionPointResourceSetListener.addListener(domain, true);
 		final Date planStartDate = new Date();

@@ -154,7 +154,7 @@ public abstract class OperationJob extends Job {
 				UndoContextRule other = (UndoContextRule) rule;
 				return undoContext.matches(other.undoContext);
 			}
-			String canonicalName = rule.getClass().getCanonicalName();
+			String canonicalName = rule.getClass().getName();
 			return !(canonicalName.contains(org.eclipse.core.internal.jobs.JobManager.class.getCanonicalName()));
 		}
 

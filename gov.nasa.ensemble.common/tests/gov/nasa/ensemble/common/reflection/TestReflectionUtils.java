@@ -45,7 +45,7 @@ public class TestReflectionUtils extends Assert {
 		final TestObject obj = new TestObject();
 		final int newVal = 9;
 		ReflectionUtils.invoke(obj, "setValue", newVal);
-		assertEquals(newVal, ReflectionUtils.invoke(obj, "getValue"));
+		assertEquals(Integer.valueOf(newVal), ReflectionUtils.invoke(obj, "getValue"));
 	}
 	
 	@Test
@@ -53,8 +53,8 @@ public class TestReflectionUtils extends Assert {
 		final TestObject2 obj = new TestObject2();
 		final int newVal = 9;
 		ReflectionUtils.invoke(obj, "setValue", newVal);
-		assertEquals(newVal, ReflectionUtils.invoke(obj, "getValue"));
-		assertEquals(1, ReflectionUtils.get(obj, "val"));
+		assertEquals(Integer.valueOf(newVal), ReflectionUtils.invoke(obj, "getValue"));
+		assertEquals(Integer.valueOf(1), ReflectionUtils.get(obj, "val"));
 	}
 	
 	@Test
@@ -81,7 +81,7 @@ public class TestReflectionUtils extends Assert {
 		final int v = 3;
 		TestObject obj = ReflectionUtils.construct(TestObject.class, new Integer(v));
 		assertEquals(v, obj.getValue());
-		assertEquals(v, ReflectionUtils.invoke(obj, "getValue"));
+		assertEquals(Integer.valueOf(v), ReflectionUtils.invoke(obj, "getValue"));
 	}
 	
 	@Test

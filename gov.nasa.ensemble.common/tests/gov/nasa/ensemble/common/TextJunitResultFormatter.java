@@ -128,7 +128,7 @@ public class TextJunitResultFormatter implements ITestSuiteListener {
 		if (test == null) {
 			return "<Null Test>";
 		}
-		String name = test.getClass().getCanonicalName();
+		String name = test.getClass().getName();
 		if (test instanceof TestCase) {
 			TestCase testCase = (TestCase) test;
 			return name + "." + testCase.getName() + "()";

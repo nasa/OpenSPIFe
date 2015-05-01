@@ -64,7 +64,7 @@ public class TestContainmentReferenceUpdates extends AbstractResourceUpdaterTest
 				List<EObject> references = eGet(activity.getData(), "reference");
 				assertEquals(5, references.size());
 				for (EObject object : references) {
-					assertEquals(false, eGet(object, "active"));
+					assertEquals(Boolean.valueOf(false), eGet(object, "active"));
 				}
 				assertProfileValue(plan, activeReferenceCountDef, activityStart, Amount.ZERO);
 				assertProfileValue(plan, activeReferenceCountDef, activityEnd, Amount.ZERO);
