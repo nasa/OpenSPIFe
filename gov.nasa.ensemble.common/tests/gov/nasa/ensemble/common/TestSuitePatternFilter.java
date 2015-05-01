@@ -33,7 +33,7 @@ public class TestSuitePatternFilter implements ITestSuiteFilter {
 
 	@Override
 	public boolean acceptTestSuite(IEnsemblePluginTest test) {
-		String testClassName = test.getClass().getCanonicalName();
+		String testClassName = test.getClass().getName();
 		boolean accept = testClassName.startsWith(pattern) || testClassName.matches(pattern); 
 		String outcome = (accept) ? "accepts" : "rejects";
 		System.out.println("TestSuitePatternFilter(" + pattern + ") " + outcome + " " + testClassName);

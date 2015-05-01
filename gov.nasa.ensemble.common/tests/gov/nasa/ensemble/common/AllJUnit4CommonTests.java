@@ -39,7 +39,6 @@ import org.junit.runners.Suite.SuiteClasses;
 	TestThreadUtils.class,
 	TestReflectionUtils.class,
 	TestCommandExecutor.class,
-	TestBundleResolution.class,
 	
 	// gov.nasa.ensemble.common.functional
 	TestFunctions.class,

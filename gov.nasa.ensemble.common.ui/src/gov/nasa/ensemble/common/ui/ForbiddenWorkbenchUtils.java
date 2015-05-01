@@ -36,9 +36,7 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.SubProgressMonitor;
-import org.eclipse.core.runtime.adaptor.EclipseStarter;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.osgi.framework.internal.core.FrameworkProperties;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.PlatformUI;
@@ -167,35 +165,6 @@ public class ForbiddenWorkbenchUtils {
 			LogUtil.warn("resetJobProgressMonitor failed", e);
 		}
 		return monitor;
-	}
-
-	private static String ORIGINAL_NOSHUTDOWN_SETTING = FrameworkProperties.getProperty(EclipseStarter.PROP_NOSHUTDOWN);
-	static {
-		if (ORIGINAL_NOSHUTDOWN_SETTING == null) {
-			ORIGINAL_NOSHUTDOWN_SETTING = Boolean.FALSE.toString();
-		}
-	}
-
-	/**
-	 * This method will keep the background processes running while allowing the application to exit.
-	 */
-	public static void startBackgroundProcessing() {
-		FrameworkProperties.setProperty(EclipseStarter.PROP_NOSHUTDOWN, Boolean.TRUE.toString());
-	}
-
-	/**
-	 * This method will allow the application to exit after background processes finish.
-	 */
-	public static void endBackgroundProcessing() {
-		FrameworkProperties.setProperty(EclipseStarter.PROP_NOSHUTDOWN, ORIGINAL_NOSHUTDOWN_SETTING);
-		if (!PlatformUI.isWorkbenchRunning()) {
-			try {
-				EclipseStarter.shutdown();
-				System.exit(0);
-			} catch (Exception e) {
-				LogUtil.error(e);
-			}
-		}
 	}
 	
 	private static List<String> alreadyRegistered = new ArrayList<String>();

@@ -45,11 +45,11 @@ public class TestLocalVariable extends AbstractResourceTest {
 		final EActivity activity = PLAN_FACTORY.createActivity(activityDef);
 		plan = createPlan(activity);
 		
-		assertEquals(0, ADParameterUtils.getParameterObject(activity, "baseParameter"));
+		assertEquals(Integer.valueOf(0), ADParameterUtils.getParameterObject(activity, "baseParameter"));
 		
 		ResourceUpdater.recompute(plan);
 		
-		assertEquals(10, ADParameterUtils.getParameterObject(activity, "variableParameter"));
+		assertEquals(Integer.valueOf(10), ADParameterUtils.getParameterObject(activity, "variableParameter"));
 
 		Exception exception = TransactionUtils.writing(activity, new RunnableWithResult.Impl<Exception>() {
 			@Override
@@ -67,7 +67,7 @@ public class TestLocalVariable extends AbstractResourceTest {
 		
 		ResourceUpdater.recompute(plan);
 		
-		assertEquals(20, ADParameterUtils.getParameterObject(activity, "variableParameter"));
+		assertEquals(Integer.valueOf(20), ADParameterUtils.getParameterObject(activity, "variableParameter"));
 	}
 	
 }

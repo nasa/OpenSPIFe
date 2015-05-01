@@ -46,7 +46,7 @@ public class TestColumnConfigurationResource extends TestCase {
 	private List<AbstractMergeColumn> defaultColumns = MergeEditorPreferences.getSelectedColumns();
 	
 	public void testDefault() throws IOException {
-		File tempFile = FileUtilities.createTempFile(getClass().getCanonicalName(), ".table");
+		File tempFile = FileUtilities.createTempFile(getClass().getName(), ".table");
 		URI uri = URI.createFileURI(tempFile.getAbsolutePath());
 		
 		// check defaults
@@ -117,7 +117,7 @@ public class TestColumnConfigurationResource extends TestCase {
 			assertEquals(i, columnWidth);
 		}
 		
-		File temp = FileUtilities.createTempFile(getClass().getCanonicalName() + "-", ".table");
+		File temp = FileUtilities.createTempFile(getClass().getName() + "-", ".table");
 		try {
 			URI uri2 = URI.createFileURI(temp.getAbsolutePath());
 			ColumnConfigurationResource resource2 = new ColumnConfigurationResource(uri2);
