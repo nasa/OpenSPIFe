@@ -9,7 +9,7 @@
      or it must have already set the eclipse-home property
 	-->
 	<property environment="env" />
-	<property name="eclipse-home" value="/usr/local/eclipse/" />
+	<property name="eclipse-home" value="/usr/local/eclipse/luna/" />
 
 	<target name="headless-build">
 
