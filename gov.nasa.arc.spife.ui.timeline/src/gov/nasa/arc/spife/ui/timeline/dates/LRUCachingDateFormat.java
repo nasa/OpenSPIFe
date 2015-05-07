@@ -17,12 +17,13 @@
  ******************************************************************************/
 package gov.nasa.arc.spife.ui.timeline.dates;
 
+import gov.nasa.arc.spife.ui.timeline.util.SimpleLRUCache;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.IdentityHashMap;
 
-import org.apache.lucene.util.cache.SimpleLRUCache;
 
 /**
  * Intended for callers that will repeatedly format the exact same date with the identical calendar

@@ -13,7 +13,6 @@ Require-Bundle: gov.nasa.arc.spife;bundle-version="1.0.0";visibility:=reexport,
  gov.nasa.ensemble.core.plan.advisor;bundle-version="1.0.0",
  gov.nasa.ensemble.core.model.plan;bundle-version="1.0.0",
  gov.nasa.ensemble.core.model.plan.temporal;bundle-version="1.0.0",
- org.apache.lucene;bundle-version="[2.9.1,3.0.0)",
  org.apache.log4j,
  gov.nasa.ensemble.core.plan;bundle-version="1.0.9"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

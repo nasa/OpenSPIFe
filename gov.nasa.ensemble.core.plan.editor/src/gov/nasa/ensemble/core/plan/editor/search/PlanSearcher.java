@@ -104,12 +104,12 @@ public class PlanSearcher {
 		if(queries == null || queries.size() == 0){
 			int max = 0;
 			
-			try {
+//			try {
 				max = searcher.maxDoc();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 			
 			for(int i = 0; i < max; i++){
 				results.add(new Integer(i));
