@@ -40,7 +40,7 @@ import java.util.List;
 
 import javax.measure.quantity.Duration;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;

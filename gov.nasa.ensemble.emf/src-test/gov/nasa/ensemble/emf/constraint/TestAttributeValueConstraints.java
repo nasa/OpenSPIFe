@@ -20,7 +20,7 @@ package gov.nasa.ensemble.emf.constraint;
 import gov.nasa.ensemble.common.extension.DynamicExtensionUtils;
 import gov.nasa.ensemble.emf.Activator;
 import gov.nasa.ensemble.emf.util.EMFUtils;
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;

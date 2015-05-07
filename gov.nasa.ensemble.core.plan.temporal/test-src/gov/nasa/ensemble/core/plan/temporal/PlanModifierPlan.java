@@ -37,7 +37,7 @@ import java.util.Set;
 
 import javax.measure.quantity.Duration;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.jscience.physics.amount.Amount;
 

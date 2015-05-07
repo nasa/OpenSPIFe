@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;

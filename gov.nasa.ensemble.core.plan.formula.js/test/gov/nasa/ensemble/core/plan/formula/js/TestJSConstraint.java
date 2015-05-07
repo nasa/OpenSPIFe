@@ -30,7 +30,7 @@ import gov.nasa.ensemble.dictionary.EActivityDef;
 import java.io.InputStream;
 import java.util.Date;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.internal.registry.ExtensionRegistry;

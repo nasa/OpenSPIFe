@@ -23,7 +23,7 @@ import gov.nasa.ensemble.core.plan.constraints.TemporalChainUtils;
 
 import java.util.Set;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 public class ChainRepeatabilityPostconditionRunnable implements Runnable {
 

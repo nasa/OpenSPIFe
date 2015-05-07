@@ -29,7 +29,7 @@ import java.util.Date;
 import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import junit.framework.TestCase;
 
 import org.eclipse.emf.common.notify.Notification;

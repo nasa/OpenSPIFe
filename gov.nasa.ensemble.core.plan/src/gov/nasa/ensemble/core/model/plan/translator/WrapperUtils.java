@@ -39,7 +39,7 @@ import java.io.ObjectOutput;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.Status;

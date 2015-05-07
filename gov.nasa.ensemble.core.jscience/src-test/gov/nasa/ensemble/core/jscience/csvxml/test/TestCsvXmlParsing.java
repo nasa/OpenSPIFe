@@ -40,7 +40,7 @@ import java.util.TimeZone;
 import javax.measure.unit.SI;
 import javax.measure.unit.Unit;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.emf.common.util.URI;
 import org.junit.Test;

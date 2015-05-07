@@ -23,7 +23,7 @@ import java.text.ParseException;
 
 import javax.measure.quantity.Duration;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.jscience.physics.amount.Amount;
 import org.junit.Test;

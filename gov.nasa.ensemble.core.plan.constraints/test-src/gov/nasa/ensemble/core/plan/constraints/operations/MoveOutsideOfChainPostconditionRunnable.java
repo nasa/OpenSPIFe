@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 public class MoveOutsideOfChainPostconditionRunnable extends ChainRepeatabilityPostconditionRunnable {
 

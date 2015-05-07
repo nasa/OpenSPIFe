@@ -20,7 +20,7 @@ package gov.nasa.ensemble.core.plan.formula.js;
 import gov.nasa.ensemble.common.extension.DynamicExtensionUtils;
 import gov.nasa.ensemble.emf.util.EMFUtils;
 import gov.nasa.ensemble.core.plan.formula.js.constraint.JSAnnotationClientSelector;
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EAttribute;

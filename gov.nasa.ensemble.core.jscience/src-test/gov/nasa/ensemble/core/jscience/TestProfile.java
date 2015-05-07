@@ -28,7 +28,7 @@ import java.util.List;
 
 import javax.measure.unit.Unit;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EcorePackage;
