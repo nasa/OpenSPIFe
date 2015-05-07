@@ -37,7 +37,7 @@ import gov.nasa.ensemble.tests.core.plan.UndoableOperationTestCase;
 
 import java.util.List;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.IOperationHistory;

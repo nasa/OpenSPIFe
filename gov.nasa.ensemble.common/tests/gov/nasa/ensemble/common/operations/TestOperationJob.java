@@ -25,7 +25,7 @@ import gov.nasa.ensemble.common.thread.ThreadUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import junit.framework.TestCase;
 
 import org.eclipse.core.commands.operations.IOperationHistoryListener;

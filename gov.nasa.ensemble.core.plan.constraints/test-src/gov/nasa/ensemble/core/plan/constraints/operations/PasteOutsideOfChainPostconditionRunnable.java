@@ -28,7 +28,7 @@ import gov.nasa.ensemble.core.plan.constraints.TemporalChainUtils;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 public class PasteOutsideOfChainPostconditionRunnable extends ChainRepeatabilityPostconditionRunnable {
 	private final List<List<EPlanElement>> expectedNewChainsMembers;

@@ -30,7 +30,7 @@ import javax.measure.quantity.Length;
 import javax.measure.unit.SI;
 import javax.measure.unit.Unit;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.emf.ecore.EDataType;
 import org.jscience.mathematics.function.DiscreteFunction;

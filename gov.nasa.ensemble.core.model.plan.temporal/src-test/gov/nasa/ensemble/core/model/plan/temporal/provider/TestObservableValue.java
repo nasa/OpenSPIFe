@@ -37,7 +37,7 @@ import javax.measure.quantity.Duration;
 import javax.measure.unit.NonSI;
 import javax.measure.unit.SI;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.jscience.physics.amount.Amount;
 import org.junit.Test;

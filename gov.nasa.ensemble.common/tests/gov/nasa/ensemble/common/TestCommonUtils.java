@@ -21,7 +21,7 @@ import gov.nasa.ensemble.common.logging.LogUtil;
 
 import java.util.ArrayList;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.eclipse.core.runtime.Platform;
 import org.junit.Test;
