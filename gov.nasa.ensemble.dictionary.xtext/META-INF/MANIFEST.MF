@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.objectweb.asm;bundle-version="5.0.1"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: gov.nasa.ensemble.dictionary.xtext,
  gov.nasa.ensemble.dictionary.xtext.services,
  gov.nasa.ensemble.dictionary.xtext.xDictionary,
