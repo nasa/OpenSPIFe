@@ -80,122 +80,122 @@
          id="gov.nasa.arc.spife.rcp"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="1.0.0.qualifier"/>
 
    <plugin
          id="gov.nasa.ensemble.dictionary.nddl"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.core.constraints.view"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="1.0.0.qualifier"/>
 
    <plugin
          id="gov.nasa.arc.spife.core.plan.advisor.resources"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.core.plan.resources.editor.timeline"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.core.plan.rules.view"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.activityDictionary"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.diff"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="1.0.0.qualifier"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.diff.report"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.advisor.view"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.editor.constraints"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.editor.drudgery"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.editor.merge.constraints"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="1.0.4.qualifier"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.resources.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.servermonitor.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.resources"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.ui.table.days"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.0.1.qualifier"
          unpack="false"/>
 
    <plugin
@@ -209,423 +209,479 @@
          id="org.eclipse.ui.browser"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="3.4.200.v20131003-1453"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.core.plan.pear.view"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="javax.xml"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.3.4.v201005080400"
          unpack="false"/>
 
    <plugin
          id="org.apache.xerces"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="2.9.0.v201101211617"
          unpack="false"/>
 
    <plugin
          id="org.apache.xml.resolver"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.2.0.v201005080400"
          unpack="false"/>
 
    <plugin
          id="org.apache.xml.serializer"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="2.7.1.v201005080400"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.compare"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="3.5.501.v20140817-1445"
          unpack="false"/>
 
    <plugin
          id="com.ibm.icu"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="52.1.1.v201501240615"
          unpack="false"/>
 
    <plugin
          id="org.apache.log4j"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.2.15.v201012070815"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.core.plan"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.core.plan.editor.timeline"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="1.0.0.qualifier"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.editor"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.8.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.emf.workspace"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.5.1.201405281451"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.ui.timeline"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.arc.spife.ui.timeline.chart"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.common.gef"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.jscience"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.jscience.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="functionaljava"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="2.20.0"
          unpack="false"/>
 
    <plugin
          id="org.junit"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="4.11.0.v201303080030"/>
 
    <plugin
          id="org.hamcrest.core"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.3.0.v201303031735"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.core.filesystem"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.4.100.v20140514-1614"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.core.commands"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="3.6.100.v20140528-1422"
          unpack="false"/>
 
    <plugin
          id="org.apache.http"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="4.1.1"/>
 
    <plugin
          id="org.apache.commons.lang"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="2.6.0.v201404270220"
          unpack="false"/>
 
    <plugin
          id="org.apache.commons.logging"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.1.1.v201101211721"
          unpack="false"/>
 
    <plugin
          id="org.apache.commons.codec"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.6.0.v201305230611"
          unpack="false"/>
 
    <plugin
          id="org.apache.commons.io"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="2.2.0.v201405211200"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.common"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.15.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.common.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.14.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.detail.emf"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.detail.emf.view"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.nebula.cwt"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.9.0.201504221542"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.nebula.widgets.cdatetime"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.14.0.201504221542"
          unpack="false"/>
 
    <plugin
          id="org.jscience"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="4.3.1"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.common"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.emf"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.activityDictionary"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.8.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.activityDictionary.view"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.8.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.advisor"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.advisor.provider"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.constraints"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.provider"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.temporal"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.model.plan.translator"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.9.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.advisor"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.constraints"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.7.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.editor.merge"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.8.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.formula"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.formula.js"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.resources"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.8.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.plan.temporal"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.7.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.core.rcp"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.15.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.dictionary"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="gov.nasa.ensemble.javascript.rhino"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.mozilla.rhino"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="1.7.4"/>
 
    <plugin
          id="org.apache.poi"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="3.9.0.v201405241750"
          unpack="false"/>
 
    <plugin
          id="org.apache.lucene.core"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="3.5.0.v20120725-1805"
+         unpack="false"/>
+
+   <plugin
+         id="com.google.guava"
+         download-size="0"
+         install-size="0"
+         version="15.0.0.v201403281430"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.lucene.analysis"
+         download-size="0"
+         install-size="0"
+         version="3.5.0.v20120725-1805"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.lucene.analysis"
+         download-size="0"
+         install-size="0"
+         version="3.5.0.v20120725-1805"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf"
+         download-size="0"
+         install-size="0"
+         version="3.4.0.v20141221-2352"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.filetransfer"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.v20141221-2352"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.identity"
+         download-size="0"
+         install-size="0"
+         version="3.4.0.v20141221-2352"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer"
+         download-size="0"
+         install-size="0"
+         version="3.2.200.v20141221-2352"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jdt.annotation"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.v20140129-1625"
          unpack="false"/>
 
 </feature>
