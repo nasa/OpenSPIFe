@@ -3,25 +3,26 @@
 
 <product name="Dictionary Editor" uid="gov.nasa.ensemble.dictionary.Editor" id="gov.nasa.ensemble.dictionary.editor.ADEditor" application="gov.nasa.ensemble.dictionary.editor.DictionaryEditorAdvisorApplication" version="0.1.0" useFeatures="true" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
-      <programArgs>-clean -consoleLog -nl en_US_Score</programArgs>
+      <programArgs>-clean -consoleLog -nl en_US_Score
+      </programArgs>
       <vmArgs>-Xmx690m -Xms256m -XX:MaxPermSize=512M
 -Dcom.sun.media.imageio.disableCodecLib=true
 -Dosgi.instance.area.default=@user.home/eADEditor-workspace
 -Dosgi.configuration.area=@user.home/eADEditor-configuration
 -Dorg.eclipse.update.reconcile=false
--Djava.util.Arrays.useLegacyMergeSort=true</vmArgs>
+-Djava.util.Arrays.useLegacyMergeSort=true
+      </vmArgs>
       <vmArgsMac>-Djava.awt.headless=true -XstartOnFirstThread -d64
 -Dorg.eclipse.swt.internal.carbon.smallFonts
--Dorg.eclipse.swt.internal.carbon.noFocusRing</vmArgsMac>
+-Dorg.eclipse.swt.internal.carbon.noFocusRing
+      </vmArgsMac>
    </launcherArgs>
 
    <windowImages/>
-
 
    <launcher name="eADEditor">
       <solaris/>
@@ -29,7 +30,6 @@
          <bmp/>
       </win>
    </launcher>
-
 
    <vm>
    </vm>
@@ -246,8 +246,6 @@
 
    <features>
       <feature id="_feature_gov.nasa.arc.spife.dictionary.editor" version="1.0.0.qualifier"/>
-      <feature id="org.eclipse.rcp" version="4.3.2.v20140221-1700"/>
-      <feature id="org.eclipse.platform" version="4.3.2.v20140221-1852"/>
    </features>
 
 
