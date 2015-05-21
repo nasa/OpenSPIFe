@@ -38,13 +38,13 @@ Export-Package: gov.nasa.ensemble.common,
  gov.nasa.ensemble.common.time,
  gov.nasa.ensemble.common.type,
  gov.nasa.ensemble.common.type.stringifier
-Require-Bundle: org.eclipse.core.commands,
- org.eclipse.core.runtime;visibility:=reexport,
- functionaljava;bundle-version="2.20.0",
+Require-Bundle: functionaljava;bundle-version="[2.2.0,3.0)";visibility:=reexport,
  org.apache.commons.io;visibility:=reexport,
  org.apache.commons.lang;visibility:=reexport,
- org.apache.http;bundle-version="4.1.1",
+ org.apache.http;bundle-version="4.1.1";visibility:=reexport,
  org.apache.log4j;visibility:=reexport,
+ org.eclipse.core.commands,
+ org.eclipse.core.runtime;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

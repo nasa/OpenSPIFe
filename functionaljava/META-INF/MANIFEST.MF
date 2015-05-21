@@ -14,5 +14,4 @@ Export-Package: fj,
  fj.function,
  fj.parser,
  fj.pre
-Bundle-ClassPath: .,
- functionaljava.jar
+Bundle-ClassPath: functionaljava.jar
