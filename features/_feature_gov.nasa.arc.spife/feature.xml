@@ -643,13 +643,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.apache.lucene.analysis"
-         download-size="0"
-         install-size="0"
-         version="3.5.0.v20120725-1805"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.ecf"
          download-size="0"
          install-size="0"
@@ -682,6 +675,13 @@
          download-size="0"
          install-size="0"
          version="1.1.0.v20140129-1625"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.lucene"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>
