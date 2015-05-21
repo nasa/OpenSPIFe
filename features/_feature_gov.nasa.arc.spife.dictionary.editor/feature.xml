@@ -16,6 +16,10 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="org.eclipse.rcp"
+         version="0.0.0"/>
+
    <plugin
          id="gov.nasa.ensemble.core.jscience"
          download-size="0"
