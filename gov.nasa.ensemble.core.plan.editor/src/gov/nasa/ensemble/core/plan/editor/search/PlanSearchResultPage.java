@@ -66,7 +66,6 @@ import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.SubActionBars;
-import org.eclipse.ui.internal.ViewActionBars;
 import org.eclipse.ui.internal.e4.compatibility.ActionBars;
 import org.eclipse.ui.part.IPageSite;
 

@@ -110,7 +110,7 @@ public class TestJScience extends Assert {
 		return discrete;
 	}
 	
-	
+	private static final double ERROR = .0001;
 	
 	@SuppressWarnings("unchecked")
 	private void assertRoundTripEquality(ComputableAmount in) {
@@ -120,7 +120,7 @@ public class TestJScience extends Assert {
 		if (in.getAmount() != null) {
 			Unit inUnit = in.getAmount().getUnit();
 			assertEquals(inUnit, out.getAmount().getUnit());
-			assertEquals(in.getAmount().doubleValue(inUnit), out.getAmount().doubleValue(inUnit));
+			assertEquals(in.getAmount().doubleValue(inUnit), out.getAmount().doubleValue(inUnit), ERROR);
 		}
 		assertEquals(in.getComputing(), out.getComputing());
 		String outString = JSCIENCE_FACTORY.convertToString(classifier, out);
