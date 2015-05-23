@@ -67,6 +67,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.SubActionBars;
 import org.eclipse.ui.internal.ViewActionBars;
+import org.eclipse.ui.internal.e4.compatibility.ActionBars;
 import org.eclipse.ui.part.IPageSite;
 
 /**
@@ -129,9 +130,8 @@ public class PlanSearchResultPage extends AbstractTextSearchViewPage {
 		try {
 			Field field = SubActionBars.class.getDeclaredField("parent");
 			field.setAccessible(true);
-			Object object = field.get(actionBars);
-			ViewActionBars bars = (ViewActionBars)object;
-			IToolBarManager manager = bars.getToolBarManager();
+			ActionBars object = (ActionBars) field.get(actionBars);
+			IToolBarManager manager = object.getToolBarManager();
 			IContributionItem[] items = manager.getItems();
 			for (IContributionItem item : items) {
 				if (item instanceof ActionContributionItem){

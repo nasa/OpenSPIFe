@@ -137,16 +137,6 @@
 		        label="New Plan &amp;View"
 		        menubarPath="window/additions"
 		        style="push"/>
-     	<!--<action
-           class="gov.nasa.ensemble.core.plan.editor.actions.OpenPlanSearchAction"
-           definitionId="gov.nasa.ensemble.core.plan.editor.open.plan.search"
-           icon="icons/search_src.gif"
-           id="OpenPlanSearch"
-           label="Open Plan Search"
-           menubarPath="edit/additions"
-           style="push"
-           tooltip="Open Plan Search">
-     </action>-->
 			<action id="gov_nasa_ensemble_core_plan_editor_expandAllRetarget"
 			    label="Expand all"
 			    tooltip="Expand all"

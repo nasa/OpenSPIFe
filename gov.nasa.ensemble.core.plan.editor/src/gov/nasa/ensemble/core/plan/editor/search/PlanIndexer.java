@@ -47,8 +47,7 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriter.MaxFieldLength;
-import org.apache.lucene.index.KeepOnlyLastCommitDeletionPolicy;
+import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
@@ -72,7 +71,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 public class PlanIndexer {
 	 
 	/* Analyzer which MUST be used in PlanSearcher to ensure correct parsing */
-	public static final Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_CURRENT, Collections.EMPTY_SET);
+	public static final Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_35, Collections.EMPTY_SET);
 	
 	/* Suffix to add to a field name to index by the entire unanalyzed value */
 	public static final String FIELDNAME_NOT_ANALYZED_SUFFIX = "RAW";
@@ -101,7 +100,9 @@ public class PlanIndexer {
 		dir = new RAMDirectory();
 
 		try {
-			writer = new IndexWriter(dir, analyzer, true, new KeepOnlyLastCommitDeletionPolicy(), new MaxFieldLength(IndexWriter.DEFAULT_MAX_FIELD_LENGTH));
+			IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_35, analyzer);
+			writer = new IndexWriter(dir, config);
+			writer.commit();
 		}
 		catch (IOException e) {
 			System.out.println("IOException in opening IndexWriter: " + e.getMessage());
@@ -120,7 +121,9 @@ public class PlanIndexer {
 		idRegistry = new IdentifiableRegistry<EPlanElement>();
 
 		try {
-			writer = new IndexWriter(dir, analyzer, true, new KeepOnlyLastCommitDeletionPolicy(), new MaxFieldLength(IndexWriter.DEFAULT_MAX_FIELD_LENGTH));
+			IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_35, analyzer);
+			writer = new IndexWriter(dir, config);
+			writer.commit();
 		}
 		catch (IOException e) {
 			System.out.println("IOException in opening IndexWriter: " + e.getMessage());
@@ -175,6 +178,7 @@ public class PlanIndexer {
 		}
 		try {
 			writer.addDocument(doc);
+			writer.commit();
 		} catch (CorruptIndexException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -207,6 +211,7 @@ public class PlanIndexer {
 		}
 		try {
 			writer.addDocument(doc);
+			writer.commit();
 		} catch (CorruptIndexException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -489,9 +494,9 @@ public class PlanIndexer {
 	 *
 	 * @return IndexWriter for this index
 	 */
-	public IndexWriter getWriter() {
-		return writer;
-	}
+//	public IndexWriter getWriter() {
+//		return writer;
+//	}
 
 	/**
 	 * Get list of attributes for this index

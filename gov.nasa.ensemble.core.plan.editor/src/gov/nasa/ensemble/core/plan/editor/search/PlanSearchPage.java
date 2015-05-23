@@ -18,6 +18,7 @@
 package gov.nasa.ensemble.core.plan.editor.search;
 
 import gov.nasa.ensemble.common.CommonUtils;
+import gov.nasa.ensemble.common.logging.LogUtil;
 import gov.nasa.ensemble.core.activityDictionary.ActivityDictionary;
 import gov.nasa.ensemble.core.model.plan.EPlan;
 import gov.nasa.ensemble.core.model.plan.util.ParameterDescriptor;
@@ -329,6 +330,8 @@ public class PlanSearchPage extends DialogPage implements ISearchPage {
 			NewSearchUI.runQueryInBackground(new PlanSearchQuery(searchLabel, searcher, indexer));
 		}
 		catch (Exception e){
+			LogUtil.error(e.getMessage());
+			System.out.println("Exception in performing search action: " + e.getMessage());
 			return false;
 		}
 	
