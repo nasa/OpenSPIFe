@@ -449,5 +449,20 @@
 	  <activityPatternBinding
 		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
 		pattern=".*/org.eclipse.ui.views.ProblemView"/>
+		<activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.debug.ui.DebugPerspective"/>
+      <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.jdt.ui.JavaPerspective"/>
+      <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.jdt.ui.JavaHierarchyPerspective"/>
+	  <activityPatternBinding
+		activityId="gov.nasa.arc.spife.UnwantedPerspectivesActivity"
+		pattern=".*/org.eclipse.ui.resourcePerspective"/>
    </extension>
 </plugin>
