@@ -677,11 +677,4 @@
          version="1.1.0.v20140129-1625"
          unpack="false"/>
 
-   <plugin
-         id="org.apache.lucene"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
 </feature>
