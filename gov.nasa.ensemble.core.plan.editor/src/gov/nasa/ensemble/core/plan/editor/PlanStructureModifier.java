@@ -441,7 +441,7 @@ public class PlanStructureModifier implements IStructureModifier {
 		for (EPlanElement element : consolidatedElements) {
 			if (element instanceof EActivity) {
 				EActivity activity = (EActivity) element;
-				if (activity.isIsSubActivity()) {
+				if (activity.isIsSubActivity() && activity.getParent() instanceof EActivity) {
 					continue;
 				}
 			}
