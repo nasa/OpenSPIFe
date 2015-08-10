@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="SPIFe" sequenceNumber="37">
+<?pde version="3.8"?><target name="SPIFe" sequenceNumber="56">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.feature.feature.group" version="1.0.0.201504221542"/>
-<unit id="org.eclipse.nebula.widgets.cdatetime.feature.feature.group" version="0.14.0.201504221542"/>
-<repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.sdk.feature.group" version="4.4.2.v20150204-1700"/>
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.7.3.v201411190455"/>
+<unit id="org.eclipse.emf.compare.feature.group" version="3.0.2.201501201328"/>
 <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.2.2.v20150202-0452"/>
-<unit id="org.eclipse.emf.compare.source.feature.group" version="3.0.2.201501201328"/>
 <unit id="org.eclipse.emf.transaction.sdk.feature.group" version="1.8.0.201405281451"/>
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.10.2.v20150123-0452"/>
 <unit id="org.eclipse.gef.sdk.feature.group" version="3.9.101.201408150207"/>
 <repository location="http://download.eclipse.org/releases/luna"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.nebula.feature.feature.group" version="1.0.0.201508051909"/>
+<unit id="org.eclipse.nebula.widgets.cdatetime.feature.feature.group" version="0.14.0.201508051909"/>
+<repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.xml.resolver" version="1.2.0.v201005080400"/>
