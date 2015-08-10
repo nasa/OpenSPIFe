@@ -9,7 +9,7 @@
    <launcherArgs>
       <programArgs>-clean -consoleLog -nl en_US_Score
       </programArgs>
-      <vmArgs>-Xmx690m -Xms256m -XX:MaxPermSize=512M
+      <vmArgs>-Xmx690m -Xms256m
 -Dcom.sun.media.imageio.disableCodecLib=true
 -Dosgi.instance.area.default=@user.home/eADEditor-workspace
 -Dosgi.configuration.area=@user.home/eADEditor-configuration
