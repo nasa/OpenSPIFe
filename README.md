@@ -3,7 +3,7 @@ The OpenSPIFe user interface is designed to be a highly adaptable and user-custo
 
 ## Target Platform
 Open SPIFe requires the Eclipse Rich Client Platform in order for it to run and includes third party software codes that are subject to the licenses and notices set forth below.
-- Java SE 7 JDK
+- Java SE 8 JDK
 - Eclipse 4.3.2 (Modeling Tools)
 - Eclipse Nebula features
 - Eclipse Orbit third party libraries
