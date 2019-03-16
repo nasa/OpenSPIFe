@@ -31,7 +31,7 @@ If your contribution is significant, you may be asked to sign a contributor agre
 
 See the license files for the original and updated contributions.  The initial release of Open SPIFe to open source is given by the NASA Open Source Agreement and third-party licenses including Apache License 2.0, Eclipse Public License 1.0, Mozilla Public License 2.0, and GNU General Public License 3.0.
 
-Copyright (c) 2014 United States Government as represented by the Administrator for The National Aeronautics and Space Administration.  All Rights Reserved.
+Copyright (c) 2019 United States Government as represented by the Administrator for The National Aeronautics and Space Administration.  All Rights Reserved.
  
 
 [home]: https://github.com/nasa/OpenSPIFe/wiki
